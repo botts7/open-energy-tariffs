@@ -58,8 +58,8 @@ OET.renderMap = function (plans, meta) {
   const voronoiCache = {}; // postcode-set -> rings (plans sharing a set reuse geometry)
   let mapped = 0, unmapped = 0;
 
-  function areaStyle(rate) {
-    return { renderer, color: '#333', weight: 1, fillColor: OET.rateColor(rate), fillOpacity: 0.4 };
+  function areaStyle(cRate) {
+    return { renderer, color: '#333', weight: 1, fillColor: OET.rateColor(cRate), fillOpacity: 0.4 };
   }
   function recBounds(ls) {
     let b = null;
@@ -72,6 +72,7 @@ OET.renderMap = function (plans, meta) {
     const points = OET.resolveCoverage(m.coverage);
     const boundary = OET.boundaryFor ? OET.boundaryFor(m.coverage) : null;
     const rate = OET.planRate(tariff);
+    const cRate = OET.toUsd ? OET.toUsd(rate, m.currency) : rate; // USD-equiv for colour
     const src = m.source || 'other';
     const cov = m.coverage || {};
     const recLayers = [];
@@ -81,22 +82,22 @@ OET.renderMap = function (plans, meta) {
       const popup = (extra) => popupHtml(m, tariff, rate) + (extra ? `<br><span style="color:#777">${esc(extra)}</span>` : '');
       const add = (layer) => { layer.addTo(group); recLayers.push(layer); };
       if (boundary) {
-        add(L.geoJSON(boundary, { style: areaStyle(rate) }).bindPopup(popup('exact boundary')));
+        add(L.geoJSON(boundary, { style: areaStyle(cRate) }).bindPopup(popup('exact boundary')));
         mapped++;
       } else if (points.length) {
         const pcLatLngs = points.filter((p) => p.type === 'postcode').map((p) => p.latlng);
         const ckey = (cov.postcodes || []).join(',');
         let rings = voronoiCache[ckey];
         if (rings === undefined) { rings = (OET.voronoiPolygons && pcLatLngs.length) ? OET.voronoiPolygons(pcLatLngs) : []; voronoiCache[ckey] = rings; }
-        if (rings.length) { add(L.polygon(rings, areaStyle(rate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s) (Voronoi)`))); mapped += pcLatLngs.length; }
-        else for (const p of points.filter((p) => p.type === 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS.postcode }, areaStyle(rate))).bindPopup(popup(p.label))); mapped++; }
-        for (const p of points.filter((p) => p.type !== 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS[p.type] || 8000 }, areaStyle(rate))).bindPopup(popup(p.label))); mapped++; }
+        if (rings.length) { add(L.polygon(rings, areaStyle(cRate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s) (Voronoi)`))); mapped += pcLatLngs.length; }
+        else for (const p of points.filter((p) => p.type === 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS.postcode }, areaStyle(cRate))).bindPopup(popup(p.label))); mapped++; }
+        for (const p of points.filter((p) => p.type !== 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS[p.type] || 8000 }, areaStyle(cRate))).bindPopup(popup(p.label))); mapped++; }
       } else if (cov.national && OET.nationalGeometry) {
         // National plan -> shade the whole country (or a centroid if no polygon).
         const ng = OET.nationalGeometry(m.country, m.region);
         const tag = 'national' + (m.region ? ' · ' + m.region : '');
-        if (ng && ng.type === 'polygon') { add(L.geoJSON(ng.geojson, { style: areaStyle(rate) }).bindPopup(popup(tag))); mapped++; }
-        else if (ng) { add(L.circle(ng.latlng, Object.assign({ radius: 250000 }, areaStyle(rate))).bindPopup(popup(tag))); mapped++; }
+        if (ng && ng.type === 'polygon') { add(L.geoJSON(ng.geojson, { style: areaStyle(cRate) }).bindPopup(popup(tag))); mapped++; }
+        else if (ng) { add(L.circle(ng.latlng, Object.assign({ radius: 250000 }, areaStyle(cRate))).bindPopup(popup(tag))); mapped++; }
       }
     } else unmapped++;
 
@@ -141,7 +142,7 @@ OET.renderMap = function (plans, meta) {
   const legend = L.control({ position: 'bottomright' });
   legend.onAdd = function () {
     const div = L.DomUtil.create('div', 'oet-legend');
-    div.innerHTML = '<b>Rate / kWh (local currency)</b><br>'
+    div.innerHTML = '<b>Rate / kWh (~USD-equiv.)</b><br>'
       + OET.RATE_BUCKETS.map(([, c, label]) => `<span class="sw" style="background:${c}"></span>${label}`).join('<br>');
     return div;
   };

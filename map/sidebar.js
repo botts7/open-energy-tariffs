@@ -214,7 +214,7 @@ OET.initSidebar = function () {
     const cap = 400;
     for (const r of arr.slice(0, cap)) {
       const m = r.meta;
-      const sw = h('span', { class: 'sb-sw' }); sw.style.background = OET.rateColor(r.rate);
+      const sw = h('span', { class: 'sb-sw' }); sw.style.background = (OET.rateColorFor || OET.rateColor)(r.rate, m.currency);
       const best = usage && r._cost != null && r._cost === cheapest;
       const isCurrent = r.id === state.currentPlanId;
       const kids = [h('strong', { text: m.provider }), h('span', { text: ' · ' + m.plan })];
