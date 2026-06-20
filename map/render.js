@@ -73,8 +73,27 @@ OET.renderMap = function (plans, meta) {
       centers.push([c.lat, c.lng]);
       layers.push({ layer, group, hay, center: [c.lat, c.lng] });
     } else {
-      // Approximate AREA (filled circle sized by coverage type), not a dot.
-      for (const p of points) {
+      // Postcodes -> Voronoi polygons derived from the points (real areas).
+      const pcLatLngs = points.filter((p) => p.type === 'postcode').map((p) => p.latlng);
+      const rings = (OET.voronoiPolygons && pcLatLngs.length) ? OET.voronoiPolygons(pcLatLngs) : [];
+      if (rings.length) {
+        mapped += pcLatLngs.length;
+        const layer = L.polygon(rings, areaStyle(rate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s) (Voronoi)`));
+        layer.addTo(group);
+        const c = layer.getBounds().getCenter();
+        centers.push([c.lat, c.lng]);
+        layers.push({ layer, group, hay, center: [c.lat, c.lng] });
+      } else {
+        for (const p of points.filter((p) => p.type === 'postcode')) {
+          mapped++;
+          const layer = L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS.postcode }, areaStyle(rate))).bindPopup(popup(p.label));
+          layer.addTo(group);
+          centers.push(p.latlng);
+          layers.push({ layer, group, hay: hay + ' ' + p.label.toLowerCase(), center: p.latlng });
+        }
+      }
+      // GSP / utility -> area circle (single region centroid).
+      for (const p of points.filter((p) => p.type !== 'postcode')) {
         mapped++;
         const layer = L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS[p.type] || 8000 }, areaStyle(rate)))
           .bindPopup(popup(p.label));
