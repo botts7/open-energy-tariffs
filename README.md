@@ -65,7 +65,10 @@ by **build-time adapters** into `dist/<app>/`, never authored by hand.
 - **Imported data:** retains its source's licence, tracked per entry in
   `meta.license` / `meta.sourceUrl`. AER data is **CC BY 4.0** (attribution
   required); URDB is **CC0**; **Octopus is on-device-import only — never
-  bulk-stored**. See [ATTRIBUTION.md](ATTRIBUTION.md) + [SOURCES.md](SOURCES.md).
+  bulk-stored**.
+- **Full licence register** (every data source + library + map tile + boundary
+  set, with obligations and status): [LICENSING.md](LICENSING.md). See also
+  [ATTRIBUTION.md](ATTRIBUTION.md) + [SOURCES.md](SOURCES.md).
 
 > Rates here are community-maintained and **may be out of date or wrong** — always
 > verify against your own bill. Entries carry `meta.updated` + `meta.source`.

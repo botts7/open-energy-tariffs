@@ -311,6 +311,37 @@ Raw-JSON consumption stays fully supported; the SDK is sugar, not a gate.
 
 ---
 
+## Data updates & freshness — how the app updates as data changes
+
+Data and app are **decoupled** (the whole reason tariffs live in their own repo):
+
+1. **Change** — an importer run (`run.mjs` / `run-au.mjs`) or a contributor PR
+   updates `tariffs/**`.
+2. **Merge** — CI validates (schema + PII + dup-id) on the PR; on merge to `main`:
+3. **Rebuild** — CI runs `build.mjs` → regenerates `dist/canonical/*` + `index.json`,
+   and the `pages` workflow republishes the map + `dist/` to GitHub Pages (and/or a
+   versioned Release).
+4. **Consume** — clients pick up the change with **no app/firmware release**:
+   - **SDK / map** fetch `index.json` + the per-country chunk with **ETag**
+     revalidation — `304 Not Modified` when unchanged, fresh JSON when changed. A
+     bundled snapshot is the offline fallback; the network copy upgrades it.
+   - **The map** reads live `dist/` on each load → a redeploy ⇒ users see new data
+     on their next visit.
+   - **Pinned** consumers pin a Release tag and bump deliberately; `latest`/Pages
+     consumers auto-track.
+
+Granularity of a "change":
+- **Rate changes over time** → `history[]` effective-date ranges; the SDK's
+  `resolveEffective(entry, at)` returns the version valid on a date (nothing lost).
+- **New/updated plans** → new/changed files; `meta.id` is the stable key, so an
+  update overwrites in place and dedup still holds.
+- **Staleness** → `meta.updated` + the build's 12-month `stale` flag; consumers warn
+  instead of silently trusting old rates.
+
+Net: edit data → CI rebuilds `dist` → consumers revalidate via ETag → fresh rates,
+no release. Licence terms travel with the data (`meta.license`/`notes`), so updated
+data stays compliant automatically (see `LICENSING.md`).
+
 ## Appendix A — Canonical schema v1 (target shape)
 
 Interval-based, app-agnostic. `from`/`to` are `HH:MM` **local to the meter's

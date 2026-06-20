@@ -31,6 +31,11 @@ jobs:
       - run: npm install --no-audit --no-fund
       - run: npm run validate
       - run: npm run build              # generates dist/canonical/* + index.json
+      - name: Build boundary polygons (optional — real UK/US regions vs circles)
+        continue-on-error: true         # never block deploy; map falls back to circles
+        env:
+          UK_DNO_GEOJSON_URL: ${{ vars.UK_DNO_GEOJSON_URL }}
+        run: npm i -D proj4 --no-audit --no-fund && node scripts/build-boundaries.mjs
       - name: Assemble site
         run: |
           mkdir -p _site
