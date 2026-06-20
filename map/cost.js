@@ -75,6 +75,33 @@ OET.usageFromAnnual = function (annualKwh, shape) {
   return { weekday: perHour.slice(), weekend: perHour.slice() };
 };
 
+// Parse interval CSV into the raw series for an exact HISTORICAL replay.
+OET.parseIntervals = function (text) {
+  const intervals = []; const days = new Set(); let total = 0;
+  for (const line of String(text).split(/\r?\n/)) {
+    const c = line.split(',');
+    if (c.length < 2) continue;
+    const d = new Date(c[0].trim()); const k = parseFloat(c[1]);
+    if (isNaN(d.getTime()) || isNaN(k)) continue;
+    intervals.push({ we: d.getDay() === 0 || d.getDay() === 6, hour: d.getHours(), kwh: k });
+    days.add(d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate());
+    total += k;
+  }
+  return { intervals, days: days.size, totalKwh: Math.round(total) };
+};
+
+// HISTORICAL replay: cost the user's ACTUAL intervals against a plan's bands for
+// their data's period, then annualise. -> { periodCost, annual, days }.
+OET.estimateFromIntervals = function (tariff, parsed) {
+  if (!tariff || !parsed || !parsed.intervals.length) return null;
+  const r = OET.hourlyRates(tariff);
+  let energy = 0;
+  for (const iv of parsed.intervals) energy += iv.kwh * (iv.we ? r.weekend : r.weekday)[iv.hour];
+  const periodCost = energy + (r.supplyDaily || 0) * parsed.days;
+  const annual = parsed.days ? periodCost * 365 / parsed.days : periodCost;
+  return { periodCost, annual, days: parsed.days };
+};
+
 // Parse interval-usage CSV (rows: <timestamp>,<kWh>; header optional) into a
 // weekday/weekend hourly profile. Sums readings within the same (date,hour) then
 // averages those hourly totals across days — so sub-hourly intervals are handled.

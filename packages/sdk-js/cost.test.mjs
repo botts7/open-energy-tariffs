@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { hourlyRates, estimateAnnualCost, usageFromAnnual, SHAPES, parseUsageCsv } from './cost.mjs';
+import { hourlyRates, estimateAnnualCost, usageFromAnnual, SHAPES, parseUsageCsv, parseIntervals, estimateFromIntervals } from './cost.mjs';
 
 const flat = { kind: 'flat', supply: { daily: 1 }, import: { flatRate: 0.2 } };
 const tou = {
@@ -60,4 +60,16 @@ test('parseUsageCsv: sums sub-hourly intervals per hour, totals annual', () => {
 
 test('SHAPES has the expected presets', () => {
   for (const k of ['flat', 'daytime', 'evening', 'night_ev']) assert.equal(SHAPES[k].length, 24);
+});
+
+test('estimateFromIntervals: historical replay costs real intervals against bands', () => {
+  // 2 weekdays, 1 kWh each at 02:00 (off 0.1) and 1 kWh each at 12:00 (peak 0.4)
+  const csv = '2024-01-03T02:00,1\n2024-01-03T12:00,1\n2024-01-04T02:00,1\n2024-01-04T12:00,1';
+  const p = parseIntervals(csv);
+  assert.equal(p.days, 2);
+  assert.equal(p.totalKwh, 4);
+  const { periodCost, annual } = estimateFromIntervals(tou, p);
+  // energy: 2*(1*0.1 + 1*0.4) = 1.0 ; supply 0.5*2 = 1.0 ; period = 2.0
+  assert.ok(Math.abs(periodCost - 2.0) < 1e-9, `period ${periodCost}`);
+  assert.ok(Math.abs(annual - 2.0 * 365 / 2) < 1e-6, `annual ${annual}`);
 });

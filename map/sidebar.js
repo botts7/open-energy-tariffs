@@ -25,7 +25,7 @@ OET.initSidebar = function () {
   const sources = uniq((p) => p.src);
   const providers = uniq((p) => p.meta.provider);
 
-  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', currentPlanId: '', currentCostActual: '' };
+  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', currentPlanId: '', currentCostActual: '', intervals: null };
 
   const count = h('div', { class: 'sb-count' });
   const list = h('div', { class: 'sb-list' });
@@ -62,7 +62,7 @@ OET.initSidebar = function () {
 
   const reset = h('button', { class: 'sb-reset', text: 'Reset', onclick: () => {
     state.text = ''; state.countries.clear(); state.sources.clear(); state.provider = ''; state.min = ''; state.max = '';
-    state.usage = null; state.usageKwh = ''; state.shape = 'flat'; state.currentPlanId = ''; state.currentCostActual = '';
+    state.usage = null; state.usageKwh = ''; state.shape = 'flat'; state.currentPlanId = ''; state.currentCostActual = ''; state.intervals = null;
     search.value = ''; providerSel.value = ''; minIn.value = ''; maxIn.value = '';
     kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; currentSel.value = ''; currentCostIn.value = ''; cmpNote.textContent = '';
     root.querySelectorAll('.sb-chip input').forEach((c) => { c.checked = false; });
@@ -74,6 +74,7 @@ OET.initSidebar = function () {
   function recomputeUsage() {
     const kwh = parseFloat(state.usageKwh);
     state.usage = kwh > 0 ? OET.usageFromAnnual(kwh, state.shape) : null;
+    state.intervals = null; // manual kWh/shape overrides an uploaded interval history
     cmpNote.textContent = state.usage ? `Ranking by estimated cost for ~${Math.round(kwh)} kWh/yr (${state.shape})` : '';
     apply();
   }
@@ -88,8 +89,13 @@ OET.initSidebar = function () {
       const rd = new FileReader();
       rd.onload = () => {
         const r = OET.parseUsageCsv(rd.result);
-        state.usage = r.profile; state.usageKwh = String(r.annualKwh); kwhIn.value = r.annualKwh;
-        cmpNote.textContent = `Ranking by your CSV (~${r.annualKwh} kWh/yr)`;
+        const iv = OET.parseIntervals ? OET.parseIntervals(rd.result) : null;
+        state.usage = r.profile;
+        state.intervals = (iv && iv.intervals.length) ? iv : null;
+        state.usageKwh = String(state.intervals ? state.intervals.totalKwh : r.annualKwh); kwhIn.value = state.usageKwh;
+        cmpNote.textContent = state.intervals
+          ? `Historical: replaying ${state.intervals.days} days of your real data against each plan`
+          : `Ranking by your CSV (~${r.annualKwh} kWh/yr)`;
         apply();
       };
       rd.readAsText(f);
@@ -188,7 +194,9 @@ OET.initSidebar = function () {
     const usage = state.usage;
     const arr = visible.slice();
     if (usage) {
-      for (const r of arr) r._cost = OET.estimateAnnualCost(r.tariff, usage);
+      for (const r of arr) r._cost = state.intervals
+        ? ((OET.estimateFromIntervals(r.tariff, state.intervals) || {}).annual ?? null)  // historical replay
+        : OET.estimateAnnualCost(r.tariff, usage);
       arr.sort((a, b) => (a._cost == null ? Infinity : a._cost) - (b._cost == null ? Infinity : b._cost));
     } else {
       arr.sort((a, b) => (a.meta.country + a.meta.provider + a.meta.plan).localeCompare(b.meta.country + b.meta.provider + b.meta.plan));
