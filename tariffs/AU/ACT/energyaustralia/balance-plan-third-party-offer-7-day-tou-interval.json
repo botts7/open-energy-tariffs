@@ -1,12 +1,12 @@
 {
   "meta": {
-    "id": "au-act-evoenergy-energyaustralia-balance-plan-my-connect",
+    "id": "au-act-evoenergy-energyaustralia-balance-plan-third-party-offer-7-day-tou-interval",
     "schemaVersion": "1",
     "country": "AU",
     "region": "ACT",
     "distributor": "Evoenergy",
     "provider": "EnergyAustralia",
-    "plan": "Balance Plan - My Connect",
+    "plan": "Balance Plan - Third Party Offer (7 day TOU Interval)",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
@@ -53,18 +53,18 @@
       "bands": [
         {
           "id": "peak",
-          "name": "Max",
-          "rate": 0.40075
+          "name": "Peak",
+          "rate": 0.44495
         },
         {
           "id": "off-peak",
-          "name": "Economy",
-          "rate": 0.22093
+          "name": "Off Peak",
+          "rate": 0.29103
         },
         {
           "id": "shoulder",
-          "name": "Mid",
-          "rate": 0.29757
+          "name": "Shoulder",
+          "rate": 0.17419
         }
       ],
       "schedule": [
@@ -77,25 +77,31 @@
         {
           "days": "all",
           "from": "17:00",
-          "to": "20:00",
+          "to": "21:00",
           "band": "peak"
         },
         {
           "days": "all",
-          "from": "22:00",
+          "from": "09:00",
+          "to": "11:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "17:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
           "to": "07:00",
           "band": "off-peak"
         },
         {
           "days": "all",
-          "from": "09:00",
-          "to": "17:00",
-          "band": "shoulder"
-        },
-        {
-          "days": "all",
-          "from": "20:00",
-          "to": "22:00",
+          "from": "11:00",
+          "to": "15:00",
           "band": "shoulder"
         }
       ]
@@ -105,6 +111,13 @@
     },
     "export": {
       "flatRate": 0.04
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-2",
+        "name": "Controlled Load 2",
+        "rate": 0.2198
+      }
+    ]
   }
 }

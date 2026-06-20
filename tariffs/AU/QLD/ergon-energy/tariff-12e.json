@@ -1,12 +1,12 @@
 {
   "meta": {
-    "id": "au-qld-ergon-ergon-energy-tariff-11-with-tariff-31-and-tariff-33",
+    "id": "au-qld-ergon-ergon-energy-tariff-12e",
     "schemaVersion": "1",
     "country": "AU",
     "region": "QLD",
     "distributor": "Ergon",
     "provider": "Ergon Energy",
-    "plan": "Tariff 11 with Tariff 31 and Tariff 33",
+    "plan": "Tariff 12E",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Brisbane",
@@ -261,27 +261,51 @@
     }
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.29975
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.52148
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.23977
+        },
+        {
+          "id": "off-peak",
+          "name": "Off peak",
+          "rate": 0.07022
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "16:00",
+          "to": "21:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "11:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "16:00",
+          "band": "off-peak"
+        }
+      ]
     },
     "supply": {
-      "daily": 1.53493
+      "daily": 1.35304
     },
     "export": {
       "flatRate": 0.0866
-    },
-    "controlledLoad": [
-      {
-        "id": "tariff-31",
-        "name": "Tariff 31",
-        "rate": 0.16471
-      },
-      {
-        "id": "tariff-33",
-        "name": "Tariff 33",
-        "rate": 0.17395
-      }
-    ]
+    }
   }
 }

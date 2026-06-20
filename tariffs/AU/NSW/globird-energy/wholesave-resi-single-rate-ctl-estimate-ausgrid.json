@@ -1,12 +1,12 @@
 {
   "meta": {
-    "id": "au-nsw-ausgrid-globird-energy-wholesave-resi-two-rate-ctl-estimate-ausgrid",
+    "id": "au-nsw-ausgrid-globird-energy-wholesave-resi-single-rate-ctl-estimate-ausgrid",
     "schemaVersion": "1",
     "country": "AU",
     "region": "NSW",
     "distributor": "Ausgrid",
     "provider": "Globird Energy",
-    "plan": "WHOLESAVE Resi (Two Rate CTL) estimate-Ausgrid",
+    "plan": "WHOLESAVE Resi (Single Rate CTL) estimate-Ausgrid",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
@@ -248,43 +248,12 @@
     }
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak Usage",
-          "rate": 0.3729
-        },
-        {
-          "id": "off-peak",
-          "name": "Off Peak Usage",
-          "rate": 0.1416
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "16:00",
-          "to": "23:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "23:00",
-          "to": "24:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "all",
-          "from": "00:00",
-          "to": "16:00",
-          "band": "off-peak"
-        }
-      ]
+      "flatRate": 0.2687
     },
     "supply": {
-      "daily": 1.1
+      "daily": 0.79
     },
     "export": {
       "flatRate": 0.0

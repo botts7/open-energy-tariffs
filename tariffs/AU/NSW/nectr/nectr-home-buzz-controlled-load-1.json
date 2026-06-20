@@ -1,12 +1,12 @@
 {
   "meta": {
-    "id": "au-nsw-ausgrid-globird-energy-wholesave-resi-two-rate-ctl-estimate-ausgrid",
+    "id": "au-nsw-ausgrid-nectr-nectr-home-buzz-controlled-load-1",
     "schemaVersion": "1",
     "country": "AU",
     "region": "NSW",
     "distributor": "Ausgrid",
-    "provider": "Globird Energy",
-    "plan": "WHOLESAVE Resi (Two Rate CTL) estimate-Ausgrid",
+    "provider": "Nectr",
+    "plan": "Nectr Home Buzz + Controlled Load 1",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
@@ -248,52 +248,21 @@
     }
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak Usage",
-          "rate": 0.3729
-        },
-        {
-          "id": "off-peak",
-          "name": "Off Peak Usage",
-          "rate": 0.1416
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "16:00",
-          "to": "23:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "23:00",
-          "to": "24:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "all",
-          "from": "00:00",
-          "to": "16:00",
-          "band": "off-peak"
-        }
-      ]
+      "flatRate": 0.27682168
     },
     "supply": {
-      "daily": 1.1
+      "daily": 0.8815706
     },
     "export": {
       "flatRate": 0.0
     },
     "controlledLoad": [
       {
-        "id": "controlled-load",
-        "name": "Controlled Load",
-        "rate": 0.1136
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.1872063
       }
     ]
   }

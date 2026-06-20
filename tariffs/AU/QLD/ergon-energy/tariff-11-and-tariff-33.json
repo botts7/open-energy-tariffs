@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "CC-BY-4.0",
-    "updated": "2026-06-20",
+    "updated": "2026-06-21",
     "verified": false,
     "notes": "Imported from AER CDR generic plans. Contains data © Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
     "coverage": {

@@ -1,12 +1,12 @@
 {
   "meta": {
-    "id": "au-sa-sa-power-networks-lumo-energy-sa-standing-offer-flat-rate",
+    "id": "au-sa-sa-power-networks-lumo-energy-sa-standing-offer-toucl",
     "schemaVersion": "1",
     "country": "AU",
     "region": "SA",
     "distributor": "SA Power Networks",
     "provider": "Lumo Energy (SA)",
-    "plan": "Standing Offer Flat Rate",
+    "plan": "Standing Offer (TOUCL)",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Adelaide",
@@ -355,51 +355,9 @@
     }
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.4089
-        },
-        {
-          "id": "off-peak",
-          "name": "Off-Peak",
-          "rate": 0.4089
-        },
-        {
-          "id": "shoulder",
-          "name": "Shoulder",
-          "rate": 0.4089
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "06:00",
-          "to": "10:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "15:00",
-          "to": "01:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "01:00",
-          "to": "06:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "all",
-          "from": "10:00",
-          "to": "15:00",
-          "band": "shoulder"
-        }
-      ]
+      "flatRate": 0.4089
     },
     "supply": {
       "daily": 1.0875
@@ -411,17 +369,17 @@
       {
         "id": "controlled-load-tou",
         "name": "Controlled Load TOU",
-        "rate": 0.2295
+        "rate": 0.4985
       },
       {
         "id": "controlled-load-tou",
         "name": "Controlled Load TOU",
-        "rate": 0.2295
+        "rate": 0.2165
       },
       {
         "id": "controlled-load-tou",
         "name": "Controlled Load TOU",
-        "rate": 0.2295
+        "rate": 0.2747
       }
     ]
   }

@@ -1,12 +1,12 @@
 {
   "meta": {
-    "id": "au-sa-sa-power-networks-lumo-energy-sa-standing-offer-flat-rate",
+    "id": "au-sa-sa-power-networks-globird-energy-wholesave-resi-two-rate-estimate-sapn",
     "schemaVersion": "1",
     "country": "AU",
     "region": "SA",
     "distributor": "SA Power Networks",
-    "provider": "Lumo Energy (SA)",
-    "plan": "Standing Offer Flat Rate",
+    "provider": "Globird Energy",
+    "plan": "WHOLESAVE Resi (Two Rate) estimate-SAPN",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Adelaide",
@@ -360,69 +360,41 @@
       "bands": [
         {
           "id": "peak",
-          "name": "Peak",
-          "rate": 0.4089
+          "name": "Peak Usage",
+          "rate": 0.4251
         },
         {
           "id": "off-peak",
-          "name": "Off-Peak",
-          "rate": 0.4089
-        },
-        {
-          "id": "shoulder",
-          "name": "Shoulder",
-          "rate": 0.4089
+          "name": "Off Peak Usage",
+          "rate": 0.1748
         }
       ],
       "schedule": [
         {
           "days": "all",
-          "from": "06:00",
-          "to": "10:00",
+          "from": "16:00",
+          "to": "23:00",
           "band": "peak"
         },
         {
           "days": "all",
-          "from": "15:00",
-          "to": "01:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "01:00",
-          "to": "06:00",
+          "from": "23:00",
+          "to": "24:00",
           "band": "off-peak"
         },
         {
           "days": "all",
-          "from": "10:00",
-          "to": "15:00",
-          "band": "shoulder"
+          "from": "00:00",
+          "to": "16:00",
+          "band": "off-peak"
         }
       ]
     },
     "supply": {
-      "daily": 1.0875
+      "daily": 1.05
     },
     "export": {
-      "flatRate": 0.02
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load-tou",
-        "name": "Controlled Load TOU",
-        "rate": 0.2295
-      },
-      {
-        "id": "controlled-load-tou",
-        "name": "Controlled Load TOU",
-        "rate": 0.2295
-      },
-      {
-        "id": "controlled-load-tou",
-        "name": "Controlled Load TOU",
-        "rate": 0.2295
-      }
-    ]
+      "flatRate": 0.0
+    }
   }
 }

@@ -65,6 +65,40 @@ data path isn't wired to the live API.
 | **aWATTar** | DE / AT hourly | HA `aWATTar` integration |
 | **Octopus Agile** | UK half-hourly | Octopus API (half-hourly) |
 
+## Global expansion (researched 2026-06-21)
+
+Openly-licensed **structured** residential-plan data is rare worldwide. Map of the
+landscape so we scale on solid ground:
+
+### Tier 1 — open, structured, importable (have/priority)
+| Region | Source | Licence | Status |
+|---|---|---|---|
+| AU | AER CDR (all retailers) | CC BY 4.0 | ✅ importer — widen via `run-au.mjs` |
+| US + intl | OpenEI URDB / IURDB | CC0 | ✅ importer — widen via `run.mjs`; IURDB country-agnostic |
+
+### Tier 2 — regulator-published structures → hand-curate as CC0 facts
+These publish the *structure* (no open API), so curate community entries:
+- **France** — EDF **Tarif Bleu** (regulated: Base flat, or HC/HP two-rate) and
+  **Tempo** (blue/white/red days × peak/off-peak — fits our day-type ToU; the
+  *day colour* is a live daily signal, so store the 6 band rates + note it).
+- **Canada** — **Ontario OEB** TOU / Tiered / ULO (seasonal, published); other
+  provinces (BC Hydro, Hydro-Québec) similar.
+- **Singapore** — SP Group regulated tariff (single, simple). **Spain** — PVPC
+  (regulated, dynamic) + fixed offers.
+
+### Tier 3 — restricted per-supplier (on-device import only, never stored)
+- **UK Octopus** (have on-device importer). **NZ Powerswitch** (Consumer NZ —
+  underpins the EA/EMI tariff reports; proprietary, treat like Octopus).
+
+### Out of scope
+- **Commercial aggregators** — tounify (19 EU countries, 3,123 tariffs), Prezio,
+  RateAcuity (US/CA), FlatPeak, elecz, zylalabs — paid/licensed; not redistributable.
+- **Dynamic/wholesale** — ENTSO-E, EPEX, euenergy.live, Octopus Agile (consume live).
+- **Statistics (averages, not structures)** — Eurostat, SingStat, Bruegel, EIA.
+
+**So "scale across the world" =** (1) max out CDR + URDB/IURDB; (2) hand-curate
+Tier-2 regulated tariffs per country; (3) on-device for Tier-3; (4) skip Tier-out.
+
 ## Not useful for bands
 
 EIA / Eurostat / ABS publish *average* prices (statistics), not plan structures.

@@ -1,12 +1,12 @@
 {
   "meta": {
-    "id": "au-nsw-ausgrid-globird-energy-wholesave-resi-two-rate-ctl-estimate-ausgrid",
+    "id": "au-nsw-ausgrid-globird-energy-wholesave-resi-two-rate-estimate-ausgrid",
     "schemaVersion": "1",
     "country": "AU",
     "region": "NSW",
     "distributor": "Ausgrid",
     "provider": "Globird Energy",
-    "plan": "WHOLESAVE Resi (Two Rate CTL) estimate-Ausgrid",
+    "plan": "WHOLESAVE Resi (Two Rate) estimate-Ausgrid",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
@@ -288,13 +288,6 @@
     },
     "export": {
       "flatRate": 0.0
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load",
-        "name": "Controlled Load",
-        "rate": 0.1136
-      }
-    ]
+    }
   }
 }

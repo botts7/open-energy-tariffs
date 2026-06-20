@@ -1,12 +1,12 @@
 {
   "meta": {
-    "id": "au-qld-ergon-ergon-energy-tariff-11-with-tariff-31-and-tariff-33",
+    "id": "au-qld-ergon-ergon-energy-tariff-11",
     "schemaVersion": "1",
     "country": "AU",
     "region": "QLD",
     "distributor": "Ergon",
     "provider": "Ergon Energy",
-    "plan": "Tariff 11 with Tariff 31 and Tariff 33",
+    "plan": "Tariff 11",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Brisbane",
@@ -270,18 +270,6 @@
     },
     "export": {
       "flatRate": 0.0866
-    },
-    "controlledLoad": [
-      {
-        "id": "tariff-31",
-        "name": "Tariff 31",
-        "rate": 0.16471
-      },
-      {
-        "id": "tariff-33",
-        "name": "Tariff 33",
-        "rate": 0.17395
-      }
-    ]
+    }
   }
 }

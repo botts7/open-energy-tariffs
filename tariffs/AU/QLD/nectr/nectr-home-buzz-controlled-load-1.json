@@ -1,12 +1,12 @@
 {
   "meta": {
-    "id": "au-qld-energex-nectr-nectr-home-buzz-time-of-use-controlled-load-1",
+    "id": "au-qld-energex-nectr-nectr-home-buzz-controlled-load-1",
     "schemaVersion": "1",
     "country": "AU",
     "region": "QLD",
     "distributor": "Energex",
     "provider": "Nectr",
-    "plan": "Nectr Home Buzz Time of Use + Controlled Load 1",
+    "plan": "Nectr Home Buzz + Controlled Load 1",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Brisbane",
@@ -223,48 +223,12 @@
     }
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.35301
-        },
-        {
-          "id": "off-peak",
-          "name": "Off-peak",
-          "rate": 0.205051
-        },
-        {
-          "id": "shoulder",
-          "name": "Shoulder",
-          "rate": 0.160255
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "16:00",
-          "to": "21:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "11:00",
-          "to": "16:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "all",
-          "from": "21:00",
-          "to": "11:00",
-          "band": "shoulder"
-        }
-      ]
+      "flatRate": 0.246378
     },
     "supply": {
-      "daily": 0.96019
+      "daily": 1.139782
     },
     "export": {
       "flatRate": 0.44
