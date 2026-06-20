@@ -102,23 +102,30 @@ DONE (2026-06-20, commit f0fb90d):
   enum excludes `octopus`; `source=cdr ⇒ CC-BY-4.0`.
 - ✅ Licence compliance pass (commit 9c8ca09) + `ATTRIBUTION.md`.
 
-TODO (next sessions, roughly in order):
-- **`adapters/wallbox.mjs`** — canonical → 24-hour band arrays (the lossy
-  projection; `log` sub-hour rounding). Wire into `build.mjs` → `dist/wallbox/`.
-  Fixture-test against the migrated AGL entry.
-- **AU-CDR importer** (`importers/cdr/`) — fetch `GET /cds-au/v1/energy/plans`
-  + `/{planId}` from `cdr.energymadeeasy.gov.au` (`x-v:1`, no auth), map
-  `tariffPeriod`→canonical, write entries with `source:cdr, license:CC-BY-4.0`
-  + AER attribution. **Do this first of the importers.**
+TODO **in THIS repo / session** (app-agnostic core, roughly in order):
+- ✅ **AU-CDR importer** (`importers/cdr/`, commit 2b19265) — `map.mjs` (pure),
+  `fetch.mjs` (`x-v:1`), `run.mjs` CLI, synthetic fixture + `map.test.mjs`
+  (deep-equal + schema conformance), README. Emits `source:cdr, license:CC-BY-4.0`
+  + AER attribution. **⚠️ mapping authored from the CDR OpenAPI, NOT run against
+  the live API** — capture a real `…/plans/{planId}` response (with `x-v:1`),
+  re-run `npm test`, and confirm time-format / supply-charge shapes before
+  bulk-importing (see `importers/cdr/README.md` "Verification gap"). Follow-ups:
+  seasonal multi-`tariffPeriod`, time-varying export, stepped/demand.
 - **PII scan** (`scripts/pii-scan.mjs`, ARCH §9) wired into CI; `.github/` PR
-  template + issue form.
+  template + issue form. ← **next**
 - **Consumer SDK** (`packages/sdk-js/`, thin) + the **Octopus on-device importer**
   (never bulk-stored).
-- **Wallbox add-on consumer**: a "Browse plans" step in the tariff editor
-  (`sessions.js`) — fetch `dist/wallbox/tariffs.<CC>.json` (cached + bundled
-  fallback), pick from `index.json`, apply; "Export / Submit" affordance. Manual
-  editor + localStorage stay the private fallback (unchanged).
 - Then **URDB importer** (CC0, bulk-store OK).
+
+TODO **in the WALLBOX session** (NOT here — keep this repo app-agnostic):
+- **`adapters/wallbox.mjs`** — canonical → Wallbox 24-hour band arrays (lossy
+  projection; `log` sub-hour rounding); wire into `build.mjs` → `dist/wallbox/`.
+- **Wallbox add-on consumer**: a "Browse plans" step in the tariff editor
+  (`sessions.js`) — fetch the per-country chunk (cached + bundled fallback), pick
+  from `index.json`, apply; "Export / Submit" affordance. Manual editor +
+  localStorage stay the private fallback (unchanged).
+> The canonical model already carries everything the Wallbox shape needs; the
+> adapter is a thin projection that belongs with the consumer that uses it.
 
 ### Phase 3 — Publish
 Only after a privacy scan + review with the user (nothing pushed to GitHub yet).
