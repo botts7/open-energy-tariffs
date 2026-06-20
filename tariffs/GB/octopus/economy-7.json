@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "country": "GB",
+    "provider": "Octopus Energy",
+    "plan": "Economy 7 (example)",
+    "currency": "GBP",
+    "unit": "kWh",
+    "source": "octopus",
+    "sourceUrl": "https://developer.octopus.energy/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-20",
+    "verified": false,
+    "notes": "EXAMPLE only. Economy 7 = ~7 night hours cheaper; the exact window depends on the meter/region and rates vary by region+date. Octopus exposes real products/tariffs via its public API - an importer should pull live rates by region code rather than hard-coding."
+  },
+  "tariff": {
+    "type": "tou",
+    "currency": "£",
+    "provider": "Octopus Energy",
+    "flatRate": 0,
+    "validFrom": 0,
+    "bands": [
+      { "id": "night", "name": "Night", "rate": 0.12, "color": "#22c55e" },
+      { "id": "day",   "name": "Day",   "rate": 0.28, "color": "#ef4444" }
+    ],
+    "weekday": [
+      "night","night","night","night","night","night",
+      "day","day","day","day","day","day","day","day","day","day","day","day","day","day","day","day","day","day"
+    ],
+    "weekend": [
+      "night","night","night","night","night","night",
+      "day","day","day","day","day","day","day","day","day","day","day","day","day","day","day","day","day","day"
+    ],
+    "weekendSame": true,
+    "seasonal": false,
+    "seasons": []
+  }
+}

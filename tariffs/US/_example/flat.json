@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "country": "US",
+    "region": "_example",
+    "provider": "Example Utility",
+    "plan": "Flat residential (example)",
+    "currency": "USD",
+    "unit": "kWh",
+    "source": "urdb",
+    "sourceUrl": "https://openei.org/wiki/Utility_Rate_Database",
+    "license": "CC0-1.0",
+    "updated": "2026-06-20",
+    "verified": false,
+    "notes": "EXAMPLE only. US utility rates are in NREL's OpenEI URDB (~50k rates) with a free API. An importer should map URDB energyratestructure -> this schema; many US rates are flat or simple tiered."
+  },
+  "tariff": {
+    "type": "flat",
+    "currency": "$",
+    "provider": "Example Utility",
+    "flatRate": 0.15,
+    "validFrom": 0,
+    "bands": [],
+    "weekday": [],
+    "weekend": [],
+    "weekendSame": true,
+    "seasonal": false,
+    "seasons": []
+  }
+}

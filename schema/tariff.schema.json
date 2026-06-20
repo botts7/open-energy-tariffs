@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/OWNER/open-energy-tariffs/schema/tariff.schema.json",
+  "title": "Energy tariff entry",
+  "description": "One electricity plan: public metadata + the consumable tariff. The `tariff` object matches the Wallbox add-on's tariff model so it can be applied directly; other apps map from it.",
+  "type": "object",
+  "required": ["meta", "tariff"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "description": "Public, non-personal metadata used for pick-lists + attribution.",
+      "required": ["country", "provider", "plan", "currency", "source", "updated"],
+      "additionalProperties": false,
+      "properties": {
+        "country": { "type": "string", "description": "ISO 3166-1 alpha-2, e.g. AU, GB, US." },
+        "region": { "type": "string", "description": "State / network / DNO, e.g. NSW, Ausgrid, CAISO." },
+        "provider": { "type": "string", "description": "Retailer, e.g. AGL, Octopus." },
+        "plan": { "type": "string", "description": "Plan name, e.g. Night Saver EV." },
+        "currency": { "type": "string", "description": "ISO 4217, e.g. AUD, GBP, USD." },
+        "unit": { "type": "string", "default": "kWh", "description": "Rate denominator." },
+        "source": {
+          "type": "string",
+          "enum": ["manual", "cdr", "urdb", "octopus", "provider", "other"],
+          "description": "Where the data came from."
+        },
+        "sourceUrl": { "type": "string", "description": "Link to the source / plan page." },
+        "license": { "type": "string", "default": "CC0-1.0", "description": "Licence of THIS entry's data." },
+        "contributor": { "type": "string", "description": "Optional handle of the submitter (no personal data)." },
+        "updated": { "type": "string", "format": "date", "description": "YYYY-MM-DD the rates were last verified." },
+        "verified": { "type": "boolean", "default": false, "description": "Confirmed against an authoritative source/bill." },
+        "notes": { "type": "string" }
+      }
+    },
+    "tariff": {
+      "type": "object",
+      "description": "The consumable tariff (Wallbox add-on shape). Times are LOCAL hour-of-day in the meter's timezone.",
+      "required": ["type", "currency"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "type": "string", "enum": ["flat", "tou"] },
+        "currency": { "type": "string", "description": "Display currency string the app shows, e.g. '$' or '$AU'." },
+        "provider": { "type": "string" },
+        "flatRate": { "type": "number", "minimum": 0, "description": "Used when type=flat (per unit)." },
+        "validFrom": { "type": "integer", "minimum": 0, "description": "Epoch seconds these rates took effect; 0 = always." },
+        "bands": {
+          "type": "array",
+          "description": "Named rate bands for time-of-use.",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "rate"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string", "description": "Stable key referenced by weekday/weekend arrays." },
+              "name": { "type": "string" },
+              "rate": { "type": "number", "minimum": 0, "description": "Default per-unit rate." },
+              "color": { "type": "string", "description": "Hex colour for the UI." },
+              "seasonRates": {
+                "type": "object",
+                "description": "Optional per-season override rates keyed by season id.",
+                "additionalProperties": { "type": "number", "minimum": 0 }
+              }
+            }
+          }
+        },
+        "weekday": {
+          "type": "array", "minItems": 24, "maxItems": 24,
+          "items": { "type": "string" },
+          "description": "24 entries (hour 0..23) -> band id."
+        },
+        "weekend": {
+          "type": "array", "minItems": 24, "maxItems": 24,
+          "items": { "type": "string" },
+          "description": "24 entries -> band id (ignored when weekendSame=true)."
+        },
+        "weekendSame": { "type": "boolean", "default": true },
+        "seasonal": { "type": "boolean", "default": false },
+        "seasons": {
+          "type": "array",
+          "description": "Season windows by 0-indexed month; ranges may wrap the year.",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "from", "to"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "from": { "type": "integer", "minimum": 0, "maximum": 11 },
+              "to": { "type": "integer", "minimum": 0, "maximum": 11 }
+            }
+          }
+        }
+      }
+    }
+  }
+}

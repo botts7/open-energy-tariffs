@@ -1,0 +1,17 @@
+{
+  "AU": {
+    "NSW": {
+      "AGL": ["Night Saver EV"]
+    }
+  },
+  "GB": {
+    "": {
+      "Octopus Energy": ["Economy 7 (example)"]
+    }
+  },
+  "US": {
+    "_example": {
+      "Example Utility": ["Flat residential (example)"]
+    }
+  }
+}
