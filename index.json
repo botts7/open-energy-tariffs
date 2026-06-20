@@ -357,6 +357,76 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-agl-residential-netflix-plan",
+          "plan": "Residential Netflix Plan",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-netflix-plan-3rd-party",
+          "plan": "Residential Netflix Plan - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-netflix-plan-new-to-agl",
+          "plan": "Residential Netflix Plan - New to AGL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-seniors-saver",
+          "plan": "Residential Seniors Saver",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-seniors-saver-new-to-agl",
+          "plan": "Residential Seniors Saver - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-smart-saver-3rd-party",
+          "plan": "Residential Smart Saver - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-smart-saver-bp-fuel",
+          "plan": "Residential Smart Saver - BP Fuel",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-smart-saver-bp-fuel-new-to-agl",
+          "plan": "Residential Smart Saver - BP Fuel New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-smart-saver-velocity",
+          "plan": "Residential Smart Saver (Velocity)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-smart-saver-velocity-new-to-agl",
+          "plan": "Residential Smart Saver (Velocity) - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-smart-saver-westpac",
+          "plan": "Residential Smart Saver (Westpac)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-smart-saver-westpac-new-to-agl",
+          "plan": "Residential Smart Saver (Westpac) - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-solar-savers",
+          "plan": "Residential Solar Savers",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-agl-residential-solar-savers-new-to-agl",
+          "plan": "Residential Solar Savers - New to AGL",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-agl-residential-standing-offer",
           "plan": "Residential Standing Offer",
           "verified": false
@@ -429,6 +499,11 @@
         {
           "id": "au-essential-energy-far-west-agl-residential-smart-saver-westpac-new-to-agl",
           "plan": "Residential Smart Saver - Westpac New to AGL",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-agl-business-standing-offer",
+          "plan": "Business Standing Offer",
           "verified": false
         },
         {
@@ -921,6 +996,11 @@
           "verified": false
         },
         {
+          "id": "au-essential-energy-standard-energyaustralia-business-rate-fix-5-day-time-of-use",
+          "plan": "Business Rate Fix  - 5 Day Time of Use",
+          "verified": false
+        },
+        {
           "id": "au-essential-energy-standard-energyaustralia-business-rate-fix-7-day-interval",
           "plan": "Business Rate Fix  - 7 Day Interval",
           "verified": false
@@ -938,6 +1018,11 @@
         {
           "id": "au-essential-energy-standard-energyaustralia-business-rate-fix-7-day-interval-cl-2",
           "plan": "Business Rate Fix  - 7 Day Interval + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-energyaustralia-business-rate-fix-peak-only",
+          "plan": "Business Rate Fix - Peak Only",
           "verified": false
         },
         {
@@ -1036,6 +1121,11 @@
           "verified": false
         },
         {
+          "id": "au-essential-energy-standard-energyaustralia-standing-offer-business-5-day-time-of-use",
+          "plan": "Standing Offer Business - 5 Day Time of Use",
+          "verified": false
+        },
+        {
           "id": "au-essential-energy-standard-energyaustralia-standing-offer-business-7-day-interval",
           "plan": "Standing Offer Business - 7 Day Interval",
           "verified": false
@@ -1053,6 +1143,11 @@
         {
           "id": "au-essential-energy-standard-energyaustralia-standing-offer-business-7-day-interval-cl-2",
           "plan": "Standing Offer Business - 7 Day Interval + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-energyaustralia-standing-offer-business-peak-only",
+          "plan": "Standing Offer Business - Peak Only",
           "verified": false
         },
         {
@@ -1330,6 +1425,41 @@
           "id": "au-ausnet-services-electricity-momentum-energy-warm-welcome",
           "plan": "Warm Welcome",
           "verified": false
+        },
+        {
+          "id": "au-essential-energy-far-west-momentum-energy-bill-boss-electricity",
+          "plan": "Bill Boss Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-far-west-momentum-energy-home-run-electricity",
+          "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-far-west-momentum-energy-pure-business",
+          "plan": "Pure Business",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-far-west-momentum-energy-standing-offer",
+          "plan": "Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-far-west-momentum-energy-strictly-business",
+          "plan": "Strictly Business",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-far-west-momentum-energy-suit-yourself-electricity",
+          "plan": "Suit Yourself Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-far-west-momentum-energy-warm-welcome",
+          "plan": "Warm Welcome",
+          "verified": false
         }
       ],
       "Nectr": [
@@ -1403,6 +1533,16 @@
         {
           "id": "au-ausnet-services-electricity-powershop-victorian-default-offer",
           "plan": "Victorian Default Offer",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-powershop-power-house",
+          "plan": "Power House",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-powershop-switch-saver",
+          "plan": "Switch Saver",
           "verified": false
         }
       ],
@@ -1629,13 +1769,48 @@
     "NSW": {
       "AGL": [
         {
+          "id": "au-nsw-ausgrid-agl-business-multi-property",
+          "plan": "Business Multi Property",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-agl-business-smart-saver",
           "plan": "Business Smart Saver",
           "verified": false
         },
         {
-          "id": "au-nsw-ausgrid-agl-night-saver-ev",
-          "plan": "Night Saver EV",
+          "id": "au-nsw-ausgrid-agl-business-smart-saver-3rd-party",
+          "plan": "Business Smart Saver - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-agl-business-smart-saver-3rd-party-new-to-agl",
+          "plan": "Business Smart Saver - 3rd Party New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-agl-business-standing-offer",
+          "plan": "Business Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-agl-residential-netflix-plan",
+          "plan": "Residential Netflix Plan",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-agl-residential-netflix-plan-3rd-party",
+          "plan": "Residential Netflix Plan - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-agl-residential-netflix-plan-new-to-agl",
+          "plan": "Residential Netflix Plan - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-agl-residential-seniors-saver",
+          "plan": "Residential Seniors Saver",
           "verified": false
         },
         {
@@ -1644,8 +1819,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-agl-residential-smart-saver",
+          "plan": "Residential Smart Saver",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-agl-residential-smart-saver-3rd-party",
           "plan": "Residential Smart Saver - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-agl-residential-smart-saver-bp-fuel",
+          "plan": "Residential Smart Saver - BP Fuel",
           "verified": false
         },
         {
@@ -1659,8 +1844,28 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-agl-residential-smart-saver-velocity",
+          "plan": "Residential Smart Saver - Velocity",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-agl-residential-smart-saver-velocity-new-to-agl",
           "plan": "Residential Smart Saver - Velocity New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-agl-residential-smart-saver-westpac",
+          "plan": "Residential Smart Saver - Westpac",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-agl-residential-smart-saver-westpac-new-to-agl",
+          "plan": "Residential Smart Saver - Westpac New to AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-agl-residential-solar-savers",
+          "plan": "Residential Solar Savers",
           "verified": false
         },
         {
@@ -1669,8 +1874,23 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-agl-residential-solar-savers-new-to-agl",
+          "plan": "Residential Solar Savers - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-agl-residential-standing-offer",
+          "plan": "Residential Standing Offer",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-agl-business-multi-property",
           "plan": "Business Multi Property",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-agl-business-smart-saver",
+          "plan": "Business Smart Saver",
           "verified": false
         },
         {
@@ -1681,6 +1901,11 @@
         {
           "id": "au-nsw-endeavour-agl-business-smart-saver-3rd-party-new-to-agl",
           "plan": "Business Smart Saver - 3rd Party New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-agl-business-standing-offer",
+          "plan": "Business Standing Offer",
           "verified": false
         },
         {
@@ -1704,8 +1929,43 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-agl-residential-seniors-saver-new-to-agl",
+          "plan": "Residential Seniors Saver - New To AGL",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-agl-residential-smart-saver",
           "plan": "Residential Smart Saver",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-agl-residential-smart-saver-3rd-party",
+          "plan": "Residential Smart Saver - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-agl-residential-smart-saver-bp-fuel",
+          "plan": "Residential Smart Saver - BP Fuel",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-agl-residential-smart-saver-bp-fuel-new-to-agl",
+          "plan": "Residential Smart Saver - BP Fuel New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-agl-residential-smart-saver-new-to-agl",
+          "plan": "Residential Smart Saver - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-agl-residential-smart-saver-velocity",
+          "plan": "Residential Smart Saver - Velocity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-agl-residential-smart-saver-velocity-new-to-agl",
+          "plan": "Residential Smart Saver - Velocity New To AGL",
           "verified": false
         },
         {
@@ -1714,8 +1974,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-agl-residential-smart-saver-westpac-new-to-agl",
+          "plan": "Residential Smart Saver - Westpac New to AGL",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-agl-residential-solar-savers",
           "plan": "Residential Solar Savers",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-agl-residential-solar-savers-3rd-party",
+          "plan": "Residential Solar Savers - 3rd Party",
           "verified": false
         },
         {
@@ -1729,8 +1999,63 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-agl-business-multi-property",
+          "plan": "Business Multi Property",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-business-smart-saver",
+          "plan": "Business Smart Saver",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-business-smart-saver-3rd-party",
+          "plan": "Business Smart Saver - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-business-smart-saver-3rd-party-new-to-agl",
+          "plan": "Business Smart Saver - 3rd Party New To AGL",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-agl-business-standing-offer",
           "plan": "Business Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-netflix-plan",
+          "plan": "Residential Netflix Plan",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-netflix-plan-3rd-party",
+          "plan": "Residential Netflix Plan - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-netflix-plan-new-to-agl",
+          "plan": "Residential Netflix Plan - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-seniors-saver",
+          "plan": "Residential Seniors Saver",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-seniors-saver-new-to-agl",
+          "plan": "Residential Seniors Saver - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-smart-saver",
+          "plan": "Residential Smart Saver",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-smart-saver-3rd-party",
+          "plan": "Residential Smart Saver - 3rd Party",
           "verified": false
         },
         {
@@ -1739,25 +2064,80 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-agl-residential-smart-saver-bp-fuel-new-to-agl",
+          "plan": "Residential Smart Saver - BP Fuel New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-smart-saver-new-to-agl",
+          "plan": "Residential Smart Saver - New To AGL",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-agl-residential-smart-saver-velocity",
           "plan": "Residential Smart Saver - Velocity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-smart-saver-velocity-new-to-agl",
+          "plan": "Residential Smart Saver - Velocity New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-smart-saver-westpac",
+          "plan": "Residential Smart Saver - Westpac",
           "verified": false
         },
         {
           "id": "au-nsw-essential-energy-agl-residential-smart-saver-westpac-new-to-agl",
           "plan": "Residential Smart Saver - Westpac New to AGL",
           "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-solar-savers",
+          "plan": "Residential Solar Savers",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-solar-savers-3rd-party",
+          "plan": "Residential Solar Savers - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-solar-savers-new-to-agl",
+          "plan": "Residential Solar Savers - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-agl-residential-standing-offer",
+          "plan": "Residential Standing Offer",
+          "verified": false
         }
       ],
       "Dodo": [
+        {
+          "id": "au-nsw-ausgrid-dodo-business-standing",
+          "plan": "Business Standing",
+          "verified": false
+        },
         {
           "id": "au-nsw-ausgrid-dodo-real-deal",
           "plan": "Real Deal",
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-dodo-residential-standing-default-market-offer",
+          "plan": "Residential Standing (Default Market Offer)",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-dodo-business-standing",
           "plan": "Business Standing",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-dodo-real-deal",
+          "plan": "Real Deal",
           "verified": false
         },
         {
@@ -1773,8 +2153,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-energyaustralia-balance-plan-my-connect",
+          "plan": "Balance Plan - My Connect",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-energyaustralia-balance-plan-resi-connections",
           "plan": "Balance Plan - Resi Connections",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-energyaustralia-balance-plan-third-party-offer",
+          "plan": "Balance Plan - Third Party Offer",
           "verified": false
         },
         {
@@ -2043,8 +2433,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-energyaustralia-balance-plan-connect-now",
+          "plan": "Balance Plan - Connect Now",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-energyaustralia-balance-plan-my-connect",
           "plan": "Balance Plan - My Connect",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-balance-plan-resi-connections",
+          "plan": "Balance Plan - Resi Connections",
           "verified": false
         },
         {
@@ -2093,6 +2493,21 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-energyaustralia-business-balance-plan-12-peak-only",
+          "plan": "Business Balance Plan 12 - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-business-balance-plan-12-peak-with-controlled-load-1",
+          "plan": "Business Balance Plan 12 - Peak with Controlled Load 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-business-balance-plan-12-peak-with-controlled-load-2",
+          "plan": "Business Balance Plan 12 - Peak with Controlled Load 2",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-energyaustralia-business-rate-fix-7-day-time-of-use",
           "plan": "Business Rate Fix  - 7 Day Time of Use",
           "verified": false
@@ -2133,6 +2548,41 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-energyaustralia-business-rate-fix-peak-only",
+          "plan": "Business Rate Fix - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-business-rate-fix-peak-with-controlled-load-1",
+          "plan": "Business Rate Fix  - Peak with Controlled Load 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-business-rate-fix-peak-with-controlled-load-2",
+          "plan": "Business Rate Fix  - Peak with Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-flexi-plan",
+          "plan": "Flexi Plan",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-nsw-seniors-offer",
+          "plan": "NSW Seniors Offer",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-rate-fix",
+          "plan": "Rate Fix",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-solar-max",
+          "plan": "Solar Max",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-energyaustralia-standing-offer-business-7-day-time-of-use",
           "plan": "Standing Offer Business - 7 Day Time of Use",
           "verified": false
@@ -2170,6 +2620,26 @@
         {
           "id": "au-nsw-endeavour-energyaustralia-standing-offer-business-demand-with-cl-2",
           "plan": "Standing Offer Business - Demand with CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-standing-offer-business-peak-only",
+          "plan": "Standing Offer Business - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-standing-offer-business-peak-with-controlled-load-1",
+          "plan": "Standing Offer Business - Peak with Controlled Load 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-standing-offer-business-peak-with-controlled-load-2",
+          "plan": "Standing Offer Business - Peak with Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-standing-offer-home",
+          "plan": "Standing Offer (Home)",
           "verified": false
         }
       ],
@@ -2540,15 +3010,227 @@
           "verified": false
         }
       ],
+      "Momentum Energy": [
+        {
+          "id": "au-nsw-ausgrid-momentum-energy-bill-boss-electricity",
+          "plan": "Bill Boss Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-momentum-energy-home-run-electricity",
+          "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-momentum-energy-pure-business",
+          "plan": "Pure Business",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-momentum-energy-standing-offer",
+          "plan": "Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-momentum-energy-strictly-business",
+          "plan": "Strictly Business",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-momentum-energy-suit-yourself-electricity",
+          "plan": "Suit Yourself Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-momentum-energy-warm-welcome",
+          "plan": "Warm Welcome",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-momentum-energy-bill-boss-electricity",
+          "plan": "Bill Boss Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-momentum-energy-home-run-electricity",
+          "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-momentum-energy-pure-business",
+          "plan": "Pure Business",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-momentum-energy-standing-offer",
+          "plan": "Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-momentum-energy-strictly-business",
+          "plan": "Strictly Business",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-momentum-energy-suit-yourself-electricity",
+          "plan": "Suit Yourself Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-momentum-energy-warm-welcome",
+          "plan": "Warm Welcome",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-momentum-energy-bill-boss-electricity",
+          "plan": "Bill Boss Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-momentum-energy-home-run-electricity",
+          "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-momentum-energy-pure-business",
+          "plan": "Pure Business",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-momentum-energy-standing-offer",
+          "plan": "Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-momentum-energy-strictly-business",
+          "plan": "Strictly Business",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-momentum-energy-suit-yourself-electricity",
+          "plan": "Suit Yourself Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-momentum-energy-warm-welcome",
+          "plan": "Warm Welcome",
+          "verified": false
+        }
+      ],
       "Nectr": [
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-buzz",
+          "plan": "Nectr Business Buzz",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-buzz-cl-1",
+          "plan": "Nectr Business Buzz + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-buzz-cl-2",
+          "plan": "Nectr Business Buzz + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-buzz-demand",
+          "plan": "Nectr Business Buzz Demand",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-buzz-demand-cl-1",
+          "plan": "Nectr Business Buzz Demand + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-buzz-demand-cl-2",
+          "plan": "Nectr Business Buzz Demand + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-buzz-tou",
+          "plan": "Nectr Business Buzz TOU",
+          "verified": false
+        },
         {
           "id": "au-nsw-ausgrid-nectr-nectr-business-buzz-tou-cl-1",
           "plan": "Nectr Business Buzz TOU + CL 1",
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-buzz-tou-cl-2",
+          "plan": "Nectr Business Buzz TOU + CL 2",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-buzz-tou-demand",
           "plan": "Nectr Business Buzz TOU Demand",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-buzz-tou-demand-cl-1",
+          "plan": "Nectr Business Buzz TOU Demand + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-buzz-tou-demand-cl-2",
+          "plan": "Nectr Business Buzz TOU Demand + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-business-buzz",
+          "plan": "Nectr Green Business Buzz",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-business-buzz-cl-1",
+          "plan": "Nectr Green Business Buzz + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-business-buzz-cl-2",
+          "plan": "Nectr Green Business Buzz + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-business-buzz-demand",
+          "plan": "Nectr Green Business Buzz Demand",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-business-buzz-demand-cl-1",
+          "plan": "Nectr Green Business Buzz Demand + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-business-buzz-demand-cl-2",
+          "plan": "Nectr Green Business Buzz Demand + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-business-buzz-tou",
+          "plan": "Nectr Green Business Buzz TOU",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-business-buzz-tou-cl-1",
+          "plan": "Nectr Green Business Buzz TOU + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-business-buzz-tou-cl-2",
+          "plan": "Nectr Green Business Buzz TOU + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-business-buzz-tou-demand",
+          "plan": "Nectr Green Business Buzz TOU Demand",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-business-buzz-tou-demand-cl-1",
+          "plan": "Nectr Green Business Buzz TOU Demand + CL 1",
           "verified": false
         },
         {
@@ -2567,8 +3249,53 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-home-buzz-controlled-load-2",
+          "plan": "Nectr Green Home Buzz + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-home-buzz-time-of-use",
+          "plan": "Nectr Green Home Buzz Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-home-buzz-time-of-use-controlled-load-1",
+          "plan": "Nectr Green Home Buzz Time of Use + Controlled Load 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-green-home-buzz-time-of-use-controlled-load-2",
+          "plan": "Nectr Green Home Buzz Time of Use + Controlled Load 2",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-home-buzz",
           "plan": "Nectr Home Buzz",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-home-buzz-controlled-load-1",
+          "plan": "Nectr Home Buzz + Controlled Load 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-home-buzz-controlled-load-2",
+          "plan": "Nectr Home Buzz + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-home-buzz-time-of-use",
+          "plan": "Nectr Home Buzz Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-home-buzz-time-of-use-controlled-load-1",
+          "plan": "Nectr Home Buzz Time of Use + Controlled Load 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-home-buzz-time-of-use-controlled-load-2",
+          "plan": "Nectr Home Buzz Time of Use + Controlled Load 2",
           "verified": false
         },
         {
@@ -2604,6 +3331,11 @@
         {
           "id": "au-nsw-endeavour-nectr-nectr-business-buzz-tou",
           "plan": "Nectr Business Buzz TOU",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-buzz-tou-cl-1",
+          "plan": "Nectr Business Buzz TOU + CL 1",
           "verified": false
         },
         {
@@ -2687,6 +3419,16 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-green-home-buzz",
+          "plan": "Nectr Green Home Buzz",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-green-home-buzz-controlled-load-1",
+          "plan": "Nectr Green Home Buzz + Controlled Load 1",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-green-home-buzz-controlled-load-2",
           "plan": "Nectr Green Home Buzz + Controlled Load 2",
           "verified": false
@@ -2699,6 +3441,16 @@
         {
           "id": "au-nsw-endeavour-nectr-nectr-green-home-buzz-time-of-use-controlled-load-1",
           "plan": "Nectr Green Home Buzz Time of Use + Controlled Load 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-green-home-buzz-time-of-use-controlled-load-2",
+          "plan": "Nectr Green Home Buzz Time of Use + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-home-buzz",
+          "plan": "Nectr Home Buzz",
           "verified": false
         },
         {
@@ -2717,6 +3469,51 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-home-buzz-time-of-use-controlled-load-1",
+          "plan": "Nectr Home Buzz Time of Use + Controlled Load 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-home-buzz-time-of-use-controlled-load-2",
+          "plan": "Nectr Home Buzz Time of Use + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-buzz",
+          "plan": "Nectr Business Buzz",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-buzz-cl-1",
+          "plan": "Nectr Business Buzz + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-buzz-cl-2",
+          "plan": "Nectr Business Buzz + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-buzz-tou",
+          "plan": "Nectr Business Buzz TOU",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-buzz-tou-cl-1",
+          "plan": "Nectr Business Buzz TOU + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-buzz-tou-cl-2",
+          "plan": "Nectr Business Buzz TOU + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-buzz-tou-demand",
+          "plan": "Nectr Business Buzz TOU  Demand",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-business-buzz-tou-demand-cl-1",
           "plan": "Nectr Business Buzz TOU  Demand + CL 1",
           "verified": false
@@ -2724,6 +3521,36 @@
         {
           "id": "au-nsw-essential-energy-nectr-nectr-business-buzz-tou-demand-cl-2",
           "plan": "Nectr Business Buzz TOU  Demand + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-green-business-buzz",
+          "plan": "Nectr Green Business Buzz",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-green-business-buzz-cl-1",
+          "plan": "Nectr Green Business Buzz + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-green-business-buzz-cl-2",
+          "plan": "Nectr Green Business Buzz + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-green-business-buzz-tou",
+          "plan": "Nectr Green Business Buzz TOU",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-green-business-buzz-tou-cl-1",
+          "plan": "Nectr Green Business Buzz TOU + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-green-business-buzz-tou-cl-2",
+          "plan": "Nectr Green Business Buzz TOU + CL 2",
           "verified": false
         },
         {
@@ -2737,8 +3564,58 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-green-business-buzz-tou-demand-cl-2",
+          "plan": "Nectr Green Business Buzz TOU  Demand + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-green-home-buzz",
+          "plan": "Nectr Green Home Buzz",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-green-home-buzz-controlled-load-1",
+          "plan": "Nectr Green Home Buzz + Controlled Load 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-green-home-buzz-controlled-load-2",
+          "plan": "Nectr Green Home Buzz + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-green-home-buzz-time-of-use",
+          "plan": "Nectr Green Home Buzz Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-green-home-buzz-time-of-use-controlled-load-1",
+          "plan": "Nectr Green Home Buzz Time of Use + Controlled Load 1",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-green-home-buzz-time-of-use-controlled-load-2",
           "plan": "Nectr Green Home Buzz Time of Use + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-home-buzz",
+          "plan": "Nectr Home Buzz",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-home-buzz-controlled-load-1",
+          "plan": "Nectr Home Buzz + Controlled Load 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-home-buzz-controlled-load-2",
+          "plan": "Nectr Home Buzz + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-home-buzz-time-of-use",
+          "plan": "Nectr Home Buzz Time of Use",
           "verified": false
         },
         {
@@ -2759,6 +3636,26 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-powershop-power-house",
+          "plan": "Power House",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-powershop-standing-offer",
+          "plan": "Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-powershop-switch-saver",
+          "plan": "Switch Saver",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-powershop-power-business",
+          "plan": "Power Business",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-powershop-power-house",
           "plan": "Power House",
           "verified": false
@@ -2772,42 +3669,25 @@
           "id": "au-nsw-endeavour-powershop-switch-saver",
           "plan": "Switch Saver",
           "verified": false
-        }
-      ],
-      "Momentum Energy": [
+        },
         {
-          "id": "au-nsw-endeavour-momentum-energy-home-run-electricity",
-          "plan": "Home Run Electricity",
+          "id": "au-nsw-essential-energy-powershop-power-business",
+          "plan": "Power Business",
           "verified": false
         },
         {
-          "id": "au-nsw-endeavour-momentum-energy-pure-business",
-          "plan": "Pure Business",
+          "id": "au-nsw-essential-energy-powershop-power-house",
+          "plan": "Power House",
           "verified": false
         },
         {
-          "id": "au-nsw-endeavour-momentum-energy-standing-offer",
+          "id": "au-nsw-essential-energy-powershop-standing-offer",
           "plan": "Standing Offer",
           "verified": false
         },
         {
-          "id": "au-nsw-endeavour-momentum-energy-strictly-business",
-          "plan": "Strictly Business",
-          "verified": false
-        },
-        {
-          "id": "au-nsw-endeavour-momentum-energy-suit-yourself-electricity",
-          "plan": "Suit Yourself Electricity",
-          "verified": false
-        },
-        {
-          "id": "au-nsw-endeavour-momentum-energy-warm-welcome",
-          "plan": "Warm Welcome",
-          "verified": false
-        },
-        {
-          "id": "au-nsw-essential-energy-momentum-energy-bill-boss-electricity",
-          "plan": "Bill Boss Electricity",
+          "id": "au-nsw-essential-energy-powershop-switch-saver",
+          "plan": "Switch Saver",
           "verified": false
         }
       ]
@@ -4401,8 +5281,18 @@
     "VIC": {
       "AGL": [
         {
+          "id": "au-vic-citipower-agl-agl-residential-smart-saver",
+          "plan": "AGL Residential Smart Saver",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-agl-agl-residential-smart-saver-new-to-agl",
           "plan": "AGL Residential Smart Saver - New to AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-agl-business-multi-property",
+          "plan": "Business Multi-Property",
           "verified": false
         },
         {
@@ -4411,8 +5301,23 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-agl-business-smart-saver-3rd-party",
+          "plan": "Business Smart Saver - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-agl-business-smart-saver-3rd-party-new-to-agl",
+          "plan": "Business Smart Saver - 3rd Party New To AGL",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-agl-business-standing-offer",
           "plan": "Business Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-agl-residential-netflix-plan",
+          "plan": "Residential Netflix Plan",
           "verified": false
         },
         {
@@ -4441,13 +5346,38 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-agl-residential-smart-saver-bp-fuel",
+          "plan": "Residential Smart Saver - BP Fuel",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-agl-residential-smart-saver-bp-fuel-new-to-agl",
+          "plan": "Residential Smart Saver - BP Fuel New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-agl-residential-smart-saver-velocity",
+          "plan": "Residential Smart Saver (Velocity)",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-agl-residential-smart-saver-velocity-new-to-agl",
           "plan": "Residential Smart Saver (Velocity) - New To AGL",
           "verified": false
         },
         {
+          "id": "au-vic-citipower-agl-residential-smart-saver-westpac",
+          "plan": "Residential Smart Saver (Westpac)",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-agl-residential-smart-saver-westpac-new-to-agl",
           "plan": "Residential Smart Saver (Westpac) - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-agl-residential-solar-savers",
+          "plan": "Residential Solar Savers",
           "verified": false
         },
         {
@@ -4461,8 +5391,23 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-agl-agl-residential-smart-saver",
+          "plan": "AGL Residential Smart Saver",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-agl-residential-smart-saver-new-to-agl",
+          "plan": "AGL Residential Smart Saver - New to AGL",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-agl-business-multi-property",
           "plan": "Business Multi-Property",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-business-smart-saver",
+          "plan": "Business Smart Saver",
           "verified": false
         },
         {
@@ -4471,8 +5416,88 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-agl-business-smart-saver-3rd-party-new-to-agl",
+          "plan": "Business Smart Saver - 3rd Party New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-business-standing-offer",
+          "plan": "Business Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-netflix-plan",
+          "plan": "Residential Netflix Plan",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-netflix-plan-3rd-party",
+          "plan": "Residential Netflix Plan - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-netflix-plan-new-to-agl",
+          "plan": "Residential Netflix Plan - New to AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-seniors-saver",
+          "plan": "Residential Seniors Saver",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-seniors-saver-new-to-agl",
+          "plan": "Residential Seniors Saver - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-smart-saver-3rd-party",
+          "plan": "Residential Smart Saver - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-smart-saver-bp-fuel",
+          "plan": "Residential Smart Saver - BP Fuel",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-smart-saver-bp-fuel-new-to-agl",
+          "plan": "Residential Smart Saver - BP Fuel New To AGL",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-agl-residential-smart-saver-velocity",
           "plan": "Residential Smart Saver (Velocity)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-smart-saver-velocity-new-to-agl",
+          "plan": "Residential Smart Saver (Velocity) - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-smart-saver-westpac",
+          "plan": "Residential Smart Saver (Westpac)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-smart-saver-westpac-new-to-agl",
+          "plan": "Residential Smart Saver (Westpac) - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-solar-savers",
+          "plan": "Residential Solar Savers",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-solar-savers-new-to-agl",
+          "plan": "Residential Solar Savers - New to AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-agl-residential-standing-offer",
+          "plan": "Residential Standing Offer",
           "verified": false
         },
         {
@@ -4481,8 +5506,133 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-agl-agl-residential-smart-saver-new-to-agl",
+          "plan": "AGL Residential Smart Saver - New to AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-business-multi-property",
+          "plan": "Business Multi-Property",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-business-smart-saver",
+          "plan": "Business Smart Saver",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-business-smart-saver-3rd-party",
+          "plan": "Business Smart Saver - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-business-smart-saver-3rd-party-new-to-agl",
+          "plan": "Business Smart Saver - 3rd Party New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-business-standing-offer",
+          "plan": "Business Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-netflix-plan",
+          "plan": "Residential Netflix Plan",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-netflix-plan-3rd-party",
+          "plan": "Residential Netflix Plan - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-netflix-plan-new-to-agl",
+          "plan": "Residential Netflix Plan - New to AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-seniors-saver",
+          "plan": "Residential Seniors Saver",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-seniors-saver-new-to-agl",
+          "plan": "Residential Seniors Saver - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-smart-saver-3rd-party",
+          "plan": "Residential Smart Saver - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-smart-saver-bp-fuel",
+          "plan": "Residential Smart Saver - BP Fuel",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-agl-residential-smart-saver-bp-fuel-new-to-agl",
           "plan": "Residential Smart Saver - BP Fuel New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-smart-saver-velocity",
+          "plan": "Residential Smart Saver (Velocity)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-smart-saver-velocity-new-to-agl",
+          "plan": "Residential Smart Saver (Velocity) - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-smart-saver-westpac",
+          "plan": "Residential Smart Saver (Westpac)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-smart-saver-westpac-new-to-agl",
+          "plan": "Residential Smart Saver (Westpac) - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-solar-savers",
+          "plan": "Residential Solar Savers",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-solar-savers-new-to-agl",
+          "plan": "Residential Solar Savers - New to AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-agl-residential-standing-offer",
+          "plan": "Residential Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-agl-residential-smart-saver",
+          "plan": "AGL Residential Smart Saver",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-agl-residential-smart-saver-new-to-agl",
+          "plan": "AGL Residential Smart Saver - New to AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-business-multi-property",
+          "plan": "Business Multi-Property",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-business-smart-saver",
+          "plan": "Business Smart Saver",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-business-smart-saver-3rd-party",
+          "plan": "Business Smart Saver - 3rd Party",
           "verified": false
         },
         {
@@ -4491,8 +5641,38 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-agl-business-standing-offer",
+          "plan": "Business Standing Offer",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-agl-residential-netflix-plan",
           "plan": "Residential Netflix Plan",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-residential-netflix-plan-3rd-party",
+          "plan": "Residential Netflix Plan - 3rd Party",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-residential-netflix-plan-new-to-agl",
+          "plan": "Residential Netflix Plan - New to AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-residential-seniors-saver",
+          "plan": "Residential Seniors Saver",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-residential-seniors-saver-new-to-agl",
+          "plan": "Residential Seniors Saver - New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-residential-smart-saver-3rd-party",
+          "plan": "Residential Smart Saver - 3rd Party",
           "verified": false
         },
         {
@@ -4501,17 +5681,62 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-agl-residential-smart-saver-bp-fuel-new-to-agl",
+          "plan": "Residential Smart Saver - BP Fuel New To AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-residential-smart-saver-velocity",
+          "plan": "Residential Smart Saver (Velocity)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-residential-smart-saver-velocity-new-to-agl",
+          "plan": "Residential Smart Saver (Velocity) - New To AGL",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-agl-residential-smart-saver-westpac",
           "plan": "Residential Smart Saver (Westpac)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-residential-smart-saver-westpac-new-to-agl",
+          "plan": "Residential Smart Saver (Westpac) - New To AGL",
           "verified": false
         },
         {
           "id": "au-vic-united-energy-agl-residential-solar-savers",
           "plan": "Residential Solar Savers",
           "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-residential-solar-savers-new-to-agl",
+          "plan": "Residential Solar Savers - New to AGL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-agl-residential-standing-offer",
+          "plan": "Residential Standing Offer",
+          "verified": false
         }
       ],
       "Dodo Power & Gas": [
+        {
+          "id": "au-vic-citipower-dodo-power-gas-business-standing-single-rate",
+          "plan": "Business Standing - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-dodo-power-gas-business-standing-single-rate-with-controlled-load",
+          "plan": "Business Standing - Single Rate with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-dodo-power-gas-business-standing-time-of-use",
+          "plan": "Business Standing - Time of Use",
+          "verified": false
+        },
         {
           "id": "au-vic-citipower-dodo-power-gas-real-deal-single-rate",
           "plan": "Real Deal - Single Rate",
@@ -4523,8 +5748,58 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-dodo-power-gas-real-deal-time-of-use",
+          "plan": "Real Deal - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-dodo-power-gas-real-deal-time-of-use-with-controlled-load",
+          "plan": "Real Deal - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-dodo-power-gas-residential-standing-single-rate",
+          "plan": "Residential Standing - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-dodo-power-gas-residential-standing-single-rate-with-controlled-load",
+          "plan": "Residential Standing - Single Rate with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-dodo-power-gas-residential-standing-time-of-use",
+          "plan": "Residential Standing - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-dodo-power-gas-residential-standing-time-of-use-with-controlled-load",
+          "plan": "Residential Standing - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-dodo-power-gas-business-standing-single-rate",
+          "plan": "Business Standing - Single Rate",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-dodo-power-gas-business-standing-single-rate-with-controlled-load",
           "plan": "Business Standing - Single Rate with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-dodo-power-gas-business-standing-time-of-use",
+          "plan": "Business Standing - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-dodo-power-gas-real-deal-single-rate",
+          "plan": "Real Deal - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-dodo-power-gas-real-deal-single-rate-with-controlled-load",
+          "plan": "Real Deal - Single Rate with Controlled Load",
           "verified": false
         },
         {
@@ -4538,13 +5813,113 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-dodo-power-gas-residential-standing-single-rate",
+          "plan": "Residential Standing - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-dodo-power-gas-residential-standing-single-rate-with-controlled-load",
+          "plan": "Residential Standing - Single Rate with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-dodo-power-gas-residential-standing-time-of-use",
+          "plan": "Residential Standing - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-dodo-power-gas-residential-standing-time-of-use-with-controlled-load",
+          "plan": "Residential Standing - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-dodo-power-gas-business-standing-single-rate",
           "plan": "Business Standing - Single Rate",
           "verified": false
         },
         {
+          "id": "au-vic-powercor-dodo-power-gas-business-standing-single-rate-with-controlled-load",
+          "plan": "Business Standing - Single Rate with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-dodo-power-gas-business-standing-time-of-use",
+          "plan": "Business Standing - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-dodo-power-gas-real-deal-single-rate",
+          "plan": "Real Deal - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-dodo-power-gas-real-deal-single-rate-with-controlled-load",
+          "plan": "Real Deal - Single Rate with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-dodo-power-gas-real-deal-time-of-use",
+          "plan": "Real Deal - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-dodo-power-gas-real-deal-time-of-use-with-controlled-load",
+          "plan": "Real Deal - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-dodo-power-gas-residential-standing-single-rate",
+          "plan": "Residential Standing - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-dodo-power-gas-residential-standing-single-rate-with-controlled-load",
+          "plan": "Residential Standing - Single Rate with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-dodo-power-gas-residential-standing-time-of-use",
+          "plan": "Residential Standing - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-dodo-power-gas-residential-standing-time-of-use-with-controlled-load",
+          "plan": "Residential Standing - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-dodo-power-gas-business-standing-single-rate",
+          "plan": "Business Standing - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-dodo-power-gas-business-standing-single-rate-with-controlled-load",
+          "plan": "Business Standing - Single Rate with Controlled Load",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-dodo-power-gas-business-standing-time-of-use",
           "plan": "Business Standing - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-dodo-power-gas-real-deal-single-rate",
+          "plan": "Real Deal - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-dodo-power-gas-real-deal-single-rate-with-controlled-load",
+          "plan": "Real Deal - Single Rate with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-dodo-power-gas-real-deal-time-of-use",
+          "plan": "Real Deal - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-dodo-power-gas-real-deal-time-of-use-with-controlled-load",
+          "plan": "Real Deal - Time of Use with Controlled Load",
           "verified": false
         },
         {
@@ -4570,8 +5945,53 @@
       ],
       "EnergyAustralia": [
         {
+          "id": "au-vic-citipower-energyaustralia-business-365-5-day-time-of-use",
+          "plan": "Business 365 - 5 Day Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-business-365-peak-only",
+          "plan": "Business 365 - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-business-365-peak-only-with-demand",
+          "plan": "Business 365 - Peak Only with Demand",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-business-365-peak-with-dedicated-circuit",
+          "plan": "Business 365 - Peak with Dedicated Circuit",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-business-rate-fix-5-day-time-of-use",
+          "plan": "Business Rate Fix - 5 Day Time of Use",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-energyaustralia-business-rate-fix-peak-only",
           "plan": "Business Rate Fix - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-business-rate-fix-peak-only-with-demand",
+          "plan": "Business Rate Fix  - Peak Only with Demand",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-business-rate-fix-peak-with-dedicated-circuit",
+          "plan": "Business Rate Fix - Peak with Dedicated Circuit",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-home-365-peak-only",
+          "plan": "Home 365 - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-home-365-peak-with-controlled-load",
+          "plan": "Home 365 - Peak with Controlled Load",
           "verified": false
         },
         {
@@ -4580,8 +6000,58 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-energyaustralia-home-365-time-of-use-with-controlled-load",
+          "plan": "Home 365 - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-power-365-peak-only-connect-now",
+          "plan": "Power 365 - Peak Only - Connect Now",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-power-365-peak-only-my-connect",
+          "plan": "Power 365 - Peak Only - My Connect",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-power-365-peak-only-residential-connections",
+          "plan": "Power 365 - Peak Only - Residential Connections",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-power-365-peak-only-third-party-offer",
+          "plan": "Power 365 - Peak Only - Third Party Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-power-365-peak-with-controlled-load-connect-now",
+          "plan": "Power 365 - Peak with Controlled Load - Connect Now",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-power-365-peak-with-controlled-load-my-connect",
+          "plan": "Power 365 - Peak with Controlled Load - My Connect",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-power-365-peak-with-controlled-load-residential-connections",
+          "plan": "Power 365 - Peak with Controlled Load - Residential Connections",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-power-365-peak-with-controlled-load-third-party-offer",
+          "plan": "Power 365 - Peak with Controlled Load - Third Party Offer",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-energyaustralia-power-365-time-of-use-connect-now",
           "plan": "Power 365 - Time of Use - Connect Now",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-power-365-time-of-use-my-connect",
+          "plan": "Power 365 - Time of Use - My Connect",
           "verified": false
         },
         {
@@ -4590,8 +6060,33 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-energyaustralia-power-365-time-of-use-third-party-offer",
+          "plan": "Power 365 - Time of Use -Third Party Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-power-365-time-of-use-with-controlled-load-connect-now",
+          "plan": "Power 365 - Time of Use with Controlled Load - Connect Now",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-power-365-time-of-use-with-controlled-load-my-connect",
+          "plan": "Power 365 - Time of Use with Controlled Load - My Connect",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-energyaustralia-power-365-time-of-use-with-controlled-load-residential-connections",
           "plan": "Power 365 - Time of Use with Controlled Load - Residential Connections",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-power-365-time-of-use-with-controlled-load-third-party-offer",
+          "plan": "Power 365 - Time of Use with Controlled Load -Third Party Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-rate-fix-peak-only",
+          "plan": "Rate Fix  - Peak Only",
           "verified": false
         },
         {
@@ -4600,8 +6095,43 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-energyaustralia-rate-fix-time-of-use",
+          "plan": "Rate Fix - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-rate-fix-time-of-use-with-controlled-load",
+          "plan": "Rate Fix - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-solar-max-peak-only",
+          "plan": "Solar Max - Peak Only",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-energyaustralia-solar-max-peak-with-controlled-load",
           "plan": "Solar Max - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-solar-max-time-of-use",
+          "plan": "Solar Max - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-solar-max-time-of-use-with-controlled-load",
+          "plan": "Solar Max - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-standing-offer-business-5-day-time-of-use",
+          "plan": "Standing Offer Business - 5 Day Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-standing-offer-business-peak-only",
+          "plan": "Standing Offer Business - Peak Only",
           "verified": false
         },
         {
@@ -4612,6 +6142,41 @@
         {
           "id": "au-vic-citipower-energyaustralia-standing-offer-business-peak-with-dedicated-circuit",
           "plan": "Standing Offer Business - Peak with Dedicated Circuit",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-standing-offer-home-peak-only",
+          "plan": "Standing Offer (Home)  - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-standing-offer-home-peak-with-controlled-load",
+          "plan": "Standing Offer (Home)  - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-standing-offer-home-time-of-use",
+          "plan": "Standing Offer (Home) - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-standing-offer-home-time-of-use-with-controlled-load",
+          "plan": "Standing Offer (Home) - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-vic-seniors-offer-peak-only",
+          "plan": "VIC Seniors Offer - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-vic-seniors-offer-peak-with-controlled-load",
+          "plan": "VIC Seniors Offer - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-energyaustralia-vic-seniors-offer-time-of-use",
+          "plan": "VIC Seniors Offer - Time of Use",
           "verified": false
         },
         {
@@ -4645,6 +6210,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-energyaustralia-business-rate-fix-5-day-time-of-use",
+          "plan": "Business Rate Fix - 5 Day Time of Use",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-energyaustralia-business-rate-fix-5-day-time-of-use-demand",
           "plan": "Business Rate Fix - 5 Day Time of Use Demand",
           "verified": false
@@ -4652,6 +6222,11 @@
         {
           "id": "au-vic-jemena-energyaustralia-business-rate-fix-7-day-time-of-use-demand",
           "plan": "Business Rate Fix - 7 Day Time of Use Demand",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-business-rate-fix-peak-only",
+          "plan": "Business Rate Fix - Peak Only",
           "verified": false
         },
         {
@@ -4670,6 +6245,16 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-energyaustralia-home-365-time-of-use",
+          "plan": "Home 365 - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-home-365-time-of-use-with-controlled-load",
+          "plan": "Home 365 - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-energyaustralia-power-365-peak-only-connect-now",
           "plan": "Power 365 - Peak Only - Connect Now",
           "verified": false
@@ -4677,6 +6262,16 @@
         {
           "id": "au-vic-jemena-energyaustralia-power-365-peak-only-my-connect",
           "plan": "Power 365 - Peak Only - My Connect",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-power-365-peak-only-residential-connections",
+          "plan": "Power 365 - Peak Only - Residential Connections",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-power-365-peak-only-third-party-offer",
+          "plan": "Power 365 - Peak Only - Third Party Offer",
           "verified": false
         },
         {
@@ -4695,13 +6290,58 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-energyaustralia-power-365-peak-with-controlled-load-third-party-offer",
+          "plan": "Power 365 - Peak with Controlled Load - Third Party Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-power-365-time-of-use-connect-now",
+          "plan": "Power 365 - Time of Use - Connect Now",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-power-365-time-of-use-my-connect",
+          "plan": "Power 365 - Time of Use - My Connect",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-power-365-time-of-use-residential-connections",
+          "plan": "Power 365 - Time of Use - Residential Connections",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-power-365-time-of-use-third-party-offer",
+          "plan": "Power 365 - Time of Use -Third Party Offer",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-energyaustralia-power-365-time-of-use-with-controlled-load-connect-now",
           "plan": "Power 365 - Time of Use with Controlled Load - Connect Now",
           "verified": false
         },
         {
+          "id": "au-vic-jemena-energyaustralia-power-365-time-of-use-with-controlled-load-my-connect",
+          "plan": "Power 365 - Time of Use with Controlled Load - My Connect",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-power-365-time-of-use-with-controlled-load-residential-connections",
+          "plan": "Power 365 - Time of Use with Controlled Load - Residential Connections",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-energyaustralia-power-365-time-of-use-with-controlled-load-third-party-offer",
           "plan": "Power 365 - Time of Use with Controlled Load -Third Party Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-rate-fix-peak-only",
+          "plan": "Rate Fix  - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-rate-fix-peak-with-controlled-load",
+          "plan": "Rate Fix  - Peak with Controlled Load",
           "verified": false
         },
         {
@@ -4712,6 +6352,26 @@
         {
           "id": "au-vic-jemena-energyaustralia-rate-fix-time-of-use-with-controlled-load",
           "plan": "Rate Fix - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-solar-max-peak-only",
+          "plan": "Solar Max - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-solar-max-peak-with-controlled-load",
+          "plan": "Solar Max - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-solar-max-time-of-use",
+          "plan": "Solar Max - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-solar-max-time-of-use-with-controlled-load",
+          "plan": "Solar Max - Time of Use with Controlled Load",
           "verified": false
         },
         {
@@ -4735,8 +6395,123 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-energyaustralia-standing-offer-business-peak-with-dedicated-circuit",
+          "plan": "Standing Offer Business - Peak with Dedicated Circuit",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-standing-offer-home-peak-only",
+          "plan": "Standing Offer (Home)  - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-standing-offer-home-peak-with-controlled-load",
+          "plan": "Standing Offer (Home)  - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-standing-offer-home-time-of-use",
+          "plan": "Standing Offer (Home) - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-standing-offer-home-time-of-use-with-controlled-load",
+          "plan": "Standing Offer (Home) - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-vic-seniors-offer-peak-only",
+          "plan": "VIC Seniors Offer - Peak Only",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-energyaustralia-vic-seniors-offer-peak-with-controlled-load",
           "plan": "VIC Seniors Offer - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-vic-seniors-offer-time-of-use",
+          "plan": "VIC Seniors Offer - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-energyaustralia-vic-seniors-offer-time-of-use-with-controlled-load",
+          "plan": "VIC Seniors Offer - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-business-365-5-day-time-of-use",
+          "plan": "Business 365 - 5 Day Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-business-365-peak-only",
+          "plan": "Business 365 - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-business-365-peak-only-with-demand",
+          "plan": "Business 365 - Peak Only with Demand",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-business-365-peak-with-dedicated-circuit",
+          "plan": "Business 365 - Peak with Dedicated Circuit",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-business-rate-fix-5-day-time-of-use",
+          "plan": "Business Rate Fix - 5 Day Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-business-rate-fix-peak-only",
+          "plan": "Business Rate Fix - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-business-rate-fix-peak-only-with-demand",
+          "plan": "Business Rate Fix - Peak Only with Demand",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-business-rate-fix-peak-with-dedicated-circuit",
+          "plan": "Business Rate Fix - Peak with Dedicated Circuit",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-home-365-peak-only",
+          "plan": "Home 365 - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-home-365-peak-with-controlled-load",
+          "plan": "Home 365 - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-home-365-time-of-use",
+          "plan": "Home 365 - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-home-365-time-of-use-with-controlled-load",
+          "plan": "Home 365 - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-power-365-peak-only-connect-now",
+          "plan": "Power 365 - Peak Only - Connect Now",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-power-365-peak-only-my-connect",
+          "plan": "Power 365 - Peak Only - My Connect",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-power-365-peak-only-residential-connections",
+          "plan": "Power 365 - Peak Only - Residential Connections",
           "verified": false
         },
         {
@@ -4745,8 +6520,48 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-energyaustralia-power-365-peak-with-controlled-load-connect-now",
+          "plan": "Power 365 - Peak with Controlled Load - Connect Now",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-power-365-peak-with-controlled-load-my-connect",
+          "plan": "Power 365 - Peak with Controlled Load - My Connect",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-power-365-peak-with-controlled-load-residential-connections",
+          "plan": "Power 365 - Peak with Controlled Load - Residential Connections",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-energyaustralia-power-365-peak-with-controlled-load-third-party-offer",
           "plan": "Power 365 - Peak with Controlled Load - Third Party Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-power-365-time-of-use-connect-now",
+          "plan": "Power 365 - Time of Use - Connect Now",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-power-365-time-of-use-my-connect",
+          "plan": "Power 365 - Time of Use - My Connect",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-power-365-time-of-use-residential-connections",
+          "plan": "Power 365 - Time of Use - Residential Connections",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-power-365-time-of-use-third-party-offer",
+          "plan": "Power 365 - Time of Use -Third Party Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-power-365-time-of-use-with-controlled-load-connect-now",
+          "plan": "Power 365 - Time of Use with Controlled Load - Connect Now",
           "verified": false
         },
         {
@@ -4755,8 +6570,33 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-energyaustralia-power-365-time-of-use-with-controlled-load-residential-connections",
+          "plan": "Power 365 - Time of Use with Controlled Load - Residential Connections",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-power-365-time-of-use-with-controlled-load-third-party-offer",
+          "plan": "Power 365 - Time of Use with Controlled Load -Third Party Offer",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-energyaustralia-rate-fix-peak-only",
           "plan": "Rate Fix  - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-rate-fix-peak-with-controlled-load",
+          "plan": "Rate Fix  - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-rate-fix-time-of-use",
+          "plan": "Rate Fix - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-rate-fix-time-of-use-with-controlled-load",
+          "plan": "Rate Fix - Time of Use with Controlled Load",
           "verified": false
         },
         {
@@ -4765,8 +6605,38 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-energyaustralia-solar-max-peak-with-controlled-load",
+          "plan": "Solar Max - Peak with Controlled Load",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-energyaustralia-solar-max-time-of-use",
           "plan": "Solar Max - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-solar-max-time-of-use-with-controlled-load",
+          "plan": "Solar Max - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-standing-offer-business-5-day-time-of-use",
+          "plan": "Standing Offer Business - 5 Day Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-standing-offer-business-peak-only",
+          "plan": "Standing Offer Business - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-standing-offer-business-peak-only-with-demand",
+          "plan": "Standing Offer Business - Peak Only with Demand",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-standing-offer-business-peak-with-dedicated-circuit",
+          "plan": "Standing Offer Business - Peak with Dedicated Circuit",
           "verified": false
         },
         {
@@ -4775,8 +6645,58 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-energyaustralia-standing-offer-home-peak-with-controlled-load",
+          "plan": "Standing Offer (Home)  - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-standing-offer-home-time-of-use",
+          "plan": "Standing Offer (Home) - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-standing-offer-home-time-of-use-with-controlled-load",
+          "plan": "Standing Offer (Home) - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-vic-seniors-offer-peak-only",
+          "plan": "VIC Seniors Offer - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-vic-seniors-offer-peak-with-controlled-load",
+          "plan": "VIC Seniors Offer - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-vic-seniors-offer-time-of-use",
+          "plan": "VIC Seniors Offer - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-energyaustralia-vic-seniors-offer-time-of-use-with-controlled-load",
+          "plan": "VIC Seniors Offer - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-business-365-5-day-time-of-use",
+          "plan": "Business 365 - 5 Day Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-business-365-peak-only",
+          "plan": "Business 365 - Peak Only",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-energyaustralia-business-365-peak-only-with-demand",
           "plan": "Business 365 - Peak Only with Demand",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-business-365-peak-with-dedicated-circuit",
+          "plan": "Business 365 - Peak with Dedicated Circuit",
           "verified": false
         },
         {
@@ -4785,8 +6705,33 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-energyaustralia-business-rate-fix-peak-only",
+          "plan": "Business Rate Fix - Peak Only",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-energyaustralia-business-rate-fix-peak-only-with-demand",
           "plan": "Business Rate Fix - Peak Only with Demand",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-business-rate-fix-peak-with-dedicated-circuit",
+          "plan": "Business Rate Fix - Peak with Dedicated Circuit",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-home-365-peak-only",
+          "plan": "Home 365 - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-home-365-peak-with-controlled-load",
+          "plan": "Home 365 - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-home-365-time-of-use",
+          "plan": "Home 365 - Time of Use",
           "verified": false
         },
         {
@@ -4795,8 +6740,48 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-energyaustralia-power-365-peak-only-connect-now",
+          "plan": "Power 365 - Peak Only - Connect Now",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-power-365-peak-only-my-connect",
+          "plan": "Power 365 - Peak Only - My Connect",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-energyaustralia-power-365-peak-only-residential-connections",
           "plan": "Power 365 - Peak Only - Residential Connections",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-power-365-peak-only-third-party-offer",
+          "plan": "Power 365 - Peak Only - Third Party Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-power-365-peak-with-controlled-load-connect-now",
+          "plan": "Power 365 - Peak with Controlled Load - Connect Now",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-power-365-peak-with-controlled-load-my-connect",
+          "plan": "Power 365 - Peak with Controlled Load - My Connect",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-power-365-peak-with-controlled-load-residential-connections",
+          "plan": "Power 365 - Peak with Controlled Load - Residential Connections",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-power-365-peak-with-controlled-load-third-party-offer",
+          "plan": "Power 365 - Peak with Controlled Load - Third Party Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-power-365-time-of-use-connect-now",
+          "plan": "Power 365 - Time of Use - Connect Now",
           "verified": false
         },
         {
@@ -4805,13 +6790,98 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-energyaustralia-power-365-time-of-use-residential-connections",
+          "plan": "Power 365 - Time of Use - Residential Connections",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-energyaustralia-power-365-time-of-use-third-party-offer",
           "plan": "Power 365 - Time of Use -Third Party Offer",
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-energyaustralia-power-365-time-of-use-with-controlled-load-connect-now",
+          "plan": "Power 365 - Time of Use with Controlled Load - Connect Now",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-power-365-time-of-use-with-controlled-load-my-connect",
+          "plan": "Power 365 - Time of Use with Controlled Load - My Connect",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-power-365-time-of-use-with-controlled-load-residential-connections",
+          "plan": "Power 365 - Time of Use with Controlled Load - Residential Connections",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-power-365-time-of-use-with-controlled-load-third-party-offer",
+          "plan": "Power 365 - Time of Use with Controlled Load -Third Party Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-rate-fix-peak-only",
+          "plan": "Rate Fix  - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-rate-fix-peak-with-controlled-load",
+          "plan": "Rate Fix  - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-rate-fix-time-of-use",
+          "plan": "Rate Fix - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-rate-fix-time-of-use-with-controlled-load",
+          "plan": "Rate Fix - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-solar-max-peak-only",
+          "plan": "Solar Max - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-solar-max-peak-with-controlled-load",
+          "plan": "Solar Max - Peak with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-solar-max-time-of-use",
+          "plan": "Solar Max - Time of Use",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-energyaustralia-solar-max-time-of-use-with-controlled-load",
           "plan": "Solar Max - Time of Use with Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-standing-offer-business-5-day-time-of-use",
+          "plan": "Standing Offer Business - 5 Day Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-standing-offer-business-peak-only",
+          "plan": "Standing Offer Business - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-standing-offer-business-peak-only-with-demand",
+          "plan": "Standing Offer Business - Peak Only with Demand",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-standing-offer-business-peak-with-dedicated-circuit",
+          "plan": "Standing Offer Business - Peak with Dedicated Circuit",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-standing-offer-home-peak-only",
+          "plan": "Standing Offer (Home)  - Peak Only",
           "verified": false
         },
         {
@@ -4835,8 +6905,18 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-energyaustralia-vic-seniors-offer-peak-with-controlled-load",
+          "plan": "VIC Seniors Offer - Peak with Controlled Load",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-energyaustralia-vic-seniors-offer-time-of-use",
           "plan": "VIC Seniors Offer - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-energyaustralia-vic-seniors-offer-time-of-use-with-controlled-load",
+          "plan": "VIC Seniors Offer - Time of Use with Controlled Load",
           "verified": false
         }
       ],
@@ -5622,10 +7702,87 @@
           "verified": false
         }
       ],
+      "Lumo Energy": [
+        {
+          "id": "au-vic-citipower-lumo-energy-lumo-plus",
+          "plan": "Lumo Plus",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-lumo-energy-victorian-default-offer",
+          "plan": "Victorian Default Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-lumo-energy-lumo-plus",
+          "plan": "Lumo Plus",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-lumo-energy-victorian-default-offer",
+          "plan": "Victorian Default Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-lumo-energy-lumo-plus",
+          "plan": "Lumo Plus",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-lumo-energy-victorian-default-offer",
+          "plan": "Victorian Default Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-lumo-energy-lumo-plus",
+          "plan": "Lumo Plus",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-lumo-energy-victorian-default-offer",
+          "plan": "Victorian Default Offer",
+          "verified": false
+        }
+      ],
       "Momentum Energy": [
+        {
+          "id": "au-vic-citipower-momentum-energy-bill-boss-electricity",
+          "plan": "Bill Boss Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-momentum-energy-home-run-electricity",
+          "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-momentum-energy-pure-business",
+          "plan": "Pure Business",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-momentum-energy-standing-offer",
+          "plan": "Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-momentum-energy-strictly-business",
+          "plan": "Strictly Business",
+          "verified": false
+        },
         {
           "id": "au-vic-citipower-momentum-energy-suit-yourself-electricity",
           "plan": "Suit Yourself Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-momentum-energy-warm-welcome",
+          "plan": "Warm Welcome",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-momentum-energy-bill-boss-electricity",
+          "plan": "Bill Boss Electricity",
           "verified": false
         },
         {
@@ -5639,8 +7796,23 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-momentum-energy-standing-offer",
+          "plan": "Standing Offer",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-momentum-energy-strictly-business",
           "plan": "Strictly Business",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-momentum-energy-suit-yourself-electricity",
+          "plan": "Suit Yourself Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-momentum-energy-warm-welcome",
+          "plan": "Warm Welcome",
           "verified": false
         },
         {
@@ -5649,8 +7821,63 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-momentum-energy-home-run-electricity",
+          "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-momentum-energy-pure-business",
+          "plan": "Pure Business",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-momentum-energy-standing-offer",
           "plan": "Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-momentum-energy-strictly-business",
+          "plan": "Strictly Business",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-momentum-energy-suit-yourself-electricity",
+          "plan": "Suit Yourself Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-momentum-energy-warm-welcome",
+          "plan": "Warm Welcome",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-momentum-energy-bill-boss-electricity",
+          "plan": "Bill Boss Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-momentum-energy-home-run-electricity",
+          "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-momentum-energy-pure-business",
+          "plan": "Pure Business",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-momentum-energy-standing-offer",
+          "plan": "Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-momentum-energy-strictly-business",
+          "plan": "Strictly Business",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-momentum-energy-suit-yourself-electricity",
+          "plan": "Suit Yourself Electricity",
           "verified": false
         },
         {
@@ -5883,7 +8110,32 @@
       ],
       "Powershop": [
         {
+          "id": "au-vic-citipower-powershop-power-business",
+          "plan": "Power Business",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-powershop-power-house",
+          "plan": "Power House",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-powershop-switch-saver",
+          "plan": "Switch Saver",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-powershop-victorian-default-offer",
+          "plan": "Victorian Default Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-powershop-power-business",
+          "plan": "Power Business",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-powershop-power-house",
           "plan": "Power House",
           "verified": false
         },
@@ -5898,19 +8150,42 @@
           "verified": false
         },
         {
-          "id": "au-vic-united-energy-powershop-power-business",
+          "id": "au-vic-powercor-powershop-power-business",
           "plan": "Power Business",
-          "verified": false
-        }
-      ],
-      "Lumo Energy": [
-        {
-          "id": "au-vic-united-energy-lumo-energy-lumo-plus",
-          "plan": "Lumo Plus",
           "verified": false
         },
         {
-          "id": "au-vic-united-energy-lumo-energy-victorian-default-offer",
+          "id": "au-vic-powercor-powershop-power-house",
+          "plan": "Power House",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-powershop-switch-saver",
+          "plan": "Switch Saver",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-powershop-victorian-default-offer",
+          "plan": "Victorian Default Offer",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-powershop-power-business",
+          "plan": "Power Business",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-powershop-power-house",
+          "plan": "Power House",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-powershop-switch-saver",
+          "plan": "Switch Saver",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-powershop-victorian-default-offer",
           "plan": "Victorian Default Offer",
           "verified": false
         }

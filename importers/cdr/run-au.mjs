@@ -51,7 +51,13 @@ for (const code of RETAILERS) {
       if (seen.has(entry.meta.id)) { skipped++; continue; }
       seen.add(entry.meta.id);
       const region = entry.meta.region || '_unknown';
-      const file = join(root, 'tariffs', 'AU', region, slug(entry.meta.provider), `${slug(entry.meta.plan)}.json`);
+      // Include the distributor in the FILENAME: a retailer offers the same plan
+      // name across multiple distribution zones; those share region/provider/plan
+      // but differ by distributor (which IS in meta.id). Without it, ~1/3 of plans
+      // overwrite each other on disk. Suffix keeps every unique meta.id a file.
+      const distSlug = slug(entry.meta.distributor || '');
+      const planFile = distSlug ? `${slug(entry.meta.plan)}--${distSlug}` : slug(entry.meta.plan);
+      const file = join(root, 'tariffs', 'AU', region, slug(entry.meta.provider), `${planFile}.json`);
       if (dry) { console.log(`  [dry] ${entry.meta.id}`); }
       else { await mkdir(dirname(file), { recursive: true }); await writeFile(file, JSON.stringify(entry, null, 2) + '\n'); }
       written++;

@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "id": "au-vic-citipower-lumo-energy-lumo-plus",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "VIC",
+    "distributor": "Citipower",
+    "provider": "Lumo Energy",
+    "plan": "Lumo Plus",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Melbourne",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data \u00a9 Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "3000",
+        "3002",
+        "3003",
+        "3004",
+        "3005",
+        "3006",
+        "3008",
+        "3010",
+        "3011",
+        "3031",
+        "3051",
+        "3052",
+        "3053",
+        "3054",
+        "3055",
+        "3056",
+        "3057",
+        "3065",
+        "3066",
+        "3067",
+        "3068",
+        "3070",
+        "3071",
+        "3078",
+        "3101",
+        "3102",
+        "3103",
+        "3104",
+        "3121",
+        "3122",
+        "3123",
+        "3124",
+        "3125",
+        "3126",
+        "3127",
+        "3129",
+        "3141",
+        "3142",
+        "3143",
+        "3144",
+        "3161",
+        "3181",
+        "3182",
+        "3183",
+        "3205",
+        "3206",
+        "3207"
+      ]
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Tariff 1",
+          "rate": 0.2798
+        },
+        {
+          "id": "off-peak",
+          "name": "Tariff 2",
+          "rate": 0.1705
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "21:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "15:00",
+          "band": "off-peak"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.9585
+    },
+    "export": {
+      "flatRate": 0.01
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load",
+        "name": "Controlled Load",
+        "rate": 0.1555
+      }
+    ]
+  }
+}
