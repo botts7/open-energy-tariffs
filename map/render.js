@@ -93,7 +93,7 @@ OET.renderMap = function (plans, meta) {
         for (const p of points.filter((p) => p.type !== 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS[p.type] || 8000 }, areaStyle(rate))).bindPopup(popup(p.label))); mapped++; }
       } else if (cov.national && OET.nationalGeometry) {
         // National plan -> shade the whole country (or a centroid if no polygon).
-        const ng = OET.nationalGeometry(m.country);
+        const ng = OET.nationalGeometry(m.country, m.region);
         const tag = 'national' + (m.region ? ' · ' + m.region : '');
         if (ng && ng.type === 'polygon') { add(L.geoJSON(ng.geojson, { style: areaStyle(rate) }).bindPopup(popup(tag))); mapped++; }
         else if (ng) { add(L.circle(ng.latlng, Object.assign({ radius: 250000 }, areaStyle(rate))).bindPopup(popup(tag))); mapped++; }

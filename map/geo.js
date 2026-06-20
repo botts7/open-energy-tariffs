@@ -38,8 +38,11 @@ OET.US_UTILITY = { '14006': [39.96, -82.99, 'Ohio Power Co (AEP Ohio)'] };
 // OET.WORLD (e.g. tiny states dropped at 110m). lat,lng.
 OET.COUNTRY_CENTROID = { SG: [1.35, 103.82], MT: [35.9, 14.4], BH: [26.0, 50.5], LU: [49.8, 6.1] };
 
-// Geometry for a NATIONAL plan: the country polygon if bundled, else a centroid.
-OET.nationalGeometry = function (country) {
+// Geometry for a NATIONAL plan: province polygon (if region + bundled), else the
+// country polygon, else a centroid.
+OET.nationalGeometry = function (country, region) {
+  const provKey = region ? country + '-' + region : null;
+  if (provKey && OET.PROVINCES && OET.PROVINCES[provKey]) return { type: 'polygon', geojson: { type: 'Feature', properties: {}, geometry: OET.PROVINCES[provKey] } };
   if (OET.WORLD && OET.WORLD[country]) return { type: 'polygon', geojson: { type: 'Feature', properties: {}, geometry: OET.WORLD[country] } };
   if (OET.COUNTRY_CENTROID[country]) return { type: 'point', latlng: OET.COUNTRY_CENTROID[country] };
   return null;
