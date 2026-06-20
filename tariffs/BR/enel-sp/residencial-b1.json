@@ -14,7 +14,7 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Brazil ANEEL-regulated residential B1 'convencional' (flat) tariff for the Enel SP distributor. Rate APPROXIMATE in BRL/kWh (~2026), excludes taxes (ICMS/PIS/COFINS) and the bandeira tarifária surcharge — verify with ANEEL / the distributor. There is also a Branca (time-of-use) option not curated here. Distributor service area (São Paulo; shaded at country level — no BR province polygons bundled yet).",
+    "notes": "Brazil ANEEL-regulated residential B1 'convencional' (flat) tariff for the Enel SP distributor. Rate APPROXIMATE in BRL/kWh (~2026), excludes taxes (ICMS/PIS/COFINS) and the bandeira tarifária surcharge — verify with ANEEL / the distributor. There is also a Branca (time-of-use) option not curated here. Distributor serves part of São Paulo state (shaded as the SP state polygon — coarse approximation of the actual service area).",
     "coverage": { "national": true }
   },
   "tariff": {
