@@ -29,6 +29,9 @@ jobs:
       - name: Unit tests (importers/adapters mapping + schema conformance)
         run: npm test
 
+      - name: PII scan (no account/meter/identity data in contributed plans)
+        run: npm run pii
+
       - name: Validate tariffs against schema/v1 (+ unique id, compliance rules)
         run: npm run validate
 

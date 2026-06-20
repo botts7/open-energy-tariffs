@@ -7,9 +7,10 @@
   "license": "MIT",
   "scripts": {
     "validate": "node scripts/validate.mjs",
+    "pii": "node scripts/pii-scan.mjs",
     "build": "node scripts/build.mjs",
     "test": "node --test",
-    "check": "node --test && node scripts/validate.mjs && node scripts/build.mjs"
+    "check": "node --test && node scripts/pii-scan.mjs && node scripts/validate.mjs && node scripts/build.mjs"
   },
   "devDependencies": {
     "ajv": "^8.17.1",

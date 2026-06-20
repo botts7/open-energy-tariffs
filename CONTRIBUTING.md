@@ -19,8 +19,9 @@ number, NMI/MPAN/meter id, address, name). Only the plan *structure*.
    - Optional: `supply.daily` (daily charge), `export` (solar feed-in),
      `controlledLoad[]`, `seasons[]`.
 4. Validate + build: `npm install` then `npm run check`
-   (`validate` = ajv + unique-id + compliance; `build` regenerates `index.json`).
-   CI runs this on every PR.
+   (runs tests + `pii` scan + `validate` = ajv + unique-id + compliance, then
+   `build` regenerates `index.json`). CI runs all of this on every PR; the **PII
+   scan** rejects any account/meter/identity data.
 5. Set `meta.verified: true` only if you confirmed the rates against an
    authoritative source/bill, and add `meta.verifiedAgainst`; otherwise leave `false`.
 

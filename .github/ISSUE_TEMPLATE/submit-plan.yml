@@ -1,0 +1,56 @@
+name: Submit a tariff plan
+description: Share an electricity plan's STRUCTURE (no personal data) — a maintainer turns it into a PR.
+title: "[plan] <provider> <plan name>"
+labels: ["plan-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing! Share only the plan **structure** — never your
+        account number, NMI/MPAN, meter id, name, address, email or phone.
+        Apps with a "submit my plan" button pre-fill this from your local tariff
+        (private fields stripped) and open it for you.
+  - type: input
+    id: country
+    attributes:
+      label: Country (ISO-2)
+      placeholder: AU
+    validations: { required: true }
+  - type: input
+    id: region
+    attributes:
+      label: Region / state / network
+      placeholder: NSW (Ausgrid)
+  - type: input
+    id: provider
+    attributes:
+      label: Retailer
+      placeholder: AGL
+    validations: { required: true }
+  - type: input
+    id: plan
+    attributes:
+      label: Plan name
+      placeholder: Night Saver EV
+    validations: { required: true }
+  - type: textarea
+    id: tariff
+    attributes:
+      label: Tariff JSON (canonical, or your app's export)
+      description: Paste the `tariff` object (bands + interval schedule + supply/export). See schema/v1.
+      render: json
+    validations: { required: true }
+  - type: input
+    id: source
+    attributes:
+      label: Source of the rates
+      placeholder: link to the plan page, or "own bill"
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: This contains NO personal data (no account/NMI/MPAN/meter/name/address).
+          required: true
+        - label: This is not copied from a source that forbids redistribution (e.g. Octopus).
+          required: true
