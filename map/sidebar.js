@@ -111,19 +111,42 @@ OET.initSidebar = function () {
   root.appendChild(reset);
   root.appendChild(list);
 
-  function predicate() {
+  const postcodesOf = (r) => (r.meta.coverage && r.meta.coverage.postcodes) || [];
+
+  // Build the filter predicate. Postcode queries (3-5 digits) are special:
+  //  - 3 digits = area prefix (e.g. 300 -> 3000-3099);
+  //  - 4 digits = exact; if no plan covers it, snap to the nearest COVERED
+  //    postcode (via G-NAF centroids) and note it. Otherwise free-text on `hay`.
+  function buildPredicate() {
     const q = state.text;
     const min = state.min === '' ? -Infinity : parseFloat(state.min);
     const max = state.max === '' ? Infinity : parseFloat(state.max);
     const priceOn = min > -Infinity || max < Infinity;
-    return (r) => {
-      if (q && r.hay.indexOf(q) === -1) return false;
+    const base = (r) => {
       if (state.countries.size && !state.countries.has(r.meta.country)) return false;
       if (state.sources.size && !state.sources.has(r.src)) return false;
       if (state.provider && r.meta.provider !== state.provider) return false;
       if (priceOn) { if (typeof r.rate !== 'number') return false; if (r.rate < min || r.rate > max) return false; }
       return true;
     };
+    let note = '', focus = null;
+    let textPred = (r) => !q || r.hay.indexOf(q) !== -1;
+
+    if (/^\d{3,5}$/.test(q)) {
+      const prefix = q.length < 4;
+      const known = (OET.AU_POSTCODES && OET.AU_POSTCODES[q]) || null;
+      const matchExact = (r) => postcodesOf(r).some((x) => x === q || (prefix && x.indexOf(q) === 0));
+      const area = q.slice(0, 3); // postal area
+      const matchArea = (r) => postcodesOf(r).some((x) => x.indexOf(area) === 0);
+      if (plans.some((r) => base(r) && matchExact(r))) {
+        textPred = matchExact; focus = known;                       // exact postcode / prefix
+      } else if (plans.some((r) => base(r) && matchArea(r))) {
+        note = `${q}: showing ${area}× area`; textPred = matchArea; focus = known; // snap to postal area
+      } else {
+        note = `${q}: no plans in this area`; textPred = () => false;
+      }
+    }
+    return { pred: (r) => base(r) && textPred(r), note, focus };
   }
 
   function renderList(visible) {
@@ -166,11 +189,12 @@ OET.initSidebar = function () {
   }
 
   function apply() {
-    const pred = predicate();
+    const { pred, note, focus } = buildPredicate();
     const visible = plans.filter(pred);
     OET.applyPlanFilter(pred);
     renderList(visible);
-    count.textContent = `${visible.length} / ${plans.length}`;
+    count.textContent = `${visible.length} / ${plans.length}${note ? ' · ' + note : ''}`;
+    if (focus && OET._map) OET._map.setView(focus, 11);
   }
 
   apply();
