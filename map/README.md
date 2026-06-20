@@ -30,7 +30,10 @@ just open it or serve the folder.
 | `polygons.js` | derive coverage polygons **from postcode points** via Voronoi (no boundary files) |
 | `render.js` | draw **areas** (exact polygon if bundled, else Voronoi-from-postcodes, else circle) coloured by rate; canvas renderer; exposes `PLANS`/`focusPlan`/`applyPlanFilter` |
 | `sidebar.js` | browse + filter plans (country / source / provider / price / text); list drives the map; click a plan to zoom; **"compare to my usage"** ranks plans by estimated annual cost |
-| `cost.js` | cost engine: `hourlyRates`, `usageFromAnnual`, `parseUsageCsv` (interval upload), `estimateAnnualCost` — pure; should be ported to the SDK |
+| `cost.js` | cost engine (browser mirror of `packages/sdk-js/cost.mjs`): `hourlyRates`, `usageFromAnnual`, `parseUsageCsv`, `estimateAnnualCost` |
+| `bill-pdf.js` | best-effort bill-PDF parser (lazy-loads pdf.js) → extracts total kWh to pre-fill usage |
+| `world-countries.js` / `provinces.js` | country + province polygons (Natural Earth, public domain) for national plans |
+| `au-postcodes.js` / `au-suburbs.js` | G-NAF postcode centroids + suburb→postcode (suburbs lazy-loaded) |
 | `sample.js` | embedded fallback data (the 3 real captures) |
 
 ## How coverage is plotted

@@ -94,6 +94,22 @@ OET.initSidebar = function () {
       };
       rd.readAsText(f);
     } });
+  const pdfIn = h('input', { type: 'file', accept: '.pdf', class: 'sb-input',
+    onchange: (e) => {
+      const f = e.target.files[0]; if (!f || !OET.parseBillPdf) return;
+      cmpNote.textContent = 'Reading bill PDF…';
+      const rd = new FileReader();
+      rd.onload = async () => {
+        try {
+          const { totalKwh } = await OET.parseBillPdf(rd.result);
+          if (totalKwh) {
+            state.usageKwh = String(Math.round(totalKwh)); kwhIn.value = Math.round(totalKwh); recomputeUsage();
+            cmpNote.textContent = `Bill: found ${Math.round(totalKwh).toLocaleString()} kWh — ×4 (quarterly) or ×12 (monthly) for ANNUAL`;
+          } else cmpNote.textContent = 'No kWh found in PDF — enter annual kWh manually';
+        } catch (_) { cmpNote.textContent = 'Could not read that PDF — enter annual kWh manually'; }
+      };
+      rd.readAsArrayBuffer(f);
+    } });
   const currentSel = h('select', { class: 'sb-input', onchange: (e) => { state.currentPlanId = e.target.value; apply(); } },
     [h('option', { value: '', text: 'My current plan (optional)…' })].concat(
       plans.slice().sort((a, b) => (a.meta.provider + a.meta.plan).localeCompare(b.meta.provider + b.meta.plan))
@@ -102,6 +118,7 @@ OET.initSidebar = function () {
     h('summary', { text: 'Compare to my usage' }),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Annual kWh + load shape' }), kwhIn, shapeSel]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload interval CSV (time,kWh)' }), csvIn]),
+    h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload a bill PDF (best-effort)' }), pdfIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Savings vs my current plan' }), currentSel]),
     cmpNote,
   ]);
