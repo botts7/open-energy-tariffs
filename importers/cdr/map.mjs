@@ -1,0 +1,201 @@
+// Pure mapping: AU-CDR EnergyPlanDetail -> canonical v1 entry.
+//
+// Source of truth for the input shape: the CDR Energy OpenAPI
+// (EnergyPlanDetailV*, EnergyPlanContractFull, EnergyPlanContractTariffPeriod).
+// This module is intentionally side-effect-free and framework-free so it can be
+// run at BUILD time (here) or ON-DEVICE by the SDK, and unit-tested with fixtures.
+//
+// ⚠️ Authored from the CDR spec + docs; VERIFY against a real captured response
+// (see fixtures/ + README) before trusting committed output — the assistant
+// could not exercise the live API (the x-v header isn't settable from its fetch).
+
+const DAY_MAP = {
+  MON: 'mon', TUE: 'tue', WED: 'wed', THU: 'thu', FRI: 'fri', SAT: 'sat', SUN: 'sun',
+};
+const WEEKDAYS = ['mon', 'tue', 'wed', 'thu', 'fri'];
+const WEEKEND = ['sat', 'sun'];
+const ALL7 = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// AU distributor (network) -> state, for region + identity. Extend as needed;
+// unknown distributors leave region "" (still valid).
+const DISTRIBUTOR_STATE = {
+  Ausgrid: 'NSW', Endeavour: 'NSW', 'Endeavour Energy': 'NSW',
+  Essential: 'NSW', 'Essential Energy': 'NSW',
+  Energex: 'QLD', Ergon: 'QLD', 'Ergon Energy': 'QLD',
+  SAPN: 'SA', 'SA Power Networks': 'SA',
+  Citipower: 'VIC', CitiPower: 'VIC', Powercor: 'VIC', Jemena: 'VIC',
+  Ausnet: 'VIC', 'AusNet Services': 'VIC', United: 'VIC', 'United Energy': 'VIC',
+  TasNetworks: 'TAS', Evoenergy: 'ACT',
+};
+
+export function slug(s) {
+  return String(s ?? '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+// CDR money strings are dollars per unit, e.g. "0.0800". -> number.
+export function money(v) {
+  if (v == null) return undefined;
+  const n = Number(String(v).trim());
+  return Number.isFinite(n) ? n : undefined;
+}
+
+// CDR time strings appear as "0700", "07:00", "07:00:00". -> canonical "HH:MM".
+// A 00:00 used as an END boundary means end-of-day, mapped to "24:00".
+export function toHHMM(v, { isEnd = false } = {}) {
+  const digits = String(v ?? '').replace(/\D/g, '');
+  if (digits.length < 4) return undefined;
+  const hh = digits.slice(0, 2);
+  const mm = digits.slice(2, 4);
+  const out = `${hh}:${mm}`;
+  return isEnd && out === '00:00' ? '24:00' : out;
+}
+
+// CDR days[] (with BUSINESS_DAYS / PUBLIC_HOLIDAYS) -> canonical day-set.
+export function mapDays(days = []) {
+  const set = new Set();
+  for (const d of days) {
+    if (d === 'BUSINESS_DAYS') WEEKDAYS.forEach((x) => set.add(x));
+    else if (d === 'PUBLIC_HOLIDAYS') continue; // not modelled in v1
+    else if (DAY_MAP[d]) set.add(DAY_MAP[d]);
+  }
+  const list = ALL7.filter((d) => set.has(d));
+  if (list.length === 7) return 'all';
+  if (eq(list, WEEKDAYS)) return 'weekday';
+  if (eq(list, WEEKEND)) return 'weekend';
+  return list;
+}
+const eq = (a, b) => a.length === b.length && a.every((x, i) => x === b[i]);
+
+function pickElectricityContract(detail) {
+  // EnergyPlanDetail nests the contract under electricityContract (or
+  // gasContract). Some payloads wrap in { data: ... }.
+  const d = detail?.data ?? detail;
+  return { plan: d, contract: d?.electricityContract };
+}
+
+// Build a tou import.bands[] + import.schedule[] from a tariffPeriod's
+// timeOfUseRates[]. Bands are keyed by `type` (PEAK/OFF_PEAK/SHOULDER) falling
+// back to a slug of displayName.
+function mapTimeOfUse(timeOfUseRates = []) {
+  const bands = [];
+  const schedule = [];
+  const seen = new Set();
+  for (const tou of timeOfUseRates) {
+    const id = slug(tou.type || tou.displayName || `band-${bands.length}`);
+    if (!seen.has(id)) {
+      seen.add(id);
+      bands.push({
+        id,
+        name: tou.displayName || tou.type || id,
+        rate: money(tou.rates?.[0]?.unitPrice) ?? 0,
+      });
+    }
+    for (const w of tou.timeOfUse || []) {
+      const from = toHHMM(w.startTime);
+      const to = toHHMM(w.endTime, { isEnd: true });
+      if (from && to) schedule.push({ days: mapDays(w.days), from, to, band: id });
+    }
+  }
+  return { bands, schedule };
+}
+
+function mapSupply(tp) {
+  const daily = money(tp?.dailySupplyCharges);
+  return daily != null ? { daily } : undefined;
+}
+
+function mapExport(solarFeedInTariff = []) {
+  const sfit = solarFeedInTariff[0];
+  if (!sfit) return undefined;
+  if (sfit.tariffUType === 'singleTariff' || sfit.singleTariff) {
+    const amount = money(sfit.singleTariff?.amount ?? sfit.singleTariff?.rates?.[0]?.unitPrice);
+    if (amount != null) return { flatRate: amount };
+  }
+  // time-varying export not modelled in v1 — caller should log this skip.
+  return undefined;
+}
+
+function mapControlledLoad(controlledLoad = []) {
+  const out = [];
+  for (const cl of controlledLoad) {
+    const tp = cl.singleRate || cl.timeOfUseRates?.[0];
+    const rate = money(tp?.rates?.[0]?.unitPrice);
+    if (rate != null) {
+      out.push({ id: slug(cl.displayName || `cl-${out.length + 1}`), name: cl.displayName || 'Controlled load', rate });
+    }
+  }
+  return out.length ? out : undefined;
+}
+
+/**
+ * Map a CDR EnergyPlanDetail into a canonical v1 entry.
+ * @param {object} detail  CDR EnergyPlanDetail (or { data: EnergyPlanDetail }).
+ * @param {object} [opts]  { updated: 'YYYY-MM-DD' } — stamp; pass in (no clock here).
+ * @returns {object} canonical entry { meta, tariff }
+ */
+export function mapPlanDetail(detail, opts = {}) {
+  const { plan, contract } = pickElectricityContract(detail);
+  if (!plan) throw new Error('mapPlanDetail: no plan in payload');
+
+  const provider = plan.brandName || plan.brand || 'Unknown';
+  const distributor = contract?.distributors?.[0] || plan.geography?.distributors?.[0] || '';
+  const region = DISTRIBUTOR_STATE[distributor] || '';
+  const planName = plan.displayName || plan.planId || 'Unnamed plan';
+
+  // Use the first/primary tariffPeriod. (Seasonal multi-period support is a
+  // follow-up: would populate seasons[] + band.seasonRates.)
+  const tp = contract?.tariffPeriod?.[0] || {};
+  const isTou = tp.rateBlockUType === 'timeOfUseRates' || Array.isArray(tp.timeOfUseRates);
+
+  const tariff = { kind: isTou ? 'tou' : 'flat', import: {} };
+  const supply = mapSupply(tp);
+  if (supply) tariff.supply = supply;
+
+  if (isTou) {
+    const { bands, schedule } = mapTimeOfUse(tp.timeOfUseRates);
+    tariff.import.bands = bands;
+    tariff.import.schedule = schedule;
+  } else {
+    const rate = money(tp.singleRate?.rates?.[0]?.unitPrice);
+    tariff.import.flatRate = rate ?? 0;
+  }
+
+  const exp = mapExport(contract?.solarFeedInTariff);
+  if (exp) tariff.export = exp;
+  const cl = mapControlledLoad(contract?.controlledLoad);
+  if (cl) tariff.controlledLoad = cl;
+
+  const idParts = ['au', region, distributor, provider, planName].filter(Boolean).map(slug).filter(Boolean);
+  const id = idParts.join('-');
+
+  const meta = {
+    id,
+    schemaVersion: '1',
+    country: 'AU',
+    ...(region ? { region } : {}),
+    ...(distributor ? { distributor } : {}),
+    provider,
+    plan: planName,
+    currency: 'AUD',
+    unit: 'kWh',
+    timezone: stateTz(region),
+    source: 'cdr',
+    sourceUrl: 'https://www.aer.gov.au/energy-product-reference-data',
+    license: 'CC-BY-4.0',
+    updated: opts.updated || plan.effectiveFrom?.slice(0, 10) || '1970-01-01',
+    verified: false,
+    notes: 'Imported from AER CDR generic plans. Contains data © Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.',
+  };
+
+  return { meta, tariff };
+}
+
+function stateTz(region) {
+  return {
+    NSW: 'Australia/Sydney', ACT: 'Australia/Sydney', VIC: 'Australia/Melbourne',
+    QLD: 'Australia/Brisbane', SA: 'Australia/Adelaide', TAS: 'Australia/Hobart',
+  }[region] || 'Australia/Sydney';
+}

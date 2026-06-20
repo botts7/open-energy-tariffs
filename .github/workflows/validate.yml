@@ -6,6 +6,8 @@ on:
       - 'tariffs/**'
       - 'schema/**'
       - 'scripts/**'
+      - 'importers/**'
+      - 'adapters/**'
       - 'package.json'
       - '.github/workflows/validate.yml'
   push:
@@ -23,6 +25,9 @@ jobs:
 
       - name: Install deps
         run: npm install --no-audit --no-fund
+
+      - name: Unit tests (importers/adapters mapping + schema conformance)
+        run: npm test
 
       - name: Validate tariffs against schema/v1 (+ unique id, compliance rules)
         run: npm run validate

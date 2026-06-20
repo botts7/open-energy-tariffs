@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "id": "au-nsw-ausgrid-agl-night-saver-ev",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "NSW",
+    "distributor": "Ausgrid",
+    "provider": "AGL",
+    "plan": "Night Saver EV",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-20",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data © Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER."
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        { "id": "peak", "name": "Peak", "rate": 0.4 },
+        { "id": "off-peak", "name": "Off-peak", "rate": 0.21 },
+        { "id": "shoulder", "name": "Night Saver EV", "rate": 0.08 }
+      ],
+      "schedule": [
+        { "days": "all", "from": "15:00", "to": "21:00", "band": "peak" },
+        { "days": "all", "from": "06:00", "to": "15:00", "band": "off-peak" },
+        { "days": "all", "from": "21:00", "to": "24:00", "band": "off-peak" },
+        { "days": "all", "from": "00:00", "to": "06:00", "band": "shoulder" }
+      ]
+    },
+    "supply": { "daily": 0.98 },
+    "export": { "flatRate": 0.05 }
+  }
+}
