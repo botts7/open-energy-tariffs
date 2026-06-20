@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "id": "au-qld-ergon-ergon-energy-tariff-12d",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "QLD",
+    "distributor": "Ergon",
+    "provider": "Ergon Energy",
+    "plan": "Tariff 12D",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Brisbane",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-20",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data © Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER."
+  },
+  "tariff": {
+    "kind": "tou",
+    "supply": { "daily": 1.35304 },
+    "import": {
+      "bands": [
+        { "id": "peak", "name": "Peak", "rate": 0.41556 },
+        { "id": "shoulder", "name": "Shoulder", "rate": 0.25486 },
+        { "id": "off-peak", "name": "Off peak", "rate": 0.20618 }
+      ],
+      "schedule": [
+        { "days": "all", "from": "16:00", "to": "21:00", "band": "peak" },
+        { "days": "all", "from": "21:00", "to": "11:00", "band": "shoulder" },
+        { "days": "all", "from": "11:00", "to": "16:00", "band": "off-peak" }
+      ]
+    },
+    "export": { "flatRate": 0.0866 }
+  }
+}

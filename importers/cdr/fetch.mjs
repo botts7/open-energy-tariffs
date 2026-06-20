@@ -8,10 +8,10 @@
 //
 // Uses global fetch (Node >= 18). Pure-ish: only does network I/O.
 
-const HEADERS = { 'x-v': '1', accept: 'application/json' };
-
-async function getJson(url) {
-  const res = await fetch(url, { headers: HEADERS });
+// CDR API versioning differs per endpoint: Get Generic Plans = x-v:1,
+// Get Generic Plan Detail = x-v:3 (a lower version returns 406).
+async function getJson(url, xv) {
+  const res = await fetch(url, { headers: { 'x-v': String(xv), accept: 'application/json' } });
   if (!res.ok) throw new Error(`CDR ${res.status} ${res.statusText} for ${url}`);
   return res.json();
 }
@@ -23,7 +23,7 @@ export async function fetchPlans(baseUri, { fuelType = 'ELECTRICITY', effective 
   let page = 1;
   for (;;) {
     const u = `${base}/cds-au/v1/energy/plans?fuelType=${fuelType}&effective=${effective}&page=${page}&page-size=${pageSize}`;
-    const body = await getJson(u);
+    const body = await getJson(u, 1);
     const batch = body?.data?.plans ?? [];
     plans.push(...batch);
     const total = body?.meta?.totalPages ?? 1;
@@ -36,6 +36,6 @@ export async function fetchPlans(baseUri, { fuelType = 'ELECTRICITY', effective 
 /** Fetch one plan's full detail (rate structure). */
 export async function fetchPlanDetail(baseUri, planId) {
   const base = baseUri.replace(/\/$/, '');
-  const body = await getJson(`${base}/cds-au/v1/energy/plans/${encodeURIComponent(planId)}`);
+  const body = await getJson(`${base}/cds-au/v1/energy/plans/${encodeURIComponent(planId)}`, 3);
   return body?.data ?? body;
 }

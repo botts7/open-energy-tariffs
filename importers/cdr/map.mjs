@@ -76,15 +76,26 @@ function mapTimeOfUse(timeOfUseRates = []) {
     }
     for (const w of tou.timeOfUse || []) {
       const from = toHHMM(w.startTime);
-      const to = toHHMM(w.endTime, { isEnd: true });
+      const to = endExclusive(w.endTime);
       if (from && to) schedule.push({ days: mapDays(w.days), from, to, band: id });
     }
   }
   return { bands, schedule };
 }
 
+// CDR endTime is INCLUSIVE (e.g. "20:59" means up to 21:00). Canonical `to` is
+// exclusive, so a trailing :59 rounds up to the next hour; "00:00" -> "24:00".
+function endExclusive(v) {
+  const t = toHHMM(v, { isEnd: true });
+  if (!t) return t;
+  const [hh, mm] = t.split(':').map(Number);
+  if (mm === 59) return hh >= 23 ? '24:00' : `${String(hh + 1).padStart(2, '0')}:00`;
+  return t;
+}
+
 function mapSupply(tp) {
-  const daily = money(tp?.dailySupplyCharges);
+  // Field is singular `dailySupplyCharge` in current CDR; tolerate the plural too.
+  const daily = money(tp?.dailySupplyCharge ?? tp?.dailySupplyCharges);
   return daily != null ? { daily } : undefined;
 }
 

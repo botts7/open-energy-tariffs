@@ -10,11 +10,20 @@ import { mapPlanDetail, toHHMM, mapDays, slug, money } from './map.mjs';
 const here = dirname(fileURLToPath(import.meta.url));
 const read = (p) => JSON.parse(readFileSync(join(here, p), 'utf8'));
 
-test('mapPlanDetail maps the AGL sample to the expected canonical entry', () => {
-  const detail = read('fixtures/agl-sample.detail.json');
-  const expected = read('fixtures/agl-sample.expected.json');
+test('mapPlanDetail maps the REAL Ergon Tariff 12D capture to expected canonical', () => {
+  const detail = read('fixtures/ergon-tariff12d.detail.json');
+  const expected = read('fixtures/ergon-tariff12d.expected.json');
   const got = mapPlanDetail(detail, { updated: '2026-06-20' });
   assert.deepEqual(got, expected);
+});
+
+test('CDR inclusive end times become exclusive (20:59 -> 21:00, wrap kept)', () => {
+  const got = mapPlanDetail(read('fixtures/ergon-tariff12d.detail.json'), { updated: '2026-06-20' });
+  const peak = got.tariff.import.schedule.find((s) => s.band === 'peak');
+  const shoulder = got.tariff.import.schedule.find((s) => s.band === 'shoulder');
+  assert.equal(peak.to, '21:00');           // from endTime "20:59"
+  assert.equal(shoulder.from, '21:00');
+  assert.equal(shoulder.to, '11:00');        // wraps midnight (from > to)
 });
 
 test('mapped output validates against schema/v1', () => {
@@ -22,7 +31,7 @@ test('mapped output validates against schema/v1', () => {
   const ajv = new Ajv({ allErrors: true, strict: false });
   addFormats(ajv);
   const validate = ajv.compile(schema);
-  const got = mapPlanDetail(read('fixtures/agl-sample.detail.json'), { updated: '2026-06-20' });
+  const got = mapPlanDetail(read('fixtures/ergon-tariff12d.detail.json'), { updated: '2026-06-20' });
   assert.ok(validate(got), JSON.stringify(validate.errors, null, 2));
 });
 

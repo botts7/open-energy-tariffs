@@ -1,0 +1,53 @@
+{
+  "_comment": "REAL capture (trimmed to mapped fields): GET /ergon/cds-au/v1/energy/plans/{planId} with x-v:3 from cdr.energymadeeasy.gov.au on 2026-06-20. Contains data © Australian Energy Regulator, CC BY 4.0.",
+  "data": {
+    "type": "REGULATED",
+    "brand": "ergon",
+    "planId": "ERG921992RRE1@EME",
+    "fuelType": "ELECTRICITY",
+    "brandName": "Ergon Energy",
+    "displayName": "Tariff 12D",
+    "effectiveFrom": "2025-07-01T00:00:00.000Z",
+    "geography": { "distributors": ["Ergon"] },
+    "electricityContract": {
+      "timeZone": "AEST",
+      "tariffPeriod": [
+        {
+          "displayName": "Tariff 12D",
+          "rateBlockUType": "timeOfUseRates",
+          "dailySupplyChargeType": "SINGLE",
+          "dailySupplyCharge": "1.35304",
+          "timeOfUseRates": [
+            {
+              "type": "PEAK",
+              "displayName": "Peak",
+              "rates": [{ "unitPrice": "0.41556", "measureUnit": "KWH" }],
+              "timeOfUse": [{ "days": ["MON","TUE","WED","THU","FRI","SAT","SUN"], "startTime": "16:00", "endTime": "20:59" }]
+            },
+            {
+              "type": "SHOULDER",
+              "displayName": "Shoulder",
+              "rates": [{ "unitPrice": "0.25486", "measureUnit": "KWH" }],
+              "timeOfUse": [{ "days": ["MON","TUE","WED","THU","FRI","SAT","SUN"], "startTime": "21:00", "endTime": "10:59" }]
+            },
+            {
+              "type": "OFF_PEAK",
+              "displayName": "Off peak",
+              "rates": [{ "unitPrice": "0.20618", "measureUnit": "KWH" }],
+              "timeOfUse": [{ "days": ["MON","TUE","WED","THU","FRI","SAT","SUN"], "startTime": "11:00", "endTime": "15:59" }]
+            }
+          ]
+        }
+      ],
+      "solarFeedInTariff": [
+        {
+          "scheme": "OTHER",
+          "payerType": "RETAILER",
+          "displayName": "Single Rate Solar FiT",
+          "tariffUType": "singleTariff",
+          "singleTariff": { "rates": [{ "unitPrice": "0.0866", "measureUnit": "KWH" }], "period": "P1Y" }
+        }
+      ]
+    }
+  }
+}
