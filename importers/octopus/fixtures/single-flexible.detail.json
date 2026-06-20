@@ -1,0 +1,18 @@
+{
+  "_comment": "SYNTHETIC Octopus single-register product (from the public API shape). Rates illustrative pence/kWh. Replace with a real GET /v1/products/{code}/ to verify.",
+  "code": "VAR-22-11-01",
+  "full_name": "Flexible Octopus November 2022 v1",
+  "display_name": "Flexible Octopus",
+  "is_variable": true,
+  "is_tracker": false,
+  "available_from": "2022-11-01T00:00:00Z",
+  "single_register_electricity_tariffs": {
+    "_A": {
+      "direct_debit_monthly": {
+        "code": "E-1R-VAR-22-11-01-A",
+        "standing_charge_inc_vat": 47.5,
+        "standard_unit_rate_inc_vat": 28.0
+      }
+    }
+  }
+}

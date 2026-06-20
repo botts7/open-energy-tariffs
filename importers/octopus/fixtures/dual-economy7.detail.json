@@ -1,0 +1,18 @@
+{
+  "_comment": "SYNTHETIC Octopus dual-register (Economy 7) product. Day/night pence/kWh illustrative. The night WINDOW is meter-specific and not in the API — the importer applies a default (00:30-07:30).",
+  "code": "ECO7-22-11-01",
+  "full_name": "Economy 7 Octopus November 2022 v1",
+  "display_name": "Economy 7 Octopus",
+  "is_tracker": false,
+  "available_from": "2022-11-01T00:00:00Z",
+  "dual_register_electricity_tariffs": {
+    "_A": {
+      "direct_debit_monthly": {
+        "code": "E-2R-ECO7-22-11-01-A",
+        "standing_charge_inc_vat": 47.5,
+        "day_unit_rate_inc_vat": 38.0,
+        "night_unit_rate_inc_vat": 9.5
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "id": "gb-a-octopus-var-22-11-01",
+    "schemaVersion": "1",
+    "country": "GB",
+    "region": "A",
+    "provider": "Octopus Energy",
+    "plan": "Flexible Octopus",
+    "currency": "GBP",
+    "unit": "kWh",
+    "timezone": "Europe/London",
+    "source": "octopus",
+    "sourceUrl": "https://octopus.energy/",
+    "license": "other",
+    "updated": "2026-06-20",
+    "verified": false,
+    "notes": "Imported ON-DEVICE from the Octopus API for personal use. NOT redistributable — never commit to the database (source:octopus is rejected by the stored schema)."
+  },
+  "tariff": {
+    "kind": "flat",
+    "supply": { "daily": 0.475 },
+    "import": { "flatRate": 0.28 }
+  }
+}

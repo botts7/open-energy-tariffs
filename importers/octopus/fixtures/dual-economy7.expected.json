@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "gb-a-octopus-eco7-22-11-01",
+    "schemaVersion": "1",
+    "country": "GB",
+    "region": "A",
+    "provider": "Octopus Energy",
+    "plan": "Economy 7 Octopus",
+    "currency": "GBP",
+    "unit": "kWh",
+    "timezone": "Europe/London",
+    "source": "octopus",
+    "sourceUrl": "https://octopus.energy/",
+    "license": "other",
+    "updated": "2026-06-20",
+    "verified": false,
+    "notes": "Imported ON-DEVICE from the Octopus API for personal use. NOT redistributable — never commit to the database (source:octopus is rejected by the stored schema)."
+  },
+  "tariff": {
+    "kind": "tou",
+    "supply": { "daily": 0.475 },
+    "import": {
+      "bands": [
+        { "id": "day", "name": "Day", "rate": 0.38 },
+        { "id": "night", "name": "Night", "rate": 0.095 }
+      ],
+      "schedule": [
+        { "days": "all", "from": "00:00", "to": "00:30", "band": "day" },
+        { "days": "all", "from": "00:30", "to": "07:30", "band": "night" },
+        { "days": "all", "from": "07:30", "to": "24:00", "band": "day" }
+      ]
+    }
+  }
+}
