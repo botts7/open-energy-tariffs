@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "id": "mx-cfe-domestico-tier1",
+    "schemaVersion": "1",
+    "country": "MX",
+    "provider": "CFE",
+    "plan": "Doméstico 1 (tier 1, básico)",
+    "currency": "MXN",
+    "unit": "kWh",
+    "timezone": "America/Mexico_City",
+    "source": "manual",
+    "sourceUrl": "https://www.cfe.mx/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Mexico CFE 'Doméstico' (tariff 1) is a stepped slab: básico / intermedio / excedente at rising rates (the high-consumption DAC tariff is separate). Block tiers are a v1.1 schema feature — modelled here as the básico step. Rate APPROXIMATE (~2026) in MXN/kWh — verify with CFE. Excludes the fixed charge. National (non-DAC, temperate region).",
+    "coverage": { "national": true }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": { "flatRate": 0.95 }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "id": "gr-market-typical-flat",
+    "schemaVersion": "1",
+    "country": "GR",
+    "provider": "Greece (market)",
+    "plan": "Typical single-rate (blue)",
+    "currency": "EUR",
+    "unit": "kWh",
+    "timezone": "Europe/Athens",
+    "source": "manual",
+    "sourceUrl": "https://www.rae.gr/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Greece liberalised market; typical fixed (\"blue\") single-rate household plan (PPC/DEI and others). Rate APPROXIMATE (~2026) in EUR/kWh — verify with your supplier / RAE. Excludes network charges + levies. National.",
+    "coverage": { "national": true }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": { "flatRate": 0.19 }
+  }
+}

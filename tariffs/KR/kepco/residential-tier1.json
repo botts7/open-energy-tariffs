@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "id": "kr-kepco-residential-tier1",
+    "schemaVersion": "1",
+    "country": "KR",
+    "provider": "KEPCO",
+    "plan": "Residential progressive (tier 1)",
+    "currency": "KRW",
+    "unit": "kWh",
+    "timezone": "Asia/Seoul",
+    "source": "manual",
+    "sourceUrl": "https://home.kepco.co.kr/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "South Korea KEPCO residential is a 3-step progressive (block) tariff (≤200, 201-400, >400 kWh/month at rising rates). Block tiers are a v1.1 schema feature — modelled here as the lowest step. Rate APPROXIMATE (~2026) in KRW/kWh — verify with KEPCO. Excludes the monthly base charge. National.",
+    "coverage": { "national": true }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": { "flatRate": 120.0 }
+  }
+}

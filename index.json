@@ -1,4 +1,15 @@
 {
+  "AT": {
+    "": {
+      "Austria (market)": [
+        {
+          "id": "at-markt-typical-flat",
+          "plan": "Typical single-rate",
+          "verified": false
+        }
+      ]
+    }
+  },
   "AU": {
     "ACT": {
       "EnergyAustralia": [
@@ -346,6 +357,17 @@
       ]
     }
   },
+  "CH": {
+    "": {
+      "Switzerland (Doppeltarif)": [
+        {
+          "id": "ch-doppeltarif-hoch-nieder",
+          "plan": "Hoch-/Niedertarif (HT/NT, typical)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "DE": {
     "": {
       "Germany (Grundversorgung)": [
@@ -400,6 +422,17 @@
       ]
     }
   },
+  "GR": {
+    "": {
+      "Greece (market)": [
+        {
+          "id": "gr-market-typical-flat",
+          "plan": "Typical single-rate (blue)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "IE": {
     "": {
       "Ireland (smart tariff)": [
@@ -439,6 +472,28 @@
         {
           "id": "jp-tepco-juryo-lighting-b",
           "plan": "Juryo Lighting B (tier 1)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "KR": {
+    "": {
+      "KEPCO": [
+        {
+          "id": "kr-kepco-residential-tier1",
+          "plan": "Residential progressive (tier 1)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "MX": {
+    "": {
+      "CFE": [
+        {
+          "id": "mx-cfe-domestico-tier1",
+          "plan": "Doméstico 1 (tier 1, básico)",
           "verified": false
         }
       ]
