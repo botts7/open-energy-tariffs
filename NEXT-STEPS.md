@@ -144,9 +144,24 @@ TODO **in THIS repo / session** (app-agnostic core, roughly in order):
   `tariffs/<country>/`, `--currency`). Live OpenEI API is US-only today;
   international needs the IURDB bulk dump through the same `mapRate()`.
 
-Remaining = publish + a map + the Wallbox-session consumer:
-- **Coverage map** (optional new `map/` static viewer, or leave to consumers):
-  load `dist/`, join `meta.coverage` to boundary GeoJSON, shade a choropleth.
+- ✅ **Coverage map** (`map/`) — static Leaflet viewer, verified in-browser:
+  plans drawn as **AREAS** coloured by rate, source toggle + "what's in my area"
+  filter; demo spans QLD/NSW/VIC/SA + UK + US. Three area modes: exact GeoJSON
+  polygon if bundled (`boundaries.js`), else **Voronoi polygon derived from
+  postcodes** (`polygons.js`, d3-delaunay — our own logic, no boundary files),
+  else region circle. **`pages.yml`** deploys map + live `dist/` to GitHub Pages.
+  Real polygon upgrade = bundle ABS POA / DNO / HIFLD GeoJSON (or feed full
+  postcode point sets to the Voronoi path).
+
+Remaining = fill the DB + publish + the Wallbox-session consumer:
+- **Bulk-import AU**: run `importers/cdr/run.mjs` across all AER retailer base URIs
+  (13 confirmed live: agl, originenergy, energyaustralia, red, alintaenergy,
+  simplyenergy, powershop, momentum, globird, dodo, lumo, nectr, ovoenergy, ergon —
+  `cdr.energymadeeasy.gov.au/<retailer>`). Covers NSW/VIC/SA/ACT/TAS/QLD; **WA & NT
+  are NOT in CDR**. The map only shows what's imported.
+- **GitHub Pages** to host the map + browser GUI: needs a Pages workflow that
+  builds `dist/` (git-ignored) and publishes it alongside `map/` so the live fetch
+  works (see ARCHITECTURE §5). The map already supports this (http → live `dist/`).
 - Optionally commit one real bulk-store entry per source to `tariffs/` (e.g. run
   `importers/cdr/run.mjs --base https://cdr.energymadeeasy.gov.au/ergon` then
   `npm run validate`) so the DB ships real data, not just examples.

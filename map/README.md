@@ -27,6 +27,7 @@ just open it or serve the folder.
 | `data.js` | load the bundle (live `dist/` → embedded sample); pick a representative rate |
 | `geo.js` | resolve `meta.coverage` → map points + type (built-in centroid tables) |
 | `boundaries.js` | optional: load real boundary GeoJSON → exact coverage polygons |
+| `polygons.js` | derive coverage polygons **from postcode points** via Voronoi (no boundary files) |
 | `render.js` | draw **areas** (exact polygon if bundled, else a filled circle sized by type) coloured by rate, popups, source toggle, legend, "what's in my area" filter |
 | `sample.js` | embedded fallback data (the 3 real captures) |
 
@@ -40,9 +41,14 @@ Each plan is drawn as an **area**, coloured by rate:
    - AU `coverage.postcodes` → ABS POA 2021 boundaries
    - UK `coverage.gsp` → DNO licence-area GeoJSON (14 regions)
    - US `coverage.utilityId` (`eiaid`) → EIA/HIFLD service territories
-2. **Approximate area** — with no boundary bundled, a filled circle sized by
-   coverage type (postcode ≈ 6 km, GSP/utility ≈ region) so it still reads as an
-   area, not a pinpoint. Zoom in to see suburb-level postcode areas.
+2. **Derived polygon (Voronoi)** — with no boundary bundled, postcodes are turned
+   into real polygons by a Voronoi tessellation (`polygons.js`): each postcode
+   point claims the area nearest to it, and the plan's coverage is the union of
+   those cells. No boundary files needed — just the postcode→lat/lng points. It's
+   an approximation (bounding-box-clipped here) that sharpens as you feed more
+   points; feed a whole country's postcodes for near-real cells.
+3. **Area circle** — GSP/utility coverage (a single region centroid) is drawn as a
+   circle sized to the region.
 
 Unknown coverage keys are skipped and counted (never silently dropped — see the
 info bar). Adding real boundaries changes only `boundaries/`; the rest is unchanged.
