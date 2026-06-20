@@ -378,12 +378,45 @@
       ]
     }
   },
+  "IE": {
+    "": {
+      "Ireland (smart tariff)": [
+        {
+          "id": "ie-esb-smart-day-night-peak",
+          "plan": "Day / Night / Peak (typical smart)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "IT": {
+    "": {
+      "Italy (ARERA fasce)": [
+        {
+          "id": "it-regulated-fasce-f1-f2-f3",
+          "plan": "Bioraria/Multioraria F1·F2·F3 (typical)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "JP": {
     "": {
       "TEPCO": [
         {
           "id": "jp-tepco-juryo-lighting-b",
           "plan": "Juryo Lighting B (tier 1)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "NZ": {
+    "": {
+      "Contact Energy": [
+        {
+          "id": "nz-contact-basic",
+          "plan": "Basic (illustrative)",
           "verified": false
         }
       ]

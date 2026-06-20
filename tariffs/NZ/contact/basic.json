@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "id": "nz-contact-basic",
+    "schemaVersion": "1",
+    "country": "NZ",
+    "provider": "Contact Energy",
+    "plan": "Basic (illustrative)",
+    "currency": "NZD",
+    "unit": "kWh",
+    "timezone": "Pacific/Auckland",
+    "source": "manual",
+    "sourceUrl": "https://contact.co.nz/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Illustrative NZ residential flat (anytime) rate. NZ's comprehensive plan database is Consumer NZ's Powerswitch (proprietary — not redistributable, treat like Octopus); hand-curate individual retailers' publicly-listed rates instead. Rate APPROXIMATE (~2026) — verify with the retailer. Excludes daily fixed charge. National.",
+    "coverage": { "national": true }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": { "flatRate": 0.30 }
+  }
+}

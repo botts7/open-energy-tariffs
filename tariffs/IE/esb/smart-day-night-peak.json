@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "id": "ie-esb-smart-day-night-peak",
+    "schemaVersion": "1",
+    "country": "IE",
+    "provider": "Ireland (smart tariff)",
+    "plan": "Day / Night / Peak (typical smart)",
+    "currency": "EUR",
+    "unit": "kWh",
+    "timezone": "Europe/Dublin",
+    "source": "manual",
+    "sourceUrl": "https://www.cru.ie/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Ireland typical smart-meter time bands (ESB Networks): Night 23:00-08:00, Peak 17:00-19:00, Day otherwise. Suppliers set their own prices on these bands; rates here are APPROXIMATE (~2026) — verify with your supplier (e.g. Electric Ireland, Bord Gáis, SSE). Excludes standing charge + PSO levy. National.",
+    "coverage": { "national": true }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        { "id": "peak", "name": "Peak (17-19)", "rate": 0.42 },
+        { "id": "day", "name": "Day", "rate": 0.36 },
+        { "id": "night", "name": "Night (23-08)", "rate": 0.20 }
+      ],
+      "schedule": [
+        { "days": "all", "from": "00:00", "to": "08:00", "band": "night" },
+        { "days": "all", "from": "08:00", "to": "17:00", "band": "day" },
+        { "days": "all", "from": "17:00", "to": "19:00", "band": "peak" },
+        { "days": "all", "from": "19:00", "to": "23:00", "band": "day" },
+        { "days": "all", "from": "23:00", "to": "24:00", "band": "night" }
+      ]
+    }
+  }
+}
