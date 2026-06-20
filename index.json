@@ -303,6 +303,17 @@
       ]
     }
   },
+  "BE": {
+    "": {
+      "Belgium (tweevoudig)": [
+        {
+          "id": "be-tweevoudig-dag-nacht",
+          "plan": "Dag/Nacht (two-rate, typical)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "BR": {
     "SP": {
       "Enel SP": [
@@ -330,6 +341,17 @@
         {
           "id": "ca-on-ontario-oeb-rpp-ultra-low-overnight",
           "plan": "RPP Ultra-Low Overnight (ULO)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "DE": {
+    "": {
+      "Germany (Grundversorgung)": [
+        {
+          "id": "de-grundversorgung-typical-flat",
+          "plan": "Typical single-rate (Eintarif)",
           "verified": false
         }
       ]
@@ -389,6 +411,17 @@
       ]
     }
   },
+  "IN": {
+    "MH": {
+      "MSEDCL (Maharashtra)": [
+        {
+          "id": "in-mh-msedcl-residential-lt-tier1",
+          "plan": "Residential LT-I (tier 1)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "IT": {
     "": {
       "Italy (ARERA fasce)": [
@@ -411,12 +444,45 @@
       ]
     }
   },
+  "NL": {
+    "": {
+      "Netherlands (dubbeltarief)": [
+        {
+          "id": "nl-dubbeltarief-dag-nacht",
+          "plan": "Dag/Nacht (double tariff, typical)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "NZ": {
     "": {
       "Contact Energy": [
         {
           "id": "nz-contact-basic",
           "plan": "Basic (illustrative)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "PL": {
+    "": {
+      "Poland (taryfa G12)": [
+        {
+          "id": "pl-taryfa-g12",
+          "plan": "G12 (two-zone day/night)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "PT": {
+    "": {
+      "Portugal (bi-horário)": [
+        {
+          "id": "pt-regulado-bi-horario",
+          "plan": "Bi-horário (two-rate, typical)",
           "verified": false
         }
       ]

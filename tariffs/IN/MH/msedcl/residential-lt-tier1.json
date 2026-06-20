@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "id": "in-mh-msedcl-residential-lt-tier1",
+    "schemaVersion": "1",
+    "country": "IN",
+    "region": "MH",
+    "provider": "MSEDCL (Maharashtra)",
+    "plan": "Residential LT-I (tier 1)",
+    "currency": "INR",
+    "unit": "kWh",
+    "timezone": "Asia/Kolkata",
+    "source": "manual",
+    "sourceUrl": "https://www.mahadiscom.in/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "India MSEDCL (Maharashtra) residential LT-I is a stepped slab tariff (0-100, 101-300, 301-500, >500 kWh/month at rising rates set by MERC). Block tiers are a v1.1 schema feature — modelled here as the lowest slab. Rate APPROXIMATE (~2026) in INR/kWh — verify with MERC/MSEDCL. Excludes fixed charge, wheeling, FAC. Maharashtra (shaded at country level — no IN state polygons bundled yet).",
+    "coverage": { "national": true }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": { "flatRate": 4.71 }
+  }
+}
