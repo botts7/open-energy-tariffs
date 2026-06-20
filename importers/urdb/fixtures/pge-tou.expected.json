@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "id": "us-ca-pacific-gas-electric-co-residential-time-of-use-e-tou-c",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "CA",
+    "provider": "Pacific Gas & Electric Co",
+    "plan": "Residential Time of Use E-TOU-C",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/abc123def456",
+    "license": "CC0-1.0",
+    "updated": "2026-06-20",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill."
+  },
+  "tariff": {
+    "kind": "tou",
+    "supply": { "daily": 0.39 },
+    "import": {
+      "bands": [
+        { "id": "p0", "name": "Period 1", "rate": 0.4 },
+        { "id": "p1", "name": "Period 2", "rate": 0.3 }
+      ],
+      "schedule": [
+        { "days": "all", "from": "00:00", "to": "16:00", "band": "p1" },
+        { "days": "all", "from": "16:00", "to": "21:00", "band": "p0" },
+        { "days": "all", "from": "21:00", "to": "24:00", "band": "p1" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "id": "us-tx-example-electric-co-residential-flat-r-1",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "TX",
+    "provider": "Example Electric Co",
+    "plan": "Residential Flat R-1",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Chicago",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/flat123",
+    "license": "CC0-1.0",
+    "updated": "2026-06-20",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill."
+  },
+  "tariff": {
+    "kind": "flat",
+    "supply": { "daily": 0.3 },
+    "import": { "flatRate": 0.15 }
+  }
+}
