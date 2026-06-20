@@ -5,12 +5,12 @@
     "plan": "Economy 7 (example)",
     "currency": "GBP",
     "unit": "kWh",
-    "source": "octopus",
+    "source": "manual",
     "sourceUrl": "https://developer.octopus.energy/",
     "license": "CC0-1.0",
     "updated": "2026-06-20",
     "verified": false,
-    "notes": "EXAMPLE only. Economy 7 = ~7 night hours cheaper; the exact window depends on the meter/region and rates vary by region+date. Octopus exposes real products/tariffs via its public API - an importer should pull live rates by region code rather than hard-coding."
+    "notes": "EXAMPLE only - hand-authored structure with INVENTED rates; NOT copied from Octopus. Economy 7 = ~7 night hours cheaper; the exact window depends on the meter/region and rates vary by region+date. Octopus's ToS forbids redistributing its content, so real Octopus rates must be imported ON-DEVICE via its public API by region code, never bulk-stored here. sourceUrl is an informational pointer only."
   },
   "tariff": {
     "type": "tou",

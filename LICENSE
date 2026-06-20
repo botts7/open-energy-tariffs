@@ -22,4 +22,7 @@ SOFTWARE.
 
 Note: data files under tariffs/ are dedicated to the public domain (CC0-1.0)
 except where an entry's meta.license states otherwise (imported data retains
-its source's licence).
+its source's licence). Imported data carries its source's terms and attribution
+per entry -- AER generic-plan data is CC BY 4.0 (attribution required), URDB is
+CC0, and Octopus data is never redistributed (on-device import only). See
+ATTRIBUTION.md.

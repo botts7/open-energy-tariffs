@@ -6,12 +6,12 @@
     "plan": "Flat residential (example)",
     "currency": "USD",
     "unit": "kWh",
-    "source": "urdb",
+    "source": "manual",
     "sourceUrl": "https://openei.org/wiki/Utility_Rate_Database",
     "license": "CC0-1.0",
     "updated": "2026-06-20",
     "verified": false,
-    "notes": "EXAMPLE only. US utility rates are in NREL's OpenEI URDB (~50k rates) with a free API. An importer should map URDB energyratestructure -> this schema; many US rates are flat or simple tiered."
+    "notes": "EXAMPLE only - hand-authored with an INVENTED rate; NOT imported from URDB. US utility rates live in NREL's OpenEI URDB (~50k rates, CC0) with a free API; URDB being CC0 means an importer MAY bulk-store mapped URDB rates (license: CC0-1.0, source: urdb) - this stub just demonstrates the flat shape."
   },
   "tariff": {
     "type": "flat",
