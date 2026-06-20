@@ -1,0 +1,3 @@
+country,region,provider,plan,currency,flatRate,supplyDaily,national,notes
+NZ,,Contact Energy,Basic (example),NZD,0.28,1.20,yes,"Example NZ flat plan — illustrative, verify"
+IE,,Electric Ireland,Standard (example),EUR,0.35,0.95,yes,"Example IE flat plan — illustrative, verify"
