@@ -1,0 +1,211 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/OWNER/open-energy-tariffs/schema/v1/tariff.schema.json",
+  "title": "Energy tariff entry (canonical v1)",
+  "description": "One electricity plan in the neutral, interval-based canonical model. App shapes (e.g. the Wallbox 24-hour band arrays) are produced by build-time adapters from this. Times are LOCAL hour-of-day in the meter's timezone (meta.timezone).",
+  "type": "object",
+  "required": ["meta", "tariff"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "description": "Public, non-personal metadata for pick-lists, identity + attribution.",
+      "required": ["id", "schemaVersion", "country", "provider", "plan", "currency", "source", "license", "updated"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+          "description": "Canonical identity key: country-region-distributor-provider-planslug, e.g. au-nsw-ausgrid-agl-night-saver-ev. Unique across the repo."
+        },
+        "schemaVersion": { "type": "string", "const": "1" },
+        "country": { "type": "string", "pattern": "^[A-Z]{2}$", "description": "ISO 3166-1 alpha-2, e.g. AU, GB, US." },
+        "region": { "type": "string", "description": "State / jurisdiction, e.g. NSW." },
+        "regions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "When one identical plan spans several regions/networks."
+        },
+        "distributor": { "type": "string", "description": "Network / DNO, e.g. Ausgrid. Part of identity." },
+        "provider": { "type": "string", "description": "Retailer, e.g. AGL, Octopus Energy." },
+        "plan": { "type": "string", "description": "Plan name, e.g. Night Saver EV." },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$", "description": "ISO 4217, e.g. AUD, GBP, USD." },
+        "unit": { "type": "string", "default": "kWh", "description": "Rate denominator." },
+        "timezone": { "type": "string", "description": "IANA TZ the schedule from/to times are local to, e.g. Australia/Sydney." },
+        "source": {
+          "type": "string",
+          "enum": ["manual", "cdr", "urdb", "provider", "other"],
+          "description": "Provenance of the stored data. NOTE: 'octopus' is intentionally excluded — Octopus data is on-device-import only and must never be bulk-stored (see ATTRIBUTION.md)."
+        },
+        "sourceUrl": { "type": "string", "description": "Link to the source / plan page." },
+        "license": {
+          "type": "string",
+          "enum": ["CC0-1.0", "CC-BY-4.0", "other"],
+          "default": "CC0-1.0",
+          "description": "Licence of THIS entry's data. 'manual'/'urdb' => CC0-1.0; 'cdr' => CC-BY-4.0 (enforced below)."
+        },
+        "contributor": { "type": "string", "description": "Optional handle of the submitter (no personal data)." },
+        "updated": { "type": "string", "format": "date", "description": "YYYY-MM-DD the rates were last verified." },
+        "verified": { "type": "boolean", "default": false, "description": "Confirmed against an authoritative source/bill." },
+        "verifiedAgainst": { "type": "string", "description": "Evidence for verified=true: source URL or 'own bill'." },
+        "notes": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "description": "AER CDR data is CC BY 4.0 — attribution required.",
+          "if": { "properties": { "source": { "const": "cdr" } }, "required": ["source"] },
+          "then": { "properties": { "license": { "const": "CC-BY-4.0" } } }
+        }
+      ]
+    },
+
+    "tariff": {
+      "type": "object",
+      "description": "The neutral canonical tariff. Interval-based; lossless.",
+      "required": ["kind", "import"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "type": "string", "enum": ["flat", "tou"] },
+        "validFrom": { "type": "string", "format": "date", "description": "YYYY-MM-DD the current rates took effect. Omit = always." },
+        "supply": {
+          "type": "object",
+          "description": "Fixed daily supply charge.",
+          "required": ["daily"],
+          "additionalProperties": false,
+          "properties": { "daily": { "type": "number", "minimum": 0, "description": "Native unit per day." } }
+        },
+        "import": { "$ref": "#/$defs/rateStructure" },
+        "export": {
+          "description": "Solar feed-in (export) tariff. Optional.",
+          "$ref": "#/$defs/rateStructure"
+        },
+        "controlledLoad": {
+          "type": "array",
+          "description": "Separately metered circuits (e.g. AU CL1/CL2). Optional.",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "rate"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "rate": { "type": "number", "minimum": 0 },
+              "schedule": { "type": "array", "items": { "$ref": "#/$defs/interval" } }
+            }
+          }
+        },
+        "seasons": {
+          "type": "array",
+          "description": "Season windows by 0-indexed month; ranges may wrap the year.",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "from", "to"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "from": { "type": "integer", "minimum": 0, "maximum": 11 },
+              "to": { "type": "integer", "minimum": 0, "maximum": 11 }
+            }
+          }
+        },
+        "demand": {
+          "type": "array",
+          "description": "RESERVED (v1.1): demand charges (per kW of peak demand).",
+          "items": {
+            "type": "object",
+            "required": ["rate"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string" },
+              "rate": { "type": "number", "minimum": 0, "description": "Per kW." },
+              "window": { "$ref": "#/$defs/interval" }
+            }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "description": "flat plans need import.flatRate.",
+          "if": { "properties": { "kind": { "const": "flat" } } },
+          "then": { "properties": { "import": { "required": ["flatRate"] } } }
+        },
+        {
+          "description": "tou plans need import.bands + import.schedule.",
+          "if": { "properties": { "kind": { "const": "tou" } } },
+          "then": { "properties": { "import": { "required": ["bands", "schedule"] } } }
+        }
+      ]
+    }
+  },
+
+  "$defs": {
+    "rateStructure": {
+      "type": "object",
+      "description": "A buy (import) or sell (export) structure: flat rate, or bands painted by an interval schedule.",
+      "additionalProperties": false,
+      "properties": {
+        "flatRate": { "type": "number", "minimum": 0, "description": "Single per-unit rate (used when kind=flat, or a flat export rate)." },
+        "bands": {
+          "type": "array",
+          "description": "Named rate bands referenced by the schedule.",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "rate"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string", "description": "Stable key referenced by schedule[].band." },
+              "name": { "type": "string" },
+              "rate": { "type": "number", "minimum": 0, "description": "Default per-unit rate." },
+              "color": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$", "description": "Hex colour for the UI." },
+              "seasonRates": {
+                "type": "object",
+                "description": "Per-season override rates keyed by season id.",
+                "additionalProperties": { "type": "number", "minimum": 0 }
+              },
+              "tiers": {
+                "type": "array",
+                "description": "RESERVED (v1.1): stepped/block rates by cumulative usage.",
+                "items": {
+                  "type": "object",
+                  "required": ["rate"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "upTo": { "type": ["number", "null"], "description": "Upper kWh bound of this tier; null = unbounded top tier." },
+                    "rate": { "type": "number", "minimum": 0 }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "schedule": {
+          "type": "array",
+          "description": "Interval-based painting of bands across the week. Lossless (sub-hour boundaries allowed).",
+          "items": { "$ref": "#/$defs/interval" }
+        }
+      }
+    },
+    "interval": {
+      "type": "object",
+      "required": ["days", "from", "to", "band"],
+      "additionalProperties": false,
+      "properties": {
+        "days": {
+          "description": "Day-set this interval applies to.",
+          "oneOf": [
+            { "type": "string", "enum": ["all", "weekday", "weekend"] },
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": { "type": "string", "enum": ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] }
+            }
+          ]
+        },
+        "from": { "type": "string", "pattern": "^([01][0-9]|2[0-4]):[0-5][0-9]$", "description": "Local HH:MM start (inclusive). from > to wraps midnight." },
+        "to": { "type": "string", "pattern": "^([01][0-9]|2[0-4]):[0-5][0-9]$", "description": "Local HH:MM end (exclusive)." },
+        "band": { "type": "string", "description": "Band id this interval is charged at." }
+      }
+    }
+  }
+}

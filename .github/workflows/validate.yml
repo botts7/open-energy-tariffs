@@ -1,0 +1,39 @@
+name: validate
+
+on:
+  pull_request:
+    paths:
+      - 'tariffs/**'
+      - 'schema/**'
+      - 'scripts/**'
+      - 'package.json'
+      - '.github/workflows/validate.yml'
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+
+      - name: Validate tariffs against schema/v1 (+ unique id, compliance rules)
+        run: npm run validate
+
+      - name: Build dist + index
+        run: npm run build
+
+      - name: Fail if build changed committed dist/index (regenerate + commit)
+        run: |
+          if ! git diff --quiet -- index.json; then
+            echo "::error::index.json is stale — run 'npm run build' and commit the result."
+            git --no-pager diff -- index.json
+            exit 1
+          fi

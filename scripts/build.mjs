@@ -1,12 +1,18 @@
-// Compile tariffs/**/*.json into dist/tariffs.json + index.json.
-// Run with:  node scripts/build.mjs   (CI runs it on every PR)
+// Compile tariffs/**/*.json into dist/ + index.json.
+// Run with:  npm run build   (CI runs it on every PR, after validate)
+// Emits:
+//   dist/canonical/tariffs.json        — all canonical entries (one bundle)
+//   dist/canonical/tariffs.<CC>.json   — per-country chunks
+//   index.json                         — country -> region -> provider -> [{id,plan,verified}]
+// TODO (next): run adapters/ (canonical -> wallbox 24h arrays) into dist/wallbox/.
 // NOTE: this repo's host has a "don't run node" constraint for the assistant —
-// the script is authored here but executed by CI / the user, not the assistant.
+// authored here, executed by CI / the user.
 import { readdir, readFile, writeFile, mkdir, stat } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const SCHEMA_MAJOR = 1;
 
 async function walk(dir) {
   const out = [];
@@ -20,20 +26,34 @@ async function walk(dir) {
 
 const files = await walk(join(root, 'tariffs'));
 const entries = [];
-for (const f of files) {
-  const e = JSON.parse(await readFile(f, 'utf8'));
-  entries.push(e);
-}
-entries.sort((a, b) => JSON.stringify(a.meta).localeCompare(JSON.stringify(b.meta)));
+for (const f of files) entries.push(JSON.parse(await readFile(f, 'utf8')));
+entries.sort((a, b) => a.meta.id.localeCompare(b.meta.id));
 
-// index: country -> region -> provider -> [plan...]
+// Fail fast on duplicate identity keys (validate.mjs also checks this).
+const seen = new Set();
+for (const e of entries) {
+  if (seen.has(e.meta.id)) throw new Error(`duplicate meta.id: ${e.meta.id}`);
+  seen.add(e.meta.id);
+}
+
+// index: country -> region -> provider -> [{ id, plan, verified }]
 const index = {};
 for (const e of entries) {
-  const { country, region = '', provider, plan } = e.meta;
-  ((((index[country] ??= {})[region] ??= {})[provider] ??= [])).push(plan);
+  const { country, region = '', provider, plan, id, verified = false } = e.meta;
+  (((index[country] ??= {})[region] ??= {})[provider] ??= []).push({ id, plan, verified });
 }
 
-await mkdir(join(root, 'dist'), { recursive: true });
-await writeFile(join(root, 'dist', 'tariffs.json'), JSON.stringify({ version: 1, count: entries.length, entries }, null, 0));
+const distCanon = join(root, 'dist', 'canonical');
+await mkdir(distCanon, { recursive: true });
+
+const bundle = (list) => ({ schemaMajor: SCHEMA_MAJOR, count: list.length, entries: list });
+await writeFile(join(distCanon, 'tariffs.json'), JSON.stringify(bundle(entries), null, 0));
+
+// Per-country chunks.
+const byCountry = {};
+for (const e of entries) (byCountry[e.meta.country] ??= []).push(e);
+for (const [cc, list] of Object.entries(byCountry))
+  await writeFile(join(distCanon, `tariffs.${cc}.json`), JSON.stringify(bundle(list), null, 0));
+
 await writeFile(join(root, 'index.json'), JSON.stringify(index, null, 2));
-console.log(`built ${entries.length} tariffs -> dist/tariffs.json + index.json`);
+console.log(`built ${entries.length} tariffs across ${Object.keys(byCountry).length} countries -> dist/canonical/ + index.json`);

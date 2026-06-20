@@ -27,21 +27,32 @@ Built first for the Wallbox BLE Gateway HA Add-on / Integration, but the data is
 ## Layout
 
 ```
-schema/tariff.schema.json     # the canonical entry shape (JSON Schema)
+schema/v1/tariff.schema.json      # canonical entry shape (interval-based, JSON Schema)
+schema/adapters/wallbox.schema.json  # shape the wallbox adapter EMITS (not the source)
 tariffs/<COUNTRY>/<REGION>/<provider>/<plan>.json
-dist/tariffs.json             # CI-compiled bundle consumers fetch (generated)
-index.json                    # country -> provider -> plan manifest (generated)
-scripts/build.mjs             # compiles tariffs/** -> dist/ + index.json
-importers/                    # normalise external sources -> schema (next phase)
-SOURCES.md                    # researched data sources + licences
+dist/canonical/tariffs.json       # CI-compiled canonical bundle (generated, gitignored)
+dist/canonical/tariffs.<CC>.json  # per-country chunks (generated)
+index.json                        # country -> region -> provider -> [{id,plan,verified}] (generated)
+scripts/validate.mjs              # ajv-validate tariffs/** + unique id + compliance
+scripts/build.mjs                 # compiles tariffs/** -> dist/ + index.json
+adapters/                         # canonical -> app shapes, e.g. wallbox (next phase)
+importers/                        # normalise external sources -> canonical (next phase)
+ATTRIBUTION.md                    # per-source licence + attribution obligations
+SOURCES.md                        # researched data sources + licences
 ```
+
+The stored model is **neutral and interval-based** (lossless `from`/`to` times).
+App-specific shapes — like the Wallbox add-on's 24-hour band arrays — are produced
+by **build-time adapters** into `dist/<app>/`, never authored by hand.
 
 ## How a consumer uses it
 
-1. Fetch `dist/tariffs.json` (or a per-country chunk) — cache it; ship a bundled
-   snapshot as an offline fallback.
-2. Show pick-lists from `index.json` (country → region → provider → plan).
-3. Apply the chosen entry's `.tariff` object to the app's tariff editor.
+1. Fetch `dist/canonical/tariffs.<CC>.json` (per-country chunk) or the combined
+   bundle — cache it (ETag); ship a bundled snapshot as an offline fallback.
+2. Show pick-lists from `index.json` (country → region → provider → plan; each
+   carries a stable `id` for pinning).
+3. Apply the chosen entry's `.tariff`. Wallbox add-on consumers use the
+   `dist/wallbox/` adapter output (24-hour arrays); others read canonical directly.
 
 ## Licence
 

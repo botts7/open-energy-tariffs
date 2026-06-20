@@ -1,10 +1,13 @@
 {
   "meta": {
+    "id": "gb-octopus-economy-7-example",
+    "schemaVersion": "1",
     "country": "GB",
     "provider": "Octopus Energy",
     "plan": "Economy 7 (example)",
     "currency": "GBP",
     "unit": "kWh",
+    "timezone": "Europe/London",
     "source": "manual",
     "sourceUrl": "https://developer.octopus.energy/",
     "license": "CC0-1.0",
@@ -13,25 +16,16 @@
     "notes": "EXAMPLE only - hand-authored structure with INVENTED rates; NOT copied from Octopus. Economy 7 = ~7 night hours cheaper; the exact window depends on the meter/region and rates vary by region+date. Octopus's ToS forbids redistributing its content, so real Octopus rates must be imported ON-DEVICE via its public API by region code, never bulk-stored here. sourceUrl is an informational pointer only."
   },
   "tariff": {
-    "type": "tou",
-    "currency": "£",
-    "provider": "Octopus Energy",
-    "flatRate": 0,
-    "validFrom": 0,
-    "bands": [
-      { "id": "night", "name": "Night", "rate": 0.12, "color": "#22c55e" },
-      { "id": "day",   "name": "Day",   "rate": 0.28, "color": "#ef4444" }
-    ],
-    "weekday": [
-      "night","night","night","night","night","night",
-      "day","day","day","day","day","day","day","day","day","day","day","day","day","day","day","day","day","day"
-    ],
-    "weekend": [
-      "night","night","night","night","night","night",
-      "day","day","day","day","day","day","day","day","day","day","day","day","day","day","day","day","day","day"
-    ],
-    "weekendSame": true,
-    "seasonal": false,
-    "seasons": []
+    "kind": "tou",
+    "import": {
+      "bands": [
+        { "id": "night", "name": "Night", "rate": 0.12, "color": "#22c55e" },
+        { "id": "day",   "name": "Day",   "rate": 0.28, "color": "#ef4444" }
+      ],
+      "schedule": [
+        { "days": "all", "from": "00:00", "to": "07:00", "band": "night" },
+        { "days": "all", "from": "07:00", "to": "24:00", "band": "day"   }
+      ]
+    }
   }
 }

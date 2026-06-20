@@ -1,17 +1,35 @@
 {
   "AU": {
     "NSW": {
-      "AGL": ["Night Saver EV"]
+      "AGL": [
+        {
+          "id": "au-nsw-ausgrid-agl-night-saver-ev",
+          "plan": "Night Saver EV",
+          "verified": false
+        }
+      ]
     }
   },
   "GB": {
     "": {
-      "Octopus Energy": ["Economy 7 (example)"]
+      "Octopus Energy": [
+        {
+          "id": "gb-octopus-economy-7-example",
+          "plan": "Economy 7 (example)",
+          "verified": false
+        }
+      ]
     }
   },
   "US": {
     "_example": {
-      "Example Utility": ["Flat residential (example)"]
+      "Example Utility": [
+        {
+          "id": "us-example-flat",
+          "plan": "Flat residential (example)",
+          "verified": false
+        }
+      ]
     }
   }
 }

@@ -1,11 +1,14 @@
 {
   "meta": {
+    "id": "us-example-flat",
+    "schemaVersion": "1",
     "country": "US",
     "region": "_example",
     "provider": "Example Utility",
     "plan": "Flat residential (example)",
     "currency": "USD",
     "unit": "kWh",
+    "timezone": "America/New_York",
     "source": "manual",
     "sourceUrl": "https://openei.org/wiki/Utility_Rate_Database",
     "license": "CC0-1.0",
@@ -14,16 +17,7 @@
     "notes": "EXAMPLE only - hand-authored with an INVENTED rate; NOT imported from URDB. US utility rates live in NREL's OpenEI URDB (~50k rates, CC0) with a free API; URDB being CC0 means an importer MAY bulk-store mapped URDB rates (license: CC0-1.0, source: urdb) - this stub just demonstrates the flat shape."
   },
   "tariff": {
-    "type": "flat",
-    "currency": "$",
-    "provider": "Example Utility",
-    "flatRate": 0.15,
-    "validFrom": 0,
-    "bands": [],
-    "weekday": [],
-    "weekend": [],
-    "weekendSame": true,
-    "seasonal": false,
-    "seasons": []
+    "kind": "flat",
+    "import": { "flatRate": 0.15 }
   }
 }
