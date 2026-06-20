@@ -17,6 +17,7 @@ courtesy citation. URDB has user-submitted entries → output is always
 
 | URDB | canonical |
 |---|---|
+| `rate` + `adj` per tier | summed → effective per-kWh price (URDB splits base rate from riders/adjustments) |
 | 1 period | `kind: flat`, `import.flatRate` |
 | >1 period | `kind: tou`, `import.bands[]` (one per period; first tier only) |
 | month×hour schedule | `import.schedule[]` — January row, run-length-encoded into intervals; weekday/weekend collapse to `days: all` when identical |
@@ -33,7 +34,7 @@ differ; January is used).
 | `map.mjs` | **Pure** `mapRate(item, {state,timezone,updated})`. |
 | `fetch.mjs` | `fetchRates(...)` (needs `URDB_API_KEY`). |
 | `run.mjs` | Build-time CLI: fetch → map → write `tariffs/US/`. |
-| `fixtures/` + `map.test.mjs` | TOU + flat deep-equal, schema conformance, monthly→daily, weekday/weekend split. |
+| `fixtures/` + `map.test.mjs` | **real** Ohio Power TOU (seasonal+adj) + flat captures, schema conformance, monthly→daily, weekday/weekend split. |
 
 ## Run
 
@@ -44,9 +45,14 @@ URDB_API_KEY=... node importers/urdb/run.mjs \
 npm run validate && npm run build
 ```
 
-## ⚠️ Verification gap
+## Verified against real captures (2026-06-20)
 
-Authored from the URDB model, not run against the live API. Verify against a real
-`api.openei.org` item — especially `startdate` (epoch vs ISO; the mapper only
-reads ISO, else falls back — pass `--updated`), tiered periods, and seasonal
-month variation — before bulk-importing.
+Tested against live Ohio Power TOU + flat items (DEMO_KEY). Real-shape fixes:
+- tier price is **`rate` + `adj`** (the mapper now sums them; was undercounting).
+- `startdate` is a **Unix epoch**, not ISO — `normalizeDate` ignores it, so pass
+  `--updated` (the CLI does) rather than relying on the fallback.
+- the sampled rate is **seasonal** (month rows differ) and weekday≠weekend — the
+  importer uses January + splits day-sets, and adds a note.
+
+Follow-ups: block tiers (reserved `band.tiers[]`), demand charges, and proper
+seasonal modelling (→ `seasons[]` + `band.seasonRates`) instead of the Jan note.

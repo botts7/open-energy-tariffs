@@ -16,21 +16,21 @@ function validator() {
   return ajv.compile(read('../../schema/v1/tariff.schema.json'));
 }
 
-test('TOU rate: hour matrix -> interval schedule', () => {
-  const got = mapRate(read('fixtures/pge-tou.detail.json'), { state: 'CA', timezone: 'America/Los_Angeles', updated: '2026-06-20' });
-  assert.deepEqual(got, read('fixtures/pge-tou.expected.json'));
+test('REAL Ohio Power TOU (seasonal+adj): hour matrix -> interval schedule', () => {
+  const got = mapRate(read('fixtures/ohio-tou.detail.json'), { state: 'OH', timezone: 'America/New_York', updated: '2026-06-20' });
+  assert.deepEqual(got, read('fixtures/ohio-tou.expected.json'));
 });
 
-test('flat rate', () => {
-  const got = mapRate(read('fixtures/flat.detail.json'), { state: 'TX', timezone: 'America/Chicago', updated: '2026-06-20' });
-  assert.deepEqual(got, read('fixtures/flat.expected.json'));
+test('REAL Ohio Power flat rate (rate+adj summed)', () => {
+  const got = mapRate(read('fixtures/ohio-flat.detail.json'), { state: 'OH', timezone: 'America/New_York', updated: '2026-06-20' });
+  assert.deepEqual(got, read('fixtures/ohio-flat.expected.json'));
 });
 
 test('URDB output validates against schema/v1 (bulk-storable, CC0)', () => {
   const validate = validator();
   for (const [f, o] of [
-    ['fixtures/pge-tou.detail.json', { state: 'CA', updated: '2026-06-20' }],
-    ['fixtures/flat.detail.json', { state: 'TX', updated: '2026-06-20' }],
+    ['fixtures/ohio-tou.detail.json', { state: 'OH', updated: '2026-06-20' }],
+    ['fixtures/ohio-flat.detail.json', { state: 'OH', updated: '2026-06-20' }],
   ]) {
     assert.ok(validate(mapRate(read(f), o)), JSON.stringify(validate.errors, null, 2));
   }

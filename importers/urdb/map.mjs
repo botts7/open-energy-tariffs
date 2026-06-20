@@ -15,6 +15,10 @@ import { slug, money, round, hoursToIntervals } from '../_lib/canonical.mjs';
 
 const rowsEqual = (rows) => rows.every((r) => JSON.stringify(r) === JSON.stringify(rows[0]));
 
+// URDB splits the per-kWh price into base `rate` + `adj` (riders/adjustments);
+// the effective price is their sum. Use the first tier (block tiers = v1.1).
+const tierRate = (tier) => round((money(tier?.rate) || 0) + (money(tier?.adj) || 0), 5);
+
 function normalizeDate(v) {
   if (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}/.test(v)) return v.slice(0, 10);
   return undefined;
@@ -46,12 +50,12 @@ export function mapRate(item, opts = {}) {
   const notes = ['Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.'];
 
   if (!isTou) {
-    tariff.import.flatRate = money(periods[0]?.[0]?.rate) ?? 0;
+    tariff.import.flatRate = tierRate(periods[0]?.[0]);
   } else {
     tariff.import.bands = periods.map((tiers, i) => ({
       id: `p${i}`,
       name: `Period ${i + 1}`,
-      rate: money(tiers?.[0]?.rate) ?? 0,
+      rate: tierRate(tiers?.[0]),
     }));
 
     const wd = item.energyweekdayschedule || [];
