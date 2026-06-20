@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "id": "au-act-evoenergy-energyaustralia-balance-plan-my-connect",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "ACT",
+    "distributor": "Evoenergy",
+    "provider": "EnergyAustralia",
+    "plan": "Balance Plan - My Connect",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-20",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data © Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2600",
+        "2601",
+        "2602",
+        "2603",
+        "2604",
+        "2605",
+        "2606",
+        "2607",
+        "2609",
+        "2611",
+        "2612",
+        "2614",
+        "2615",
+        "2617",
+        "2618",
+        "2620",
+        "2900",
+        "2902",
+        "2903",
+        "2904",
+        "2905",
+        "2906",
+        "2911",
+        "2912",
+        "2913",
+        "2914"
+      ]
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Max",
+          "rate": 0.40075
+        },
+        {
+          "id": "off-peak",
+          "name": "Economy",
+          "rate": 0.22093
+        },
+        {
+          "id": "shoulder",
+          "name": "Mid",
+          "rate": 0.29757
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "07:00",
+          "to": "09:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "17:00",
+          "to": "20:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "07:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "09:00",
+          "to": "17:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "all",
+          "from": "20:00",
+          "to": "22:00",
+          "band": "shoulder"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 1.147
+    },
+    "export": {
+      "flatRate": 0.04
+    }
+  }
+}

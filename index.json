@@ -1,10 +1,157 @@
 {
   "AU": {
+    "ACT": {
+      "EnergyAustralia": [
+        {
+          "id": "au-act-evoenergy-energyaustralia-balance-plan-my-connect",
+          "plan": "Balance Plan - My Connect",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-energyaustralia-balance-plan-third-party-offer",
+          "plan": "Balance Plan - Third Party Offer",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-energyaustralia-flexi-plan-7-day-tou-interval",
+          "plan": "Flexi Plan (7 day TOU Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-energyaustralia-solar-max-7-day-tou-interval",
+          "plan": "Solar Max (7 day TOU Interval)",
+          "verified": false
+        }
+      ]
+    },
     "NSW": {
       "AGL": [
         {
           "id": "au-nsw-ausgrid-agl-night-saver-ev",
           "plan": "Night Saver EV",
+          "verified": false
+        }
+      ],
+      "Globird Energy": [
+        {
+          "id": "au-nsw-ausgrid-globird-energy-wholesave-resi-single-rate-estimate-ausgrid",
+          "plan": "WHOLESAVE Resi (Single Rate) estimate-Ausgrid",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-globird-energy-wholesave-resi-two-rate-ctl-estimate-ausgrid",
+          "plan": "WHOLESAVE Resi (Two Rate CTL) estimate-Ausgrid",
+          "verified": false
+        }
+      ],
+      "Momentum Energy": [
+        {
+          "id": "au-nsw-essential-energy-momentum-energy-bill-boss-electricity",
+          "plan": "Bill Boss Electricity",
+          "verified": false
+        }
+      ],
+      "Powershop": [
+        {
+          "id": "au-nsw-essential-energy-powershop-power-house",
+          "plan": "Power House",
+          "verified": false
+        }
+      ]
+    },
+    "QLD": {
+      "Globird Energy": [
+        {
+          "id": "au-qld-energex-globird-energy-wholesave-resi-single-rate-estimate-energex",
+          "plan": "WHOLESAVE Resi (Single Rate) estimate-Energex",
+          "verified": false
+        }
+      ],
+      "Nectr": [
+        {
+          "id": "au-qld-energex-nectr-nectr-home-buzz-cl-1-cl-2",
+          "plan": "Nectr Home Buzz + CL 1 & CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-home-buzz-controlled-load-2",
+          "plan": "Nectr Home Buzz + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-home-buzz-time-of-use",
+          "plan": "Nectr Home Buzz Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-home-buzz-time-of-use-controlled-load-1",
+          "plan": "Nectr Home Buzz Time of Use + Controlled Load 1",
+          "verified": false
+        }
+      ],
+      "Ergon Energy": [
+        {
+          "id": "au-qld-ergon-ergon-energy-tariff-11-and-tariff-33",
+          "plan": "Tariff 11 and Tariff 33",
+          "verified": false
+        },
+        {
+          "id": "au-qld-ergon-ergon-energy-tariff-11-with-tariff-31-and-tariff-33",
+          "plan": "Tariff 11 with Tariff 31 and Tariff 33",
+          "verified": false
+        },
+        {
+          "id": "au-qld-ergon-ergon-energy-tariff-12d",
+          "plan": "Tariff 12D",
+          "verified": false
+        },
+        {
+          "id": "au-qld-ergon-ergon-energy-tariff-12d-and-tariff-31",
+          "plan": "Tariff 12D and Tariff 31",
+          "verified": false
+        }
+      ]
+    },
+    "SA": {
+      "Dodo": [
+        {
+          "id": "au-sa-sa-power-networks-dodo-residential-standing",
+          "plan": "Residential Standing",
+          "verified": false
+        }
+      ],
+      "Globird Energy": [
+        {
+          "id": "au-sa-sa-power-networks-globird-energy-wholesave-resi-two-rate-ctl-estimate-sapn",
+          "plan": "WHOLESAVE Resi (Two Rate CTL) estimate-SAPN",
+          "verified": false
+        }
+      ],
+      "Lumo Energy (SA)": [
+        {
+          "id": "au-sa-sa-power-networks-lumo-energy-sa-standing-offer",
+          "plan": "Standing Offer",
+          "verified": false
+        },
+        {
+          "id": "au-sa-sa-power-networks-lumo-energy-sa-standing-offer-flat-rate",
+          "plan": "Standing Offer Flat Rate",
+          "verified": false
+        }
+      ],
+      "Momentum Energy": [
+        {
+          "id": "au-sa-sa-power-networks-momentum-energy-bill-boss-electricity",
+          "plan": "Bill Boss Electricity",
+          "verified": false
+        }
+      ]
+    },
+    "VIC": {
+      "AGL": [
+        {
+          "id": "au-vic-powercor-agl-residential-seniors-saver-new-to-agl",
+          "plan": "Residential Seniors Saver - New To AGL",
           "verified": false
         }
       ]
