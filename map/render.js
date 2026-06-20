@@ -37,7 +37,10 @@ function popupHtml(meta, tariff, rate) {
 }
 
 OET.renderMap = function (plans, meta) {
-  const map = L.map('map', { worldCopyJump: true }).setView([30, 0], 2);
+  // preferCanvas + a shared canvas renderer: thousands of polygons draw to ONE
+  // canvas instead of thousands of SVG DOM nodes (much faster at scale).
+  const map = L.map('map', { worldCopyJump: true, preferCanvas: true }).setView([30, 0], 2);
+  const renderer = L.canvas({ padding: 0.5 });
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18, attribution: '© OpenStreetMap contributors',
   }).addTo(map);
@@ -51,10 +54,11 @@ OET.renderMap = function (plans, meta) {
   const groups = {}; // source -> LayerGroup
   const centers = [];
   const layers = []; // { layer, group, hay, center } for filtering + fitting
+  const voronoiCache = {}; // postcode-set -> rings (plans sharing a set reuse geometry)
   let mapped = 0, unmapped = 0;
 
   function areaStyle(rate) {
-    return { color: '#333', weight: 1, fillColor: OET.rateColor(rate), fillOpacity: 0.4 };
+    return { renderer, color: '#333', weight: 1, fillColor: OET.rateColor(rate), fillOpacity: 0.4 };
   }
 
   for (const entry of plans) {
@@ -80,8 +84,14 @@ OET.renderMap = function (plans, meta) {
       layers.push({ layer, group, hay, center: [c.lat, c.lng] });
     } else {
       // Postcodes -> Voronoi polygons derived from the points (real areas).
+      // Cache by postcode-set so plans with identical coverage reuse the geometry.
       const pcLatLngs = points.filter((p) => p.type === 'postcode').map((p) => p.latlng);
-      const rings = (OET.voronoiPolygons && pcLatLngs.length) ? OET.voronoiPolygons(pcLatLngs) : [];
+      const ckey = (cov.postcodes || []).join(',');
+      let rings = voronoiCache[ckey];
+      if (rings === undefined) {
+        rings = (OET.voronoiPolygons && pcLatLngs.length) ? OET.voronoiPolygons(pcLatLngs) : [];
+        voronoiCache[ckey] = rings;
+      }
       if (rings.length) {
         mapped += pcLatLngs.length;
         const layer = L.polygon(rings, areaStyle(rate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s) (Voronoi)`));
