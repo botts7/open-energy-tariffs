@@ -22,8 +22,9 @@ function ensurePdfjs() {
   return OET._pdfjs;
 }
 
-// arrayBuffer -> { totalKwh, currencyTotal, text }. totalKwh = the largest "<n> kWh"
-// figure on the bill (usually the period's total usage).
+// arrayBuffer -> { totalKwh, totalCost, text }.
+//  totalKwh  = the largest "<n> kWh" figure (usually the period's total usage).
+//  totalCost = the bill's total amount (near "total"/"amount due"; else largest $).
 OET.parseBillPdf = async function (arrayBuffer) {
   const lib = await ensurePdfjs();
   if (!lib) throw new Error('pdf.js failed to load');
@@ -37,5 +38,14 @@ OET.parseBillPdf = async function (arrayBuffer) {
   const kwh = Array.from(text.matchAll(/([\d][\d,]*(?:\.\d+)?)\s*kwh/gi))
     .map((m) => parseFloat(m[1].replace(/,/g, ''))).filter((n) => n > 0);
   const totalKwh = kwh.length ? Math.max.apply(null, kwh) : null;
-  return { totalKwh, text };
+
+  // total amount: prefer figures labelled total/amount due/payable, else largest money value
+  const labelled = Array.from(text.matchAll(/(?:total|amount\s*(?:due|payable)|balance\s*due)[^\d$€£]{0,30}[$€£]?\s*([\d,]+\.\d{2})/gi))
+    .map((m) => parseFloat(m[1].replace(/,/g, '')));
+  let totalCost = labelled.length ? Math.max.apply(null, labelled) : null;
+  if (totalCost == null) {
+    const money = Array.from(text.matchAll(/[$€£]\s*([\d,]+\.\d{2})/g)).map((m) => parseFloat(m[1].replace(/,/g, '')));
+    totalCost = money.length ? Math.max.apply(null, money) : null;
+  }
+  return { totalKwh, totalCost, text };
 };

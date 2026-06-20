@@ -25,7 +25,7 @@ OET.initSidebar = function () {
   const sources = uniq((p) => p.src);
   const providers = uniq((p) => p.meta.provider);
 
-  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', currentPlanId: '' };
+  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', currentPlanId: '', currentCostActual: '' };
 
   const count = h('div', { class: 'sb-count' });
   const list = h('div', { class: 'sb-list' });
@@ -62,9 +62,9 @@ OET.initSidebar = function () {
 
   const reset = h('button', { class: 'sb-reset', text: 'Reset', onclick: () => {
     state.text = ''; state.countries.clear(); state.sources.clear(); state.provider = ''; state.min = ''; state.max = '';
-    state.usage = null; state.usageKwh = ''; state.shape = 'flat'; state.currentPlanId = '';
+    state.usage = null; state.usageKwh = ''; state.shape = 'flat'; state.currentPlanId = ''; state.currentCostActual = '';
     search.value = ''; providerSel.value = ''; minIn.value = ''; maxIn.value = '';
-    kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; currentSel.value = ''; cmpNote.textContent = '';
+    kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; currentSel.value = ''; currentCostIn.value = ''; cmpNote.textContent = '';
     root.querySelectorAll('.sb-chip input').forEach((c) => { c.checked = false; });
     apply();
   } });
@@ -101,11 +101,14 @@ OET.initSidebar = function () {
       const rd = new FileReader();
       rd.onload = async () => {
         try {
-          const { totalKwh } = await OET.parseBillPdf(rd.result);
-          if (totalKwh) {
-            state.usageKwh = String(Math.round(totalKwh)); kwhIn.value = Math.round(totalKwh); recomputeUsage();
-            cmpNote.textContent = `Bill: found ${Math.round(totalKwh).toLocaleString()} kWh — ×4 (quarterly) or ×12 (monthly) for ANNUAL`;
-          } else cmpNote.textContent = 'No kWh found in PDF — enter annual kWh manually';
+          const { totalKwh, totalCost } = await OET.parseBillPdf(rd.result);
+          const bits = [];
+          if (totalKwh) { state.usageKwh = String(Math.round(totalKwh)); kwhIn.value = Math.round(totalKwh); bits.push(`${Math.round(totalKwh).toLocaleString()} kWh`); }
+          if (totalCost) { state.currentCostActual = String(Math.round(totalCost)); currentCostIn.value = Math.round(totalCost); bits.push(`${Math.round(totalCost).toLocaleString()} cost`); }
+          recomputeUsage();
+          cmpNote.textContent = bits.length
+            ? `Bill: found ${bits.join(' + ')} — these are a billing PERIOD; ×4 (quarterly) or ×12 (monthly) for ANNUAL`
+            : 'Nothing found in PDF — enter values manually';
         } catch (_) { cmpNote.textContent = 'Could not read that PDF — enter annual kWh manually'; }
       };
       rd.readAsArrayBuffer(f);
@@ -114,12 +117,16 @@ OET.initSidebar = function () {
     [h('option', { value: '', text: 'My current plan (optional)…' })].concat(
       plans.slice().sort((a, b) => (a.meta.provider + a.meta.plan).localeCompare(b.meta.provider + b.meta.plan))
         .map((p) => h('option', { value: p.id, text: `${p.meta.provider} · ${p.meta.plan} (${p.meta.country})` }))));
+  // Or compare against what you ACTUALLY pay (annual) — the ground truth even if
+  // your exact plan isn't in the DB. Auto-filled from a bill PDF's total.
+  const currentCostIn = h('input', { type: 'number', step: '10', placeholder: 'actual $/yr', class: 'sb-num',
+    oninput: (e) => { state.currentCostActual = e.target.value; apply(); } });
   const cmp = h('details', { class: 'sb-cmp' }, [
     h('summary', { text: 'Compare to my usage' }),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Annual kWh + load shape' }), kwhIn, shapeSel]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload interval CSV (time,kWh)' }), csvIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload a bill PDF (best-effort)' }), pdfIn]),
-    h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Savings vs my current plan' }), currentSel]),
+    h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Baseline: my current plan, or my actual annual $' }), currentSel, currentCostIn]),
     cmpNote,
   ]);
 
@@ -187,10 +194,14 @@ OET.initSidebar = function () {
       arr.sort((a, b) => (a.meta.country + a.meta.provider + a.meta.plan).localeCompare(b.meta.country + b.meta.provider + b.meta.plan));
     }
     const cheapest = usage && arr.length && arr[0]._cost != null ? arr[0]._cost : null;
-    let currentCost = null;
-    if (usage && state.currentPlanId) {
-      const cur = plans.find((p) => p.id === state.currentPlanId);
-      if (cur) currentCost = OET.estimateAnnualCost(cur.tariff, usage);
+    // Baseline for savings: your ACTUAL annual $ (ground truth) if entered, else
+    // an estimate of your selected current plan.
+    let baseline = null, baselineKind = '';
+    const actual = usage ? parseFloat(state.currentCostActual) : NaN;
+    if (usage && actual > 0) { baseline = actual; baselineKind = 'your actual'; }
+    else if (usage && state.currentPlanId) { const cur = plans.find((p) => p.id === state.currentPlanId); if (cur) { baseline = OET.estimateAnnualCost(cur.tariff, usage); baselineKind = 'current plan'; } }
+    if (usage && baseline != null) {
+      list.appendChild(h('div', { class: 'sb-baseline', text: `Your current (${baselineKind}): ~${Math.round(baseline).toLocaleString()}/yr — candidates show savings vs this` }));
     }
     const cap = 400;
     for (const r of arr.slice(0, cap)) {
@@ -204,8 +215,8 @@ OET.initSidebar = function () {
       let sub = `${m.country}${m.region ? '/' + m.region : ''} · ${m.source} · ${r.rate == null ? '—' : r.rate.toFixed(3) + ' ' + m.currency}${r.located ? '' : ' · (no map area)'}`;
       if (usage) sub += r._cost == null ? ' · cost n/a' : ` · ~${Math.round(r._cost).toLocaleString()} ${m.currency}/yr`;
       const subEl = h('div', { class: 'sb-sub', text: sub });
-      if (usage && currentCost != null && r._cost != null && !isCurrent && m.currency === (plans.find((p) => p.id === state.currentPlanId) || {}).meta.currency) {
-        const d = r._cost - currentCost;
+      if (usage && baseline != null && r._cost != null && !isCurrent) {
+        const d = r._cost - baseline;
         subEl.appendChild(h('span', { class: d < 0 ? 'sb-save' : 'sb-cost', text: ` · ${d < 0 ? 'save ' : '+'}${Math.abs(Math.round(d)).toLocaleString()} ${m.currency}/yr` }));
       }
       const row = h('div', { class: 'sb-row' + (r.located ? '' : ' sb-nolocate') + (best && !isCurrent ? ' sb-bestrow' : '') + (isCurrent ? ' sb-currow' : ''), onclick: () => OET.focusPlan(r.id) },
