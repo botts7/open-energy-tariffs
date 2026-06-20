@@ -161,29 +161,32 @@ documented as a hand-off, never stored.
   `dist/<adapter>/` + a top-level `index.json`. A `release.yml` workflow tags and
   uploads assets. README "How a consumer uses it" updated to the pin/latest split.
 
-## 6. Licensing & legal — `DEFERRED` (defaults recorded; confirm in Phase 1)
+## 6. Licensing & legal — `DECIDED` (ToS confirmed, Phase 1, 2026-06-20)
 
-**Decision (defaults; two items need ToS confirmation).**
+**Decision.**
 - **Repo code:** MIT. **Community-submitted data:** CC0. Per-entry `meta.license`
   records the actual licence of *that* entry.
-- **Per source (bulk-store vs on-device-import):**
+- **Per source (bulk-store vs on-device-import) — confirmed against source terms:**
 
-  | Source | Default | Confirm |
+  | Source | Licence (confirmed) | Delivery |
   |---|---|---|
-  | **AU-CDR** | **Bulk-store OK** with attribution + `updated` date (public CDR generic-plan data) | Pin base URIs (Phase 1) |
-  | **OpenEI URDB** | **Attributed snapshot OR on-device** — contains user-submitted + utility ToU; do not silently republish as authoritative | Confirm NREL/api.data.gov ToS for redistribution `DEFERRED` |
-  | **Octopus** | **On-device import + hand-curated community examples only** — don't bulk-mirror | Confirm Octopus API ToS `DEFERRED` |
+  | **AU-CDR** | **CC BY 4.0** — all AER website material is CC BY 4.0; AER + Vic DEECA are the designated data holders for generic plans | **Bulk-store OK** with attribution ("© AER, CC BY 4.0", `sourceUrl`, `updated`) |
+  | **OpenEI URDB** | **CC0** — OpenEI platform content is "Creative Commons Zero unless otherwise noted" (NREL/DOE) | **Bulk-store OK**, no attribution required (cite OpenEI/NREL as courtesy); the "unless otherwise noted" + user-submitted caveat → still mark `verified:false` until checked |
+  | **Octopus** | **No open licence** — ToS: *"You must not sell, licence, distribute or otherwise make available the content of our website"* | **On-device import + hand-curated community examples only.** Do NOT bulk-republish Octopus data |
 
-- Rationale. Tariff *structures* are facts (CC0-appropriate), but imported
-  datasets can carry source terms, so licence is tracked **per entry**, not
-  repo-wide. AU-CDR is published for reuse → bulk-store. URDB/Octopus terms are
-  unconfirmed → conservative default (don't bulk-republish) until §Phase 1 clears
-  them. This protects the repo from a takedown while still delivering value via
-  on-device import.
-- Consequences. `meta.license` stays required-with-default. Importers tag their
-  output's `license`/`source`/`sourceUrl`. URDB/Octopus importers default to the
-  **on-device** delivery path (a spec the SDK implements) rather than committing
-  bulk data, until ToS is confirmed.
+- Rationale. Tariff *structures* are facts, but the **delivery** path is gated by
+  each source's actual terms, now confirmed: AER (CC BY 4.0) and URDB (CC0) are
+  explicitly open → safe to bulk-store with the appropriate attribution. Octopus
+  grants no redistribution right → we only ever import its data **on the user's own
+  device at runtime**, and accept hand-entered community examples (a user
+  describing their own plan is their fact to share, CC0). Licence is tracked
+  **per entry** (`meta.license`), not repo-wide, so a CC0 community entry and a
+  CC-BY AER entry coexist correctly.
+- Consequences. `meta.license` required-with-default. The **AU-CDR importer
+  bulk-commits** to `tariffs/` with `license: "CC-BY-4.0"` + attribution. **URDB
+  importer may bulk-commit** with `license: "CC0-1.0"`. **Octopus is on-device
+  only** (a mapping the SDK runs, §8/§10) plus optional CC0 community examples —
+  nothing Octopus-sourced is committed in bulk.
 
 ## 7. Trust / quality model — `DECIDED`
 

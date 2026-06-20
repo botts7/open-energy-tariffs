@@ -80,9 +80,16 @@ Original open-decision list (now all resolved in ARCHITECTURE.md, kept for trace
 11. **Naming / ownership / governance.** Repo name, org, maintainership. (`$id`
     in the schema currently says `OWNER`.)
 
-### Phase 1 — Finish the research (`SOURCES.md`)
-Confirm URDB + Octopus ToS; pin the **AU-CDR** public generic-plans base URIs +
-register endpoint (big win — covers AGL and every AU retailer, no auth).
+### Phase 1 — Finish the research ✅ DONE (2026-06-20)
+Confirmed against primary sources (see `SOURCES.md` "Resolved" + `ARCHITECTURE.md` §6):
+- **URDB = CC0** → bulk-store OK (no attribution; keep `verified:false` until checked).
+- **Octopus = no open licence** (ToS forbids distributing content) → **on-device
+  import only** + CC0 community examples; never bulk-republish.
+- **AU-CDR = CC BY 4.0** (AER) → **bulk-store OK with attribution**. Endpoints pinned:
+  host `https://cdr.energymadeeasy.gov.au/`, `GET /cds-au/v1/energy/plans` +
+  `/{planId}`, header `x-v: 1`, **no auth**. AER central feed covers AGL + all NECF
+  retailers + VIC. Per-retailer base-URI list published by AER; community list at
+  `github.com/jxeeno/energy-cdr-prd-endpoints`.
 
 ### Phase 2 — Then, and only then, code
 - CI: validate `tariffs/**` against the schema (ajv), run `build.mjs`, fail on dupes.

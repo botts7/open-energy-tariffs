@@ -13,9 +13,26 @@ by country, and "a plan" comes in two fundamentally different shapes:
 
 | Source | Coverage | Auth | Shape | Licence / redistribution |
 |---|---|---|---|---|
-| **OpenEI URDB** (NREL) | ~50k rates, **US-heavy**, some intl | API key (api.data.gov, free) | `energyratestructure` (periods/tiers) + `energyweekday/weekendschedule` (12×24 month×hour band matrices) + seasonal | NREL/public-leaning but **user-submitted entries + ToU apply** — attribute; verify before bulk redistribution. Prefer importer script over bulk copy. |
-| **AU Consumer Data Right — Energy** | **Australia, all retailers** (incl. AGL) | none for generic plans | "Get Generic Plans" / "…Detail" → singleRate / timeOfUseRates / demand / controlledLoad / solarFiT | Published under the CDR regime; generally redistributable. **Best fit for AU** (your own plan). |
-| **Octopus Energy API** | UK | none for product/tariff listing | products → standard-unit-rates (incl. Go EV windows, Economy 7) by GSP region | Public API; check ToS — prefer per-region on-device import over bulk copy. |
+| **OpenEI URDB** (NREL) | ~50k rates, **US-heavy**, some intl | API key (api.data.gov, free) | `energyratestructure` (periods/tiers) + `energyweekday/weekendschedule` (12×24 month×hour band matrices) + seasonal | **CC0** (OpenEI platform: "Creative Commons Zero unless otherwise noted") → **bulk-store OK**, no attribution required. Caveat: user-submitted entries → keep `verified:false` until checked. |
+| **AU Consumer Data Right — Energy** | **Australia, all NECF retailers + VIC** (incl. AGL) | **none** (public, no accreditation) | "Get Generic Plans" / "…Detail" → singleRate / timeOfUseRates / demand / controlledLoad / solarFiT | **CC BY 4.0** (AER) → **bulk-store OK with attribution**. AER + Vic DEECA are the designated data holders. **Best fit for AU** (your own plan). |
+| **Octopus Energy API** | UK | none for product/tariff listing | products → standard-unit-rates (incl. Go EV windows, Economy 7) by GSP region | **No open licence** — ToS forbids distributing site/app content → **on-device import only** (+ CC0 community examples). Do NOT bulk-republish. |
+
+### AU-CDR — pinned endpoints (Phase 1, confirmed 2026-06-20)
+
+- **Host (AER central generic-plans feed):** `https://cdr.energymadeeasy.gov.au/`
+  — same data behind Energy Made Easy + Victoria Energy Compare; covers AGL and
+  every retailer in NECF jurisdictions (NSW, QLD, SA, ACT, TAS) + VIC.
+- **Get Generic Plans:** `GET /cds-au/v1/energy/plans` (paginated; `type`,
+  `fuelType=ELECTRICITY`, `page`, `page-size` query params).
+- **Get Generic Plan Detail:** `GET /cds-au/v1/energy/plans/{planId}` — returns the
+  full rate structure (`tariffPeriod` → `singleRate` / `timeOfUseRates` /
+  `demandCharges` / `controlledLoad` / `solarFeedInTariff`, plus `dailySupplyCharges`).
+- **Required header:** `x-v: 1` (CDR API versioning). **No auth.**
+- **Per-retailer base URIs** (when querying a retailer as its own data holder, vs
+  the AER central feed): AER publishes the list — *"Consumer Data Right - Energy
+  Retailer Base URIs and CDR Brands"* (aer.gov.au). Community-maintained endpoint
+  list: `github.com/jxeeno/energy-cdr-prd-endpoints`. The importer resolves base
+  URIs from the AER list at build time; the AER central feed alone covers v1.
 
 ## DYNAMIC sources — consume live, do NOT store as presets
 
@@ -44,10 +61,15 @@ The repo holds **two kinds of static data**:
 Dynamic providers are **out of scope for presets** — document them so apps offer
 "use my live HA price entity" instead.
 
-## Open questions for the next session
+## Resolved (Phase 1, 2026-06-20)
 
-- Confirm URDB + Octopus ToS for redistribution vs on-device-only import.
-- Pin the AU-CDR public base URIs / register endpoint for the generic-plans feed.
-- Decide schema mapping for: tiered (block) rates, demand charges, controlled
-  load, and solar feed-in (the current schema covers flat + ToU + seasonal; these
-  are extensions).
+- ✅ **URDB ToS:** CC0 → bulk-store OK (no attribution). **Octopus ToS:** no open
+  licence → on-device import only. **AU-CDR:** CC BY 4.0 → bulk-store with
+  attribution. (See `ARCHITECTURE.md` §6.)
+- ✅ **AU-CDR endpoints pinned:** host `cdr.energymadeeasy.gov.au`,
+  `GET /cds-au/v1/energy/plans` + `/{planId}`, `x-v: 1`, no auth (see above).
+- ✅ **Schema mapping for extensions decided** (`ARCHITECTURE.md` §4 + Appendix A):
+  supply charge + solar feed-in are **v1** (`tariff.supply.daily`,
+  `tariff.export`); controlled load v1-optional (`tariff.controlledLoad[]`);
+  tiered/block + demand charges are **v1.1** (pre-shaped: `band.tiers[]`,
+  `tariff.demand[]`).
