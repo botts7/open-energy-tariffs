@@ -123,14 +123,45 @@ OET.renderMap = function (plans, meta) {
     if (r.layers[0] && r.layers[0].openPopup) r.layers[0].openPopup();
   };
 
+  // Adaptive colouring: a global map must normalise currencies (USD-equiv) or JPY
+  // would swamp the scale. But once the view is ONE currency (filtered to a
+  // country), USD-equiv compresses the local spread — a dear 0.42 AUD plan and a
+  // cheap 0.27 AUD plan look alike. So when all VISIBLE plans share a currency we
+  // recolour by the LOCAL rate; otherwise USD-equiv. Recolour only on mode change.
+  let colorMode = 'usd';
+  function recolor(visibleRecs) {
+    const curs = new Set();
+    for (const r of visibleRecs) curs.add(r.meta.currency);
+    const single = curs.size === 1;
+    const cur = single ? [...curs][0] : null;
+    const mode = single ? 'local:' + cur : 'usd';
+    if (mode === colorMode) return; // colours already correct for this mode
+    for (const r of planRecs) {
+      const useLocal = single && r.meta.currency === cur;
+      const cRate = useLocal ? r.rate : (OET.toUsd ? OET.toUsd(r.rate, r.meta.currency) : r.rate);
+      const col = OET.rateColor(cRate);
+      for (const l of r.layers) if (l.setStyle) l.setStyle({ fillColor: col });
+    }
+    colorMode = mode; OET._colorMode = mode;
+    if (OET._updateLegend) OET._updateLegend(cur);
+  }
+  // Colour for a plan under the CURRENT mode, so sidebar swatches match the map.
+  OET._rateColorNow = function (rate, currency) {
+    const single = colorMode.indexOf('local:') === 0;
+    const cur = single ? colorMode.slice(6) : null;
+    const cRate = (single && currency === cur) ? rate : (OET.toUsd ? OET.toUsd(rate, currency) : rate);
+    return OET.rateColor(cRate);
+  };
+
   // Show only plans matching a predicate (sidebar filters). Returns visible count.
   OET.applyPlanFilter = function (pred) {
-    let vis = 0;
+    let vis = 0; const visibleRecs = [];
     for (const r of planRecs) {
       const on = !pred || pred(r);
       for (const l of r.layers) { if (on) r.group.addLayer(l); else r.group.removeLayer(l); }
-      if (on) vis++;
+      if (on) { vis++; visibleRecs.push(r); }
     }
+    recolor(visibleRecs);
     return vis;
   };
 
@@ -143,13 +174,17 @@ OET.renderMap = function (plans, meta) {
   }
 
   const legend = L.control({ position: 'bottomright' });
+  const legendBuckets = OET.RATE_BUCKETS.map(([, c, label]) => `<span class="sw" style="background:${c}"></span>${label}`).join('<br>');
+  const legendHtml = (label) => `<b>Rate / kWh (${label})</b><br>` + legendBuckets;
+  let legendDiv = null;
   legend.onAdd = function () {
-    const div = L.DomUtil.create('div', 'oet-legend');
-    div.innerHTML = '<b>Rate / kWh (~USD-equiv.)</b><br>'
-      + OET.RATE_BUCKETS.map(([, c, label]) => `<span class="sw" style="background:${c}"></span>${label}`).join('<br>');
-    return div;
+    legendDiv = L.DomUtil.create('div', 'oet-legend');
+    legendDiv.innerHTML = legendHtml('~USD-equiv.');
+    return legendDiv;
   };
   legend.addTo(map);
+  // Switch the legend label when colouring drops to a single local currency.
+  OET._updateLegend = function (cur) { if (legendDiv) legendDiv.innerHTML = legendHtml(cur || '~USD-equiv.'); };
 
   OET._stats = { plans: plans.length, mapped, unmapped, source: meta.source };
   return map;

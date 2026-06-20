@@ -31,12 +31,18 @@ OET.initSidebar = function () {
   const list = h('div', { class: 'sb-list' });
 
   // --- controls ---
+  // Debounce the search: re-filtering 1600+ plans (add/remove that many map
+  // layers) on every keystroke makes typing stutter. Wait for a ~180ms pause.
+  let searchTimer = null;
   const search = h('input', { type: 'search', placeholder: 'Search postcode, suburb, provider, plan…', class: 'sb-input',
     oninput: (e) => {
       state.text = e.target.value.trim().toLowerCase();
-      // Suburb names need the lazy bundle — load on demand, re-filter when ready.
-      if (/[a-z]/.test(state.text) && !OET.AU_SUBURBS && OET.loadScript) OET.loadScript('au-suburbs.js').then(apply);
-      apply();
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        // Suburb names need the lazy bundle — load on demand, re-filter when ready.
+        if (/[a-z]/.test(state.text) && !OET.AU_SUBURBS && OET.loadScript) OET.loadScript('au-suburbs.js').then(apply);
+        apply();
+      }, 180);
     } });
 
   function chipRow(label, values, set) {
@@ -214,7 +220,7 @@ OET.initSidebar = function () {
     const cap = 400;
     for (const r of arr.slice(0, cap)) {
       const m = r.meta;
-      const sw = h('span', { class: 'sb-sw' }); sw.style.background = (OET.rateColorFor || OET.rateColor)(r.rate, m.currency);
+      const sw = h('span', { class: 'sb-sw' }); sw.style.background = (OET._rateColorNow || OET.rateColorFor || OET.rateColor)(r.rate, m.currency);
       const best = usage && r._cost != null && r._cost === cheapest;
       const isCurrent = r.id === state.currentPlanId;
       const kids = [h('strong', { text: m.provider }), h('span', { text: ' · ' + m.plan })];
