@@ -1,6 +1,11 @@
-// Embedded sample of the real captured plans, so map/index.html renders
-// standalone (file:// blocks fetch of ../dist). When served over http the app
-// loads the live bundle instead (see data.js). Trimmed to the fields the map uses.
+// Embedded sample so map/index.html renders standalone (file:// blocks fetch of
+// ../dist). When served over http the app loads the live bundle instead (data.js).
+//
+// ATTRIBUTION: the AU (source:cdr) entries contain data © Australian Energy
+// Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/),
+// not endorsed by the AER — the map surfaces this in its attribution control.
+// The GB (source:octopus) entry uses an ILLUSTRATIVE rate, NOT real Octopus data
+// (their ToS forbids redistribution). US (source:urdb) is CC0. See ATTRIBUTION.md.
 window.OET = window.OET || {};
 OET.SAMPLE = {
   schemaMajor: 1,
@@ -49,13 +54,14 @@ OET.SAMPLE = {
       tariff: { kind: 'tou', supply: { daily: 1.47 }, import: { bands: [{ id: 'peak', name: 'Peak', rate: 0.64338 }] } },
     },
     {
+      // ILLUSTRATIVE rate (NOT real Octopus data — their ToS forbids redistribution).
       meta: {
-        id: 'gb-a-octopus-var-22-11-01',
-        country: 'GB', region: 'A', provider: 'Octopus Energy', plan: 'Flexible Octopus',
+        id: 'gb-a-octopus-example',
+        country: 'GB', region: 'A', provider: 'Octopus Energy', plan: 'Flexible Octopus (example)',
         currency: 'GBP', source: 'octopus',
         coverage: { gsp: '_A' },
       },
-      tariff: { kind: 'flat', supply: { daily: 0.47977 }, import: { flatRate: 0.24937 } },
+      tariff: { kind: 'flat', supply: { daily: 0.5 }, import: { flatRate: 0.25 } },
     },
     {
       meta: {

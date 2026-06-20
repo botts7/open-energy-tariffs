@@ -1,11 +1,11 @@
 {
   "meta": {
-    "id": "gb-a-octopus-var-22-11-01",
+    "id": "gb-a-octopus-var-example",
     "schemaVersion": "1",
     "country": "GB",
     "region": "A",
     "provider": "Octopus Energy",
-    "plan": "Flexible Octopus",
+    "plan": "Flexible Octopus (example)",
     "currency": "GBP",
     "unit": "kWh",
     "timezone": "Europe/London",
@@ -19,11 +19,11 @@
   },
   "tariff": {
     "kind": "tou",
-    "supply": { "daily": 0.54964 },
+    "supply": { "daily": 0.55 },
     "import": {
       "bands": [
-        { "id": "day", "name": "Day", "rate": 0.30838 },
-        { "id": "night", "name": "Night", "rate": 0.12936 }
+        { "id": "day", "name": "Day", "rate": 0.38 },
+        { "id": "night", "name": "Night", "rate": 0.1 }
       ],
       "schedule": [
         { "days": "all", "from": "00:00", "to": "00:30", "band": "day" },

@@ -1,26 +1,26 @@
 {
-  "_comment": "REAL capture (trimmed): GET /v1/products/VAR-22-11-01/ from api.octopus.energy on 2026-06-20, GSP _A. Octopus data — ON-DEVICE only, never committed as a stored tariff. Note the payment-method key is 'varying' (variable product).",
-  "code": "VAR-22-11-01",
-  "display_name": "Flexible Octopus",
+  "_comment": "STRUCTURE verified against the live GET /v1/products/{code}/ on 2026-06-20 (the per-GSP payment-method key is 'varying' for variable products, and single+dual register coexist). RATES here are ILLUSTRATIVE round numbers, NOT real Octopus values — Octopus's ToS forbids redistributing its content, so we never commit captured Octopus rates (see ATTRIBUTION.md). Real rates are imported on-device at runtime only.",
+  "code": "VAR-EXAMPLE",
+  "display_name": "Flexible Octopus (example)",
   "is_variable": true,
   "is_tracker": false,
   "available_from": "2023-03-28T10:35:00+01:00",
   "single_register_electricity_tariffs": {
     "_A": {
       "varying": {
-        "code": "E-1R-VAR-22-11-01-A",
-        "standing_charge_inc_vat": 47.977125,
-        "standard_unit_rate_inc_vat": 24.93666
+        "code": "E-1R-VAR-EXAMPLE-A",
+        "standing_charge_inc_vat": 50.0,
+        "standard_unit_rate_inc_vat": 25.0
       }
     }
   },
   "dual_register_electricity_tariffs": {
     "_A": {
       "varying": {
-        "code": "E-2R-VAR-22-11-01-A",
-        "standing_charge_inc_vat": 54.963825,
-        "day_unit_rate_inc_vat": 30.838395,
-        "night_unit_rate_inc_vat": 12.93579
+        "code": "E-2R-VAR-EXAMPLE-A",
+        "standing_charge_inc_vat": 55.0,
+        "day_unit_rate_inc_vat": 38.0,
+        "night_unit_rate_inc_vat": 10.0
       }
     }
   }

@@ -40,12 +40,16 @@ const entry = await importOctopusProduct('VAR-22-11-01', { gsp: '_C' });
 client.apply(entry, 'wallbox');   // apply it like any canonical entry — never PR it
 ```
 
-## Verified against a real capture (2026-06-20)
+## Structure verified live (2026-06-20) — rates illustrative
 
-Tested against a live `GET /v1/products/VAR-22-11-01/`. Real-shape fix folded in:
+The **shape** was confirmed against a live `GET /v1/products/{code}/`:
 - the per-GSP tariff is keyed by **payment method** — variable products use
   **`varying`** (not `direct_debit_monthly`); `pickTariff()` resolves by preference
-  and `day/night_unit_rate_inc_vat` are present inline.
+  and `day/night_unit_rate_inc_vat` are present inline; single + dual register coexist.
+
+**The fixture rates are illustrative, not real Octopus values** — Octopus's ToS
+forbids redistributing its content, so we never commit captured Octopus rates (the
+on-device importer fetches real rates at runtime). See `../../ATTRIBUTION.md`.
 
 Still meter-specific / not in the API: the **Economy 7 night window** — the
 importer applies a default (00:30–07:30); let users override via `nightWindow`.

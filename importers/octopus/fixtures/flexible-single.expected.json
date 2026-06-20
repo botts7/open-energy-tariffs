@@ -1,11 +1,11 @@
 {
   "meta": {
-    "id": "gb-a-octopus-var-22-11-01",
+    "id": "gb-a-octopus-var-example",
     "schemaVersion": "1",
     "country": "GB",
     "region": "A",
     "provider": "Octopus Energy",
-    "plan": "Flexible Octopus",
+    "plan": "Flexible Octopus (example)",
     "currency": "GBP",
     "unit": "kWh",
     "timezone": "Europe/London",
@@ -19,7 +19,7 @@
   },
   "tariff": {
     "kind": "flat",
-    "supply": { "daily": 0.47977 },
-    "import": { "flatRate": 0.24937 }
+    "supply": { "daily": 0.5 },
+    "import": { "flatRate": 0.25 }
   }
 }
