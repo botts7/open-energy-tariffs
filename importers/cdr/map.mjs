@@ -9,6 +9,12 @@
 // (see fixtures/ + README) before trusting committed output — the assistant
 // could not exercise the live API (the x-v header isn't settable from its fetch).
 
+import { slug, money, toHHMM } from '../_lib/canonical.mjs';
+
+// Re-export the shared helpers so existing importers/tests can keep importing
+// them from this module.
+export { slug, money, toHHMM };
+
 const DAY_MAP = {
   MON: 'mon', TUE: 'tue', WED: 'wed', THU: 'thu', FRI: 'fri', SAT: 'sat', SUN: 'sun',
 };
@@ -27,31 +33,6 @@ const DISTRIBUTOR_STATE = {
   Ausnet: 'VIC', 'AusNet Services': 'VIC', United: 'VIC', 'United Energy': 'VIC',
   TasNetworks: 'TAS', Evoenergy: 'ACT',
 };
-
-export function slug(s) {
-  return String(s ?? '')
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-
-// CDR money strings are dollars per unit, e.g. "0.0800". -> number.
-export function money(v) {
-  if (v == null) return undefined;
-  const n = Number(String(v).trim());
-  return Number.isFinite(n) ? n : undefined;
-}
-
-// CDR time strings appear as "0700", "07:00", "07:00:00". -> canonical "HH:MM".
-// A 00:00 used as an END boundary means end-of-day, mapped to "24:00".
-export function toHHMM(v, { isEnd = false } = {}) {
-  const digits = String(v ?? '').replace(/\D/g, '');
-  if (digits.length < 4) return undefined;
-  const hh = digits.slice(0, 2);
-  const mm = digits.slice(2, 4);
-  const out = `${hh}:${mm}`;
-  return isEnd && out === '00:00' ? '24:00' : out;
-}
 
 // CDR days[] (with BUSINESS_DAYS / PUBLIC_HOLIDAYS) -> canonical day-set.
 export function mapDays(days = []) {
