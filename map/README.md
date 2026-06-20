@@ -29,7 +29,8 @@ just open it or serve the folder.
 | `boundaries.js` | optional: load real boundary GeoJSON → exact coverage polygons |
 | `polygons.js` | derive coverage polygons **from postcode points** via Voronoi (no boundary files) |
 | `render.js` | draw **areas** (exact polygon if bundled, else Voronoi-from-postcodes, else circle) coloured by rate; canvas renderer; exposes `PLANS`/`focusPlan`/`applyPlanFilter` |
-| `sidebar.js` | browse + filter plans (country / source / provider / price / text); list drives the map; click a plan to zoom to its coverage |
+| `sidebar.js` | browse + filter plans (country / source / provider / price / text); list drives the map; click a plan to zoom; **"compare to my usage"** ranks plans by estimated annual cost |
+| `cost.js` | cost engine: `hourlyRates`, `usageFromAnnual`, `parseUsageCsv` (interval upload), `estimateAnnualCost` — pure; should be ported to the SDK |
 | `sample.js` | embedded fallback data (the 3 real captures) |
 
 ## How coverage is plotted
