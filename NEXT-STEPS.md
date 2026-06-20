@@ -115,8 +115,14 @@ TODO **in THIS repo / session** (app-agnostic core, roughly in order):
   email/NMI/MPAN/meter/account/phone/address/secret patterns in `tariffs/**`;
   wired into `npm run pii` + `check` + CI. `.github/` PR template + `submit-plan`
   issue form added.
-- **Consumer SDK** (`packages/sdk-js/`, thin) + the **Octopus on-device importer**
-  (never bulk-stored).
+- ✅ **Consumer SDK** (`packages/sdk-js/`, commit 7a776f1) — `createClient`
+  (ETag fetch + cache + bundled offline fallback), `fetchIndex`/`fetchCountry`,
+  `getPlan(id)`, `apply(idOrEntry, adapter, {at})` with `history[]` effective-date
+  resolution, pluggable `registerAdapter` (built-ins generic/raw; wallbox is
+  registered by that consumer). Tested with a mock fetch. ← SDK done
+- **Octopus on-device importer** (`importers/octopus/`) — map products →
+  standard-unit-rates → canonical, run by the SDK at runtime; **never
+  bulk-stored**. Shares the importer pattern. ← **next**
 - Then **URDB importer** (CC0, bulk-store OK).
 
 TODO **in the WALLBOX session** (NOT here — keep this repo app-agnostic):
