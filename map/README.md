@@ -28,7 +28,8 @@ just open it or serve the folder.
 | `geo.js` | resolve `meta.coverage` → map points + type (built-in centroid tables) |
 | `boundaries.js` | optional: load real boundary GeoJSON → exact coverage polygons |
 | `polygons.js` | derive coverage polygons **from postcode points** via Voronoi (no boundary files) |
-| `render.js` | draw **areas** (exact polygon if bundled, else a filled circle sized by type) coloured by rate, popups, source toggle, legend, "what's in my area" filter |
+| `render.js` | draw **areas** (exact polygon if bundled, else Voronoi-from-postcodes, else circle) coloured by rate; canvas renderer; exposes `PLANS`/`focusPlan`/`applyPlanFilter` |
+| `sidebar.js` | browse + filter plans (country / source / provider / price / text); list drives the map; click a plan to zoom to its coverage |
 | `sample.js` | embedded fallback data (the 3 real captures) |
 
 ## How coverage is plotted

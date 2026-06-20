@@ -7,18 +7,33 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <style>
-    :root { --ink: #1a2233; }
+    :root { --ink: #1a2233; --line: #e2e8f0; }
     * { box-sizing: border-box; }
     html, body { margin: 0; height: 100%; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color: var(--ink); }
     #app { display: flex; flex-direction: column; height: 100%; }
-    header { padding: 10px 16px; background: #0f172a; color: #fff; }
-    header h1 { font-size: 16px; margin: 0; font-weight: 650; }
+    header { padding: 9px 16px; background: #0f172a; color: #fff; }
+    header h1 { font-size: 15px; margin: 0; font-weight: 650; }
     header p { margin: 2px 0 0; font-size: 12px; color: #94a3b8; }
-    .bar { display: flex; gap: 8px; align-items: center; padding: 8px 16px; background: #f1f5f9; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; }
-    .bar input { padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; min-width: 220px; }
-    .bar button { padding: 6px 12px; border: 0; border-radius: 6px; background: #2563eb; color: #fff; font-size: 13px; cursor: pointer; }
-    .bar #info { font-size: 12px; color: #475569; margin-left: auto; }
+    #main { display: flex; flex: 1; min-height: 0; }
+    #sidebar { width: 320px; flex: none; overflow-y: auto; background: #fff; border-right: 1px solid var(--line); padding: 10px 12px; font-size: 13px; }
     #map { flex: 1; }
+    .sb-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .sb-count { font-size: 12px; color: #64748b; }
+    .sb-input, .sb-num { padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; }
+    .sb-input { width: 100%; margin-bottom: 8px; }
+    .sb-num { width: 64px; }
+    .sb-chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 8px; }
+    .sb-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #94a3b8; width: 100%; }
+    .sb-chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; cursor: pointer; }
+    .sb-reset { padding: 5px 12px; border: 1px solid #cbd5e1; background: #f8fafc; border-radius: 6px; cursor: pointer; font-size: 12px; margin-bottom: 10px; }
+    .sb-list { border-top: 1px solid var(--line); }
+    .sb-row { display: flex; gap: 8px; padding: 7px 4px; border-bottom: 1px solid #f1f5f9; cursor: pointer; align-items: flex-start; }
+    .sb-row:hover { background: #f8fafc; }
+    .sb-nolocate { opacity: .55; }
+    .sb-sw { width: 12px; height: 12px; border-radius: 3px; margin-top: 3px; flex: none; border: 1px solid rgba(0,0,0,.2); }
+    .sb-title { line-height: 1.25; }
+    .sb-sub { font-size: 11px; color: #64748b; margin-top: 1px; }
+    .sb-more { padding: 8px 4px; font-size: 12px; color: #94a3b8; }
     .oet-legend { background: #fff; padding: 8px 10px; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,.3); font-size: 12px; line-height: 1.7; }
     .oet-legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
   </style>
@@ -27,14 +42,12 @@
   <div id="app">
     <header>
       <h1>open-energy-tariffs — coverage map</h1>
-      <p>Electricity plans plotted by their <code>meta.coverage</code>. Demo data; markers coloured by rate.</p>
+      <p>Browse + filter electricity plans; areas shaded by rate. Click a plan to zoom to its coverage.</p>
     </header>
-    <div class="bar">
-      <input id="q" type="search" placeholder="What's in my area? postcode, GSP, region, provider…" aria-label="filter" />
-      <button id="clear" type="button">Clear</button>
-      <span id="info">loading…</span>
+    <div id="main">
+      <aside id="sidebar"></aside>
+      <div id="map"></div>
     </div>
-    <div id="map"></div>
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -49,15 +62,9 @@
   <script src="polygons.js"></script>
   <script src="data.js"></script>
   <script src="render.js"></script>
+  <script src="sidebar.js"></script>
   <script>
-    window.addEventListener('DOMContentLoaded', function () {
-      OET.main();
-      var q = document.getElementById('q');
-      q.addEventListener('input', function () { if (OET.applyFilter) OET.applyFilter(q.value); });
-      document.getElementById('clear').addEventListener('click', function () {
-        q.value = ''; if (OET.applyFilter) OET.applyFilter('');
-      });
-    });
+    window.addEventListener('DOMContentLoaded', function () { OET.main(); });
   </script>
 </body>
 </html>

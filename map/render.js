@@ -51,116 +51,96 @@ OET.renderMap = function (plans, meta) {
     '<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · OpenEI/NREL URDB (CC0) · ' +
     'AU postcodes: G-NAF © <a href="https://geoscape.com.au/">Geoscape Australia</a>');
 
-  const groups = {}; // source -> LayerGroup
+  const groups = {}; // source -> LayerGroup (organisation; visibility via filter)
   const centers = [];
-  const layers = []; // { layer, group, hay, center } for filtering + fitting
+  const planRecs = []; // one per plan: { id, meta, tariff, rate, src, layers, bounds, located, hay }
   const voronoiCache = {}; // postcode-set -> rings (plans sharing a set reuse geometry)
   let mapped = 0, unmapped = 0;
 
   function areaStyle(rate) {
     return { renderer, color: '#333', weight: 1, fillColor: OET.rateColor(rate), fillOpacity: 0.4 };
   }
+  function recBounds(ls) {
+    let b = null;
+    for (const l of ls) { const lb = l.getBounds(); b = b ? b.extend(lb) : L.latLngBounds(lb.getSouthWest(), lb.getNorthEast()); }
+    return b;
+  }
 
   for (const entry of plans) {
     const { meta: m, tariff } = entry;
     const points = OET.resolveCoverage(m.coverage);
     const boundary = OET.boundaryFor ? OET.boundaryFor(m.coverage) : null;
-    if (!points.length && !boundary) { unmapped++; continue; }
     const rate = OET.planRate(tariff);
     const src = m.source || 'other';
-    const group = groups[src] || (groups[src] = L.layerGroup().addTo(map));
     const cov = m.coverage || {};
-    const hay = [m.country, m.region, m.provider, m.plan, m.source, cov.gsp, cov.utilityId, (cov.postcodes || []).join(' ')]
-      .join(' ').toLowerCase();
-    const popup = (extra) => popupHtml(m, tariff, rate) + (extra ? `<br><span style="color:#777">${esc(extra)}</span>` : '');
+    const recLayers = [];
 
-    if (boundary) {
-      // Exact coverage polygon (true choropleth) when boundary data is bundled.
-      const layer = L.geoJSON(boundary, { style: areaStyle(rate) }).bindPopup(popup('exact boundary'));
-      layer.addTo(group);
-      mapped++;
-      const c = layer.getBounds().getCenter();
-      centers.push([c.lat, c.lng]);
-      layers.push({ layer, group, hay, center: [c.lat, c.lng] });
-    } else {
-      // Postcodes -> Voronoi polygons derived from the points (real areas).
-      // Cache by postcode-set so plans with identical coverage reuse the geometry.
-      const pcLatLngs = points.filter((p) => p.type === 'postcode').map((p) => p.latlng);
-      const ckey = (cov.postcodes || []).join(',');
-      let rings = voronoiCache[ckey];
-      if (rings === undefined) {
-        rings = (OET.voronoiPolygons && pcLatLngs.length) ? OET.voronoiPolygons(pcLatLngs) : [];
-        voronoiCache[ckey] = rings;
-      }
-      if (rings.length) {
-        mapped += pcLatLngs.length;
-        const layer = L.polygon(rings, areaStyle(rate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s) (Voronoi)`));
-        layer.addTo(group);
-        const c = layer.getBounds().getCenter();
-        centers.push([c.lat, c.lng]);
-        layers.push({ layer, group, hay, center: [c.lat, c.lng] });
-      } else {
-        for (const p of points.filter((p) => p.type === 'postcode')) {
-          mapped++;
-          const layer = L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS.postcode }, areaStyle(rate))).bindPopup(popup(p.label));
-          layer.addTo(group);
-          centers.push(p.latlng);
-          layers.push({ layer, group, hay: hay + ' ' + p.label.toLowerCase(), center: p.latlng });
-        }
-      }
-      // GSP / utility -> area circle (single region centroid).
-      for (const p of points.filter((p) => p.type !== 'postcode')) {
+    if (points.length || boundary) {
+      const group = groups[src] || (groups[src] = L.layerGroup().addTo(map));
+      const popup = (extra) => popupHtml(m, tariff, rate) + (extra ? `<br><span style="color:#777">${esc(extra)}</span>` : '');
+      const add = (layer) => { layer.addTo(group); recLayers.push(layer); };
+      if (boundary) {
+        add(L.geoJSON(boundary, { style: areaStyle(rate) }).bindPopup(popup('exact boundary')));
         mapped++;
-        const layer = L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS[p.type] || 8000 }, areaStyle(rate)))
-          .bindPopup(popup(p.label));
-        layer.addTo(group);
-        centers.push(p.latlng);
-        layers.push({ layer, group, hay: hay + ' ' + p.label.toLowerCase(), center: p.latlng });
+      } else {
+        const pcLatLngs = points.filter((p) => p.type === 'postcode').map((p) => p.latlng);
+        const ckey = (cov.postcodes || []).join(',');
+        let rings = voronoiCache[ckey];
+        if (rings === undefined) { rings = (OET.voronoiPolygons && pcLatLngs.length) ? OET.voronoiPolygons(pcLatLngs) : []; voronoiCache[ckey] = rings; }
+        if (rings.length) { add(L.polygon(rings, areaStyle(rate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s) (Voronoi)`))); mapped += pcLatLngs.length; }
+        else for (const p of points.filter((p) => p.type === 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS.postcode }, areaStyle(rate))).bindPopup(popup(p.label))); mapped++; }
+        for (const p of points.filter((p) => p.type !== 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS[p.type] || 8000 }, areaStyle(rate))).bindPopup(popup(p.label))); mapped++; }
       }
-    }
+    } else unmapped++;
+
+    const bounds = recLayers.length ? recBounds(recLayers) : null;
+    if (bounds) centers.push([bounds.getCenter().lat, bounds.getCenter().lng]);
+    planRecs.push({
+      id: m.id, meta: m, tariff, rate, src, group: groups[src], layers: recLayers, bounds, located: !!bounds,
+      hay: [m.country, m.region, m.provider, m.plan, m.source, cov.gsp, cov.utilityId, (cov.postcodes || []).join(' ')].join(' ').toLowerCase(),
+    });
   }
 
-  // "What's in my area" — show only areas matching a free-text query
-  // (postcode, GSP, region, provider…). Empty query restores all.
   OET._map = map;
-  OET.applyFilter = function (q) {
-    const query = String(q || '').trim().toLowerCase();
-    const shown = [];
-    for (const { layer, group, hay, center } of layers) {
-      if (!query || hay.indexOf(query) !== -1) { group.addLayer(layer); shown.push(center); }
-      else group.removeLayer(layer);
-    }
-    if (query && shown.length) map.fitBounds(shown, { padding: [40, 40], maxZoom: 9 });
-    const info = document.getElementById('info');
-    if (info) info.textContent = `${shown.length}/${layers.length} area(s)${query ? ` matching “${query}”` : ''}`;
+  OET.PLANS = planRecs;
+
+  // Zoom to a plan + open its popup (called from the sidebar).
+  OET.focusPlan = function (id) {
+    const r = planRecs.find((p) => p.id === id);
+    if (!r || !r.bounds) return;
+    map.fitBounds(r.bounds, { padding: [40, 40], maxZoom: 11 });
+    if (r.layers[0] && r.layers[0].openPopup) r.layers[0].openPopup();
   };
 
-  // Fit to the data when it's regional; for globe-spanning data a fit would
-  // centre on the antimeridian and push continents off-screen, so show the world.
+  // Show only plans matching a predicate (sidebar filters). Returns visible count.
+  OET.applyPlanFilter = function (pred) {
+    let vis = 0;
+    for (const r of planRecs) {
+      const on = !pred || pred(r);
+      for (const l of r.layers) { if (on) r.group.addLayer(l); else r.group.removeLayer(l); }
+      if (on) vis++;
+    }
+    return vis;
+  };
+
+  // Initial fit: regional data fits; globe-spanning data shows the world.
   if (centers.length) {
     const lngs = centers.map((p) => p[1]);
     const span = Math.max.apply(null, lngs) - Math.min.apply(null, lngs);
     if (span <= 150) map.fitBounds(centers, { padding: [40, 40], maxZoom: 7 });
     else map.setView([25, 10], 2);
   }
-  if (Object.keys(groups).length > 1) L.control.layers(null, groups, { collapsed: false }).addTo(map);
 
-  // Legend.
   const legend = L.control({ position: 'bottomright' });
   legend.onAdd = function () {
     const div = L.DomUtil.create('div', 'oet-legend');
     div.innerHTML = '<b>Rate / kWh (local currency)</b><br>'
-      + OET.RATE_BUCKETS.map(([, c, label]) =>
-        `<span class="sw" style="background:${c}"></span>${label}`).join('<br>');
+      + OET.RATE_BUCKETS.map(([, c, label]) => `<span class="sw" style="background:${c}"></span>${label}`).join('<br>');
     return div;
   };
   legend.addTo(map);
 
-  const info = document.getElementById('info');
-  if (info) {
-    info.textContent = `${plans.length} plan(s) · ${mapped} area(s) mapped · `
-      + `${unmapped} with no resolvable coverage · data: ${meta.source}`;
-  }
+  OET._stats = { plans: plans.length, mapped, unmapped, source: meta.source };
   return map;
 };
 
@@ -168,4 +148,5 @@ OET.main = async function () {
   const { entries, source } = await OET.loadPlans();
   if (OET.loadBoundaries) await OET.loadBoundaries(); // exact polygons if bundled
   OET.renderMap(entries, { source });
+  if (OET.initSidebar) OET.initSidebar();
 };
