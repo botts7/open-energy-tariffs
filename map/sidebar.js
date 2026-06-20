@@ -31,7 +31,7 @@ OET.initSidebar = function () {
   const list = h('div', { class: 'sb-list' });
 
   // --- controls ---
-  const search = h('input', { type: 'search', placeholder: 'Search provider, plan, postcode…', class: 'sb-input',
+  const search = h('input', { type: 'search', placeholder: 'Search postcode, suburb, provider, plan…', class: 'sb-input',
     oninput: (e) => { state.text = e.target.value.trim().toLowerCase(); apply(); } });
 
   function chipRow(label, values, set) {
@@ -132,18 +132,23 @@ OET.initSidebar = function () {
     let note = '', focus = null;
     let textPred = (r) => !q || r.hay.indexOf(q) !== -1;
 
-    if (/^\d{3,5}$/.test(q)) {
-      const prefix = q.length < 4;
-      const known = (OET.AU_POSTCODES && OET.AU_POSTCODES[q]) || null;
-      const matchExact = (r) => postcodesOf(r).some((x) => x === q || (prefix && x.indexOf(q) === 0));
-      const area = q.slice(0, 3); // postal area
+    // A query is a postcode (3-5 digits) OR a suburb name (resolved to a postcode).
+    const isPc = /^\d{3,5}$/.test(q);
+    const sub = (!isPc && q.length >= 3 && OET.AU_SUBURBS) ? OET.AU_SUBURBS[q] : null;
+    const pc = isPc ? q : sub;
+    if (pc) {
+      const prefix = pc.length < 4;
+      const known = (OET.AU_POSTCODES && OET.AU_POSTCODES[pc]) || null;
+      const label = sub ? `“${state.text}” → ${pc}` : pc;
+      const matchExact = (r) => postcodesOf(r).some((x) => x === pc || (prefix && x.indexOf(pc) === 0));
+      const area = pc.slice(0, 3);
       const matchArea = (r) => postcodesOf(r).some((x) => x.indexOf(area) === 0);
       if (plans.some((r) => base(r) && matchExact(r))) {
-        textPred = matchExact; focus = known;                       // exact postcode / prefix
+        textPred = matchExact; focus = known; if (sub) note = label;
       } else if (plans.some((r) => base(r) && matchArea(r))) {
-        note = `${q}: showing ${area}× area`; textPred = matchArea; focus = known; // snap to postal area
+        note = `${label}: ${area}× area`; textPred = matchArea; focus = known;
       } else {
-        note = `${q}: no plans in this area`; textPred = () => false;
+        note = `${label}: no plans in this area`; textPred = () => false;
       }
     }
     return { pred: (r) => base(r) && textPred(r), note, focus };

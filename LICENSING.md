@@ -32,7 +32,7 @@ stored** — consumed live from the user's HA price entity (not a licence questi
 |---|---|---|---|---|
 | Leaflet (CDN, pinned 1.9.4 + SRI) | **BSD-2-Clause** | map library | keep notice | ✅ |
 | d3-delaunay (CDN, pinned 6.0.4 + SRI) | **ISC** | Voronoi polygons | keep notice | ✅ |
-| AU postcode centroids (`map/au-postcodes.js`) | **G-NAF Open EULA** (data) / MIT (the [joelkoen/postcodes-au](https://github.com/joelkoen/postcodes-au) tooling) | resolve `coverage.postcodes` → points | **attribution**: "Incorporates G-NAF © Geoscape Australia, licensed by the Commonwealth" (shown in map control) | ✅ attributed |
+| AU postcode centroids + suburb→postcode (`map/au-postcodes.js`, `map/au-suburbs.js`) | **G-NAF Open EULA** (data) / MIT (the [joelkoen/postcodes-au](https://github.com/joelkoen/postcodes-au) tooling) | resolve `coverage.postcodes` → points; suburb search | **attribution**: "Incorporates G-NAF © Geoscape Australia, licensed by the Commonwealth" (shown in map control) | ✅ attributed |
 | World country polygons (`map/world-countries.js`) | **Natural Earth — public domain** | shade `coverage.national` plans by country | none required (credited as courtesy) | ✅ credited |
 | OpenStreetMap **tiles** (`tile.openstreetmap.org`) | tiles served under OSM's [tile usage policy](https://operations.osmfoundation.org/policies/tiles/); map **data** ODbL | base map | **attribution** "© OpenStreetMap contributors" (shown); policy = no heavy/commercial use | ✅ attributed · ⚠️ see §6 |
 
