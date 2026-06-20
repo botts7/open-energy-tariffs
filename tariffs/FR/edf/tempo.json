@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "id": "fr-edf-tempo",
+    "schemaVersion": "1",
+    "country": "FR",
+    "provider": "EDF",
+    "plan": "Tempo",
+    "currency": "EUR",
+    "unit": "kWh",
+    "timezone": "Europe/Paris",
+    "source": "manual",
+    "sourceUrl": "https://particulier.edf.fr/en/home/energy-and-services/electricity/tempo.html",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "EDF Tempo: 6 prices = blue/white/red DAYS x HC/HP. The day COLOUR is announced daily — a live signal NOT expressible in the static schema (this needs a future 'day-type' extension). Bands here model the BLUE day (~300/365 days); white & red OVERRIDE on those days. Approx EUR/kWh (~early 2026): blue HC 0.1296 / HP 0.1609; white HC 0.1486 / HP 0.1894; red HC 0.1568 / HP 0.7562. HC ~22:00-06:00. APPROXIMATE — verify against EDF. National."
+  },
+  "tariff": {
+    "kind": "tou",
+    "supply": { "daily": 0.44 },
+    "import": {
+      "bands": [
+        { "id": "hp", "name": "Tempo Blue — Heures Pleines", "rate": 0.1609 },
+        { "id": "hc", "name": "Tempo Blue — Heures Creuses", "rate": 0.1296 }
+      ],
+      "schedule": [
+        { "days": "all", "from": "22:00", "to": "06:00", "band": "hc" },
+        { "days": "all", "from": "06:00", "to": "22:00", "band": "hp" }
+      ]
+    }
+  }
+}

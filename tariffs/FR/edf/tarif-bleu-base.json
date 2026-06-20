@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "id": "fr-edf-tarif-bleu-base",
+    "schemaVersion": "1",
+    "country": "FR",
+    "provider": "EDF",
+    "plan": "Tarif Bleu — Base",
+    "currency": "EUR",
+    "unit": "kWh",
+    "timezone": "Europe/Paris",
+    "source": "manual",
+    "sourceUrl": "https://particulier.edf.fr/en/home/energy-and-services/tarif-bleu.html",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "France regulated tariff (Tarif Bleu, Base option, 6 kVA). Single flat rate. Rates APPROXIMATE (~early 2026), hand-curated from public sources — verify against EDF. Abonnement (daily supply) varies by kVA. National (metropolitan France) — no postcode coverage, so not plotted on the map without a country-level coverage type."
+  },
+  "tariff": {
+    "kind": "flat",
+    "supply": { "daily": 0.42 },
+    "import": { "flatRate": 0.194 }
+  }
+}

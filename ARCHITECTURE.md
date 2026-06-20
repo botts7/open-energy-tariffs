@@ -123,6 +123,7 @@ documented as a hand-off, never stored.
   | Geographic coverage (mapping) | ✅ | `meta.coverage` (postcodes / gsp / utilityId → boundary data) |
   | Tiered / block (stepped by kWh) | v1.1 | `band.tiers[]` `{ upTo, rate }` |
   | Demand charges (c/kW peak) | v1.1 | `tariff.demand[]` `{ window, rate }` |
+  | **Day-type / colour days** (e.g. FR EDF **Tempo**: blue/white/red) | future | needs a day-type dimension beyond time-of-day + season; the colour is announced daily (a live signal). Curated now as the predominant day + a note listing the other colours' rates |
 
 - Rationale. Path-based major versioning lets old and new coexist on a CDN with
   zero ambiguity; strict-in/tolerant-out is the standard contract that lets the

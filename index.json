@@ -303,6 +303,27 @@
       ]
     }
   },
+  "FR": {
+    "": {
+      "EDF": [
+        {
+          "id": "fr-edf-tarif-bleu-base",
+          "plan": "Tarif Bleu — Base",
+          "verified": false
+        },
+        {
+          "id": "fr-edf-tarif-bleu-heures-creuses",
+          "plan": "Tarif Bleu — Heures Creuses (HC/HP)",
+          "verified": false
+        },
+        {
+          "id": "fr-edf-tempo",
+          "plan": "Tempo",
+          "verified": false
+        }
+      ]
+    }
+  },
   "GB": {
     "": {
       "Octopus Energy": [
