@@ -241,7 +241,55 @@ OET.initSidebar = function () {
     renderList(visible);
     count.textContent = `${visible.length} / ${plans.length}${note ? ' · ' + note : ''}`;
     if (focus && OET._map) OET._map.setView(focus, 11);
+    syncHash();
   }
 
+  // --- shareable URL: encode the filter/usage state in the hash (not the raw
+  // CSV/PDF — too big; manual entries only). ---
+  function syncHash() {
+    const p = new URLSearchParams();
+    if (state.countries.size) p.set('c', [...state.countries].join(','));
+    if (state.sources.size) p.set('s', [...state.sources].join(','));
+    if (state.provider) p.set('p', state.provider);
+    if (state.text) p.set('q', state.text);
+    if (state.min) p.set('min', state.min);
+    if (state.max) p.set('max', state.max);
+    if (state.usageKwh) p.set('kwh', state.usageKwh);
+    if (state.shape && state.shape !== 'flat') p.set('shape', state.shape);
+    if (state.currentCostActual) p.set('cost', state.currentCostActual);
+    if (state.currentPlanId) p.set('cur', state.currentPlanId);
+    const s = p.toString();
+    try { history.replaceState(null, '', s ? '#' + s : location.pathname + location.search); } catch (_) {}
+  }
+
+  function restore() {
+    const p = new URLSearchParams(location.hash.slice(1));
+    if (!([...p].length)) return;
+    (p.get('c') || '').split(',').filter(Boolean).forEach((x) => state.countries.add(x));
+    (p.get('s') || '').split(',').filter(Boolean).forEach((x) => state.sources.add(x));
+    state.provider = p.get('p') || ''; providerSel.value = state.provider;
+    state.text = p.get('q') || ''; search.value = state.text;
+    state.min = p.get('min') || ''; minIn.value = state.min;
+    state.max = p.get('max') || ''; maxIn.value = state.max;
+    state.usageKwh = p.get('kwh') || ''; kwhIn.value = state.usageKwh;
+    state.shape = p.get('shape') || 'flat'; shapeSel.value = state.shape;
+    state.currentCostActual = p.get('cost') || ''; currentCostIn.value = state.currentCostActual;
+    state.currentPlanId = p.get('cur') || ''; currentSel.value = state.currentPlanId;
+    root.querySelectorAll('.sb-chip').forEach((chip) => {
+      const t = chip.textContent.trim();
+      if (state.countries.has(t) || state.sources.has(t)) chip.querySelector('input').checked = true;
+    });
+    if (parseFloat(state.usageKwh) > 0) state.usage = OET.usageFromAnnual(parseFloat(state.usageKwh), state.shape);
+  }
+
+  const copyBtn = h('button', { class: 'sb-reset', text: '🔗 Copy link', onclick: () => {
+    const url = location.href;
+    (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(
+      () => { copyBtn.textContent = '✓ Copied'; setTimeout(() => { copyBtn.textContent = '🔗 Copy link'; }, 1500); },
+      () => { window.prompt('Copy this link:', url); });
+  } });
+  reset.after(copyBtn);
+
+  restore();
   apply();
 };
