@@ -3,6 +3,19 @@
 // local path is blocked by the browser).
 window.OET = window.OET || {};
 
+// Lazy-load a data bundle by injecting a <script> (works on file:// and http,
+// unlike fetch). Resolves once loaded; cached so repeated calls are cheap.
+OET._loaded = {};
+OET.loadScript = function (src) {
+  if (OET._loaded[src]) return OET._loaded[src];
+  OET._loaded[src] = new Promise((resolve) => {
+    const s = document.createElement('script');
+    s.src = src; s.onload = () => resolve(true); s.onerror = () => resolve(false);
+    document.head.appendChild(s);
+  });
+  return OET._loaded[src];
+};
+
 OET.loadPlans = async function () {
   const sources = ['../dist/canonical/tariffs.json', 'dist/canonical/tariffs.json'];
   for (const url of sources) {

@@ -32,7 +32,12 @@ OET.initSidebar = function () {
 
   // --- controls ---
   const search = h('input', { type: 'search', placeholder: 'Search postcode, suburb, provider, plan…', class: 'sb-input',
-    oninput: (e) => { state.text = e.target.value.trim().toLowerCase(); apply(); } });
+    oninput: (e) => {
+      state.text = e.target.value.trim().toLowerCase();
+      // Suburb names need the lazy bundle — load on demand, re-filter when ready.
+      if (/[a-z]/.test(state.text) && !OET.AU_SUBURBS && OET.loadScript) OET.loadScript('au-suburbs.js').then(apply);
+      apply();
+    } });
 
   function chipRow(label, values, set) {
     const wrap = h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: label })]);

@@ -156,4 +156,6 @@ OET.main = async function () {
   if (OET.loadBoundaries) await OET.loadBoundaries(); // exact polygons if bundled
   OET.renderMap(entries, { source });
   if (OET.initSidebar) OET.initSidebar();
+  // Defer the big suburb-search bundle off the critical path (idle after paint).
+  if (OET.loadScript) setTimeout(() => OET.loadScript('au-suburbs.js'), 250);
 };
