@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "id": "ca-on-ontario-oeb-rpp-ultra-low-overnight",
+    "schemaVersion": "1",
+    "country": "CA",
+    "region": "ON",
+    "provider": "Ontario OEB (RPP)",
+    "plan": "RPP Ultra-Low Overnight (ULO)",
+    "currency": "CAD",
+    "unit": "kWh",
+    "timezone": "America/Toronto",
+    "source": "manual",
+    "sourceUrl": "https://www.oeb.ca/consumer-information-and-protection/electricity-rates",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Ontario RPP Ultra-Low Overnight: cheapest overnight (23:00-07:00 every day) for EV/shifting; on-peak weekday evening is expensive. Rates APPROXIMATE (~2026) — verify with the OEB. Province-wide. Delivery/fixed charges excluded."
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        { "id": "ulo", "name": "Ultra-low overnight", "rate": 0.028 },
+        { "id": "on", "name": "On-peak", "rate": 0.391 },
+        { "id": "off", "name": "Off-peak / weekend", "rate": 0.122 }
+      ],
+      "schedule": [
+        { "days": "all", "from": "23:00", "to": "24:00", "band": "ulo" },
+        { "days": "all", "from": "00:00", "to": "07:00", "band": "ulo" },
+        { "days": "weekday", "from": "07:00", "to": "16:00", "band": "off" },
+        { "days": "weekday", "from": "16:00", "to": "21:00", "band": "on" },
+        { "days": "weekday", "from": "21:00", "to": "23:00", "band": "off" },
+        { "days": "weekend", "from": "07:00", "to": "23:00", "band": "off" }
+      ]
+    }
+  }
+}

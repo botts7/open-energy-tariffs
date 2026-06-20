@@ -303,6 +303,27 @@
       ]
     }
   },
+  "CA": {
+    "ON": {
+      "Ontario OEB (RPP)": [
+        {
+          "id": "ca-on-ontario-oeb-rpp-tiered",
+          "plan": "RPP Tiered",
+          "verified": false
+        },
+        {
+          "id": "ca-on-ontario-oeb-rpp-time-of-use-winter",
+          "plan": "RPP Time-of-Use (winter)",
+          "verified": false
+        },
+        {
+          "id": "ca-on-ontario-oeb-rpp-ultra-low-overnight",
+          "plan": "RPP Ultra-Low Overnight (ULO)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "FR": {
     "": {
       "EDF": [
@@ -335,12 +356,34 @@
       ]
     }
   },
+  "SG": {
+    "": {
+      "SP Group": [
+        {
+          "id": "sg-sp-group-regulated-tariff",
+          "plan": "Regulated electricity tariff",
+          "verified": false
+        }
+      ]
+    }
+  },
   "US": {
     "_example": {
       "Example Utility": [
         {
           "id": "us-example-flat",
           "plan": "Flat residential (example)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "ZA": {
+    "": {
+      "Eskom": [
+        {
+          "id": "za-eskom-homepower-4",
+          "plan": "Homepower 4 (flat energy)",
           "verified": false
         }
       ]

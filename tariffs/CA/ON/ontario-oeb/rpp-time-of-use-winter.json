@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "id": "ca-on-ontario-oeb-rpp-time-of-use-winter",
+    "schemaVersion": "1",
+    "country": "CA",
+    "region": "ON",
+    "provider": "Ontario OEB (RPP)",
+    "plan": "RPP Time-of-Use (winter)",
+    "currency": "CAD",
+    "unit": "kWh",
+    "timezone": "America/Toronto",
+    "source": "manual",
+    "sourceUrl": "https://www.oeb.ca/consumer-information-and-protection/electricity-rates",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Ontario Regulated Price Plan (OEB) Time-of-Use, WINTER schedule (Nov-Apr). Summer (May-Oct) swaps on/mid-peak windows — a seasonal variant (future seasonal modelling). Rates APPROXIMATE (~2026) — verify with the OEB / your utility. Province-wide (no postcode coverage). Delivery/fixed charges excluded (utility-specific)."
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        { "id": "on", "name": "On-peak", "rate": 0.203 },
+        { "id": "mid", "name": "Mid-peak", "rate": 0.122 },
+        { "id": "off", "name": "Off-peak", "rate": 0.087 }
+      ],
+      "schedule": [
+        { "days": "weekday", "from": "00:00", "to": "07:00", "band": "off" },
+        { "days": "weekday", "from": "07:00", "to": "11:00", "band": "on" },
+        { "days": "weekday", "from": "11:00", "to": "17:00", "band": "mid" },
+        { "days": "weekday", "from": "17:00", "to": "19:00", "band": "on" },
+        { "days": "weekday", "from": "19:00", "to": "24:00", "band": "off" },
+        { "days": "weekend", "from": "00:00", "to": "24:00", "band": "off" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "za-eskom-homepower-4",
+    "schemaVersion": "1",
+    "country": "ZA",
+    "provider": "Eskom",
+    "plan": "Homepower 4 (flat energy)",
+    "currency": "ZAR",
+    "unit": "kWh",
+    "timezone": "Africa/Johannesburg",
+    "source": "manual",
+    "sourceUrl": "https://www.eskom.co.za/distribution/tariffs-and-charges/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Eskom residential Homepower (NERSA-regulated), single energy rate shown. Rate APPROXIMATE (~2026) — verify with Eskom's tariff booklet. Eskom also has Homeflex (a TOU tariff) — not curated here. Excludes fixed/network/capacity charges. Direct-Eskom customers only (municipal areas differ)."
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": { "flatRate": 2.65 }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "id": "sg-sp-group-regulated-tariff",
+    "schemaVersion": "1",
+    "country": "SG",
+    "provider": "SP Group",
+    "plan": "Regulated electricity tariff",
+    "currency": "SGD",
+    "unit": "kWh",
+    "timezone": "Asia/Singapore",
+    "source": "manual",
+    "sourceUrl": "https://www.spgroup.com.sg/our-services/utilities/tariff-information",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Singapore regulated electricity tariff (reviewed quarterly by EMA/SP Group). Single flat rate. Rate APPROXIMATE (~2026) — verify with SP Group. National."
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": { "flatRate": 0.3247 }
+  }
+}
