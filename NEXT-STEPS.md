@@ -136,7 +136,17 @@ TODO **in THIS repo / session** (app-agnostic core, roughly in order):
   URDB `rate+adj` sum, epoch `startdate`. (commits e5ad9f9, 7483cef, 13a6e10)
 - Still authored-but-unrun by the assistant → **CI is the gate** (`npm test`).
 
-Remaining = publish + the Wallbox-session consumer:
+- ✅ **Geographic coverage** captured into `meta.coverage` (CDR postcodes,
+  Octopus gsp, URDB eiaid→utilityId) — schema extended (additive); real fixtures
+  updated. Join keys for a coverage map (postcodes→POA, gsp→DNO, eiaid→HIFLD).
+  (commit 44ed86e)
+- ✅ **IURDB**: URDB importer is country-agnostic (item.country→ISO-2, writes
+  `tariffs/<country>/`, `--currency`). Live OpenEI API is US-only today;
+  international needs the IURDB bulk dump through the same `mapRate()`.
+
+Remaining = publish + a map + the Wallbox-session consumer:
+- **Coverage map** (optional new `map/` static viewer, or leave to consumers):
+  load `dist/`, join `meta.coverage` to boundary GeoJSON, shade a choropleth.
 - Optionally commit one real bulk-store entry per source to `tariffs/` (e.g. run
   `importers/cdr/run.mjs --base https://cdr.energymadeeasy.gov.au/ergon` then
   `npm run validate`) so the DB ships real data, not just examples.
