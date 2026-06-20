@@ -55,7 +55,7 @@ OET.renderMap = function (plans, meta) {
   const groups = {}; // source -> LayerGroup (organisation; visibility via filter)
   const centers = [];
   const planRecs = []; // one per plan: { id, meta, tariff, rate, src, layers, bounds, located, hay }
-  const voronoiCache = {}; // postcode-set -> rings (plans sharing a set reuse geometry)
+  const hullCache = {}; // postcode-set -> convex-hull ring (plans sharing a set reuse geometry)
   let mapped = 0, unmapped = 0;
 
   function areaStyle(cRate) {
@@ -85,12 +85,15 @@ OET.renderMap = function (plans, meta) {
         add(L.geoJSON(boundary, { style: areaStyle(cRate) }).bindPopup(popup('exact boundary')));
         mapped++;
       } else if (points.length) {
-        const pcLatLngs = points.filter((p) => p.type === 'postcode').map((p) => p.latlng);
+        // AGGREGATE: one convex-hull polygon per plan (not one Voronoi cell per
+        // postcode) so 1000+ plans stay interactive. Cached by postcode-set.
+        const pcPts = points.filter((p) => p.type === 'postcode');
+        const pcLatLngs = pcPts.map((p) => p.latlng);
         const ckey = (cov.postcodes || []).join(',');
-        let rings = voronoiCache[ckey];
-        if (rings === undefined) { rings = (OET.voronoiPolygons && pcLatLngs.length) ? OET.voronoiPolygons(pcLatLngs) : []; voronoiCache[ckey] = rings; }
-        if (rings.length) { add(L.polygon(rings, areaStyle(cRate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s) (Voronoi)`))); mapped += pcLatLngs.length; }
-        else for (const p of points.filter((p) => p.type === 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS.postcode }, areaStyle(cRate))).bindPopup(popup(p.label))); mapped++; }
+        let hull = hullCache[ckey];
+        if (hull === undefined) { hull = (OET.convexHull && pcLatLngs.length >= 3) ? OET.convexHull(pcLatLngs) : null; hullCache[ckey] = hull; }
+        if (hull) { add(L.polygon(hull, areaStyle(cRate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s)`))); mapped++; }
+        else for (const p of pcPts) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS.postcode }, areaStyle(cRate))).bindPopup(popup(p.label))); mapped++; }
         for (const p of points.filter((p) => p.type !== 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS[p.type] || 8000 }, areaStyle(cRate))).bindPopup(popup(p.label))); mapped++; }
       } else if (cov.national && OET.nationalGeometry) {
         // National plan -> shade the whole country (or a centroid if no polygon).

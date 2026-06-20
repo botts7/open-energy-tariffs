@@ -15,7 +15,7 @@
     "license": "CC-BY-4.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Imported from AER CDR generic plans. Contains data © Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "notes": "Imported from AER CDR generic plans. Contains data \u00a9 Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
     "coverage": {
       "postcodes": [
         "5000",
@@ -355,12 +355,54 @@
     }
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.360351
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.409191
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder (Solar Sponge)",
+          "rate": 0.252881
+        },
+        {
+          "id": "off-peak",
+          "name": "Off Peak",
+          "rate": 0.304911
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "06:00",
+          "to": "10:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "01:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "10:00",
+          "to": "15:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "all",
+          "from": "01:00",
+          "to": "06:00",
+          "band": "off-peak"
+        }
+      ]
     },
     "supply": {
-      "daily": 1.707498
+      "daily": 1.74307
     },
     "export": {
       "flatRate": 0.44

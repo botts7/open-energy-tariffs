@@ -44,6 +44,43 @@ function discPolygon(site, radiusDeg, sides) {
   return ring;
 }
 
+// AGGREGATION: collapse a plan's many postcode centroids into ONE outline so the
+// map draws 1 ring/plan instead of 1/postcode (a plan covering 200 postcodes was
+// 200 rings → at 1000+ plans that's 200k+ rings and the canvas chokes). Andrew's
+// monotone-chain convex hull over [lng,lat]; returned as a single [lat,lng] ring.
+// Slightly buffered outward (discPolygon-style) so tight/collinear clusters still
+// have area. Returns null if < 3 distinct points (caller falls back to circles).
+OET.convexHull = function (latlngs, padDeg) {
+  if (!latlngs || latlngs.length < 3) return null;
+  // dedupe + to [lng,lat]
+  const seen = new Set();
+  const pts = [];
+  for (const p of latlngs) {
+    const x = p[1], y = p[0], k = x.toFixed(4) + ',' + y.toFixed(4);
+    if (!seen.has(k)) { seen.add(k); pts.push([x, y]); }
+  }
+  if (pts.length < 3) return null;
+  pts.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const cross = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lower = [];
+  for (const p of pts) { while (lower.length >= 2 && cross(lower[lower.length - 2], lower[lower.length - 1], p) <= 0) lower.pop(); lower.push(p); }
+  const upper = [];
+  for (let i = pts.length - 1; i >= 0; i--) { const p = pts[i]; while (upper.length >= 2 && cross(upper[upper.length - 2], upper[upper.length - 1], p) <= 0) upper.pop(); upper.push(p); }
+  let hull = lower.slice(0, -1).concat(upper.slice(0, -1)); // [lng,lat] CCW
+  if (hull.length < 3) return null;
+  // optional outward buffer around centroid so thin hulls keep some area
+  const pad = padDeg == null ? 0.04 : padDeg;
+  if (pad > 0) {
+    let cx = 0, cy = 0; for (const h of hull) { cx += h[0]; cy += h[1]; }
+    cx /= hull.length; cy /= hull.length;
+    hull = hull.map(([x, y]) => {
+      const dx = x - cx, dy = y - cy, len = Math.hypot(dx, dy) || 1e-9;
+      return [x + (dx / len) * pad, y + (dy / len) * pad];
+    });
+  }
+  return hull.map(([x, y]) => [y, x]); // -> [lat,lng]
+};
+
 // latlngs: [[lat,lng],...] -> array of polygon rings ([[lat,lng],...]), one per
 // point: its Voronoi cell clipped to a disc of `radiusDeg` (≈ coverage reach).
 OET.voronoiPolygons = function (latlngs, radiusDeg) {

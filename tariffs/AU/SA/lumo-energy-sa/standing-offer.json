@@ -15,7 +15,7 @@
     "license": "CC-BY-4.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Imported from AER CDR generic plans. Contains data © Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "notes": "Imported from AER CDR generic plans. Contains data \u00a9 Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
     "coverage": {
       "postcodes": [
         "5000",
@@ -357,10 +357,10 @@
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.4089
+      "flatRate": 0.4378
     },
     "supply": {
-      "daily": 1.0875
+      "daily": 1.7272
     },
     "export": {
       "flatRate": 0.02
