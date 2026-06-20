@@ -25,7 +25,7 @@ OET.initSidebar = function () {
   const sources = uniq((p) => p.src);
   const providers = uniq((p) => p.meta.provider);
 
-  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', currentPlanId: '', currentCostActual: '', intervals: null };
+  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', currentPlanId: '', currentCostActual: '', intervals: null, outline: false };
 
   const count = h('div', { class: 'sb-count' });
   const list = h('div', { class: 'sb-list' });
@@ -66,9 +66,16 @@ OET.initSidebar = function () {
     oninput: (e) => { state.max = e.target.value; apply(); } });
   const priceRow = h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Rate/kWh' }), minIn, h('span', { text: '–' }), maxIn]);
 
+  // Outline mode: draw areas as coloured boundaries (almost no fill) so overlapping
+  // coverage areas and the basemap stay visible.
+  const outlineCb = h('input', { type: 'checkbox', onchange: (e) => { state.outline = e.target.checked; if (OET.setOutline) OET.setOutline(state.outline); syncHash(); } });
+  const outlineRow = h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Display' }),
+    h('label', { class: 'sb-chip' }, [outlineCb, h('span', { text: 'Outline (show overlaps)' })])]);
+
   const reset = h('button', { class: 'sb-reset', text: 'Reset', onclick: () => {
     state.text = ''; state.countries.clear(); state.sources.clear(); state.provider = ''; state.min = ''; state.max = '';
     state.usage = null; state.usageKwh = ''; state.shape = 'flat'; state.currentPlanId = ''; state.currentCostActual = ''; state.intervals = null;
+    state.outline = false; outlineCb.checked = false; if (OET.setOutline) OET.setOutline(false);
     search.value = ''; providerSel.value = ''; minIn.value = ''; maxIn.value = '';
     kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; currentSel.value = ''; currentCostIn.value = ''; cmpNote.textContent = '';
     root.querySelectorAll('.sb-chip input').forEach((c) => { c.checked = false; });
@@ -148,6 +155,7 @@ OET.initSidebar = function () {
   root.appendChild(chipRow('Source', sources, state.sources));
   root.appendChild(providerSel);
   root.appendChild(priceRow);
+  root.appendChild(outlineRow);
   root.appendChild(cmp);
   root.appendChild(reset);
   root.appendChild(list);
@@ -264,6 +272,7 @@ OET.initSidebar = function () {
     if (state.shape && state.shape !== 'flat') p.set('shape', state.shape);
     if (state.currentCostActual) p.set('cost', state.currentCostActual);
     if (state.currentPlanId) p.set('cur', state.currentPlanId);
+    if (state.outline) p.set('o', '1');
     const s = p.toString();
     try { history.replaceState(null, '', s ? '#' + s : location.pathname + location.search); } catch (_) {}
   }
@@ -281,6 +290,7 @@ OET.initSidebar = function () {
     state.shape = p.get('shape') || 'flat'; shapeSel.value = state.shape;
     state.currentCostActual = p.get('cost') || ''; currentCostIn.value = state.currentCostActual;
     state.currentPlanId = p.get('cur') || ''; currentSel.value = state.currentPlanId;
+    state.outline = p.get('o') === '1'; outlineCb.checked = state.outline; if (state.outline && OET.setOutline) OET.setOutline(true);
     root.querySelectorAll('.sb-chip').forEach((chip) => {
       const t = chip.textContent.trim();
       if (state.countries.has(t) || state.sources.has(t)) chip.querySelector('input').checked = true;

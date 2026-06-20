@@ -90,9 +90,14 @@ OET.renderMap = function (plans, meta) {
         const pcPts = points.filter((p) => p.type === 'postcode');
         const pcLatLngs = pcPts.map((p) => p.latlng);
         const ckey = (cov.postcodes || []).join(',');
-        let hull = hullCache[ckey];
-        if (hull === undefined) { hull = (OET.convexHull && pcLatLngs.length >= 3) ? OET.convexHull(pcLatLngs) : null; hullCache[ckey] = hull; }
-        if (hull) { add(L.polygon(hull, areaStyle(cRate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s)`))); mapped++; }
+        let hull = hullCache[ckey]; // array of rings (concave, hugs postcodes) or null
+        if (hull === undefined) {
+          let rings = (pcLatLngs.length >= 3 && OET.concaveHull) ? OET.concaveHull(pcLatLngs) : null;
+          if (!rings && pcLatLngs.length >= 3 && OET.convexHull) { const cv = OET.convexHull(pcLatLngs); rings = cv ? [cv] : null; }
+          hull = rings; hullCache[ckey] = rings;
+        }
+        // hull.map(r=>[r]) -> multipolygon (each ring its own filled area, no bridging)
+        if (hull) { add(L.polygon(hull.map((r) => [r]), areaStyle(cRate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s)`))); mapped++; }
         else for (const p of pcPts) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS.postcode }, areaStyle(cRate))).bindPopup(popup(p.label))); mapped++; }
         for (const p of points.filter((p) => p.type !== 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS[p.type] || 8000 }, areaStyle(cRate))).bindPopup(popup(p.label))); mapped++; }
       } else if (cov.national && OET.nationalGeometry) {
@@ -129,6 +134,23 @@ OET.renderMap = function (plans, meta) {
   // cheap 0.27 AUD plan look alike. So when all VISIBLE plans share a currency we
   // recolour by the LOCAL rate; otherwise USD-equiv. Recolour only on mode change.
   let colorMode = 'usd';
+  if (OET._outline == null) OET._outline = false;
+  function planColor(r) {
+    const single = colorMode.indexOf('local:') === 0;
+    const cur = single ? colorMode.slice(6) : null;
+    const useLocal = single && r.meta.currency === cur;
+    const cRate = useLocal ? r.rate : (OET.toUsd ? OET.toUsd(r.rate, r.meta.currency) : r.rate);
+    return OET.rateColor(cRate);
+  }
+  // Filled choropleth, OR outline mode: a coloured boundary with near-zero fill so
+  // overlapping coverage areas (and the basemap) stay visible.
+  function styleFor(r) {
+    const c = planColor(r);
+    return OET._outline
+      ? { color: c, weight: 2, opacity: 0.9, fillColor: c, fillOpacity: 0.05 }
+      : { color: '#333', weight: 1, opacity: 1, fillColor: c, fillOpacity: 0.4 };
+  }
+  function restyleAll() { for (const r of planRecs) for (const l of r.layers) if (l.setStyle) l.setStyle(styleFor(r)); }
   function recolor(visibleRecs) {
     const curs = new Set();
     for (const r of visibleRecs) curs.add(r.meta.currency);
@@ -136,15 +158,12 @@ OET.renderMap = function (plans, meta) {
     const cur = single ? [...curs][0] : null;
     const mode = single ? 'local:' + cur : 'usd';
     if (mode === colorMode) return; // colours already correct for this mode
-    for (const r of planRecs) {
-      const useLocal = single && r.meta.currency === cur;
-      const cRate = useLocal ? r.rate : (OET.toUsd ? OET.toUsd(r.rate, r.meta.currency) : r.rate);
-      const col = OET.rateColor(cRate);
-      for (const l of r.layers) if (l.setStyle) l.setStyle({ fillColor: col });
-    }
     colorMode = mode; OET._colorMode = mode;
+    restyleAll();
     if (OET._updateLegend) OET._updateLegend(cur);
   }
+  // Toggle filled <-> outline (sidebar checkbox). Restyles every layer.
+  OET.setOutline = function (on) { OET._outline = !!on; restyleAll(); };
   // Colour for a plan under the CURRENT mode, so sidebar swatches match the map.
   OET._rateColorNow = function (rate, currency) {
     const single = colorMode.indexOf('local:') === 0;

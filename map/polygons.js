@@ -81,6 +81,62 @@ OET.convexHull = function (latlngs, padDeg) {
   return hull.map(([x, y]) => [y, x]); // -> [lat,lng]
 };
 
+// CONCAVE hull (alpha shape) — hugs the postcodes instead of the convex blob a
+// `convexHull` draws (which fills bays/ocean). Build the Delaunay triangulation,
+// drop triangles with an over-long edge (longer than `factor`× the median edge,
+// so it adapts to local density), then the outline of the surviving triangles is
+// the concave boundary. Returns an array of rings ([[lat,lng],...]); a sparse set
+// can yield several disjoint rings. Falls back to convexHull on failure.
+OET.concaveHull = function (latlngs, factor) {
+  if (!window.d3 || !d3.Delaunay || !latlngs || latlngs.length < 3) return null;
+  factor = factor == null ? 2.4 : factor;
+  // dedupe -> [lng,lat]
+  const seen = new Set(); const pts = [];
+  for (const p of latlngs) { const x = p[1], y = p[0], k = x.toFixed(4) + ',' + y.toFixed(4); if (!seen.has(k)) { seen.add(k); pts.push([x, y]); } }
+  if (pts.length < 3) return null;
+  let tris;
+  try { tris = d3.Delaunay.from(pts).triangles; } catch (_) { return null; }
+  const elen = (i, j) => Math.hypot(pts[i][0] - pts[j][0], pts[i][1] - pts[j][1]);
+  // median edge length over all triangle edges
+  const lens = [];
+  for (let t = 0; t < tris.length; t += 3) { lens.push(elen(tris[t], tris[t + 1]), elen(tris[t + 1], tris[t + 2]), elen(tris[t + 2], tris[t])); }
+  if (!lens.length) return null;
+  lens.sort((a, b) => a - b);
+  const median = lens[lens.length >> 1] || 0.0001;
+  const maxEdge = median * factor;
+  // boundary = undirected edges used by exactly one KEPT triangle
+  const edges = new Map(); // "a,b" (a<b) -> count
+  const key = (a, b) => (a < b ? a + ',' + b : b + ',' + a);
+  for (let t = 0; t < tris.length; t += 3) {
+    const a = tris[t], b = tris[t + 1], c = tris[t + 2];
+    if (elen(a, b) > maxEdge || elen(b, c) > maxEdge || elen(c, a) > maxEdge) continue; // drop long tri
+    for (const [u, v] of [[a, b], [b, c], [c, a]]) { const k = key(u, v); edges.set(k, (edges.get(k) || 0) + 1); }
+  }
+  // adjacency of boundary edges
+  const adj = new Map();
+  for (const [k, n] of edges) { if (n !== 1) continue; const [u, v] = k.split(',').map(Number); (adj.get(u) || adj.set(u, []).get(u)).push(v); (adj.get(v) || adj.set(v, []).get(v)).push(u); }
+  if (!adj.size) return null;
+  // stitch into rings
+  const used = new Set(); const rings = [];
+  for (const start of adj.keys()) {
+    if (used.has(start) && (adj.get(start) || []).every((n) => used.has(key(start, n) + 'e'))) continue;
+    let cur = start, prev = -1; const ring = []; let guard = 0;
+    while (cur != null && guard++ < pts.length * 4) {
+      ring.push(pts[cur]);
+      const nbrs = adj.get(cur) || [];
+      let next = null;
+      for (const n of nbrs) { if (n !== prev && !used.has(key(cur, n) + 'e')) { next = n; break; } }
+      if (next == null) { for (const n of nbrs) { if (!used.has(key(cur, n) + 'e')) { next = n; break; } } }
+      if (next == null) break;
+      used.add(key(cur, next) + 'e');
+      prev = cur; cur = next;
+      if (cur === start) break;
+    }
+    if (ring.length >= 3) rings.push(ring.map(([x, y]) => [y, x])); // -> [lat,lng]
+  }
+  return rings.length ? rings : null;
+};
+
 // latlngs: [[lat,lng],...] -> array of polygon rings ([[lat,lng],...]), one per
 // point: its Voronoi cell clipped to a disc of `radiusDeg` (≈ coverage reach).
 OET.voronoiPolygons = function (latlngs, radiusDeg) {
