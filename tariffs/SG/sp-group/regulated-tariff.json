@@ -13,10 +13,15 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Singapore regulated electricity tariff (reviewed quarterly by EMA/SP Group). Single flat rate. Rate APPROXIMATE (~2026) — verify with SP Group. National."
+    "notes": "Singapore regulated electricity tariff (reviewed quarterly by EMA/SP Group). Single flat rate. Rate APPROXIMATE (~2026) — verify with SP Group. National.",
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "flat",
-    "import": { "flatRate": 0.3247 }
+    "import": {
+      "flatRate": 0.3247
+    }
   }
 }

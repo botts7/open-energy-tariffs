@@ -57,7 +57,8 @@
             "postcodes": { "type": "array", "items": { "type": "string" }, "description": "AU CDR includedPostcodes / general postal codes covered." },
             "exclude": { "type": "array", "items": { "type": "string" }, "description": "Postcodes explicitly excluded." },
             "gsp": { "type": "string", "description": "UK Grid Supply Point group, e.g. _B (maps to a DNO licence area)." },
-            "utilityId": { "type": "string", "description": "US URDB eiaid (EIA utility id) -> retail service territory." }
+            "utilityId": { "type": "string", "description": "US URDB eiaid (EIA utility id) -> retail service territory." },
+            "national": { "type": "boolean", "description": "Plan applies nationwide (or province-wide via meta.region) -> plotted as the country polygon." }
           }
         }
       },

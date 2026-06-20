@@ -49,7 +49,8 @@ OET.renderMap = function (plans, meta) {
   map.attributionControl.addAttribution(
     'Tariffs: © <a href="https://www.aer.gov.au/">AER</a> ' +
     '<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · OpenEI/NREL URDB (CC0) · ' +
-    'AU postcodes: G-NAF © <a href="https://geoscape.com.au/">Geoscape Australia</a>');
+    'AU postcodes: G-NAF © <a href="https://geoscape.com.au/">Geoscape Australia</a> · ' +
+    'Country shapes: <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain)');
 
   const groups = {}; // source -> LayerGroup (organisation; visibility via filter)
   const centers = [];
@@ -75,14 +76,14 @@ OET.renderMap = function (plans, meta) {
     const cov = m.coverage || {};
     const recLayers = [];
 
-    if (points.length || boundary) {
+    if (points.length || boundary || cov.national) {
       const group = groups[src] || (groups[src] = L.layerGroup().addTo(map));
       const popup = (extra) => popupHtml(m, tariff, rate) + (extra ? `<br><span style="color:#777">${esc(extra)}</span>` : '');
       const add = (layer) => { layer.addTo(group); recLayers.push(layer); };
       if (boundary) {
         add(L.geoJSON(boundary, { style: areaStyle(rate) }).bindPopup(popup('exact boundary')));
         mapped++;
-      } else {
+      } else if (points.length) {
         const pcLatLngs = points.filter((p) => p.type === 'postcode').map((p) => p.latlng);
         const ckey = (cov.postcodes || []).join(',');
         let rings = voronoiCache[ckey];
@@ -90,6 +91,12 @@ OET.renderMap = function (plans, meta) {
         if (rings.length) { add(L.polygon(rings, areaStyle(rate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s) (Voronoi)`))); mapped += pcLatLngs.length; }
         else for (const p of points.filter((p) => p.type === 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS.postcode }, areaStyle(rate))).bindPopup(popup(p.label))); mapped++; }
         for (const p of points.filter((p) => p.type !== 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS[p.type] || 8000 }, areaStyle(rate))).bindPopup(popup(p.label))); mapped++; }
+      } else if (cov.national && OET.nationalGeometry) {
+        // National plan -> shade the whole country (or a centroid if no polygon).
+        const ng = OET.nationalGeometry(m.country);
+        const tag = 'national' + (m.region ? ' · ' + m.region : '');
+        if (ng && ng.type === 'polygon') { add(L.geoJSON(ng.geojson, { style: areaStyle(rate) }).bindPopup(popup(tag))); mapped++; }
+        else if (ng) { add(L.circle(ng.latlng, Object.assign({ radius: 250000 }, areaStyle(rate))).bindPopup(popup(tag))); mapped++; }
       }
     } else unmapped++;
 

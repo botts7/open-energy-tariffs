@@ -14,23 +14,68 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Ontario Regulated Price Plan (OEB) Time-of-Use, WINTER schedule (Nov-Apr). Summer (May-Oct) swaps on/mid-peak windows — a seasonal variant (future seasonal modelling). Rates APPROXIMATE (~2026) — verify with the OEB / your utility. Province-wide (no postcode coverage). Delivery/fixed charges excluded (utility-specific)."
+    "notes": "Ontario Regulated Price Plan (OEB) Time-of-Use, WINTER schedule (Nov-Apr). Summer (May-Oct) swaps on/mid-peak windows — a seasonal variant (future seasonal modelling). Rates APPROXIMATE (~2026) — verify with the OEB / your utility. Province-wide (no postcode coverage). Delivery/fixed charges excluded (utility-specific).",
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
-        { "id": "on", "name": "On-peak", "rate": 0.203 },
-        { "id": "mid", "name": "Mid-peak", "rate": 0.122 },
-        { "id": "off", "name": "Off-peak", "rate": 0.087 }
+        {
+          "id": "on",
+          "name": "On-peak",
+          "rate": 0.203
+        },
+        {
+          "id": "mid",
+          "name": "Mid-peak",
+          "rate": 0.122
+        },
+        {
+          "id": "off",
+          "name": "Off-peak",
+          "rate": 0.087
+        }
       ],
       "schedule": [
-        { "days": "weekday", "from": "00:00", "to": "07:00", "band": "off" },
-        { "days": "weekday", "from": "07:00", "to": "11:00", "band": "on" },
-        { "days": "weekday", "from": "11:00", "to": "17:00", "band": "mid" },
-        { "days": "weekday", "from": "17:00", "to": "19:00", "band": "on" },
-        { "days": "weekday", "from": "19:00", "to": "24:00", "band": "off" },
-        { "days": "weekend", "from": "00:00", "to": "24:00", "band": "off" }
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "07:00",
+          "band": "off"
+        },
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "11:00",
+          "band": "on"
+        },
+        {
+          "days": "weekday",
+          "from": "11:00",
+          "to": "17:00",
+          "band": "mid"
+        },
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "19:00",
+          "band": "on"
+        },
+        {
+          "days": "weekday",
+          "from": "19:00",
+          "to": "24:00",
+          "band": "off"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "off"
+        }
       ]
     }
   }

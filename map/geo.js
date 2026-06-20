@@ -34,6 +34,17 @@ if (OET.AU_POSTCODES_FULL) OET.AU_POSTCODES = Object.assign({}, OET.AU_POSTCODES
 // Sample US utility (eiaid) centroids.
 OET.US_UTILITY = { '14006': [39.96, -82.99, 'Ohio Power Co (AEP Ohio)'] };
 
+// Country centroids for national plans whose country polygon is missing from
+// OET.WORLD (e.g. tiny states dropped at 110m). lat,lng.
+OET.COUNTRY_CENTROID = { SG: [1.35, 103.82], MT: [35.9, 14.4], BH: [26.0, 50.5], LU: [49.8, 6.1] };
+
+// Geometry for a NATIONAL plan: the country polygon if bundled, else a centroid.
+OET.nationalGeometry = function (country) {
+  if (OET.WORLD && OET.WORLD[country]) return { type: 'polygon', geojson: { type: 'Feature', properties: {}, geometry: OET.WORLD[country] } };
+  if (OET.COUNTRY_CENTROID[country]) return { type: 'point', latlng: OET.COUNTRY_CENTROID[country] };
+  return null;
+};
+
 // Approx area radius (metres) per coverage type, used when no exact boundary
 // polygon is available — so a plan shows as a shaded AREA, not a pinpoint.
 OET.AREA_RADIUS = { postcode: 6000, gsp: 130000, utility: 90000 };

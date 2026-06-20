@@ -13,10 +13,15 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Eskom residential Homepower (NERSA-regulated), single energy rate shown. Rate APPROXIMATE (~2026) — verify with Eskom's tariff booklet. Eskom also has Homeflex (a TOU tariff) — not curated here. Excludes fixed/network/capacity charges. Direct-Eskom customers only (municipal areas differ)."
+    "notes": "Eskom residential Homepower (NERSA-regulated), single energy rate shown. Rate APPROXIMATE (~2026) — verify with Eskom's tariff booklet. Eskom also has Homeflex (a TOU tariff) — not curated here. Excludes fixed/network/capacity charges. Direct-Eskom customers only (municipal areas differ).",
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "flat",
-    "import": { "flatRate": 2.65 }
+    "import": {
+      "flatRate": 2.65
+    }
   }
 }

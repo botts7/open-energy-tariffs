@@ -14,10 +14,15 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Ontario RPP Tiered: a lower rate up to a monthly threshold, higher above it (Tier 1 ~0.103, Tier 2 ~0.125; threshold ~600 kWh winter / 1000 kWh summer). Block tiers are a v1.1 schema feature — modelled here as the Tier-1 flat rate. Rates APPROXIMATE (~2026) — verify with the OEB. Province-wide. Delivery/fixed charges excluded."
+    "notes": "Ontario RPP Tiered: a lower rate up to a monthly threshold, higher above it (Tier 1 ~0.103, Tier 2 ~0.125; threshold ~600 kWh winter / 1000 kWh summer). Block tiers are a v1.1 schema feature — modelled here as the Tier-1 flat rate. Rates APPROXIMATE (~2026) — verify with the OEB. Province-wide. Delivery/fixed charges excluded.",
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "flat",
-    "import": { "flatRate": 0.103 }
+    "import": {
+      "flatRate": 0.103
+    }
   }
 }

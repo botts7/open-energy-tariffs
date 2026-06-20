@@ -13,19 +13,42 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "France regulated two-rate tariff (Tarif Bleu, Heures Creuses option, 6 kVA). HC (off-peak) is ~8h overnight; the exact window is set by Enedis per area — 22:00-06:00 used here as a common case. Rates APPROXIMATE (~early 2026) — verify against EDF. National."
+    "notes": "France regulated two-rate tariff (Tarif Bleu, Heures Creuses option, 6 kVA). HC (off-peak) is ~8h overnight; the exact window is set by Enedis per area — 22:00-06:00 used here as a common case. Rates APPROXIMATE (~early 2026) — verify against EDF. National.",
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "tou",
-    "supply": { "daily": 0.44 },
+    "supply": {
+      "daily": 0.44
+    },
     "import": {
       "bands": [
-        { "id": "hp", "name": "Heures Pleines (peak)", "rate": 0.2065 },
-        { "id": "hc", "name": "Heures Creuses (off-peak)", "rate": 0.1579 }
+        {
+          "id": "hp",
+          "name": "Heures Pleines (peak)",
+          "rate": 0.2065
+        },
+        {
+          "id": "hc",
+          "name": "Heures Creuses (off-peak)",
+          "rate": 0.1579
+        }
       ],
       "schedule": [
-        { "days": "all", "from": "22:00", "to": "06:00", "band": "hc" },
-        { "days": "all", "from": "06:00", "to": "22:00", "band": "hp" }
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "06:00",
+          "band": "hc"
+        },
+        {
+          "days": "all",
+          "from": "06:00",
+          "to": "22:00",
+          "band": "hp"
+        }
       ]
     }
   }
