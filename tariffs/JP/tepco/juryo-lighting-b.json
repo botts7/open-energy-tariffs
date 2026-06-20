@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "id": "jp-tepco-juryo-lighting-b",
+    "schemaVersion": "1",
+    "country": "JP",
+    "provider": "TEPCO",
+    "plan": "Juryo Lighting B (tier 1)",
+    "currency": "JPY",
+    "unit": "kWh",
+    "timezone": "Asia/Tokyo",
+    "source": "manual",
+    "sourceUrl": "https://www.tepco.co.jp/en/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "TEPCO standard residential 'Juryo Lighting B' is a 3-tier block rate (~tier1 <120 kWh, tier2 120-300, tier3 >300, rising prices). Block tiers are a v1.1 schema feature — modelled here as the Tier-1 rate. Rate APPROXIMATE in JPY/kWh (~2026) — verify with TEPCO. Excludes the basic (per-ampere) charge + fuel adjustment. Kanto region; other utilities differ.",
+    "coverage": { "national": true }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": { "flatRate": 20.0 }
+  }
+}

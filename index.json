@@ -303,6 +303,17 @@
       ]
     }
   },
+  "BR": {
+    "SP": {
+      "Enel SP": [
+        {
+          "id": "br-enel-sp-residencial-b1",
+          "plan": "Residencial B1 (convencional)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "CA": {
     "ON": {
       "Ontario OEB (RPP)": [
@@ -319,6 +330,17 @@
         {
           "id": "ca-on-ontario-oeb-rpp-ultra-low-overnight",
           "plan": "RPP Ultra-Low Overnight (ULO)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "ES": {
+    "": {
+      "Spain 2.0TD (regulated structure)": [
+        {
+          "id": "es-regulated-tarifa-2-0td",
+          "plan": "Tarifa 2.0TD (typical fixed offer)",
           "verified": false
         }
       ]
@@ -351,6 +373,17 @@
         {
           "id": "gb-octopus-economy-7-example",
           "plan": "Economy 7 (example)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "JP": {
+    "": {
+      "TEPCO": [
+        {
+          "id": "jp-tepco-juryo-lighting-b",
+          "plan": "Juryo Lighting B (tier 1)",
           "verified": false
         }
       ]
