@@ -120,10 +120,20 @@ TODO **in THIS repo / session** (app-agnostic core, roughly in order):
   `getPlan(id)`, `apply(idOrEntry, adapter, {at})` with `history[]` effective-date
   resolution, pluggable `registerAdapter` (built-ins generic/raw; wallbox is
   registered by that consumer). Tested with a mock fetch. ← SDK done
-- **Octopus on-device importer** (`importers/octopus/`) — map products →
-  standard-unit-rates → canonical, run by the SDK at runtime; **never
-  bulk-stored**. Shares the importer pattern. ← **next**
-- Then **URDB importer** (CC0, bulk-store OK).
+- ✅ **Octopus on-device importer** (`importers/octopus/`, commit ff94db6) —
+  single-register→flat, dual-register→E7 tou; refuses dynamic; runtime-only,
+  source:octopus (stored schema rejects it — tested). Tests + fixtures.
+- ✅ **URDB importer** (`importers/urdb/`, commit 04c26df) — flat/tou,
+  month×hour matrix → intervals, supply charge; CC0 bulk-storable. Tests + fixtures.
+- ✅ **Shared `importers/_lib/`** (commit 43ab131) — slug/money/round/
+  hoursToIntervals/dayComplement; CDR refactored onto it.
+
+**Phase 2 (this repo) is now feature-complete.** Remaining = verification + publish:
+- Replace each importer's **synthetic fixture with a real captured response** and
+  re-run `npm test` (see each importer README's "Verification gap"). Needs node +
+  a URDB key + the CDR `x-v:1` header — none runnable by the assistant.
+- Wallbox session (separate): write the `wallbox` adapter + the add-on "Browse
+  plans" consumer; `client.registerAdapter('wallbox', …)` then `apply(id,'wallbox')`.
 
 TODO **in the WALLBOX session** (NOT here — keep this repo app-agnostic):
 - **`adapters/wallbox.mjs`** — canonical → Wallbox 24-hour band arrays (lossy

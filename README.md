@@ -35,8 +35,10 @@ dist/canonical/tariffs.<CC>.json  # per-country chunks (generated)
 index.json                        # country -> region -> provider -> [{id,plan,verified}] (generated)
 scripts/validate.mjs              # ajv-validate tariffs/** + unique id + compliance
 scripts/build.mjs                 # compiles tariffs/** -> dist/ + index.json
-adapters/                         # canonical -> app shapes (consumer-provided, e.g. wallbox)
-importers/                        # normalise external sources -> canonical (cdr done)
+importers/_lib/                   # shared pure helpers (slug, money, intervals)
+importers/cdr/                    # AU-CDR (AER) -> canonical (CC-BY-4.0, bulk-store)
+importers/urdb/                   # US OpenEI URDB -> canonical (CC0, bulk-store)
+importers/octopus/                # UK Octopus -> canonical (ON-DEVICE only, never stored)
 packages/sdk-js/                  # thin JS client (fetch+cache, getPlan, apply adapter)
 ATTRIBUTION.md                    # per-source licence + attribution obligations
 SOURCES.md                        # researched data sources + licences
