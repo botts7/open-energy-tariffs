@@ -153,8 +153,21 @@ TODO **in THIS repo / session** (app-agnostic core, roughly in order):
   Real polygon upgrade = bundle ABS POA / DNO / HIFLD GeoJSON (or feed full
   postcode point sets to the Voronoi path).
 
+- ✅ **Licence register** `LICENSING.md` (every source + lib + tile + boundary set,
+  obligations + status); compliance audit fixed real-Octopus-rates-committed +
+  added AER CC-BY attribution to the map (commit 7c30346).
+- ✅ **Boundary-build mechanism** `scripts/build-boundaries.mjs` (+ optional CI
+  step): fetch official GeoJSON → reproject (proj4) → simplify → `map/boundaries/`
+  so UK/US show REAL regions vs circles. **Not yet run** (NESO URL unreachable +
+  no proj4 in the assistant sandbox); confirm `UK_DNO_GEOJSON_URL` + the DNO→GSP
+  property mapping, then run in CI/locally.
+- ✅ **AU bulk-import tool** `importers/cdr/run-au.mjs` (loops 14 AER retailers).
+- ✅ **Data-update flow** documented (ARCHITECTURE "Data updates & freshness").
+
 Remaining = fill the DB + publish + the Wallbox-session consumer:
-- **Bulk-import AU**: run `importers/cdr/run.mjs` across all AER retailer base URIs
+- **Run the AU bulk-import**: `node importers/cdr/run-au.mjs --limit 50` then
+  `npm run validate && npm run build` (CI/locally — can't run in the sandbox).
+  Then the map (live `dist/`) shows national coverage. Also run
   (13 confirmed live: agl, originenergy, energyaustralia, red, alintaenergy,
   simplyenergy, powershop, momentum, globird, dodo, lumo, nectr, ovoenergy, ergon —
   `cdr.energymadeeasy.gov.au/<retailer>`). Covers NSW/VIC/SA/ACT/TAS/QLD; **WA & NT
