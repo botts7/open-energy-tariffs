@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "hk-clp-residential-flat",
+    "schemaVersion": "1",
+    "country": "HK",
+    "provider": "CLP Power",
+    "plan": "Residential",
+    "currency": "HKD",
+    "unit": "kWh",
+    "timezone": "Asia/Hong_Kong",
+    "source": "manual",
+    "sourceUrl": "https://www.clp.com.hk/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Hong Kong CLP Power residential block tariff (Kowloon/New Territories); average-ish energy rate modelled (excludes fuel clause + rebates). APPROXIMATE (~2026) HKD/kWh. CLP service area (HK Island = HK Electric).",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 1.2
+    }
+  }
+}

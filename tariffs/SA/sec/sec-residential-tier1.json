@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "sa-sec-residential-tier1",
+    "schemaVersion": "1",
+    "country": "SA",
+    "provider": "Saudi Electricity Co",
+    "plan": "Residential (slab, base)",
+    "currency": "SAR",
+    "unit": "kWh",
+    "timezone": "Asia/Riyadh",
+    "source": "manual",
+    "sourceUrl": "https://www.se.com.sa/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Saudi SEC residential is a 2-slab tariff (0.18 up to 6000 kWh/mo, 0.30 above); base slab modelled. Block tiers are a v1.1 feature. APPROXIMATE (~2026) SAR/kWh. National.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.18
+    }
+  }
+}

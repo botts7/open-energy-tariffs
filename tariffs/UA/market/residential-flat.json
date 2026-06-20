@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "ua-residential-flat",
+    "schemaVersion": "1",
+    "country": "UA",
+    "provider": "Ukraine (regulated)",
+    "plan": "Residential (single-rate)",
+    "currency": "UAH",
+    "unit": "kWh",
+    "timezone": "Europe/Kyiv",
+    "source": "manual",
+    "sourceUrl": "https://www.nerc.gov.ua/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Ukraine regulated household single-rate tariff. APPROXIMATE (~2026) UAH/kWh. National.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 4.32
+    }
+  }
+}

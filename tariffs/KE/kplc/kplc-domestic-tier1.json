@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "ke-kplc-domestic-tier1",
+    "schemaVersion": "1",
+    "country": "KE",
+    "provider": "Kenya Power",
+    "plan": "Domestic (tier, base step)",
+    "currency": "KES",
+    "unit": "kWh",
+    "timezone": "Africa/Nairobi",
+    "source": "manual",
+    "sourceUrl": "https://www.kplc.co.ke/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Kenya KPLC domestic is a stepped tariff rising with kWh; base step modelled. Block tiers are a v1.1 feature. APPROXIMATE (~2026) KES/kWh; excludes fixed + levies. National.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 16.0
+    }
+  }
+}

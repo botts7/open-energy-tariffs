@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "tr-mesken-residential-flat",
+    "schemaVersion": "1",
+    "country": "TR",
+    "provider": "Turkey (regulated)",
+    "plan": "Mesken (residential, low band)",
+    "currency": "TRY",
+    "unit": "kWh",
+    "timezone": "Europe/Istanbul",
+    "source": "manual",
+    "sourceUrl": "https://www.epdk.gov.tr/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Turkey regulated residential (mesken) low-consumption band single rate; high inflation dates the nominal TRY rate quickly. APPROXIMATE (~2026) TRY/kWh \u2014 verify currently. National.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 2.5
+    }
+  }
+}

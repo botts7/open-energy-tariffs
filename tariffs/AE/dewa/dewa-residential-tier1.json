@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "ae-dewa-residential-tier1",
+    "schemaVersion": "1",
+    "country": "AE",
+    "provider": "DEWA",
+    "plan": "Residential (slab, base)",
+    "currency": "AED",
+    "unit": "kWh",
+    "timezone": "Asia/Dubai",
+    "source": "manual",
+    "sourceUrl": "https://www.dewa.gov.ae/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "UAE DEWA (Dubai) residential is a 4-slab tariff rising with kWh; base slab modelled. Block tiers are a v1.1 feature. APPROXIMATE (~2026) AED/kWh; excludes fuel surcharge. Dubai (other emirates differ).",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.23
+    }
+  }
+}

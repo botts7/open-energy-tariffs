@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "il-iec-residential-flat",
+    "schemaVersion": "1",
+    "country": "IL",
+    "provider": "Israel Electric",
+    "plan": "Residential",
+    "currency": "ILS",
+    "unit": "kWh",
+    "timezone": "Asia/Jerusalem",
+    "source": "manual",
+    "sourceUrl": "https://www.iec.co.il/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Israel IEC regulated residential single-rate tariff (ToU optional). APPROXIMATE (~2026) ILS/kWh incl. typical components. National.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.63
+    }
+  }
+}

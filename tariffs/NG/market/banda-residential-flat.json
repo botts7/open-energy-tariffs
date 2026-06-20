@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "ng-banda-residential-flat",
+    "schemaVersion": "1",
+    "country": "NG",
+    "provider": "Nigeria (NERC)",
+    "plan": "Band A (residential)",
+    "currency": "NGN",
+    "unit": "kWh",
+    "timezone": "Africa/Lagos",
+    "source": "manual",
+    "sourceUrl": "https://nerc.gov.ng/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Nigeria NERC service-based tariff: Band A (\u226520h/day supply) residential single rate; lower bands are cheaper. APPROXIMATE (~2026) NGN/kWh. National (Band A feeders).",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 225.0
+    }
+  }
+}

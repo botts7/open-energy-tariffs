@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "pk-residential-tier1",
+    "schemaVersion": "1",
+    "country": "PK",
+    "provider": "Pakistan (NEPRA)",
+    "plan": "Residential (slab, base)",
+    "currency": "PKR",
+    "unit": "kWh",
+    "timezone": "Asia/Karachi",
+    "source": "manual",
+    "sourceUrl": "https://nepra.org.pk/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Pakistan NEPRA residential is a protected/unprotected slab tariff rising steeply with kWh; a low slab modelled. Block tiers are a v1.1 feature. APPROXIMATE (~2026) PKR/kWh; excludes fuel/taxes/surcharges. National.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 16.0
+    }
+  }
+}

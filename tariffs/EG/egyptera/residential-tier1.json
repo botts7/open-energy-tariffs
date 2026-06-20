@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "eg-residential-tier1",
+    "schemaVersion": "1",
+    "country": "EG",
+    "provider": "Egypt (EgyptERA)",
+    "plan": "Residential (slab, base)",
+    "currency": "EGP",
+    "unit": "kWh",
+    "timezone": "Africa/Cairo",
+    "source": "manual",
+    "sourceUrl": "https://egyptera.org/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Egypt residential is a 7-slab increasing-block tariff; a low base slab modelled. Block tiers are a v1.1 feature. APPROXIMATE (~2026) EGP/kWh. National.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.68
+    }
+  }
+}

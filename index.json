@@ -1,4 +1,15 @@
 {
+  "AE": {
+    "": {
+      "DEWA": [
+        {
+          "id": "ae-dewa-residential-tier1",
+          "plan": "Residential (slab, base)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "AR": {
     "": {
       "EDENOR/EDESUR": [
@@ -5993,6 +6004,17 @@
       ]
     }
   },
+  "CZ": {
+    "": {
+      "Czechia (market)": [
+        {
+          "id": "cz-d02d-typical-flat",
+          "plan": "Typical single-rate (D02d)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "DE": {
     "": {
       "Germany (Grundversorgung)": [
@@ -6010,6 +6032,17 @@
         {
           "id": "dk-market-typical-flat",
           "plan": "Typical fixed-price",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "EG": {
+    "": {
+      "Egypt (EgyptERA)": [
+        {
+          "id": "eg-residential-tier1",
+          "plan": "Residential (slab, base)",
           "verified": false
         }
       ]
@@ -6080,6 +6113,28 @@
       ]
     }
   },
+  "HK": {
+    "": {
+      "CLP Power": [
+        {
+          "id": "hk-clp-residential-flat",
+          "plan": "Residential",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "HU": {
+    "": {
+      "MVM Next": [
+        {
+          "id": "hu-mvm-lakossagi-flat",
+          "plan": "Lakoss\u00e1gi (regulated)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "ID": {
     "": {
       "PLN": [
@@ -6097,6 +6152,17 @@
         {
           "id": "ie-esb-smart-day-night-peak",
           "plan": "Day / Night / Peak (typical smart)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "IL": {
+    "": {
+      "Israel Electric": [
+        {
+          "id": "il-iec-residential-flat",
+          "plan": "Residential",
           "verified": false
         }
       ]
@@ -6135,6 +6201,17 @@
       ]
     }
   },
+  "KE": {
+    "": {
+      "Kenya Power": [
+        {
+          "id": "ke-kplc-domestic-tier1",
+          "plan": "Domestic (tier, base step)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "KR": {
     "": {
       "KEPCO": [
@@ -6163,6 +6240,17 @@
         {
           "id": "my-tnb-domestic-tier1",
           "plan": "Domestic (tier, base step)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "NG": {
+    "": {
+      "Nigeria (NERC)": [
+        {
+          "id": "ng-banda-residential-flat",
+          "plan": "Band A (residential)",
           "verified": false
         }
       ]
@@ -6201,12 +6289,34 @@
       ]
     }
   },
+  "PE": {
+    "": {
+      "Peru (regulated)": [
+        {
+          "id": "pe-bt5b-residential-flat",
+          "plan": "BT5B Residencial",
+          "verified": false
+        }
+      ]
+    }
+  },
   "PH": {
     "": {
       "Meralco": [
         {
           "id": "ph-meralco-residential-flat",
           "plan": "Residential",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "PK": {
+    "": {
+      "Pakistan (NEPRA)": [
+        {
+          "id": "pk-residential-tier1",
+          "plan": "Residential (slab, base)",
           "verified": false
         }
       ]
@@ -6229,6 +6339,28 @@
         {
           "id": "pt-regulado-bi-horario",
           "plan": "Bi-hor\u00e1rio (two-rate, typical)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "RO": {
+    "": {
+      "Romania (regulated)": [
+        {
+          "id": "ro-casnic-residential-flat",
+          "plan": "Casnic (residential)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "SA": {
+    "": {
+      "Saudi Electricity Co": [
+        {
+          "id": "sa-sec-residential-tier1",
+          "plan": "Residential (slab, base)",
           "verified": false
         }
       ]
@@ -6267,12 +6399,56 @@
       ]
     }
   },
+  "TR": {
+    "": {
+      "Turkey (regulated)": [
+        {
+          "id": "tr-mesken-residential-flat",
+          "plan": "Mesken (residential, low band)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "TW": {
+    "": {
+      "Taipower": [
+        {
+          "id": "tw-taipower-residential-tier1",
+          "plan": "Residential (tier, base step)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "UA": {
+    "": {
+      "Ukraine (regulated)": [
+        {
+          "id": "ua-residential-flat",
+          "plan": "Residential (single-rate)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "US": {
     "_example": {
       "Example Utility": [
         {
           "id": "us-example-flat",
           "plan": "Flat residential (example)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "VN": {
+    "": {
+      "EVN": [
+        {
+          "id": "vn-evn-sinhhoat-tier1",
+          "plan": "Sinh ho\u1ea1t (tier, base step)",
           "verified": false
         }
       ]

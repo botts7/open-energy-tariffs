@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "vn-evn-sinhhoat-tier1",
+    "schemaVersion": "1",
+    "country": "VN",
+    "provider": "EVN",
+    "plan": "Sinh ho\u1ea1t (tier, base step)",
+    "currency": "VND",
+    "unit": "kWh",
+    "timezone": "Asia/Ho_Chi_Minh",
+    "source": "manual",
+    "sourceUrl": "https://www.evn.com.vn/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Vietnam EVN residential is a 6-step increasing-block tariff; base step modelled. Block tiers are a v1.1 feature. APPROXIMATE (~2026) VND/kWh; excludes VAT. National.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 1900.0
+    }
+  }
+}
