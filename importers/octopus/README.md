@@ -27,7 +27,10 @@ exclusion is the safety net (a test asserts it).
 | `map.mjs` | **Pure** `mapProduct(detail, {gsp,paymentMethod,nightWindow,updated})`. |
 | `fetch.mjs` | `fetchProducts()` / `fetchProduct(code)` (no auth). |
 | `index.mjs` | `importOctopusProduct(code, opts)` = fetch + map. |
-| `fixtures/` + `map.test.mjs` | single + dual deep-equal, structural validity, dynamic-refusal, the stored-schema-rejects-octopus guard. |
+| `fixtures/` + `map.test.mjs` | **real** Flexible Octopus capture (single + dual register), structural validity, dynamic-refusal, custom night window, the stored-schema-rejects-octopus guard. |
+
+Products with both single- and dual-register tariffs (e.g. Flexible) map to flat
+by default; pass `register: 'dual'` for the Economy 7 view.
 
 ## Use (from a consumer / the SDK)
 
@@ -37,12 +40,14 @@ const entry = await importOctopusProduct('VAR-22-11-01', { gsp: '_C' });
 client.apply(entry, 'wallbox');   // apply it like any canonical entry — never PR it
 ```
 
-## ⚠️ Verification gap
+## Verified against a real capture (2026-06-20)
 
-Authored from the Octopus API shape, not run against the live API. Before relying
-on it: capture a real `GET /v1/products/{code}/` and confirm
-`day_unit_rate_inc_vat` / `night_unit_rate_inc_vat` are present inline (older
-payloads expose day/night only via the per-register `standard-unit-rates` link —
-if so, extend `fetch.mjs` to follow it). The **Economy 7 night window is
-meter-specific** and not in the API; the importer applies a default (00:30–07:30)
-— let users override via `nightWindow`.
+Tested against a live `GET /v1/products/VAR-22-11-01/`. Real-shape fix folded in:
+- the per-GSP tariff is keyed by **payment method** — variable products use
+  **`varying`** (not `direct_debit_monthly`); `pickTariff()` resolves by preference
+  and `day/night_unit_rate_inc_vat` are present inline.
+
+Still meter-specific / not in the API: the **Economy 7 night window** — the
+importer applies a default (00:30–07:30); let users override via `nightWindow`.
+Not yet handled: time-of-use export (`four_rate_ev_electricity_tariffs`) and
+half-hourly Go/Agile (refused as dynamic).

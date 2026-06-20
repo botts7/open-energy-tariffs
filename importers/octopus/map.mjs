@@ -18,6 +18,18 @@ const DYNAMIC = /AGILE|FLUX|TRACKER|GO-VAR/i;
 // Octopus inline rates are pence/kWh (or pence/day) incl VAT -> major units.
 const major = (pence) => (pence == null ? undefined : round(money(pence) / 100, 5));
 
+// A GSP region holds tariffs keyed by payment method. Variable products use
+// "varying"; fixed ones use "direct_debit_monthly" etc. Pick the caller's choice,
+// else the first by preference, else whatever's there.
+const PM_PREFERENCE = ['direct_debit_monthly', 'varying', 'direct_debit_quarterly', 'prepayment'];
+function pickTariff(regionObj, preferred) {
+  if (!regionObj) return undefined;
+  if (preferred && regionObj[preferred]) return regionObj[preferred];
+  for (const k of PM_PREFERENCE) if (regionObj[k]) return regionObj[k];
+  const keys = Object.keys(regionObj);
+  return keys.length ? regionObj[keys[0]] : undefined;
+}
+
 /**
  * @param {object} detail  Octopus product detail (GET /v1/products/{code}/).
  * @param {object} [opts]
@@ -34,13 +46,13 @@ export function mapProduct(detail, opts = {}) {
   }
 
   const gsp = opts.gsp || '_A';
-  const pm = opts.paymentMethod || 'direct_debit_monthly';
   const region = gsp.replace(/^_/, '');
-  const single = detail.single_register_electricity_tariffs?.[gsp]?.[pm];
-  const dual = detail.dual_register_electricity_tariffs?.[gsp]?.[pm];
+  const single = pickTariff(detail.single_register_electricity_tariffs?.[gsp], opts.paymentMethod);
+  const dual = pickTariff(detail.dual_register_electricity_tariffs?.[gsp], opts.paymentMethod);
+  const wantDual = opts.register === 'dual';
 
   const tariff = { kind: 'flat', import: {} };
-  if (single) {
+  if (single && !wantDual) {
     const supply = major(single.standing_charge_inc_vat);
     if (supply != null) tariff.supply = { daily: supply };
     tariff.import.flatRate = major(single.standard_unit_rate_inc_vat) ?? 0;
@@ -58,8 +70,12 @@ export function mapProduct(detail, opts = {}) {
       ...dayParts,
       { days: 'all', from: night.from, to: night.to, band: 'night' },
     ].sort((a, b) => a.from.localeCompare(b.from));
+  } else if (single) {
+    const supply = major(single.standing_charge_inc_vat);
+    if (supply != null) tariff.supply = { daily: supply };
+    tariff.import.flatRate = major(single.standard_unit_rate_inc_vat) ?? 0;
   } else {
-    throw new Error(`No ${pm} tariff for GSP ${gsp} on "${detail.code}"`);
+    throw new Error(`No electricity tariff for GSP ${gsp} on "${detail.code}"`);
   }
 
   const plan = detail.display_name || detail.full_name || detail.code;

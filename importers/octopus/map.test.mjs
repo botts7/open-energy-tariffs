@@ -21,20 +21,20 @@ function structuralValidator() {
   return ajv.compile(schema);
 }
 
-test('single-register product -> flat canonical', () => {
-  const got = mapProduct(read('fixtures/single-flexible.detail.json'), { gsp: '_A', updated: '2026-06-20' });
-  assert.deepEqual(got, read('fixtures/single-flexible.expected.json'));
+test('REAL Flexible product, single register -> flat canonical', () => {
+  const got = mapProduct(read('fixtures/flexible.detail.json'), { gsp: '_A', updated: '2026-06-20' });
+  assert.deepEqual(got, read('fixtures/flexible-single.expected.json'));
 });
 
-test('dual-register (Economy 7) -> tou with default night window', () => {
-  const got = mapProduct(read('fixtures/dual-economy7.detail.json'), { gsp: '_A', updated: '2026-06-20' });
-  assert.deepEqual(got, read('fixtures/dual-economy7.expected.json'));
+test('REAL Flexible product, dual register -> Economy 7 tou (default night window)', () => {
+  const got = mapProduct(read('fixtures/flexible.detail.json'), { gsp: '_A', register: 'dual', updated: '2026-06-20' });
+  assert.deepEqual(got, read('fixtures/flexible-dual.expected.json'));
 });
 
 test('output is structurally valid canonical (modulo source:octopus)', () => {
   const validate = structuralValidator();
-  for (const f of ['fixtures/single-flexible.detail.json', 'fixtures/dual-economy7.detail.json']) {
-    const got = mapProduct(read(f), { gsp: '_A', updated: '2026-06-20' });
+  for (const reg of ['single', 'dual']) {
+    const got = mapProduct(read('fixtures/flexible.detail.json'), { gsp: '_A', register: reg, updated: '2026-06-20' });
     assert.ok(validate(got), JSON.stringify(validate.errors, null, 2));
   }
 });
@@ -44,7 +44,7 @@ test('the STORED schema rejects source:octopus (never bulk-stored)', () => {
   const ajv = new Ajv({ allErrors: true, strict: false });
   addFormats(ajv);
   const validate = ajv.compile(schema);
-  const got = mapProduct(read('fixtures/single-flexible.detail.json'), { gsp: '_A', updated: '2026-06-20' });
+  const got = mapProduct(read('fixtures/flexible.detail.json'), { gsp: '_A', updated: '2026-06-20' });
   assert.equal(validate(got), false);
 });
 
@@ -54,8 +54,8 @@ test('dynamic products are refused', () => {
 });
 
 test('custom night window', () => {
-  const got = mapProduct(read('fixtures/dual-economy7.detail.json'), {
-    gsp: '_A', updated: '2026-06-20', nightWindow: { from: '01:00', to: '08:00' },
+  const got = mapProduct(read('fixtures/flexible.detail.json'), {
+    gsp: '_A', register: 'dual', updated: '2026-06-20', nightWindow: { from: '01:00', to: '08:00' },
   });
   assert.deepEqual(got.tariff.import.schedule, [
     { days: 'all', from: '00:00', to: '01:00', band: 'day' },
