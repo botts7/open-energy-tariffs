@@ -25,7 +25,7 @@ OET.initSidebar = function () {
   const sources = uniq((p) => p.src);
   const providers = uniq((p) => p.meta.provider);
 
-  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', min: '', max: '', usage: null, usageKwh: '', shape: 'flat' };
+  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', currentPlanId: '' };
 
   const count = h('div', { class: 'sb-count' });
   const list = h('div', { class: 'sb-list' });
@@ -57,9 +57,9 @@ OET.initSidebar = function () {
 
   const reset = h('button', { class: 'sb-reset', text: 'Reset', onclick: () => {
     state.text = ''; state.countries.clear(); state.sources.clear(); state.provider = ''; state.min = ''; state.max = '';
-    state.usage = null; state.usageKwh = ''; state.shape = 'flat';
+    state.usage = null; state.usageKwh = ''; state.shape = 'flat'; state.currentPlanId = '';
     search.value = ''; providerSel.value = ''; minIn.value = ''; maxIn.value = '';
-    kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; cmpNote.textContent = '';
+    kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; currentSel.value = ''; cmpNote.textContent = '';
     root.querySelectorAll('.sb-chip input').forEach((c) => { c.checked = false; });
     apply();
   } });
@@ -89,10 +89,15 @@ OET.initSidebar = function () {
       };
       rd.readAsText(f);
     } });
+  const currentSel = h('select', { class: 'sb-input', onchange: (e) => { state.currentPlanId = e.target.value; apply(); } },
+    [h('option', { value: '', text: 'My current plan (optional)…' })].concat(
+      plans.slice().sort((a, b) => (a.meta.provider + a.meta.plan).localeCompare(b.meta.provider + b.meta.plan))
+        .map((p) => h('option', { value: p.id, text: `${p.meta.provider} · ${p.meta.plan} (${p.meta.country})` }))));
   const cmp = h('details', { class: 'sb-cmp' }, [
     h('summary', { text: 'Compare to my usage' }),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Annual kWh + load shape' }), kwhIn, shapeSel]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload interval CSV (time,kWh)' }), csvIn]),
+    h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Savings vs my current plan' }), currentSel]),
     cmpNote,
   ]);
 
@@ -132,17 +137,29 @@ OET.initSidebar = function () {
       arr.sort((a, b) => (a.meta.country + a.meta.provider + a.meta.plan).localeCompare(b.meta.country + b.meta.provider + b.meta.plan));
     }
     const cheapest = usage && arr.length && arr[0]._cost != null ? arr[0]._cost : null;
+    let currentCost = null;
+    if (usage && state.currentPlanId) {
+      const cur = plans.find((p) => p.id === state.currentPlanId);
+      if (cur) currentCost = OET.estimateAnnualCost(cur.tariff, usage);
+    }
     const cap = 400;
     for (const r of arr.slice(0, cap)) {
       const m = r.meta;
       const sw = h('span', { class: 'sb-sw' }); sw.style.background = OET.rateColor(r.rate);
       const best = usage && r._cost != null && r._cost === cheapest;
+      const isCurrent = r.id === state.currentPlanId;
       const kids = [h('strong', { text: m.provider }), h('span', { text: ' · ' + m.plan })];
-      if (best) kids.push(h('span', { class: 'sb-best', text: 'cheapest' }));
+      if (isCurrent) kids.push(h('span', { class: 'sb-cur', text: 'current' }));
+      if (best && !isCurrent) kids.push(h('span', { class: 'sb-best', text: 'cheapest' }));
       let sub = `${m.country}${m.region ? '/' + m.region : ''} · ${m.source} · ${r.rate == null ? '—' : r.rate.toFixed(3) + ' ' + m.currency}${r.located ? '' : ' · (no map area)'}`;
       if (usage) sub += r._cost == null ? ' · cost n/a' : ` · ~${Math.round(r._cost).toLocaleString()} ${m.currency}/yr`;
-      const row = h('div', { class: 'sb-row' + (r.located ? '' : ' sb-nolocate') + (best ? ' sb-bestrow' : ''), onclick: () => OET.focusPlan(r.id) },
-        [sw, h('div', {}, [h('div', { class: 'sb-title' }, kids), h('div', { class: 'sb-sub', text: sub })])]);
+      const subEl = h('div', { class: 'sb-sub', text: sub });
+      if (usage && currentCost != null && r._cost != null && !isCurrent && m.currency === (plans.find((p) => p.id === state.currentPlanId) || {}).meta.currency) {
+        const d = r._cost - currentCost;
+        subEl.appendChild(h('span', { class: d < 0 ? 'sb-save' : 'sb-cost', text: ` · ${d < 0 ? 'save ' : '+'}${Math.abs(Math.round(d)).toLocaleString()} ${m.currency}/yr` }));
+      }
+      const row = h('div', { class: 'sb-row' + (r.located ? '' : ' sb-nolocate') + (best && !isCurrent ? ' sb-bestrow' : '') + (isCurrent ? ' sb-currow' : ''), onclick: () => OET.focusPlan(r.id) },
+        [sw, h('div', {}, [h('div', { class: 'sb-title' }, kids), subEl])]);
       list.appendChild(row);
     }
     if (arr.length > cap) list.appendChild(h('div', { class: 'sb-more', text: `…and ${arr.length - cap} more (refine filters)` }));
