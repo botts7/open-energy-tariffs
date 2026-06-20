@@ -128,10 +128,18 @@ TODO **in THIS repo / session** (app-agnostic core, roughly in order):
 - ✅ **Shared `importers/_lib/`** (commit 43ab131) — slug/money/round/
   hoursToIntervals/dayComplement; CDR refactored onto it.
 
-**Phase 2 (this repo) is now feature-complete.** Remaining = verification + publish:
-- Replace each importer's **synthetic fixture with a real captured response** and
-  re-run `npm test` (see each importer README's "Verification gap"). Needs node +
-  a URDB key + the CDR `x-v:1` header — none runnable by the assistant.
+**Phase 2 (this repo) is now feature-complete + reality-checked.**
+- ✅ All three importers now test against **REAL captured responses** (curl):
+  CDR = Ergon Tariff 12D, Octopus = Flexible (VAR-22-11-01), URDB = Ohio Power
+  TOU+flat. Six real-shape bugs found + fixed: CDR `dailySupplyCharge` singular,
+  inclusive end times, detail needs `x-v:3`; Octopus `varying` payment key;
+  URDB `rate+adj` sum, epoch `startdate`. (commits e5ad9f9, 7483cef, 13a6e10)
+- Still authored-but-unrun by the assistant → **CI is the gate** (`npm test`).
+
+Remaining = publish + the Wallbox-session consumer:
+- Optionally commit one real bulk-store entry per source to `tariffs/` (e.g. run
+  `importers/cdr/run.mjs --base https://cdr.energymadeeasy.gov.au/ergon` then
+  `npm run validate`) so the DB ships real data, not just examples.
 - Wallbox session (separate): write the `wallbox` adapter + the add-on "Browse
   plans" consumer; `client.registerAdapter('wallbox', …)` then `apply(id,'wallbox')`.
 
