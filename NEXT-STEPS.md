@@ -111,8 +111,10 @@ TODO **in THIS repo / session** (app-agnostic core, roughly in order):
   re-run `npm test`, and confirm time-format / supply-charge shapes before
   bulk-importing (see `importers/cdr/README.md` "Verification gap"). Follow-ups:
   seasonal multi-`tariffPeriod`, time-varying export, stepped/demand.
-- **PII scan** (`scripts/pii-scan.mjs`, ARCH §9) wired into CI; `.github/` PR
-  template + issue form. ← **next**
+- ✅ **PII scan** (`scripts/pii-scan.mjs`, ARCH §9, commit ecd6c8c) — rejects
+  email/NMI/MPAN/meter/account/phone/address/secret patterns in `tariffs/**`;
+  wired into `npm run pii` + `check` + CI. `.github/` PR template + `submit-plan`
+  issue form added.
 - **Consumer SDK** (`packages/sdk-js/`, thin) + the **Octopus on-device importer**
   (never bulk-stored).
 - Then **URDB importer** (CC0, bulk-store OK).
