@@ -19,6 +19,20 @@ const rowsEqual = (rows) => rows.every((r) => JSON.stringify(r) === JSON.stringi
 // the effective price is their sum. Use the first tier (block tiers = v1.1).
 const tierRate = (tier) => round((money(tier?.rate) || 0) + (money(tier?.adj) || 0), 5);
 
+// URDB items carry a country NAME; map to ISO 3166-1 alpha-2 so the importer is
+// country-agnostic (works for IURDB international items, not just US URDB).
+const COUNTRY_ISO = {
+  USA: 'US', 'UNITED STATES': 'US', CANADA: 'CA', MEXICO: 'MX', AUSTRALIA: 'AU',
+  'UNITED KINGDOM': 'GB', ENGLAND: 'GB', GERMANY: 'DE', FRANCE: 'FR', SPAIN: 'ES',
+  ITALY: 'IT', INDIA: 'IN', 'NEW ZEALAND': 'NZ', JAPAN: 'JP', BRAZIL: 'BR',
+};
+function iso2(country) {
+  if (!country) return 'US'; // the live OpenEI API is US-only today
+  const c = String(country).trim();
+  if (/^[A-Za-z]{2}$/.test(c)) return c.toUpperCase();
+  return COUNTRY_ISO[c.toUpperCase()] || c.slice(0, 2).toUpperCase();
+}
+
 function normalizeDate(v) {
   if (typeof v === 'string' && /^\d{4}-\d{2}-\d{2}/.test(v)) return v.slice(0, 10);
   return undefined;
@@ -77,27 +91,32 @@ export function mapRate(item, opts = {}) {
     }
   }
 
+  const country = iso2(item.country);
+  const isUS = country === 'US';
   const provider = item.utility || 'Unknown';
   const planName = item.name || item.label || 'Unnamed rate';
   const region = opts.state || '';
-  const id = ['us', region, provider, planName].filter(Boolean).map(slug).filter(Boolean).join('-');
+  const id = [country.toLowerCase(), region, provider, planName].filter(Boolean).map(slug).filter(Boolean).join('-');
+  const view = isUS ? 'USURDB' : 'IURDB';
+  const coverage = item.eiaid != null ? { utilityId: String(item.eiaid) } : undefined;
 
   const meta = {
     id,
     schemaVersion: '1',
-    country: 'US',
+    country,
     ...(region ? { region } : {}),
     provider,
     plan: planName,
-    currency: 'USD',
+    currency: opts.currency || 'USD',
     unit: 'kWh',
-    timezone: opts.timezone || 'America/New_York',
+    timezone: opts.timezone || (isUS ? 'America/New_York' : 'UTC'),
     source: 'urdb',
-    sourceUrl: item.label ? `https://apps.openei.org/USURDB/rate/view/${item.label}` : 'https://openei.org/wiki/Utility_Rate_Database',
+    sourceUrl: item.label ? `https://apps.openei.org/${view}/rate/view/${item.label}` : 'https://openei.org/wiki/Utility_Rate_Database',
     license: 'CC0-1.0',
     updated: opts.updated || normalizeDate(item.startdate) || '1970-01-01',
     verified: false,
     notes: notes.join(' '),
+    ...(coverage ? { coverage } : {}),
   };
 
   return { meta, tariff };

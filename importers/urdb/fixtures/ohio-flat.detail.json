@@ -1,6 +1,8 @@
 {
   "_comment": "REAL capture (trimmed): OpenEI URDB single-period rate via api.openei.org on 2026-06-20 (CC0).",
   "label": "69dd1b5381bf8b311c0576a8",
+  "eiaid": 14006,
+  "country": "USA",
   "utility": "Ohio Power Co",
   "name": "Residential Service Bundled Ohio Power Rate Zone (RS)",
   "startdate": 1775804400,

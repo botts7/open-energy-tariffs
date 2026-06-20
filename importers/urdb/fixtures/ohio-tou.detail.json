@@ -1,6 +1,8 @@
 {
   "_comment": "REAL capture (trimmed to mapped fields): OpenEI URDB item via api.openei.org on 2026-06-20 (CC0). Seasonal (months differ) -> v1 uses January; weekday!=weekend.",
   "label": "69dd221e08c252b4010e1d39",
+  "eiaid": 14006,
+  "country": "USA",
   "utility": "Ohio Power Co",
   "name": "Residential Time-of-Use Bundled Ohio Power Rate Zone (RS-TOU)",
   "startdate": 1775804400,

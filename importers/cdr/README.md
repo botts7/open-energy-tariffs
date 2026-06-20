@@ -45,6 +45,7 @@ Tested against a live Ergon plan detail. Real-shape fixes already folded in:
   past midnight are kept as `from > to`).
 - Detail endpoint requires **`x-v: 3`**; the list uses `x-v: 1`.
 - Solar `singleTariff` carries `rates[].unitPrice` (handled).
+- `geography.includedPostcodes`/`excludedPostcodes` → `meta.coverage` (for maps).
 
 Remaining follow-ups (not in the sampled plan): seasonal multi-`tariffPeriod`
 (→ `seasons[]` + `band.seasonRates`), time-varying solar export, stepped/

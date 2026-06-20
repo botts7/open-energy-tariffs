@@ -22,6 +22,12 @@ courtesy citation. URDB has user-submitted entries → output is always
 | >1 period | `kind: tou`, `import.bands[]` (one per period; first tier only) |
 | month×hour schedule | `import.schedule[]` — January row, run-length-encoded into intervals; weekday/weekend collapse to `days: all` when identical |
 | `fixedchargefirstmeter` | `supply.daily` (`$/day` as-is; `$/month` ÷ 30.44) |
+| `eiaid` | `meta.coverage.utilityId` (→ EIA/HIFLD service-territory polygons) |
+| `country` (name) | `meta.country` (ISO-2) — **country-agnostic**, so IURDB international items map too |
+
+> **IURDB note:** the live OpenEI API (`version=latest`) is US-only in practice;
+> international coverage needs the IURDB **bulk dump** through the same `mapRate()`.
+> Pass `--currency` for non-US items (US defaults USD). See `../../SOURCES.md`.
 
 Not yet modelled (follow-ups): tiered/block (reserved `band.tiers[]`), demand
 charges, and **per-month seasonal** variation (a note is added when month rows

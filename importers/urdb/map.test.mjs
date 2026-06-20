@@ -36,6 +36,18 @@ test('URDB output validates against schema/v1 (bulk-storable, CC0)', () => {
   }
 });
 
+test('country-agnostic (IURDB): country name -> ISO-2 + coverage.utilityId', () => {
+  const got = mapRate(
+    { label: 'x', country: 'Australia', eiaid: 99999, utility: 'Demo Energy', name: 'Plan A', energyratestructure: [[{ rate: 0.25 }]] },
+    { state: 'NSW', currency: 'AUD', timezone: 'Australia/Sydney', updated: '2026-06-20' },
+  );
+  assert.equal(got.meta.country, 'AU');
+  assert.equal(got.meta.currency, 'AUD');
+  assert.ok(got.meta.id.startsWith('au-nsw-'));
+  assert.equal(got.meta.coverage.utilityId, '99999');
+  assert.equal(got.tariff.import.flatRate, 0.25);
+});
+
 test('monthly fixed charge converts to a daily supply charge', () => {
   const got = mapRate(
     { label: 'm', utility: 'U', name: 'N', energyratestructure: [[{ rate: 0.1 }]], fixedchargefirstmeter: 30.44, fixedchargeunits: '$/month' },

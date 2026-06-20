@@ -34,6 +34,27 @@ by country, and "a plan" comes in two fundamentally different shapes:
   list: `github.com/jxeeno/energy-cdr-prd-endpoints`. The importer resolves base
   URIs from the AER list at build time; the AER central feed alone covers v1.
 
+## Geographic coverage (for mapping)
+
+Each source exposes a geo key, captured into `meta.coverage` so a plan can be
+plotted on a map (join to published boundary data):
+
+| Source | `meta.coverage` field | Join to |
+|---|---|---|
+| AU-CDR | `postcodes` / `exclude` (from `geography.includedPostcodes`/`excludedPostcodes`) | ABS POA postcode polygons |
+| Octopus | `gsp` (Grid Supply Point group `_A.._P`; postcode→GSP via `/v1/industry/grid-supply-points/?postcode=`) | DNO licence-area GeoJSON (14 regions) |
+| URDB | `utilityId` (`eiaid`) | EIA/HIFLD "Electric Retail Service Territories" shapefile |
+
+## International (IURDB)
+
+The URDB importer is **country-agnostic** — it derives `meta.country` from each
+item's `country` (name → ISO-2) rather than assuming US, so it ingests IURDB
+international items too. **Caveat:** the live OpenEI `utility_rates` API
+(`version=latest`) is **US-only in practice today** (a `country=` filter returns
+nothing for non-US). International coverage needs the IURDB **bulk dump**
+(apps.openei.org/IURDB) fed through the same `mapRate()` — the code is ready; the
+data path isn't wired to the live API.
+
 ## DYNAMIC sources — consume live, do NOT store as presets
 
 | Source | Coverage | Consume via |

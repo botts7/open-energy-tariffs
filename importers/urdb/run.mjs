@@ -25,6 +25,7 @@ function arg(name, def) {
 const ratesforutility = arg('utility');
 const state = arg('state', '');
 const timezone = arg('timezone');
+const currency = arg('currency');           // for IURDB international items (US defaults USD)
 const updated = arg('updated');
 const limit = Number(arg('limit', '50')) || 50;
 const dry = Boolean(arg('dry', false));
@@ -36,11 +37,11 @@ const seen = new Set();
 let written = 0, skipped = 0;
 for (const item of items) {
   try {
-    const entry = mapRate(item, { state, timezone, updated });
+    const entry = mapRate(item, { state, timezone, currency, updated });
     if (seen.has(entry.meta.id)) { skipped++; continue; }
     seen.add(entry.meta.id);
     const region = entry.meta.region || '_unknown';
-    const file = join(root, 'tariffs', 'US', region, slug(entry.meta.provider), `${slug(entry.meta.plan)}.json`);
+    const file = join(root, 'tariffs', entry.meta.country, region, slug(entry.meta.provider), `${slug(entry.meta.plan)}.json`);
     if (dry) console.log(`[dry] ${entry.meta.id} -> ${file}`);
     else { await mkdir(dirname(file), { recursive: true }); await writeFile(file, JSON.stringify(entry, null, 2) + '\n'); }
     written++;

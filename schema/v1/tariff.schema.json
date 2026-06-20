@@ -48,7 +48,18 @@
         "updated": { "type": "string", "format": "date", "description": "YYYY-MM-DD the rates were last verified." },
         "verified": { "type": "boolean", "default": false, "description": "Confirmed against an authoritative source/bill." },
         "verifiedAgainst": { "type": "string", "description": "Evidence for verified=true: source URL or 'own bill'." },
-        "notes": { "type": "string" }
+        "notes": { "type": "string" },
+        "coverage": {
+          "type": "object",
+          "description": "Geographic coverage, for mapping a plan to where it applies. Each field is a join key to published boundary data (postcodes->POA polygons, gsp->DNO areas, utilityId->service territories).",
+          "additionalProperties": false,
+          "properties": {
+            "postcodes": { "type": "array", "items": { "type": "string" }, "description": "AU CDR includedPostcodes / general postal codes covered." },
+            "exclude": { "type": "array", "items": { "type": "string" }, "description": "Postcodes explicitly excluded." },
+            "gsp": { "type": "string", "description": "UK Grid Supply Point group, e.g. _B (maps to a DNO licence area)." },
+            "utilityId": { "type": "string", "description": "US URDB eiaid (EIA utility id) -> retail service territory." }
+          }
+        }
       },
       "allOf": [
         {

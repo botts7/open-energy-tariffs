@@ -15,7 +15,8 @@
     "license": "CC-BY-4.0",
     "updated": "2026-06-20",
     "verified": false,
-    "notes": "Imported from AER CDR generic plans. Contains data © Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER."
+    "notes": "Imported from AER CDR generic plans. Contains data © Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "coverage": { "postcodes": ["4306", "4310", "4312", "4313", "4314"] }
   },
   "tariff": {
     "kind": "tou",

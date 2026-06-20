@@ -120,6 +120,7 @@ documented as a hand-off, never stored.
   | Solar feed-in (export) | ✅ | `tariff.export` (flat or bands+schedule) |
   | Controlled load (separately metered) | ✅ optional | `tariff.controlledLoad[]` (own rate + optional schedule) |
   | Seasonal | ✅ | `seasons[]` + `band.seasonRates` |
+  | Geographic coverage (mapping) | ✅ | `meta.coverage` (postcodes / gsp / utilityId → boundary data) |
   | Tiered / block (stepped by kWh) | v1.1 | `band.tiers[]` `{ upTo, rate }` |
   | Demand charges (c/kW peak) | v1.1 | `tariff.demand[]` `{ window, rate }` |
 

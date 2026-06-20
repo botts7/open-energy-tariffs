@@ -8,7 +8,7 @@
     "brandName": "Ergon Energy",
     "displayName": "Tariff 12D",
     "effectiveFrom": "2025-07-01T00:00:00.000Z",
-    "geography": { "distributors": ["Ergon"] },
+    "geography": { "distributors": ["Ergon"], "includedPostcodes": ["4306", "4310", "4312", "4313", "4314"] },
     "electricityContract": {
       "timeZone": "AEST",
       "tariffPeriod": [

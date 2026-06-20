@@ -14,7 +14,8 @@
     "license": "other",
     "updated": "2026-06-20",
     "verified": false,
-    "notes": "Imported ON-DEVICE from the Octopus API for personal use. NOT redistributable — never commit to the database (source:octopus is rejected by the stored schema)."
+    "notes": "Imported ON-DEVICE from the Octopus API for personal use. NOT redistributable — never commit to the database (source:octopus is rejected by the stored schema).",
+    "coverage": { "gsp": "_A" }
   },
   "tariff": {
     "kind": "tou",

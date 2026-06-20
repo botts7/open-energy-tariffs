@@ -163,6 +163,11 @@ export function mapPlanDetail(detail, opts = {}) {
   const idParts = ['au', region, distributor, provider, planName].filter(Boolean).map(slug).filter(Boolean);
   const id = idParts.join('-');
 
+  const geo = plan.geography || {};
+  const coverage = {};
+  if (geo.includedPostcodes?.length) coverage.postcodes = geo.includedPostcodes;
+  if (geo.excludedPostcodes?.length) coverage.exclude = geo.excludedPostcodes;
+
   const meta = {
     id,
     schemaVersion: '1',
@@ -180,6 +185,7 @@ export function mapPlanDetail(detail, opts = {}) {
     updated: opts.updated || plan.effectiveFrom?.slice(0, 10) || '1970-01-01',
     verified: false,
     notes: 'Imported from AER CDR generic plans. Contains data © Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.',
+    ...(Object.keys(coverage).length ? { coverage } : {}),
   };
 
   return { meta, tariff };

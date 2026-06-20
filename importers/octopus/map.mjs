@@ -95,6 +95,7 @@ export function mapProduct(detail, opts = {}) {
     updated: opts.updated || (detail.available_from?.slice(0, 10)) || '1970-01-01',
     verified: false,
     notes: 'Imported ON-DEVICE from the Octopus API for personal use. NOT redistributable — never commit to the database (source:octopus is rejected by the stored schema).',
+    coverage: { gsp },
   };
 
   return { meta, tariff };
