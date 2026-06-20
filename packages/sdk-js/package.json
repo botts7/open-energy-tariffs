@@ -1,0 +1,10 @@
+{
+  "name": "@open-energy-tariffs/sdk",
+  "version": "0.1.0",
+  "description": "Thin, dependency-free client for the open-energy-tariffs database.",
+  "type": "module",
+  "main": "index.mjs",
+  "exports": { ".": "./index.mjs" },
+  "files": ["index.mjs", "README.md"],
+  "license": "MIT"
+}

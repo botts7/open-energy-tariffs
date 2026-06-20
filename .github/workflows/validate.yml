@@ -8,6 +8,7 @@ on:
       - 'scripts/**'
       - 'importers/**'
       - 'adapters/**'
+      - 'packages/**'
       - 'package.json'
       - '.github/workflows/validate.yml'
   push:

@@ -35,8 +35,9 @@ dist/canonical/tariffs.<CC>.json  # per-country chunks (generated)
 index.json                        # country -> region -> provider -> [{id,plan,verified}] (generated)
 scripts/validate.mjs              # ajv-validate tariffs/** + unique id + compliance
 scripts/build.mjs                 # compiles tariffs/** -> dist/ + index.json
-adapters/                         # canonical -> app shapes, e.g. wallbox (next phase)
-importers/                        # normalise external sources -> canonical (next phase)
+adapters/                         # canonical -> app shapes (consumer-provided, e.g. wallbox)
+importers/                        # normalise external sources -> canonical (cdr done)
+packages/sdk-js/                  # thin JS client (fetch+cache, getPlan, apply adapter)
 ATTRIBUTION.md                    # per-source licence + attribution obligations
 SOURCES.md                        # researched data sources + licences
 ```
