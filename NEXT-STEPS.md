@@ -91,13 +91,34 @@ Confirmed against primary sources (see `SOURCES.md` "Resolved" + `ARCHITECTURE.m
   retailers + VIC. Per-retailer base-URI list published by AER; community list at
   `github.com/jxeeno/energy-cdr-prd-endpoints`.
 
-### Phase 2 — Then, and only then, code
-- CI: validate `tariffs/**` against the schema (ajv), run `build.mjs`, fail on dupes.
-- Importers (`/importers/`): **AU-CDR first**, then Octopus, then URDB.
-- Wallbox add-on consumer: a "Browse plans" step in the tariff editor
-  (`sessions.js`) — fetch `dist/tariffs.json` (cached + bundled fallback), pick
-  from `index.json`, apply `.tariff`; "Export / Submit" affordance. Manual editor +
-  localStorage stay the private fallback (unchanged).
+### Phase 2 — code (IN PROGRESS)
+DONE (2026-06-20, commit f0fb90d):
+- ✅ Canonical interval schema `schema/v1/tariff.schema.json` (Appendix A). Old
+  Wallbox schema → `schema/adapters/wallbox.schema.json` (adapter OUTPUT, not source).
+- ✅ 3 seed entries migrated to the interval model.
+- ✅ CI: `scripts/validate.mjs` (ajv + unique-id + compliance), `package.json`
+  (ajv/ajv-formats), `build.mjs` → `dist/canonical/` + per-country chunks + richer
+  `index.json`, `.github/workflows/validate.yml`. Compliance baked in: `source`
+  enum excludes `octopus`; `source=cdr ⇒ CC-BY-4.0`.
+- ✅ Licence compliance pass (commit 9c8ca09) + `ATTRIBUTION.md`.
+
+TODO (next sessions, roughly in order):
+- **`adapters/wallbox.mjs`** — canonical → 24-hour band arrays (the lossy
+  projection; `log` sub-hour rounding). Wire into `build.mjs` → `dist/wallbox/`.
+  Fixture-test against the migrated AGL entry.
+- **AU-CDR importer** (`importers/cdr/`) — fetch `GET /cds-au/v1/energy/plans`
+  + `/{planId}` from `cdr.energymadeeasy.gov.au` (`x-v:1`, no auth), map
+  `tariffPeriod`→canonical, write entries with `source:cdr, license:CC-BY-4.0`
+  + AER attribution. **Do this first of the importers.**
+- **PII scan** (`scripts/pii-scan.mjs`, ARCH §9) wired into CI; `.github/` PR
+  template + issue form.
+- **Consumer SDK** (`packages/sdk-js/`, thin) + the **Octopus on-device importer**
+  (never bulk-stored).
+- **Wallbox add-on consumer**: a "Browse plans" step in the tariff editor
+  (`sessions.js`) — fetch `dist/wallbox/tariffs.<CC>.json` (cached + bundled
+  fallback), pick from `index.json`, apply; "Export / Submit" affordance. Manual
+  editor + localStorage stay the private fallback (unchanged).
+- Then **URDB importer** (CC0, bulk-store OK).
 
 ### Phase 3 — Publish
 Only after a privacy scan + review with the user (nothing pushed to GitHub yet).
