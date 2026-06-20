@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "cl-bt1-residential-flat",
+    "schemaVersion": "1",
+    "country": "CL",
+    "provider": "Chile (regulated)",
+    "plan": "BT-1 Residential",
+    "currency": "CLP",
+    "unit": "kWh",
+    "timezone": "America/Santiago",
+    "source": "manual",
+    "sourceUrl": "https://www.cne.cl/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Chile BT-1 regulated residential tariff (single-rate energy). APPROXIMATE (~2026) CLP/kWh; excludes fixed + public-lighting charges. National.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 165.0
+    }
+  }
+}

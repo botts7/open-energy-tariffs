@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "th-mea-residential-tier1",
+    "schemaVersion": "1",
+    "country": "TH",
+    "provider": "MEA/PEA",
+    "plan": "Residential (tier, base step)",
+    "currency": "THB",
+    "unit": "kWh",
+    "timezone": "Asia/Bangkok",
+    "source": "manual",
+    "sourceUrl": "https://www.mea.or.th/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Thailand residential is a stepped tariff (MEA in Bangkok, PEA elsewhere) rising with consumption; the base step modelled here. Block tiers are a v1.1 feature. APPROXIMATE (~2026) THB/kWh; excludes Ft adjustment + service charge. National.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 4.2
+    }
+  }
+}

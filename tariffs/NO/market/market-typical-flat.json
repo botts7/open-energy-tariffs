@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "no-market-typical-flat",
+    "schemaVersion": "1",
+    "country": "NO",
+    "provider": "Norway (market)",
+    "plan": "Typical fixed-price",
+    "currency": "NOK",
+    "unit": "kWh",
+    "timezone": "Europe/Oslo",
+    "source": "manual",
+    "sourceUrl": "https://www.nve.no/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Norway is a spot-price (Nord Pool) market \u2014 most households pay hourly spot plus a grid tariff (nettleie). This is a typical FIXED-price supplier contract for the energy component only. APPROXIMATE (~2026) NOK/kWh; excludes grid + el-avgift. National.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.95
+    }
+  }
+}

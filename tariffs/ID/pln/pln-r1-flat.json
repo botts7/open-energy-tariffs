@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "id-pln-r1-flat",
+    "schemaVersion": "1",
+    "country": "ID",
+    "provider": "PLN",
+    "plan": "R-1 Rumah Tangga",
+    "currency": "IDR",
+    "unit": "kWh",
+    "timezone": "Asia/Jakarta",
+    "source": "manual",
+    "sourceUrl": "https://www.pln.co.id/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Indonesia PLN R-1 (non-subsidised, 1300-2200 VA) flat volumetric tariff. APPROXIMATE (~2026) IDR/kWh; subsidised low-VA tariffs are lower. National.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 1450.0
+    }
+  }
+}

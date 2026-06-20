@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "co-estrato4-residential-flat",
+    "schemaVersion": "1",
+    "country": "CO",
+    "provider": "Colombia (regulated)",
+    "plan": "Estrato 4 Residential",
+    "currency": "COP",
+    "unit": "kWh",
+    "timezone": "America/Bogota",
+    "source": "manual",
+    "sourceUrl": "https://www.creg.gov.co/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Colombia regulated residential tariff varies by socioeconomic estrato (1-6); estrato 4 (unsubsidised reference) modelled. APPROXIMATE (~2026) COP/kWh. National reference.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 850.0
+    }
+  }
+}

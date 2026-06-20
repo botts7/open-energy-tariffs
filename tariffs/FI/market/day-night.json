@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "id": "fi-market-day-night",
+    "schemaVersion": "1",
+    "country": "FI",
+    "provider": "Finland (market)",
+    "plan": "Day/Night (yösähkö)",
+    "currency": "EUR",
+    "unit": "kWh",
+    "timezone": "Europe/Helsinki",
+    "source": "manual",
+    "sourceUrl": "https://www.fingrid.fi/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Finland is a spot-price (Nord Pool) market, but the classic yösähkö day/night contract is still offered: cheaper energy at night (22:00-07:00, all week). Rates APPROXIMATE (~2026) in EUR/kWh — verify with your supplier. Excludes grid + tax. National.",
+    "coverage": { "national": true }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        { "id": "day", "name": "Day", "rate": 0.12 },
+        { "id": "night", "name": "Night", "rate": 0.08 }
+      ],
+      "schedule": [
+        { "days": "weekday", "from": "00:00", "to": "07:00", "band": "night" },
+        { "days": "weekday", "from": "07:00", "to": "22:00", "band": "day" },
+        { "days": "weekday", "from": "22:00", "to": "24:00", "band": "night" },
+        { "days": "weekend", "from": "00:00", "to": "07:00", "band": "night" },
+        { "days": "weekend", "from": "07:00", "to": "22:00", "band": "day" },
+        { "days": "weekend", "from": "22:00", "to": "24:00", "band": "night" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "se-market-typical-flat",
+    "schemaVersion": "1",
+    "country": "SE",
+    "provider": "Sweden (market)",
+    "plan": "Typical fixed-price",
+    "currency": "SEK",
+    "unit": "kWh",
+    "timezone": "Europe/Stockholm",
+    "source": "manual",
+    "sourceUrl": "https://www.ei.se/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Sweden is a spot-price (Nord Pool) market split into 4 bidding zones (SE1-SE4); most pay hourly spot + grid. This is a typical FIXED-price energy contract. APPROXIMATE (~2026) SEK/kWh; excludes grid + tax. National (zone-averaged).",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 1.3
+    }
+  }
+}

@@ -1,4 +1,15 @@
 {
+  "AR": {
+    "": {
+      "EDENOR/EDESUR": [
+        {
+          "id": "ar-residential-t1-flat",
+          "plan": "Residential T1",
+          "verified": false
+        }
+      ]
+    }
+  },
   "AT": {
     "": {
       "Austria (market)": [
@@ -368,12 +379,56 @@
       ]
     }
   },
+  "CL": {
+    "": {
+      "Chile (regulated)": [
+        {
+          "id": "cl-bt1-residential-flat",
+          "plan": "BT-1 Residential",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "CN": {
+    "": {
+      "State Grid": [
+        {
+          "id": "cn-sgcc-residential-tier1",
+          "plan": "Residential (tier, base step)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "CO": {
+    "": {
+      "Colombia (regulated)": [
+        {
+          "id": "co-estrato4-residential-flat",
+          "plan": "Estrato 4 Residential",
+          "verified": false
+        }
+      ]
+    }
+  },
   "DE": {
     "": {
       "Germany (Grundversorgung)": [
         {
           "id": "de-grundversorgung-typical-flat",
           "plan": "Typical single-rate (Eintarif)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "DK": {
+    "": {
+      "Denmark (market)": [
+        {
+          "id": "dk-market-typical-flat",
+          "plan": "Typical fixed-price",
           "verified": false
         }
       ]
@@ -390,17 +445,28 @@
       ]
     }
   },
+  "FI": {
+    "": {
+      "Finland (market)": [
+        {
+          "id": "fi-market-day-night",
+          "plan": "Day/Night (y\u00f6s\u00e4hk\u00f6)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "FR": {
     "": {
       "EDF": [
         {
           "id": "fr-edf-tarif-bleu-base",
-          "plan": "Tarif Bleu — Base",
+          "plan": "Tarif Bleu \u2014 Base",
           "verified": false
         },
         {
           "id": "fr-edf-tarif-bleu-heures-creuses",
-          "plan": "Tarif Bleu — Heures Creuses (HC/HP)",
+          "plan": "Tarif Bleu \u2014 Heures Creuses (HC/HP)",
           "verified": false
         },
         {
@@ -433,6 +499,17 @@
       ]
     }
   },
+  "ID": {
+    "": {
+      "PLN": [
+        {
+          "id": "id-pln-r1-flat",
+          "plan": "R-1 Rumah Tangga",
+          "verified": false
+        }
+      ]
+    }
+  },
   "IE": {
     "": {
       "Ireland (smart tariff)": [
@@ -460,7 +537,7 @@
       "Italy (ARERA fasce)": [
         {
           "id": "it-regulated-fasce-f1-f2-f3",
-          "plan": "Bioraria/Multioraria F1·F2·F3 (typical)",
+          "plan": "Bioraria/Multioraria F1\u00b7F2\u00b7F3 (typical)",
           "verified": false
         }
       ]
@@ -493,7 +570,18 @@
       "CFE": [
         {
           "id": "mx-cfe-domestico-tier1",
-          "plan": "Doméstico 1 (tier 1, básico)",
+          "plan": "Dom\u00e9stico 1 (tier 1, b\u00e1sico)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "MY": {
+    "": {
+      "TNB": [
+        {
+          "id": "my-tnb-domestic-tier1",
+          "plan": "Domestic (tier, base step)",
           "verified": false
         }
       ]
@@ -510,12 +598,34 @@
       ]
     }
   },
+  "NO": {
+    "": {
+      "Norway (market)": [
+        {
+          "id": "no-market-typical-flat",
+          "plan": "Typical fixed-price",
+          "verified": false
+        }
+      ]
+    }
+  },
   "NZ": {
     "": {
       "Contact Energy": [
         {
           "id": "nz-contact-basic",
           "plan": "Basic (illustrative)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "PH": {
+    "": {
+      "Meralco": [
+        {
+          "id": "ph-meralco-residential-flat",
+          "plan": "Residential",
           "verified": false
         }
       ]
@@ -534,10 +644,21 @@
   },
   "PT": {
     "": {
-      "Portugal (bi-horário)": [
+      "Portugal (bi-hor\u00e1rio)": [
         {
           "id": "pt-regulado-bi-horario",
-          "plan": "Bi-horário (two-rate, typical)",
+          "plan": "Bi-hor\u00e1rio (two-rate, typical)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "SE": {
+    "": {
+      "Sweden (market)": [
+        {
+          "id": "se-market-typical-flat",
+          "plan": "Typical fixed-price",
           "verified": false
         }
       ]
@@ -549,6 +670,17 @@
         {
           "id": "sg-sp-group-regulated-tariff",
           "plan": "Regulated electricity tariff",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "TH": {
+    "": {
+      "MEA/PEA": [
+        {
+          "id": "th-mea-residential-tier1",
+          "plan": "Residential (tier, base step)",
           "verified": false
         }
       ]

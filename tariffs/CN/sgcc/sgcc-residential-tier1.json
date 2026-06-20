@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "cn-sgcc-residential-tier1",
+    "schemaVersion": "1",
+    "country": "CN",
+    "provider": "State Grid",
+    "plan": "Residential (tier, base step)",
+    "currency": "CNY",
+    "unit": "kWh",
+    "timezone": "Asia/Shanghai",
+    "source": "manual",
+    "sourceUrl": "https://www.sgcc.com.cn/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "China residential is a 3-tier increasing-block tariff (province-set, State Grid / China Southern). Base step modelled here. Block tiers are a v1.1 feature. APPROXIMATE (~2026) CNY/kWh. National reference.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.55
+    }
+  }
+}

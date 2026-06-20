@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "my-tnb-domestic-tier1",
+    "schemaVersion": "1",
+    "country": "MY",
+    "provider": "TNB",
+    "plan": "Domestic (tier, base step)",
+    "currency": "MYR",
+    "unit": "kWh",
+    "timezone": "Asia/Kuala_Lumpur",
+    "source": "manual",
+    "sourceUrl": "https://www.tnb.com.my/",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Malaysia TNB Domestic is a stepped tariff rising with kWh; base step modelled here. Block tiers are a v1.1 feature. APPROXIMATE (~2026) MYR/kWh; excludes ICPT + min charge. National (Peninsular).",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.22
+    }
+  }
+}

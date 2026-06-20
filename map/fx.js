@@ -7,6 +7,8 @@ OET.FX = {
   USD: 1, AUD: 0.65, EUR: 1.08, GBP: 1.27, CAD: 0.73, NZD: 0.60, SGD: 0.74,
   ZAR: 0.055, BRL: 0.18, JPY: 0.0066, INR: 0.012, PLN: 0.25, CHF: 1.12, MXN: 0.055,
   SEK: 0.095, NOK: 0.094, DKK: 0.145, KRW: 0.00073,
+  THB: 0.028, MYR: 0.22, PHP: 0.018, IDR: 0.000062, CNY: 0.14, VND: 0.00004,
+  CLP: 0.0011, COP: 0.00025, PEN: 0.27, ARS: 0.0009, TWD: 0.031, HKD: 0.128,
 };
 
 // rate (local) -> USD-equivalent number (or the rate unchanged if currency unknown).
