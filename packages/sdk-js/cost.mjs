@@ -1,20 +1,22 @@
-// Cost engine: estimate a plan's annual cost for a usage profile, so users can
-// compare plans ("which is cheapest for me"). Pure functions on the canonical
-// tariff. CANONICAL + tested version is packages/sdk-js/cost.mjs (ESM) — this is
-// the browser (classic-script) mirror; keep them in sync.
+// Cost engine (canonical): estimate a plan's annual cost for a usage profile, so
+// any consumer (map, HA add-on, CLI) can answer "which plan is cheapest for me".
+// Pure functions over the canonical tariff. map/cost.js mirrors this for the
+// browser (classic script); keep them in sync.
 //
 // Usage profile = average kWh per hour-of-day, split weekday/weekend:
-//   { weekday: [24], weekend: [24] }  (kWh consumed in that hour on an average day)
+//   { weekday: [24], weekend: [24] }   (kWh consumed in that hour on an average day)
 // Cost is in the tariff's currency major units — only compare same-currency plans.
-window.OET = window.OET || {};
 
 const WEEKDAY_DAYS = 261, WEEKEND_DAYS = 104; // ~per year
 
-// Canonical tariff -> { weekday:[24 rates], weekend:[24 rates], supplyDaily }.
-OET.hourlyRates = function (tariff) {
-  const imp = tariff.import || {};
-  const supplyDaily = tariff.supply ? tariff.supply.daily || 0 : 0;
-  if (tariff.kind === 'flat' || !imp.bands || !imp.schedule || !imp.schedule.length) {
+const WD = ['mon', 'tue', 'wed', 'thu', 'fri'];
+const WE = ['sat', 'sun'];
+
+/** Canonical tariff -> { weekday:[24 rates], weekend:[24 rates], supplyDaily }. */
+export function hourlyRates(tariff) {
+  const imp = (tariff && tariff.import) || {};
+  const supplyDaily = tariff && tariff.supply ? tariff.supply.daily || 0 : 0;
+  if (!tariff || tariff.kind === 'flat' || !imp.bands || !imp.schedule || !imp.schedule.length) {
     const r = imp.flatRate || 0;
     return { weekday: Array(24).fill(r), weekend: Array(24).fill(r), supplyDaily };
   }
@@ -26,8 +28,8 @@ OET.hourlyRates = function (tariff) {
   for (const s of imp.schedule) {
     const d = s.days;
     const isList = Array.isArray(d);
-    const applyWd = d === 'all' || d === 'weekday' || (isList && d.some((x) => ['mon', 'tue', 'wed', 'thu', 'fri'].indexOf(x) !== -1));
-    const applyWe = d === 'all' || d === 'weekend' || (isList && d.some((x) => ['sat', 'sun'].indexOf(x) !== -1));
+    const applyWd = d === 'all' || d === 'weekday' || (isList && d.some((x) => WD.indexOf(x) !== -1));
+    const applyWe = d === 'all' || d === 'weekend' || (isList && d.some((x) => WE.indexOf(x) !== -1));
     let from = hourOf(s.from), to = hourOf(s.to);
     if (to === 0) to = 24;
     const paint = (arr) => {
@@ -41,12 +43,12 @@ OET.hourlyRates = function (tariff) {
   }
   const toRate = (arr) => arr.map((b) => (b != null && rateById[b] != null ? rateById[b] : fallback));
   return { weekday: toRate(wd), weekend: toRate(we), supplyDaily };
-};
+}
 
-// Estimate annual cost (currency major units). usage may include exportKwh.
-OET.estimateAnnualCost = function (tariff, usage) {
+/** Estimate annual cost (currency major units). usage may include exportKwh. */
+export function estimateAnnualCost(tariff, usage) {
   if (!tariff || !usage) return null;
-  const r = OET.hourlyRates(tariff);
+  const r = hourlyRates(tariff);
   let energy = 0;
   for (let h = 0; h < 24; h++) {
     energy += (usage.weekday[h] || 0) * r.weekday[h] * WEEKDAY_DAYS
@@ -56,30 +58,31 @@ OET.estimateAnnualCost = function (tariff, usage) {
   let credit = 0;
   if (usage.exportKwh && tariff.export && typeof tariff.export.flatRate === 'number') credit = usage.exportKwh * tariff.export.flatRate;
   return energy + supply - credit;
-};
+}
 
-// Per-day load shapes (relative weights, 24h). Scaled to the user's annual kWh.
-OET.SHAPES = {
+/** Per-day relative load shapes (24h), scaled to an annual total. */
+export const SHAPES = {
   flat: Array(24).fill(1),
   daytime: [.4, .3, .3, .3, .3, .4, .7, 1, 1.2, 1.2, 1.1, 1, 1, 1, 1, 1.1, 1.2, 1.3, 1.2, 1, .8, .6, .5, .4],
   evening: [.5, .4, .3, .3, .3, .4, .6, .8, .8, .7, .7, .7, .7, .7, .8, .9, 1.1, 1.4, 1.6, 1.6, 1.4, 1.1, .8, .6],
   night_ev: [1.4, 1.4, 1.4, 1.4, 1.4, 1.2, .8, .6, .5, .5, .5, .5, .5, .5, .5, .6, .7, .9, .9, .8, .7, .9, 1.1, 1.3],
 };
 
-// Build a usage profile from an annual total + a named load shape.
-OET.usageFromAnnual = function (annualKwh, shape) {
-  const s = OET.SHAPES[shape] || OET.SHAPES.flat;
+/** Build a usage profile from an annual total + a named load shape. */
+export function usageFromAnnual(annualKwh, shape) {
+  const s = SHAPES[shape] || SHAPES.flat;
   const sum = s.reduce((a, b) => a + b, 0);
   const daily = (annualKwh || 0) / 365;
   const perHour = s.map((v) => daily * v / sum);
   return { weekday: perHour.slice(), weekend: perHour.slice() };
-};
+}
 
-// Parse interval-usage CSV (rows: <timestamp>,<kWh>; header optional) into a
-// weekday/weekend hourly profile. Sums readings within the same (date,hour) then
-// averages those hourly totals across days — so sub-hourly intervals are handled.
-OET.parseUsageCsv = function (text) {
-  const sum = {}; const seen = {}; // key dayType|hour -> total ; and per (date|dayType|hour)
+/**
+ * Parse interval-usage CSV (rows: <timestamp>,<kWh>; header optional) into a
+ * weekday/weekend hourly profile + annual total. Sums readings within the same
+ * (date,hour) then averages those hourly totals across days (sub-hourly safe).
+ */
+export function parseUsageCsv(text) {
   const dailyHour = {}; // dayType|hour -> { dateKey -> kWh }
   for (const line of String(text).split(/\r?\n/)) {
     const c = line.split(',');
@@ -88,9 +91,8 @@ OET.parseUsageCsv = function (text) {
     const kwh = parseFloat(c[1]);
     if (isNaN(d.getTime()) || isNaN(kwh)) continue;
     const we = (d.getDay() === 0 || d.getDay() === 6) ? 'we' : 'wd';
-    const hour = d.getHours();
     const dk = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
-    const key = we + '|' + hour;
+    const key = we + '|' + d.getHours();
     (dailyHour[key] = dailyHour[key] || {});
     dailyHour[key][dk] = (dailyHour[key][dk] || 0) + kwh;
   }
@@ -98,13 +100,11 @@ OET.parseUsageCsv = function (text) {
     const out = Array(24).fill(0);
     for (let h = 0; h < 24; h++) {
       const days = dailyHour[we + '|' + h];
-      if (!days) continue;
-      const vals = Object.values(days);
-      out[h] = vals.reduce((a, b) => a + b, 0) / vals.length;
+      if (days) { const v = Object.values(days); out[h] = v.reduce((a, b) => a + b, 0) / v.length; }
     }
     return out;
   };
   const profile = { weekday: avgArr('wd'), weekend: avgArr('we') };
   const total = profile.weekday.reduce((a, b) => a + b, 0) * WEEKDAY_DAYS + profile.weekend.reduce((a, b) => a + b, 0) * WEEKEND_DAYS;
   return { profile, annualKwh: Math.round(total) };
-};
+}

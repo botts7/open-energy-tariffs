@@ -8,6 +8,9 @@
 // The `wallbox` adapter is NOT shipped here (it lives with the Wallbox consumer);
 // register it with client.registerAdapter('wallbox', fn). Built-ins: generic, raw.
 
+// Cost engine — "which plan is cheapest for me".
+export * from './cost.mjs';
+
 // Set to the real Pages/Release base at publish (schema $id OWNER too).
 export const DEFAULT_BASE = 'https://OWNER.github.io/open-energy-tariffs';
 
