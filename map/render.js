@@ -45,7 +45,8 @@ OET.renderMap = function (plans, meta) {
   // data is displayed, per the licence. URDB is CC0 (citation as courtesy).
   map.attributionControl.addAttribution(
     'Tariffs: © <a href="https://www.aer.gov.au/">AER</a> ' +
-    '<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · OpenEI/NREL URDB (CC0)');
+    '<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · OpenEI/NREL URDB (CC0) · ' +
+    'AU postcodes: G-NAF © <a href="https://geoscape.com.au/">Geoscape Australia</a>');
 
   const groups = {}; // source -> LayerGroup
   const centers = [];

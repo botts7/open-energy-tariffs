@@ -22,19 +22,14 @@ OET.GSP_CENTROIDS = {
   _P: [57.5, -4.2, 'Northern Scotland'],
 };
 
-// Sample AU postcode centroids for the demo plans (QLD/NSW/VIC/SA). A production
-// build joins coverage.postcodes to full ABS POA polygons instead.
+// AU postcode centroids. The full set (~2,640) is bundled in au-postcodes.js
+// (G-NAF, attribution in LICENSING.md); these few are a fallback if it's absent.
 OET.AU_POSTCODES = {
-  // SE Queensland (Ergon)
   '4306': [-27.62, 152.70], '4310': [-27.46, 152.58], '4312': [-27.50, 152.65],
-  '4313': [-27.09, 152.37], '4314': [-26.98, 152.30],
-  // Sydney NSW (Ausgrid)
-  '2000': [-33.87, 151.21], '2007': [-33.88, 151.20], '2008': [-33.89, 151.20],
-  // Melbourne VIC (United Energy)
-  '3104': [-37.80, 145.08], '3105': [-37.77, 145.10], '3106': [-37.76, 145.13],
-  // Adelaide SA (SA Power Networks)
-  '5000': [-34.93, 138.60], '5006': [-34.91, 138.59], '5007': [-34.90, 138.57],
+  '2000': [-33.87, 151.21], '3104': [-37.80, 145.08], '5000': [-34.93, 138.60],
 };
+// Prefer the full G-NAF set when bundled (overrides the fallback approximations).
+if (OET.AU_POSTCODES_FULL) OET.AU_POSTCODES = Object.assign({}, OET.AU_POSTCODES, OET.AU_POSTCODES_FULL);
 
 // Sample US utility (eiaid) centroids.
 OET.US_UTILITY = { '14006': [39.96, -82.99, 'Ohio Power Co (AEP Ohio)'] };
