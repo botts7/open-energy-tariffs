@@ -25,30 +25,38 @@ just open it or serve the folder.
 |---|---|
 | `index.html` | shell: Leaflet (CDN), search box, map, legend |
 | `data.js` | load the bundle (live `dist/` → embedded sample); pick a representative rate |
-| `geo.js` | resolve `meta.coverage` → map points (built-in centroid tables) |
-| `render.js` | draw markers (coloured by rate), popups, source toggle, legend, "what's in my area" filter |
+| `geo.js` | resolve `meta.coverage` → map points + type (built-in centroid tables) |
+| `boundaries.js` | optional: load real boundary GeoJSON → exact coverage polygons |
+| `render.js` | draw **areas** (exact polygon if bundled, else a filled circle sized by type) coloured by rate, popups, source toggle, legend, "what's in my area" filter |
 | `sample.js` | embedded fallback data (the 3 real captures) |
 
-## How coverage is resolved
+## How coverage is plotted
 
-`geo.js` ships **demo-grade centroid tables**: all 14 UK GSP groups, a handful of
-AU sample postcodes, and one US utility (`eiaid`). Unknown keys are skipped and
-counted (never silently dropped — see the info bar).
+Each plan is drawn as an **area**, coloured by rate:
 
-**Production upgrade:** swap the centroid tables for real boundary GeoJSON and draw
-polygons instead of markers (a true choropleth):
-- AU `coverage.postcodes` → ABS POA boundaries
-- UK `coverage.gsp` → DNO licence-area GeoJSON
-- US `coverage.utilityId` (`eiaid`) → EIA/HIFLD "Electric Retail Service Territories"
+1. **Exact polygon** — if boundary GeoJSON is bundled under `map/boundaries/`
+   (`boundaries.js` + a `manifest.json`), the plan's true coverage area is shaded
+   (a real choropleth). Sources to populate it:
+   - AU `coverage.postcodes` → ABS POA 2021 boundaries
+   - UK `coverage.gsp` → DNO licence-area GeoJSON (14 regions)
+   - US `coverage.utilityId` (`eiaid`) → EIA/HIFLD service territories
+2. **Approximate area** — with no boundary bundled, a filled circle sized by
+   coverage type (postcode ≈ 6 km, GSP/utility ≈ region) so it still reads as an
+   area, not a pinpoint. Zoom in to see suburb-level postcode areas.
 
-The plot loop in `render.js` stays the same; only `geo.js` changes.
+Unknown coverage keys are skipped and counted (never silently dropped — see the
+info bar). Adding real boundaries changes only `boundaries/`; the rest is unchanged.
 
 ## Hosting on GitHub Pages
 
-Pages can serve this directly (it's static). Because `dist/` is git-ignored, a
-Pages workflow must **build first**, then publish `map/` + `dist/` + `index.json`
-together so the live fetch works (otherwise the map quietly uses the bundled
-sample). See `ARCHITECTURE.md` §5 (Pages + Releases).
+`.github/workflows/pages.yml` does this: it `npm run build`s the bundle (because
+`dist/` is git-ignored) and publishes `map/` + `dist/` + `index.json` to Pages, so
+the **deployed map shows every imported plan** (live `dist/`), not the bundled
+sample. Enable it once in **Settings → Pages → Source: GitHub Actions**.
+
+> The deployed map only shows plans that are committed to `tariffs/` **and** carry
+> `meta.coverage`. Run the importers (e.g. across the AER retailer base URIs) to
+> populate it. See `ARCHITECTURE.md` §5.
 
 ## Notes
 

@@ -39,21 +39,25 @@ OET.AU_POSTCODES = {
 // Sample US utility (eiaid) centroids.
 OET.US_UTILITY = { '14006': [39.96, -82.99, 'Ohio Power Co (AEP Ohio)'] };
 
-// Resolve coverage -> [{ latlng:[lat,lng], label }]. Unknown keys are skipped
-// (and counted by the caller so nothing is silently dropped).
+// Approx area radius (metres) per coverage type, used when no exact boundary
+// polygon is available — so a plan shows as a shaded AREA, not a pinpoint.
+OET.AREA_RADIUS = { postcode: 6000, gsp: 130000, utility: 90000 };
+
+// Resolve coverage -> [{ latlng:[lat,lng], label, type }]. Unknown keys are
+// skipped (and counted by the caller so nothing is silently dropped).
 OET.resolveCoverage = function (coverage) {
   const out = [];
   if (!coverage) return out;
   if (coverage.gsp && OET.GSP_CENTROIDS[coverage.gsp]) {
     const [lat, lng, name] = OET.GSP_CENTROIDS[coverage.gsp];
-    out.push({ latlng: [lat, lng], label: `GSP ${coverage.gsp} — ${name}` });
+    out.push({ latlng: [lat, lng], label: `GSP ${coverage.gsp} — ${name}`, type: 'gsp' });
   }
   for (const pc of coverage.postcodes || []) {
-    if (OET.AU_POSTCODES[pc]) out.push({ latlng: OET.AU_POSTCODES[pc], label: `Postcode ${pc}` });
+    if (OET.AU_POSTCODES[pc]) out.push({ latlng: OET.AU_POSTCODES[pc], label: `Postcode ${pc}`, type: 'postcode' });
   }
   if (coverage.utilityId && OET.US_UTILITY[coverage.utilityId]) {
     const [lat, lng, name] = OET.US_UTILITY[coverage.utilityId];
-    out.push({ latlng: [lat, lng], label: name || `Utility ${coverage.utilityId}` });
+    out.push({ latlng: [lat, lng], label: name || `Utility ${coverage.utilityId}`, type: 'utility' });
   }
   return out;
 };

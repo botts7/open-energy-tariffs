@@ -43,54 +43,69 @@ OET.renderMap = function (plans, meta) {
   }).addTo(map);
 
   const groups = {}; // source -> LayerGroup
-  const allLatLngs = [];
-  const markers = []; // { marker, group, hay } for "what's in my area" filtering
+  const centers = [];
+  const layers = []; // { layer, group, hay, center } for filtering + fitting
   let mapped = 0, unmapped = 0;
+
+  function areaStyle(rate) {
+    return { color: '#333', weight: 1, fillColor: OET.rateColor(rate), fillOpacity: 0.4 };
+  }
 
   for (const entry of plans) {
     const { meta: m, tariff } = entry;
     const points = OET.resolveCoverage(m.coverage);
-    if (!points.length) { unmapped++; continue; }
+    const boundary = OET.boundaryFor ? OET.boundaryFor(m.coverage) : null;
+    if (!points.length && !boundary) { unmapped++; continue; }
     const rate = OET.planRate(tariff);
     const src = m.source || 'other';
     const group = groups[src] || (groups[src] = L.layerGroup().addTo(map));
     const cov = m.coverage || {};
     const hay = [m.country, m.region, m.provider, m.plan, m.source, cov.gsp, cov.utilityId, (cov.postcodes || []).join(' ')]
       .join(' ').toLowerCase();
-    for (const p of points) {
+    const popup = (extra) => popupHtml(m, tariff, rate) + (extra ? `<br><span style="color:#777">${esc(extra)}</span>` : '');
+
+    if (boundary) {
+      // Exact coverage polygon (true choropleth) when boundary data is bundled.
+      const layer = L.geoJSON(boundary, { style: areaStyle(rate) }).bindPopup(popup('exact boundary'));
+      layer.addTo(group);
       mapped++;
-      allLatLngs.push(p.latlng);
-      const marker = L.circleMarker(p.latlng, {
-        radius: 8, weight: 1, color: '#222',
-        fillColor: OET.rateColor(rate), fillOpacity: 0.85,
-      }).bindPopup(popupHtml(m, tariff, rate) + `<br><span style="color:#777">${esc(p.label)}</span>`)
-        .addTo(group);
-      markers.push({ marker, group, hay: hay + ' ' + p.label.toLowerCase() });
+      const c = layer.getBounds().getCenter();
+      centers.push([c.lat, c.lng]);
+      layers.push({ layer, group, hay, center: [c.lat, c.lng] });
+    } else {
+      // Approximate AREA (filled circle sized by coverage type), not a dot.
+      for (const p of points) {
+        mapped++;
+        const layer = L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS[p.type] || 8000 }, areaStyle(rate)))
+          .bindPopup(popup(p.label));
+        layer.addTo(group);
+        centers.push(p.latlng);
+        layers.push({ layer, group, hay: hay + ' ' + p.label.toLowerCase(), center: p.latlng });
+      }
     }
   }
 
-  // "What's in my area" — show only markers matching a free-text query
+  // "What's in my area" — show only areas matching a free-text query
   // (postcode, GSP, region, provider…). Empty query restores all.
   OET._map = map;
   OET.applyFilter = function (q) {
     const query = String(q || '').trim().toLowerCase();
     const shown = [];
-    for (const { marker, group, hay } of markers) {
-      const match = !query || hay.indexOf(query) !== -1;
-      if (match) { group.addLayer(marker); shown.push(marker.getLatLng()); }
-      else group.removeLayer(marker);
+    for (const { layer, group, hay, center } of layers) {
+      if (!query || hay.indexOf(query) !== -1) { group.addLayer(layer); shown.push(center); }
+      else group.removeLayer(layer);
     }
     if (query && shown.length) map.fitBounds(shown, { padding: [40, 40], maxZoom: 9 });
     const info = document.getElementById('info');
-    if (info) info.textContent = `${shown.length}/${markers.length} point(s)${query ? ` matching “${query}”` : ''}`;
+    if (info) info.textContent = `${shown.length}/${layers.length} area(s)${query ? ` matching “${query}”` : ''}`;
   };
 
   // Fit to the data when it's regional; for globe-spanning data a fit would
   // centre on the antimeridian and push continents off-screen, so show the world.
-  if (allLatLngs.length) {
-    const lngs = allLatLngs.map((p) => p[1]);
+  if (centers.length) {
+    const lngs = centers.map((p) => p[1]);
     const span = Math.max.apply(null, lngs) - Math.min.apply(null, lngs);
-    if (span <= 150) map.fitBounds(allLatLngs, { padding: [40, 40], maxZoom: 7 });
+    if (span <= 150) map.fitBounds(centers, { padding: [40, 40], maxZoom: 7 });
     else map.setView([25, 10], 2);
   }
   if (Object.keys(groups).length > 1) L.control.layers(null, groups, { collapsed: false }).addTo(map);
@@ -108,7 +123,7 @@ OET.renderMap = function (plans, meta) {
 
   const info = document.getElementById('info');
   if (info) {
-    info.textContent = `${plans.length} plan(s) · ${mapped} point(s) mapped · `
+    info.textContent = `${plans.length} plan(s) · ${mapped} area(s) mapped · `
       + `${unmapped} with no resolvable coverage · data: ${meta.source}`;
   }
   return map;
@@ -116,5 +131,6 @@ OET.renderMap = function (plans, meta) {
 
 OET.main = async function () {
   const { entries, source } = await OET.loadPlans();
+  if (OET.loadBoundaries) await OET.loadBoundaries(); // exact polygons if bundled
   OET.renderMap(entries, { source });
 };
