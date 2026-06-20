@@ -28,9 +28,28 @@ Born from the Wallbox add-on's tariff editor; the `tariff` object in each entry
 > consumers. The seed code here is a sketch to make the shape concrete; the real
 > deliverable of the next session(s) is a thought-through architecture.
 
-### Phase 0 — Architecture & planning (THE BULK; finish before writing code)
-Produce `ARCHITECTURE.md` (scaffold already created — fill each section with a
-decision + rationale; treat them as ADRs). Open decisions to resolve:
+### Phase 0 — Architecture & planning ✅ DECISIONS RECORDED (2026-06-20)
+`ARCHITECTURE.md` is now filled out as 11 ADRs (Decision/Options/Rationale/
+Consequences) + **Appendix A** (the target interval-based canonical schema). Read
+it before doing anything else. Headline decisions:
+- **§1 Neutral interval-based canonical model** + build-time **adapters** →
+  `dist/<app>/`. The Wallbox 24-hour-array shape is an *output*, not storage
+  (it's lossy: can't do half-hour boundaries, supply charge, feed-in, etc.).
+- **§2** v1 = AU (AU-CDR) end-to-end; GB/US example-only. STATIC presets only.
+- **§3** identity key `country/region/distributor/provider/planSlug` = `meta.id`;
+  time via top-level current tariff + optional `history[]`.
+- **§4** SemVer schema in `schema/v1/`; supply charge + solar feed-in are v1;
+  tiers/demand = v1.1 (pre-shaped).
+- **§5** GitHub Releases (pinnable) + Pages `latest`; per-country chunks; ETag;
+  bundled offline snapshot; snapshot-at-build.
+- **§6 DEFERRED** → Phase 1: AU-CDR bulk-store OK; **URDB + Octopus ToS still need
+  confirmation** (default = on-device import, don't bulk-republish).
+- **§7** community vs verified + 12-month staleness flag. **§8** importers +
+  adapters as shared pure fns (one mapping, build-time *or* on-device per licence).
+  **§9** CI PII scan + pre-filled-PR export. **§10** thin optional SDK. **§11** keep
+  name; set schema `$id`/CODEOWNERS at publish.
+
+Original open-decision list (now all resolved in ARCHITECTURE.md, kept for trace):
 
 1. **Canonical model vs app model.** The seed schema is "Wallbox-shaped". Decide:
    is the stored schema a NEUTRAL canonical model with per-app *adapters*
