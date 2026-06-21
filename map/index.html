@@ -99,6 +99,7 @@
           <div class="brand-tag">Browse &amp; compare electricity plans by rate · 52 countries</div>
         </div>
       </div>
+      <button id="helpToggle" class="hdr-btn" aria-label="How to use this site" title="How to use">?</button>
       <button id="themeToggle" class="hdr-btn" aria-label="Toggle dark mode" title="Light / dark">◐</button>
     </header>
     <div id="main">
@@ -129,6 +130,7 @@
   <script src="bill-pdf.js"></script>
   <script src="render.js"></script>
   <script src="modal.js"></script>
+  <script src="guide.js"></script>
   <script src="sidebar.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', function () {
@@ -146,6 +148,9 @@
       if (nt) nt.addEventListener('click', function () { document.body.classList.toggle('nav-open'); });
       var mp = document.getElementById('map');
       if (mp) mp.addEventListener('click', function () { document.body.classList.remove('nav-open'); });
+      var hb = document.getElementById('helpToggle');
+      if (hb) hb.addEventListener('click', function () { if (OET.showGuide) OET.showGuide(); });
+      if (OET.maybeAutoGuide) OET.maybeAutoGuide();
     });
   </script>
 </body>
