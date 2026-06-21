@@ -132,26 +132,35 @@ OET.renderMap = function (plans, meta) {
   OET.PLANS = planRecs;
 
   // Zoom to a plan + open its popup (called from the sidebar).
+  // Fast: just zoom to the plan's (hull) coverage + open its popup. No network.
   OET.focusPlan = function (id) {
     const r = planRecs.find((p) => p.id === id);
     if (!r) return;
+    OET._focusedPlan = id;
+    highlightLayer.clearLayers(); // drop any prior exact boundary
     if (r.bounds) map.fitBounds(r.bounds, { padding: [40, 40], maxZoom: 11 });
-    // Draw the plan's REAL coverage on demand: the ABS POA polygons for its
-    // postcodes (precise, vs the concave-hull approximation in the overview).
-    highlightLayer.clearLayers();
+    if (r.layers[0] && r.layers[0].openPopup) r.layers[0].openPopup();
+  };
+
+  // Heavy + EXPLICIT (opt-in from the modal): fetch the plan's real ABS POA
+  // boundaries and draw them. Separated from focusPlan so jumping between plans
+  // stays snappy. Race-guarded so only the latest request renders.
+  OET.loadRealCoverage = function (id) {
+    const r = planRecs.find((p) => p.id === id);
+    if (!r) return Promise.resolve(false);
     const pcs = (r.meta.coverage && r.meta.coverage.postcodes) || [];
-    if (pcs.length && OET.fetchPoaCoverage) {
-      OET._focusedPlan = id;
-      OET.fetchPoaCoverage(pcs).then(function (gj) {
-        if (OET._focusedPlan !== id || !gj) return;
-        highlightLayer.clearLayers();
-        const col = planColor(r);
-        const layer = L.geoJSON(gj, { renderer, style: { color: col, weight: 1.5, opacity: 0.95, fillColor: col, fillOpacity: 0.3 } });
-        layer.bindPopup('<strong>' + esc(r.meta.provider) + '</strong> — ' + esc(r.meta.plan) + '<br>real coverage · ' + pcs.length + ' postcodes (ABS POA 2021)');
-        layer.addTo(highlightLayer);
-        try { const b = layer.getBounds(); if (b.isValid()) map.fitBounds(b, { padding: [40, 40], maxZoom: 12 }); } catch (_) {}
-      });
-    } else if (r.layers[0] && r.layers[0].openPopup) { r.layers[0].openPopup(); }
+    if (!pcs.length || !OET.fetchPoaCoverage) return Promise.resolve(false);
+    OET._focusedPlan = id;
+    return OET.fetchPoaCoverage(pcs).then(function (gj) {
+      if (OET._focusedPlan !== id || !gj) return false;
+      highlightLayer.clearLayers();
+      const col = planColor(r);
+      const layer = L.geoJSON(gj, { renderer, style: { color: col, weight: 1.5, opacity: 0.95, fillColor: col, fillOpacity: 0.3 } });
+      layer.bindPopup('<strong>' + esc(r.meta.provider) + '</strong> — ' + esc(r.meta.plan) + '<br>real coverage · ' + pcs.length + ' postcodes (ABS POA 2021)');
+      layer.addTo(highlightLayer);
+      try { const b = layer.getBounds(); if (b.isValid()) map.fitBounds(b, { padding: [40, 40], maxZoom: 12 }); } catch (_) {}
+      return true;
+    });
   };
 
   // Adaptive colouring: a global map must normalise currencies (USD-equiv) or JPY

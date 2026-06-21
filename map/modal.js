@@ -62,6 +62,8 @@ window.OET = window.OET || {};
     injectCss();
     close();
     const m = rec.meta, t = rec.tariff, cur = m.currency, cov = m.coverage || {};
+    const pcCount = (cov.postcodes || []).length;
+    const heavy = pcCount >= 120; // big networks lag when drawn as real boundaries
     const swatch = (OET._rateColorNow || OET.rateColorFor || OET.rateColor || (() => '#999'))(rec.rate, cur);
 
     const kv = [];
@@ -92,6 +94,7 @@ window.OET = window.OET || {};
         + t.controlledLoad.map((c) => `<tr><td>${esc(c.name || c.id)}</td><td>${num(c.rate) != null ? c.rate + ' ' + esc(cur) : '—'}</td></tr>`).join('')
         + '</tbody></table>';
     }
+    if (pcCount) body += `<div class="oet-sec">Coverage on map</div><div class="oet-note">The map shows an approximate coverage outline. <b>Exact boundary</b> fetches the real ABS postcode shapes${heavy ? ` — this plan serves <b>${pcCount}</b> postcodes, so it can take a few seconds and briefly lag the map.` : '.'}</div>`;
     if (m.notes) body += `<div class="oet-sec">Notes</div><div class="oet-note">${esc(m.notes)}</div>`;
     // Only render the link for http(s) URLs (block javascript:/data: in href).
     const safeUrl = /^https?:\/\//i.test(m.sourceUrl || '') ? m.sourceUrl : null;
@@ -105,11 +108,21 @@ window.OET = window.OET || {};
       + `<div class="oet-mhead"><div><h2>${esc(m.provider)}</h2><div class="sub">${esc(m.plan)}</div></div>`
       + `<button class="oet-mx" title="Close">×</button></div>`
       + `<div class="oet-mbody">${body}</div>`
-      + `<div class="oet-mfoot">${rec.located ? '<button class="oet-btn" data-zoom>Show on map</button>' : ''}<button class="oet-btn primary" data-close>Close</button></div>`
+      + `<div class="oet-mfoot">`
+        + (pcCount ? `<button class="oet-btn" data-exact title="Fetches real ABS postcode boundaries — can lag for large networks">Exact boundary · ${pcCount} pc${heavy ? ' ⚠' : ''}</button>` : '')
+        + (rec.located ? '<button class="oet-btn" data-zoom>Show on map</button>' : '')
+        + `<button class="oet-btn primary" data-close>Close</button></div>`
       + `</div>`;
     backdrop.addEventListener('click', (e) => { if (e.target === backdrop || e.target.matches('.oet-mx,[data-close]')) close(); });
     const zoom = backdrop.querySelector('[data-zoom]');
     if (zoom) zoom.addEventListener('click', () => { close(); if (OET.focusPlan) OET.focusPlan(rec.id); });
+    // Explicit, opt-in heavy load (real boundaries) with a loading state.
+    const exact = backdrop.querySelector('[data-exact]');
+    if (exact) exact.addEventListener('click', () => {
+      exact.disabled = true; exact.textContent = 'Loading…';
+      if (OET.focusPlan) OET.focusPlan(rec.id); // snap to it first
+      Promise.resolve(OET.loadRealCoverage ? OET.loadRealCoverage(rec.id) : false).then(() => close());
+    });
     document.body.appendChild(backdrop);
     document.addEventListener('keydown', onKey);
   };
