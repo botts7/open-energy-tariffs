@@ -97,8 +97,19 @@ window.OET = window.OET || {};
       const note = xc.ours == null ? '' : (xc.status === 'match' ? ` · ✓ within ${Math.round(xc.ratio * 100)}%` : ` · ⚠ ${Math.round(xc.ratio * 100)}% of ref`);
       add('Reference (' + refSrc + ')', `${xc.ref.toFixed(3)} USD/kWh${note}`);
     }
+    // Deregulated-market flag: in retail-choice states URDB unbundles delivery vs
+    // supply, so a rate well below the EIA all-in average there is a supply-only
+    // component (not a low tier, as in regulated states like CA).
+    const DEREG_STATES = { IL: 1, OH: 1, PA: 1, MD: 1, NJ: 1, MA: 1, CT: 1, NH: 1, RI: 1, ME: 1, DC: 1, DE: 1 };
+    let deregNote = '';
+    if (m.country === 'US' && DEREG_STATES[m.region] && xc && xc.ref != null && OET.toUsd) {
+      const mine = OET.toUsd(rec.rate, cur);
+      if (mine && mine / xc.ref < 0.85) {
+        deregNote = `<div class="oet-note" style="margin-top:8px">⚠ <b>Deregulated market:</b> this looks like a <b>supply-only or partial rate</b> — in states like IL/OH/PA/MD the delivery (network) charge is billed separately, so this isn't your all-in price. EIA all-in residential average for ${esc(m.region)}: <b>$${xc.ref.toFixed(3)}/kWh</b>.</div>`;
+      }
+    }
 
-    let body = `<dl class="oet-kv">${kv.join('')}</dl>`;
+    let body = `<dl class="oet-kv">${kv.join('')}</dl>` + deregNote;
     // Detailed cost for the user's loaded/entered usage — what this plan would cost.
     const bd = (OET._usage && OET.costBreakdown) ? OET.costBreakdown(t, OET._usage) : null;
     if (bd) {
