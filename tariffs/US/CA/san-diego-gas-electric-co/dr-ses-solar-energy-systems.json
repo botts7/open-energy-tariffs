@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "id": "us-ca-san-diego-gas-electric-co-dr-ses-solar-energy-systems",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "CA",
+    "provider": "San Diego Gas & Electric Co",
+    "plan": "DR-SES (Solar Energy Systems)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539fb4cfec4f024bc1dbed87",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "16609"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.19778
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.20652
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.19601
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.21241
+        },
+        {
+          "id": "p4",
+          "name": "Period 5",
+          "rate": 0.15213
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "06:00",
+          "to": "18:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "18:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    }
+  }
+}

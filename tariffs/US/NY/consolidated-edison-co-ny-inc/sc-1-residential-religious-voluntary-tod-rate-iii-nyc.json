@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-voluntary-tod-rate-iii-nyc",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "NY",
+    "provider": "Consolidated Edison Co-NY Inc",
+    "plan": "SC-1 Residential & Religious Voluntary TOD (Rate III) [NYC]",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/574dde0d5457a343795e629d",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "4226"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.22155
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.88089
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.10045
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.04275
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "08:00",
+          "band": "p3"
+        },
+        {
+          "days": "all",
+          "from": "08:00",
+          "to": "24:00",
+          "band": "p2"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.65276
+    }
+  }
+}

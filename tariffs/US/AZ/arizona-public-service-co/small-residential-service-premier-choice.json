@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-az-arizona-public-service-co-small-residential-service-premier-choice",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Arizona Public Service Co",
+    "plan": "Small Residential Service (Premier Choice)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/5a59388c5457a3931d423a84",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "803"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.12393
+    },
+    "supply": {
+      "daily": 0.49277
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "id": "us-az-salt-river-project-e-28-m-power-price-plan-for-residential-pre-pay-time-of-use-service",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Salt River Project",
+    "plan": "E-28 M-POWER PRICE PLAN FOR RESIDENTIAL PRE-PAY TIME-OF-USE SERVICE",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539fc9d6ec4f024d2f53f55c",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "16572"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.1907
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.0705
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.2122
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.0717
+        },
+        {
+          "id": "p4",
+          "name": "Period 5",
+          "rate": 0.1012
+        },
+        {
+          "id": "p5",
+          "name": "Period 6",
+          "rate": 0.0686
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "05:00",
+          "band": "p5"
+        },
+        {
+          "days": "weekday",
+          "from": "05:00",
+          "to": "09:00",
+          "band": "p4"
+        },
+        {
+          "days": "weekday",
+          "from": "09:00",
+          "to": "17:00",
+          "band": "p5"
+        },
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "21:00",
+          "band": "p4"
+        },
+        {
+          "days": "weekday",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "p5"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p5"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.55848
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "id": "us-al-alabama-power-co-plug-in-electric-vehicle-family-dwelling-service-demand-option",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AL",
+    "provider": "Alabama Power Co",
+    "plan": "Plug-In Electric Vehicle - Family Dwelling Service (Demand Option)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Chicago",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/649c4a551ed2da5c330a930e",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "195"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.11204
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.09489
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "05:00",
+          "band": "p1"
+        },
+        {
+          "days": "all",
+          "from": "05:00",
+          "to": "21:00",
+          "band": "p0"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "p1"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.50099
+    }
+  }
+}

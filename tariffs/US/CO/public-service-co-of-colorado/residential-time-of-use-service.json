@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "id": "us-co-public-service-co-of-colorado-residential-time-of-use-service",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "CO",
+    "provider": "Public Service Co of Colorado",
+    "plan": "RESIDENTIAL TIME-OF-USE SERVICE",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Denver",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539f745bec4f024411ed07ab",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "15466"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.08391
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.10724
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.23612
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "14:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "14:00",
+          "to": "20:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.25552
+    }
+  }
+}

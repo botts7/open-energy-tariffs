@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-or-portland-general-electric-co-residential-service-rate-7",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "OR",
+    "provider": "Portland General Electric Co",
+    "plan": "Residential Service (Rate 7)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539f746bec4f024411ed0805",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "15248"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.10159
+    },
+    "supply": {
+      "daily": 0.35611
+    }
+  }
+}

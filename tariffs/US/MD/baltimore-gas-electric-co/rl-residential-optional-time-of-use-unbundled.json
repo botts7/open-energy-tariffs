@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-md-baltimore-gas-electric-co-rl-residential-optional-time-of-use-unbundled",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "MD",
+    "provider": "Baltimore Gas & Electric Co",
+    "plan": "RL RESIDENTIAL  OPTIONAL  TIME-OF-USE (Unbundled)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539fbd14ec4f024c27d8779b",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "1167"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.04661
+    },
+    "supply": {
+      "daily": 0.39422
+    }
+  }
+}

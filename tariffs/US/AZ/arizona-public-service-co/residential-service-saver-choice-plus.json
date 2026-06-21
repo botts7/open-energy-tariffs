@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "id": "us-az-arizona-public-service-co-residential-service-saver-choice-plus",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Arizona Public Service Co",
+    "plan": "Residential Service (Saver Choice Plus)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/5a5935475457a3ad69423a82",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "803"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.09649
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.12868
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.15011
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "15:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "15:00",
+          "to": "20:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.42707
+    }
+  }
+}

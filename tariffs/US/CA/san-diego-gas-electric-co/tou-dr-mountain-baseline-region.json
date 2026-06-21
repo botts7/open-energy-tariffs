@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "id": "us-ca-san-diego-gas-electric-co-tou-dr-mountain-baseline-region",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "CA",
+    "provider": "San Diego Gas & Electric Co",
+    "plan": "TOU-DR Mountain Baseline Region",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/578e9e8b5457a3693af1f985",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "16609"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.24173
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.18984
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.15087
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.20406
+        },
+        {
+          "id": "p4",
+          "name": "Period 5",
+          "rate": 0.19018
+        },
+        {
+          "id": "p5",
+          "name": "Period 6",
+          "rate": 0.17093
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "p5"
+        },
+        {
+          "days": "weekday",
+          "from": "06:00",
+          "to": "17:00",
+          "band": "p4"
+        },
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "20:00",
+          "band": "p3"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "22:00",
+          "band": "p4"
+        },
+        {
+          "days": "weekday",
+          "from": "22:00",
+          "to": "24:00",
+          "band": "p5"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p5"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.32852
+    }
+  }
+}

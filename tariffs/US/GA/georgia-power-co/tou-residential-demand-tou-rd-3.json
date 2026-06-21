@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "id": "us-ga-georgia-power-co-tou-residential-demand-tou-rd-3",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "GA",
+    "provider": "Georgia Power Co",
+    "plan": "TOU-Residential Demand (TOU-RD-3)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/56a8f9a55457a3e277074327",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "7140"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.0388
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.14053
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.32852
+    }
+  }
+}

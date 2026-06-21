@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "id": "us-az-arizona-public-service-co-residential-service-bundled-standard-rate",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Arizona Public Service Co",
+    "plan": "Residential Service Bundled Standard rate",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/55563ddf5457a3bf6c8b4570",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "803"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.11377
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.11647
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.28088
+    }
+  }
+}

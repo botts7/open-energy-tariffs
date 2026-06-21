@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "id": "us-co-public-service-co-of-colorado-residential-energy-time-of-use-schedule-re-tou",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "CO",
+    "provider": "Public Service Co of Colorado",
+    "plan": "Residential Energy Time Of Use (Schedule RE-TOU)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Denver",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/5ca375625457a31f52b3d45e",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "15466"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.07959
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.06264
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.13835
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.09127
+        },
+        {
+          "id": "p4",
+          "name": "Period 5",
+          "rate": 0.18555
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "09:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "09:00",
+          "to": "14:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "14:00",
+          "to": "18:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekday",
+          "from": "18:00",
+          "to": "21:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "09:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "09:00",
+          "to": "21:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekend",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.21978
+    }
+  }
+}

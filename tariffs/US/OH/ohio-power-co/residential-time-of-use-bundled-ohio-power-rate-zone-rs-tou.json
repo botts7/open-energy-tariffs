@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "id": "us-oh-ohio-power-co-residential-time-of-use-bundled-ohio-power-rate-zone-rs-tou",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "OH",
+    "provider": "Ohio Power Co",
+    "plan": "Residential Time-of-Use Bundled Ohio Power Rate Zone (RS-TOU)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/63237db3e3b0bb051c73ea16",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "14006"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.13641
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.18491
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "06:00",
+          "to": "09:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "09:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.4159
+    }
+  }
+}

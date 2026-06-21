@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "id": "us-mi-consumers-energy-co-residential-summer-on-peak-basic-service-rsp",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "MI",
+    "provider": "Consumers Energy Co",
+    "plan": "Residential Summer On-Peak Basic Service (RSP)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Detroit",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/62cf014af08ddb240f155e9f",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "4254"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.16702
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.2162
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.16568
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p2"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.29139
+    }
+  }
+}

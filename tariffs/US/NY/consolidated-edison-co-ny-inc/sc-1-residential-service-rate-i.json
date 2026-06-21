@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-service-rate-i",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "NY",
+    "provider": "Consolidated Edison Co-NY Inc",
+    "plan": "SC-1 (Residential Service Rate I)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539fc171ec4f024c27d8a715",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "4226"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.11875
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.11875
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.51774
+    }
+  }
+}

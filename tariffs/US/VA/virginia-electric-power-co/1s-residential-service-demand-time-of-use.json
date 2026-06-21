@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "id": "us-va-virginia-electric-power-co-1s-residential-service-demand-time-of-use",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "VA",
+    "provider": "Virginia Electric & Power Co",
+    "plan": "1S Residential Service (Demand Time-of-Use)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539fc021ec4f024c27d898b9",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "19876"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.06046
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.07974
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "07:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "11:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "11:00",
+          "to": "17:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "21:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.39422
+    }
+  }
+}

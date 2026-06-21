@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "id": "us-or-portland-general-electric-co-residential-electric-vehicle-tou-option-rate-7-ev",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "OR",
+    "provider": "Portland General Electric Co",
+    "plan": "Residential Electric Vehicle TOU Option (Rate 7-EV)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/5bb24ff85457a3d91568a12a",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "15248"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.20445
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.14891
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.04199
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekday",
+          "from": "06:00",
+          "to": "10:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "10:00",
+          "to": "17:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "20:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "22:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "22:00",
+          "to": "24:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p2"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.38403
+    }
+  }
+}

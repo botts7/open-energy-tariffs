@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "id": "us-az-arizona-public-service-co-residential-service-standard-e-12-low-income",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Arizona Public Service Co",
+    "plan": "Residential Service Standard (E-12) Low Income",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/59fcde8e5457a3a04cc05084",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "803"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.08102
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.08311
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.21362
+    }
+  }
+}

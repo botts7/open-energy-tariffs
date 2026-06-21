@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "id": "us-va-virginia-electric-power-co-ev-residential-electric-vehicle-charging-experimental",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "VA",
+    "provider": "Virginia Electric & Power Co",
+    "plan": "EV Residential Electric Vehicle Charging (Experimental)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539f6e1dec4f024411ecbeaf",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "19876"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.04934
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.08199
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.17539
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "01:00",
+          "band": "p1"
+        },
+        {
+          "days": "all",
+          "from": "01:00",
+          "to": "05:00",
+          "band": "p0"
+        },
+        {
+          "days": "all",
+          "from": "05:00",
+          "to": "06:00",
+          "band": "p1"
+        },
+        {
+          "days": "all",
+          "from": "06:00",
+          "to": "22:00",
+          "band": "p2"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "24:00",
+          "band": "p1"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.09527
+    }
+  }
+}

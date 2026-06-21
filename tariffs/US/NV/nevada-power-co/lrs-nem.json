@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-nv-nevada-power-co-lrs-nem",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "NV",
+    "provider": "Nevada Power Co",
+    "plan": "LRS-NEM",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/571137ff5457a3852be65442",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "13407"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.0976
+    },
+    "supply": {
+      "daily": 3.07359
+    }
+  }
+}

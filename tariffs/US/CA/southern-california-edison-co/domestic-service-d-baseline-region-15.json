@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "id": "us-ca-southern-california-edison-co-domestic-service-d-baseline-region-15",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "CA",
+    "provider": "Southern California Edison Co",
+    "plan": "Domestic Service: D - Baseline Region 15",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539f702fec4f024411ecd73b",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "17609"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.13233
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.13233
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.031
+    }
+  }
+}

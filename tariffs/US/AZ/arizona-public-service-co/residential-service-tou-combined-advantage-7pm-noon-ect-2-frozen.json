@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "id": "us-az-arizona-public-service-co-residential-service-tou-combined-advantage-7pm-noon-ect-2-frozen",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Arizona Public Service Co",
+    "plan": "Residential Service TOU Combined Advantage 7PM-Noon  (ECT-2) [Frozen]",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/5a5930bf5457a3371c423a7e",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "803"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.11707
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.0656
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.08098
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.06201
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "12:00",
+          "band": "p3"
+        },
+        {
+          "days": "weekday",
+          "from": "12:00",
+          "to": "19:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekday",
+          "from": "19:00",
+          "to": "24:00",
+          "band": "p3"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p3"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.64258
+    }
+  }
+}

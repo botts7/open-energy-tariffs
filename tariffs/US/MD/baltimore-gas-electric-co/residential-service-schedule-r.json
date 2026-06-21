@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "id": "us-md-baltimore-gas-electric-co-residential-service-schedule-r",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "MD",
+    "provider": "Baltimore Gas & Electric Co",
+    "plan": "Residential Service (Schedule R)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/574382c25457a33d0c906f5b",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "1167"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.1378
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.13615
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.24639
+    }
+  }
+}

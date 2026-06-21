@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-md-baltimore-gas-electric-co-r-unbundled",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "MD",
+    "provider": "Baltimore Gas & Electric Co",
+    "plan": "R (Unbundled)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539f6f33ec4f024411eccb93",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "1167"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.04498
+    },
+    "supply": {
+      "daily": 0.24639
+    }
+  }
+}

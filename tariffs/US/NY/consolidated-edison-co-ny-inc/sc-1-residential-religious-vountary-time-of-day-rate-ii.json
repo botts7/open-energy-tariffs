@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-vountary-time-of-day-rate-ii",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "NY",
+    "provider": "Consolidated Edison Co-NY Inc",
+    "plan": "SC-1 Residential & Religious Vountary Time-Of-Day (Rate II)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/555217085457a30e7e8b456c",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "4226"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.03707
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.45517
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.26217
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "10:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "10:00",
+          "to": "22:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekday",
+          "from": "22:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.79829
+    }
+  }
+}

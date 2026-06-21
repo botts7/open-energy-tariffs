@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "id": "us-va-virginia-electric-power-co-1ev-residential-service-with-electric-vehicle-charging-experimental",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "VA",
+    "provider": "Virginia Electric & Power Co",
+    "plan": "1EV Residential Service with Electric Vehicle Charging (Experimental)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539fc270ec4f024c27d8b193",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "19876"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.20409
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.10121
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.07955
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.04694
+        },
+        {
+          "id": "p4",
+          "name": "Period 5",
+          "rate": 0.10908
+        },
+        {
+          "id": "p5",
+          "name": "Period 6",
+          "rate": 0.08409
+        },
+        {
+          "id": "p6",
+          "name": "Period 7",
+          "rate": 0.05638
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "01:00",
+          "band": "p5"
+        },
+        {
+          "days": "all",
+          "from": "01:00",
+          "to": "05:00",
+          "band": "p6"
+        },
+        {
+          "days": "all",
+          "from": "05:00",
+          "to": "06:00",
+          "band": "p5"
+        },
+        {
+          "days": "all",
+          "from": "06:00",
+          "to": "11:00",
+          "band": "p4"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "18:00",
+          "band": "p5"
+        },
+        {
+          "days": "all",
+          "from": "18:00",
+          "to": "22:00",
+          "band": "p4"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "24:00",
+          "band": "p5"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.22996
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-nc-duke-energy-carolinas-llc-north-carolina-residential",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "NC",
+    "provider": "Duke Energy Carolinas, LLC",
+    "plan": "North Carolina Residential",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539f6a33ec4f024411ec8c69",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "5416"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.09358
+    },
+    "supply": {
+      "daily": 0.38765
+    }
+  }
+}

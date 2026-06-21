@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-az-arizona-public-service-co-extra-small-residential-service-lite-choice-r-xs",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Arizona Public Service Co",
+    "plan": "Extra Small Residential Service (Lite Choice) R-XS",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/5cacc5605457a379257780e2",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "803"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.12534
+    },
+    "supply": {
+      "daily": 0.32852
+    }
+  }
+}

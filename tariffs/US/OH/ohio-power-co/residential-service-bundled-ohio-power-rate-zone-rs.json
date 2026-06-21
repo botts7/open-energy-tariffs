@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-oh-ohio-power-co-residential-service-bundled-ohio-power-rate-zone-rs",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "OH",
+    "provider": "Ohio Power Co",
+    "plan": "Residential Service Bundled Ohio Power Rate Zone (RS)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/5b9943695457a33517f08eaa",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "14006"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.07612
+    },
+    "supply": {
+      "daily": 0.26281
+    }
+  }
+}

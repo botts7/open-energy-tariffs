@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-az-arizona-public-service-co-fixed-energy-charge-plan-r-1-small-tier-1",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Arizona Public Service Co",
+    "plan": "Fixed Energy Charge Plan (R-1) Small Tier 1",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/6272d992b06f7e169c47e7b7",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "803"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.13119
+    },
+    "supply": {
+      "daily": 0.3157
+    }
+  }
+}

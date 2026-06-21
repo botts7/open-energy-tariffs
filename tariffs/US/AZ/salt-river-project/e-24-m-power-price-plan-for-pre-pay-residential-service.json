@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "id": "us-az-salt-river-project-e-24-m-power-price-plan-for-pre-pay-residential-service",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Salt River Project",
+    "plan": "E-24 M-POWER PRICE PLAN FOR PRE-PAY RESIDENTIAL SERVICE",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539fb6a4ec4f024bc1dc028f",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "16572"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.1091
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.1153
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.0945
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p2"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.55848
+    }
+  }
+}

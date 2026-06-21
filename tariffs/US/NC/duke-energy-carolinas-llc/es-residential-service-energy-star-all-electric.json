@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "id": "us-nc-duke-energy-carolinas-llc-es-residential-service-energy-star-all-electric",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "NC",
+    "provider": "Duke Energy Carolinas, LLC",
+    "plan": "ES (Residential Service Energy Star, All-Electric)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/56d0cb9b5457a32457fd6d3a",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "5416"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.09477
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.09477
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p1"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.40539
+    }
+  }
+}

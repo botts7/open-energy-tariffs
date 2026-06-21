@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "id": "us-ca-san-diego-gas-electric-co-dr-li-coastal-baseline-region",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "CA",
+    "provider": "San Diego Gas & Electric Co",
+    "plan": "DR-LI - Coastal Baseline Region",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/548a0d125357a30c33f0c30c",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "16609"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.10499
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.10499
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p1"
+        }
+      ]
+    }
+  }
+}

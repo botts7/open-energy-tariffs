@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "id": "us-nv-nevada-power-co-ors-tou-optional-residential-service-time-of-use",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "NV",
+    "provider": "Nevada Power Co",
+    "plan": "ORS-TOU Optional Residential Service Time of Use",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/5d14e5055457a34e17de8450",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "13407"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.05796
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.06282
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.43825
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.41064
+    }
+  }
+}

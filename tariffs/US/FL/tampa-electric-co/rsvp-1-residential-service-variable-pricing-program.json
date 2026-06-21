@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "id": "us-fl-tampa-electric-co-rsvp-1-residential-service-variable-pricing-program",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "FL",
+    "provider": "Tampa Electric Co",
+    "plan": "RSVP-1 RESIDENTIAL SERVICE VARIABLE PRICING PROGRAM",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/573f85155457a36157f19c7b",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "18454"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.0713
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.0865
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.16471
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "05:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "05:00",
+          "to": "06:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "06:00",
+          "to": "10:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekday",
+          "from": "10:00",
+          "to": "23:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "23:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "06:00",
+          "to": "23:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekend",
+          "from": "23:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.49277
+    }
+  }
+}
