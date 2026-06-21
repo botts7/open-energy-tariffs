@@ -30,9 +30,9 @@
     .hdr-btn:hover { background:#1e293b; }
     #navToggle { display:none; }
     #main { display: flex; flex: 1; min-height: 0; position:relative; }
-    #sidebar { width: 320px; flex: none; display: flex; flex-direction: column; background: var(--panel); border-right: 1px solid var(--border); font-size: 13px; min-height: 0; }
-    .sb-controls { flex: none; padding: 10px 12px 6px; max-height: 65%; overflow-y: auto; }
-    .sb-scroll { flex: 1; overflow-y: auto; min-height: 0; }
+    #sidebar { width: 320px; flex: none; overflow-y: auto; background: var(--panel); border-right: 1px solid var(--border); font-size: 13px; }
+    .sb-controls { padding: 10px 12px 6px; }
+    .sb-scroll { }
     #map { flex: 1; }
     .sb-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
     .sb-count { font-size: 12px; color: var(--muted); }
@@ -69,6 +69,7 @@
     .sb-baseline { background: rgba(234,179,8,.15); border: 1px solid rgba(234,179,8,.4); border-radius: 6px; padding: 6px 8px; font-size: 12px; margin-bottom: 6px; }
     .oet-legend { background: var(--panel); color:var(--text); padding: 8px 10px; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,.3); font-size: 12px; line-height: 1.7; }
     .oet-legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+    .oet-dark-tiles { filter: brightness(1.45) contrast(0.9); }
     @media (max-width: 760px) {
       #navToggle { display:block; }
       .brand-tag { display:none; }
