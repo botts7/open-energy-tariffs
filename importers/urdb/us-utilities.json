@@ -1,5 +1,5 @@
 {
-  "_note": "Curated list of US utilities to bulk-import residential rates from URDB (CC0). The `utility` string MUST match URDB's `ratesforutility` name EXACTLY (verify at https://apps.openei.org/USURDB/ — a wrong name simply returns 0 items, never bad data). Extend this list via PR. `timezone` is the IANA zone for the utility's territory.",
+  "_note": "Curated list of US utilities to bulk-import residential rates from URDB (CC0). The `utility` string MUST match URDB's `ratesforutility` name EXACTLY (verify at https://apps.openei.org/USURDB/ — a wrong name simply returns 0 items, never bad data; the workflow logs which utilities returned nothing). Extend this list via PR. `timezone` is the IANA zone for the utility's territory.",
   "utilities": [
     { "utility": "Pacific Gas & Electric Co", "state": "CA", "timezone": "America/Los_Angeles" },
     { "utility": "Southern California Edison Co", "state": "CA", "timezone": "America/Los_Angeles" },
@@ -7,9 +7,20 @@
     { "utility": "Commonwealth Edison Co", "state": "IL", "timezone": "America/Chicago" },
     { "utility": "Consolidated Edison Co-NY Inc", "state": "NY", "timezone": "America/New_York" },
     { "utility": "Georgia Power Co", "state": "GA", "timezone": "America/New_York" },
-    { "utility": "Florida Power & Light Co", "state": "FL", "timezone": "America/New_York" },
     { "utility": "Duke Energy Carolinas, LLC", "state": "NC", "timezone": "America/New_York" },
     { "utility": "Virginia Electric & Power Co", "state": "VA", "timezone": "America/New_York" },
-    { "utility": "DTE Electric Company", "state": "MI", "timezone": "America/Detroit" }
+    { "utility": "Tampa Electric Co", "state": "FL", "timezone": "America/New_York" },
+    { "utility": "Baltimore Gas & Electric Co", "state": "MD", "timezone": "America/New_York" },
+    { "utility": "Public Service Electric & Gas Co", "state": "NJ", "timezone": "America/New_York" },
+    { "utility": "PECO Energy Co", "state": "PA", "timezone": "America/New_York" },
+    { "utility": "Arizona Public Service Co", "state": "AZ", "timezone": "America/Phoenix" },
+    { "utility": "Salt River Project", "state": "AZ", "timezone": "America/Phoenix" },
+    { "utility": "Nevada Power Co", "state": "NV", "timezone": "America/Los_Angeles" },
+    { "utility": "Consumers Energy Co", "state": "MI", "timezone": "America/Detroit" },
+    { "utility": "Portland General Electric Co", "state": "OR", "timezone": "America/Los_Angeles" },
+    { "utility": "Puget Sound Energy Inc", "state": "WA", "timezone": "America/Los_Angeles" },
+    { "utility": "Public Service Co of Colorado", "state": "CO", "timezone": "America/Denver" },
+    { "utility": "Alabama Power Co", "state": "AL", "timezone": "America/Chicago" },
+    { "utility": "Ohio Power Co", "state": "OH", "timezone": "America/New_York" }
   ]
 }
