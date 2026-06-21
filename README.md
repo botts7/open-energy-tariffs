@@ -7,6 +7,27 @@ pull in to auto-fill a user's plan instead of making everyone hand-enter it.
 Built first for the Wallbox BLE Gateway HA Add-on / Integration, but the data is
 **app-agnostic** — any energy/EV/home-automation project can consume it.
 
+**5,281 plans across 52 countries** and growing.
+
+## Coverage map (web app)
+
+`map/` is a zero-build, static **coverage map + plan comparison tool** (Leaflet +
+plain JS, deployed to GitHub Pages by the `pages` workflow):
+
+- **Browse & filter** every plan by country → distributor → provider → plan, plus
+  flat-vs-time-of-use type and **sort cheapest-first** for your usage.
+- **Compare against your real usage** — paste annual kWh, enter per-band
+  peak/shoulder/off-peak averages, or **upload your distributor's interval CSV**
+  (pluggable parsers — see [docs/USAGE_CSV_PARSERS.md](docs/USAGE_CSV_PARSERS.md)).
+- **Detailed per-plan breakdown** — per-band kWh + cost, daily supply, solar
+  feed-in credit, and a **side-by-side rate comparison vs your current plan**
+  (green = cheaper, red = dearer).
+- **Real coverage boundaries** fetched on demand (ABS postcode areas), address
+  autocomplete, light / dark / mobile.
+
+Everything runs client-side off the published `dist/` + `index.json` — no server,
+no account, no personal data leaves the browser.
+
 ## Why a separate repo
 
 - **Decoupled cadence** — plans and rates change far more often than app code;
@@ -40,6 +61,8 @@ importers/cdr/                    # AU-CDR (AER) -> canonical (CC-BY-4.0, bulk-s
 importers/urdb/                   # US OpenEI URDB -> canonical (CC0, bulk-store)
 importers/octopus/                # UK Octopus -> canonical (ON-DEVICE only, never stored)
 packages/sdk-js/                  # thin JS client (fetch+cache, getPlan, apply adapter)
+map/                              # static coverage map + comparison web app (GitHub Pages)
+docs/USAGE_CSV_PARSERS.md         # how to add a distributor usage-CSV parser via PR
 ATTRIBUTION.md                    # per-source licence + attribution obligations
 SOURCES.md                        # researched data sources + licences
 ```

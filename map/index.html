@@ -70,6 +70,11 @@
     .oet-legend { background: var(--panel); color:var(--text); padding: 8px 10px; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,.3); font-size: 12px; line-height: 1.7; }
     .oet-legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
     .oet-dark-tiles { filter: brightness(1.45) contrast(0.9); }
+    html[data-theme="dark"] .leaflet-popup-content-wrapper,
+    html[data-theme="dark"] .leaflet-popup-tip { background: var(--panel); color: var(--text); }
+    html[data-theme="dark"] .leaflet-popup-content a { color: var(--accent); }
+    html[data-theme="dark"] .leaflet-popup-close-button { color: var(--muted) !important; }
+    html[data-theme="dark"] .leaflet-bar a, html[data-theme="dark"] .leaflet-control-layers { background: var(--panel); color: var(--text); border-color: var(--border); }
     @media (max-width: 760px) {
       #navToggle { display:block; }
       .brand-tag { display:none; }
