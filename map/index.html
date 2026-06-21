@@ -49,6 +49,14 @@
     .sb-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); width: 100%; }
     .sb-chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border: 1px solid var(--border); border-radius: 999px; cursor: pointer; }
     .sb-reset { padding: 5px 12px; border: 1px solid var(--input-bd); background: var(--chip); color:var(--text); border-radius: 6px; cursor: pointer; font-size: 12px; margin-bottom: 10px; }
+    .sb-active { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 2px 0 10px; }
+    .sb-active[data-empty] { padding: 6px 8px; border-radius: 6px; background: rgba(220,38,38,.08); border: 1px solid rgba(220,38,38,.35); }
+    .sb-active[data-empty]::after { content: 'No plans match — remove a filter above'; width: 100%; font-size: 11px; color: #dc2626; }
+    .sb-fchip { border-color: var(--accent); background: var(--hover); cursor: pointer; }
+    .sb-fchip:hover { background: rgba(37,99,235,.12); }
+    .sb-fchip b { color: var(--muted); font-weight: 700; }
+    .sb-clearall { padding: 3px 11px; border: 1px solid var(--accent); background: transparent; color: var(--accent); border-radius: 999px; cursor: pointer; font-size: 12px; font-weight: 600; }
+    .sb-clearall:hover { background: var(--accent); color: #fff; }
     .sb-list { border-top: 1px solid var(--border); padding: 0 12px 12px; }
     .sb-row { display: flex; gap: 8px; padding: 7px 4px; border-bottom: 1px solid var(--border); cursor: pointer; align-items: flex-start; }
     .sb-row:hover { background: var(--hover); }

@@ -219,7 +219,7 @@ OET.initSidebar = function () {
   const outlineRow = h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Display' }),
     h('label', { class: 'sb-chip' }, [outlineCb, h('span', { text: 'Outline (show overlaps)' })])]);
 
-  const reset = h('button', { class: 'sb-reset', text: 'Reset', onclick: () => {
+  function resetAll() {
     state.text = ''; state.countries.clear(); state.sources.clear(); state.provider = ''; state.min = ''; state.max = '';
     state.usage = null; state.usageKwh = ''; state.shape = 'flat'; state.currentPlanId = ''; state.currentCostActual = ''; state.intervals = null;
     state.bandPeak = ''; state.bandShoulder = ''; state.bandOff = ''; peakIn.value = ''; shoulderIn.value = ''; offIn.value = '';
@@ -228,10 +228,45 @@ OET.initSidebar = function () {
     state.kind = ''; state.sort = 'az'; kindSel.value = ''; sortSel.value = 'az';
     state.distributor = ''; distributorCombo.setValue('');
     search.value = ''; countryCombo.setValue(''); sourceSel.value = ''; providerCombo.setValue(''); minIn.value = ''; maxIn.value = '';
-    kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; currentCombo.setValue(''); currentCostIn.value = ''; cmpNote.textContent = '';
+    kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; currentCombo.setValue(''); currentCostIn.value = ''; if (cmpNote) cmpNote.textContent = '';
     refreshDependentOptions();
     apply();
-  } });
+  }
+  const reset = h('button', { class: 'sb-reset', text: 'Reset', onclick: resetAll });
+
+  // Visible, removable chips for every filter narrowing the list — so an empty
+  // result is never a mystery (e.g. a network that doesn't serve the postcode).
+  const activeBar = h('div', { class: 'sb-active' });
+  // Clear ONE filter then re-apply (combos re-sync via setValue/refresh).
+  function clearFilter(kind) {
+    if (kind === 'text') { state.text = ''; search.value = ''; clearSugg(); }
+    else if (kind === 'country') { state.countries.clear(); countryCombo.setValue(''); refreshDependentOptions(); }
+    else if (kind === 'source') { state.sources.clear(); sourceSel.value = ''; refreshDependentOptions(); }
+    else if (kind === 'provider') { state.provider = ''; providerCombo.setValue(''); }
+    else if (kind === 'distributor') { state.distributor = ''; distributorCombo.setValue(''); }
+    else if (kind === 'kind') { state.kind = ''; kindSel.value = ''; }
+    else if (kind === 'price') { state.min = ''; state.max = ''; minIn.value = ''; maxIn.value = ''; }
+    else if (kind === 'sort') { state.sort = 'az'; sortSel.value = 'az'; }
+    apply();
+  }
+  function renderActiveBar() {
+    activeBar.textContent = '';
+    const chips = [];
+    if (state.text) chips.push(['text', /^\d{3,5}$/.test(state.text) ? 'Postcode ' + state.text : '“' + state.text + '”']);
+    if (state.countries.size) chips.push(['country', OET.countryName([...state.countries][0])]);
+    if (state.sources.size) chips.push(['source', (OET.sourceName ? OET.sourceName([...state.sources][0]) : [...state.sources][0])]);
+    if (state.provider) chips.push(['provider', state.provider]);
+    if (state.distributor) chips.push(['distributor', 'Network: ' + state.distributor]);
+    if (state.kind) chips.push(['kind', state.kind === 'tou' ? 'Time-of-use' : 'Flat']);
+    if (state.min !== '' || state.max !== '') chips.push(['price', `${state.min || '0'}–${state.max || '∞'}/kWh`]);
+    if (state.sort && state.sort !== 'az') chips.push(['sort', 'Sorted']);
+    if (!chips.length) { activeBar.style.display = 'none'; return; }
+    activeBar.style.display = '';
+    activeBar.appendChild(h('span', { class: 'sb-lbl', text: 'Active filters' }));
+    chips.forEach(([k, label]) => activeBar.appendChild(
+      h('span', { class: 'sb-chip sb-fchip', title: 'Remove this filter', onclick: () => clearFilter(k) }, [h('span', { text: label }), h('b', { text: ' ✕' })])));
+    activeBar.appendChild(h('button', { class: 'sb-clearall', text: 'Clear all', onclick: resetAll }));
+  }
 
   // --- compare to my usage ---
   const cmpNote = h('div', { class: 'sb-sub' });
@@ -357,7 +392,7 @@ OET.initSidebar = function () {
   // Controls stay pinned (their own box); only the plan list scrolls.
   const controls = h('div', { class: 'sb-controls' }, [
     h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]),
-    search, suggestBox, geoBtn, filters, cmp, reset,
+    search, suggestBox, geoBtn, activeBar, filters, cmp, reset,
   ]);
   root.appendChild(controls);
   root.appendChild(h('div', { class: 'sb-scroll' }, [list]));
@@ -500,7 +535,10 @@ OET.initSidebar = function () {
     // filter is hiding results — so it's never a mystery why the list is short.
     const af = activeFilterCount();
     filtersSummary.textContent = af ? `Filters · sort · display — ${af} active` : 'Filters · sort · display';
-    if (af && visible.length === 0) filters.open = true;
+    renderActiveBar();
+    // If filters wiped the list, say so plainly right where the chips are.
+    if ((af || state.text) && visible.length === 0) { filters.open = true; activeBar.setAttribute('data-empty', '1'); }
+    else activeBar.removeAttribute('data-empty');
     // Postcode search: draw the postcode as a polygon and HIDE provider coverage —
     // the plans serving it are the (ranked) list. (Each matching plan serves its
     // whole distribution network, so its coverage hull is noise at this point.)
