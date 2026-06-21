@@ -36,7 +36,7 @@ OET.US_UTILITY = { '14006': [39.96, -82.99, 'Ohio Power Co (AEP Ohio)'] };
 
 // Country centroids for national plans whose country polygon is missing from
 // OET.WORLD (e.g. tiny states dropped at 110m). lat,lng.
-OET.COUNTRY_CENTROID = { SG: [1.35, 103.82], MT: [35.9, 14.4], BH: [26.0, 50.5], LU: [49.8, 6.1] };
+OET.COUNTRY_CENTROID = { SG: [1.35, 103.82], MT: [35.9, 14.4], BH: [26.0, 50.5], LU: [49.8, 6.1], HK: [22.32, 114.17] };
 
 // Geometry for a NATIONAL plan: province polygon (if region + bundled), else the
 // country polygon, else a centroid.

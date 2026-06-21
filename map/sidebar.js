@@ -103,10 +103,14 @@ OET.initSidebar = function () {
     if (OET._map) OET._map.setView([s.lat, s.lng], 14);
   }
   function clearSugg() { suggestBox.textContent = ''; lastSugg = []; }
+  // Scope geocoding to the selected country (ISO-2, lower-case) when one is
+  // picked; else search worldwide. The tool covers many countries, so the
+  // geocoder must NOT be AU-locked.
+  function selectedCC() { return state.countries.size ? [...state.countries][0].toLowerCase() : ''; }
   function renderSuggestions(q) {
     if (!OET.suggestAddress) return;
     const c = OET._map && OET._map.getCenter();
-    OET.suggestAddress(q, c ? [c.lat, c.lng] : null).then((list) => {
+    OET.suggestAddress(q, c ? [c.lat, c.lng] : null, selectedCC()).then((list) => {
       lastSugg = list || [];
       suggestBox.textContent = '';
       lastSugg.slice(0, 6).forEach((s) => suggestBox.appendChild(
@@ -118,12 +122,15 @@ OET.initSidebar = function () {
     q = (q || '').trim();
     if (!q || !OET.geocodeAddress) return;
     count.textContent = 'Finding address…';
-    OET.geocodeAddress(q).then((res) => {
+    OET.geocodeAddress(q, selectedCC()).then((res) => {
       if (!res) { count.textContent = `“${q.slice(0, 24)}” not found`; return; }
       selectAddress(res);
     });
   }
-  const looksAddressy = (q) => /\d/.test(q) || (/\s/.test(q) && q.length >= 6);
+  // Trigger live suggestions for street addresses (has a number), multi-word
+  // queries, OR a single place name (≥5 letters, e.g. "london", "berlin") so a
+  // bare city/suburb gives pickable results instead of silently finding nothing.
+  const looksAddressy = (q) => /\d/.test(q) || (/\s/.test(q) && q.length >= 6) || /^[a-z .'À-ɏ-]{5,}$/i.test(q);
   const suggestBox = h('div', { class: 'sb-sugg' });
   const search = h('input', { type: 'search', placeholder: 'Address, postcode, suburb, provider…', class: 'sb-input', name: 'q',
     oninput: (e) => {

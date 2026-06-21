@@ -13,7 +13,8 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "ILLUSTRATIVE structure only — INVENTED rates, NOT any real retailer's. Economy 7 is a common GB two-rate setup (~7 night hours cheaper; exact window depends on the meter/region). Demonstrates the two-rate shape; not attributed to any provider. Real GB plans (e.g. Octopus) are restricted/ToS-bound, so they're imported ON-DEVICE per region via their public API, never bulk-stored here."
+    "notes": "ILLUSTRATIVE structure only — INVENTED rates, NOT any real retailer's. Economy 7 is a common GB two-rate setup (~7 night hours cheaper; exact window depends on the meter/region). Demonstrates the two-rate shape; not attributed to any provider. Real GB plans (e.g. Octopus) are restricted/ToS-bound, so they're imported ON-DEVICE per region via their public API, never bulk-stored here.",
+    "coverage": { "national": true }
   },
   "tariff": {
     "kind": "tou",

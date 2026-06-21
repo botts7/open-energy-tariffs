@@ -14,7 +14,8 @@
     "license": "CC0-1.0",
     "updated": "2026-06-20",
     "verified": false,
-    "notes": "EXAMPLE only - hand-authored with an INVENTED rate; NOT imported from URDB. US utility rates live in NREL's OpenEI URDB (~50k rates, CC0) with a free API; URDB being CC0 means an importer MAY bulk-store mapped URDB rates (license: CC0-1.0, source: urdb) - this stub just demonstrates the flat shape."
+    "notes": "EXAMPLE only - hand-authored with an INVENTED rate; NOT imported from URDB. US utility rates live in NREL's OpenEI URDB (~50k rates, CC0) with a free API; URDB being CC0 means an importer MAY bulk-store mapped URDB rates (license: CC0-1.0, source: urdb) - this stub just demonstrates the flat shape.",
+    "coverage": { "national": true }
   },
   "tariff": {
     "kind": "flat",
