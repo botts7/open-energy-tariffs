@@ -66,6 +66,29 @@ OET.SHAPES = {
   night_ev: [1.4, 1.4, 1.4, 1.4, 1.4, 1.2, .8, .6, .5, .5, .5, .5, .5, .5, .5, .6, .7, .9, .9, .8, .7, .9, 1.1, 1.3],
 };
 
+// Typical AU time-of-use windows (hours of day) used to turn a user's per-band
+// DAILY kWh into an hourly profile. These are a reasonable default; each PLAN's
+// own bands still do the actual costing, so this only places the user's energy in
+// time — it isn't claiming these are any one plan's windows.
+OET.TOU_WINDOWS = {
+  peak: [15, 16, 17, 18, 19, 20],                 // 3pm–9pm
+  shoulder: [7, 8, 9, 10, 11, 12, 13, 14, 21],    // 7am–3pm + 9pm–10pm
+  offpeak: [22, 23, 0, 1, 2, 3, 4, 5, 6],         // 10pm–7am
+};
+
+// Build a usage profile from DAILY kWh entered per band {peak, shoulder, offpeak}
+// — each band's kWh spread evenly across its window hours. Same profile weekday +
+// weekend (the user gives one typical day).
+OET.usageFromBands = function (bands) {
+  bands = bands || {};
+  const per = Array(24).fill(0);
+  const place = (kwh, hours) => { kwh = +kwh || 0; if (kwh > 0 && hours.length) for (const h of hours) per[h] += kwh / hours.length; };
+  place(bands.peak, OET.TOU_WINDOWS.peak);
+  place(bands.shoulder, OET.TOU_WINDOWS.shoulder);
+  place(bands.offpeak, OET.TOU_WINDOWS.offpeak);
+  return { weekday: per.slice(), weekend: per.slice() };
+};
+
 // Build a usage profile from an annual total + a named load shape.
 OET.usageFromAnnual = function (annualKwh, shape) {
   const s = OET.SHAPES[shape] || OET.SHAPES.flat;

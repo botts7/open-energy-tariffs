@@ -44,7 +44,7 @@ OET.initSidebar = function () {
   const sources = uniq((p) => p.src);
   const providers = uniq((p) => p.meta.provider);
 
-  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', kind: '', sort: 'az', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', currentPlanId: '', currentCostActual: '', intervals: null, outline: false };
+  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', kind: '', sort: 'az', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', bandPeak: '', bandShoulder: '', bandOff: '', currentPlanId: '', currentCostActual: '', intervals: null, outline: false };
   // A typical-household profile so "cheapest for typical use" sorting works even
   // before the user enters their own usage (~4000 kWh/yr, even load).
   const typicalUsage = OET.usageFromAnnual ? OET.usageFromAnnual(4000, 'flat') : null;
@@ -143,6 +143,7 @@ OET.initSidebar = function () {
   const reset = h('button', { class: 'sb-reset', text: 'Reset', onclick: () => {
     state.text = ''; state.countries.clear(); state.sources.clear(); state.provider = ''; state.min = ''; state.max = '';
     state.usage = null; state.usageKwh = ''; state.shape = 'flat'; state.currentPlanId = ''; state.currentCostActual = ''; state.intervals = null;
+    state.bandPeak = ''; state.bandShoulder = ''; state.bandOff = ''; peakIn.value = ''; shoulderIn.value = ''; offIn.value = '';
     state.outline = false; outlineCb.checked = false; if (OET.setOutline) OET.setOutline(false);
     state.kind = ''; state.sort = 'az'; kindSel.value = ''; sortSel.value = 'az';
     search.value = ''; countrySel.value = ''; sourceSel.value = ''; providerSel.value = ''; minIn.value = ''; maxIn.value = '';
@@ -159,11 +160,30 @@ OET.initSidebar = function () {
     cmpNote.textContent = state.usage ? `Ranking by estimated cost for ~${Math.round(kwh)} kWh/yr (${state.shape})` : '';
     apply();
   }
+  // Per-band daily kWh (peak / shoulder / off-peak) — more accurate than a generic
+  // shape because the user gives their actual time-of-use split.
+  function recomputeBands() {
+    const p = parseFloat(state.bandPeak) || 0, s = parseFloat(state.bandShoulder) || 0, o = parseFloat(state.bandOff) || 0;
+    const daily = p + s + o;
+    if (daily > 0 && OET.usageFromBands) {
+      state.usage = OET.usageFromBands({ peak: p, shoulder: s, offpeak: o });
+      state.intervals = null;
+      const annual = Math.round(daily * 365);
+      state.usageKwh = String(annual); kwhIn.value = annual;
+      cmpNote.textContent = `By time-of-use: ${daily.toFixed(1)} kWh/day (peak ${p} · shoulder ${s} · off-peak ${o}) ≈ ${annual.toLocaleString()} kWh/yr`;
+    } else { state.usage = null; cmpNote.textContent = ''; }
+    apply();
+  }
   const kwhIn = h('input', { type: 'number', step: '100', placeholder: 'annual kWh', class: 'sb-num',
     oninput: (e) => { state.usageKwh = e.target.value; recomputeUsage(); } });
   const shapeSel = h('select', { class: 'sb-input', onchange: (e) => { state.shape = e.target.value; recomputeUsage(); } },
     [['flat', 'Flat (even)'], ['daytime', 'Daytime-heavy'], ['evening', 'Evening-heavy'], ['night_ev', 'Night / EV']]
       .map(([v, t]) => h('option', { value: v, text: t })));
+  const bandNum = (key, ph, tip) => h('input', { type: 'number', step: '0.5', min: '0', placeholder: ph, title: tip, class: 'sb-num',
+    oninput: (e) => { state[key] = e.target.value; recomputeBands(); } });
+  const peakIn = bandNum('bandPeak', 'peak', 'Peak kWh per day'),
+    shoulderIn = bandNum('bandShoulder', 'shldr', 'Shoulder kWh per day'),
+    offIn = bandNum('bandOff', 'off', 'Off-peak kWh per day');
   const csvIn = h('input', { type: 'file', accept: '.csv', class: 'sb-input',
     onchange: (e) => {
       const f = e.target.files[0]; if (!f) return;
@@ -211,6 +231,7 @@ OET.initSidebar = function () {
   const cmp = h('details', { class: 'sb-cmp' }, [
     h('summary', { text: 'Compare to my usage' }),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Annual kWh + load shape' }), kwhIn, shapeSel]),
+    h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or daily kWh by time (peak / shoulder / off-peak)' }), peakIn, shoulderIn, offIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload interval CSV (time,kWh)' }), csvIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload a bill PDF (best-effort)' }), pdfIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Baseline: my current plan, or my actual annual $' }), currentSel, currentCostIn]),

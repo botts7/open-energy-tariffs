@@ -68,6 +68,25 @@ export const SHAPES = {
   night_ev: [1.4, 1.4, 1.4, 1.4, 1.4, 1.2, .8, .6, .5, .5, .5, .5, .5, .5, .5, .6, .7, .9, .9, .8, .7, .9, 1.1, 1.3],
 };
 
+/** Typical AU time-of-use windows (hours) for turning per-band daily kWh into an
+ * hourly profile. Default placement only — each plan's own bands do the costing. */
+export const TOU_WINDOWS = {
+  peak: [15, 16, 17, 18, 19, 20],
+  shoulder: [7, 8, 9, 10, 11, 12, 13, 14, 21],
+  offpeak: [22, 23, 0, 1, 2, 3, 4, 5, 6],
+};
+
+/** Build a usage profile from DAILY kWh per band {peak, shoulder, offpeak}. */
+export function usageFromBands(bands) {
+  bands = bands || {};
+  const per = Array(24).fill(0);
+  const place = (kwh, hours) => { kwh = +kwh || 0; if (kwh > 0 && hours.length) for (const h of hours) per[h] += kwh / hours.length; };
+  place(bands.peak, TOU_WINDOWS.peak);
+  place(bands.shoulder, TOU_WINDOWS.shoulder);
+  place(bands.offpeak, TOU_WINDOWS.offpeak);
+  return { weekday: per.slice(), weekend: per.slice() };
+}
+
 /** Build a usage profile from an annual total + a named load shape. */
 export function usageFromAnnual(annualKwh, shape) {
   const s = SHAPES[shape] || SHAPES.flat;
