@@ -113,11 +113,30 @@ window.OET = window.OET || {};
       body += `<div class="oet-note" style="margin-top:8px">Based on your usage (~${Math.round(bd.annualKwh).toLocaleString()} kWh/yr), annualised against this plan's own time-of-use bands.</div>`;
     }
     body += `<div class="oet-sec">Import rates</div>${rateStructHtml(t.import, cur) || '—'}`;
-    // Side-by-side rate comparison with the user's current plan (if one is set).
+    // Side-by-side comparison vs the user's current plan, with coloured diffs.
     const blRec = OET._baseline && OET._baseline.rec;
     if (blRec && blRec.tariff && blRec.id !== rec.id) {
-      body += `<div class="oet-sec">Your current plan rates — ${esc(OET._baseline.label)}</div>${rateStructHtml(blRec.tariff.import, blRec.meta.currency) || '—'}`;
-      if (blRec.tariff.supply && num(blRec.tariff.supply.daily) != null) body += `<div style="font-size:12px;color:#475569;margin-top:4px">Current daily supply: ${blRec.tariff.supply.daily} ${esc(blRec.meta.currency)}/day</div>`;
+      const bdCur = (bd && OET.costBreakdown && OET._usage) ? OET.costBreakdown(blRec.tariff, OET._usage) : null;
+      const feed = (tar) => (tar.export && typeof tar.export.flatRate === 'number') ? tar.export.flatRate : null;
+      const supplyOf = (tar) => tar.supply && num(tar.supply.daily) != null ? tar.supply.daily : 0;
+      // [label, thisVal, currentVal, lowerIsBetter, decimals]
+      const rows = [];
+      if (bd && bdCur) rows.push(['Effective rate /kWh', bd.energy / (bd.annualKwh || 1), bdCur.energy / (bdCur.annualKwh || 1), true, 4]);
+      rows.push(['Daily supply', supplyOf(t), supplyOf(blRec.tariff), true, 3]);
+      const fT = feed(t), fC = feed(blRec.tariff);
+      if (fT != null || fC != null) rows.push(['Solar feed-in /kWh', fT || 0, fC || 0, false, 3]);
+      if (bd && bdCur) rows.push(['Total / year', bd.total, bdCur.total, true, 0]);
+      const fnum = (v, dp) => dp === 0 ? Math.round(v).toLocaleString() : v.toFixed(dp);
+      const cellRow = (label, a, b, lowerBetter, dp) => {
+        const diff = a - b, eps = dp === 0 ? 0.5 : Math.pow(10, -dp) / 2;
+        const same = Math.abs(diff) < eps, better = lowerBetter ? diff < 0 : diff > 0;
+        const color = same ? '#64748b' : (better ? '#16a34a' : '#dc2626');
+        const txt = same ? '≈' : (diff > 0 ? '+' : '−') + fnum(Math.abs(diff), dp);
+        return `<tr><th>${label}</th><td>${fnum(a, dp)}</td><td>${fnum(b, dp)}</td><td style="color:${color};font-weight:700">${txt}</td></tr>`;
+      };
+      body += `<div class="oet-sec">This plan vs your current — ${esc(OET._baseline.label)}</div>`;
+      body += `<table class="oet-tbl"><thead><tr><th></th><th>This plan</th><th>Current</th><th>Diff</th></tr></thead><tbody>`
+        + rows.map((r) => cellRow.apply(null, r)).join('') + '</tbody></table>';
     }
     if (t.export) body += `<div class="oet-sec">Export (feed-in)</div>${rateStructHtml(t.export, cur)}`;
     if (Array.isArray(t.controlledLoad) && t.controlledLoad.length) {
