@@ -53,7 +53,7 @@ OET.initSidebar = function () {
   // Debounce the search: re-filtering 1600+ plans (add/remove that many map
   // layers) on every keystroke makes typing stutter. Wait for a ~180ms pause.
   let searchTimer = null;
-  const search = h('input', { type: 'search', placeholder: 'Search postcode, suburb, provider, plan…', class: 'sb-input',
+  const search = h('input', { type: 'search', placeholder: 'Address (Enter), postcode, suburb, provider…', class: 'sb-input',
     oninput: (e) => {
       state.text = e.target.value.trim().toLowerCase();
       clearTimeout(searchTimer);
@@ -62,6 +62,21 @@ OET.initSidebar = function () {
         if (/[a-z]/.test(state.text) && !OET.AU_SUBURBS && OET.loadScript) OET.loadScript('au-suburbs.js').then(apply);
         apply();
       }, 180);
+    },
+    // Enter on a free-text (non-postcode) query geocodes it as a STREET ADDRESS
+    // (OSM Nominatim) -> drop an exact pin + drive the postcode flow. On submit
+    // only (Nominatim policy); the address is sent to OSM's geocoder.
+    onkeydown: (e) => {
+      if (e.key !== 'Enter') return;
+      const q = e.target.value.trim();
+      if (!q || /^\d{3,5}$/.test(q) || !OET.geocodeAddress) return;
+      count.textContent = 'Finding address…';
+      OET.geocodeAddress(q).then((res) => {
+        if (!res) { count.textContent = `0 / ${plans.length} · address not found`; return; }
+        if (res.postcode) { search.value = res.postcode; state.text = res.postcode.toLowerCase(); apply(); }
+        if (OET.setAddressPin) OET.setAddressPin([res.lat, res.lng], res.label);
+        if (OET._map) OET._map.setView([res.lat, res.lng], 14);
+      });
     } });
 
   // Single-select dropdowns (country / source / provider) instead of chip grids —

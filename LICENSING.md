@@ -34,7 +34,11 @@ stored** — consumed live from the user's HA price entity (not a licence questi
 | d3-delaunay (CDN, pinned 6.0.4 + SRI) | **ISC** | Voronoi polygons | keep notice | ✅ |
 | AU postcode centroids + suburb→postcode (`map/au-postcodes.js`, `map/au-suburbs.js`) | **G-NAF Open EULA** (data) / MIT (the [joelkoen/postcodes-au](https://github.com/joelkoen/postcodes-au) tooling) | resolve `coverage.postcodes` → points; suburb search | **attribution**: "Incorporates G-NAF © Geoscape Australia, licensed by the Commonwealth" (shown in map control) | ✅ attributed |
 | World country + province polygons (`map/world-countries.js`, `map/provinces.js`) | **Natural Earth — public domain** | shade `coverage.national` plans by country / province | none required (credited as courtesy) | ✅ credited |
-| OpenStreetMap **tiles** (`tile.openstreetmap.org`) | tiles served under OSM's [tile usage policy](https://operations.osmfoundation.org/policies/tiles/); map **data** ODbL | base map | **attribution** "© OpenStreetMap contributors" (shown); policy = no heavy/commercial use | ✅ attributed · ⚠️ see §6 |
+| OpenStreetMap **tiles** (`tile.openstreetmap.org`) | tiles served under OSM's [tile usage policy](https://operations.osmfoundation.org/policies/tiles/); map **data** ODbL | base map (Street) | **attribution** "© OpenStreetMap contributors" (shown); policy = no heavy/commercial use | ✅ attributed · ⚠️ see §6 |
+| CARTO **tiles** (`basemaps.cartocdn.com`, light) | CARTO basemaps, free tier; data ODbL/OSM | base map (Light) | **attribution** "© OpenStreetMap, © CARTO" (shown); free-tier limits | ✅ attributed · ⚠️ see §6 |
+| Esri World Imagery **tiles** (`server.arcgisonline.com`) | Esri ArcGIS Online basemap, free for non-commercial web maps | base map (Satellite) | **attribution** "Tiles © Esri" (shown); check Esri terms for commercial use | ✅ attributed · ⚠️ see §6 |
+| **ABS POA 2021** postcode boundaries (`geo.abs.gov.au` ArcGIS, fetched on demand) | **CC BY 4.0** (© Commonwealth of Australia, ABS) | real postcode polygon + real plan coverage on focus | **attribution** "© ABS POA 2021 (CC BY 4.0)" (shown) | ✅ attributed |
+| **Nominatim / OSM** address geocoding (`nominatim.openstreetmap.org`, on Enter) | data ODbL; Nominatim [usage policy](https://operations.osmfoundation.org/policies/nominatim/) (low volume, identify via Referer, on-submit only) | resolve a typed street address → postcode + pin | **attribution** "Address search: Nominatim/OSM" (shown); no per-keystroke autocomplete | ✅ attributed · ⚠️ see §6 |
 
 ## 4. Boundary data (optional, for exact region polygons — `map/boundaries/`)
 
@@ -45,7 +49,7 @@ attribution obligation** — record it here and surface it in `render.js`.
 |---|---|---|---|---|
 | `gsp` (UK DNO) | NESO "GB DNO Licence Areas" | NESO open data | attribute NESO | ⬜ not yet bundled |
 | `utility` (US) | EIA / HIFLD service territories | US Gov public domain | cite EIA/HIFLD | ⬜ not yet bundled |
-| `postcode` (AU) | ABS POA 2021 | **CC BY 4.0** | attribute ABS | ⬜ not yet bundled |
+| `postcode` (AU) | ABS POA 2021 | **CC BY 4.0** | attribute ABS | ✅ used LIVE on demand (not bundled) — see §3 |
 
 ## 5. Build / dev dependencies
 
@@ -54,8 +58,8 @@ attribution obligation** — record it here and surface it in `render.js`.
 | ajv, ajv-formats | **MIT** | schema validation (CI) |
 | proj4 | **MIT** | reproject boundary GeoJSON (optional, CI) |
 
-(Dev only: a one-off Nominatim query was used to *check* polygon availability —
-not shipped, not redistributed, within usage limits.)
+(Nominatim is now also a SHIPPED runtime feature — address search — see §3. Used
+on explicit submit only, within the usage policy, attributed in the map.)
 
 ## 6. Known follow-ups / watch-items
 

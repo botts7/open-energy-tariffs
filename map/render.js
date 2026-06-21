@@ -63,6 +63,14 @@ OET.renderMap = function (plans, meta) {
   const coverageLayer = L.layerGroup().addTo(map);
   const postcodeLayer = L.layerGroup().addTo(map);
   const highlightLayer = L.layerGroup().addTo(map); // focused plan's REAL coverage
+  let addressMarker = null; // exact geocoded address pin
+  // A red dot at a geocoded street address (vs the postcode polygon it sits in).
+  OET.setAddressPin = function (latlng, label) {
+    if (addressMarker) { map.removeLayer(addressMarker); addressMarker = null; }
+    if (!latlng) return;
+    addressMarker = L.circleMarker(latlng, { renderer, radius: 7, color: '#b91c1c', weight: 3, fillColor: '#ef4444', fillOpacity: 0.95 }).addTo(map);
+    if (label) addressMarker.bindPopup(esc(label)).openPopup();
+  };
   L.control.layers(baseLayers, { 'Coverage areas': coverageLayer, 'Searched postcode': postcodeLayer, 'Focused plan (real)': highlightLayer }, { position: 'topright', collapsed: true }).addTo(map);
   // Data attribution (required: AER tariff data is CC BY 4.0). Shown wherever the
   // data is displayed, per the licence. URDB is CC0 (citation as courtesy).
@@ -71,6 +79,7 @@ OET.renderMap = function (plans, meta) {
     '<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · OpenEI/NREL URDB (CC0) · ' +
     'AU postcodes: G-NAF © <a href="https://geoscape.com.au/">Geoscape Australia</a> · ' +
     'Postcode areas: © <a href="https://www.abs.gov.au/">ABS</a> POA 2021 (CC BY 4.0) · ' +
+    'Address search: <a href="https://nominatim.openstreetmap.org/">Nominatim</a>/OSM · ' +
     'Country shapes: <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain)');
 
   const groups = {}; // source -> LayerGroup (organisation; visibility via filter)
@@ -206,6 +215,7 @@ OET.renderMap = function (plans, meta) {
     OET._lastPc = pc;
     OET._focusedPlan = null;
     highlightLayer.clearLayers();
+    if (addressMarker) { map.removeLayer(addressMarker); addressMarker = null; } // re-added by the geocode flow if from an address
     postcodeLayer.clearLayers();
     if (map.hasLayer(coverageLayer)) { map.removeLayer(coverageLayer); OET._coverageHiddenByPc = true; }
     const style = { renderer, color: '#0d47a1', weight: 2, fillColor: '#42a5f5', fillOpacity: 0.3 };
@@ -232,6 +242,7 @@ OET.renderMap = function (plans, meta) {
   };
   OET.clearPostcodeArea = function () {
     postcodeLayer.clearLayers();
+    if (addressMarker) { map.removeLayer(addressMarker); addressMarker = null; }
     if (OET._coverageHiddenByPc) { map.addLayer(coverageLayer); OET._coverageHiddenByPc = false; }
   };
   function recolor(visibleRecs) {
