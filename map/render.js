@@ -30,11 +30,21 @@ function popupHtml(meta, tariff, rate) {
     : cov.postcodes ? `${cov.postcodes.length} postcode(s)`
     : cov.utilityId ? `utility ${esc(cov.utilityId)}` : '—';
   const supply = tariff.supply && num(tariff.supply.daily) != null ? `, supply ${num(tariff.supply.daily)}/day` : '';
+  const cName = OET.countryName ? OET.countryName(meta.country) : meta.country;
+  const sName = OET.sourceName ? OET.sourceName(meta.source) : meta.source;
   return `<strong>${esc(meta.provider)}</strong> — ${esc(meta.plan)}<br>`
-    + `<span style="color:#555">${esc(meta.country)}${meta.region ? ' / ' + esc(meta.region) : ''} · ${esc(meta.source)}</span><br>`
+    + `<span style="color:#555">${esc(cName)}${meta.region ? ' / ' + esc(meta.region) : ''} · ${esc(sName)}</span><br>`
     + `Rate: <strong>${rate == null ? '—' : rate.toFixed(3)} ${esc(meta.currency)}/kWh</strong> (${esc(tariff.kind)}${supply})<br>`
-    + `Coverage: ${where}`;
+    + `Coverage: ${where}`
+    + `<br><button type="button" onclick="OET.openModalById('${esc(meta.id)}')" style="margin-top:7px;padding:4px 10px;border:1px solid #2563eb;background:#2563eb;color:#fff;border-radius:5px;cursor:pointer;font-size:11px">Full details ›</button>`
+    + `<button type="button" onclick="OET.addToCompare&&OET.addToCompare('${esc(meta.id)}')" style="margin:7px 0 0 6px;padding:4px 10px;border:1px solid #cbd5e1;background:#f8fafc;color:#1a2233;border-radius:5px;cursor:pointer;font-size:11px">＋ Compare</button>`;
 }
+
+// Open the plan-details modal from a map popup button (looks the plan up by id).
+OET.openModalById = function (id) {
+  const r = (OET.PLANS || []).find((p) => p.id === id);
+  if (r && OET.showPlanModal) OET.showPlanModal(r);
+};
 
 OET.renderMap = function (plans, meta) {
   // preferCanvas + a shared canvas renderer: thousands of polygons draw to ONE

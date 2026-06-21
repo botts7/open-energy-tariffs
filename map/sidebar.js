@@ -263,6 +263,7 @@ OET.initSidebar = function () {
   }
 
   function apply() {
+    OET._usage = state.usage; // expose to the compare modal's annual-cost row
     const { pred, note, focus, pc } = buildPredicate();
     const visible = plans.filter(pred);
     OET.applyPlanFilter(pred);
@@ -292,6 +293,7 @@ OET.initSidebar = function () {
     if (state.currentCostActual) p.set('cost', state.currentCostActual);
     if (state.currentPlanId) p.set('cur', state.currentPlanId);
     if (state.outline) p.set('o', '1');
+    if ((OET.compareSet || []).length) p.set('cmp', OET.compareSet.join(','));
     const s = p.toString();
     try { history.replaceState(null, '', s ? '#' + s : location.pathname + location.search); } catch (_) {}
   }
@@ -312,6 +314,7 @@ OET.initSidebar = function () {
     state.currentCostActual = p.get('cost') || ''; currentCostIn.value = state.currentCostActual;
     state.currentPlanId = p.get('cur') || ''; currentSel.value = state.currentPlanId;
     state.outline = p.get('o') === '1'; outlineCb.checked = state.outline; if (state.outline && OET.setOutline) OET.setOutline(true);
+    (p.get('cmp') || '').split(',').filter(Boolean).forEach((id) => { OET.compareSet = OET.compareSet || []; if (OET.compareSet.indexOf(id) === -1) OET.compareSet.push(id); });
     if (parseFloat(state.usageKwh) > 0) state.usage = OET.usageFromAnnual(parseFloat(state.usageKwh), state.shape);
   }
 
@@ -323,6 +326,12 @@ OET.initSidebar = function () {
   } });
   reset.after(copyBtn);
 
+  // Compare launcher — opens the side-by-side compare modal; label tracks count.
+  const compareBtn = h('button', { class: 'sb-reset', text: 'Compare (0)', onclick: () => { if (OET.showCompareModal) OET.showCompareModal(); } });
+  copyBtn.after(compareBtn);
+  OET._onCompareChange = () => { compareBtn.textContent = `Compare (${(OET.compareSet || []).length})`; syncHash(); };
+
   restore();
+  if (OET._onCompareChange) OET._onCompareChange();
   apply();
 };

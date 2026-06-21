@@ -30,7 +30,12 @@ window.OET = window.OET || {};
       + '.oet-note{font-size:12px;color:#475569;background:#f8fafc;border:1px solid #eef2f7;border-radius:6px;padding:8px 10px;line-height:1.4}'
       + '.oet-mfoot{display:flex;gap:8px;justify-content:flex-end;padding:12px 16px;border-top:1px solid #e2e8f0;position:sticky;bottom:0;background:#fff}'
       + '.oet-btn{padding:7px 14px;border-radius:6px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;font-size:13px}'
-      + '.oet-btn.primary{background:#2563eb;border-color:#2563eb;color:#fff}';
+      + '.oet-btn.primary{background:#2563eb;border-color:#2563eb;color:#fff}'
+      + '.oet-mfoot{flex-wrap:wrap}'
+      + '.oet-cmp th{vertical-align:top;position:relative;min-width:130px}'
+      + '.oet-cmp tbody th{text-align:left;color:#64748b;font-weight:600;white-space:nowrap;min-width:auto}'
+      + '.oet-rm{position:absolute;top:0;right:0;border:none;background:#f1f5f9;border-radius:4px;width:18px;height:18px;cursor:pointer;font-size:12px;line-height:1}'
+      + '.oet-best{background:#f0fdf4}';
     document.head.appendChild(s);
   }
 
@@ -109,6 +114,7 @@ window.OET = window.OET || {};
       + `<button class="oet-mx" title="Close">×</button></div>`
       + `<div class="oet-mbody">${body}</div>`
       + `<div class="oet-mfoot">`
+        + `<button class="oet-btn" data-cmp>${OET.isInCompare && OET.isInCompare(rec.id) ? '✓ In compare' : '+ Compare'}</button>`
         + (pcCount ? `<button class="oet-btn" data-exact title="Fetches real ABS postcode boundaries — can lag for large networks">Exact boundary · ${pcCount} pc${heavy ? ' ⚠' : ''}</button>` : '')
         + (rec.located ? '<button class="oet-btn" data-zoom>Show on map</button>' : '')
         + `<button class="oet-btn primary" data-close>Close</button></div>`
@@ -116,6 +122,11 @@ window.OET = window.OET || {};
     backdrop.addEventListener('click', (e) => { if (e.target === backdrop || e.target.matches('.oet-mx,[data-close]')) close(); });
     const zoom = backdrop.querySelector('[data-zoom]');
     if (zoom) zoom.addEventListener('click', () => { close(); if (OET.focusPlan) OET.focusPlan(rec.id); });
+    const cmpBtn = backdrop.querySelector('[data-cmp]');
+    if (cmpBtn) cmpBtn.addEventListener('click', () => {
+      if (OET.isInCompare(rec.id)) { OET.removeFromCompare(rec.id); cmpBtn.textContent = '+ Compare'; }
+      else { OET.addToCompare(rec.id); cmpBtn.textContent = '✓ In compare'; }
+    });
     // Explicit, opt-in heavy load (real boundaries) with a loading state.
     const exact = backdrop.querySelector('[data-exact]');
     if (exact) exact.addEventListener('click', () => {
@@ -123,6 +134,61 @@ window.OET = window.OET || {};
       if (OET.focusPlan) OET.focusPlan(rec.id); // snap to it first
       Promise.resolve(OET.loadRealCoverage ? OET.loadRealCoverage(rec.id) : false).then(() => close());
     });
+    document.body.appendChild(backdrop);
+    document.addEventListener('keydown', onKey);
+  };
+
+  // --- compare set + side-by-side compare modal ---
+  OET.compareSet = OET.compareSet || [];
+  OET.isInCompare = (id) => (OET.compareSet || []).indexOf(id) !== -1;
+  OET.addToCompare = function (id) { OET.compareSet = OET.compareSet || []; if (OET.compareSet.indexOf(id) === -1) { OET.compareSet.push(id); if (OET._onCompareChange) OET._onCompareChange(); } };
+  OET.removeFromCompare = function (id) { OET.compareSet = (OET.compareSet || []).filter((x) => x !== id); if (OET._onCompareChange) OET._onCompareChange(); };
+  OET.clearCompare = function () { OET.compareSet = []; if (OET._onCompareChange) OET._onCompareChange(); };
+
+  OET.showCompareModal = function () {
+    injectCss();
+    close();
+    const recs = (OET.compareSet || []).map((id) => (OET.PLANS || []).find((p) => p.id === id)).filter(Boolean);
+    let body;
+    if (!recs.length) {
+      body = '<div class="oet-note">No plans added yet. Open a plan (click it on the list, or a map popup → <b>Full details</b>) and hit <b>+ Compare</b>.</div>';
+    } else {
+      const usage = OET._usage;
+      const cName = (r) => (OET.countryName ? OET.countryName(r.meta.country) : r.meta.country);
+      const sName = (r) => (OET.sourceName ? OET.sourceName(r.meta.source) : r.meta.source);
+      const cur = (r) => esc(r.meta.currency);
+      const oneCur = new Set(recs.map((r) => r.meta.currency)).size === 1; // cheapest only meaningful within one currency
+      const minRate = oneCur ? Math.min.apply(null, recs.map((r) => (r.rate == null ? Infinity : r.rate))) : null;
+      const costs = recs.map((r) => (usage && OET.estimateAnnualCost) ? OET.estimateAnnualCost(r.tariff, usage) : null);
+      const minCost = (oneCur && usage) ? Math.min.apply(null, costs.map((c) => (c == null ? Infinity : c))) : null;
+      const row = (label, fn, best) => `<tr><th>${label}</th>${recs.map((r, i) => `<td${best && best(r, i) ? ' class="oet-best"' : ''}>${fn(r, i)}</td>`).join('')}</tr>`;
+      let html = '<div style="overflow-x:auto"><table class="oet-tbl oet-cmp"><thead><tr><th></th>'
+        + recs.map((r) => `<th><div>${esc(r.meta.provider)}</div><div style="font-weight:400;color:#64748b">${esc(r.meta.plan)}</div><button class="oet-rm" data-rm="${esc(r.id)}" title="Remove">×</button></th>`).join('')
+        + '</tr></thead><tbody>';
+      html += row('Country', (r) => esc(cName(r)) + (r.meta.region ? ' / ' + esc(r.meta.region) : ''));
+      html += row('Type', (r) => esc(r.tariff.kind));
+      html += row('Rate /kWh', (r) => r.rate == null ? '—' : `${r.rate} ${cur(r)}`, oneCur ? (r) => r.rate === minRate : null);
+      html += row('Daily supply', (r) => (r.tariff.supply && r.tariff.supply.daily != null) ? `${r.tariff.supply.daily} ${cur(r)}` : '—');
+      html += row('Export', (r) => (r.tariff.export && r.tariff.export.flatRate != null) ? `${r.tariff.export.flatRate} ${cur(r)}` : '—');
+      html += row('Coverage', (r) => { const c = r.meta.coverage || {}; return c.national ? 'National' : (c.postcodes ? c.postcodes.length + ' pc' : (c.gsp ? 'GSP ' + esc(c.gsp) : (c.utilityId ? 'utility' : '—'))); });
+      html += row('Source', (r) => esc(sName(r)));
+      if (usage) html += row('~Annual cost', (r, i) => costs[i] == null ? '—' : `${Math.round(costs[i]).toLocaleString()} ${cur(r)}`, (oneCur && usage) ? (r, i) => costs[i] === minCost : null);
+      html += '</tbody></table></div>';
+      if (!usage) html += '<div class="oet-note" style="margin-top:10px">Enter your usage in the sidebar (“Compare to my usage”) to add an estimated annual-cost row.</div>';
+      else if (!oneCur) html += '<div class="oet-note" style="margin-top:10px">Plans span different currencies — cheapest is not highlighted.</div>';
+      body = html;
+    }
+    backdrop = document.createElement('div');
+    backdrop.className = 'oet-mback';
+    backdrop.innerHTML = `<div class="oet-modal" role="dialog" aria-modal="true">`
+      + `<div class="oet-mhead"><div><h2>Compare plans</h2><div class="sub">${recs.length} plan(s)</div></div><button class="oet-mx" title="Close">×</button></div>`
+      + `<div class="oet-mbody">${body}</div>`
+      + `<div class="oet-mfoot">${recs.length ? '<button class="oet-btn" data-clear>Clear all</button>' : ''}<button class="oet-btn primary" data-close>Close</button></div>`
+      + `</div>`;
+    backdrop.addEventListener('click', (e) => { if (e.target === backdrop || e.target.matches('.oet-mx,[data-close]')) close(); });
+    backdrop.querySelectorAll('[data-rm]').forEach((b) => b.addEventListener('click', () => { OET.removeFromCompare(b.getAttribute('data-rm')); OET.showCompareModal(); }));
+    const clr = backdrop.querySelector('[data-clear]');
+    if (clr) clr.addEventListener('click', () => { OET.clearCompare(); OET.showCompareModal(); });
     document.body.appendChild(backdrop);
     document.addEventListener('keydown', onKey);
   };
