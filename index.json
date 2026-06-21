@@ -26533,7 +26533,7 @@
       "Finland (market)": [
         {
           "id": "fi-market-day-night",
-          "plan": "Day/Night (y\u00f6s\u00e4hk\u00f6)",
+          "plan": "Day/Night (yösähkö)",
           "verified": false
         }
       ]
@@ -26544,12 +26544,12 @@
       "EDF": [
         {
           "id": "fr-edf-tarif-bleu-base",
-          "plan": "Tarif Bleu \u2014 Base",
+          "plan": "Tarif Bleu — Base",
           "verified": false
         },
         {
           "id": "fr-edf-tarif-bleu-heures-creuses",
-          "plan": "Tarif Bleu \u2014 Heures Creuses (HC/HP)",
+          "plan": "Tarif Bleu — Heures Creuses (HC/HP)",
           "verified": false
         },
         {
@@ -26598,7 +26598,7 @@
       "MVM Next": [
         {
           "id": "hu-mvm-lakossagi-flat",
-          "plan": "Lakoss\u00e1gi (regulated)",
+          "plan": "Lakossági (regulated)",
           "verified": false
         }
       ]
@@ -26653,7 +26653,7 @@
       "Italy (ARERA fasce)": [
         {
           "id": "it-regulated-fasce-f1-f2-f3",
-          "plan": "Bioraria/Multioraria F1\u00b7F2\u00b7F3 (typical)",
+          "plan": "Bioraria/Multioraria F1·F2·F3 (typical)",
           "verified": false
         }
       ]
@@ -26697,7 +26697,7 @@
       "CFE": [
         {
           "id": "mx-cfe-domestico-tier1",
-          "plan": "Dom\u00e9stico 1 (tier 1, b\u00e1sico)",
+          "plan": "Doméstico 1 (tier 1, básico)",
           "verified": false
         }
       ]
@@ -26804,10 +26804,10 @@
   },
   "PT": {
     "": {
-      "Portugal (bi-hor\u00e1rio)": [
+      "Portugal (bi-horário)": [
         {
           "id": "pt-regulado-bi-horario",
-          "plan": "Bi-hor\u00e1rio (two-rate, typical)",
+          "plan": "Bi-horário (two-rate, typical)",
           "verified": false
         }
       ]
@@ -26917,7 +26917,7 @@
       "EVN": [
         {
           "id": "vn-evn-sinhhoat-tier1",
-          "plan": "Sinh ho\u1ea1t (tier, base step)",
+          "plan": "Sinh hoạt (tier, base step)",
           "verified": false
         }
       ]
