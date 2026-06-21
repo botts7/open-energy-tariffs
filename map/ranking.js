@@ -84,6 +84,16 @@ window.OET = window.OET || {};
   function close() { if (back) { back.remove(); back = null; document.removeEventListener('keydown', onKey); } }
   function onKey(e) { if (e.key === 'Escape') close(); }
 
+  // Cross-check chip: ✓ corroborated by / ⚠ diverges from the Eurostat reference.
+  function xcChip(cc) {
+    const x = OET.crossCheck && OET.crossCheck(cc);
+    if (!x || x.ours == null) return '';
+    const ok = x.status === 'match';
+    const fg = ok ? '#15803d' : '#b45309', bg = ok ? 'rgba(22,163,74,.12)' : 'rgba(234,179,8,.16)';
+    const tip = `Eurostat reference $${x.ref.toFixed(3)}/kWh vs our $${x.ours.toFixed(3)} (${Math.round(x.ratio * 100)}% of reference)`;
+    return ` <span title="${tip}" style="font-size:10px;color:${fg};background:${bg};border-radius:4px;padding:0 4px;white-space:nowrap">${ok ? '✓' : '⚠'} ref</span>`;
+  }
+
   function render(bodyEl) {
     const m = METRICS.find((x) => x.id === curMetric);
     const rows = OET.countryRanking(curMetric);
@@ -92,7 +102,7 @@ window.OET = window.OET || {};
       const wMin = Math.max(1, (r.min / maxV) * 100), wSpan = Math.max(1.5, ((r.max - r.min) / maxV) * 100);
       return '<div class="oet-rrow">'
         + `<div class="oet-rnum">${i + 1}</div>`
-        + `<div><div class="oet-rname">${r.name} ${OET.maturityPill ? OET.maturityPill(OET.countryMaturity(r.cc)) : ''}</div>`
+        + `<div><div class="oet-rname">${r.name} ${OET.maturityPill ? OET.maturityPill(OET.countryMaturity(r.cc)) : ''}${xcChip(r.cc)}</div>`
         + `<div class="oet-rmeta">${r.n} plan${r.n > 1 ? 's' : ''} · ${r.currency}${!r.hasIncome && curMetric !== 'nominal' ? ' · no income data' : ''}</div>`
         + `<div class="oet-rbar"><i style="left:${wMin}%;width:${wSpan}%"></i></div></div>`
         + `<div><div class="oet-rval">${m.fmt(r.value)}</div><div class="oet-rband">${m.fmt(r.min)}–${m.fmt(r.max)}</div></div>`
@@ -111,8 +121,9 @@ window.OET = window.OET || {};
       + '<div class="oet-rhelp"></div>'
       + '<div class="oet-rbody"></div>'
       + `<div class="oet-rfoot">Ranked cheapest→dearest by the median of our community plans; the bar shows each country’s min–max spread. `
-      + `${OET.maturityPill ? OET.maturityPill('beta') + ' = real source data (AER/URDB), unverified · ' + OET.maturityPill('experimental') + ' = illustrative example plans. ' : ''}`
-      + `Income/PPP: World Bank (CC BY 4.0); FX ${OET.FX_AS_OF || 'n/a'} via exchangerate-api.com. Prices: community-maintained, verify your bill.</div>`
+      + `${OET.maturityPill ? OET.maturityPill('beta') + ' = real source / corroborated · ' + OET.maturityPill('experimental') + ' = illustrative. ' : ''}`
+      + `<b>✓ ref</b> = within 25% of the Eurostat household reference; <b>⚠ ref</b> = diverges (check the basis). `
+      + `Baseline: Eurostat nrg_pc_204 ${OET.BASELINE_AS_OF || ''} (CC BY 4.0). Income/PPP: World Bank (CC BY 4.0); FX ${OET.FX_AS_OF || 'n/a'} via exchangerate-api.com. Prices: community-maintained, verify your bill.</div>`
       + '</div>';
     document.body.appendChild(back);
     const bodyEl = back.querySelector('.oet-rbody'), helpEl = back.querySelector('.oet-rhelp');

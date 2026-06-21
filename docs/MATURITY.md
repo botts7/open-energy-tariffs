@@ -40,6 +40,8 @@ Today: **AU, US = Beta** (real AER/URDB imports); the ~50 single-plan countries 
 
 **Do not market on forums/social anything above its tier.** Beta is the ceiling for promotion until cross-validation + community confirmation land.
 
-## Cross-source validation (planned)
+## Cross-source validation (live for EU)
 
-The Eurostat + EIA baseline importers double as the truth-check: a CI step compares our per-country median to the reference band and flags divergence, so we never publish a wild number. Until that lands, the ranking stays **Experimental**.
+**Eurostat is wired in** (`map/baseline.js`, `nrg_pc_204` household reference, CC BY 4.0). `OET.crossCheck(cc)` compares our community median to the reference: within ±25% → **match** (corroborated → the country is auto-promoted Experimental→Beta), outside → **diverge** (stays Experimental, flagged ⚠ in the ranking). This is the operational promotion gate for EU countries. ~9 EU countries currently corroborate; the divergers are mostly an ex-tax vs all-taxes-included basis mismatch the check correctly surfaces.
+
+**Still to add:** EIA for US cross-validation (needs a free api.eia.gov key, same secret pattern as URDB); a CI step that fails the build if a *promoted* country later drifts out of tolerance. Non-EU/non-US countries have no clean reference yet (GlobalPetrolPrices is CC-BY-NC-ND = link only) so they stay Experimental until hand-validated.

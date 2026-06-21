@@ -95,8 +95,17 @@ OET.selfTest = async function (opts) {
     const tiers = (OET.PLANS || []).reduce((s, r) => s.add(OET.countryMaturity(r.meta.country)), new Set());
     ok('maturity: every country resolves a known tier', [...tiers].every((t) => OET.TIER_META[t]));
     ok('maturity: AU + US are beta (real-source data)', OET.countryMaturity('AU') === 'beta' && OET.countryMaturity('US') === 'beta');
-    ok('maturity: a single hand-curated country is experimental', OET.countryMaturity('DE') === 'experimental');
+    ok('maturity: a hand-curated country with no reference is experimental', OET.countryMaturity('JP') === 'experimental');
     ok('maturity: pill renders for each tier', ['experimental', 'beta', 'verified'].every((t) => (OET.maturityPill(t) || '').indexOf('oet-mat') !== -1));
+  }
+
+  // ---- BASELINE / CROSS-VALIDATION ---------------------------------------
+  if (OET.BASELINE && OET.crossCheck) {
+    ok('baseline: Eurostat reference present (>=30 countries)', Object.keys(OET.BASELINE).length >= 30);
+    const x = OET.crossCheck('DE');
+    ok('baseline: crossCheck returns ref + ours + status for an EU country', x && x.ref > 0 && x.ours > 0 && /match|diverge/.test(x.status));
+    ok('baseline: a corroborated country (DE) is promoted to Beta', OET.countryMaturity('DE') === 'beta');
+    ok('baseline: a country with no reference returns null', OET.crossCheck('AU') === null);
   }
 
   // ---- GEOCODING (online; the class of bug that kept biting) --------------

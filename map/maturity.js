@@ -28,7 +28,11 @@ window.OET = window.OET || {};
     const ps = (OET.PLANS || []).filter((r) => r.meta.country === cc);
     if (!ps.length) return 'experimental';
     if (ps.some((r) => r.meta.verified)) return 'verified';
-    return ps.some((r) => r.meta.source === 'cdr' || r.meta.source === 'urdb') ? 'beta' : 'experimental';
+    if (ps.some((r) => r.meta.source === 'cdr' || r.meta.source === 'urdb')) return 'beta';
+    // Hand-curated data is promoted experimental -> beta when an external
+    // reference (Eurostat) corroborates it within tolerance (the promotion gate).
+    if (OET.crossCheck) { const x = OET.crossCheck(cc); if (x && x.status === 'match') return 'beta'; }
+    return 'experimental';
   };
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
