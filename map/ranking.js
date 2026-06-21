@@ -76,11 +76,14 @@ window.OET = window.OET || {};
       + '.oet-rval{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}'
       + '.oet-rband{font-size:11px;color:var(--muted,#64748b);text-align:right}'
       + '.oet-rthin{display:inline-block;font-size:10px;color:#b45309;background:rgba(234,179,8,.15);border-radius:4px;padding:0 4px;margin-left:5px}'
+      + '.oet-rsearch{padding:4px 18px 6px}'
+      + '.oet-rsi{width:100%;padding:7px 10px;border:1px solid var(--input-bd,#cbd5e1);border-radius:7px;background:var(--input-bg,#fff);color:var(--text,#1a2233);font-size:13px}'
       + '.oet-rfoot{padding:10px 18px;border-top:1px solid var(--border,#e2e8f0);font-size:11px;color:var(--muted,#64748b);line-height:1.5}';
     document.head.appendChild(s);
   }
 
-  let back = null, curMetric = 'nominal';
+  let back = null, curMetric = 'nominal', curSearch = '';
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
   function close() { if (back) { back.remove(); back = null; document.removeEventListener('keydown', onKey); } }
   function onKey(e) { if (e.key === 'Escape') close(); }
 
@@ -96,9 +99,15 @@ window.OET = window.OET || {};
 
   function render(bodyEl) {
     const m = METRICS.find((x) => x.id === curMetric);
-    const rows = OET.countryRanking(curMetric);
-    const maxV = Math.max(...rows.map((r) => r.max), 1e-9);
-    bodyEl.innerHTML = rows.map((r, i) => {
+    const all = OET.countryRanking(curMetric);
+    const maxV = Math.max(...all.map((r) => r.max), 1e-9);
+    // Search: comma-separated country names/codes (OR) so you can find yours or
+    // compare a few — ranks are preserved from the full list.
+    const q = curSearch.trim().toLowerCase();
+    const terms = q ? q.split(',').map((t) => t.trim()).filter(Boolean) : null;
+    const rows = terms ? all.filter((r) => terms.some((t) => r.name.toLowerCase().indexOf(t) !== -1 || r.cc.toLowerCase() === t)) : all;
+    bodyEl.innerHTML = rows.map((r) => {
+      const i = all.indexOf(r);
       const wMin = Math.max(1, (r.min / maxV) * 100), wSpan = Math.max(1.5, ((r.max - r.min) / maxV) * 100);
       return '<div class="oet-rrow">'
         + `<div class="oet-rnum">${i + 1}</div>`
@@ -107,17 +116,18 @@ window.OET = window.OET || {};
         + `<div class="oet-rbar"><i style="left:${wMin}%;width:${wSpan}%"></i></div></div>`
         + `<div><div class="oet-rval">${m.fmt(r.value)}</div><div class="oet-rband">${m.fmt(r.min)}–${m.fmt(r.max)}</div></div>`
         + '</div>';
-    }).join('') || '<div class="oet-rhelp">No data for this metric.</div>';
+    }).join('') || `<div class="oet-rhelp">${terms ? 'No country matches “' + esc(curSearch) + '”.' : 'No data for this metric.'}</div>`;
   }
 
   OET.showRanking = function () {
-    injectCss(); close();
+    injectCss(); close(); curSearch = '';
     back = document.createElement('div'); back.className = 'oet-rback';
     back.addEventListener('click', (e) => { if (e.target === back) close(); });
     back.innerHTML =
       '<div class="oet-rank" role="dialog" aria-label="Country electricity price ranking">'
       + `<div class="oet-rhead"><h2>🌍 Cheapest countries for electricity ${OET.maturityPill ? OET.maturityPill(OET.FEATURE_MATURITY.ranking) : ''}</h2><button class="oet-rx" aria-label="Close">×</button></div>`
       + '<div class="oet-rtabs">' + METRICS.map((x) => `<button class="oet-rtab" data-m="${x.id}">${x.label}<span style="opacity:.7"> · ${x.unit}</span></button>`).join('') + '</div>'
+      + '<div class="oet-rsearch"><input class="oet-rsi" type="search" placeholder="🔎 Find your country — or compare: australia, germany" aria-label="Search countries" /></div>'
       + '<div class="oet-rhelp"></div>'
       + '<div class="oet-rbody"></div>'
       + `<div class="oet-rfoot">Ranked cheapest→dearest by the median of our community plans; the bar shows each country’s min–max spread. `
@@ -135,6 +145,8 @@ window.OET = window.OET || {};
       render(bodyEl);
     }
     tabs.forEach((t) => t.addEventListener('click', () => select(t.dataset.m)));
+    const si = back.querySelector('.oet-rsi');
+    if (si) si.addEventListener('input', () => { curSearch = si.value; render(bodyEl); });
     back.querySelector('.oet-rx').addEventListener('click', close);
     document.addEventListener('keydown', onKey);
     select(curMetric);
