@@ -3,6 +3,25 @@
 // render.js. All plan data is inserted via textContent (community data is untrusted).
 window.OET = window.OET || {};
 
+// ISO-3166 alpha-2 -> display name (for the country dropdown, list + modal).
+OET.COUNTRY_NAMES = {
+  AE: 'United Arab Emirates', AR: 'Argentina', AT: 'Austria', AU: 'Australia',
+  BE: 'Belgium', BR: 'Brazil', CA: 'Canada', CH: 'Switzerland', CL: 'Chile',
+  CN: 'China', CO: 'Colombia', CZ: 'Czechia', DE: 'Germany', DK: 'Denmark',
+  EG: 'Egypt', ES: 'Spain', FI: 'Finland', FR: 'France', GB: 'United Kingdom',
+  GR: 'Greece', HK: 'Hong Kong', HU: 'Hungary', ID: 'Indonesia', IE: 'Ireland',
+  IL: 'Israel', IN: 'India', IT: 'Italy', JP: 'Japan', KE: 'Kenya',
+  KR: 'South Korea', MX: 'Mexico', MY: 'Malaysia', NG: 'Nigeria', NL: 'Netherlands',
+  NO: 'Norway', NZ: 'New Zealand', PE: 'Peru', PH: 'Philippines', PK: 'Pakistan',
+  PL: 'Poland', PT: 'Portugal', RO: 'Romania', SA: 'Saudi Arabia', SE: 'Sweden',
+  SG: 'Singapore', TH: 'Thailand', TR: 'Türkiye', TW: 'Taiwan', UA: 'Ukraine',
+  US: 'United States', VN: 'Vietnam', ZA: 'South Africa',
+};
+OET.countryName = (c) => (OET.COUNTRY_NAMES && OET.COUNTRY_NAMES[c]) || c;
+
+OET.SOURCE_NAMES = { cdr: 'AER CDR (real)', manual: 'Manual', urdb: 'US URDB', provider: 'Provider', other: 'Other' };
+OET.sourceName = (s) => (OET.SOURCE_NAMES && OET.SOURCE_NAMES[s]) || s;
+
 function h(tag, attrs, children) {
   const e = document.createElement(tag);
   for (const k in (attrs || {})) {
@@ -45,18 +64,16 @@ OET.initSidebar = function () {
       }, 180);
     } });
 
-  function chipRow(label, values, set) {
-    const wrap = h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: label })]);
-    for (const v of values) {
-      const cb = h('label', { class: 'sb-chip' }, [
-        h('input', { type: 'checkbox', onchange: (e) => { e.target.checked ? set.add(v) : set.delete(v); apply(); } }),
-        h('span', { text: v }),
-      ]);
-      wrap.appendChild(cb);
-    }
-    return wrap;
-  }
-
+  // Single-select dropdowns (country / source / provider) instead of chip grids —
+  // far less sidebar space. They AND together with the search + price filters, and
+  // every control persists in the shareable URL hash.
+  const cname = OET.countryName, sname = OET.sourceName;
+  const countrySel = h('select', { class: 'sb-input', onchange: (e) => { state.countries.clear(); if (e.target.value) state.countries.add(e.target.value); apply(); } },
+    [h('option', { value: '', text: 'All countries' })].concat(
+      countries.slice().sort((a, b) => cname(a).localeCompare(cname(b))).map((c) => h('option', { value: c, text: cname(c) }))));
+  const sourceSel = h('select', { class: 'sb-input', onchange: (e) => { state.sources.clear(); if (e.target.value) state.sources.add(e.target.value); apply(); } },
+    [h('option', { value: '', text: 'All sources' })].concat(
+      sources.slice().sort((a, b) => sname(a).localeCompare(sname(b))).map((s) => h('option', { value: s, text: sname(s) }))));
   const providerSel = h('select', { class: 'sb-input', onchange: (e) => { state.provider = e.target.value; apply(); } },
     [h('option', { value: '', text: 'All providers' })].concat(providers.map((p) => h('option', { value: p, text: p }))));
 
@@ -76,9 +93,8 @@ OET.initSidebar = function () {
     state.text = ''; state.countries.clear(); state.sources.clear(); state.provider = ''; state.min = ''; state.max = '';
     state.usage = null; state.usageKwh = ''; state.shape = 'flat'; state.currentPlanId = ''; state.currentCostActual = ''; state.intervals = null;
     state.outline = false; outlineCb.checked = false; if (OET.setOutline) OET.setOutline(false);
-    search.value = ''; providerSel.value = ''; minIn.value = ''; maxIn.value = '';
+    search.value = ''; countrySel.value = ''; sourceSel.value = ''; providerSel.value = ''; minIn.value = ''; maxIn.value = '';
     kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; currentSel.value = ''; currentCostIn.value = ''; cmpNote.textContent = '';
-    root.querySelectorAll('.sb-chip input').forEach((c) => { c.checked = false; });
     apply();
   } });
 
@@ -151,8 +167,8 @@ OET.initSidebar = function () {
 
   root.appendChild(h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]));
   root.appendChild(search);
-  root.appendChild(chipRow('Country', countries, state.countries));
-  root.appendChild(chipRow('Source', sources, state.sources));
+  root.appendChild(countrySel);
+  root.appendChild(sourceSel);
   root.appendChild(providerSel);
   root.appendChild(priceRow);
   root.appendChild(outlineRow);
@@ -235,7 +251,7 @@ OET.initSidebar = function () {
       const kids = [h('strong', { text: m.provider }), h('span', { text: ' · ' + m.plan })];
       if (isCurrent) kids.push(h('span', { class: 'sb-cur', text: 'current' }));
       if (best && !isCurrent) kids.push(h('span', { class: 'sb-best', text: 'cheapest' }));
-      let sub = `${m.country}${m.region ? '/' + m.region : ''} · ${m.source} · ${r.rate == null ? '—' : r.rate.toFixed(3) + ' ' + m.currency}${r.located ? '' : ' · (no map area)'}`;
+      let sub = `${OET.countryName(m.country)}${m.region ? '/' + m.region : ''} · ${OET.sourceName(m.source)} · ${r.rate == null ? '—' : r.rate.toFixed(3) + ' ' + m.currency}${r.located ? '' : ' · (no map area)'}`;
       if (usage) sub += r._cost == null ? ' · cost n/a' : ` · ~${Math.round(r._cost).toLocaleString()} ${m.currency}/yr`;
       const subEl = h('div', { class: 'sb-sub', text: sub });
       if (usage && baseline != null && r._cost != null && !isCurrent) {
@@ -288,6 +304,8 @@ OET.initSidebar = function () {
     if (!([...p].length)) return;
     (p.get('c') || '').split(',').filter(Boolean).forEach((x) => state.countries.add(x));
     (p.get('s') || '').split(',').filter(Boolean).forEach((x) => state.sources.add(x));
+    countrySel.value = state.countries.size ? [...state.countries][0] : '';
+    sourceSel.value = state.sources.size ? [...state.sources][0] : '';
     state.provider = p.get('p') || ''; providerSel.value = state.provider;
     state.text = p.get('q') || ''; search.value = state.text;
     state.min = p.get('min') || ''; minIn.value = state.min;
@@ -297,10 +315,6 @@ OET.initSidebar = function () {
     state.currentCostActual = p.get('cost') || ''; currentCostIn.value = state.currentCostActual;
     state.currentPlanId = p.get('cur') || ''; currentSel.value = state.currentPlanId;
     state.outline = p.get('o') === '1'; outlineCb.checked = state.outline; if (state.outline && OET.setOutline) OET.setOutline(true);
-    root.querySelectorAll('.sb-chip').forEach((chip) => {
-      const t = chip.textContent.trim();
-      if (state.countries.has(t) || state.sources.has(t)) chip.querySelector('input').checked = true;
-    });
     if (parseFloat(state.usageKwh) > 0) state.usage = OET.usageFromAnnual(parseFloat(state.usageKwh), state.shape);
   }
 

@@ -66,13 +66,15 @@ window.OET = window.OET || {};
 
     const kv = [];
     const add = (k, v) => { if (v != null && v !== '') kv.push(`<dt>${esc(k)}</dt><dd>${v}</dd>`); };
-    add('Country', esc(m.country) + (m.region ? ' / ' + esc(m.region) : ''));
+    const cName = (OET.countryName ? OET.countryName(m.country) : m.country);
+    const sName = (OET.sourceName ? OET.sourceName(m.source) : m.source);
+    add('Country', esc(cName) + (m.region ? ' / ' + esc(m.region) : ''));
     add('Distributor', m.distributor ? esc(m.distributor) : null);
     add('Retailer', esc(m.provider));
     add('Type', esc(t.kind));
     add('Rate', rec.rate == null ? '—' : `<span class="oet-sw" style="background:${swatch}"></span>${rec.rate} ${esc(cur)}/kWh`);
     if (t.supply && num(t.supply.daily) != null) add('Daily supply', `${t.supply.daily} ${esc(cur)}/day`);
-    add('Source', esc(m.source));
+    add('Source', esc(sName));
     add('Updated', esc(m.updated));
     add('Verified', m.verified ? 'yes' : 'no');
 
