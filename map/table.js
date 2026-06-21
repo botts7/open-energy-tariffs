@@ -36,20 +36,20 @@ window.OET = window.OET || {};
   function hasBaseline() { return !!(OET._tableUsageReal && OET._baseline && OET._baseline.cost > 0); }
   function savingsCell(r) {
     const b = OET._baseline, c = annualCost(r);
-    if (c == null || (b.rec && b.rec.meta.currency !== r.meta.currency)) return '<td>—</td>';
+    if (c == null || (b.rec && b.rec.meta.currency !== r.meta.currency)) return '<td data-label="Savings">—</td>';
     const s = b.cost - c; // positive = cheaper than your baseline
     const fg = s > 1 ? '#15803d' : s < -1 ? '#dc2626' : 'var(--muted,#64748b)';
     const txt = s > 1 ? '−' + Math.round(s).toLocaleString() + ' ' + esc(r.meta.currency) : s < -1 ? '+' + Math.round(-s).toLocaleString() + ' ' + esc(r.meta.currency) : '≈';
-    return `<td style="color:${fg};font-weight:600" title="vs ${esc(b.label || 'your current')}">${txt}</td>`;
+    return `<td data-label="Savings" style="color:${fg};font-weight:600" title="vs ${esc(b.label || 'your current')}">${txt}</td>`;
   }
   // "% vs reference" cell: green below (cheaper), red above; — when no reference.
   function refCell(r) {
-    const ref = planRefUsd(r); if (ref == null) return '<td class="tv-ref">—</td>';
-    const mine = usd(repRate(r), r.meta.currency); if (mine == null || !isFinite(mine)) return '<td class="tv-ref">—</td>';
+    const ref = planRefUsd(r); if (ref == null) return '<td class="tv-ref" data-label="vs ref">—</td>';
+    const mine = usd(repRate(r), r.meta.currency); if (mine == null || !isFinite(mine)) return '<td class="tv-ref" data-label="vs ref">—</td>';
     const pct = Math.round((mine / ref - 1) * 100);
     const fg = pct <= -2 ? '#15803d' : pct >= 2 ? '#dc2626' : 'var(--muted,#64748b)';
     const txt = pct === 0 ? '≈ ref' : (pct < 0 ? pct + '%' : '+' + pct + '%');
-    return `<td class="tv-ref" title="vs the household reference price (Eurostat / EIA)" style="color:${fg}">${txt}</td>`;
+    return `<td class="tv-ref" data-label="vs ref" title="vs the household reference price (Eurostat / EIA)" style="color:${fg}">${txt}</td>`;
   }
 
   OET.setView = function (v) {
@@ -107,14 +107,14 @@ window.OET = window.OET || {};
         + `<td class="tv-name">${r.id === cheapestId ? '<span class="tv-badge">Cheapest</span> ' : ''}<b>${esc(m.provider)}</b> · ${esc(m.plan)}`
         + `<div class="tv-sub">${esc(OET.countryName ? OET.countryName(m.country) : m.country)}${m.region ? '/' + esc(m.region) : ''} `
         + `${OET.maturityPill ? OET.maturityPill(OET.countryMaturity(m.country)) : ''} ${OET.freshPill ? OET.freshPill(m.updated) : ''}</div></td>`
-        + `<td class="tv-cost">${cv == null ? '—' : '~' + Math.round(cv).toLocaleString() + ' ' + esc(cur)}</td>`
+        + `<td class="tv-cost" data-label="Est. cost">${cv == null ? '—' : '~' + Math.round(cv).toLocaleString() + ' ' + esc(cur)}</td>`
         + (hasBaseline() ? savingsCell(r) : '')
         + refCell(r)
-        + `<td>${r.rate == null ? '—' : r.rate.toFixed(3) + ' ' + esc(cur)}</td>`
-        + `<td>${sup == null ? '—' : sup.toFixed(3) + ' ' + esc(cur)}</td>`
-        + `<td>${fin == null ? '—' : fin.toFixed(3) + ' ' + esc(cur)}</td>`
-        + `<td>${r.tariff.kind === 'tou' ? 'ToU' : 'Flat'}</td>`
-        + `<td><input type="checkbox" data-cmp="${esc(r.id)}"${inCmp ? ' checked' : ''} aria-label="Add to compare"></td>`
+        + `<td data-label="Rate /kWh">${r.rate == null ? '—' : r.rate.toFixed(3) + ' ' + esc(cur)}</td>`
+        + `<td data-label="Supply /day">${sup == null ? '—' : sup.toFixed(3) + ' ' + esc(cur)}</td>`
+        + `<td data-label="Feed-in">${fin == null ? '—' : fin.toFixed(3) + ' ' + esc(cur)}</td>`
+        + `<td data-label="Type">${r.tariff.kind === 'tou' ? 'ToU' : 'Flat'}</td>`
+        + `<td data-label="Compare"><input type="checkbox" data-cmp="${esc(r.id)}"${inCmp ? ' checked' : ''} aria-label="Add to compare"></td>`
         + '</tr>';
     }
     html += '</tbody></table></div>';

@@ -116,6 +116,16 @@
       #navToggle { display:block; }
       .brand-tag { display:none; }
       .topsearch { display:none; }
+      header { gap:6px; padding:8px 8px; }
+      .brand-name { font-size:15px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+      .viewtoggle button { padding:7px 9px; font-size:13px; }
+      .viewtoggle .vt-t { display:none; }
+      .tv-table thead { display:none; }
+      .tv-table tr { display:block; border:1px solid var(--border); border-radius:8px; margin:8px 10px; padding:4px 0; }
+      .tv-table td { display:flex; justify-content:space-between; gap:12px; border:none; padding:4px 12px; white-space:normal; }
+      .tv-table td[data-label]::before { content:attr(data-label); color:var(--muted); font-size:11px; font-weight:600; }
+      .tv-name { display:block; font-size:14px; }
+      .tv-cost { font-size:15px; }
       #sidebar { position:absolute; z-index:1200; top:0; left:0; bottom:0; width:86%; max-width:340px; box-shadow:2px 0 16px rgba(0,0,0,.45); transform:translateX(-100%); transition:transform .2s ease; }
       body.nav-open #sidebar { transform:translateX(0); }
     }
@@ -138,8 +148,8 @@
         </div>
       </div>
       <div class="viewtoggle" role="tablist">
-        <button data-view="map" class="on" title="Map view">🗺 Map</button>
-        <button data-view="table" title="Comparison table">▦ Compare</button>
+        <button data-view="map" class="on" title="Map view"><span class="vt-i">🗺</span><span class="vt-t"> Map</span></button>
+        <button data-view="table" title="Comparison table"><span class="vt-i">▦</span><span class="vt-t"> Compare</span></button>
       </div>
       <div class="topsearch">
         <input id="topSearch" type="search" placeholder="🔎 Search country, retailer, postcode, plan…" autocomplete="off" aria-label="Universal search" />
