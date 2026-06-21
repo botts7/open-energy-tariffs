@@ -64,6 +64,7 @@ OET.renderMap = function (plans, meta) {
   const postcodeLayer = L.layerGroup().addTo(map);
   const highlightLayer = L.layerGroup().addTo(map); // focused plan's REAL coverage
   let addressMarker = null; // exact geocoded address pin
+  const overviewByCountry = {}; // per-country overview shading (AU/US etc.)
   // A red dot at a geocoded street address (vs the postcode polygon it sits in).
   OET.setAddressPin = function (latlng, label) {
     if (addressMarker) { map.removeLayer(addressMarker); addressMarker = null; }
@@ -163,7 +164,6 @@ OET.renderMap = function (plans, meta) {
       (byCountry[r.meta.country] = byCountry[r.meta.country] || []).push(r);
       if (r.meta.coverage && r.meta.coverage.national) hasNational[r.meta.country] = true;
     }
-    const summaryGroup = L.layerGroup().addTo(coverageLayer);
     for (const c in byCountry) {
       if (hasNational[c]) continue; // already shaded by its own national plan
       const recs = byCountry[c];
@@ -179,7 +179,7 @@ OET.renderMap = function (plans, meta) {
         + `${recs.length.toLocaleString()} plans · median ~${medLocal.toFixed(3)} ${esc(cur)}/kWh<br>`
         + `<span style="color:#777">filter by postcode / provider for plan detail</span>`;
       const layer = (ng.type === 'polygon') ? L.geoJSON(ng.geojson, { renderer, style }) : L.circle(ng.latlng, Object.assign({ radius: 250000 }, style));
-      layer.bindPopup(pop).addTo(summaryGroup);
+      overviewByCountry[c] = layer.bindPopup(pop).addTo(coverageLayer);
     }
   })();
 
@@ -328,6 +328,16 @@ OET.renderMap = function (plans, meta) {
       if (on) shown++;
     }
     recolor(visibleRecs);
+    // Per-country overview shade: show it only when that country has visible plans
+    // AND its detailed hulls are suppressed (so it's not blank), and hide it once
+    // hulls actually render (they show the detail) — so filtering to one network
+    // doesn't leave whole-country shading from other countries on the map.
+    const visCountries = new Set();
+    for (const r of visibleRecs) visCountries.add(r.meta.country);
+    for (const c in overviewByCountry) {
+      const show = suppressHeavy && visCountries.has(c);
+      if (show) coverageLayer.addLayer(overviewByCountry[c]); else coverageLayer.removeLayer(overviewByCountry[c]);
+    }
     OET._suppressedHeavy = suppressHeavy ? heavyVis : 0;
     OET._shownAreas = shown;
     return visibleRecs.length;

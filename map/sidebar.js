@@ -61,7 +61,11 @@ function makeCombo(initialOptions, placeholder, onPick) {
     onfocus: () => render(input.value),
     onkeydown: (e) => { if (e.key === 'Escape') dd.textContent = ''; else if (e.key === 'Enter') { const f = filtered(input.value)[0]; if (f) pick(f); } },
     onblur: () => setTimeout(() => { dd.textContent = ''; reconcile(); }, 120) });
-  return { el: h('div', {}, [input, dd]), setValue: (v) => { curValue = v || ''; input.value = v ? labelOf(v) : ''; } };
+  return {
+    el: h('div', {}, [input, dd]),
+    setValue: (v) => { curValue = v || ''; input.value = v ? labelOf(v) : ''; },
+    setOptions: (opts) => { options = opts; if (curValue && !options.some((o) => o.value === curValue)) { curValue = ''; input.value = ''; } },
+  };
 }
 
 OET.initSidebar = function () {
@@ -146,16 +150,35 @@ OET.initSidebar = function () {
   // far less sidebar space. They AND together with the search + price filters, and
   // every control persists in the shareable URL hash.
   const cname = OET.countryName, sname = OET.sourceName;
-  const countrySel = h('select', { class: 'sb-input', onchange: (e) => { state.countries.clear(); if (e.target.value) state.countries.add(e.target.value); apply(true); } },
-    [h('option', { value: '', text: 'All countries' })].concat(
-      countries.slice().sort((a, b) => cname(a).localeCompare(cname(b))).map((c) => h('option', { value: c, text: cname(c) }))));
-  const sourceSel = h('select', { class: 'sb-input', onchange: (e) => { state.sources.clear(); if (e.target.value) state.sources.add(e.target.value); apply(); } },
+  // Searchable combos (type to filter) for the big lists; provider/distributor/
+  // current-plan options are recomputed to the selected country (hierarchy).
+  const countryCombo = makeCombo(
+    [{ value: '', label: 'All countries' }].concat(countries.slice().sort((a, b) => cname(a).localeCompare(cname(b))).map((c) => ({ value: c, label: cname(c) }))),
+    'All countries (type to search)', (v) => { state.countries.clear(); if (v) state.countries.add(v); refreshDependentOptions(); apply(true); });
+  const sourceSel = h('select', { class: 'sb-input', onchange: (e) => { state.sources.clear(); if (e.target.value) state.sources.add(e.target.value); refreshDependentOptions(); apply(); } },
     [h('option', { value: '', text: 'All sources' })].concat(
       sources.slice().sort((a, b) => sname(a).localeCompare(sname(b))).map((s) => h('option', { value: s, text: sname(s) }))));
-  const providerSel = h('select', { class: 'sb-input', onchange: (e) => { state.provider = e.target.value; apply(true); } },
-    [h('option', { value: '', text: 'All providers' })].concat(providers.map((p) => h('option', { value: p, text: p }))));
-  const distributorSel = h('select', { class: 'sb-input', onchange: (e) => { state.distributor = e.target.value; apply(true); } },
-    [h('option', { value: '', text: 'All networks (distributors)' })].concat(distributors.map((d) => h('option', { value: d, text: d }))));
+  const providerCombo = makeCombo(
+    [{ value: '', label: 'All providers' }].concat(providers.map((p) => ({ value: p, label: p }))),
+    'All providers', (v) => { state.provider = v; apply(true); });
+  const distributorCombo = makeCombo(
+    [{ value: '', label: 'All networks (distributors)' }].concat(distributors.map((d) => ({ value: d, label: d }))),
+    'All networks', (v) => { state.distributor = v; apply(true); });
+  // Recompute provider/distributor/current-plan lists for the selected country/source.
+  function refreshDependentOptions() {
+    const base = plans.filter((r) => (!state.countries.size || state.countries.has(r.meta.country)) && (!state.sources.size || state.sources.has(r.src)));
+    const provs = [...new Set(base.map((r) => r.meta.provider))].filter(Boolean).sort();
+    const dists = [...new Set(base.map((r) => r.meta.distributor))].filter(Boolean).sort();
+    if (state.provider && provs.indexOf(state.provider) === -1) state.provider = '';
+    if (state.distributor && dists.indexOf(state.distributor) === -1) state.distributor = '';
+    providerCombo.setOptions([{ value: '', label: 'All providers' }].concat(provs.map((p) => ({ value: p, label: p })))); providerCombo.setValue(state.provider);
+    distributorCombo.setOptions([{ value: '', label: 'All networks (distributors)' }].concat(dists.map((d) => ({ value: d, label: d })))); distributorCombo.setValue(state.distributor);
+    if (currentCombo) {
+      const cps = base.slice().sort((a, b) => (a.meta.provider + a.meta.plan).localeCompare(b.meta.provider + b.meta.plan)).map((r) => ({ value: r.id, label: `${r.meta.provider} · ${r.meta.plan} (${OET.countryName(r.meta.country)})` }));
+      if (state.currentPlanId && !base.some((r) => r.id === state.currentPlanId)) state.currentPlanId = '';
+      currentCombo.setOptions([{ value: '', label: 'My current plan (optional)…' }].concat(cps)); currentCombo.setValue(state.currentPlanId);
+    }
+  }
   const kindSel = h('select', { class: 'sb-input', onchange: (e) => { state.kind = e.target.value; apply(); } },
     [['', 'All rate types'], ['flat', 'Flat / single rate'], ['tou', 'Time-of-use']].map(([v, t]) => h('option', { value: v, text: t })));
   const sortSel = h('select', { class: 'sb-input', onchange: (e) => { state.sort = e.target.value; apply(); } },
@@ -180,9 +203,10 @@ OET.initSidebar = function () {
     state.exportKwh = ''; exportIn.value = '';
     state.outline = false; outlineCb.checked = false; if (OET.setOutline) OET.setOutline(false);
     state.kind = ''; state.sort = 'az'; kindSel.value = ''; sortSel.value = 'az';
-    state.distributor = ''; distributorSel.value = '';
-    search.value = ''; countrySel.value = ''; sourceSel.value = ''; providerSel.value = ''; minIn.value = ''; maxIn.value = '';
-    kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; currentSel.value = ''; currentCostIn.value = ''; cmpNote.textContent = '';
+    state.distributor = ''; distributorCombo.setValue('');
+    search.value = ''; countryCombo.setValue(''); sourceSel.value = ''; providerCombo.setValue(''); minIn.value = ''; maxIn.value = '';
+    kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; currentCombo.setValue(''); currentCostIn.value = ''; cmpNote.textContent = '';
+    refreshDependentOptions();
     apply();
   } });
 
@@ -292,10 +316,11 @@ OET.initSidebar = function () {
       };
       rd.readAsArrayBuffer(f);
     } });
-  const currentSel = h('select', { class: 'sb-input', onchange: (e) => { state.currentPlanId = e.target.value; apply(); } },
-    [h('option', { value: '', text: 'My current plan (optional)…' })].concat(
+  const currentCombo = makeCombo(
+    [{ value: '', label: 'My current plan (optional)…' }].concat(
       plans.slice().sort((a, b) => (a.meta.provider + a.meta.plan).localeCompare(b.meta.provider + b.meta.plan))
-        .map((p) => h('option', { value: p.id, text: `${p.meta.provider} · ${p.meta.plan} (${p.meta.country})` }))));
+        .map((p) => ({ value: p.id, label: `${p.meta.provider} · ${p.meta.plan} (${OET.countryName(p.meta.country)})` }))),
+    'My current plan (search)', (v) => { state.currentPlanId = v; apply(); });
   // Or compare against what you ACTUALLY pay (annual) — the ground truth even if
   // your exact plan isn't in the DB. Auto-filled from a bill PDF's total.
   const currentCostIn = h('input', { type: 'number', step: '10', placeholder: 'actual $/yr', class: 'sb-num',
@@ -307,14 +332,14 @@ OET.initSidebar = function () {
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: '☀ Solar export to grid (avg kWh/day) — credits feed-in' }), exportIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload usage CSV (distributor 48-col export, or time,kWh)' }), csvIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload a bill PDF (best-effort)' }), pdfIn]),
-    h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Baseline: my current plan, or my actual annual $' }), currentSel, currentCostIn]),
+    h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Baseline: my current plan, or my actual annual $' }), currentCombo.el, currentCostIn]),
     cmpNote,
   ]);
 
   // Collapsible filters/sort/display so the controls don't dominate the sidebar.
   const filtersSummary = h('summary', { text: 'Filters · sort · display' });
   const filters = h('details', { class: 'sb-cmp' }, [filtersSummary,
-    countrySel, sourceSel, providerSel, distributorSel, kindSel, sortSel, priceRow, outlineRow]);
+    countryCombo.el, sourceSel, providerCombo.el, distributorCombo.el, kindSel, sortSel, priceRow, outlineRow]);
   // Controls stay pinned (their own box); only the plan list scrolls.
   const controls = h('div', { class: 'sb-controls' }, [
     h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]),
@@ -490,10 +515,10 @@ OET.initSidebar = function () {
     if (!([...p].length)) return;
     (p.get('c') || '').split(',').filter(Boolean).forEach((x) => state.countries.add(x));
     (p.get('s') || '').split(',').filter(Boolean).forEach((x) => state.sources.add(x));
-    countrySel.value = state.countries.size ? [...state.countries][0] : '';
+    countryCombo.setValue(state.countries.size ? [...state.countries][0] : '');
     sourceSel.value = state.sources.size ? [...state.sources][0] : '';
-    state.provider = p.get('p') || ''; providerSel.value = state.provider;
-    state.distributor = p.get('d') || ''; distributorSel.value = state.distributor;
+    state.provider = p.get('p') || ''; providerCombo.setValue(state.provider);
+    state.distributor = p.get('d') || ''; distributorCombo.setValue(state.distributor);
     state.kind = p.get('k') || ''; kindSel.value = state.kind;
     state.sort = p.get('sort') || 'az'; sortSel.value = state.sort;
     state.text = p.get('q') || ''; search.value = state.text;
@@ -502,7 +527,7 @@ OET.initSidebar = function () {
     state.usageKwh = p.get('kwh') || ''; kwhIn.value = state.usageKwh;
     state.shape = p.get('shape') || 'flat'; shapeSel.value = state.shape;
     state.currentCostActual = p.get('cost') || ''; currentCostIn.value = state.currentCostActual;
-    state.currentPlanId = p.get('cur') || ''; currentSel.value = state.currentPlanId;
+    state.currentPlanId = p.get('cur') || ''; currentCombo.setValue(state.currentPlanId);
     state.outline = p.get('o') === '1'; outlineCb.checked = state.outline; if (state.outline && OET.setOutline) OET.setOutline(true);
     (p.get('cmp') || '').split(',').filter(Boolean).forEach((id) => { OET.compareSet = OET.compareSet || []; if (OET.compareSet.indexOf(id) === -1) OET.compareSet.push(id); });
     if (parseFloat(state.usageKwh) > 0) state.usage = OET.usageFromAnnual(parseFloat(state.usageKwh), state.shape);
@@ -522,6 +547,7 @@ OET.initSidebar = function () {
   OET._onCompareChange = () => { compareBtn.textContent = `Compare (${(OET.compareSet || []).length})`; syncHash(); };
 
   restore();
+  refreshDependentOptions(); // narrow provider/distributor/current-plan to the restored country
   if (activeFilterCount()) filters.open = true; // don't hide filters that are already on (e.g. from a shared link)
   if (OET._onCompareChange) OET._onCompareChange();
   updateUsageUI();
