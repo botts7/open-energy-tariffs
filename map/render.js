@@ -371,7 +371,9 @@ OET.renderMap = function (plans, meta) {
 
   const legend = L.control({ position: 'bottomright' });
   const legendBuckets = OET.RATE_BUCKETS.map(([, c, label]) => `<span class="sw" style="background:${c}"></span>${label}`).join('<br>');
-  const legendHtml = (label) => `<b>Rate / kWh (${label})</b><br>` + legendBuckets;
+  const legendHtml = (label) => `<b>Rate / kWh (${label})</b>`
+    + (/USD/.test(label) && OET.conversionBadge ? '<br>' + OET.conversionBadge() : '')
+    + '<br>' + legendBuckets;
   let legendDiv = null;
   legend.onAdd = function () {
     legendDiv = L.DomUtil.create('div', 'oet-legend');

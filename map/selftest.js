@@ -54,6 +54,8 @@ OET.selfTest = async function (opts) {
   // ---- FX (dated snapshot) -----------------------------------------------
   ok('fx: dated snapshot present (YYYY-MM-DD)', /^\d{4}-\d{2}-\d{2}$/.test(OET.FX_AS_OF || ''), OET.FX_AS_OF);
   ok('fx: toUsd converts a known currency sanely', (() => { const u = OET.toUsd(1, 'AUD'); return u > 0.4 && u < 1; })());
+  ok('fresh: relAge gives a human age', /ago|month/.test(OET.relAge ? OET.relAge('2024-01-01') : ''));
+  ok('fresh: static FX conversion badge present', /Static FX/.test(OET.conversionBadge ? OET.conversionBadge() : ''));
 
   // ---- CSV PARSERS -------------------------------------------------------
   const long = ['2025-01-01 00:00,0.5', '2025-01-01 00:30,0.4', '2025-06-15 18:00,1.2'].join('\n');

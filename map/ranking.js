@@ -166,7 +166,8 @@ window.OET = window.OET || {};
     function select(id) {
       curMetric = id;
       tabs.forEach((t) => t.classList.toggle('on', t.dataset.m === id));
-      helpEl.textContent = METRICS.find((x) => x.id === id).help;
+      const mm = METRICS.find((x) => x.id === id);
+      helpEl.innerHTML = esc(mm.help) + (id === 'nominal' && OET.conversionBadge ? ' ' + OET.conversionBadge() : '');
       render(bodyEl);
     }
     tabs.forEach((t) => t.addEventListener('click', () => select(t.dataset.m)));
