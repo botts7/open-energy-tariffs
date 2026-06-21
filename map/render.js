@@ -59,6 +59,7 @@ OET.renderMap = function (plans, meta) {
     'Tariffs: © <a href="https://www.aer.gov.au/">AER</a> ' +
     '<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · OpenEI/NREL URDB (CC0) · ' +
     'AU postcodes: G-NAF © <a href="https://geoscape.com.au/">Geoscape Australia</a> · ' +
+    'Postcode areas: © <a href="https://www.abs.gov.au/">ABS</a> POA 2021 (CC BY 4.0) · ' +
     'Country shapes: <a href="https://www.naturalearthdata.com/">Natural Earth</a> (public domain)');
 
   const groups = {}; // source -> LayerGroup (organisation; visibility via filter)
@@ -165,19 +166,30 @@ OET.renderMap = function (plans, meta) {
   // cell among neighbours) and HIDE all provider coverage — the plans serving it
   // are listed in the sidebar, so the network hulls are just noise here. ---
   OET.showPostcodeArea = function (pc, center) {
+    OET._lastPc = pc;
     postcodeLayer.clearLayers();
     if (map.hasLayer(coverageLayer)) { map.removeLayer(coverageLayer); OET._coverageHiddenByPc = true; }
+    const style = { renderer, color: '#0d47a1', weight: 2, fillColor: '#42a5f5', fillOpacity: 0.3 };
+    // 1) instant placeholder: Voronoi cell from nearby postcode centroids.
     const DB = OET.AU_POSTCODES_FULL || OET.AU_POSTCODES || {};
     const neigh = [];
     for (const k in DB) { if (k === pc) continue; const ll = DB[k]; const d = Math.hypot(ll[0] - center[0], ll[1] - center[1]); if (d < 0.7) neigh.push([d, ll]); }
     neigh.sort((a, b) => a[0] - b[0]);
     const near = neigh.slice(0, 40).map((x) => x[1]);
     const ring = OET.postcodePolygon ? OET.postcodePolygon(center, near) : null;
-    const style = { renderer, color: '#0d47a1', weight: 2, fillColor: '#42a5f5', fillOpacity: 0.35 };
-    const layer = ring ? L.polygon(ring, style) : L.circleMarker(center, Object.assign({ radius: 9 }, style));
-    layer.bindPopup('Postcode <strong>' + esc(pc) + '</strong>').addTo(postcodeLayer);
-    if (layer.getBounds) map.fitBounds(layer.getBounds(), { padding: [60, 60], maxZoom: 12 });
+    const placeholder = ring ? L.polygon(ring, style) : L.circleMarker(center, Object.assign({ radius: 9 }, style));
+    placeholder.bindPopup('Postcode <strong>' + esc(pc) + '</strong>').addTo(postcodeLayer);
+    if (placeholder.getBounds) map.fitBounds(placeholder.getBounds(), { padding: [60, 60], maxZoom: 12 });
     else map.setView(center, 12);
+    // 2) upgrade to the REAL ABS POA 2021 boundary when it arrives (free ABS open
+    //    data, CC BY 4.0); keep the placeholder if the user moved on or it fails.
+    if (OET.fetchPoaBoundary) OET.fetchPoaBoundary(pc).then(function (gj) {
+      if (!gj || OET._lastPc !== pc) return;
+      postcodeLayer.clearLayers();
+      const real = L.geoJSON(gj, { renderer, style });
+      real.bindPopup('Postcode <strong>' + esc(pc) + '</strong> · ABS POA 2021').addTo(postcodeLayer);
+      try { const b = real.getBounds(); if (b.isValid()) map.fitBounds(b, { padding: [50, 50], maxZoom: 13 }); } catch (_) {}
+    });
   };
   OET.clearPostcodeArea = function () {
     postcodeLayer.clearLayers();

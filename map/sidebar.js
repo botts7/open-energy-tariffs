@@ -242,7 +242,7 @@ OET.initSidebar = function () {
         const d = r._cost - baseline;
         subEl.appendChild(h('span', { class: d < 0 ? 'sb-save' : 'sb-cost', text: ` · ${d < 0 ? 'save ' : '+'}${Math.abs(Math.round(d)).toLocaleString()} ${m.currency}/yr` }));
       }
-      const row = h('div', { class: 'sb-row' + (r.located ? '' : ' sb-nolocate') + (best && !isCurrent ? ' sb-bestrow' : '') + (isCurrent ? ' sb-currow' : ''), onclick: () => OET.focusPlan(r.id) },
+      const row = h('div', { class: 'sb-row' + (r.located ? '' : ' sb-nolocate') + (best && !isCurrent ? ' sb-bestrow' : '') + (isCurrent ? ' sb-currow' : ''), onclick: () => { if (OET.showPlanModal) OET.showPlanModal(r); else OET.focusPlan(r.id); } },
         [sw, h('div', {}, [h('div', { class: 'sb-title' }, kids), subEl])]);
       list.appendChild(row);
     }
