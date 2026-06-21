@@ -78,6 +78,8 @@
     .sb-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); width: 100%; }
     .sb-chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border: 1px solid var(--border); border-radius: 999px; cursor: pointer; }
     .sb-reset { padding: 5px 12px; border: 1px solid var(--input-bd); background: var(--chip); color:var(--text); border-radius: 6px; cursor: pointer; font-size: 12px; margin-bottom: 10px; }
+    .sb-wizard { width: 100%; padding: 9px 12px; margin-bottom: 10px; border: none; border-radius: 8px; background: #2563eb; color: #fff; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+    .sb-wizard:hover { background: #1d4ed8; }
     .sb-active { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 2px 0 10px; }
     .sb-active[data-empty] { padding: 6px 8px; border-radius: 6px; background: rgba(220,38,38,.08); border: 1px solid rgba(220,38,38,.35); }
     .sb-active[data-empty]::after { content: 'No plans match — remove a filter above'; width: 100%; font-size: 11px; color: #dc2626; }
@@ -198,6 +200,7 @@
   <script src="ranking.js"></script>
   <script src="universal-search.js"></script>
   <script src="table.js"></script>
+  <script src="wizard.js"></script>
   <script src="selftest.js"></script>
   <script src="sidebar.js"></script>
   <script>

@@ -427,9 +427,10 @@ OET.initSidebar = function () {
   const filters = h('details', { class: 'sb-cmp' }, [filtersSummary,
     countryCombo.el, sourceSel, providerCombo.el, distributorCombo.el, kindSel, sortSel, priceRow, outlineRow]);
   // Controls stay pinned (their own box); only the plan list scrolls.
+  const wizardBtn = h('button', { class: 'sb-wizard', text: '✨ Find my best plan', title: 'Guided: location → usage → ranked plans', onclick: () => { if (OET.showWizard) OET.showWizard(); } });
   const controls = h('div', { class: 'sb-controls' }, [
     h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]),
-    search, suggestBox, h('div', { class: 'sb-chips' }, [geoBtn, locBtn]), activeBar, filters, cmp, reset,
+    wizardBtn, search, suggestBox, h('div', { class: 'sb-chips' }, [geoBtn, locBtn]), activeBar, filters, cmp, reset,
   ]);
   root.appendChild(controls);
   root.appendChild(h('div', { class: 'sb-scroll' }, [list]));
@@ -666,6 +667,15 @@ OET.initSidebar = function () {
     refreshDependentOptions();
     apply(true);
     document.body.classList.remove('nav-open');
+  };
+
+  // Set the user's annual usage from the wizard (or anywhere). Drives the cost
+  // estimates + the table savings.
+  OET.setUsage = function (kwh, shape) {
+    state.usageKwh = kwh ? String(kwh) : '';
+    if (kwhIn) kwhIn.value = state.usageKwh;
+    state.shape = shape || 'flat'; if (shapeSel) shapeSel.value = state.shape;
+    recomputeUsage();
   };
 
   restore();
