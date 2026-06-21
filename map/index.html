@@ -99,6 +99,7 @@
           <div class="brand-tag">Browse &amp; compare electricity plans by rate · 52 countries</div>
         </div>
       </div>
+      <button id="rankToggle" class="hdr-btn" aria-label="Cheapest countries ranking" title="Cheapest countries">🌍</button>
       <button id="helpToggle" class="hdr-btn" aria-label="How to use this site" title="How to use">?</button>
       <button id="themeToggle" class="hdr-btn" aria-label="Toggle dark mode" title="Light / dark">◐</button>
     </header>
@@ -126,11 +127,13 @@
   <script src="geocode.js"></script>
   <script src="data.js"></script>
   <script src="fx.js"></script>
+  <script src="income.js"></script>
   <script src="cost.js"></script>
   <script src="bill-pdf.js"></script>
   <script src="render.js"></script>
   <script src="modal.js"></script>
   <script src="guide.js"></script>
+  <script src="ranking.js"></script>
   <script src="selftest.js"></script>
   <script src="sidebar.js"></script>
   <script>
@@ -151,6 +154,8 @@
       if (mp) mp.addEventListener('click', function () { document.body.classList.remove('nav-open'); });
       var hb = document.getElementById('helpToggle');
       if (hb) hb.addEventListener('click', function () { if (OET.showGuide) OET.showGuide(); });
+      var rb = document.getElementById('rankToggle');
+      if (rb) rb.addEventListener('click', function () { if (OET.showRanking) OET.showRanking(); });
       if (OET.maybeAutoGuide) OET.maybeAutoGuide();
     });
   </script>

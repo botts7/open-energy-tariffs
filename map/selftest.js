@@ -75,6 +75,17 @@ OET.selfTest = async function (opts) {
   if (OET.showGuide) { OET.showGuide(); const present = !!document.querySelector('.oet-guide'); document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' })); ok('ui: guide opens and Esc-closes', present && !document.querySelector('.oet-guide')); }
   ok('ui: help + theme + nav buttons exist', ['helpToggle', 'themeToggle', 'navToggle'].every(id => document.getElementById(id)));
 
+  // ---- COUNTRY RANKING ---------------------------------------------------
+  if (OET.countryRanking) {
+    const nom = OET.countryRanking('nominal');
+    ok('rank: produces a row per country with plans', nom.length > 0);
+    ok('rank: sorted cheapest-first', nom.every((r, i) => i === 0 || nom[i - 1].value <= r.value));
+    ok('rank: every row has a finite value + band', nom.every(r => isFinite(r.value) && r.min <= r.value && r.value <= r.max));
+    const aff = OET.countryRanking('afford');
+    ok('rank: affordability needs income data (subset of nominal)', aff.length > 0 && aff.length <= nom.length);
+    ok('rank: income reference covers the data countries', OET.INCOME && Object.keys(OET.INCOME).length >= nom.length - 2);
+  }
+
   // ---- GEOCODING (online; the class of bug that kept biting) --------------
   if (online && OET.geocodeAddress) {
     await okAsync('geo: "london" worldwide -> United Kingdom', async () => { const r = await OET.geocodeAddress('london', ''); return [r && /United Kingdom|England/.test(r.label) && r.cc === 'GB', r && r.label]; });
