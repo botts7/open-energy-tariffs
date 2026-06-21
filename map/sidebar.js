@@ -187,6 +187,18 @@ OET.initSidebar = function () {
       else if (q && !/^\d{3,5}$/.test(q)) geocodeAndShow(q);
     } });
   const geoBtn = h('button', { class: 'sb-reset', text: '📍 Find address', title: 'Geocode the typed street address', onclick: () => { if (lastSugg.length) selectAddress(lastSugg[0]); else geocodeAndShow(search.value); } });
+  const locBtn = h('button', { class: 'sb-reset', text: '📡 Use my location', title: 'Detect your location (no typing)', onclick: () => {
+    if (!navigator.geolocation) { count.textContent = 'Geolocation not available — type an address'; return; }
+    count.textContent = 'Locating…';
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const la = pos.coords.latitude, ln = pos.coords.longitude;
+        const done = (res) => { if (res) selectAddress(res); else { if (OET.setAddressPin) OET.setAddressPin([la, ln], 'My location'); if (OET._map) OET._map.setView([la, ln], 13); apply(); } };
+        if (OET.reverseGeocode) OET.reverseGeocode(la, ln).then(done); else done(null);
+      },
+      () => { count.textContent = 'Location blocked — type an address instead'; },
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 });
+  } });
 
   // Single-select dropdowns (country / source / provider) instead of chip grids —
   // far less sidebar space. They AND together with the search + price filters, and
@@ -417,7 +429,7 @@ OET.initSidebar = function () {
   // Controls stay pinned (their own box); only the plan list scrolls.
   const controls = h('div', { class: 'sb-controls' }, [
     h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]),
-    search, suggestBox, geoBtn, activeBar, filters, cmp, reset,
+    search, suggestBox, h('div', { class: 'sb-chips' }, [geoBtn, locBtn]), activeBar, filters, cmp, reset,
   ]);
   root.appendChild(controls);
   root.appendChild(h('div', { class: 'sb-scroll' }, [list]));

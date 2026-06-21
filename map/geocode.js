@@ -35,6 +35,21 @@ OET.suggestAddress = function (q, near, cc) {
   }).catch(() => []);
 };
 
+// Reverse-geocode the browser's geolocation -> {lat,lng,postcode,cc,label} so a
+// user can tap "use my location" instead of typing. Nominatim reverse, CORS *.
+OET.reverseGeocode = function (lat, lng) {
+  const url = 'https://nominatim.openstreetmap.org/reverse?format=jsonv2&zoom=18&addressdetails=1'
+    + '&lat=' + encodeURIComponent(lat) + '&lon=' + encodeURIComponent(lng);
+  return fetch(url, { headers: { Accept: 'application/json' } })
+    .then((r) => (r.ok ? r.json() : null))
+    .then((a) => {
+      const ad = a && a.address;
+      if (!ad) return null;
+      return { lat: +a.lat, lng: +a.lon, postcode: ad.postcode || null, cc: (ad.country_code || '').toUpperCase(), label: a.display_name || 'My location' };
+    })
+    .catch(() => null);
+};
+
 OET.geocodeAddress = function (q, cc) {
   q = (q || '').trim();
   if (q.length < 3) return Promise.resolve(null);
