@@ -78,7 +78,7 @@ window.OET = window.OET || {};
     add('Country', esc(cName) + (m.region ? ' / ' + esc(m.region) : ''));
     add('Distributor', m.distributor ? esc(m.distributor) : null);
     add('Retailer', esc(m.provider));
-    add('Type', esc(t.kind));
+    add('Type', (OET.isDynamic && OET.isDynamic(rec)) ? '<span style="color:#f97316">Wholesale / spot</span>' : esc(t.kind));
     add('Rate', rec.rate == null ? '—' : `<span class="oet-sw" style="background:${swatch}"></span>${rec.rate} ${esc(cur)}/kWh`);
     if (t.supply && num(t.supply.daily) != null) add('Daily supply', `${t.supply.daily} ${esc(cur)}/day`);
     add('Source', esc(sName));

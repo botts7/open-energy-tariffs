@@ -124,7 +124,7 @@ window.OET = window.OET || {};
       const sup = r.tariff.supply && r.tariff.supply.daily, fin = r.tariff.export && r.tariff.export.flatRate;
       const inCmp = OET.compareSet && OET.compareSet.indexOf(r.id) !== -1;
       html += `<tr data-id="${esc(r.id)}"${r.id === cheapestId ? ' class="tv-best"' : ''}>`
-        + `<td class="tv-name" title="${esc(m.provider + ' · ' + m.plan)}">${r.id === cheapestId ? '<span class="tv-badge">Cheapest</span> ' : ''}${OET.isDynamic && OET.isDynamic(r) ? '<span class="tv-dyn" title="Wholesale / spot pass-through — the rate tracks the live wholesale price, so this is a snapshot and the cost estimate is indicative only, not fixed.">⚡ Wholesale</span> ' : ''}<b>${esc(m.provider)}</b> · ${esc(m.plan)}`
+        + `<td class="tv-name" title="${esc(m.provider + ' · ' + m.plan)}">${r.id === cheapestId ? '<span class="tv-badge">Cheapest</span> ' : ''}<b>${esc(m.provider)}</b> · ${esc(m.plan)}`
         + `<div class="tv-sub">${esc(OET.countryName ? OET.countryName(m.country) : m.country)}${m.region ? '/' + esc(m.region) : ''} `
         + `${OET.maturityPill ? OET.maturityPill(OET.countryMaturity(m.country)) : ''} ${OET.freshPill ? OET.freshPill(m.updated) : ''}</div></td>`
         + `<td class="tv-cost" data-label="Est. cost">${cv == null ? '—' : '~' + Math.round(cv).toLocaleString() + ' ' + esc(cur)}</td>`
@@ -133,7 +133,7 @@ window.OET = window.OET || {};
         + `<td data-label="Rate /kWh">${r.rate == null ? '—' : r.rate.toFixed(3) + ' ' + esc(cur)}</td>`
         + `<td data-label="Supply /day">${sup == null ? '—' : sup.toFixed(3) + ' ' + esc(cur)}</td>`
         + `<td data-label="Feed-in">${fin == null ? '—' : fin.toFixed(3) + ' ' + esc(cur)}</td>`
-        + `<td data-label="Type">${r.tariff.kind === 'tou' ? 'ToU' : 'Flat'}</td>`
+        + `<td data-label="Type">${OET.isDynamic && OET.isDynamic(r) ? '<span style="color:#f97316;font-weight:700" title="Wholesale / spot pass-through — the rate tracks the live wholesale price, so the cost is indicative, not fixed.">Wholesale</span>' : (r.tariff.kind === 'tou' ? 'ToU' : 'Flat')}</td>`
         + `<td data-label="Compare"><input type="checkbox" data-cmp="${esc(r.id)}"${inCmp ? ' checked' : ''} aria-label="Add to compare"></td>`
         + '</tr>';
     }
