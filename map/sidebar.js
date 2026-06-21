@@ -254,7 +254,17 @@ OET.initSidebar = function () {
     OET.applyPlanFilter(pred);
     renderList(visible);
     count.textContent = `${visible.length} / ${plans.length}${note ? ' · ' + note : ''}`;
-    if (focus && OET._map) OET._map.setView(focus, 11);
+    // Postcode search: pin the location and FADE the plan areas, so the pin + the
+    // ranked list lead — not 100+ overlapping whole-network coverage hulls. (Each
+    // matching plan serves its entire distribution network, not just this postcode.)
+    if (focus && OET._map) {
+      if (OET.setSearchPin) OET.setSearchPin(focus);
+      if (OET.setDim) OET.setDim(true);
+      OET._map.setView(focus, 11);
+    } else {
+      if (OET.setSearchPin) OET.setSearchPin(null);
+      if (OET.setDim) OET.setDim(false);
+    }
     syncHash();
   }
 

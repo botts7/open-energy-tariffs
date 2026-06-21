@@ -135,6 +135,7 @@ OET.renderMap = function (plans, meta) {
   // recolour by the LOCAL rate; otherwise USD-equiv. Recolour only on mode change.
   let colorMode = 'usd';
   if (OET._outline == null) OET._outline = false;
+  if (OET._dim == null) OET._dim = false;
   function planColor(r) {
     const single = colorMode.indexOf('local:') === 0;
     const cur = single ? colorMode.slice(6) : null;
@@ -143,14 +144,29 @@ OET.renderMap = function (plans, meta) {
     return OET.rateColor(cRate);
   }
   // Filled choropleth, OR outline mode: a coloured boundary with near-zero fill so
-  // overlapping coverage areas (and the basemap) stay visible.
+  // overlapping coverage areas (and the basemap) stay visible. When _dim is set
+  // (a postcode search is active) every area fades right down so the searched-
+  // postcode pin and the ranked list are what stand out, not 100+ network hulls.
   function styleFor(r) {
     const c = planColor(r);
+    // Dim = NO fill (149 stacked 0.04 fills still read as solid) + a ghost outline,
+    // so the basemap and the searched-postcode pin lead.
+    if (OET._dim) return { color: c, weight: 0.6, opacity: 0.35, fillColor: c, fillOpacity: 0 };
     return OET._outline
       ? { color: c, weight: 2, opacity: 0.9, fillColor: c, fillOpacity: 0.05 }
       : { color: '#333', weight: 1, opacity: 1, fillColor: c, fillOpacity: 0.4 };
   }
   function restyleAll() { for (const r of planRecs) for (const l of r.layers) if (l.setStyle) l.setStyle(styleFor(r)); }
+  // Fade all areas (postcode-search mode) so the pin/list lead, not the hulls.
+  OET.setDim = function (on) { if (OET._dim === !!on) return; OET._dim = !!on; restyleAll(); };
+  // A marker on the searched postcode so you can see WHERE it is amid the coverage.
+  let searchPin = null;
+  OET.setSearchPin = function (latlng) {
+    if (!latlng) { if (searchPin) { map.removeLayer(searchPin); searchPin = null; } return; }
+    if (!searchPin) { searchPin = L.circleMarker(latlng, { radius: 8, color: '#0d47a1', weight: 3, fillColor: '#42a5f5', fillOpacity: 0.95 }).addTo(map); }
+    else searchPin.setLatLng(latlng);
+    if (searchPin.bringToFront) searchPin.bringToFront();
+  };
   function recolor(visibleRecs) {
     const curs = new Set();
     for (const r of visibleRecs) curs.add(r.meta.currency);
