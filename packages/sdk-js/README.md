@@ -13,7 +13,7 @@ import { createClient } from '@open-energy-tariffs/sdk';
 import snapshot from './bundled-tariffs.json' assert { type: 'json' }; // optional offline fallback
 
 const client = createClient({
-  base: 'https://OWNER.github.io/open-energy-tariffs', // set at publish
+  base: 'https://botts7.github.io/open-energy-tariffs', // set at publish
   bundled: { index: snapshot.index, countries: snapshot.countries },
 });
 

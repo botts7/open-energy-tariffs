@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/OWNER/open-energy-tariffs/schema/v1/tariff.schema.json",
+  "$id": "https://github.com/botts7/open-energy-tariffs/schema/v1/tariff.schema.json",
   "title": "Energy tariff entry (canonical v1)",
   "description": "One electricity plan in the neutral, interval-based canonical model. App shapes (e.g. the Wallbox 24-hour band arrays) are produced by build-time adapters from this. Times are LOCAL hour-of-day in the meter's timezone (meta.timezone).",
   "type": "object",

@@ -12,7 +12,7 @@
 export * from './cost.mjs';
 
 // Set to the real Pages/Release base at publish (schema $id OWNER too).
-export const DEFAULT_BASE = 'https://OWNER.github.io/open-energy-tariffs';
+export const DEFAULT_BASE = 'https://botts7.github.io/open-energy-tariffs';
 
 // ---- date helpers (YYYY-MM-DD strings sort chronologically) ----
 export function dayString(d) {

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/OWNER/open-energy-tariffs/schema/adapters/wallbox.schema.json",
+  "$id": "https://github.com/botts7/open-energy-tariffs/schema/adapters/wallbox.schema.json",
   "title": "Wallbox adapter output (24-hour band arrays)",
   "description": "NOT the source schema. This is the shape the `wallbox` build-time adapter EMITS into dist/wallbox/ from the canonical model (schema/v1/tariff.schema.json). The 24-entry weekday/weekend arrays are a lossy projection of the canonical interval schedule, kept for the Wallbox add-on's existing tariff editor. Author new entries against schema/v1, not this.",
   "type": "object",
