@@ -98,6 +98,55 @@ OET.usageFromAnnual = function (annualKwh, shape) {
   return { weekday: perHour.slice(), weekend: perHour.slice() };
 };
 
+// Parse a distributor "wide" interval export (AusNet / NEM-style): a header with
+// NMI, METER SERIAL, CON/GEN, DATE, ESTIMATED?, then 48 half-hourly columns
+// ("00:00 - 00:30" ...). One row per day; CON rows = consumption, GEN rows = solar
+// export. -> { profile:{weekday,weekend}, annualKwh, exportKwh, days } or null.
+OET.parseWideCsv = function (text) {
+  const lines = String(text).split(/\r?\n/).filter((l) => l.trim());
+  if (lines.length < 2) return null;
+  const delim = lines[0].split('\t').length > lines[0].split(',').length ? '\t' : ',';
+  const header = lines[0].split(delim).map((s) => s.trim().replace(/^"|"$/g, ''));
+  const win = /^\d{1,2}:\d{2}\s*-\s*\d{1,2}:\d{2}$/;
+  const intervalCols = [];
+  header.forEach((h, i) => { if (win.test(h)) intervalCols.push(i); });
+  if (intervalCols.length < 20) return null; // not the wide interval format
+  const dateCol = header.findIndex((h) => /date/i.test(h));
+  const cgCol = header.findIndex((h) => /con\s*\/?\s*gen|^con$|^gen$/i.test(h));
+  if (dateCol === -1) return null;
+  const parseDate = (s) => {
+    s = (s || '').trim().replace(/^"|"$/g, '');
+    const m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/); // DD/MM/YYYY (AU)
+    if (m) { const y = +m[3] < 100 ? 2000 + +m[3] : +m[3]; return new Date(y, +m[2] - 1, +m[1]); }
+    const dt = new Date(s); return isNaN(dt.getTime()) ? null : dt;
+  };
+  const con = {}; // 'wd|h' / 'we|h' -> { dateKey: kWh }
+  const conDays = new Set(), genDays = new Set();
+  let exportTotal = 0;
+  for (let r = 1; r < lines.length; r++) {
+    const c = lines[r].split(delim).map((s) => s.trim().replace(/^"|"$/g, ''));
+    if (c.length <= intervalCols[intervalCols.length - 1]) continue;
+    const d = parseDate(c[dateCol]); if (!d) continue;
+    const isGen = cgCol !== -1 && /gen/i.test(c[cgCol] || '');
+    const we = (d.getDay() === 0 || d.getDay() === 6) ? 'we' : 'wd';
+    const dk = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
+    let dayKwh = 0;
+    for (let j = 0; j < intervalCols.length; j++) {
+      const v = parseFloat(c[intervalCols[j]]); if (!isFinite(v)) continue;
+      dayKwh += v;
+      if (!isGen) { const h = Math.floor(j / 2); const k = we + '|' + h; (con[k] = con[k] || {}); con[k][dk] = (con[k][dk] || 0) + v; }
+    }
+    if (isGen) { exportTotal += dayKwh; genDays.add(dk); } else conDays.add(dk);
+  }
+  if (!conDays.size) return null;
+  const avg = (we) => { const out = Array(24).fill(0); for (let h = 0; h < 24; h++) { const days = con[we + '|' + h]; if (!days) continue; const vals = Object.values(days); out[h] = vals.reduce((a, b) => a + b, 0) / vals.length; } return out; };
+  const profile = { weekday: avg('wd'), weekend: avg('we') };
+  const annualKwh = Math.round(profile.weekday.reduce((a, b) => a + b, 0) * 261 + profile.weekend.reduce((a, b) => a + b, 0) * 104);
+  const exportKwh = genDays.size ? Math.round(exportTotal / genDays.size * 365) : 0;
+  if (exportKwh) profile.exportKwh = exportKwh;
+  return { profile, annualKwh, exportKwh, days: conDays.size, hasExport: genDays.size > 0 };
+};
+
 // Parse interval CSV into the raw series for an exact HISTORICAL replay.
 OET.parseIntervals = function (text) {
   const intervals = []; const days = new Set(); let total = 0;

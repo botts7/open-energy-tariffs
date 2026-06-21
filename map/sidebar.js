@@ -217,6 +217,18 @@ OET.initSidebar = function () {
       const f = e.target.files[0]; if (!f) return;
       const rd = new FileReader();
       rd.onload = () => {
+        // Distributor "wide" interval export (AusNet etc.) — 48 half-hourly cols/day.
+        const wide = OET.parseWideCsv ? OET.parseWideCsv(rd.result) : null;
+        if (wide) {
+          state.usage = wide.profile; state.intervals = null;
+          if (wide.exportKwh) { state.exportKwh = String(Math.round(wide.exportKwh / 365 * 10) / 10); exportIn.value = state.exportKwh; }
+          attachExport();
+          state.usageKwh = String(wide.annualKwh); kwhIn.value = wide.annualKwh;
+          cmpNote.textContent = `Detailed export: ${wide.days} days → ~${wide.annualKwh.toLocaleString()} kWh/yr`
+            + (wide.hasExport ? ` + ${wide.exportKwh.toLocaleString()} kWh/yr solar export` : '');
+          updateUsageUI(); apply();
+          return;
+        }
         const r = OET.parseUsageCsv(rd.result);
         const iv = OET.parseIntervals ? OET.parseIntervals(rd.result) : null;
         state.usage = r.profile;
@@ -262,7 +274,7 @@ OET.initSidebar = function () {
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Annual kWh + load shape' }), kwhIn, shapeSel]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or daily kWh by time (peak / shoulder / off-peak)' }), peakIn, shoulderIn, offIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: '☀ Solar export to grid (avg kWh/day) — credits feed-in' }), exportIn]),
-    h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload interval CSV (time,kWh)' }), csvIn]),
+    h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload usage CSV (distributor 48-col export, or time,kWh)' }), csvIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload a bill PDF (best-effort)' }), pdfIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Baseline: my current plan, or my actual annual $' }), currentSel, currentCostIn]),
     cmpNote,
