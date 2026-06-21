@@ -26945,46 +26945,6 @@
           "verified": false
         },
         {
-          "id": "us-al-alabama-power-co-rate-pae-option-a-single-phase",
-          "plan": "Rate PAE - Option A - Single Phase",
-          "verified": false
-        },
-        {
-          "id": "us-al-alabama-power-co-rate-pae-option-a-three-phase",
-          "plan": "Rate PAE - Option A - Three Phase",
-          "verified": false
-        },
-        {
-          "id": "us-al-alabama-power-co-rate-pae-option-b-single-phase-demand-customers",
-          "plan": "Rate PAE - Option B - Single Phase Demand Customers",
-          "verified": false
-        },
-        {
-          "id": "us-al-alabama-power-co-rate-pae-option-b-single-phase-standard-customers",
-          "plan": "Rate PAE - Option B - Single Phase Standard Customers",
-          "verified": false
-        },
-        {
-          "id": "us-al-alabama-power-co-rate-pae-option-b-single-phase-tou-customers",
-          "plan": "Rate PAE - Option B - Single Phase TOU Customers",
-          "verified": false
-        },
-        {
-          "id": "us-al-alabama-power-co-rate-pae-option-b-three-phase",
-          "plan": "Rate PAE - Option B - Three Phase",
-          "verified": false
-        },
-        {
-          "id": "us-al-alabama-power-co-rate-pae-option-c-single-phase",
-          "plan": "Rate PAE - Option C - Single Phase",
-          "verified": false
-        },
-        {
-          "id": "us-al-alabama-power-co-rate-pae-option-c-three-phase",
-          "plan": "Rate PAE - Option C - Three Phase",
-          "verified": false
-        },
-        {
           "id": "us-al-alabama-power-co-rate-rta",
           "plan": "Rate RTA",
           "verified": false
@@ -27741,11 +27701,6 @@
         {
           "id": "us-ca-southern-california-edison-co-time-of-use-tiered-domestic-tou-d-t-region-9",
           "plan": "Time-of-use Tiered Domestic: TOU-D-T - Region 9",
-          "verified": false
-        },
-        {
-          "id": "us-ca-southern-california-edison-co-tou-d-tev-baseline-region-9-partial",
-          "plan": "TOU-D-TEV (baseline region 9) [partial]",
           "verified": false
         }
       ]
