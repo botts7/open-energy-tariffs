@@ -1,16 +1,19 @@
-// Approximate FX (USD per 1 unit of currency, ~2026) so the rate COLOURS are
-// comparable across currencies (e.g. PLN 1.05/kWh vs AUD 0.40/kWh). Illustrative
-// and static — a production map would fetch live rates. Displayed rates stay in
-// each plan's local currency; only the colour bucket uses the USD-equivalent.
+// Foreign-exchange snapshot so rates COLOUR-compare and the ranking's nominal
+// 'sticker price' lens convert to USD. USD per 1 unit of each currency. FX rates
+// are facts (not copyrightable); refreshed at build time and DATE-STAMPED below.
+// Displayed plan rates always stay in their local currency. Note: market FX is
+// noisy; the ranking's PPP lens is the fairer cross-country comparison.
+// Source: open.er-api.com (exchangerate-api.com free endpoint), USD base.
 window.OET = window.OET || {};
+OET.FX_AS_OF = '2026-06-21';
+OET.FX_SOURCE = 'exchangerate-api.com';
 OET.FX = {
-  USD: 1, AUD: 0.65, EUR: 1.08, GBP: 1.27, CAD: 0.73, NZD: 0.60, SGD: 0.74,
-  ZAR: 0.055, BRL: 0.18, JPY: 0.0066, INR: 0.012, PLN: 0.25, CHF: 1.12, MXN: 0.055,
-  SEK: 0.095, NOK: 0.094, DKK: 0.145, KRW: 0.00073,
-  THB: 0.028, MYR: 0.22, PHP: 0.018, IDR: 0.000062, CNY: 0.14, VND: 0.00004,
-  CLP: 0.0011, COP: 0.00025, PEN: 0.27, ARS: 0.0009, TWD: 0.031, HKD: 0.128,
-  AED: 0.272, SAR: 0.267, ILS: 0.27, TRY: 0.029, CZK: 0.043, HUF: 0.0027,
-  RON: 0.217, EGP: 0.020, NGN: 0.00065, KES: 0.0077, PKR: 0.0036, UAH: 0.024,
+  USD: 1.0, AUD: 0.7014, EUR: 1.147, GBP: 1.323, CAD: 0.7068, NZD: 0.5741, SGD: 0.7748,
+  ZAR: 0.06077, BRL: 0.194, JPY: 0.006203, INR: 0.01059, PLN: 0.2694, CHF: 1.24, MXN: 0.05769,
+  SEK: 0.1044, NOK: 0.1032, DKK: 0.1537, KRW: 0.0006532, THB: 0.03041, MYR: 0.2421, PHP: 0.01646,
+  IDR: 5.621e-05, CNY: 0.1473, VND: 3.785e-05, CLP: 0.001113, COP: 0.0002876, PEN: 0.2926, ARS: 0.0006848,
+  TWD: 0.0316, HKD: 0.1276, AED: 0.2723, SAR: 0.2667, ILS: 0.3379, TRY: 0.02153, CZK: 0.04738,
+  HUF: 0.003258, RON: 0.2189, EGP: 0.02003, NGN: 0.0007321, KES: 0.007726, PKR: 0.003568, UAH: 0.02227,
 };
 
 // rate (local) -> USD-equivalent number (or the rate unchanged if currency unknown).

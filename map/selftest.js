@@ -51,6 +51,10 @@ OET.selfTest = async function (opts) {
   ok('cost: TOU breakdown has >=2 bands', !aTou || OET.costBreakdown(aTou.tariff, usage).bands.length >= 2);
   ok('cost: flat breakdown has 1 band', !aFlat || OET.costBreakdown(aFlat.tariff, usage).bands.length === 1);
 
+  // ---- FX (dated snapshot) -----------------------------------------------
+  ok('fx: dated snapshot present (YYYY-MM-DD)', /^\d{4}-\d{2}-\d{2}$/.test(OET.FX_AS_OF || ''), OET.FX_AS_OF);
+  ok('fx: toUsd converts a known currency sanely', (() => { const u = OET.toUsd(1, 'AUD'); return u > 0.4 && u < 1; })());
+
   // ---- CSV PARSERS -------------------------------------------------------
   const long = ['2025-01-01 00:00,0.5', '2025-01-01 00:30,0.4', '2025-06-15 18:00,1.2'].join('\n');
   const cols = []; for (let h = 0; h < 24; h++) { const a = String(h).padStart(2, '0'); cols.push(`${a}:00 - ${a}:30`, `${a}:30 - ${String((h + 1) % 24).padStart(2, '0')}:00`); }

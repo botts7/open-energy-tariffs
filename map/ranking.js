@@ -50,7 +50,7 @@ window.OET = window.OET || {};
 
   // ---- panel UI ----------------------------------------------------------
   const METRICS = [
-    { id: 'nominal', label: 'Sticker price', unit: 'USD/kWh', fmt: (v) => '$' + v.toFixed(3), help: 'Price in US dollars at market exchange rates.' },
+    { id: 'nominal', label: 'Sticker price', unit: 'USD/kWh', fmt: (v) => '$' + v.toFixed(3), help: 'Price in US dollars at market exchange rates (FX as of ' + (OET.FX_AS_OF || 'n/a') + '). Market FX is noisy — PPP is the fairer comparison.' },
     { id: 'ppp', label: 'PPP-adjusted', unit: 'int$/kWh', fmt: (v) => v.toFixed(3), help: 'Adjusted for cost-of-living (purchasing-power parity). Fairer real price.' },
     { id: 'afford', label: 'Affordability', unit: '% income/yr', fmt: (v) => v.toFixed(2) + '%', help: 'Cost of ' + REF_KWH + ' kWh/yr as a share of GNI per capita (PPP).' },
   ];
@@ -112,7 +112,7 @@ window.OET = window.OET || {};
       + '<div class="oet-rbody"></div>'
       + `<div class="oet-rfoot">Ranked cheapest→dearest by the median of our community plans; the bar shows each country’s min–max spread. `
       + `${OET.maturityPill ? OET.maturityPill('beta') + ' = real source data (AER/URDB), unverified · ' + OET.maturityPill('experimental') + ' = illustrative example plans. ' : ''}`
-      + `Income/PPP: World Bank (CC BY 4.0). Prices: community-maintained, verify your bill.</div>`
+      + `Income/PPP: World Bank (CC BY 4.0); FX ${OET.FX_AS_OF || 'n/a'} via exchangerate-api.com. Prices: community-maintained, verify your bill.</div>`
       + '</div>';
     document.body.appendChild(back);
     const bodyEl = back.querySelector('.oet-rbody'), helpEl = back.querySelector('.oet-rhelp');
