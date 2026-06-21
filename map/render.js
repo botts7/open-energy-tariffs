@@ -153,6 +153,48 @@ OET.renderMap = function (plans, meta) {
   OET._map = map;
   OET.PLANS = planRecs;
 
+  // Country overview: countries whose plans are ALL postcode-based (e.g. AU) have
+  // no national polygon, so they'd be blank at the world view. Shade each such
+  // country by the MEDIAN rate of its plans — a light, always-on layer the detailed
+  // hulls draw on top of when you zoom/filter in.
+  (function countryOverview() {
+    const byCountry = {}, hasNational = {};
+    for (const r of planRecs) {
+      (byCountry[r.meta.country] = byCountry[r.meta.country] || []).push(r);
+      if (r.meta.coverage && r.meta.coverage.national) hasNational[r.meta.country] = true;
+    }
+    const summaryGroup = L.layerGroup().addTo(coverageLayer);
+    for (const c in byCountry) {
+      if (hasNational[c]) continue; // already shaded by its own national plan
+      const recs = byCountry[c];
+      const rates = recs.map((r) => r.rate).filter((v) => typeof v === 'number').sort((a, b) => a - b);
+      if (!rates.length) continue;
+      const medLocal = rates[Math.floor(rates.length / 2)];
+      const medUsd = OET.toUsd ? OET.toUsd(medLocal, recs[0].meta.currency) : medLocal;
+      const ng = OET.nationalGeometry && OET.nationalGeometry(c);
+      if (!ng) continue;
+      const style = { renderer, color: '#333', weight: 1, fillColor: OET.rateColor(medUsd), fillOpacity: 0.4 };
+      const cur = recs[0].meta.currency;
+      const pop = `<strong>${esc(OET.countryName ? OET.countryName(c) : c)}</strong><br>`
+        + `${recs.length.toLocaleString()} plans · median ~${medLocal.toFixed(3)} ${esc(cur)}/kWh<br>`
+        + `<span style="color:#777">filter by postcode / provider for plan detail</span>`;
+      const layer = (ng.type === 'polygon') ? L.geoJSON(ng.geojson, { renderer, style }) : L.circle(ng.latlng, Object.assign({ radius: 250000 }, style));
+      layer.bindPopup(pop).addTo(summaryGroup);
+    }
+  })();
+
+  // Zoom the map to the bounds of the plans matching a predicate (used when a
+  // geographic dropdown — country / distributor / provider — changes).
+  OET.fitToFiltered = function (pred) {
+    let b = null;
+    for (const r of planRecs) {
+      if (pred && !pred(r)) continue;
+      if (!r.bounds) continue;
+      b = b ? b.extend(r.bounds) : L.latLngBounds(r.bounds.getSouthWest(), r.bounds.getNorthEast());
+    }
+    if (b && b.isValid()) map.fitBounds(b, { padding: [30, 30], maxZoom: 10 });
+  };
+
   // Zoom to a plan + open its popup (called from the sidebar).
   // Fast: just zoom to the plan's (hull) coverage + open its popup. No network.
   OET.focusPlan = function (id) {

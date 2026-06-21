@@ -116,15 +116,15 @@ OET.initSidebar = function () {
   // far less sidebar space. They AND together with the search + price filters, and
   // every control persists in the shareable URL hash.
   const cname = OET.countryName, sname = OET.sourceName;
-  const countrySel = h('select', { class: 'sb-input', onchange: (e) => { state.countries.clear(); if (e.target.value) state.countries.add(e.target.value); apply(); } },
+  const countrySel = h('select', { class: 'sb-input', onchange: (e) => { state.countries.clear(); if (e.target.value) state.countries.add(e.target.value); apply(true); } },
     [h('option', { value: '', text: 'All countries' })].concat(
       countries.slice().sort((a, b) => cname(a).localeCompare(cname(b))).map((c) => h('option', { value: c, text: cname(c) }))));
   const sourceSel = h('select', { class: 'sb-input', onchange: (e) => { state.sources.clear(); if (e.target.value) state.sources.add(e.target.value); apply(); } },
     [h('option', { value: '', text: 'All sources' })].concat(
       sources.slice().sort((a, b) => sname(a).localeCompare(sname(b))).map((s) => h('option', { value: s, text: sname(s) }))));
-  const providerSel = h('select', { class: 'sb-input', onchange: (e) => { state.provider = e.target.value; apply(); } },
+  const providerSel = h('select', { class: 'sb-input', onchange: (e) => { state.provider = e.target.value; apply(true); } },
     [h('option', { value: '', text: 'All providers' })].concat(providers.map((p) => h('option', { value: p, text: p }))));
-  const distributorSel = h('select', { class: 'sb-input', onchange: (e) => { state.distributor = e.target.value; apply(); } },
+  const distributorSel = h('select', { class: 'sb-input', onchange: (e) => { state.distributor = e.target.value; apply(true); } },
     [h('option', { value: '', text: 'All networks (distributors)' })].concat(distributors.map((d) => h('option', { value: d, text: d }))));
   const kindSel = h('select', { class: 'sb-input', onchange: (e) => { state.kind = e.target.value; apply(); } },
     [['', 'All rate types'], ['flat', 'Flat / single rate'], ['tou', 'Time-of-use']].map(([v, t]) => h('option', { value: v, text: t })));
@@ -395,7 +395,7 @@ OET.initSidebar = function () {
     if (state.outline) n++;
     return n;
   }
-  function apply() {
+  function apply(fit) {
     OET._usage = state.usage; // expose to the compare modal's annual-cost row
     const { pred, note, focus, pc } = buildPredicate();
     const visible = plans.filter(pred);
@@ -414,6 +414,8 @@ OET.initSidebar = function () {
     if (pc && OET.showPostcodeArea) OET.showPostcodeArea(pc, focus);
     else if (OET.clearPostcodeArea) OET.clearPostcodeArea();
     if (!pc && focus && OET._map) OET._map.setView(focus, 11);
+    // Geographic dropdown change -> zoom the map to the filtered area.
+    if (fit && !pc && OET.fitToFiltered) OET.fitToFiltered(pred);
     syncHash();
   }
 
