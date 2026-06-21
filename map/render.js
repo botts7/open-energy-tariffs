@@ -117,7 +117,12 @@ OET.renderMap = function (plans, meta) {
     const recLayers = [];
     let recHeavy = false; // postcode-hull plans (the AU mass) — rendered on demand only
 
-    if (points.length || boundary || cov.national) {
+    // Plans with only a state/province region (e.g. US URDB plans: utility-level,
+    // no postcodes/boundary/national) shade that province polygon when we have one.
+    const provKey = (!points.length && !boundary && !cov.national && m.region) ? (m.country + '-' + m.region) : null;
+    const regionGeo = (provKey && OET.PROVINCES && OET.PROVINCES[provKey]) || null;
+
+    if (points.length || boundary || cov.national || regionGeo) {
       const group = groups[src] || (groups[src] = L.layerGroup().addTo(coverageLayer));
       const popup = (extra) => popupHtml(m, tariff, rate) + (extra ? `<br><span style="color:#777">${esc(extra)}</span>` : '');
       // heavy layers are NOT added to the map up front (5000+ would tank the fps);
@@ -148,6 +153,11 @@ OET.renderMap = function (plans, meta) {
         const tag = 'national' + (m.region ? ' · ' + m.region : '');
         if (ng && ng.type === 'polygon') { add(L.geoJSON(ng.geojson, { style: areaStyle(cRate) }).bindPopup(popup(tag))); mapped++; }
         else if (ng) { add(L.circle(ng.latlng, Object.assign({ radius: 250000 }, areaStyle(cRate))).bindPopup(popup(tag))); mapped++; }
+      } else if (regionGeo) {
+        // State/province shading, drawn on demand (heavy) so many US plans in one
+        // state don't stack hundreds of polygons on the world view.
+        add(L.geoJSON({ type: 'Feature', geometry: regionGeo }, { style: areaStyle(cRate) }).bindPopup(popup('region · ' + m.region)), true);
+        mapped++;
       }
     } else unmapped++;
 

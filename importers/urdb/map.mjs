@@ -119,5 +119,11 @@ export function mapRate(item, opts = {}) {
     ...(coverage ? { coverage } : {}),
   };
 
+  // Skip plans with no usable energy rate (URDB has demand-only / rider tariffs
+  // whose energy price is 0 — noise in a price-comparison DB). run.mjs catches
+  // the throw and skips the item.
+  const maxRate = Math.max(tariff.import.flatRate || 0, ...(tariff.import.bands || []).map((b) => b.rate || 0), 0);
+  if (maxRate <= 0) throw new Error('no positive energy rate (demand-only / rider) — skipped');
+
   return { meta, tariff };
 }
