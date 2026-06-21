@@ -59,6 +59,7 @@ function makeCombo(initialOptions, placeholder, onPick) {
     if (exact) pick(exact); else input.value = labelOf(curValue);
   }
   const input = h('input', { type: 'text', class: 'sb-input', placeholder,
+    name: 'flt-' + String(placeholder).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
     oninput: () => render(input.value),
     onfocus: () => render(input.value),
     onkeydown: (e) => { if (e.key === 'Escape') dd.textContent = ''; else if (e.key === 'Enter') { const f = filtered(input.value)[0]; if (f) pick(f); } },
@@ -124,7 +125,7 @@ OET.initSidebar = function () {
   }
   const looksAddressy = (q) => /\d/.test(q) || (/\s/.test(q) && q.length >= 6);
   const suggestBox = h('div', { class: 'sb-sugg' });
-  const search = h('input', { type: 'search', placeholder: 'Address, postcode, suburb, provider…', class: 'sb-input',
+  const search = h('input', { type: 'search', placeholder: 'Address, postcode, suburb, provider…', class: 'sb-input', name: 'q',
     oninput: (e) => {
       const raw = e.target.value.trim();
       state.text = raw.toLowerCase();
@@ -157,7 +158,7 @@ OET.initSidebar = function () {
   const countryCombo = makeCombo(
     [{ value: '', label: 'All countries' }].concat(countries.slice().sort((a, b) => cname(a).localeCompare(cname(b))).map((c) => ({ value: c, label: cname(c) }))),
     'All countries (type to search)', (v) => { state.countries.clear(); if (v) state.countries.add(v); refreshDependentOptions(); apply(true); });
-  const sourceSel = h('select', { class: 'sb-input', onchange: (e) => { state.sources.clear(); if (e.target.value) state.sources.add(e.target.value); refreshDependentOptions(); apply(); } },
+  const sourceSel = h('select', { class: 'sb-input', name: 'source', onchange: (e) => { state.sources.clear(); if (e.target.value) state.sources.add(e.target.value); refreshDependentOptions(); apply(); } },
     [h('option', { value: '', text: 'All sources' })].concat(
       sources.slice().sort((a, b) => sname(a).localeCompare(sname(b))).map((s) => h('option', { value: s, text: sname(s) }))));
   const providerCombo = makeCombo(
@@ -181,20 +182,20 @@ OET.initSidebar = function () {
       currentCombo.setOptions([{ value: '', label: 'My current plan (optional)…' }].concat(cps)); currentCombo.setValue(state.currentPlanId);
     }
   }
-  const kindSel = h('select', { class: 'sb-input', onchange: (e) => { state.kind = e.target.value; apply(); } },
+  const kindSel = h('select', { class: 'sb-input', name: 'kind', onchange: (e) => { state.kind = e.target.value; apply(); } },
     [['', 'All rate types'], ['flat', 'Flat / single rate'], ['tou', 'Time-of-use']].map(([v, t]) => h('option', { value: v, text: t })));
-  const sortSel = h('select', { class: 'sb-input', onchange: (e) => { state.sort = e.target.value; apply(); } },
+  const sortSel = h('select', { class: 'sb-input', name: 'sort', onchange: (e) => { state.sort = e.target.value; apply(); } },
     [['az', 'Sort: Provider A–Z'], ['rate-asc', 'Sort: Rate (low→high)'], ['rate-desc', 'Sort: Rate (high→low)'], ['cost', 'Sort: Cheapest for typical use']].map(([v, t]) => h('option', { value: v, text: t })));
 
-  const minIn = h('input', { type: 'number', step: '0.01', placeholder: 'min', class: 'sb-num',
+  const minIn = h('input', { type: 'number', step: '0.01', placeholder: 'min', class: 'sb-num', name: 'min',
     oninput: (e) => { state.min = e.target.value; apply(); } });
-  const maxIn = h('input', { type: 'number', step: '0.01', placeholder: 'max', class: 'sb-num',
+  const maxIn = h('input', { type: 'number', step: '0.01', placeholder: 'max', class: 'sb-num', name: 'max',
     oninput: (e) => { state.max = e.target.value; apply(); } });
   const priceRow = h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Rate/kWh' }), minIn, h('span', { text: '–' }), maxIn]);
 
   // Outline mode: draw areas as coloured boundaries (almost no fill) so overlapping
   // coverage areas and the basemap stay visible.
-  const outlineCb = h('input', { type: 'checkbox', onchange: (e) => { state.outline = e.target.checked; if (OET.setOutline) OET.setOutline(state.outline); syncHash(); } });
+  const outlineCb = h('input', { type: 'checkbox', name: 'outline', onchange: (e) => { state.outline = e.target.checked; if (OET.setOutline) OET.setOutline(state.outline); syncHash(); } });
   const outlineRow = h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Display' }),
     h('label', { class: 'sb-chip' }, [outlineCb, h('span', { text: 'Outline (show overlaps)' })])]);
 
@@ -256,19 +257,19 @@ OET.initSidebar = function () {
     updateUsageUI();
     apply();
   }
-  const kwhIn = h('input', { type: 'number', step: '100', placeholder: 'annual kWh', class: 'sb-num sb-numw',
+  const kwhIn = h('input', { type: 'number', step: '100', placeholder: 'annual kWh', class: 'sb-num sb-numw', name: 'kwh',
     oninput: (e) => { state.usageKwh = e.target.value; recomputeUsage(); } });
-  const shapeSel = h('select', { class: 'sb-input', onchange: (e) => { state.shape = e.target.value; recomputeUsage(); } },
+  const shapeSel = h('select', { class: 'sb-input', name: 'shape', onchange: (e) => { state.shape = e.target.value; recomputeUsage(); } },
     [['flat', 'Flat (even)'], ['daytime', 'Daytime-heavy'], ['evening', 'Evening-heavy'], ['night_ev', 'Night / EV']]
       .map(([v, t]) => h('option', { value: v, text: t })));
-  const bandNum = (key, ph, tip) => h('input', { type: 'number', step: '0.5', min: '0', placeholder: ph, title: tip, class: 'sb-num',
+  const bandNum = (key, ph, tip) => h('input', { type: 'number', step: '0.5', min: '0', placeholder: ph, title: tip, class: 'sb-num', name: key,
     oninput: (e) => { state[key] = e.target.value; recomputeBands(); } });
   const peakIn = bandNum('bandPeak', 'peak', 'Peak kWh per day'),
     shoulderIn = bandNum('bandShoulder', 'shldr', 'Shoulder kWh per day'),
     offIn = bandNum('bandOff', 'off', 'Off-peak kWh per day');
-  const exportIn = h('input', { type: 'number', step: '0.5', min: '0', placeholder: 'kWh/day', title: 'Average solar export to the grid per day — credits each plan’s feed-in rate', class: 'sb-num sb-numw',
+  const exportIn = h('input', { type: 'number', step: '0.5', min: '0', placeholder: 'kWh/day', name: 'export', title: 'Average solar export to the grid per day — credits each plan’s feed-in rate', class: 'sb-num sb-numw',
     oninput: (e) => { state.exportKwh = e.target.value; recomputeExport(); } });
-  const csvIn = h('input', { type: 'file', accept: '.csv', class: 'sb-input',
+  const csvIn = h('input', { type: 'file', accept: '.csv', class: 'sb-input', name: 'csv',
     onchange: (e) => {
       const f = e.target.files[0]; if (!f) return;
       const rd = new FileReader();
@@ -290,7 +291,7 @@ OET.initSidebar = function () {
       };
       rd.readAsText(f);
     } });
-  const pdfIn = h('input', { type: 'file', accept: '.pdf', class: 'sb-input',
+  const pdfIn = h('input', { type: 'file', accept: '.pdf', class: 'sb-input', name: 'pdf',
     onchange: (e) => {
       const f = e.target.files[0]; if (!f || !OET.parseBillPdf) return;
       cmpNote.textContent = 'Reading bill PDF…';
@@ -316,7 +317,7 @@ OET.initSidebar = function () {
     'My current plan (search)', (v) => { state.currentPlanId = v; apply(); });
   // Or compare against what you ACTUALLY pay (annual) — the ground truth even if
   // your exact plan isn't in the DB. Auto-filled from a bill PDF's total.
-  const currentCostIn = h('input', { type: 'number', step: '10', placeholder: 'actual $/yr', class: 'sb-num sb-numw',
+  const currentCostIn = h('input', { type: 'number', step: '10', placeholder: 'actual $/yr', class: 'sb-num sb-numw', name: 'actual-cost',
     oninput: (e) => { state.currentCostActual = e.target.value; apply(); } });
   const cmp = h('details', { class: 'sb-cmp' }, [
     h('summary', { text: 'Compare to my usage' }),
