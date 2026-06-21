@@ -253,7 +253,7 @@ OET.initSidebar = function () {
   // Outline mode: draw areas as coloured boundaries (almost no fill) so overlapping
   // coverage areas and the basemap stay visible.
   const outlineCb = h('input', { type: 'checkbox', name: 'outline', onchange: (e) => { state.outline = e.target.checked; if (OET.setOutline) OET.setOutline(state.outline); syncHash(); } });
-  const outlineRow = h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Display' }),
+  const outlineRow = h('div', { class: 'sb-chips sb-maponly' }, [h('span', { class: 'sb-lbl', text: 'Display (map)' }),
     h('label', { class: 'sb-chip' }, [outlineCb, h('span', { text: 'Outline (show overlaps)' })])]);
 
   function resetAll() {
@@ -429,10 +429,12 @@ OET.initSidebar = function () {
   // Controls stay pinned (their own box); only the plan list scrolls.
   const controls = h('div', { class: 'sb-controls' }, [
     h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]),
-    search, suggestBox, h('div', { class: 'sb-chips' }, [geoBtn, locBtn]), activeBar, filters, cmp, reset,
+    search, suggestBox, h('div', { class: 'sb-chips' }, [geoBtn, locBtn]), activeBar, filters, cmp,
   ]);
-  root.appendChild(controls);
-  root.appendChild(h('div', { class: 'sb-scroll' }, [list]));
+  // Scrolling body (config + list) + a pinned footer for the always-on actions.
+  root.appendChild(h('div', { class: 'sb-scrollwrap' }, [controls, h('div', { class: 'sb-scroll' }, [list])]));
+  const sbFooter = h('div', { class: 'sb-footer' }, [reset]);
+  root.appendChild(sbFooter);
 
   // Build the filter predicate. Postcode queries (3-5 digits) are special:
   //  - 3 digits = area prefix (e.g. 300 -> 3000-3099);
@@ -527,7 +529,7 @@ OET.initSidebar = function () {
         subEl.appendChild(h('span', { class: d < 0 ? 'sb-save' : 'sb-cost', text: ` · ${d < 0 ? 'save ' : '+'}${Math.abs(Math.round(d)).toLocaleString()} ${m.currency}/yr` }));
       }
       const row = h('div', { class: 'sb-row' + (r.located ? '' : ' sb-nolocate') + (best && !isCurrent ? ' sb-bestrow' : '') + (isCurrent ? ' sb-currow' : ''), onclick: () => { if (OET.showPlanModal) OET.showPlanModal(r); else OET.focusPlan(r.id); } },
-        [sw, h('div', {}, [h('div', { class: 'sb-title' }, kids), subEl])]);
+        [sw, h('div', {}, [h('div', { class: 'sb-title', title: m.provider + ' · ' + m.plan }, kids), subEl])]);
       list.appendChild(row);
     }
     if (arr.length > cap) list.appendChild(h('div', { class: 'sb-more', text: `…and ${arr.length - cap} more (refine filters)` }));
@@ -568,6 +570,12 @@ OET.initSidebar = function () {
     const visible = plans.filter(pred);
     OET.applyPlanFilter(pred);
     renderList(visible);
+    // Feed the same filtered set + usage to the Table view (comparison layer).
+    OET._visible = visible;
+    OET._tableUsage = state.usage || typicalUsage;
+    OET._tableUsageReal = !!state.usage;
+    OET._tableSort = state.sort;
+    if (OET.onResults) OET.onResults();
     const hidden = OET._suppressedHeavy ? ` · ${OET._suppressedHeavy.toLocaleString()} areas hidden — pick a country/postcode/provider to map them` : '';
     count.textContent = `${visible.length} / ${plans.length}${note ? ' · ' + note : ''}${hidden}`;
     // Reflect active filters on the (collapsible) summary, and reveal them if a
@@ -641,11 +649,11 @@ OET.initSidebar = function () {
       () => { copyBtn.textContent = '✓ Copied'; setTimeout(() => { copyBtn.textContent = '🔗 Copy link'; }, 1500); },
       () => { window.prompt('Copy this link:', url); });
   } });
-  reset.after(copyBtn);
+  sbFooter.appendChild(copyBtn);
 
   // Compare launcher — opens the side-by-side compare modal; label tracks count.
   const compareBtn = h('button', { class: 'sb-reset', text: 'Compare (0)', onclick: () => { if (OET.showCompareModal) OET.showCompareModal(); } });
-  copyBtn.after(compareBtn);
+  sbFooter.appendChild(compareBtn);
   OET._onCompareChange = () => { compareBtn.textContent = `Compare (${(OET.compareSet || []).length})`; syncHash(); };
 
   // Quick-nav API for the top-bar universal search: each is a focused jump
@@ -660,6 +668,49 @@ OET.initSidebar = function () {
     refreshDependentOptions();
     apply(true);
     document.body.classList.remove('nav-open');
+  };
+
+  // Set the user's annual usage from the wizard (or anywhere). Drives the cost
+  // estimates + the table savings.
+  OET.setUsage = function (kwh, shape) {
+    state.usageKwh = kwh ? String(kwh) : '';
+    if (kwhIn) kwhIn.value = state.usageKwh;
+    state.shape = shape || 'flat'; if (shapeSel) shapeSel.value = state.shape;
+    recomputeUsage();
+  };
+  OET.setSolar = function (perDay) { state.exportKwh = perDay ? String(perDay) : ''; if (exportIn) exportIn.value = state.exportKwh; recomputeExport(); };
+  OET.setActualCost = function (v) { state.currentCostActual = v ? String(v) : ''; if (currentCostIn) currentCostIn.value = state.currentCostActual; apply(); };
+  // Load an interval/usage CSV (same parser registry as the sidebar). -> Promise<res|null>.
+  OET.loadUsageFile = function (file) {
+    return new Promise((resolve) => {
+      const rd = new FileReader();
+      rd.onload = () => {
+        const res = OET.parseUsageFile ? OET.parseUsageFile(rd.result) : null;
+        if (!res) { resolve(null); return; }
+        state.usage = res.profile; state.intervals = res.intervals || null;
+        if (res.exportKwh) { state.exportKwh = String(Math.round(res.exportKwh / 365 * 10) / 10); if (exportIn) exportIn.value = state.exportKwh; }
+        attachExport();
+        state.usageKwh = String(state.intervals ? state.intervals.totalKwh : res.annualKwh); if (kwhIn) kwhIn.value = state.usageKwh;
+        updateUsageUI(); apply(); resolve(res);
+      };
+      rd.readAsText(file);
+    });
+  };
+  // Load a bill PDF (best-effort). -> Promise<{totalKwh,totalCost}|null>.
+  OET.loadBillFile = function (file) {
+    return new Promise((resolve) => {
+      if (!OET.parseBillPdf) { resolve(null); return; }
+      const rd = new FileReader();
+      rd.onload = async () => {
+        try {
+          const { totalKwh, totalCost } = await OET.parseBillPdf(rd.result);
+          if (totalKwh) { state.usageKwh = String(Math.round(totalKwh)); if (kwhIn) kwhIn.value = Math.round(totalKwh); }
+          if (totalCost) { state.currentCostActual = String(Math.round(totalCost)); if (currentCostIn) currentCostIn.value = Math.round(totalCost); }
+          recomputeUsage(); resolve({ totalKwh, totalCost });
+        } catch (_) { resolve(null); }
+      };
+      rd.readAsArrayBuffer(file);
+    });
   };
 
   restore();

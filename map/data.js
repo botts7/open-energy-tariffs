@@ -38,3 +38,14 @@ OET.planRate = function (tariff) {
   }
   return tariff.import ? tariff.import.flatRate ?? null : null;
 };
+
+// Wholesale / spot pass-through plans (Amber, Globird WHOLESAVE, Octopus Agile…)
+// are NOT fixed — the rate tracks the live wholesale price, so a stored rate is a
+// snapshot and the cost estimate is unreliable. Flag them so they're not ranked
+// as fixed (e.g. never crowned 'Cheapest'). Detect by provider + plan name.
+OET.isDynamic = function (rec) {
+  const m = (rec && rec.meta) || {};
+  const p = String(m.provider || '').toLowerCase(), n = String(m.plan || '').toLowerCase();
+  return /\bamber\b/.test(p)
+    || /wholesale|wholesave|spot[- ]?price|\bspot\b|market[- ]?linked|\bagile\b|real[- ]?time price/.test(n);
+};

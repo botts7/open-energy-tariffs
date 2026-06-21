@@ -78,7 +78,7 @@ window.OET = window.OET || {};
     add('Country', esc(cName) + (m.region ? ' / ' + esc(m.region) : ''));
     add('Distributor', m.distributor ? esc(m.distributor) : null);
     add('Retailer', esc(m.provider));
-    add('Type', esc(t.kind));
+    add('Type', (OET.isDynamic && OET.isDynamic(rec)) ? '<span style="color:#f97316">Wholesale / spot</span>' : esc(t.kind));
     add('Rate', rec.rate == null ? '—' : `<span class="oet-sw" style="background:${swatch}"></span>${rec.rate} ${esc(cur)}/kWh`);
     if (t.supply && num(t.supply.daily) != null) add('Daily supply', `${t.supply.daily} ${esc(cur)}/day`);
     add('Source', esc(sName));
@@ -109,7 +109,10 @@ window.OET = window.OET || {};
       }
     }
 
-    let body = `<dl class="oet-kv">${kv.join('')}</dl>` + deregNote;
+    const dynNote = (OET.isDynamic && OET.isDynamic(rec))
+      ? `<div class="oet-note" style="margin-top:8px;border-color:rgba(249,115,22,.5);background:rgba(249,115,22,.1)">⚡ <b>Wholesale / spot plan:</b> the rate tracks the <b>live wholesale price</b> (Amber-style), so the rate shown is a <b>snapshot</b> and the annual cost is <b>indicative only</b> — your real cost swings with the market and when you use power.</div>`
+      : '';
+    let body = `<dl class="oet-kv">${kv.join('')}</dl>` + dynNote + deregNote;
     // Detailed cost for the user's loaded/entered usage — what this plan would cost.
     const bd = (OET._usage && OET.costBreakdown) ? OET.costBreakdown(t, OET._usage) : null;
     if (bd) {

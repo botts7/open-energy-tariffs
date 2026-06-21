@@ -23,6 +23,12 @@ OET.selfTest = async function (opts) {
   ok('data: every plan has a finite rate > 0', P.every(r => typeof r.rate === 'number' && isFinite(r.rate) && r.rate > 0),
     P.filter(r => !(typeof r.rate === 'number' && isFinite(r.rate) && r.rate > 0)).slice(0, 3).map(r => r.id).join(', '));
   ok('data: every plan has currency + source + license', P.every(r => r.meta.currency && r.meta.source && r.meta.license));
+  ok('data: wholesale/spot plans flagged dynamic (Amber yes, fixed no)', (() => {
+    if (!OET.isDynamic) return false;
+    const amber = P.find(r => /amber/i.test(r.meta.provider));
+    const fixed = P.find(r => /smart saver/i.test(r.meta.plan) && !/wholesale/i.test(r.meta.plan));
+    return (!amber || OET.isDynamic(amber)) && (!fixed || !OET.isDynamic(fixed));
+  })());
   const unlocated = P.filter(r => !r.located);
   ok('data: every plan locates on the map', unlocated.length === 0, unlocated.map(r => r.id).join(', '));
   // national plans must resolve a geometry
@@ -109,6 +115,22 @@ OET.selfTest = async function (opts) {
     ok('baseline: a corroborated country (DE) is promoted to Beta', OET.countryMaturity('DE') === 'beta');
     ok('baseline: a country with no reference returns null', OET.crossCheck('AU') === null);
     ok('baseline: US per-state cross-check is callable + graceful', typeof OET.crossCheckRegion === 'function' && OET.crossCheckRegion('XX', 'YY') === null);
+  }
+
+  // ---- TABLE (comparison view) -------------------------------------------
+  if (OET.setView && OET.renderTable && document.getElementById('tableview')) {
+    OET.setView('table');
+    const tvRows = document.querySelectorAll('#tableview tbody tr').length;
+    ok('table: renders rows in the comparison view', tvRows > 0);
+    // costs display in LOCAL currency; the sort is USD-normalised — convert before checking.
+    const usdCosts = [...document.querySelectorAll('#tableview .tv-cost')].slice(0, 10).map((e) => {
+      const m = String(e.textContent).match(/([\d,.]+)\s*([A-Z]{3})/);
+      if (!m) return null;
+      const v = parseFloat(m[1].replace(/,/g, ''));
+      return OET.toUsd ? OET.toUsd(v, m[2]) : v;
+    }).filter((v) => v != null);
+    ok('table: default sort is cheapest-first (USD-normalised)', usdCosts.every((c, i) => i === 0 || usdCosts[i - 1] <= c + 0.01));
+    OET.setView('map');
   }
 
   // ---- GEOCODING (online; the class of bug that kept biting) --------------
