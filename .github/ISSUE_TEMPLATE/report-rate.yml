@@ -1,0 +1,54 @@
+name: Report an incorrect rate
+description: A plan's rate looks wrong or out of date? Tell us — confirmed reports move a plan toward "verified".
+title: "[rate] <plan id>"
+labels: ["rate-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep the data honest. Share only plan **facts** —
+        never your account number, NMI/MPAN, meter id, name, address, email or
+        phone. The map's "Report incorrect rate" button pre-fills the plan id for you.
+  - type: input
+    id: plan-id
+    attributes:
+      label: Plan id
+      description: From the plan's details (meta.id), e.g. au-vic-agl-residential-smart-saver--citipower
+      placeholder: country-region-distributor-provider-plan
+    validations: { required: true }
+  - type: dropdown
+    id: field
+    attributes:
+      label: What looks wrong?
+      options:
+        - Energy rate (c/kWh)
+        - Daily supply charge
+        - Solar feed-in / export rate
+        - Time-of-use bands or schedule
+        - Coverage / which area it serves
+        - Other
+    validations: { required: true }
+  - type: input
+    id: shown
+    attributes:
+      label: What the site currently shows
+      placeholder: e.g. 0.04 AUD/kWh
+  - type: input
+    id: correct
+    attributes:
+      label: What it should be
+      placeholder: e.g. 0.28 AUD/kWh (incl. supply ~0.10/day)
+    validations: { required: true }
+  - type: input
+    id: source
+    attributes:
+      label: Source / evidence (link)
+      description: A regulator, the retailer's published rates, or your bill (with personal details removed).
+      placeholder: https://...
+  - type: checkboxes
+    id: no-pii
+    attributes:
+      label: Confirmation
+      options:
+        - label: This report contains no personal data (account/meter/name/address).
+          required: true

@@ -29,7 +29,7 @@ window.OET = window.OET || {};
       + '.oet-sw{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px;border:1px solid rgba(0,0,0,.2)}'
       + '.oet-note{font-size:12px;color:var(--text,#475569);background:var(--hover,#f8fafc);border:1px solid var(--border,#eef2f7);border-radius:6px;padding:8px 10px;line-height:1.4}'
       + '.oet-mfoot{display:flex;gap:8px;justify-content:flex-end;padding:12px 16px;border-top:1px solid var(--border,#e2e8f0);position:sticky;bottom:0;background:var(--panel,#fff)}'
-      + '.oet-btn{padding:7px 14px;border-radius:6px;border:1px solid var(--input-bd,#cbd5e1);background:var(--chip,#f8fafc);color:var(--text,#1a2233);cursor:pointer;font-size:13px}'
+      + '.oet-btn{padding:7px 14px;border-radius:6px;border:1px solid var(--input-bd,#cbd5e1);background:var(--chip,#f8fafc);color:var(--text,#1a2233);cursor:pointer;font-size:13px;text-decoration:none;display:inline-flex;align-items:center}'
       + '.oet-btn.primary{background:#2563eb;border-color:#2563eb;color:#fff}'
       + '.oet-mfoot{flex-wrap:wrap}'
       + '.oet-cmp th{vertical-align:top;position:relative;min-width:130px}'
@@ -169,6 +169,7 @@ window.OET = window.OET || {};
         + `<button class="oet-btn" data-cmp>${OET.isInCompare && OET.isInCompare(rec.id) ? '✓ In compare' : '+ Compare'}</button>`
         + (pcCount ? `<button class="oet-btn" data-exact title="Fetches real ABS postcode boundaries — can lag for large networks">Exact boundary · ${pcCount} pc${heavy ? ' ⚠' : ''}</button>` : '')
         + (rec.located ? '<button class="oet-btn" data-zoom>Show on map</button>' : '')
+        + `<a class="oet-btn" href="https://github.com/botts7/open-energy-tariffs/issues/new?template=report-rate.yml&title=${encodeURIComponent('[rate] ' + m.id)}&plan-id=${encodeURIComponent(m.id)}" target="_blank" rel="noopener" title="Rate looks wrong or out of date? Tell us">⚠ Report rate</a>`
         + `<button class="oet-btn primary" data-close>Close</button></div>`
       + `</div>`;
     backdrop.addEventListener('click', (e) => { if (e.target === backdrop || e.target.matches('.oet-mx,[data-close]')) close(); });
