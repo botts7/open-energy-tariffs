@@ -268,10 +268,14 @@ OET.initSidebar = function () {
     cmpNote,
   ]);
 
+  // Collapsible filters/sort/display so the controls don't dominate the sidebar.
+  const filtersSummary = h('summary', { text: 'Filters · sort · display' });
+  const filters = h('details', { class: 'sb-cmp' }, [filtersSummary,
+    countrySel, sourceSel, providerSel, distributorSel, kindSel, sortSel, priceRow, outlineRow]);
   // Controls stay pinned (their own box); only the plan list scrolls.
   const controls = h('div', { class: 'sb-controls' }, [
     h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]),
-    search, suggestBox, geoBtn, countrySel, sourceSel, providerSel, distributorSel, kindSel, sortSel, priceRow, outlineRow, cmp, reset,
+    search, suggestBox, geoBtn, filters, cmp, reset,
   ]);
   root.appendChild(controls);
   root.appendChild(h('div', { class: 'sb-scroll' }, [list]));
@@ -377,6 +381,20 @@ OET.initSidebar = function () {
     if (arr.length > cap) list.appendChild(h('div', { class: 'sb-more', text: `…and ${arr.length - cap} more (refine filters)` }));
   }
 
+  // How many filters are narrowing the list (so hidden/collapsed filters can't
+  // silently cause "no results").
+  function activeFilterCount() {
+    let n = 0;
+    if (state.countries.size) n++;
+    if (state.sources.size) n++;
+    if (state.provider) n++;
+    if (state.distributor) n++;
+    if (state.kind) n++;
+    if (state.min !== '' || state.max !== '') n++;
+    if (state.sort && state.sort !== 'az') n++;
+    if (state.outline) n++;
+    return n;
+  }
   function apply() {
     OET._usage = state.usage; // expose to the compare modal's annual-cost row
     const { pred, note, focus, pc } = buildPredicate();
@@ -385,6 +403,11 @@ OET.initSidebar = function () {
     renderList(visible);
     const hidden = OET._suppressedHeavy ? ` · ${OET._suppressedHeavy.toLocaleString()} areas hidden — pick a country/postcode/provider to map them` : '';
     count.textContent = `${visible.length} / ${plans.length}${note ? ' · ' + note : ''}${hidden}`;
+    // Reflect active filters on the (collapsible) summary, and reveal them if a
+    // filter is hiding results — so it's never a mystery why the list is short.
+    const af = activeFilterCount();
+    filtersSummary.textContent = af ? `Filters · sort · display — ${af} active` : 'Filters · sort · display';
+    if (af && visible.length === 0) filters.open = true;
     // Postcode search: draw the postcode as a polygon and HIDE provider coverage —
     // the plans serving it are the (ranked) list. (Each matching plan serves its
     // whole distribution network, so its coverage hull is noise at this point.)
@@ -454,6 +477,7 @@ OET.initSidebar = function () {
   OET._onCompareChange = () => { compareBtn.textContent = `Compare (${(OET.compareSet || []).length})`; syncHash(); };
 
   restore();
+  if (activeFilterCount()) filters.open = true; // don't hide filters that are already on (e.g. from a shared link)
   if (OET._onCompareChange) OET._onCompareChange();
   updateUsageUI();
   apply();
