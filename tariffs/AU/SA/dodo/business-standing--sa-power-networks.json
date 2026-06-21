@@ -355,15 +355,59 @@
     }
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.442608
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.47846
+        },
+        {
+          "id": "off-peak",
+          "name": "Off Peak",
+          "rate": 0.351401
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "21:00",
+          "band": "peak"
+        },
+        {
+          "days": "weekday",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "07:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "off-peak"
+        }
+      ]
     },
     "supply": {
-      "daily": 1.604146
+      "daily": 2.121848
     },
     "export": {
       "flatRate": 0.44
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "tou-rate-controlled-load",
+        "name": "TOU Rate Controlled Load",
+        "rate": 0.30611
+      }
+    ]
   }
 }

@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "id": "au-nsw-endeavour-actewagl-business-time-of-use-plan",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "NSW",
+    "distributor": "Endeavour",
+    "provider": "ActewAGL",
+    "plan": "Business time-of-use plan",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data \u00a9 Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2113",
+        "2120",
+        "2214",
+        "2323",
+        "2535",
+        "2538",
+        "2539",
+        "2540",
+        "2541"
+      ]
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.558
+        },
+        {
+          "id": "off-peak",
+          "name": "Off-peak",
+          "rate": 0.2615
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.473
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "13:00",
+          "to": "20:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "07:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekend",
+          "from": "07:00",
+          "to": "22:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "13:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "22:00",
+          "band": "shoulder"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 1.29
+    },
+    "export": {
+      "flatRate": 0.044
+    }
+  }
+}

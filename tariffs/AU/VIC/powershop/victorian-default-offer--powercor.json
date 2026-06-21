@@ -342,43 +342,37 @@
         {
           "id": "peak",
           "name": "Tariff 1",
-          "rate": 0.35409
+          "rate": 0.36727
         },
         {
           "id": "off-peak",
           "name": "Tariff 2",
-          "rate": 0.1919
+          "rate": 0.215
         }
       ],
       "schedule": [
         {
-          "days": "weekday",
-          "from": "09:00",
+          "days": "all",
+          "from": "15:00",
           "to": "21:00",
           "band": "peak"
         },
         {
-          "days": "weekday",
+          "days": "all",
           "from": "21:00",
           "to": "24:00",
           "band": "off-peak"
         },
         {
-          "days": "weekday",
+          "days": "all",
           "from": "00:00",
-          "to": "09:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "weekend",
-          "from": "00:00",
-          "to": "24:00",
+          "to": "15:00",
           "band": "off-peak"
         }
       ]
     },
     "supply": {
-      "daily": 1.4459
+      "daily": 1.244
     },
     "export": {
       "flatRate": 0.005

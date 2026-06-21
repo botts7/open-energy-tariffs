@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "id": "au-act-evoenergy-actewagl-evenergy-saver",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "ACT",
+    "distributor": "Evoenergy",
+    "provider": "ActewAGL",
+    "plan": "evEnergy Saver",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data \u00a9 Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2600",
+        "2601",
+        "2602",
+        "2603",
+        "2604",
+        "2605",
+        "2606",
+        "2607",
+        "2609",
+        "2611",
+        "2612",
+        "2614",
+        "2615",
+        "2617",
+        "2618",
+        "2620",
+        "2900",
+        "2902",
+        "2903",
+        "2904",
+        "2905",
+        "2906",
+        "2911",
+        "2912",
+        "2913",
+        "2914"
+      ]
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.274452
+        },
+        {
+          "id": "off-peak",
+          "name": "Off-peak",
+          "rate": 0.109091
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "06:00",
+          "to": "24:00",
+          "band": "peak"
+        },
+        {
+          "days": "weekend",
+          "from": "14:00",
+          "to": "24:00",
+          "band": "peak"
+        },
+        {
+          "days": "weekend",
+          "from": "06:00",
+          "to": "12:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekend",
+          "from": "12:00",
+          "to": "14:00",
+          "band": "shoulder"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 1.21
+    },
+    "export": {
+      "flatRate": 0.035
+    }
+  }
+}

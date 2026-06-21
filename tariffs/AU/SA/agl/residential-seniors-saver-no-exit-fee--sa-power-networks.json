@@ -355,57 +355,9 @@
     }
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Residential Time of Use peak",
-          "rate": 0.4374
-        },
-        {
-          "id": "off-peak",
-          "name": "Residential Time of Use Off peak",
-          "rate": 0.2843
-        },
-        {
-          "id": "shoulder",
-          "name": "Residential Time of Use Shoulder",
-          "rate": 0.201
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "06:00",
-          "to": "10:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "15:00",
-          "to": "24:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "00:00",
-          "to": "01:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "01:00",
-          "to": "06:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "all",
-          "from": "10:00",
-          "to": "15:00",
-          "band": "shoulder"
-        }
-      ]
+      "flatRate": 0.3625
     },
     "supply": {
       "daily": 0.8976
@@ -415,19 +367,9 @@
     },
     "controlledLoad": [
       {
-        "id": "peak-cl",
-        "name": "Peak CL",
-        "rate": 0.2085
-      },
-      {
-        "id": "offpeak-cl",
-        "name": "Offpeak CL",
-        "rate": 0.2085
-      },
-      {
-        "id": "shoulder-cl",
-        "name": "Shoulder CL",
-        "rate": 0.1599
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.1841
       }
     ]
   }

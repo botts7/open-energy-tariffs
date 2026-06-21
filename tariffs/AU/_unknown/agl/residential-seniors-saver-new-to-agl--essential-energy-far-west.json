@@ -295,17 +295,17 @@
         {
           "id": "peak",
           "name": "Domestic Time of Use Peak",
-          "rate": 0.4334
+          "rate": 0.2716
         },
         {
           "id": "off-peak",
           "name": "Domestic Time of Use Off Peak",
-          "rate": 0.2814
+          "rate": 0.2419
         },
         {
           "id": "shoulder",
           "name": "Domestic Time of Use Shoulder",
-          "rate": 0.3567
+          "rate": 0.2655
         }
       ],
       "schedule": [
@@ -348,7 +348,7 @@
       ]
     },
     "supply": {
-      "daily": 1.4577
+      "daily": 1.6137
     },
     "export": {
       "flatRate": 0.01

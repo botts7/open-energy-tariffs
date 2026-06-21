@@ -296,26 +296,20 @@
         {
           "id": "peak",
           "name": "Domestic Time of Use Peak",
-          "rate": 0.4638
+          "rate": 0.4487
         },
         {
           "id": "off-peak",
           "name": "Domestic Time of Use Off Peak",
-          "rate": 0.2567
+          "rate": 0.2993
         },
         {
           "id": "shoulder",
           "name": "Domestic Time of Use Shoulder",
-          "rate": 0.4507
+          "rate": 0.3256
         }
       ],
       "schedule": [
-        {
-          "days": "weekday",
-          "from": "07:00",
-          "to": "09:00",
-          "band": "peak"
-        },
         {
           "days": "weekday",
           "from": "17:00",
@@ -336,7 +330,7 @@
         },
         {
           "days": "weekday",
-          "from": "09:00",
+          "from": "07:00",
           "to": "17:00",
           "band": "shoulder"
         },
@@ -349,10 +343,22 @@
       ]
     },
     "supply": {
-      "daily": 2.2624
+      "daily": 2.6196
     },
     "export": {
       "flatRate": 0.04
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.1629
+      },
+      {
+        "id": "controlled-load-2",
+        "name": "Controlled Load 2",
+        "rate": 0.1006
+      }
+    ]
   }
 }

@@ -280,6 +280,11 @@
         "id": "single-rate-controlled-load",
         "name": "Single Rate Controlled Load",
         "rate": 0.182214
+      },
+      {
+        "id": "single-rate-controlled-load",
+        "name": "Single Rate Controlled Load",
+        "rate": 0.182214
       }
     ]
   }

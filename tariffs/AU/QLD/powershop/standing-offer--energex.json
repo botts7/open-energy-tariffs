@@ -229,6 +229,13 @@
     },
     "supply": {
       "daily": 1.46
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "single-rate-controlled-load",
+        "name": "Single Rate Controlled Load",
+        "rate": 0.157
+      }
+    ]
   }
 }

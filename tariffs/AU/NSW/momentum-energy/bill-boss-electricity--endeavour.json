@@ -183,12 +183,12 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.351
+          "rate": 0.288
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.278
+          "rate": 0.219
         }
       ],
       "schedule": [
@@ -207,7 +207,7 @@
       ]
     },
     "supply": {
-      "daily": 1.904
+      "daily": 2.556
     },
     "export": {
       "flatRate": 0.05
@@ -216,7 +216,7 @@
       {
         "id": "controlled-load-2",
         "name": "Controlled Load 2",
-        "rate": 0.254
+        "rate": 0.194
       }
     ]
   }

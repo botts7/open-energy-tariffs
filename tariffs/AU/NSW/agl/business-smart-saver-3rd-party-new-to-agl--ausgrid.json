@@ -253,18 +253,18 @@
       "bands": [
         {
           "id": "peak",
-          "name": "Transitional Business Peak",
-          "rate": 0.5158
+          "name": "Domestic Time of Use Peak",
+          "rate": 0.5794
         },
         {
           "id": "off-peak",
-          "name": "Transitional Business Off-Peak",
-          "rate": 0.1791
+          "name": "Domestic Time of Use Off Peak",
+          "rate": 0.2013
         },
         {
           "id": "shoulder",
-          "name": "Transitional Business Shoulder",
-          "rate": 0.257
+          "name": "Domestic Time of Use Shoulder",
+          "rate": 0.2988
         }
       ],
       "schedule": [
@@ -301,10 +301,22 @@
       ]
     },
     "supply": {
-      "daily": 3.5098
+      "daily": 1.8419
     },
     "export": {
       "flatRate": 0.04
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.1472
+      },
+      {
+        "id": "controlled-load-2",
+        "name": "Controlled Load 2",
+        "rate": 0.1472
+      }
+    ]
   }
 }

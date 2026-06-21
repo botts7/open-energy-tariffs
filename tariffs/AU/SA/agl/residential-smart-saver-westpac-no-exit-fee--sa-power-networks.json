@@ -415,9 +415,19 @@
     },
     "controlledLoad": [
       {
-        "id": "controlled-load-1",
-        "name": "Controlled Load 1",
-        "rate": 0.195
+        "id": "peak-cl",
+        "name": "Peak CL",
+        "rate": 0.2207
+      },
+      {
+        "id": "offpeak-cl",
+        "name": "Offpeak CL",
+        "rate": 0.2207
+      },
+      {
+        "id": "shoulder-cl",
+        "name": "Shoulder CL",
+        "rate": 0.1693
       }
     ]
   }

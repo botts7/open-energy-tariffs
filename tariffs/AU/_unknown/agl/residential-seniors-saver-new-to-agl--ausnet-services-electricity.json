@@ -283,15 +283,48 @@
     }
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.2655
+      "bands": [
+        {
+          "id": "shoulder",
+          "name": "Tariff 1",
+          "rate": 0.3575
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "21:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "15:00",
+          "band": "shoulder"
+        }
+      ]
     },
     "supply": {
       "daily": 1.0802
     },
     "export": {
       "flatRate": 0.005
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "applicable-to-customers-that-have-controlled-load",
+        "name": "Applicable to customers that have controlled load",
+        "rate": 0.1831
+      }
+    ]
   }
 }

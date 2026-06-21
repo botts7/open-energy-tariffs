@@ -292,13 +292,6 @@
     },
     "export": {
       "flatRate": 0.015
-    },
-    "controlledLoad": [
-      {
-        "id": "applicable-to-customers-that-have-controlled-load-consumption",
-        "name": "Applicable to customers that have controlled load consumption",
-        "rate": 0.21809091
-      }
-    ]
+    }
   }
 }

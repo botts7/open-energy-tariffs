@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "id": "au-essential-energy-standard-actewagl-energy-rewards-tou-with-cl-1-12-off-supply-usage",
+    "schemaVersion": "1",
+    "country": "AU",
+    "distributor": "Essential Energy Standard",
+    "provider": "ActewAGL",
+    "plan": "Energy Rewards - TOU with CL 1 12% off supply & usage",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data \u00a9 Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2321",
+        "2337",
+        "2536",
+        "2537",
+        "2539",
+        "2545",
+        "2546",
+        "2548",
+        "2549",
+        "2550",
+        "2551",
+        "2580",
+        "2581",
+        "2582",
+        "2583",
+        "2584",
+        "2585",
+        "2586",
+        "2587",
+        "2594",
+        "2611",
+        "2618",
+        "2619",
+        "2620",
+        "2621",
+        "2622",
+        "2623",
+        "2624",
+        "2625",
+        "2626",
+        "2627",
+        "2628",
+        "2629",
+        "2630",
+        "2631",
+        "2632",
+        "2633",
+        "2720",
+        "2876",
+        "2877"
+      ]
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.505
+        },
+        {
+          "id": "off-peak",
+          "name": "Off-peak",
+          "rate": 0.34
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.4078
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "09:00",
+          "band": "peak"
+        },
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "20:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "07:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekend",
+          "from": "07:00",
+          "to": "22:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "09:00",
+          "to": "17:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "22:00",
+          "band": "shoulder"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 1.928
+    },
+    "export": {
+      "flatRate": 0.044
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.19
+      }
+    ]
+  }
+}

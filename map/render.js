@@ -106,11 +106,14 @@ OET.renderMap = function (plans, meta) {
     const src = m.source || 'other';
     const cov = m.coverage || {};
     const recLayers = [];
+    let recHeavy = false; // postcode-hull plans (the AU mass) — rendered on demand only
 
     if (points.length || boundary || cov.national) {
       const group = groups[src] || (groups[src] = L.layerGroup().addTo(coverageLayer));
       const popup = (extra) => popupHtml(m, tariff, rate) + (extra ? `<br><span style="color:#777">${esc(extra)}</span>` : '');
-      const add = (layer) => { layer.addTo(group); recLayers.push(layer); };
+      // heavy layers are NOT added to the map up front (5000+ would tank the fps);
+      // applyPlanFilter draws them only when the filtered set is small enough.
+      const add = (layer, heavy) => { recLayers.push(layer); if (heavy) recHeavy = true; else layer.addTo(group); };
       if (boundary) {
         add(L.geoJSON(boundary, { style: areaStyle(cRate) }).bindPopup(popup('exact boundary')));
         mapped++;
@@ -127,8 +130,8 @@ OET.renderMap = function (plans, meta) {
           hull = rings; hullCache[ckey] = rings;
         }
         // hull.map(r=>[r]) -> multipolygon (each ring its own filled area, no bridging)
-        if (hull) { add(L.polygon(hull.map((r) => [r]), areaStyle(cRate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s)`))); mapped++; }
-        else for (const p of pcPts) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS.postcode }, areaStyle(cRate))).bindPopup(popup(p.label))); mapped++; }
+        if (hull) { add(L.polygon(hull.map((r) => [r]), areaStyle(cRate)).bindPopup(popup(`${pcLatLngs.length} postcode area(s)`)), true); mapped++; }
+        else for (const p of pcPts) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS.postcode }, areaStyle(cRate))).bindPopup(popup(p.label)), true); mapped++; }
         for (const p of points.filter((p) => p.type !== 'postcode')) { add(L.circle(p.latlng, Object.assign({ radius: OET.AREA_RADIUS[p.type] || 8000 }, areaStyle(cRate))).bindPopup(popup(p.label))); mapped++; }
       } else if (cov.national && OET.nationalGeometry) {
         // National plan -> shade the whole country (or a centroid if no polygon).
@@ -142,7 +145,7 @@ OET.renderMap = function (plans, meta) {
     const bounds = recLayers.length ? recBounds(recLayers) : null;
     if (bounds) centers.push([bounds.getCenter().lat, bounds.getCenter().lng]);
     planRecs.push({
-      id: m.id, meta: m, tariff, rate, src, group: groups[src], layers: recLayers, bounds, located: !!bounds,
+      id: m.id, meta: m, tariff, rate, src, group: groups[src], layers: recLayers, bounds, located: !!bounds, _heavy: recHeavy,
       hay: [m.country, m.region, m.provider, m.plan, m.source, cov.gsp, cov.utilityId, (cov.postcodes || []).join(' ')].join(' ').toLowerCase(),
     });
   }
@@ -266,16 +269,26 @@ OET.renderMap = function (plans, meta) {
     return OET.rateColor(cRate);
   };
 
-  // Show only plans matching a predicate (sidebar filters). Returns visible count.
+  // Show only plans matching a predicate (sidebar filters). The heavy postcode
+  // hulls (AU mass) render only when the filtered heavy-set is <= RENDER_CAP — so
+  // the default/all view stays fast and you "load" coverage by narrowing down
+  // (country / postcode / provider). Light national/boundary layers always show.
+  const RENDER_CAP = 1200;
   OET.applyPlanFilter = function (pred) {
-    let vis = 0; const visibleRecs = [];
+    const visibleRecs = [];
+    let heavyVis = 0;
+    for (const r of planRecs) { if (!pred || pred(r)) { visibleRecs.push(r); if (r._heavy) heavyVis++; } }
+    const suppressHeavy = heavyVis > RENDER_CAP;
+    let shown = 0;
     for (const r of planRecs) {
-      const on = !pred || pred(r);
+      const on = (!pred || pred(r)) && !(r._heavy && suppressHeavy);
       for (const l of r.layers) { if (on) r.group.addLayer(l); else r.group.removeLayer(l); }
-      if (on) { vis++; visibleRecs.push(r); }
+      if (on) shown++;
     }
     recolor(visibleRecs);
-    return vis;
+    OET._suppressedHeavy = suppressHeavy ? heavyVis : 0;
+    OET._shownAreas = shown;
+    return visibleRecs.length;
   };
 
   // Initial fit: regional data fits; globe-spanning data shows the world.

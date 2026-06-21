@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "id": "au-nsw-endeavour-actewagl-energy-rewards-home-with-cl-1-12-off-supply-usage",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "NSW",
+    "distributor": "Endeavour",
+    "provider": "ActewAGL",
+    "plan": "Energy Rewards - home with CL 1 12% off supply & usage",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data \u00a9 Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2113",
+        "2120",
+        "2214",
+        "2323",
+        "2535",
+        "2538",
+        "2539",
+        "2540",
+        "2541"
+      ]
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.357852
+    },
+    "supply": {
+      "daily": 1.2
+    },
+    "export": {
+      "flatRate": 0.044
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.209401
+      }
+    ]
+  }
+}

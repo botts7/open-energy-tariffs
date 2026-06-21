@@ -360,18 +360,18 @@
       "bands": [
         {
           "id": "peak",
-          "name": "Residential Time of Use peak",
-          "rate": 0.5252
+          "name": "Peak",
+          "rate": 0.4676
         },
         {
           "id": "off-peak",
-          "name": "Residential Time of Use Off peak",
-          "rate": 0.3631
+          "name": "Off-Peak",
+          "rate": 0.3293
         },
         {
           "id": "shoulder",
-          "name": "Residential Time of Use Shoulder",
-          "rate": 0.4442
+          "name": "Shoulder",
+          "rate": 0.4001
         }
       ],
       "schedule": [
@@ -408,7 +408,7 @@
       ]
     },
     "supply": {
-      "daily": 1.3845
+      "daily": 1.3565
     },
     "export": {
       "flatRate": 0.02

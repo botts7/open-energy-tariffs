@@ -126,13 +126,6 @@
     },
     "export": {
       "flatRate": 0.005
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load-usage",
-        "name": "Controlled Load Usage",
-        "rate": 0.1583
-      }
-    ]
+    }
   }
 }

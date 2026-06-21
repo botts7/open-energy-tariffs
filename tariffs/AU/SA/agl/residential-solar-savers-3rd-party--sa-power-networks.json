@@ -412,23 +412,6 @@
     },
     "export": {
       "flatRate": 0.08
-    },
-    "controlledLoad": [
-      {
-        "id": "peak-cl",
-        "name": "Peak CL",
-        "rate": 0.2354
-      },
-      {
-        "id": "offpeak-cl",
-        "name": "Offpeak CL",
-        "rate": 0.2354
-      },
-      {
-        "id": "shoulder-cl",
-        "name": "Shoulder CL",
-        "rate": 0.1806
-      }
-    ]
+    }
   }
 }

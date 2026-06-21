@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "id": "au-vic-citipower-origin-energy-origin-affinity-variable-compare-the-market-single-rate-with-dedicated-circuit",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "VIC",
+    "distributor": "Citipower",
+    "provider": "Origin Energy",
+    "plan": "Origin Affinity Variable - Compare the Market (Single Rate with Dedicated Circuit)",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Melbourne",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data \u00a9 Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "3000",
+        "3002",
+        "3003",
+        "3004",
+        "3005",
+        "3006",
+        "3008",
+        "3010",
+        "3011",
+        "3031",
+        "3051",
+        "3052",
+        "3053",
+        "3054",
+        "3055",
+        "3056",
+        "3057",
+        "3065",
+        "3066",
+        "3067",
+        "3068",
+        "3070",
+        "3071",
+        "3078",
+        "3101",
+        "3102",
+        "3103",
+        "3104",
+        "3121",
+        "3122",
+        "3123",
+        "3124",
+        "3125",
+        "3126",
+        "3127",
+        "3129",
+        "3141",
+        "3142",
+        "3143",
+        "3144",
+        "3161",
+        "3181",
+        "3182",
+        "3183",
+        "3205",
+        "3206",
+        "3207"
+      ]
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.231
+    },
+    "supply": {
+      "daily": 1.0489
+    },
+    "export": {
+      "flatRate": 0.01
+    },
+    "controlledLoad": [
+      {
+        "id": "dedicated-circuit",
+        "name": "Dedicated Circuit",
+        "rate": 0.1701
+      }
+    ]
+  }
+}

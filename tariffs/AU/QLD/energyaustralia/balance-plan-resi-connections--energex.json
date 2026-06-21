@@ -232,6 +232,18 @@
     },
     "export": {
       "flatRate": 0.04
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "super-economy-tariff-31",
+        "name": "Super Economy Tariff 31",
+        "rate": 0.16878
+      },
+      {
+        "id": "economy-tariff-33",
+        "name": "Economy Tariff 33",
+        "rate": 0.16878
+      }
+    ]
   }
 }

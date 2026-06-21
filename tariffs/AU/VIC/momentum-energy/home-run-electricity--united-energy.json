@@ -123,7 +123,7 @@
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.221
+      "flatRate": 0.192
     },
     "supply": {
       "daily": 0.995

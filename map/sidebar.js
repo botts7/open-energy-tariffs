@@ -312,7 +312,8 @@ OET.initSidebar = function () {
     const visible = plans.filter(pred);
     OET.applyPlanFilter(pred);
     renderList(visible);
-    count.textContent = `${visible.length} / ${plans.length}${note ? ' · ' + note : ''}`;
+    const hidden = OET._suppressedHeavy ? ` · ${OET._suppressedHeavy.toLocaleString()} areas hidden — pick a country/postcode/provider to map them` : '';
+    count.textContent = `${visible.length} / ${plans.length}${note ? ' · ' + note : ''}${hidden}`;
     // Postcode search: draw the postcode as a polygon and HIDE provider coverage —
     // the plans serving it are the (ranked) list. (Each matching plan serves its
     // whole distribution network, so its coverage hull is noise at this point.)

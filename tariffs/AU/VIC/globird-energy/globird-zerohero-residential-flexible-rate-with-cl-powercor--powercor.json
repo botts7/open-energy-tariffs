@@ -341,8 +341,8 @@
       "bands": [
         {
           "id": "shoulder",
-          "name": "Tariff 1",
-          "rate": 0.4
+          "name": "Flexible",
+          "rate": 0.38
         }
       ],
       "schedule": [
@@ -379,7 +379,7 @@
       ]
     },
     "supply": {
-      "daily": 1.36
+      "daily": 1.43
     },
     "export": {
       "flatRate": 1e-07

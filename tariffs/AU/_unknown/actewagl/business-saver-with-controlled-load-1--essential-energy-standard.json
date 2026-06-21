@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "id": "au-essential-energy-standard-actewagl-business-saver-with-controlled-load-1",
+    "schemaVersion": "1",
+    "country": "AU",
+    "distributor": "Essential Energy Standard",
+    "provider": "ActewAGL",
+    "plan": "Business Saver with controlled load 1",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data \u00a9 Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2321",
+        "2337",
+        "2536",
+        "2537",
+        "2539",
+        "2545",
+        "2546",
+        "2548",
+        "2549",
+        "2550",
+        "2551",
+        "2580",
+        "2581",
+        "2582",
+        "2583",
+        "2584",
+        "2585",
+        "2586",
+        "2587",
+        "2594",
+        "2611",
+        "2618",
+        "2619",
+        "2620",
+        "2621",
+        "2622",
+        "2623",
+        "2624",
+        "2625",
+        "2626",
+        "2627",
+        "2628",
+        "2629",
+        "2630",
+        "2631",
+        "2632",
+        "2633",
+        "2720",
+        "2876",
+        "2877"
+      ]
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.406218
+    },
+    "supply": {
+      "daily": 2.508
+    },
+    "export": {
+      "flatRate": 0.044
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.1672
+      }
+    ]
+  }
+}

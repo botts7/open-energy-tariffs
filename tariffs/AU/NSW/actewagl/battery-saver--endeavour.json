@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "id": "au-nsw-endeavour-actewagl-battery-saver",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "NSW",
+    "distributor": "Endeavour",
+    "provider": "ActewAGL",
+    "plan": "Battery Saver",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data \u00a9 Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2113",
+        "2120",
+        "2214",
+        "2323",
+        "2535",
+        "2538",
+        "2539",
+        "2540",
+        "2541"
+      ]
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.357852
+    },
+    "supply": {
+      "daily": 1.2
+    },
+    "export": {
+      "flatRate": 0.08
+    }
+  }
+}

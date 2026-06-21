@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "id": "au-nsw-endeavour-actewagl-business-saver-time-of-use-with-controlled-load-2",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "NSW",
+    "distributor": "Endeavour",
+    "provider": "ActewAGL",
+    "plan": "Business Saver - time of use with controlled load 2",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data \u00a9 Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2113",
+        "2120",
+        "2214",
+        "2323",
+        "2535",
+        "2538",
+        "2539",
+        "2540",
+        "2541"
+      ]
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.501864
+        },
+        {
+          "id": "off-peak",
+          "name": "Off-peak",
+          "rate": 0.270864
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.344256
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "16:00",
+          "to": "20:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "10:00",
+          "to": "14:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "14:00",
+          "to": "16:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "24:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "10:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekend",
+          "from": "14:00",
+          "to": "24:00",
+          "band": "shoulder"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 1.2
+    },
+    "export": {
+      "flatRate": 0.044
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-2",
+        "name": "Controlled Load 2",
+        "rate": 0.184273
+      }
+    ]
+  }
+}

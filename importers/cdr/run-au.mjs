@@ -16,10 +16,13 @@ import { mapPlanDetail, slug } from './map.mjs';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const HOST = 'https://cdr.energymadeeasy.gov.au';
 
-// AER retailer codes confirmed live (cdr.energymadeeasy.gov.au/<code>).
+// AER Energy Made Easy brand slugs, verified live 2026-06-21 (cdr.energymadeeasy.gov.au/<code>).
+// Note several slugs differ from the brand name (origin, red-energy, ovo-energy, alinta).
+// Simply Energy isn't served here (self-hosted CDR). Re-probe periodically — slugs change.
 const RETAILERS = [
-  'agl', 'originenergy', 'energyaustralia', 'red', 'alintaenergy', 'simplyenergy',
-  'powershop', 'momentum', 'globird', 'dodo', 'lumo', 'nectr', 'ovoenergy', 'ergon',
+  'agl', 'origin', 'energyaustralia', 'red-energy', 'alinta', 'engie', 'powershop',
+  'momentum', 'globird', 'dodo', 'lumo', 'nectr', 'ovo-energy', 'ergon', 'amber',
+  'covau', 'kogan', 'actewagl', 'diamond', 'tango', 'arcline', 'radian',
 ];
 
 function arg(name, def) {

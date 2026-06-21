@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "id": "au-vic-jemena-ovo-energy-the-free-3-plan",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "VIC",
+    "distributor": "Jemena",
+    "provider": "OVO Energy",
+    "plan": "The Free 3 Plan",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Melbourne",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from AER CDR generic plans. Contains data \u00a9 Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "3011",
+        "3012",
+        "3013",
+        "3015",
+        "3016",
+        "3019",
+        "3020",
+        "3023",
+        "3025",
+        "3031",
+        "3032",
+        "3033",
+        "3034",
+        "3036",
+        "3037",
+        "3038",
+        "3039",
+        "3040",
+        "3041",
+        "3042",
+        "3043",
+        "3044",
+        "3045",
+        "3046",
+        "3047",
+        "3048",
+        "3049",
+        "3051",
+        "3052",
+        "3058",
+        "3059",
+        "3060",
+        "3061",
+        "3062",
+        "3063",
+        "3064",
+        "3068",
+        "3070",
+        "3072",
+        "3073",
+        "3074",
+        "3076",
+        "3078",
+        "3079",
+        "3081",
+        "3083",
+        "3084",
+        "3085",
+        "3086",
+        "3087",
+        "3335",
+        "3336",
+        "3337",
+        "3340",
+        "3427",
+        "3428",
+        "3429",
+        "3430",
+        "3431",
+        "3437",
+        "3750",
+        "3753"
+      ]
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Tariff 1",
+          "rate": 0.2727
+        },
+        {
+          "id": "off-peak",
+          "name": "Tariff 2",
+          "rate": 0.1651
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "21:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "11:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "14:00",
+          "to": "15:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "14:00",
+          "band": "off-peak"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.97
+    },
+    "export": {
+      "flatRate": 0.01
+    }
+  }
+}
