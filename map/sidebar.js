@@ -528,7 +528,7 @@ OET.initSidebar = function () {
         subEl.appendChild(h('span', { class: d < 0 ? 'sb-save' : 'sb-cost', text: ` · ${d < 0 ? 'save ' : '+'}${Math.abs(Math.round(d)).toLocaleString()} ${m.currency}/yr` }));
       }
       const row = h('div', { class: 'sb-row' + (r.located ? '' : ' sb-nolocate') + (best && !isCurrent ? ' sb-bestrow' : '') + (isCurrent ? ' sb-currow' : ''), onclick: () => { if (OET.showPlanModal) OET.showPlanModal(r); else OET.focusPlan(r.id); } },
-        [sw, h('div', {}, [h('div', { class: 'sb-title' }, kids), subEl])]);
+        [sw, h('div', {}, [h('div', { class: 'sb-title', title: m.provider + ' · ' + m.plan }, kids), subEl])]);
       list.appendChild(row);
     }
     if (arr.length > cap) list.appendChild(h('div', { class: 'sb-more', text: `…and ${arr.length - cap} more (refine filters)` }));

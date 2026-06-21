@@ -25,12 +25,22 @@ window.OET = window.OET || {};
     if (t && t.kind === 'tou' && imp && imp.bands && imp.bands.length) return imp.bands.reduce((a, b) => a + (b.rate || 0), 0) / imp.bands.length;
     return r.rate;
   }
-  // External reference price (USD/kWh) for this plan: EIA per-state (US) or the
-  // baseline (EU/national); null where we have no reference.
-  function planRefUsd(r) {
-    const m = r.meta;
-    if (m.country === 'US' && OET.BASELINE_US) { const s = OET.BASELINE_US.states && OET.BASELINE_US.states[m.region]; return s != null ? s : (OET.BASELINE_US.national || null); }
-    return OET.baselineUsd ? OET.baselineUsd(m.country) : null;
+  // Country median (USD/kWh) — the fallback reference where there's no official
+  // benchmark (e.g. AU isn't in Eurostat/EIA). Cached per country.
+  const medianCache = {};
+  function countryMedianUsd(cc) {
+    if (cc in medianCache) return medianCache[cc];
+    const vals = (OET.PLANS || []).filter((r) => r.meta.country === cc).map((r) => usd(repRate(r), r.meta.currency)).filter((v) => v > 0).sort((a, b) => a - b);
+    return (medianCache[cc] = vals.length ? vals[vals.length >> 1] : null);
+  }
+  // Reference price for this plan: EIA per-state (US), Eurostat (EU), else the
+  // country median. Returns { ref, src } or null.
+  function planRef(r) {
+    const m = r.meta; let ref = null, src = '';
+    if (m.country === 'US' && OET.BASELINE_US) { const s = OET.BASELINE_US.states && OET.BASELINE_US.states[m.region]; ref = s != null ? s : (OET.BASELINE_US.national || null); src = 'EIA'; }
+    else if (OET.baselineUsd) { ref = OET.baselineUsd(m.country); src = 'Eurostat'; }
+    if (ref == null) { ref = countryMedianUsd(m.country); src = 'median'; }
+    return ref != null ? { ref, src } : null;
   }
   // Savings vs the user's baseline (current plan / actual bill), same currency.
   function hasBaseline() { return !!(OET._tableUsageReal && OET._baseline && OET._baseline.cost > 0); }
@@ -44,12 +54,15 @@ window.OET = window.OET || {};
   }
   // "% vs reference" cell: green below (cheaper), red above; — when no reference.
   function refCell(r) {
-    const ref = planRefUsd(r); if (ref == null) return '<td class="tv-ref" data-label="vs ref">—</td>';
-    const mine = usd(repRate(r), r.meta.currency); if (mine == null || !isFinite(mine)) return '<td class="tv-ref" data-label="vs ref">—</td>';
-    const pct = Math.round((mine / ref - 1) * 100);
+    const pr = planRef(r), mine = pr && usd(repRate(r), r.meta.currency);
+    if (!pr || mine == null || !isFinite(mine)) return '<td class="tv-ref" data-label="vs ref">—</td>';
+    const pct = Math.round((mine / pr.ref - 1) * 100);
     const fg = pct <= -2 ? '#15803d' : pct >= 2 ? '#dc2626' : 'var(--muted,#64748b)';
-    const txt = pct === 0 ? '≈ ref' : (pct < 0 ? pct + '%' : '+' + pct + '%');
-    return `<td class="tv-ref" data-label="vs ref" title="vs the household reference price (Eurostat / EIA)" style="color:${fg}">${txt}</td>`;
+    const txt = pct === 0 ? '≈' : (pct < 0 ? pct + '%' : '+' + pct + '%');
+    const tip = pr.src === 'median'
+      ? 'vs the median plan in ' + esc(OET.countryName ? OET.countryName(r.meta.country) : r.meta.country) + ' (no official reference yet)'
+      : 'vs the ' + pr.src + ' household reference price';
+    return `<td class="tv-ref" data-label="vs ref" title="${tip}" style="color:${fg}">${txt}</td>`;
   }
 
   OET.setView = function (v) {
@@ -104,7 +117,7 @@ window.OET = window.OET || {};
       const sup = r.tariff.supply && r.tariff.supply.daily, fin = r.tariff.export && r.tariff.export.flatRate;
       const inCmp = OET.compareSet && OET.compareSet.indexOf(r.id) !== -1;
       html += `<tr data-id="${esc(r.id)}"${r.id === cheapestId ? ' class="tv-best"' : ''}>`
-        + `<td class="tv-name">${r.id === cheapestId ? '<span class="tv-badge">Cheapest</span> ' : ''}<b>${esc(m.provider)}</b> · ${esc(m.plan)}`
+        + `<td class="tv-name" title="${esc(m.provider + ' · ' + m.plan)}">${r.id === cheapestId ? '<span class="tv-badge">Cheapest</span> ' : ''}<b>${esc(m.provider)}</b> · ${esc(m.plan)}`
         + `<div class="tv-sub">${esc(OET.countryName ? OET.countryName(m.country) : m.country)}${m.region ? '/' + esc(m.region) : ''} `
         + `${OET.maturityPill ? OET.maturityPill(OET.countryMaturity(m.country)) : ''} ${OET.freshPill ? OET.freshPill(m.updated) : ''}</div></td>`
         + `<td class="tv-cost" data-label="Est. cost">${cv == null ? '—' : '~' + Math.round(cv).toLocaleString() + ' ' + esc(cur)}</td>`
