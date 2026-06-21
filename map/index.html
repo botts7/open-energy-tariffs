@@ -23,6 +23,11 @@
     .sb-count { font-size: 12px; color: #64748b; }
     .sb-input, .sb-num { padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; }
     .sb-input { width: 100%; margin-bottom: 8px; }
+    .sb-sugg { border: 1px solid var(--line); border-radius: 6px; margin: -4px 0 8px; overflow: hidden; }
+    .sb-sugg:empty { display: none; }
+    .sb-sugg-item { padding: 6px 8px; cursor: pointer; font-size: 12px; border-bottom: 1px solid #f1f5f9; }
+    .sb-sugg-item:last-child { border-bottom: none; }
+    .sb-sugg-item:hover { background: #eff6ff; }
     .sb-num { width: 64px; }
     .sb-chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 8px; }
     .sb-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #94a3b8; width: 100%; }

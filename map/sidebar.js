@@ -52,32 +52,61 @@ OET.initSidebar = function () {
   // --- controls ---
   // Debounce the search: re-filtering 1600+ plans (add/remove that many map
   // layers) on every keystroke makes typing stutter. Wait for a ~180ms pause.
-  let searchTimer = null;
-  const search = h('input', { type: 'search', placeholder: 'Address (Enter), postcode, suburb, provider…', class: 'sb-input',
+  let searchTimer = null, suggTimer = null, lastSugg = [];
+  // Drive the map from a chosen address: pin the exact spot + show its postcode.
+  function selectAddress(s) {
+    clearSugg();
+    if (s.postcode) { search.value = s.postcode; state.text = s.postcode.toLowerCase(); apply(); }
+    else { search.value = s.label; }
+    if (OET.setAddressPin) OET.setAddressPin([s.lat, s.lng], s.label);
+    if (OET._map) OET._map.setView([s.lat, s.lng], 14);
+  }
+  function clearSugg() { suggestBox.textContent = ''; lastSugg = []; }
+  function renderSuggestions(q) {
+    if (!OET.suggestAddress) return;
+    const c = OET._map && OET._map.getCenter();
+    OET.suggestAddress(q, c ? [c.lat, c.lng] : null).then((list) => {
+      lastSugg = list || [];
+      suggestBox.textContent = '';
+      lastSugg.slice(0, 6).forEach((s) => suggestBox.appendChild(
+        h('div', { class: 'sb-sugg-item', text: s.label, onclick: () => selectAddress(s) })));
+    });
+  }
+  // Fallback single-shot geocode (Nominatim) for the button when no live list.
+  function geocodeAndShow(q) {
+    q = (q || '').trim();
+    if (!q || !OET.geocodeAddress) return;
+    count.textContent = 'Finding address…';
+    OET.geocodeAddress(q).then((res) => {
+      if (!res) { count.textContent = `“${q.slice(0, 24)}” not found`; return; }
+      selectAddress(res);
+    });
+  }
+  const looksAddressy = (q) => /\d/.test(q) || (/\s/.test(q) && q.length >= 6);
+  const suggestBox = h('div', { class: 'sb-sugg' });
+  const search = h('input', { type: 'search', placeholder: 'Address, postcode, suburb, provider…', class: 'sb-input',
     oninput: (e) => {
-      state.text = e.target.value.trim().toLowerCase();
+      const raw = e.target.value.trim();
+      state.text = raw.toLowerCase();
       clearTimeout(searchTimer);
       searchTimer = setTimeout(() => {
         // Suburb names need the lazy bundle — load on demand, re-filter when ready.
         if (/[a-z]/.test(state.text) && !OET.AU_SUBURBS && OET.loadScript) OET.loadScript('au-suburbs.js').then(apply);
         apply();
       }, 180);
+      // Live address autocomplete (Photon) for address-like queries, debounced.
+      clearTimeout(suggTimer);
+      if (looksAddressy(raw)) suggTimer = setTimeout(() => renderSuggestions(raw), 300);
+      else clearSugg();
     },
-    // Enter on a free-text (non-postcode) query geocodes it as a STREET ADDRESS
-    // (OSM Nominatim) -> drop an exact pin + drive the postcode flow. On submit
-    // only (Nominatim policy); the address is sent to OSM's geocoder.
     onkeydown: (e) => {
+      if (e.key === 'Escape') { clearSugg(); return; }
       if (e.key !== 'Enter') return;
       const q = e.target.value.trim();
-      if (!q || /^\d{3,5}$/.test(q) || !OET.geocodeAddress) return;
-      count.textContent = 'Finding address…';
-      OET.geocodeAddress(q).then((res) => {
-        if (!res) { count.textContent = `0 / ${plans.length} · address not found`; return; }
-        if (res.postcode) { search.value = res.postcode; state.text = res.postcode.toLowerCase(); apply(); }
-        if (OET.setAddressPin) OET.setAddressPin([res.lat, res.lng], res.label);
-        if (OET._map) OET._map.setView([res.lat, res.lng], 14);
-      });
+      if (lastSugg.length) selectAddress(lastSugg[0]);
+      else if (q && !/^\d{3,5}$/.test(q)) geocodeAndShow(q);
     } });
+  const geoBtn = h('button', { class: 'sb-reset', text: '📍 Find address', title: 'Geocode the typed street address', onclick: () => { if (lastSugg.length) selectAddress(lastSugg[0]); else geocodeAndShow(search.value); } });
 
   // Single-select dropdowns (country / source / provider) instead of chip grids —
   // far less sidebar space. They AND together with the search + price filters, and
@@ -183,7 +212,7 @@ OET.initSidebar = function () {
   // Controls stay pinned (their own box); only the plan list scrolls.
   const controls = h('div', { class: 'sb-controls' }, [
     h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]),
-    search, countrySel, sourceSel, providerSel, priceRow, outlineRow, cmp, reset,
+    search, suggestBox, geoBtn, countrySel, sourceSel, providerSel, priceRow, outlineRow, cmp, reset,
   ]);
   root.appendChild(controls);
   root.appendChild(h('div', { class: 'sb-scroll' }, [list]));
