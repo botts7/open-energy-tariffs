@@ -158,12 +158,16 @@ export function parseWideCsv(text) {
     if (m) { const y = +m[3] < 100 ? 2000 + +m[3] : +m[3]; return new Date(y, +m[2] - 1, +m[1]); }
     const dt = new Date(s); return isNaN(dt.getTime()) ? null : dt;
   };
-  const con = {}; const conDays = new Set(); const genDays = new Set(); let exportTotal = 0;
+  const con = {}; const conDays = new Set(); const genDays = new Set(); const seen = new Set();
+  let exportTotal = 0, duplicates = 0;
   for (let r = 1; r < lines.length; r++) {
     const c = lines[r].split(delim).map((s) => s.trim().replace(/^"|"$/g, ''));
     if (c.length <= intervalCols[intervalCols.length - 1]) continue;
     const d = parseDate(c[dateCol]); if (!d) continue;
     const isGen = cgCol !== -1 && /gen/i.test(c[cgCol] || '');
+    const sig = c[dateCol] + '|' + (cgCol !== -1 ? c[cgCol] : '') + '|' + intervalCols.map((i) => c[i]).join(',');
+    if (seen.has(sig)) { duplicates++; continue; }
+    seen.add(sig);
     const we = (d.getDay() === 0 || d.getDay() === 6) ? 'we' : 'wd';
     const dk = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
     let dayKwh = 0;
@@ -180,7 +184,7 @@ export function parseWideCsv(text) {
   const annualKwh = Math.round(profile.weekday.reduce((a, b) => a + b, 0) * 261 + profile.weekend.reduce((a, b) => a + b, 0) * 104);
   const exportKwh = genDays.size ? Math.round(exportTotal / genDays.size * 365) : 0;
   if (exportKwh) profile.exportKwh = exportKwh;
-  return { profile, annualKwh, exportKwh, days: conDays.size, hasExport: genDays.size > 0 };
+  return { profile, annualKwh, exportKwh, days: conDays.size, hasExport: genDays.size > 0, duplicates };
 }
 
 /**

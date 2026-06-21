@@ -34,6 +34,36 @@ function h(tag, attrs, children) {
   return e;
 }
 
+// A searchable single-select combo (type to filter long lists). `options` =
+// [{value,label}] (include an empty-value "All …" entry). Returns { el, setValue }.
+function makeCombo(initialOptions, placeholder, onPick) {
+  const dd = h('div', { class: 'sb-sugg' });
+  let options = initialOptions;
+  let curValue = '';
+  const labelOf = (v) => { const o = options.find((x) => x.value === v); return o ? o.label : ''; };
+  const filtered = (q) => {
+    q = (q || '').trim().toLowerCase();
+    return (q ? options.filter((o) => o.label.toLowerCase().indexOf(q) !== -1) : options).slice(0, 80);
+  };
+  function render(q) {
+    dd.textContent = '';
+    filtered(q).forEach((o) => dd.appendChild(h('div', { class: 'sb-sugg-item', text: o.label, onmousedown: (e) => { e.preventDefault(); pick(o); } })));
+  }
+  function pick(o) { curValue = o.value; input.value = o.value ? o.label : ''; dd.textContent = ''; onPick(o.value); }
+  function reconcile() {
+    const txt = input.value.trim().toLowerCase();
+    if (!txt) { if (curValue) { curValue = ''; onPick(''); } return; }
+    const exact = options.find((o) => o.label.toLowerCase() === txt);
+    if (exact) pick(exact); else input.value = labelOf(curValue);
+  }
+  const input = h('input', { type: 'text', class: 'sb-input', placeholder,
+    oninput: () => render(input.value),
+    onfocus: () => render(input.value),
+    onkeydown: (e) => { if (e.key === 'Escape') dd.textContent = ''; else if (e.key === 'Enter') { const f = filtered(input.value)[0]; if (f) pick(f); } },
+    onblur: () => setTimeout(() => { dd.textContent = ''; reconcile(); }, 120) });
+  return { el: h('div', {}, [input, dd]), setValue: (v) => { curValue = v || ''; input.value = v ? labelOf(v) : ''; } };
+}
+
 OET.initSidebar = function () {
   const root = document.getElementById('sidebar');
   const plans = OET.PLANS || [];
@@ -225,7 +255,8 @@ OET.initSidebar = function () {
           attachExport();
           state.usageKwh = String(wide.annualKwh); kwhIn.value = wide.annualKwh;
           cmpNote.textContent = `Detailed export: ${wide.days} days → ~${wide.annualKwh.toLocaleString()} kWh/yr`
-            + (wide.hasExport ? ` + ${wide.exportKwh.toLocaleString()} kWh/yr solar export` : '');
+            + (wide.hasExport ? ` + ${wide.exportKwh.toLocaleString()} kWh/yr solar export` : '')
+            + (wide.duplicates ? ` · ${wide.duplicates.toLocaleString()} duplicate rows skipped` : '');
           updateUsageUI(); apply();
           return;
         }

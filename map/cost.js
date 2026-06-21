@@ -167,12 +167,16 @@ OET.parseWideCsv = function (text) {
   };
   const con = {}; // 'wd|h' / 'we|h' -> { dateKey: kWh }
   const conDays = new Set(), genDays = new Set();
-  let exportTotal = 0;
+  const seen = new Set(); // skip EXACT duplicate rows (e.g. from merging 2 yrs of exports)
+  let exportTotal = 0, duplicates = 0;
   for (let r = 1; r < lines.length; r++) {
     const c = lines[r].split(delim).map((s) => s.trim().replace(/^"|"$/g, ''));
     if (c.length <= intervalCols[intervalCols.length - 1]) continue;
     const d = parseDate(c[dateCol]); if (!d) continue;
     const isGen = cgCol !== -1 && /gen/i.test(c[cgCol] || '');
+    const sig = c[dateCol] + '|' + (cgCol !== -1 ? c[cgCol] : '') + '|' + intervalCols.map((i) => c[i]).join(',');
+    if (seen.has(sig)) { duplicates++; continue; } // identical date+type+readings already counted
+    seen.add(sig);
     const we = (d.getDay() === 0 || d.getDay() === 6) ? 'we' : 'wd';
     const dk = d.getFullYear() + '-' + d.getMonth() + '-' + d.getDate();
     let dayKwh = 0;
@@ -189,7 +193,7 @@ OET.parseWideCsv = function (text) {
   const annualKwh = Math.round(profile.weekday.reduce((a, b) => a + b, 0) * 261 + profile.weekend.reduce((a, b) => a + b, 0) * 104);
   const exportKwh = genDays.size ? Math.round(exportTotal / genDays.size * 365) : 0;
   if (exportKwh) profile.exportKwh = exportKwh;
-  return { profile, annualKwh, exportKwh, days: conDays.size, hasExport: genDays.size > 0 };
+  return { profile, annualKwh, exportKwh, days: conDays.size, hasExport: genDays.size > 0, duplicates };
 };
 
 // Parse interval CSV into the raw series for an exact HISTORICAL replay.
