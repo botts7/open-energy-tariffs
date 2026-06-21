@@ -1,5 +1,5 @@
 {
-  "_comment": "REAL capture (trimmed to mapped fields): GET /ergon/cds-au/v1/energy/plans/{planId} with x-v:3 from cdr.energymadeeasy.gov.au on 2026-06-20. Contains data © Australian Energy Regulator, CC BY 4.0.",
+  "_comment": "REAL capture (trimmed to mapped fields): GET /ergon/cds-au/v1/energy/plans/{planId} with x-v:3 from cdr.energymadeeasy.gov.au on 2026-06-20. Public CDR Product Reference Data from the Australian Energy Regulator.",
   "data": {
     "type": "REGULATED",
     "brand": "ergon",

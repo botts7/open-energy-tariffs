@@ -81,11 +81,12 @@ OET.renderMap = function (plans, meta) {
     if (label) addressMarker.bindPopup(esc(label)).openPopup();
   };
   L.control.layers(baseLayers, { 'Coverage areas': coverageLayer, 'Searched postcode': postcodeLayer, 'Focused plan (real)': highlightLayer }, { position: 'topright', collapsed: true }).addTo(map);
-  // Data attribution (required: AER tariff data is CC BY 4.0). Shown wherever the
-  // data is displayed, per the licence. URDB is CC0 (citation as courtesy).
+  // Data attribution. AU plan data comes via the AER's public Consumer Data Right
+  // (CDR) Product Reference Data API — public data, attribute the AER (not a formal
+  // open licence, so we don't claim CC BY). URDB is CC0 (citation as courtesy).
   map.attributionControl.addAttribution(
-    'Tariffs: © <a href="https://www.aer.gov.au/">AER</a> ' +
-    '<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · OpenEI/NREL URDB (CC0) · ' +
+    'AU tariffs: © <a href="https://www.aer.gov.au/">AER</a> ' +
+    'via <a href="https://www.cdr.gov.au/">CDR</a> Product Reference Data (not endorsed by the AER) · OpenEI/NREL URDB (CC0) · ' +
     'AU postcodes: G-NAF © <a href="https://geoscape.com.au/">Geoscape Australia</a> · ' +
     'Postcode areas: © <a href="https://www.abs.gov.au/">ABS</a> POA 2021 (CC BY 4.0) · ' +
     'Address search: <a href="https://nominatim.openstreetmap.org/">Nominatim</a>/OSM · ' +

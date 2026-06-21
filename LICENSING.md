@@ -18,7 +18,7 @@ source research in [SOURCES.md](SOURCES.md).
 
 | Source | `meta.source` | Licence | May we redistribute? | Obligation | Status |
 |---|---|---|---|---|---|
-| AER CDR (AU generic plans) | `cdr` | **CC BY 4.0** | ✅ yes (store + display) | **Attribution** "© AER, CC BY 4.0, not endorsed by AER" wherever shown | ✅ importer + map show it |
+| AER CDR (AU generic plans) | `cdr` | **`other`** — public Product Reference Data via the AER's sanctioned Consumer Data Right API (no formal open licence; see §7) | ✅ yes (store + display) | **Attribution** "© AER, via CDR Product Reference Data, not endorsed by the AER" wherever shown | ✅ importer + map show it |
 | OpenEI URDB / IURDB (US/intl) | `urdb` | **CC0-1.0** | ✅ yes | none (cite OpenEI/NREL as courtesy) | ✅ |
 | Octopus Energy (UK) | `octopus` | **No open licence** (ToS forbids distributing content) | ❌ **never** store/redistribute | display only via **on-device runtime fetch**; fixtures/sample use **illustrative** rates | ✅ no real rates committed |
 | Community / your own plan | `manual` | **CC0-1.0** | ✅ yes | none | ✅ |
@@ -74,15 +74,31 @@ on explicit submit only, within the usage policy, attributed in the map.)
 - **Boundary attributions:** when §4 sources are bundled, add their attribution to
   the map control and tick the status here.
 - **AER attribution must travel with the data:** any consumer (not just our map)
-  that displays `cdr` entries must show the AER CC-BY notice — `meta.notes` carries
+  that displays `cdr` entries must show the AER source notice — `meta.notes` carries
   it and `dist` can emit it.
 
 ## How we stay within the licences (checklist)
 
 - [x] Per-entry `meta.license`; CI rejects `source: octopus` (never stored) and
-      `cdr` without `CC-BY-4.0`.
+      `cdr` without `license: other` (AER CDR PRD; attribute in `meta.notes`).
 - [x] No real Octopus rates committed (fixtures/sample use illustrative values).
-- [x] AER CC-BY attribution shown in the map; recorded in `meta.notes`.
+- [x] AER source attribution shown in the map; recorded in `meta.notes`.
 - [x] CDN libs pinned + SRI; OSM attribution shown.
 - [ ] Add boundary-source attributions when bundled (§4).
 - [ ] Swap tile provider before high-traffic production (§6).
+
+## 7. Why AER CDR data is `other`, not CC BY 4.0
+
+The AER's *website* material is CC BY 4.0, but the **energy plan data** is delivered
+through the **Consumer Data Right (CDR) Product Reference Data (PRD) APIs** and is not
+attached to a formal open licence. The AER's statement that it is "prevented … from
+releasing or broadly sharing this data" and offers "no file-based delivery" is about
+the **access method** — it won't publish bulk file dumps — and it explicitly built the
+**public, unauthenticated CDR PRD APIs** "to share the Energy Made Easy plan data … to
+help developers integrate energy plan information into their applications." That API is
+the sanctioned channel and is what our importer uses (`cdr.energymadeeasy.gov.au`).
+
+So we **may** store and display this data (public, non-personal Product Reference Data,
+obtained via the sanctioned API; the plan facts are also on retailers' Energy Fact
+Sheets), but we must **not** overstate the licence as CC BY 4.0. We therefore record
+`license: other`, attribute the AER + CDR, and state we are not endorsed by the AER.

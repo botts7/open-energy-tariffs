@@ -25,5 +25,5 @@ npm run validate && npm run build
 ## Licence
 
 CSV-sourced entries default to `source: manual`, `license: CC0-1.0` (community
-facts). If you set `source: cdr` the licence is forced to `CC-BY-4.0`. Never
+facts). If you set `source: cdr` the licence is forced to `other` (public CDR Product Reference Data). Never
 import non-redistributable data (e.g. Octopus) — see `../../ATTRIBUTION.md`.

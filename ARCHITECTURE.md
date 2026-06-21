@@ -172,20 +172,20 @@ documented as a hand-off, never stored.
 
   | Source | Licence (confirmed) | Delivery |
   |---|---|---|
-  | **AU-CDR** | **CC BY 4.0** — all AER website material is CC BY 4.0; AER + Vic DEECA are the designated data holders for generic plans | **Bulk-store OK** with attribution ("© AER, CC BY 4.0", `sourceUrl`, `updated`) |
+  | **AU-CDR** | **`other` (public CDR PRD)** — the AER website is CC BY 4.0 but the plan data is not; AER + Vic DEECA are the designated data holders for generic plans | **Bulk-store OK** with attribution ("© AER, via CDR Product Reference Data", `sourceUrl`, `updated`) |
   | **OpenEI URDB** | **CC0** — OpenEI platform content is "Creative Commons Zero unless otherwise noted" (NREL/DOE) | **Bulk-store OK**, no attribution required (cite OpenEI/NREL as courtesy); the "unless otherwise noted" + user-submitted caveat → still mark `verified:false` until checked |
   | **Octopus** | **No open licence** — ToS: *"You must not sell, licence, distribute or otherwise make available the content of our website"* | **On-device import + hand-curated community examples only.** Do NOT bulk-republish Octopus data |
 
 - Rationale. Tariff *structures* are facts, but the **delivery** path is gated by
-  each source's actual terms, now confirmed: AER (CC BY 4.0) and URDB (CC0) are
+  each source's actual terms, now confirmed: AER (public CDR Product Reference Data) and URDB (CC0) are
   explicitly open → safe to bulk-store with the appropriate attribution. Octopus
   grants no redistribution right → we only ever import its data **on the user's own
   device at runtime**, and accept hand-entered community examples (a user
   describing their own plan is their fact to share, CC0). Licence is tracked
   **per entry** (`meta.license`), not repo-wide, so a CC0 community entry and a
-  CC-BY AER entry coexist correctly.
+  CDR-sourced AER entry coexist correctly.
 - Consequences. `meta.license` required-with-default. The **AU-CDR importer
-  bulk-commits** to `tariffs/` with `license: "CC-BY-4.0"` + attribution. **URDB
+  bulk-commits** to `tariffs/` with `license: "other"` + attribution. **URDB
   importer may bulk-commit** with `license: "CC0-1.0"`. **Octopus is on-device
   only** (a mapping the SDK runs, §8/§10) plus optional CC0 community examples —
   nothing Octopus-sourced is committed in bulk.

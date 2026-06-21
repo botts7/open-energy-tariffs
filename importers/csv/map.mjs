@@ -67,7 +67,7 @@ export function mapRow(row, opts = {}) {
     timezone: row.timezone || TZ[country] || 'UTC',
     source,
     ...(row.sourceUrl ? { sourceUrl: row.sourceUrl } : {}),
-    license: row.license || (source === 'cdr' ? 'CC-BY-4.0' : 'CC0-1.0'),
+    license: row.license || (source === 'cdr' ? 'other' : 'CC0-1.0'),
     updated: row.updated || opts.updated || '1970-01-01',
     verified: false,
     notes: row.notes || 'Imported from CSV.',

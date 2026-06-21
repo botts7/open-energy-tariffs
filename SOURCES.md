@@ -14,7 +14,7 @@ by country, and "a plan" comes in two fundamentally different shapes:
 | Source | Coverage | Auth | Shape | Licence / redistribution |
 |---|---|---|---|---|
 | **OpenEI URDB** (NREL) | ~50k rates, **US-heavy**, some intl | API key (api.data.gov, free) | `energyratestructure` (periods/tiers) + `energyweekday/weekendschedule` (12×24 month×hour band matrices) + seasonal | **CC0** (OpenEI platform: "Creative Commons Zero unless otherwise noted") → **bulk-store OK**, no attribution required. Caveat: user-submitted entries → keep `verified:false` until checked. |
-| **AU Consumer Data Right — Energy** | **Australia, all NECF retailers + VIC** (incl. AGL) | **none** (public, no accreditation) | "Get Generic Plans" / "…Detail" → singleRate / timeOfUseRates / demand / controlledLoad / solarFiT | **CC BY 4.0** (AER) → **bulk-store OK with attribution**. AER + Vic DEECA are the designated data holders. **Best fit for AU** (your own plan). |
+| **AU Consumer Data Right — Energy** | **Australia, all NECF retailers + VIC** (incl. AGL) | **none** (public, no accreditation) | "Get Generic Plans" / "…Detail" → singleRate / timeOfUseRates / demand / controlledLoad / solarFiT | **Public CDR Product Reference Data** (AER, recorded `other`) → **bulk-store OK with attribution**. AER + Vic DEECA are the designated data holders. **Best fit for AU** (your own plan). |
 | **Octopus Energy API** | UK | none for product/tariff listing | products → standard-unit-rates (incl. Go EV windows, Economy 7) by GSP region | **No open licence** — ToS forbids distributing site/app content → **on-device import only** (+ CC0 community examples). Do NOT bulk-republish. |
 
 ### AU-CDR — pinned endpoints (Phase 1, confirmed 2026-06-20)
@@ -73,18 +73,29 @@ landscape so we scale on solid ground:
 ### Tier 1 — open, structured, importable (have/priority)
 | Region | Source | Licence | Status |
 |---|---|---|---|
-| AU | AER CDR (all retailers) | CC BY 4.0 | ✅ importer — widen via `run-au.mjs` |
+| AU | AER CDR (all retailers) | CDR PRD (public, `other`) | ✅ importer — widen via `run-au.mjs` |
 | US + intl | OpenEI URDB / IURDB | CC0 | ✅ importer — widen via `run.mjs`; IURDB country-agnostic |
 
 ### Tier 2 — regulator-published structures → hand-curate as CC0 facts
 These publish the *structure* (no open API), so curate community entries:
-- **France** — EDF **Tarif Bleu** (regulated: Base flat, or HC/HP two-rate) and
-  **Tempo** (blue/white/red days × peak/off-peak — fits our day-type ToU; the
-  *day colour* is a live daily signal, so store the 6 band rates + note it).
+- **France** — EDF **Tarif Bleu** (Base flat / HC-HP two-rate) ✅ curated, and
+  **Tempo** (blue/white/red days — day-type, see schema gap). ✅ curated.
 - **Canada** — **Ontario OEB** TOU / Tiered / ULO (seasonal, published); other
   provinces (BC Hydro, Hydro-Québec) similar.
-- **Singapore** — SP Group regulated tariff (single, simple). **Spain** — PVPC
-  (regulated, dynamic) + fixed offers.
+- **South Africa** — **Eskom** Homelight / Homepower / **Homeflex** (TOU),
+  NERSA-regulated, published as Excel/PDF (eskom.co.za/tariffs).
+- **Brazil** — **ANEEL** open data portal (dadosabertos.aneel.gov.br) publishes
+  distributor tariffs — possibly importable (verify format/licence).
+- **Singapore** — SP Group regulated tariff (single). **Spain** — PVPC (dynamic) +
+  fixed offers. **India / Japan** — SERC / utility tariff orders (PDF; harder).
+
+### Related structured-tariff projects (evaluate licence before reuse)
+- **Switzerland** — [`geoimpact/electricity-tariffs`](https://github.com/geoimpact/electricity-tariffs):
+  600+ Swiss providers, AI-extracted from PDFs into structured data. Ready dataset
+  if the licence permits → could feed a CH importer.
+- **[`LBNL-ETA/elecprice`](https://github.com/LBNL-ETA/elecprice)** — a billing
+  calculator over the OpenEI/URDB API (tooling, not a new source; validates our
+  URDB direction).
 
 ### Tier 3 — restricted per-supplier (on-device import only, never stored)
 - **UK Octopus** (have on-device importer). **NZ Powerswitch** (Consumer NZ —
@@ -119,7 +130,7 @@ Dynamic providers are **out of scope for presets** — document them so apps off
 ## Resolved (Phase 1, 2026-06-20)
 
 - ✅ **URDB ToS:** CC0 → bulk-store OK (no attribution). **Octopus ToS:** no open
-  licence → on-device import only. **AU-CDR:** CC BY 4.0 → bulk-store with
+  licence → on-device import only. **AU-CDR:** public CDR Product Reference Data → bulk-store with
   attribution. (See `ARCHITECTURE.md` §6.)
 - ✅ **AU-CDR endpoints pinned:** host `cdr.energymadeeasy.gov.au`,
   `GET /cds-au/v1/energy/plans` + `/{planId}`, `x-v: 1`, no auth (see above).
