@@ -32,6 +32,16 @@ window.OET = window.OET || {};
     if (m.country === 'US' && OET.BASELINE_US) { const s = OET.BASELINE_US.states && OET.BASELINE_US.states[m.region]; return s != null ? s : (OET.BASELINE_US.national || null); }
     return OET.baselineUsd ? OET.baselineUsd(m.country) : null;
   }
+  // Savings vs the user's baseline (current plan / actual bill), same currency.
+  function hasBaseline() { return !!(OET._tableUsageReal && OET._baseline && OET._baseline.cost > 0); }
+  function savingsCell(r) {
+    const b = OET._baseline, c = annualCost(r);
+    if (c == null || (b.rec && b.rec.meta.currency !== r.meta.currency)) return '<td>—</td>';
+    const s = b.cost - c; // positive = cheaper than your baseline
+    const fg = s > 1 ? '#15803d' : s < -1 ? '#dc2626' : 'var(--muted,#64748b)';
+    const txt = s > 1 ? '−' + Math.round(s).toLocaleString() + ' ' + esc(r.meta.currency) : s < -1 ? '+' + Math.round(-s).toLocaleString() + ' ' + esc(r.meta.currency) : '≈';
+    return `<td style="color:${fg};font-weight:600" title="vs ${esc(b.label || 'your current')}">${txt}</td>`;
+  }
   // "% vs reference" cell: green below (cheaper), red above; — when no reference.
   function refCell(r) {
     const ref = planRefUsd(r); if (ref == null) return '<td class="tv-ref">—</td>';
@@ -83,7 +93,9 @@ window.OET = window.OET || {};
       + `<div class="tv-period">Show cost: ${Object.keys(PERIODS).map((p) => `<button data-period="${p}" class="${period === p ? 'on' : ''}">${p}</button>`).join('')}</div>`
       + '</div>'
       + '<div class="tv-scroll"><table class="tv-table"><thead><tr>'
-      + th('provider', 'Provider · plan') + th('cost', 'Est. cost' + plbl) + '<th class="tv-ref" title="vs the Eurostat/EIA household reference price">vs ref</th>' + th('rate', 'Rate /kWh')
+      + th('provider', 'Provider · plan') + th('cost', 'Est. cost' + plbl)
+      + (hasBaseline() ? '<th title="vs your current plan / actual bill">Savings/yr</th>' : '')
+      + '<th class="tv-ref" title="vs the Eurostat/EIA household reference price">vs ref</th>' + th('rate', 'Rate /kWh')
       + th('supply', 'Supply /day') + '<th>Feed-in</th><th>Type</th><th>Compare</th>'
       + '</tr></thead><tbody>';
 
@@ -96,6 +108,7 @@ window.OET = window.OET || {};
         + `<div class="tv-sub">${esc(OET.countryName ? OET.countryName(m.country) : m.country)}${m.region ? '/' + esc(m.region) : ''} `
         + `${OET.maturityPill ? OET.maturityPill(OET.countryMaturity(m.country)) : ''} ${OET.freshPill ? OET.freshPill(m.updated) : ''}</div></td>`
         + `<td class="tv-cost">${cv == null ? '—' : '~' + Math.round(cv).toLocaleString() + ' ' + esc(cur)}</td>`
+        + (hasBaseline() ? savingsCell(r) : '')
         + refCell(r)
         + `<td>${r.rate == null ? '—' : r.rate.toFixed(3) + ' ' + esc(cur)}</td>`
         + `<td>${sup == null ? '—' : sup.toFixed(3) + ' ' + esc(cur)}</td>`
