@@ -44,7 +44,7 @@ OET.initSidebar = function () {
   const sources = uniq((p) => p.src);
   const providers = uniq((p) => p.meta.provider);
 
-  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', kind: '', sort: 'az', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', bandPeak: '', bandShoulder: '', bandOff: '', currentPlanId: '', currentCostActual: '', intervals: null, outline: false };
+  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', kind: '', sort: 'az', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', bandPeak: '', bandShoulder: '', bandOff: '', exportKwh: '', currentPlanId: '', currentCostActual: '', intervals: null, outline: false };
   // A typical-household profile so "cheapest for typical use" sorting works even
   // before the user enters their own usage (~4000 kWh/yr, even load).
   const typicalUsage = OET.usageFromAnnual ? OET.usageFromAnnual(4000, 'flat') : null;
@@ -144,6 +144,7 @@ OET.initSidebar = function () {
     state.text = ''; state.countries.clear(); state.sources.clear(); state.provider = ''; state.min = ''; state.max = '';
     state.usage = null; state.usageKwh = ''; state.shape = 'flat'; state.currentPlanId = ''; state.currentCostActual = ''; state.intervals = null;
     state.bandPeak = ''; state.bandShoulder = ''; state.bandOff = ''; peakIn.value = ''; shoulderIn.value = ''; offIn.value = '';
+    state.exportKwh = ''; exportIn.value = '';
     state.outline = false; outlineCb.checked = false; if (OET.setOutline) OET.setOutline(false);
     state.kind = ''; state.sort = 'az'; kindSel.value = ''; sortSel.value = 'az';
     search.value = ''; countrySel.value = ''; sourceSel.value = ''; providerSel.value = ''; minIn.value = ''; maxIn.value = '';
@@ -153,10 +154,19 @@ OET.initSidebar = function () {
 
   // --- compare to my usage ---
   const cmpNote = h('div', { class: 'sb-sub' });
+  // Attach annual solar export (kWh) to the active usage profile so estimateAnnualCost
+  // credits each plan's feed-in rate. Daily input × 365.
+  function attachExport() {
+    if (!state.usage) return;
+    const ex = parseFloat(state.exportKwh) || 0;
+    if (ex > 0) state.usage.exportKwh = ex * 365; else delete state.usage.exportKwh;
+  }
+  function recomputeExport() { attachExport(); apply(); }
   function recomputeUsage() {
     const kwh = parseFloat(state.usageKwh);
     state.usage = kwh > 0 ? OET.usageFromAnnual(kwh, state.shape) : null;
     state.intervals = null; // manual kWh/shape overrides an uploaded interval history
+    attachExport();
     cmpNote.textContent = state.usage ? `Ranking by estimated cost for ~${Math.round(kwh)} kWh/yr (${state.shape})` : '';
     apply();
   }
@@ -168,6 +178,7 @@ OET.initSidebar = function () {
     if (daily > 0 && OET.usageFromBands) {
       state.usage = OET.usageFromBands({ peak: p, shoulder: s, offpeak: o });
       state.intervals = null;
+      attachExport();
       const annual = Math.round(daily * 365);
       state.usageKwh = String(annual); kwhIn.value = annual;
       cmpNote.textContent = `By time-of-use: ${daily.toFixed(1)} kWh/day (peak ${p} · shoulder ${s} · off-peak ${o}) ≈ ${annual.toLocaleString()} kWh/yr`;
@@ -184,6 +195,8 @@ OET.initSidebar = function () {
   const peakIn = bandNum('bandPeak', 'peak', 'Peak kWh per day'),
     shoulderIn = bandNum('bandShoulder', 'shldr', 'Shoulder kWh per day'),
     offIn = bandNum('bandOff', 'off', 'Off-peak kWh per day');
+  const exportIn = h('input', { type: 'number', step: '0.5', min: '0', placeholder: 'kWh/day', title: 'Average solar export to the grid per day — credits each plan’s feed-in rate', class: 'sb-num',
+    oninput: (e) => { state.exportKwh = e.target.value; recomputeExport(); } });
   const csvIn = h('input', { type: 'file', accept: '.csv', class: 'sb-input',
     onchange: (e) => {
       const f = e.target.files[0]; if (!f) return;
@@ -193,6 +206,7 @@ OET.initSidebar = function () {
         const iv = OET.parseIntervals ? OET.parseIntervals(rd.result) : null;
         state.usage = r.profile;
         state.intervals = (iv && iv.intervals.length) ? iv : null;
+        attachExport();
         state.usageKwh = String(state.intervals ? state.intervals.totalKwh : r.annualKwh); kwhIn.value = state.usageKwh;
         cmpNote.textContent = state.intervals
           ? `Historical: replaying ${state.intervals.days} days of your real data against each plan`
@@ -232,6 +246,7 @@ OET.initSidebar = function () {
     h('summary', { text: 'Compare to my usage' }),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Annual kWh + load shape' }), kwhIn, shapeSel]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or daily kWh by time (peak / shoulder / off-peak)' }), peakIn, shoulderIn, offIn]),
+    h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: '☀ Solar export to grid (avg kWh/day) — credits feed-in' }), exportIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload interval CSV (time,kWh)' }), csvIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload a bill PDF (best-effort)' }), pdfIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Baseline: my current plan, or my actual annual $' }), currentSel, currentCostIn]),
