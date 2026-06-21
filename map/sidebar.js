@@ -568,6 +568,12 @@ OET.initSidebar = function () {
     const visible = plans.filter(pred);
     OET.applyPlanFilter(pred);
     renderList(visible);
+    // Feed the same filtered set + usage to the Table view (comparison layer).
+    OET._visible = visible;
+    OET._tableUsage = state.usage || typicalUsage;
+    OET._tableUsageReal = !!state.usage;
+    OET._tableSort = state.sort;
+    if (OET.onResults) OET.onResults();
     const hidden = OET._suppressedHeavy ? ` · ${OET._suppressedHeavy.toLocaleString()} areas hidden — pick a country/postcode/provider to map them` : '';
     count.textContent = `${visible.length} / ${plans.length}${note ? ' · ' + note : ''}${hidden}`;
     // Reflect active filters on the (collapsible) summary, and reveal them if a

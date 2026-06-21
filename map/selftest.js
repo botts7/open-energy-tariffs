@@ -111,6 +111,16 @@ OET.selfTest = async function (opts) {
     ok('baseline: US per-state cross-check is callable + graceful', typeof OET.crossCheckRegion === 'function' && OET.crossCheckRegion('XX', 'YY') === null);
   }
 
+  // ---- TABLE (comparison view) -------------------------------------------
+  if (OET.setView && OET.renderTable && document.getElementById('tableview')) {
+    OET.setView('table');
+    const tvRows = document.querySelectorAll('#tableview tbody tr').length;
+    ok('table: renders rows in the comparison view', tvRows > 0);
+    const costs = [...document.querySelectorAll('#tableview .tv-cost')].slice(0, 6).map((e) => parseFloat(String(e.textContent).replace(/[^\d.]/g, '')) || Infinity);
+    ok('table: default sort is cheapest-first', costs.every((c, i) => i === 0 || costs[i - 1] <= c));
+    OET.setView('map');
+  }
+
   // ---- GEOCODING (online; the class of bug that kept biting) --------------
   if (online && OET.geocodeAddress) {
     await okAsync('geo: "london" worldwide -> United Kingdom', async () => { const r = await OET.geocodeAddress('london', ''); return [r && /United Kingdom|England/.test(r.label) && r.cc === 'GB', r && r.label]; });
