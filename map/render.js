@@ -52,7 +52,8 @@ OET.renderMap = function (plans, meta) {
   // and auto-hidden in postcode mode). postcodeLayer holds the searched postcode.
   const coverageLayer = L.layerGroup().addTo(map);
   const postcodeLayer = L.layerGroup().addTo(map);
-  L.control.layers(baseLayers, { 'Coverage areas': coverageLayer, 'Searched postcode': postcodeLayer }, { position: 'topright', collapsed: true }).addTo(map);
+  const highlightLayer = L.layerGroup().addTo(map); // focused plan's REAL coverage
+  L.control.layers(baseLayers, { 'Coverage areas': coverageLayer, 'Searched postcode': postcodeLayer, 'Focused plan (real)': highlightLayer }, { position: 'topright', collapsed: true }).addTo(map);
   // Data attribution (required: AER tariff data is CC BY 4.0). Shown wherever the
   // data is displayed, per the licence. URDB is CC0 (citation as courtesy).
   map.attributionControl.addAttribution(
@@ -133,9 +134,24 @@ OET.renderMap = function (plans, meta) {
   // Zoom to a plan + open its popup (called from the sidebar).
   OET.focusPlan = function (id) {
     const r = planRecs.find((p) => p.id === id);
-    if (!r || !r.bounds) return;
-    map.fitBounds(r.bounds, { padding: [40, 40], maxZoom: 11 });
-    if (r.layers[0] && r.layers[0].openPopup) r.layers[0].openPopup();
+    if (!r) return;
+    if (r.bounds) map.fitBounds(r.bounds, { padding: [40, 40], maxZoom: 11 });
+    // Draw the plan's REAL coverage on demand: the ABS POA polygons for its
+    // postcodes (precise, vs the concave-hull approximation in the overview).
+    highlightLayer.clearLayers();
+    const pcs = (r.meta.coverage && r.meta.coverage.postcodes) || [];
+    if (pcs.length && OET.fetchPoaCoverage) {
+      OET._focusedPlan = id;
+      OET.fetchPoaCoverage(pcs).then(function (gj) {
+        if (OET._focusedPlan !== id || !gj) return;
+        highlightLayer.clearLayers();
+        const col = planColor(r);
+        const layer = L.geoJSON(gj, { renderer, style: { color: col, weight: 1.5, opacity: 0.95, fillColor: col, fillOpacity: 0.3 } });
+        layer.bindPopup('<strong>' + esc(r.meta.provider) + '</strong> — ' + esc(r.meta.plan) + '<br>real coverage · ' + pcs.length + ' postcodes (ABS POA 2021)');
+        layer.addTo(highlightLayer);
+        try { const b = layer.getBounds(); if (b.isValid()) map.fitBounds(b, { padding: [40, 40], maxZoom: 12 }); } catch (_) {}
+      });
+    } else if (r.layers[0] && r.layers[0].openPopup) { r.layers[0].openPopup(); }
   };
 
   // Adaptive colouring: a global map must normalise currencies (USD-equiv) or JPY
@@ -156,9 +172,11 @@ OET.renderMap = function (plans, meta) {
   // overlapping coverage areas (and the basemap) stay visible.
   function styleFor(r) {
     const c = planColor(r);
+    // Outline = ZERO fill (else 100+ overlapping near-identical network shapes
+    // stack their fills back to solid). Filled = low opacity so the map shows.
     return OET._outline
-      ? { color: c, weight: 2, opacity: 0.9, fillColor: c, fillOpacity: 0.05 }
-      : { color: '#333', weight: 1, opacity: 1, fillColor: c, fillOpacity: 0.4 };
+      ? { color: c, weight: 1.5, opacity: 0.8, fillColor: c, fillOpacity: 0 }
+      : { color: '#555', weight: 1, opacity: 0.9, fillColor: c, fillOpacity: 0.22 };
   }
   function restyleAll() { for (const r of planRecs) for (const l of r.layers) if (l.setStyle) l.setStyle(styleFor(r)); }
 
@@ -167,6 +185,8 @@ OET.renderMap = function (plans, meta) {
   // are listed in the sidebar, so the network hulls are just noise here. ---
   OET.showPostcodeArea = function (pc, center) {
     OET._lastPc = pc;
+    OET._focusedPlan = null;
+    highlightLayer.clearLayers();
     postcodeLayer.clearLayers();
     if (map.hasLayer(coverageLayer)) { map.removeLayer(coverageLayer); OET._coverageHiddenByPc = true; }
     const style = { renderer, color: '#0d47a1', weight: 2, fillColor: '#42a5f5', fillOpacity: 0.3 };
