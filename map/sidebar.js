@@ -430,10 +430,12 @@ OET.initSidebar = function () {
   const wizardBtn = h('button', { class: 'sb-wizard', text: '✨ Find my best plan', title: 'Guided: location → usage → ranked plans', onclick: () => { if (OET.showWizard) OET.showWizard(); } });
   const controls = h('div', { class: 'sb-controls' }, [
     h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]),
-    wizardBtn, search, suggestBox, h('div', { class: 'sb-chips' }, [geoBtn, locBtn]), activeBar, filters, cmp, reset,
+    wizardBtn, search, suggestBox, h('div', { class: 'sb-chips' }, [geoBtn, locBtn]), activeBar, filters, cmp,
   ]);
-  root.appendChild(controls);
-  root.appendChild(h('div', { class: 'sb-scroll' }, [list]));
+  // Scrolling body (config + list) + a pinned footer for the always-on actions.
+  root.appendChild(h('div', { class: 'sb-scrollwrap' }, [controls, h('div', { class: 'sb-scroll' }, [list])]));
+  const sbFooter = h('div', { class: 'sb-footer' }, [reset]);
+  root.appendChild(sbFooter);
 
   // Build the filter predicate. Postcode queries (3-5 digits) are special:
   //  - 3 digits = area prefix (e.g. 300 -> 3000-3099);
@@ -648,11 +650,11 @@ OET.initSidebar = function () {
       () => { copyBtn.textContent = '✓ Copied'; setTimeout(() => { copyBtn.textContent = '🔗 Copy link'; }, 1500); },
       () => { window.prompt('Copy this link:', url); });
   } });
-  reset.after(copyBtn);
+  sbFooter.appendChild(copyBtn);
 
   // Compare launcher — opens the side-by-side compare modal; label tracks count.
   const compareBtn = h('button', { class: 'sb-reset', text: 'Compare (0)', onclick: () => { if (OET.showCompareModal) OET.showCompareModal(); } });
-  copyBtn.after(compareBtn);
+  sbFooter.appendChild(compareBtn);
   OET._onCompareChange = () => { compareBtn.textContent = `Compare (${(OET.compareSet || []).length})`; syncHash(); };
 
   // Quick-nav API for the top-bar universal search: each is a focused jump

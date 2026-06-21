@@ -64,7 +64,10 @@
     .ts-item.on, .ts-item:hover { background:var(--hover); }
     .ts-sub { color:var(--muted); font-size:11px; white-space:nowrap; align-self:center; }
     #main { display: flex; flex: 1; min-height: 0; position:relative; }
-    #sidebar { width: 320px; flex: none; overflow-y: auto; background: var(--panel); border-right: 1px solid var(--border); font-size: 13px; }
+    #sidebar { width: 320px; flex: none; display: flex; flex-direction: column; overflow: hidden; background: var(--panel); border-right: 1px solid var(--border); font-size: 13px; }
+    .sb-scrollwrap { flex: 1; overflow-y: auto; min-height: 0; }
+    .sb-footer { flex: none; display: flex; gap: 8px; padding: 10px 12px; border-top: 1px solid var(--border); background: var(--panel); }
+    .sb-footer .sb-reset { margin-bottom: 0; flex: 1; white-space: nowrap; text-align: center; }
     .sb-controls { padding: 10px 12px 6px; }
     .sb-scroll { }
     #map { flex: 1; }
