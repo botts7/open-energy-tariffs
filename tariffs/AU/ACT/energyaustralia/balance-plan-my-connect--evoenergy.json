@@ -52,17 +52,17 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
+          "id": "max",
           "name": "Max",
           "rate": 0.40075
         },
         {
-          "id": "off-peak",
+          "id": "economy",
           "name": "Economy",
           "rate": 0.22093
         },
         {
-          "id": "shoulder",
+          "id": "mid",
           "name": "Mid",
           "rate": 0.29757
         }
@@ -72,31 +72,31 @@
           "days": "all",
           "from": "07:00",
           "to": "09:00",
-          "band": "peak"
+          "band": "max"
         },
         {
           "days": "all",
           "from": "17:00",
           "to": "20:00",
-          "band": "peak"
+          "band": "max"
         },
         {
           "days": "all",
           "from": "22:00",
           "to": "07:00",
-          "band": "off-peak"
+          "band": "economy"
         },
         {
           "days": "all",
           "from": "09:00",
           "to": "17:00",
-          "band": "shoulder"
+          "band": "mid"
         },
         {
           "days": "all",
           "from": "20:00",
           "to": "22:00",
-          "band": "shoulder"
+          "band": "mid"
         }
       ]
     },

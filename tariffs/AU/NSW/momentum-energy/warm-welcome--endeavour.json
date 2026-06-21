@@ -183,34 +183,70 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.299
+          "rate": 0.286
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.246
+          "rate": 0.187
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.238
         }
       ],
       "schedule": [
         {
-          "days": "all",
-          "from": "14:00",
-          "to": "10:00",
+          "days": "weekday",
+          "from": "16:00",
+          "to": "20:00",
           "band": "peak"
         },
         {
-          "days": "all",
+          "days": "weekday",
           "from": "10:00",
           "to": "14:00",
           "band": "off-peak"
+        },
+        {
+          "days": "weekend",
+          "from": "10:00",
+          "to": "14:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "10:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekday",
+          "from": "14:00",
+          "to": "16:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekend",
+          "from": "14:00",
+          "to": "10:00",
+          "band": "shoulder"
         }
       ]
     },
     "supply": {
-      "daily": 1.707
+      "daily": 1.591
     },
     "export": {
       "flatRate": 0.05
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-2",
+        "name": "Controlled Load 2",
+        "rate": 0.172
+      }
+    ]
   }
 }

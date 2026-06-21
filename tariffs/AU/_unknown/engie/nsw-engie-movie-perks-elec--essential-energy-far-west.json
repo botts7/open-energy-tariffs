@@ -303,20 +303,26 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.6505
+          "rate": 0.6293
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.3455
+          "rate": 0.3315
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.4014
+          "rate": 0.3923
         }
       ],
       "schedule": [
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "09:00",
+          "band": "peak"
+        },
         {
           "days": "weekday",
           "from": "17:00",
@@ -337,7 +343,7 @@
         },
         {
           "days": "weekday",
-          "from": "07:00",
+          "from": "09:00",
           "to": "17:00",
           "band": "shoulder"
         },

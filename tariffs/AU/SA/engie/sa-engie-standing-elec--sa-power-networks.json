@@ -354,9 +354,51 @@
     }
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.4188
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.5112
+        },
+        {
+          "id": "off-peak",
+          "name": "Off-Peak",
+          "rate": 0.3586
+        },
+        {
+          "id": "solar-sponge",
+          "name": "Solar Sponge",
+          "rate": 0.1853
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "06:00",
+          "to": "10:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "01:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "01:00",
+          "to": "06:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "10:00",
+          "to": "15:00",
+          "band": "solar-sponge"
+        }
+      ]
     },
     "supply": {
       "daily": 1.1395
@@ -366,9 +408,19 @@
     },
     "controlledLoad": [
       {
-        "id": "single-rate-controlled-load",
-        "name": "Single Rate Controlled Load",
-        "rate": 0.2155
+        "id": "tou-rate-controlled-load",
+        "name": "TOU Rate Controlled Load",
+        "rate": 0.4922
+      },
+      {
+        "id": "tou-rate-controlled-load",
+        "name": "TOU Rate Controlled Load",
+        "rate": 0.2708
+      },
+      {
+        "id": "tou-rate-controlled-load",
+        "name": "TOU Rate Controlled Load",
+        "rate": 0.1643
       }
     ]
   }

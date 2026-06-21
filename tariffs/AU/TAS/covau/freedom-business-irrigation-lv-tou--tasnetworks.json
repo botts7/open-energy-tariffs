@@ -138,17 +138,17 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
+          "id": "non-summer-peak",
           "name": "Non-Summer Peak",
           "rate": 0.3862
         },
         {
-          "id": "off-peak",
+          "id": "non-summer-off-peak",
           "name": "Non-Summer Off Peak",
           "rate": 0.1694
         },
         {
-          "id": "shoulder",
+          "id": "non-summer-shoulder",
           "name": "Non-Summer Shoulder",
           "rate": 0.303
         }
@@ -158,19 +158,19 @@
           "days": "weekday",
           "from": "07:00",
           "to": "22:00",
-          "band": "peak"
+          "band": "non-summer-peak"
         },
         {
           "days": "all",
           "from": "22:00",
           "to": "07:00",
-          "band": "off-peak"
+          "band": "non-summer-off-peak"
         },
         {
           "days": "weekend",
           "from": "07:00",
           "to": "22:00",
-          "band": "shoulder"
+          "band": "non-summer-shoulder"
         }
       ]
     },

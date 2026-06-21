@@ -229,25 +229,31 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.427
+          "rate": 0.275
+        },
+        {
+          "id": "off-peak",
+          "name": "Off Peak",
+          "rate": 0.255
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.282
-        },
-        {
-          "id": "off-peak",
-          "name": "Off-Peak",
-          "rate": 0.237
+          "rate": 0.315
         }
       ],
       "schedule": [
         {
-          "days": "all",
-          "from": "16:00",
-          "to": "21:00",
+          "days": "weekday",
+          "from": "17:00",
+          "to": "20:00",
           "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "13:00",
+          "band": "off-peak"
         },
         {
           "days": "all",
@@ -256,26 +262,32 @@
           "band": "shoulder"
         },
         {
-          "days": "all",
-          "from": "21:00",
+          "days": "weekday",
+          "from": "13:00",
+          "to": "17:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
           "to": "24:00",
           "band": "shoulder"
         },
         {
-          "days": "all",
-          "from": "11:00",
-          "to": "16:00",
-          "band": "off-peak"
+          "days": "weekend",
+          "from": "13:00",
+          "to": "24:00",
+          "band": "shoulder"
         }
       ]
     },
     "supply": {
-      "daily": 1.16
+      "daily": 1.84
     },
     "controlledLoad": [
       {
-        "id": "controlled-load-2",
-        "name": "Controlled Load 2",
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
         "rate": 0.2055
       }
     ]

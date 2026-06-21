@@ -191,7 +191,7 @@
           "rate": 0.2108
         },
         {
-          "id": "shoulder",
+          "id": "shoulder-usage",
           "name": "Shoulder Usage",
           "rate": 0.4495
         }
@@ -219,13 +219,13 @@
           "days": "weekday",
           "from": "07:00",
           "to": "13:00",
-          "band": "shoulder"
+          "band": "shoulder-usage"
         },
         {
           "days": "weekday",
           "from": "20:00",
           "to": "22:00",
-          "band": "shoulder"
+          "band": "shoulder-usage"
         }
       ]
     },
@@ -234,6 +234,13 @@
     },
     "export": {
       "flatRate": 0.03
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-2",
+        "name": "Controlled load 2",
+        "rate": 0.1746
+      }
+    ]
   }
 }

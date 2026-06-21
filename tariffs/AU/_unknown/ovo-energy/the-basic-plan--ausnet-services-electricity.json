@@ -287,12 +287,12 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
+          "id": "tariff-1",
           "name": "Tariff 1",
           "rate": 0.32718
         },
         {
-          "id": "off-peak",
+          "id": "tariff-2",
           "name": "Tariff 2",
           "rate": 0.18165
         }
@@ -302,19 +302,19 @@
           "days": "all",
           "from": "15:00",
           "to": "21:00",
-          "band": "peak"
+          "band": "tariff-1"
         },
         {
           "days": "all",
           "from": "21:00",
           "to": "24:00",
-          "band": "off-peak"
+          "band": "tariff-2"
         },
         {
           "days": "all",
           "from": "00:00",
           "to": "15:00",
-          "band": "off-peak"
+          "band": "tariff-2"
         }
       ]
     },
@@ -323,13 +323,6 @@
     },
     "export": {
       "flatRate": 0.01
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load",
-        "name": "Controlled Load",
-        "rate": 0.2205
-      }
-    ]
+    }
   }
 }

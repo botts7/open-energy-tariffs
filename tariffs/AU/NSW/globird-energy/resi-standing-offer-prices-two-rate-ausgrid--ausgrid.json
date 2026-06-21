@@ -252,12 +252,12 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
+          "id": "peak-usage",
           "name": "Peak Usage",
           "rate": 0.47
         },
         {
-          "id": "off-peak",
+          "id": "off-peak-usage",
           "name": "Off Peak Usage",
           "rate": 0.269
         }
@@ -267,19 +267,19 @@
           "days": "all",
           "from": "15:00",
           "to": "21:00",
-          "band": "peak"
+          "band": "peak-usage"
         },
         {
           "days": "all",
           "from": "21:00",
           "to": "24:00",
-          "band": "off-peak"
+          "band": "off-peak-usage"
         },
         {
           "days": "all",
           "from": "00:00",
           "to": "15:00",
-          "band": "off-peak"
+          "band": "off-peak-usage"
         }
       ]
     },

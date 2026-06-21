@@ -327,17 +327,17 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.589
+          "rate": 0.4423
         },
         {
           "id": "off-peak",
           "name": "Off-peak",
-          "rate": 0.345
+          "rate": 0.2758
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.345
+          "rate": 0.414
         }
       ],
       "schedule": [
@@ -380,7 +380,7 @@
       ]
     },
     "supply": {
-      "daily": 1.9005
+      "daily": 8.874
     }
   }
 }

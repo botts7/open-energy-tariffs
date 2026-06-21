@@ -361,30 +361,24 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.36575
+          "rate": 0.487485
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.285
+          "rate": 0.297785
         },
         {
           "id": "off-peak",
           "name": "Off Peak",
-          "rate": 0.209
+          "rate": 0.283519
         }
       ],
       "schedule": [
         {
           "days": "all",
-          "from": "06:00",
-          "to": "10:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "16:00",
-          "to": "24:00",
+          "from": "17:00",
+          "to": "21:00",
           "band": "peak"
         },
         {
@@ -395,34 +389,29 @@
         },
         {
           "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
           "from": "00:00",
-          "to": "06:00",
+          "to": "10:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "16:00",
+          "to": "17:00",
           "band": "off-peak"
         }
       ]
     },
     "supply": {
-      "daily": 1.340391
+      "daily": 1.134773
     },
     "export": {
       "flatRate": 0.005
-    },
-    "controlledLoad": [
-      {
-        "id": "tou-rate-controlled-load",
-        "name": "TOU Rate Controlled Load",
-        "rate": 0.36575
-      },
-      {
-        "id": "tou-rate-controlled-load",
-        "name": "TOU Rate Controlled Load",
-        "rate": 0.285
-      },
-      {
-        "id": "tou-rate-controlled-load",
-        "name": "TOU Rate Controlled Load",
-        "rate": 0.209
-      }
-    ]
+    }
   }
 }

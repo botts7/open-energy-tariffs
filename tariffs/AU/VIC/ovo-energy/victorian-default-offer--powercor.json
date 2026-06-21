@@ -340,55 +340,42 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
+          "id": "tariff-1",
           "name": "Tariff 1",
-          "rate": 0.354091
+          "rate": 0.367273
         },
         {
-          "id": "off-peak",
+          "id": "tariff-2",
           "name": "Tariff 2",
-          "rate": 0.191909
+          "rate": 0.215
         }
       ],
       "schedule": [
         {
-          "days": "weekday",
-          "from": "09:00",
+          "days": "all",
+          "from": "15:00",
           "to": "21:00",
-          "band": "peak"
+          "band": "tariff-1"
         },
         {
           "days": "all",
           "from": "21:00",
           "to": "24:00",
-          "band": "off-peak"
+          "band": "tariff-2"
         },
         {
           "days": "all",
           "from": "00:00",
-          "to": "09:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "weekend",
-          "from": "09:00",
-          "to": "21:00",
-          "band": "off-peak"
+          "to": "15:00",
+          "band": "tariff-2"
         }
       ]
     },
     "supply": {
-      "daily": 1.445909
+      "daily": 1.244
     },
     "export": {
       "flatRate": 0.0004
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load",
-        "name": "Controlled Load",
-        "rate": 0.192909
-      }
-    ]
+    }
   }
 }

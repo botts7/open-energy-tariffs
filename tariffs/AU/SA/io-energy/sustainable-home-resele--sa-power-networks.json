@@ -369,12 +369,12 @@
           "rate": 0.772727
         },
         {
-          "id": "shoulder1",
+          "id": "shoulder-1",
           "name": "Shoulder 1",
           "rate": 0.336364
         },
         {
-          "id": "shoulder2",
+          "id": "shoulder-2",
           "name": "Shoulder 2",
           "rate": 0.336364
         }
@@ -396,31 +396,31 @@
           "days": "all",
           "from": "06:00",
           "to": "09:00",
-          "band": "shoulder1"
+          "band": "shoulder-1"
         },
         {
           "days": "all",
           "from": "00:00",
           "to": "06:00",
-          "band": "shoulder2"
+          "band": "shoulder-2"
         },
         {
           "days": "all",
           "from": "09:00",
           "to": "10:00",
-          "band": "shoulder2"
+          "band": "shoulder-2"
         },
         {
           "days": "all",
           "from": "16:00",
           "to": "17:00",
-          "band": "shoulder2"
+          "band": "shoulder-2"
         },
         {
           "days": "all",
           "from": "21:00",
           "to": "24:00",
-          "band": "shoulder2"
+          "band": "shoulder-2"
         }
       ]
     },

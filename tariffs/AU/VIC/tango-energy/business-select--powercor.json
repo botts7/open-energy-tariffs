@@ -340,7 +340,7 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
+          "id": "peak-excl-ph",
           "name": "Peak (excl. PH)",
           "rate": 0.3183
         },
@@ -355,7 +355,7 @@
           "days": "weekday",
           "from": "09:00",
           "to": "21:00",
-          "band": "peak"
+          "band": "peak-excl-ph"
         },
         {
           "days": "weekday",

@@ -177,43 +177,12 @@
     }
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.342
-        },
-        {
-          "id": "off-peak",
-          "name": "Off Peak",
-          "rate": 0.225
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "00:00",
-          "to": "10:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "14:00",
-          "to": "24:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "10:00",
-          "to": "14:00",
-          "band": "off-peak"
-        }
-      ]
+      "flatRate": 0.331
     },
     "supply": {
-      "daily": 1.11
+      "daily": 1.02
     },
     "export": {
       "flatRate": 0.028

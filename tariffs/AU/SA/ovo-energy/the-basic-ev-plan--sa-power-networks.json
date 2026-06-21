@@ -364,7 +364,7 @@
           "rate": 0.62727
         },
         {
-          "id": "shoulder",
+          "id": "solar-sponge",
           "name": "Solar Sponge",
           "rate": 0.419475
         }
@@ -386,13 +386,13 @@
           "days": "all",
           "from": "10:00",
           "to": "15:00",
-          "band": "shoulder"
+          "band": "solar-sponge"
         },
         {
           "days": "all",
           "from": "00:00",
           "to": "06:00",
-          "band": "shoulder"
+          "band": "solar-sponge"
         }
       ]
     },
@@ -401,13 +401,6 @@
     },
     "export": {
       "flatRate": 0.015
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load-1",
-        "name": "Controlled Load 1",
-        "rate": 0.231
-      }
-    ]
+    }
   }
 }

@@ -409,6 +409,23 @@
     },
     "supply": {
       "daily": 1.6
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "tou-rate-controlled-load",
+        "name": "TOU Rate Controlled Load",
+        "rate": 0.38
+      },
+      {
+        "id": "tou-rate-controlled-load",
+        "name": "TOU Rate Controlled Load",
+        "rate": 0.343
+      },
+      {
+        "id": "tou-rate-controlled-load",
+        "name": "TOU Rate Controlled Load",
+        "rate": 0.3
+      }
+    ]
   }
 }

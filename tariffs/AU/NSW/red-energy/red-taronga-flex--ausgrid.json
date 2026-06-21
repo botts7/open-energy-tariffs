@@ -248,22 +248,63 @@
     }
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.2955
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.4385
+        },
+        {
+          "id": "off-peak",
+          "name": "Off Peak",
+          "rate": 0.2198
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.2955
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "14:00",
+          "to": "20:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "07:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "14:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "22:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekend",
+          "from": "07:00",
+          "to": "22:00",
+          "band": "shoulder"
+        }
+      ]
     },
     "supply": {
-      "daily": 0.8599
+      "daily": 0.9175
     },
     "export": {
       "flatRate": 0.04
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load-2",
-        "name": "Controlled Load 2",
-        "rate": 0.1442
-      }
-    ]
+    }
   }
 }

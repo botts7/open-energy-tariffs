@@ -327,17 +327,17 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.351
+          "rate": 0.357
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.244
+          "rate": 0.249
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.317
+          "rate": 0.323
         }
       ],
       "schedule": [
@@ -380,16 +380,16 @@
       ]
     },
     "supply": {
-      "daily": 2.214
+      "daily": 2.271
     },
     "export": {
       "flatRate": 0.05
     },
     "controlledLoad": [
       {
-        "id": "controlled-load-2",
-        "name": "Controlled Load 2",
-        "rate": 0.206
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.184
       }
     ]
   }

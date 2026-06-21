@@ -354,11 +354,6 @@
         "id": "controlled-load-1",
         "name": "Controlled load 1",
         "rate": 0.1846
-      },
-      {
-        "id": "controlled-load-2",
-        "name": "Controlled load 2",
-        "rate": 0.1846
       }
     ]
   }

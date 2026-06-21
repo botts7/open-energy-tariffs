@@ -125,12 +125,12 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
+          "id": "tariff-1",
           "name": "Tariff 1",
           "rate": 0.2801
         },
         {
-          "id": "off-peak",
+          "id": "tariff-2",
           "name": "Tariff 2",
           "rate": 0.1622
         }
@@ -140,19 +140,19 @@
           "days": "all",
           "from": "09:00",
           "to": "21:00",
-          "band": "peak"
+          "band": "tariff-1"
         },
         {
           "days": "all",
           "from": "00:00",
           "to": "09:00",
-          "band": "off-peak"
+          "band": "tariff-2"
         },
         {
           "days": "all",
           "from": "21:00",
           "to": "24:00",
-          "band": "off-peak"
+          "band": "tariff-2"
         }
       ]
     },

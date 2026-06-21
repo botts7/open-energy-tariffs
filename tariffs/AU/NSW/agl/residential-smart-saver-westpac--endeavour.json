@@ -176,17 +176,17 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
+          "id": "domestic-time-of-use-peak",
           "name": "Domestic Time of Use Peak",
           "rate": 0.3677
         },
         {
-          "id": "off-peak",
+          "id": "domestic-time-of-use-off-peak",
           "name": "Domestic Time of Use Off Peak",
           "rate": 0.3065
         },
         {
-          "id": "shoulder",
+          "id": "domestic-time-of-use-shoulder",
           "name": "Domestic Time of Use Shoulder",
           "rate": 0.243
         }
@@ -196,25 +196,25 @@
           "days": "all",
           "from": "16:00",
           "to": "20:00",
-          "band": "peak"
+          "band": "domestic-time-of-use-peak"
         },
         {
           "days": "all",
           "from": "14:00",
           "to": "16:00",
-          "band": "off-peak"
+          "band": "domestic-time-of-use-off-peak"
         },
         {
           "days": "all",
           "from": "20:00",
           "to": "10:00",
-          "band": "off-peak"
+          "band": "domestic-time-of-use-off-peak"
         },
         {
           "days": "all",
           "from": "10:00",
           "to": "14:00",
-          "band": "shoulder"
+          "band": "domestic-time-of-use-shoulder"
         }
       ]
     },

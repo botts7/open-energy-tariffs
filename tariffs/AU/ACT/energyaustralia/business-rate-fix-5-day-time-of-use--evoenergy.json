@@ -52,7 +52,7 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
+          "id": "business",
           "name": "Business",
           "rate": 0.46724
         },
@@ -62,7 +62,7 @@
           "rate": 0.29709
         },
         {
-          "id": "shoulder",
+          "id": "evening",
           "name": "Evening",
           "rate": 0.37582
         }
@@ -72,7 +72,7 @@
           "days": "weekday",
           "from": "07:00",
           "to": "17:00",
-          "band": "peak"
+          "band": "business"
         },
         {
           "days": "weekday",
@@ -90,7 +90,7 @@
           "days": "weekday",
           "from": "17:00",
           "to": "22:00",
-          "band": "shoulder"
+          "band": "evening"
         }
       ]
     },

@@ -406,23 +406,6 @@
     },
     "export": {
       "flatRate": 0.02
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load-tou",
-        "name": "Controlled Load TOU",
-        "rate": 0.477
-      },
-      {
-        "id": "controlled-load-tou",
-        "name": "Controlled Load TOU",
-        "rate": 0.2098
-      },
-      {
-        "id": "controlled-load-tou",
-        "name": "Controlled Load TOU",
-        "rate": 0.2662
-      }
-    ]
+    }
   }
 }

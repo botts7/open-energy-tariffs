@@ -223,9 +223,63 @@
     }
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.2838
+      "bands": [
+        {
+          "id": "time-of-use-peak",
+          "name": "Time of Use Peak",
+          "rate": 0.394
+        },
+        {
+          "id": "time-of-use-off-peak",
+          "name": "Time of Use Off Peak",
+          "rate": 0.2461
+        },
+        {
+          "id": "time-of-use-shoulder",
+          "name": "Time of Use Shoulder",
+          "rate": 0.2953
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "16:00",
+          "to": "21:00",
+          "band": "time-of-use-peak"
+        },
+        {
+          "days": "all",
+          "from": "09:00",
+          "to": "16:00",
+          "band": "time-of-use-off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "time-of-use-shoulder"
+        },
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "09:00",
+          "band": "time-of-use-shoulder"
+        },
+        {
+          "days": "weekend",
+          "from": "16:00",
+          "to": "24:00",
+          "band": "time-of-use-shoulder"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "09:00",
+          "band": "time-of-use-shoulder"
+        }
+      ]
     },
     "supply": {
       "daily": 1.3118

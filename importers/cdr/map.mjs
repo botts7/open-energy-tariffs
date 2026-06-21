@@ -63,23 +63,31 @@ function pickElectricityContract(detail) {
 function mapTimeOfUse(timeOfUseRates = []) {
   const bands = [];
   const schedule = [];
-  const seen = new Set();
-  for (const tou of timeOfUseRates) {
-    const id = slug(tou.type || tou.displayName || `band-${bands.length}`);
-    if (!seen.has(id)) {
-      seen.add(id);
-      bands.push({
-        id,
-        name: tou.displayName || tou.type || id,
-        rate: money(tou.rates?.[0]?.unitPrice) ?? 0,
-      });
+  // Key bands by the (unique) displayName+rate, NOT by `type`: CDR plans can have
+  // several blocks sharing a type (e.g. two SHOULDER blocks "Tariff 1"/"Tariff 2"
+  // at different rates) which a type-keyed id would wrongly collapse into one.
+  const byKey = new Map();
+  const used = new Set();
+  timeOfUseRates.forEach((tou, i) => {
+    const label = tou.displayName || tou.type || `band-${i + 1}`;
+    const rate = money(tou.rates?.[0]?.unitPrice) ?? 0;
+    const key = `${label}|${rate}`;
+    let id = byKey.get(key);
+    if (id === undefined) {
+      const base = slug(label) || `band-${i + 1}`;
+      id = base;
+      let j = 2;
+      while (used.has(id)) id = `${base}-${j++}`;
+      used.add(id);
+      byKey.set(key, id);
+      bands.push({ id, name: label, rate });
     }
     for (const w of tou.timeOfUse || []) {
       const from = toHHMM(w.startTime);
       const to = endExclusive(w.endTime);
       if (from && to) schedule.push({ days: mapDays(w.days), from, to, band: id });
     }
-  }
+  });
   return { bands, schedule };
 }
 

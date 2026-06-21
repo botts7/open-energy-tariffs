@@ -252,14 +252,14 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
+          "id": "summer-peak",
           "name": "Summer Peak",
-          "rate": 0.3646
+          "rate": 0.5721
         },
         {
-          "id": "off-peak",
+          "id": "summer-off-peak",
           "name": "Summer Off Peak",
-          "rate": 0.3646
+          "rate": 0.2983
         }
       ],
       "schedule": [
@@ -267,18 +267,18 @@
           "days": "all",
           "from": "15:00",
           "to": "21:00",
-          "band": "peak"
+          "band": "summer-peak"
         },
         {
           "days": "all",
           "from": "21:00",
           "to": "15:00",
-          "band": "off-peak"
+          "band": "summer-off-peak"
         }
       ]
     },
     "supply": {
-      "daily": 1.0494
+      "daily": 1.1553
     },
     "export": {
       "flatRate": 0.03

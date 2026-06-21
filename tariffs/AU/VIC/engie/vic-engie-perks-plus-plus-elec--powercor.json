@@ -345,7 +345,7 @@
           "rate": 0.3672
         },
         {
-          "id": "off-peak",
+          "id": "tariff-2",
           "name": "Tariff 2",
           "rate": 0.215
         }
@@ -361,13 +361,13 @@
           "days": "all",
           "from": "00:00",
           "to": "15:00",
-          "band": "off-peak"
+          "band": "tariff-2"
         },
         {
           "days": "all",
           "from": "21:00",
           "to": "24:00",
-          "band": "off-peak"
+          "band": "tariff-2"
         }
       ]
     },

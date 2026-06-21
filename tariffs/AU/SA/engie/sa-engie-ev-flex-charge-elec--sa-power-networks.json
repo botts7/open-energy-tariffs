@@ -368,7 +368,7 @@
           "rate": 0.3586
         },
         {
-          "id": "shoulder",
+          "id": "solar-sponge",
           "name": "Solar Sponge",
           "rate": 0.1853
         }
@@ -396,7 +396,7 @@
           "days": "all",
           "from": "10:00",
           "to": "15:00",
-          "band": "shoulder"
+          "band": "solar-sponge"
         }
       ]
     },

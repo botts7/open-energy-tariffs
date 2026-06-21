@@ -355,54 +355,12 @@
     }
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.426
-        },
-        {
-          "id": "shoulder",
-          "name": "Solar Sponge",
-          "rate": 0.292
-        },
-        {
-          "id": "off-peak",
-          "name": "Off-Peak",
-          "rate": 0.337
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "06:00",
-          "to": "10:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "15:00",
-          "to": "01:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "10:00",
-          "to": "15:00",
-          "band": "shoulder"
-        },
-        {
-          "days": "all",
-          "from": "01:00",
-          "to": "06:00",
-          "band": "off-peak"
-        }
-      ]
+      "flatRate": 0.39
     },
     "supply": {
-      "daily": 1.34
+      "daily": 1.08
     },
     "export": {
       "flatRate": 0.015

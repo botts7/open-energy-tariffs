@@ -88,9 +88,14 @@
     "import": {
       "bands": [
         {
-          "id": "shoulder",
+          "id": "tariff-1",
           "name": "Tariff 1",
           "rate": 0.318
+        },
+        {
+          "id": "tariff-2",
+          "name": "Tariff 2",
+          "rate": 0.2002
         }
       ],
       "schedule": [
@@ -98,19 +103,19 @@
           "days": "all",
           "from": "15:00",
           "to": "21:00",
-          "band": "shoulder"
+          "band": "tariff-1"
         },
         {
           "days": "all",
           "from": "00:00",
           "to": "15:00",
-          "band": "shoulder"
+          "band": "tariff-2"
         },
         {
           "days": "all",
           "from": "21:00",
           "to": "24:00",
-          "band": "shoulder"
+          "band": "tariff-2"
         }
       ]
     },

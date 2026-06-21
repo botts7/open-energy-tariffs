@@ -364,13 +364,6 @@
     },
     "supply": {
       "daily": 2.1368
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load-2",
-        "name": "Controlled Load 2",
-        "rate": 0.1675
-      }
-    ]
+    }
   }
 }

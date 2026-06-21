@@ -121,9 +121,46 @@
     }
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.238
+      "bands": [
+        {
+          "id": "tariff-1",
+          "name": "Tariff 1",
+          "rate": 0.2888
+        },
+        {
+          "id": "tariff-2",
+          "name": "Tariff 2",
+          "rate": 0.1675
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "09:00",
+          "to": "21:00",
+          "band": "tariff-1"
+        },
+        {
+          "days": "weekday",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "tariff-2"
+        },
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "09:00",
+          "band": "tariff-2"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "tariff-2"
+        }
+      ]
     },
     "supply": {
       "daily": 1.1342

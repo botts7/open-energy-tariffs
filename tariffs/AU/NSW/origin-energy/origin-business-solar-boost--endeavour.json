@@ -191,7 +191,7 @@
           "rate": 0.2423
         },
         {
-          "id": "shoulder",
+          "id": "shoulder-usage",
           "name": "Shoulder Usage",
           "rate": 0.5167
         }
@@ -219,13 +219,13 @@
           "days": "weekday",
           "from": "07:00",
           "to": "13:00",
-          "band": "shoulder"
+          "band": "shoulder-usage"
         },
         {
           "days": "weekday",
           "from": "20:00",
           "to": "22:00",
-          "band": "shoulder"
+          "band": "shoulder-usage"
         }
       ]
     },

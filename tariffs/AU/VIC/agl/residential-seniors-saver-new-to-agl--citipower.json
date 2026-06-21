@@ -69,35 +69,9 @@
     }
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "shoulder",
-          "name": "Tariff 1",
-          "rate": 0.2774
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "15:00",
-          "to": "21:00",
-          "band": "shoulder"
-        },
-        {
-          "days": "all",
-          "from": "21:00",
-          "to": "24:00",
-          "band": "shoulder"
-        },
-        {
-          "days": "all",
-          "from": "00:00",
-          "to": "15:00",
-          "band": "shoulder"
-        }
-      ]
+      "flatRate": 0.2087
     },
     "supply": {
       "daily": 0.9474

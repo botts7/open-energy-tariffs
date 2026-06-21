@@ -158,10 +158,17 @@
       "flatRate": 0.3835
     },
     "supply": {
-      "daily": 1.3537
+      "daily": 1.4406
     },
     "export": {
       "flatRate": 0.03
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "single-rate-controlled-load",
+        "name": "Single Rate Controlled Load",
+        "rate": 0.208
+      }
+    ]
   }
 }

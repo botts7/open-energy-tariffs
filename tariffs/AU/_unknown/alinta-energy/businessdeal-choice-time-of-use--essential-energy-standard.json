@@ -294,7 +294,7 @@
           "rate": 0.2469
         },
         {
-          "id": "shoulder",
+          "id": "shoulder-consumption",
           "name": "Shoulder consumption",
           "rate": 0.4839
         }
@@ -328,13 +328,13 @@
           "days": "weekday",
           "from": "09:00",
           "to": "17:00",
-          "band": "shoulder"
+          "band": "shoulder-consumption"
         },
         {
           "days": "weekday",
           "from": "20:00",
           "to": "22:00",
-          "band": "shoulder"
+          "band": "shoulder-consumption"
         }
       ]
     },

@@ -78,7 +78,7 @@
           "rate": 0.3302
         },
         {
-          "id": "off-peak",
+          "id": "tariff-2",
           "name": "Tariff 2",
           "rate": 0.2005
         }
@@ -94,13 +94,13 @@
           "days": "all",
           "from": "00:00",
           "to": "15:00",
-          "band": "off-peak"
+          "band": "tariff-2"
         },
         {
           "days": "all",
           "from": "21:00",
           "to": "24:00",
-          "band": "off-peak"
+          "band": "tariff-2"
         }
       ]
     },
@@ -109,13 +109,6 @@
     },
     "export": {
       "flatRate": 0.01
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load",
-        "name": "Controlled Load",
-        "rate": 0.1829
-      }
-    ]
+    }
   }
 }

@@ -52,7 +52,7 @@
     "import": {
       "bands": [
         {
-          "id": "shoulder1",
+          "id": "smart-rate",
           "name": "Smart Rate",
           "rate": 0.2178
         },
@@ -67,7 +67,7 @@
           "days": "all",
           "from": "11:00",
           "to": "15:00",
-          "band": "shoulder1"
+          "band": "smart-rate"
         },
         {
           "days": "all",

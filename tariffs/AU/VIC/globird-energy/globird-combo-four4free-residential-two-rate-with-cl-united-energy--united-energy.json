@@ -125,9 +125,14 @@
     "import": {
       "bands": [
         {
-          "id": "shoulder",
+          "id": "time-of-use",
           "name": "Time of Use",
           "rate": 0.34
+        },
+        {
+          "id": "time-of-use-2",
+          "name": "Time of Use",
+          "rate": 1e-06
         }
       ],
       "schedule": [
@@ -135,19 +140,19 @@
           "days": "all",
           "from": "14:00",
           "to": "24:00",
-          "band": "shoulder"
+          "band": "time-of-use"
         },
         {
           "days": "all",
           "from": "00:00",
           "to": "10:00",
-          "band": "shoulder"
+          "band": "time-of-use"
         },
         {
           "days": "all",
           "from": "10:00",
           "to": "14:00",
-          "band": "shoulder"
+          "band": "time-of-use-2"
         }
       ]
     },

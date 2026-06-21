@@ -229,54 +229,37 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.4245
+          "rate": 0.3522
         },
         {
           "id": "off-peak",
           "name": "Off Peak",
-          "rate": 0.2636
-        },
-        {
-          "id": "shoulder",
-          "name": "Shoulder",
-          "rate": 0.2879
+          "rate": 0.2767
         }
       ],
       "schedule": [
         {
           "days": "weekday",
-          "from": "16:00",
-          "to": "20:00",
+          "from": "07:00",
+          "to": "21:00",
           "band": "peak"
         },
         {
           "days": "all",
-          "from": "22:00",
+          "from": "21:00",
           "to": "07:00",
           "band": "off-peak"
         },
         {
           "days": "weekend",
           "from": "07:00",
-          "to": "22:00",
-          "band": "shoulder"
-        },
-        {
-          "days": "weekday",
-          "from": "07:00",
-          "to": "16:00",
-          "band": "shoulder"
-        },
-        {
-          "days": "weekday",
-          "from": "20:00",
-          "to": "22:00",
-          "band": "shoulder"
+          "to": "21:00",
+          "band": "off-peak"
         }
       ]
     },
     "supply": {
-      "daily": 1.4803
+      "daily": 1.6711
     },
     "export": {
       "flatRate": 0.05

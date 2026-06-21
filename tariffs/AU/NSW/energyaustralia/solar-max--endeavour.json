@@ -181,7 +181,7 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
+          "id": "summer-peak",
           "name": "Summer Peak",
           "rate": 0.54483
         },
@@ -201,7 +201,7 @@
           "days": "weekday",
           "from": "16:00",
           "to": "20:00",
-          "band": "peak"
+          "band": "summer-peak"
         },
         {
           "days": "weekday",
@@ -242,11 +242,6 @@
       "flatRate": 0.08
     },
     "controlledLoad": [
-      {
-        "id": "controlled-load-1",
-        "name": "Controlled Load 1",
-        "rate": 0.19634
-      },
       {
         "id": "controlled-load-2",
         "name": "Controlled Load 2",

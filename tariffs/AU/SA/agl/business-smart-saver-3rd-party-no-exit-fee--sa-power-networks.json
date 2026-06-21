@@ -359,42 +359,76 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.3598
+          "id": "residential-time-of-use-peak",
+          "name": "Residential Time of Use peak",
+          "rate": 0.4464
         },
         {
-          "id": "off-peak",
-          "name": "Off-peak",
-          "rate": 0.3301
+          "id": "residential-time-of-use-off-peak",
+          "name": "Residential Time of Use Off peak",
+          "rate": 0.3086
+        },
+        {
+          "id": "residential-time-of-use-shoulder",
+          "name": "Residential Time of Use Shoulder",
+          "rate": 0.3775
         }
       ],
       "schedule": [
         {
           "days": "weekday",
-          "from": "07:00",
+          "from": "17:00",
           "to": "21:00",
-          "band": "peak"
+          "band": "residential-time-of-use-peak"
+        },
+        {
+          "days": "weekend",
+          "from": "17:00",
+          "to": "21:00",
+          "band": "residential-time-of-use-peak"
         },
         {
           "days": "weekday",
           "from": "21:00",
           "to": "07:00",
-          "band": "off-peak"
+          "band": "residential-time-of-use-off-peak"
         },
         {
           "days": "weekend",
-          "from": "00:00",
-          "to": "24:00",
-          "band": "off-peak"
+          "from": "21:00",
+          "to": "17:00",
+          "band": "residential-time-of-use-off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "17:00",
+          "band": "residential-time-of-use-shoulder"
         }
       ]
     },
     "supply": {
-      "daily": 9.4138
+      "daily": 1.1768
     },
     "export": {
       "flatRate": 0.02
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "peak-cl",
+        "name": "Peak CL",
+        "rate": 0.2085
+      },
+      {
+        "id": "offpeak-cl",
+        "name": "Offpeak CL",
+        "rate": 0.2085
+      },
+      {
+        "id": "shoulder-cl",
+        "name": "Shoulder CL",
+        "rate": 0.1599
+      }
+    ]
   }
 }

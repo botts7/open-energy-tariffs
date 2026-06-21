@@ -287,9 +287,19 @@
     "import": {
       "bands": [
         {
-          "id": "shoulder",
+          "id": "flexible",
           "name": "Flexible",
           "rate": 0.485
+        },
+        {
+          "id": "flexible-2",
+          "name": "Flexible",
+          "rate": 1e-06
+        },
+        {
+          "id": "flexible-3",
+          "name": "Flexible",
+          "rate": 0.265
         }
       ],
       "schedule": [
@@ -297,31 +307,31 @@
           "days": "all",
           "from": "16:00",
           "to": "23:00",
-          "band": "shoulder"
+          "band": "flexible"
         },
         {
           "days": "all",
           "from": "10:00",
           "to": "14:00",
-          "band": "shoulder"
+          "band": "flexible-2"
         },
         {
           "days": "all",
           "from": "14:00",
           "to": "16:00",
-          "band": "shoulder"
+          "band": "flexible-3"
         },
         {
           "days": "all",
           "from": "23:00",
           "to": "24:00",
-          "band": "shoulder"
+          "band": "flexible-3"
         },
         {
           "days": "all",
           "from": "00:00",
           "to": "10:00",
-          "band": "shoulder"
+          "band": "flexible-3"
         }
       ]
     },

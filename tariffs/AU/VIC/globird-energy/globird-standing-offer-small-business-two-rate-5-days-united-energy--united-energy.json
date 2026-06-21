@@ -125,12 +125,12 @@
     "import": {
       "bands": [
         {
-          "id": "peak",
+          "id": "time-of-use",
           "name": "Time of Use",
           "rate": 0.318273
         },
         {
-          "id": "off-peak",
+          "id": "time-of-use-2",
           "name": "Time of Use",
           "rate": 0.184273
         }
@@ -140,25 +140,25 @@
           "days": "weekday",
           "from": "09:00",
           "to": "21:00",
-          "band": "peak"
+          "band": "time-of-use"
         },
         {
           "days": "weekday",
           "from": "21:00",
           "to": "24:00",
-          "band": "off-peak"
+          "band": "time-of-use-2"
         },
         {
           "days": "weekday",
           "from": "00:00",
           "to": "09:00",
-          "band": "off-peak"
+          "band": "time-of-use-2"
         },
         {
           "days": "weekend",
           "from": "00:00",
           "to": "24:00",
-          "band": "off-peak"
+          "band": "time-of-use-2"
         }
       ]
     },

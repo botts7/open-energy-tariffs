@@ -71,10 +71,10 @@
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.23908629
+      "flatRate": 0.2273
     },
     "supply": {
-      "daily": 1.26192893
+      "daily": 1.0303
     },
     "export": {
       "flatRate": 0.03
@@ -83,7 +83,7 @@
       {
         "id": "controlled-load-rate",
         "name": "Controlled load rate",
-        "rate": 0.1774
+        "rate": 0.1678
       }
     ]
   }

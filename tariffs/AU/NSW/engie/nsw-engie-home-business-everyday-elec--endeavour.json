@@ -158,26 +158,31 @@
       "bands": [
         {
           "id": "peak",
-          "name": "Summer Peak",
-          "rate": 0.5967
+          "name": "Peak",
+          "rate": 0.5145
         },
         {
           "id": "off-peak",
-          "name": "Summer Off Peak",
-          "rate": 0.3489
+          "name": "Off-Peak",
+          "rate": 0.2717
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.4325
         }
       ],
       "schedule": [
         {
           "days": "weekday",
-          "from": "16:00",
+          "from": "13:00",
           "to": "20:00",
           "band": "peak"
         },
         {
           "days": "weekday",
-          "from": "20:00",
-          "to": "16:00",
+          "from": "22:00",
+          "to": "07:00",
           "band": "off-peak"
         },
         {
@@ -185,6 +190,18 @@
           "from": "00:00",
           "to": "24:00",
           "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "13:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "22:00",
+          "band": "shoulder"
         }
       ]
     },

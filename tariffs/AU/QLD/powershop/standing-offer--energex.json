@@ -234,7 +234,7 @@
       {
         "id": "single-rate-controlled-load",
         "name": "Single Rate Controlled Load",
-        "rate": 0.157
+        "rate": 0.1555
       }
     ]
   }
