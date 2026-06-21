@@ -16,7 +16,13 @@ const RULES = [
   { name: 'email address', re: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/ },
   { name: 'long numeric id (NMI / MPAN / meter / account / card)', re: /\b\d{10,}\b/ },
   { name: 'AU phone number', re: /\b(?:\+?61|0)[2-478](?:[ -]?\d){8}\b/ },
-  { name: 'street address', re: /\b\d+\s+[A-Za-z][A-Za-z .'-]*\s+(?:street|st|road|rd|avenue|ave|drive|dr|lane|ln|court|ct|place|pl|crescent|cres|close|cl|way|highway|hwy|parade|pde|boulevard|blvd|terrace|tce)\b/i },
+  // Street address — two rules so plan-name acronyms don't false-positive:
+  //  (a) full words are case-insensitive ("12 Smith Street/Road/Close").
+  //  (b) short abbreviations match only Title/lower case ("12 Smith St/Rd/Cl"),
+  //      never ALL-CAPS — else energy acronyms like "5 Day TOU with CL" (CL =
+  //      Controlled Load) read as "<num> ... Close".
+  { name: 'street address', re: /\b\d+\s+[A-Za-z][A-Za-z .'-]*\s+(?:street|road|avenue|drive|lane|court|place|crescent|close|way|highway|parade|boulevard|terrace)\b/i },
+  { name: 'street address (abbrev)', re: /\b\d+\s+[A-Za-z][A-Za-z .'-]*\s+(?:St|Rd|Ave|Dr|Ln|Ct|Pl|Cl|Cres|Pde|Blvd|Hwy|Tce|st|rd|ave|dr|ln|ct|pl|cl|cres|pde|blvd|hwy|tce)\b/ },
   { name: 'identity keyword', re: /\b(nmi|mpan|meter\s*(?:no|number|serial|id)|account\s*(?:no|number)|date\s*of\s*birth|\bdob\b|driver'?s?\s*licen[cs]e|passport|medicare)\b/i },
   { name: 'secret / credential keyword', re: /\b(api[_-]?key|secret|passwd|password|bearer|authorization|client[_-]?secret|access[_-]?token)\b/i },
   { name: 'hex secret (>=32)', re: /\b[A-Fa-f0-9]{32,}\b/ },
