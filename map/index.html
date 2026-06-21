@@ -38,13 +38,15 @@
     .tv-period button { background:transparent; border:1px solid var(--input-bd); color:var(--text); padding:3px 9px; border-radius:6px; cursor:pointer; font-size:12px; margin-left:4px; text-transform:capitalize; }
     .tv-period button.on { background:#2563eb; border-color:#2563eb; color:#fff; }
     .tv-scroll { overflow:auto; flex:1; }
-    .tv-table { width:100%; border-collapse:collapse; font-size:13px; }
+    .tv-table { width:100%; border-collapse:collapse; font-size:13px; table-layout:fixed; }
     .tv-table th { position:sticky; top:0; background:var(--panel); text-align:left; padding:8px 10px; border-bottom:2px solid var(--border); cursor:pointer; white-space:nowrap; color:var(--text); z-index:1; }
     .tv-table th.sorted { color:var(--accent); }
-    .tv-table td { padding:7px 10px; border-bottom:1px solid var(--border); white-space:nowrap; }
+    .tv-table td { padding:7px 10px; border-bottom:1px solid var(--border); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; vertical-align:top; }
+    .tv-table th:first-child, .tv-table td:first-child { width:34%; }
+    .tv-table th:nth-child(2), .tv-table td:nth-child(2) { width:12%; }
     .tv-table tbody tr { cursor:pointer; }
     .tv-table tbody tr:hover { background:var(--hover); }
-    .tv-name { white-space:normal; max-width:340px; }
+    .tv-name { white-space:normal; overflow-wrap:anywhere; }
     .tv-sub { font-size:11px; color:var(--muted); margin-top:2px; }
     .tv-cost { font-weight:700; }
     .tv-table tr.tv-best { background:rgba(22,163,74,.09); }
