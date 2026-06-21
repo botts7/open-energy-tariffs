@@ -1,0 +1,66 @@
+name: refresh-baselines
+
+# Refresh the dated reference datasets and open a PR:
+#   map/fx.js          — FX snapshot (no key)
+#   map/baseline.js    — Eurostat EU household prices (no key)
+#   map/baseline-us.js — EIA US residential prices (needs EIA_API_KEY secret)
+# Run manually from the Actions tab. Keys live only in Actions secrets; the
+# generated data files are committed via a PR you review. Nothing auto-merges.
+#
+# EIA setup once: get a free key at https://www.eia.gov/opendata/register.php,
+# then Settings -> Secrets and variables -> Actions -> New repository secret ->
+# name EIA_API_KEY. (FX + Eurostat refresh even without it.)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Refresh FX (no key)
+        run: node scripts/refresh-fx.mjs
+
+      - name: Refresh Eurostat EU baseline (no key)
+        run: node scripts/refresh-baseline.mjs
+
+      - name: Refresh EIA US baseline (if key set)
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+        run: |
+          if [ -n "$EIA_API_KEY" ]; then
+            node scripts/refresh-baseline-us.mjs
+          else
+            echo "::notice::EIA_API_KEY not set — skipping US baseline. Add the secret to enable it."
+          fi
+
+      - name: Sanity-check the JS still parses
+        run: node -e "require('node:fs').readdirSync('map').filter(f=>/^(fx|baseline|baseline-us)\.js$/.test(f)).forEach(f=>new Function(require('node:fs').readFileSync('map/'+f,'utf8')))"
+
+      - name: Open a PR with the refreshed data
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: refresh/baselines
+          commit-message: 'data: refresh FX + Eurostat + EIA baselines'
+          title: 'data: refresh reference baselines (FX / Eurostat / EIA)'
+          body: |
+            Automated refresh of the dated reference datasets. Review the diffs
+            (rates move; check nothing looks wild) before merging.
+
+            - `map/fx.js` — FX snapshot
+            - `map/baseline.js` — Eurostat EU household prices (CC BY 4.0)
+            - `map/baseline-us.js` — EIA US residential prices (US public domain), if EIA_API_KEY set
+          add-paths: |
+            map/fx.js
+            map/baseline.js
+            map/baseline-us.js
+          delete-branch: true
