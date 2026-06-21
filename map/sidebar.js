@@ -87,6 +87,25 @@ OET.initSidebar = function () {
   // before the user enters their own usage (~4000 kWh/yr, even load).
   const typicalUsage = OET.usageFromAnnual ? OET.usageFromAnnual(4000, 'flat') : null;
 
+  const postcodesOf = (r) => (r.meta.coverage && r.meta.coverage.postcodes) || [];
+  // Resolve the active search text to a postcode (3-5 digits, or an AU suburb name).
+  function resolvedPostcode() {
+    const q = state.text;
+    if (/^\d{3,5}$/.test(q)) return q;
+    if (q && q.length >= 3 && OET.AU_SUBURBS && OET.AU_SUBURBS[q]) return OET.AU_SUBURBS[q];
+    return null;
+  }
+  // The plan-matcher for a postcode: exact (or 3-digit area fallback) within `baseFn`.
+  function postcodeMatcher(pc, baseFn) {
+    const prefix = pc.length < 4;
+    const exact = (r) => postcodesOf(r).some((x) => x === pc || (prefix && x.indexOf(pc) === 0));
+    const area = pc.slice(0, 3);
+    const areaM = (r) => postcodesOf(r).some((x) => x.indexOf(area) === 0);
+    if (plans.some((r) => baseFn(r) && exact(r))) return exact;
+    if (plans.some((r) => baseFn(r) && areaM(r))) return areaM;
+    return () => false;
+  }
+
   const count = h('div', { class: 'sb-count' });
   const list = h('div', { class: 'sb-list' });
 
@@ -187,9 +206,15 @@ OET.initSidebar = function () {
   const distributorCombo = makeCombo(
     [{ value: '', label: 'All networks (distributors)' }].concat(distributors.map((d) => ({ value: d, label: d }))),
     'All networks', (v) => { state.distributor = v; apply(true); });
-  // Recompute provider/distributor/current-plan lists for the selected country/source.
+  // Recompute provider/distributor/current-plan lists for the selected country/
+  // source — AND the searched postcode, so you can only pick a network/provider
+  // that actually serves that postcode (no more empty results from a network in
+  // the wrong state).
   function refreshDependentOptions() {
-    const base = plans.filter((r) => (!state.countries.size || state.countries.has(r.meta.country)) && (!state.sources.size || state.sources.has(r.src)));
+    const csBase = (r) => (!state.countries.size || state.countries.has(r.meta.country)) && (!state.sources.size || state.sources.has(r.src));
+    const pc = resolvedPostcode();
+    const serves = pc ? postcodeMatcher(pc, csBase) : null;
+    const base = plans.filter((r) => csBase(r) && (!serves || serves(r)));
     const provs = [...new Set(base.map((r) => r.meta.provider))].filter(Boolean).sort();
     const dists = [...new Set(base.map((r) => r.meta.distributor))].filter(Boolean).sort();
     if (state.provider && provs.indexOf(state.provider) === -1) state.provider = '';
@@ -397,8 +422,6 @@ OET.initSidebar = function () {
   root.appendChild(controls);
   root.appendChild(h('div', { class: 'sb-scroll' }, [list]));
 
-  const postcodesOf = (r) => (r.meta.coverage && r.meta.coverage.postcodes) || [];
-
   // Build the filter predicate. Postcode queries (3-5 digits) are special:
   //  - 3 digits = area prefix (e.g. 300 -> 3000-3099);
   //  - 4 digits = exact; if no plan covers it, snap to the nearest COVERED
@@ -513,6 +536,10 @@ OET.initSidebar = function () {
     return n;
   }
   function apply(fit) {
+    // When the searched postcode changes, re-narrow the network/provider dropdowns
+    // to what serves it (so you can't pick a network in the wrong area, then get 0).
+    const pcNow = resolvedPostcode();
+    if (pcNow !== state._pcKey) { state._pcKey = pcNow; refreshDependentOptions(); }
     OET._usage = state.usage; // expose to the compare modal's annual-cost row
     // Expose the baseline (your actual $ or current-plan cost) so the plan modal
     // can show history-vs-proposed savings.
