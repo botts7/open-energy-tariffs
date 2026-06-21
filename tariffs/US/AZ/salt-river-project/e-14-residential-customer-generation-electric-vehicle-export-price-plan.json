@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "id": "us-az-salt-river-project-e-14-residential-customer-generation-electric-vehicle-export-price-plan",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Salt River Project",
+    "plan": "E-14 RESIDENTIAL CUSTOMER GENERATION ELECTRIC VEHICLE EXPORT PRICE PLAN",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/5d9b7fc95457a3d865598dce",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "16572"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.0765
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.077
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.0737
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.2094
+        },
+        {
+          "id": "p4",
+          "name": "Period 5",
+          "rate": 0.2409
+        },
+        {
+          "id": "p5",
+          "name": "Period 6",
+          "rate": 0.0951
+        },
+        {
+          "id": "p6",
+          "name": "Period 7",
+          "rate": 0.0575
+        },
+        {
+          "id": "p7",
+          "name": "Period 8",
+          "rate": 0.0611
+        },
+        {
+          "id": "p8",
+          "name": "Period 9",
+          "rate": 0.0614
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "05:00",
+          "band": "p6"
+        },
+        {
+          "days": "weekday",
+          "from": "05:00",
+          "to": "09:00",
+          "band": "p5"
+        },
+        {
+          "days": "weekday",
+          "from": "09:00",
+          "to": "17:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "21:00",
+          "band": "p5"
+        },
+        {
+          "days": "weekday",
+          "from": "21:00",
+          "to": "23:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekday",
+          "from": "23:00",
+          "to": "24:00",
+          "band": "p6"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "05:00",
+          "band": "p6"
+        },
+        {
+          "days": "weekend",
+          "from": "05:00",
+          "to": "23:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekend",
+          "from": "23:00",
+          "to": "24:00",
+          "band": "p6"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 1.0657
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "id": "us-az-arizona-public-service-co-time-of-use-4pm-7pm-weekdays-r-tou-e",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Arizona Public Service Co",
+    "plan": "Time-of-Use 4pm-7pm Weekdays (R-TOU-E)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/6272df247eb76766c247d468",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "803"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.12611
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.30006
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.31601
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "16:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "16:00",
+          "to": "19:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "19:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.3998
+    }
+  }
+}

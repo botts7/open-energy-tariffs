@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "id": "us-al-alabama-power-co-rate-rta",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AL",
+    "provider": "Alabama Power Co",
+    "plan": "Rate RTA",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Chicago",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539fc390ec4f024c27d8bd9f",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "195"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.07969
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.09969
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.27969
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "05:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "05:00",
+          "to": "09:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "09:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.82622
+    }
+  }
+}

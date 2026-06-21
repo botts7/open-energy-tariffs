@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "id": "us-az-salt-river-project-e-23-standard-price-plan-for-residential-service",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Salt River Project",
+    "plan": "E-23 STANDARD PRICE PLAN FOR RESIDENTIAL SERVICE",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539f755cec4f024411ed1357",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "16572"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.1057
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.1117
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.0803
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p2"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.55848
+    }
+  }
+}

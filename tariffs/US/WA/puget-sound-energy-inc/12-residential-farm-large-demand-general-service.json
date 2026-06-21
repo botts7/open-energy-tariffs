@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-wa-puget-sound-energy-inc-12-residential-farm-large-demand-general-service",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "WA",
+    "provider": "Puget Sound Energy Inc",
+    "plan": "12 (Residential & Farm Large Demand General Service)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539fc75aec4f024d2f53db02",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "15500"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.0447
+    },
+    "supply": {
+      "daily": 3.62878
+    }
+  }
+}

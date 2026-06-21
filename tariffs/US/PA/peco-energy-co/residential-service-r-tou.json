@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "id": "us-pa-peco-energy-co-residential-service-r-tou",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "PA",
+    "provider": "PECO Energy Co",
+    "plan": "Residential Service (R) - TOU",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/64e6611f72c15d56fa0db32c",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "14940"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.176
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.15644
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.42055
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "06:00",
+          "to": "14:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "14:00",
+          "to": "18:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekday",
+          "from": "18:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekend",
+          "from": "06:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.3456
+    }
+  }
+}

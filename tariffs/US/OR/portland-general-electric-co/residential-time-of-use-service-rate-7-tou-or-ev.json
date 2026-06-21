@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "id": "us-or-portland-general-electric-co-residential-time-of-use-service-rate-7-tou-or-ev",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "OR",
+    "provider": "Portland General Electric Co",
+    "plan": "Residential Time-Of-Use Service (Rate 7- TOU or EV)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/639b781752fc2fc16f05d3cc",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "15248"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.03283
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.06165
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.17818
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "07:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "17:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "21:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekday",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.40309
+    }
+  }
+}

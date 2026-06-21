@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "id": "us-ny-consolidated-edison-co-ny-inc-sc-2-general-small-time-of-day-westchester",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "NY",
+    "provider": "Consolidated Edison Co-NY Inc",
+    "plan": "SC-2 - General Small Time-Of-Day [Westchester]",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/574f55e95457a3c24d5e629e",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "4226"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.02357
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.23077
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.35857
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "08:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "08:00",
+          "to": "22:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "22:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.98949
+    }
+  }
+}

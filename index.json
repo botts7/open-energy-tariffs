@@ -26902,11 +26902,1805 @@
     }
   },
   "US": {
+    "AL": {
+      "Alabama Power Co": [
+        {
+          "id": "us-al-alabama-power-co-family-dwelling-service",
+          "plan": "Family Dwelling Service",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-family-dwelling-service-demand-option",
+          "plan": "Family Dwelling Service (Demand Option)",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-farm-service",
+          "plan": "Farm Service",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-large-farm-service",
+          "plan": "Large Farm Service",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-plug-in-electric-vehicle",
+          "plan": "Plug-In Electric Vehicle",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-plug-in-electric-vehicle-family-dwelling-service",
+          "plan": "Plug-In Electric Vehicle - Family Dwelling Service",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-plug-in-electric-vehicle-family-dwelling-service-demand-option",
+          "plan": "Plug-In Electric Vehicle - Family Dwelling Service (Demand Option)",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-plug-in-electric-vehicle-rta-energy",
+          "plan": "Plug-In Electric Vehicle - RTA Energy",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-rate-pae-option-a-single-phase",
+          "plan": "Rate PAE - Option A - Single Phase",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-rate-pae-option-a-three-phase",
+          "plan": "Rate PAE - Option A - Three Phase",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-rate-pae-option-b-single-phase-demand-customers",
+          "plan": "Rate PAE - Option B - Single Phase Demand Customers",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-rate-pae-option-b-single-phase-standard-customers",
+          "plan": "Rate PAE - Option B - Single Phase Standard Customers",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-rate-pae-option-b-single-phase-tou-customers",
+          "plan": "Rate PAE - Option B - Single Phase TOU Customers",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-rate-pae-option-b-three-phase",
+          "plan": "Rate PAE - Option B - Three Phase",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-rate-pae-option-c-single-phase",
+          "plan": "Rate PAE - Option C - Single Phase",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-rate-pae-option-c-three-phase",
+          "plan": "Rate PAE - Option C - Three Phase",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-rate-rta",
+          "plan": "Rate RTA",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-rate-rta-demand",
+          "plan": "Rate RTA Demand",
+          "verified": false
+        },
+        {
+          "id": "us-al-alabama-power-co-rate-rta-energy",
+          "plan": "Rate RTA Energy",
+          "verified": false
+        }
+      ]
+    },
+    "AZ": {
+      "Arizona Public Service Co": [
+        {
+          "id": "us-az-arizona-public-service-co-extra-small-residential-service-lite-choice",
+          "plan": "Extra Small Residential Service (Lite Choice)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-extra-small-residential-service-lite-choice-r-xs",
+          "plan": "Extra Small Residential Service (Lite Choice) R-XS",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-fixed-energy-charge-plan-r-1-large-tier-3",
+          "plan": "Fixed Energy Charge Plan (R-1) Large Tier 3",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-fixed-energy-charge-plan-r-1-medium-tier-2",
+          "plan": "Fixed Energy Charge Plan (R-1) Medium Tier 2",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-fixed-energy-charge-plan-r-1-small-tier-1",
+          "plan": "Fixed Energy Charge Plan (R-1) Small Tier 1",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-large-residential-service-premier-choice-large",
+          "plan": "Large Residential Service (Premier Choice Large)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-large-residential-service-premier-choice-large-r-basic-l-frozen",
+          "plan": "Large Residential Service (Premier Choice Large) R-Basic L [Frozen]",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-bundled-adjustments-no-tax-tou-time-adv-7pm-noon-et-2",
+          "plan": "Residential Bundled & Adjustments No Tax TOU ; Time Adv 7PM-Noon  (ET-2)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-bundled-adjustments-no-tax-tou-time-adv-super-peak-7pm-noon-et-sp",
+          "plan": "Residential Bundled & Adjustments No Tax TOU; Time Adv Super peak 7PM-Noon (ET-SP)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-bundled-adjustments-no-tax-tou-w-demand-combined-adv-7pm-noon-ect-2",
+          "plan": "Residential Bundled & Adjustments No Tax TOU w/ Demand; Combined Adv  7PM-Noon (ECT-2)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-bundled-standard-rate",
+          "plan": "Residential Service Bundled Standard rate",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-pilot-technology-rate",
+          "plan": "Residential Service (Pilot Technology Rate)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-pilot-technology-rate-r-tech",
+          "plan": "Residential Service (Pilot Technology Rate) R-Tech",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-saver-choice-max",
+          "plan": "Residential Service (Saver Choice Max)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-saver-choice-max-r-3",
+          "plan": "Residential Service (Saver Choice Max) R-3",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-saver-choice-plus",
+          "plan": "Residential Service (Saver Choice Plus)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-saver-choice-plus-r-2",
+          "plan": "Residential Service (Saver Choice Plus) R-2",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-standard-e-12",
+          "plan": "Residential Service Standard (E-12)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-standard-e-12-frozen",
+          "plan": "Residential Service Standard (E-12) [Frozen]",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-standard-e-12-low-income",
+          "plan": "Residential Service Standard (E-12) Low Income",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-tou-combined-advantage-7pm-noon-ect-2",
+          "plan": "Residential Service TOU Combined Advantage 7PM-Noon  (ECT-2)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-tou-combined-advantage-7pm-noon-ect-2-frozen",
+          "plan": "Residential Service TOU Combined Advantage 7PM-Noon  (ECT-2) [Frozen]",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-tou-time-advantage-7pm-noon-et-2",
+          "plan": "Residential Service TOU Time Advantage 7PM-Noon (ET-2)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-service-tou-time-advantage-7pm-noon-et-2-frozen",
+          "plan": "Residential Service TOU Time Advantage 7PM-Noon (ET-2) [Frozen]",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-time-of-use-saver-choice",
+          "plan": "Residential Time of Use (Saver Choice)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-residential-time-of-use-saver-choice-tou-e",
+          "plan": "Residential Time of Use (Saver Choice) TOU-E",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-small-residential-service-premier-choice",
+          "plan": "Small Residential Service (Premier Choice)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-small-residential-service-premier-choice-r-basic",
+          "plan": "Small Residential Service (Premier Choice) R-Basic",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-time-advantage-7pm-to-noon",
+          "plan": "Time Advantage 7pm to noon",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-time-of-use-3pm-8pm-weekdays-r-tou-e-closed",
+          "plan": "Time-of-Use 3pm-8pm Weekdays (R-TOU-E) - Closed",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-time-of-use-3pm-8pm-weekdays-with-demand-charge-r-3-closed",
+          "plan": "Time-of-Use 3pm-8pm Weekdays with Demand Charge (R-3) - Closed",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-time-of-use-4pm-7pm-weekdays-r-tou-e",
+          "plan": "Time-of-Use 4pm-7pm Weekdays (R-TOU-E)",
+          "verified": false
+        },
+        {
+          "id": "us-az-arizona-public-service-co-time-of-use-4pm-7pm-weekdays-with-demand-charge-r-3",
+          "plan": "Time-of-Use 4pm-7pm Weekdays with Demand Charge (R-3)",
+          "verified": false
+        }
+      ],
+      "Salt River Project": [
+        {
+          "id": "us-az-salt-river-project-e-13-customer-generation-time-of-use-export-price-plan-for-residential-service",
+          "plan": "E-13 CUSTOMER GENERATION TIME-OF-USE EXPORT PRICE PLAN FOR RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-14-residential-customer-generation-electric-vehicle-export-price-plan",
+          "plan": "E-14 RESIDENTIAL CUSTOMER GENERATION ELECTRIC VEHICLE EXPORT PRICE PLAN",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-15-customer-generation-average-demand-price-plan-for-residential-service",
+          "plan": "E-15 CUSTOMER GENERATION AVERAGE DEMAND PRICE PLAN FOR RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-21-price-plan-for-residential-super-peak-time-of-use-service",
+          "plan": "E-21 PRICE PLAN FOR RESIDENTIAL SUPER PEAK TIME-OF-USE SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-22-experimental-plan-for-residential-super-peak-time-of-use-service",
+          "plan": "E-22 - EXPERIMENTAL PLAN FOR RESIDENTIAL SUPER PEAK TIME-OF-USE SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-23-basic-price-plan-for-residential-service",
+          "plan": "E-23 BASIC PRICE PLAN FOR RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-23-basic-price-plan-for-residential-service-low-income-rate",
+          "plan": "E-23 BASIC PRICE PLAN FOR RESIDENTIAL SERVICE Low Income Rate",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-23-standard-price-plan-for-residential-service",
+          "plan": "E-23 STANDARD PRICE PLAN FOR RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-24-m-power-price-plan-for-pre-pay-residential-service",
+          "plan": "E-24 M-POWER PRICE PLAN FOR PRE-PAY RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-25-experimental-plan-for-residential-super-peak-time-of-use-service",
+          "plan": "E-25 - Experimental Plan for Residential Super Peak Time-of-Use Service",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-26-standard-price-plan-for-residential-time-of-use-service",
+          "plan": "E-26 STANDARD PRICE PLAN FOR RESIDENTIAL TIME-OF-USE SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-27-customer-generation-price-plan-for-residential-service",
+          "plan": "E-27 CUSTOMER GENERATION PRICE PLAN FOR RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-27-p-pilot-price-plan-for-residential-demand-rate-service",
+          "plan": "E-27 P Pilot Price Plan for Residential Demand Rate Service",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-28-m-power-price-plan-for-residential-pre-pay-time-of-use-service",
+          "plan": "E-28 M-POWER PRICE PLAN FOR RESIDENTIAL PRE-PAY TIME-OF-USE SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-az-salt-river-project-e-29-experimental-price-plan-for-time-of-use-service-with-super-off-peak-for-electric-vehicles",
+          "plan": "E-29 EXPERIMENTAL PRICE PLAN FOR TIME-OF-USE SERVICE WITH SUPER OFF PEAK FOR ELECTRIC VEHICLES",
+          "verified": false
+        }
+      ]
+    },
+    "CA": {
+      "Pacific Gas & Electric Co": [
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-baseline-region-p",
+          "plan": "E-1 - Baseline Region P",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-baseline-region-q",
+          "plan": "E-1 - Baseline Region Q",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-baseline-region-r",
+          "plan": "E-1 - Baseline Region R",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-baseline-region-s",
+          "plan": "E-1 - Baseline Region S",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-baseline-region-t",
+          "plan": "E-1 - Baseline Region T",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-baseline-region-v",
+          "plan": "E-1 - Baseline Region V",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-baseline-region-w",
+          "plan": "E-1 - Baseline Region W",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-baseline-region-x",
+          "plan": "E-1 - Baseline Region X",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-baseline-region-y",
+          "plan": "E-1 - Baseline Region Y",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-baseline-region-z",
+          "plan": "E-1 - Baseline Region Z",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-residential-service-baseline-region-p",
+          "plan": "E-1 Residential Service Baseline Region P",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-residential-service-baseline-region-q",
+          "plan": "E-1 -Residential Service Baseline Region Q",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-residential-service-baseline-region-r",
+          "plan": "E-1 -Residential Service Baseline Region R",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-residential-service-baseline-region-s",
+          "plan": "E-1 -Residential Service Baseline Region S",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-residential-service-baseline-region-t",
+          "plan": "E-1 -Residential Service Baseline Region T",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-residential-service-baseline-region-v",
+          "plan": "E-1 -Residential Service Baseline Region V",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-residential-service-baseline-region-w",
+          "plan": "E-1 -Residential Service Baseline Region W",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-residential-service-baseline-region-x",
+          "plan": "E-1 -Residential Service Baseline Region X",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-residential-service-baseline-region-y",
+          "plan": "E-1 -Residential Service Baseline Region Y",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-1-residential-service-baseline-region-z",
+          "plan": "E-1 -Residential Service Baseline Region Z",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-baseline-region-p",
+          "plan": "E-6 - Baseline Region P",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-baseline-region-q",
+          "plan": "E-6 - Baseline Region Q",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-baseline-region-r",
+          "plan": "E-6 - Baseline Region R",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-baseline-region-s",
+          "plan": "E-6 - Baseline Region S",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-baseline-region-t",
+          "plan": "E-6 - Baseline Region T",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-baseline-region-v",
+          "plan": "E-6 - Baseline Region V",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-baseline-region-w",
+          "plan": "E-6 - Baseline Region W",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-baseline-region-x",
+          "plan": "E-6 - Baseline Region X",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-baseline-region-y",
+          "plan": "E-6 - Baseline Region Y",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-baseline-region-z",
+          "plan": "E-6 - Baseline Region Z",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-residential-time-of-use-baseline-region-p",
+          "plan": "E-6 -Residential Time of Use- Baseline Region P",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-residential-time-of-use-baseline-region-q",
+          "plan": "E-6 -Residential Time of Use Baseline Region Q",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-residential-time-of-use-baseline-region-r",
+          "plan": "E-6 -Residential Time of Use Baseline Region R",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-residential-time-of-use-baseline-region-s",
+          "plan": "E-6 -Residential Time of Use Baseline Region S",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-residential-time-of-use-baseline-region-t",
+          "plan": "E-6 -Residential Time of Use Baseline Region T",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-residential-time-of-use-baseline-region-v",
+          "plan": "E-6 -Residential Time of Use Baseline Region V",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-residential-time-of-use-baseline-region-w",
+          "plan": "E-6 -Residential Time of Use Baseline Region W",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-residential-time-of-use-baseline-region-x",
+          "plan": "E-6 -Residential Time of Use Baseline Region X",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-residential-time-of-use-baseline-region-y",
+          "plan": "E-6 -Residential Time of Use Baseline Region Y",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-6-residential-time-of-use-baseline-region-z",
+          "plan": "E-6 -Residential Time of Use Baseline Region Z",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-7-baseline-region-p",
+          "plan": "E-7 - Baseline Region P",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-7-baseline-region-q",
+          "plan": "E-7 - Baseline Region Q",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-7-baseline-region-r",
+          "plan": "E-7 - Baseline Region R",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-7-baseline-region-s",
+          "plan": "E-7 - Baseline Region S",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-7-baseline-region-t",
+          "plan": "E-7 - Baseline Region T",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-7-baseline-region-v",
+          "plan": "E-7 - Baseline Region V",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-7-baseline-region-w",
+          "plan": "E-7 - Baseline Region W",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-7-baseline-region-x",
+          "plan": "E-7 - Baseline Region X",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-7-baseline-region-y",
+          "plan": "E-7 - Baseline Region Y",
+          "verified": false
+        },
+        {
+          "id": "us-ca-pacific-gas-electric-co-e-7-baseline-region-z",
+          "plan": "E-7 - Baseline Region Z",
+          "verified": false
+        }
+      ],
+      "San Diego Gas & Electric Co": [
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-coastal-baseline-region",
+          "plan": "DR - Coastal Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-desert-baseline-region",
+          "plan": "DR - Desert Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-inland-baseline-region",
+          "plan": "DR - Inland Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-li-coastal-baseline-region",
+          "plan": "DR-LI - Coastal Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-li-desert-baseline-region",
+          "plan": "DR-LI - Desert Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-li-inland-baseline-region",
+          "plan": "DR-LI - Inland Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-li-mountain-baseline-region",
+          "plan": "DR-LI - Mountain Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-mountain-baseline-region",
+          "plan": "DR - Mountain Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-ses-solar-energy-systems",
+          "plan": "DR-SES (Solar Energy Systems)",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-tou-coastal-baseline-region",
+          "plan": "DR- TOU- Coastal Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-tou-desert-baseline-region",
+          "plan": "DR- TOU- Desert Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-tou-inland-baseline-region",
+          "plan": "DR- TOU- Inland Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-dr-tou-mountain-baseline-region",
+          "plan": "DR- TOU- Mountain Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-ev-tou",
+          "plan": "EV-TOU",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-ev-tou-2",
+          "plan": "EV-TOU-2",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-tou-dr-coastal-baseline-region",
+          "plan": "TOU-DR Coastal Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-tou-dr-inland-baseline-region",
+          "plan": "TOU-DR Inland Baseline Region",
+          "verified": false
+        },
+        {
+          "id": "us-ca-san-diego-gas-electric-co-tou-dr-mountain-baseline-region",
+          "plan": "TOU-DR Mountain Baseline Region",
+          "verified": false
+        }
+      ],
+      "Southern California Edison Co": [
+        {
+          "id": "us-ca-southern-california-edison-co-domestic-service-d-baseline-region-10",
+          "plan": "Domestic Service: D - Baseline Region 10",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-domestic-service-d-baseline-region-13",
+          "plan": "Domestic Service: D - Baseline Region 13",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-domestic-service-d-baseline-region-14",
+          "plan": "Domestic Service: D - Baseline Region 14",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-domestic-service-d-baseline-region-15",
+          "plan": "Domestic Service: D - Baseline Region 15",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-domestic-service-d-baseline-region-16",
+          "plan": "Domestic Service: D - Baseline Region 16",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-domestic-service-d-baseline-region-5",
+          "plan": "Domestic Service: D - Baseline Region 5",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-domestic-service-d-baseline-region-6",
+          "plan": "Domestic Service: D - Baseline Region 6",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-domestic-service-d-baseline-region-8",
+          "plan": "Domestic Service: D - Baseline Region 8",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-domestic-service-d-baseline-region-9",
+          "plan": "Domestic Service: D - Baseline Region 9",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-domestic-time-of-use-electric-vehicle-charging-tou-ev-1",
+          "plan": "Domestic Time-of-use Electric Vehicle Charging: TOU-EV-1",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-domestic-tiered-electric-vehicle-charging-tou-d-tev-region-10",
+          "plan": "Time-Of-Use Domestic Tiered Electric Vehicle Charging -TOU-D-TEV, Region 10",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-domestic-tiered-electric-vehicle-charging-tou-d-tev-region-13",
+          "plan": "Time-Of-Use Domestic Tiered Electric Vehicle Charging -TOU-D-TEV, Region 13",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-domestic-tiered-electric-vehicle-charging-tou-d-tev-region-14",
+          "plan": "Time-Of-Use Domestic Tiered Electric Vehicle Charging -TOU-D-TEV, Region 14",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-domestic-tiered-electric-vehicle-charging-tou-d-tev-region-15",
+          "plan": "Time-Of-Use Domestic Tiered Electric Vehicle Charging -TOU-D-TEV, Region 15",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-domestic-tiered-electric-vehicle-charging-tou-d-tev-region-16",
+          "plan": "Time-Of-Use Domestic Tiered Electric Vehicle Charging -TOU-D-TEV, Region 16",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-domestic-tiered-electric-vehicle-charging-tou-d-tev-region-5",
+          "plan": "Time-Of-Use Domestic Tiered Electric Vehicle Charging -TOU-D-TEV, Region 5",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-domestic-tiered-electric-vehicle-charging-tou-d-tev-region-6",
+          "plan": "Time-Of-Use Domestic Tiered Electric Vehicle Charging -TOU-D-TEV, Region 6",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-domestic-tiered-electric-vehicle-charging-tou-d-tev-region-8",
+          "plan": "Time-Of-Use Domestic Tiered Electric Vehicle Charging -TOU-D-TEV, Region 8",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-domestic-tiered-electric-vehicle-charging-tou-d-tev-region-9",
+          "plan": "Time-Of-Use Domestic Tiered Electric Vehicle Charging -TOU-D-TEV, Region 9",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-domestic-tou-d-1",
+          "plan": "Time-of-use Domestic: TOU-D-1",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-domestic-tou-d-2",
+          "plan": "Time-of-use Domestic: TOU-D-2",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-tiered-domestic-tou-d-t-region-10",
+          "plan": "Time-of-use Tiered Domestic: TOU-D-T - Region 10",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-tiered-domestic-tou-d-t-region-13",
+          "plan": "Time-of-use Tiered Domestic: TOU-D-T - Region 13",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-tiered-domestic-tou-d-t-region-14",
+          "plan": "Time-of-use Tiered Domestic: TOU-D-T - Region 14",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-tiered-domestic-tou-d-t-region-15",
+          "plan": "Time-of-use Tiered Domestic: TOU-D-T - Region 15",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-tiered-domestic-tou-d-t-region-16",
+          "plan": "Time-of-use Tiered Domestic: TOU-D-T - Region 16",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-tiered-domestic-tou-d-t-region-5",
+          "plan": "Time-of-use Tiered Domestic: TOU-D-T - Region 5",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-tiered-domestic-tou-d-t-region-6",
+          "plan": "Time-of-use Tiered Domestic: TOU-D-T - Region 6",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-tiered-domestic-tou-d-t-region-8",
+          "plan": "Time-of-use Tiered Domestic: TOU-D-T - Region 8",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-time-of-use-tiered-domestic-tou-d-t-region-9",
+          "plan": "Time-of-use Tiered Domestic: TOU-D-T - Region 9",
+          "verified": false
+        },
+        {
+          "id": "us-ca-southern-california-edison-co-tou-d-tev-baseline-region-9-partial",
+          "plan": "TOU-D-TEV (baseline region 9) [partial]",
+          "verified": false
+        }
+      ]
+    },
+    "CO": {
+      "Public Service Co of Colorado": [
+        {
+          "id": "us-co-public-service-co-of-colorado-r",
+          "plan": "R",
+          "verified": false
+        },
+        {
+          "id": "us-co-public-service-co-of-colorado-rate-rd-residential",
+          "plan": "Rate RD - Residential",
+          "verified": false
+        },
+        {
+          "id": "us-co-public-service-co-of-colorado-residential-demand-service",
+          "plan": "RESIDENTIAL DEMAND SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-co-public-service-co-of-colorado-residential-demand-service-schedule-rd",
+          "plan": "Residential Demand Service (Schedule RD)",
+          "verified": false
+        },
+        {
+          "id": "us-co-public-service-co-of-colorado-residential-demand-time-differentiated-rates-schedule-rd-tdr",
+          "plan": "Residential Demand - Time Differentiated Rates (Schedule RD-TDR)",
+          "verified": false
+        },
+        {
+          "id": "us-co-public-service-co-of-colorado-residential-energy-time-of-use-schedule-re-tou",
+          "plan": "Residential Energy Time Of Use (Schedule RE-TOU)",
+          "verified": false
+        },
+        {
+          "id": "us-co-public-service-co-of-colorado-residential-general-service-opt-out-schedule-r-oo",
+          "plan": "Residential General Service Opt-Out (Schedule R-OO)",
+          "verified": false
+        },
+        {
+          "id": "us-co-public-service-co-of-colorado-residential-service-schedule-r",
+          "plan": "Residential Service (Schedule R)",
+          "verified": false
+        },
+        {
+          "id": "us-co-public-service-co-of-colorado-residential-time-of-use-schedule-r-tou",
+          "plan": "Residential Time Of Use (Schedule R-TOU)",
+          "verified": false
+        },
+        {
+          "id": "us-co-public-service-co-of-colorado-residential-time-of-use-schedule-r-tou-pilot-program",
+          "plan": "Residential Time Of Use (Schedule R-TOU).  Pilot program",
+          "verified": false
+        },
+        {
+          "id": "us-co-public-service-co-of-colorado-residential-time-of-use-service",
+          "plan": "RESIDENTIAL TIME-OF-USE SERVICE",
+          "verified": false
+        }
+      ]
+    },
     "_example": {
       "Example Utility": [
         {
           "id": "us-example-flat",
           "plan": "Flat residential (example)",
+          "verified": false
+        }
+      ]
+    },
+    "FL": {
+      "Tampa Electric Co": [
+        {
+          "id": "us-fl-tampa-electric-co-rs-residential-service",
+          "plan": "RS RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-fl-tampa-electric-co-rst-tod",
+          "plan": "RST TOD",
+          "verified": false
+        },
+        {
+          "id": "us-fl-tampa-electric-co-rsvp-1-residential-service-variable-pricing-program",
+          "plan": "RSVP-1 RESIDENTIAL SERVICE VARIABLE PRICING PROGRAM",
+          "verified": false
+        },
+        {
+          "id": "us-fl-tampa-electric-co-schedule-rs-residential-service",
+          "plan": "SCHEDULE RS RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-fl-tampa-electric-co-schedule-rsvp-1-residential-service-variable-pricing-program",
+          "plan": "SCHEDULE RSVP-1 RESIDENTIAL SERVICE VARIABLE PRICING PROGRAM",
+          "verified": false
+        }
+      ]
+    },
+    "GA": {
+      "Georgia Power Co": [
+        {
+          "id": "us-ga-georgia-power-co-schedule-r-19-residential-service",
+          "plan": "SCHEDULE R-19 RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-r-21-residential-service",
+          "plan": "SCHEDULE R-21 RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-r-22-residential-service",
+          "plan": "SCHEDULE R-22 RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-r-23-residential-service",
+          "plan": "SCHEDULE R-23 RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-r-24-residential-service",
+          "plan": "SCHEDULE R-24 RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-r-25-residential-service",
+          "plan": "SCHEDULE R-25 RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-r-27-residential-service",
+          "plan": "SCHEDULE R-27 RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-r-29-residential-service",
+          "plan": "SCHEDULE R-29 RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-r-30-residential-service",
+          "plan": "SCHEDULE R-30 RESIDENTIAL SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-oa-14-time-of-use-overnight-advantage",
+          "plan": "Schedule TOU-OA-14 Time of Use - Overnight Advantage",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-pev-11-plug-in-electric-vehicle",
+          "plan": "Schedule TOU-PEV-11- Plug-in Electric Vehicle",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-pev-3-plug-in-electric-vehicle",
+          "plan": "Schedule TOU-PEV-3 - Plug-in Electric Vehicle",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-pev-5-plug-in-electric-vehicle",
+          "plan": "Schedule TOU-PEV-5 - Plug-in Electric Vehicle",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-pev-6-plug-in-electric-vehicle",
+          "plan": "Schedule TOU-PEV-6 - Plug-in Electric Vehicle",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-pev-7-plug-in-electric-vehicle",
+          "plan": "Schedule TOU-PEV-7 - Plug-in Electric Vehicle",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-pev-8-plug-in-electric-vehicle",
+          "plan": "Schedule TOU-PEV-8 - Plug-in Electric Vehicle",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-pev-9-plug-in-electric-vehicle",
+          "plan": "Schedule TOU-PEV-9 - Plug-in Electric Vehicle",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-rd-10-residential-demand-service",
+          "plan": "SCHEDULE TOU-RD-10 RESIDENTIAL DEMAND SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-rd-11-residential-demand-service",
+          "plan": "SCHEDULE TOU-RD-11 RESIDENTIAL DEMAND SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-rd-3-residential-demand-service",
+          "plan": "SCHEDULE TOU-RD-3 RESIDENTIAL DEMAND SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-rd-4-residential-demand-service",
+          "plan": "SCHEDULE TOU-RD-4 RESIDENTIAL DEMAND SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-rd-5-residential-demand-service",
+          "plan": "SCHEDULE TOU-RD-5 RESIDENTIAL DEMAND SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-rd-6-residential-demand-service",
+          "plan": "SCHEDULE TOU-RD-6 RESIDENTIAL DEMAND SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-rd-8-residential-demand-service",
+          "plan": "SCHEDULE TOU-RD-8 RESIDENTIAL DEMAND SERVICE",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-reo-10-time-of-use-residential-energy-only",
+          "plan": "SCHEDULE TOU-REO-10 TIME OF USE - RESIDENTIAL ENERGY ONLY",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-reo-11-time-of-use-residential-energy-only",
+          "plan": "SCHEDULE TOU-REO-11 TIME OF USE  RESIDENTIAL ENERGY ONLY",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-reo-12-time-of-use-residential-energy-only",
+          "plan": "SCHEDULE TOU-REO-12 TIME OF USE  RESIDENTIAL ENERGY ONLY",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-reo-13-time-of-use-residential-energy-only",
+          "plan": "SCHEDULE TOU-REO-13 TIME OF USE  RESIDENTIAL ENERGY ONLY",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-reo-15-time-of-use-residential-energy-only",
+          "plan": "SCHEDULE TOU-REO-15 TIME OF USE  RESIDENTIAL ENERGY ONLY",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-reo-17-residential-energy-only",
+          "plan": "Schedule TOU-REO-17- Residential Energy Only",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-reo-17-time-of-use-residential-energy-only",
+          "plan": "SCHEDULE TOU-REO-17 TIME OF USE  RESIDENTIAL ENERGY ONLY",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-reo-18-time-of-use-residential-energy-only",
+          "plan": "SCHEDULE TOU-REO-18 TIME OF USE  RESIDENTIAL ENERGY ONLY",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-reo-5-time-of-use-residential-energy-only",
+          "plan": "SCHEDULE TOU-REO-5 TIME OF USE - RESIDENTIAL ENERGY ONLY",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-reo-7-time-of-use-residential",
+          "plan": "Schedule TOU-REO-7 - Time of Use - Residential",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-schedule-tou-reo-9-time-of-use-residential-energy-only",
+          "plan": "SCHEDULE TOU-REO-9 TIME OF USE - RESIDENTIAL ENERGY ONLY",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-tou-reo-4",
+          "plan": "TOU-REO-4",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-tou-residential-demand-tou-rd-2",
+          "plan": "TOU- Residential Demand (TOU-RD-2)",
+          "verified": false
+        },
+        {
+          "id": "us-ga-georgia-power-co-tou-residential-demand-tou-rd-3",
+          "plan": "TOU-Residential Demand (TOU-RD-3)",
+          "verified": false
+        }
+      ]
+    },
+    "IL": {
+      "Commonwealth Edison Co": [
+        {
+          "id": "us-il-commonwealth-edison-co-bes-residential-multi-family-with-electric-space-heat-delivery-class",
+          "plan": "BES - Residential Multi Family With Electric Space Heat Delivery Class",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-bes-residential-multi-family-with-electric-space-heating",
+          "plan": "BES - Residential Multi Family With Electric Space Heating",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-bes-residential-multi-family-without-electric-space-heat",
+          "plan": "BES - Residential Multi Family Without Electric Space Heat",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-bes-residential-multi-family-without-electric-space-heat-delivery-class",
+          "plan": "BES - Residential Multi Family Without Electric Space Heat Delivery Class",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-bes-residential-single-family-with-electric-space-heat-delivery-class",
+          "plan": "BES - Residential Single Family with Electric Space Heat Delivery Class",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-bes-residential-single-family-with-electric-space-heating",
+          "plan": "BES - Residential Single Family with Electric Space Heating",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-bes-residential-single-family-without-electric-space-heat-delivery",
+          "plan": "BES- Residential Single Family Without Electric Space Heat Delivery",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-bes-residential-single-family-without-electric-space-heat-delivery-class",
+          "plan": "BES - Residential Single Family Without Electric Space Heat Delivery Class",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-besh-residential-multi-family-with-electric-space-heat-delivery-class-unbundled",
+          "plan": "BESH- Residential Multi Family With Electric Space Heat Delivery Class(Unbundled)",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-besh-residential-multi-family-without-electric-space-heat-delivery-class-unbundled",
+          "plan": "BESH- Residential Multi Family Without Electric Space Heat Delivery Class(Unbundled)",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-besh-residential-single-family-with-electric-space-heat-delivery-class-unbundled",
+          "plan": "BESH- Residential Single Family With Electric Space Heat Delivery Class(Unbundled)",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-besh-residential-single-family-without-electric-space-heat-delivery-class-unbundled",
+          "plan": "BESH- Residential Single Family Without Electric Space Heat Delivery Class(Unbundled)",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-rds-residential-multi-family-with-electric-space-heat-delivery-class",
+          "plan": "RDS - Residential Multi Family With Electric Space Heat Delivery Class",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-rds-residential-multi-family-without-electric-space-heat-delivery-class",
+          "plan": "RDS - Residential Multi Family Without Electric Space Heat Delivery Class",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-rds-residential-single-family-with-electric-space-heat-delivery-class",
+          "plan": "RDS - Residential Single Family with Electric Space Heat Delivery Class",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-rds-residential-single-family-without-electric-space-heat-delivery-class",
+          "plan": "RDS - Residential Single Family Without Electric Space Heat Delivery Class",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-residential-multi-family-with-electric-space-heat-delivery-class-retail-delivery-service-unbundled",
+          "plan": "Residential Multi Family With Electric Space Heat Delivery Class(Retail Delivery Service-Unbundled)",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-residential-multi-family-without-electric-space-heat-delivery-class-retail-delivery-service-unbundled",
+          "plan": "Residential Multi Family Without Electric Space Heat Delivery Class(Retail Delivery Service-Unbundled)",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-residential-single-family-with-electric-space-heat-delivery-class-retail-delivery-service-unbundled",
+          "plan": "Residential Single Family With Electric Space Heat Delivery Class(Retail Delivery Service-Unbundled)",
+          "verified": false
+        },
+        {
+          "id": "us-il-commonwealth-edison-co-residential-single-family-without-electric-space-heat-delivery-class-retail-delivery-service",
+          "plan": "Residential Single Family Without Electric Space Heat Delivery Class(Retail Delivery Service)",
+          "verified": false
+        }
+      ]
+    },
+    "MD": {
+      "Baltimore Gas & Electric Co": [
+        {
+          "id": "us-md-baltimore-gas-electric-co-r",
+          "plan": "R",
+          "verified": false
+        },
+        {
+          "id": "us-md-baltimore-gas-electric-co-r-unbundled",
+          "plan": "R (Unbundled)",
+          "verified": false
+        },
+        {
+          "id": "us-md-baltimore-gas-electric-co-residential-delivery-and-energy-time-of-use-pilot-schedule-rd",
+          "plan": "RESIDENTIAL DELIVERY AND ENERGY TIME-OF-USE PILOT (SCHEDULE RD)",
+          "verified": false
+        },
+        {
+          "id": "us-md-baltimore-gas-electric-co-residential-delivery-and-energy-time-of-use-schedule-rd",
+          "plan": "Residential Delivery and Energy Time of Use (Schedule RD)",
+          "verified": false
+        },
+        {
+          "id": "us-md-baltimore-gas-electric-co-residential-electric-vehicle-time-of-use-schedule-ev",
+          "plan": "Residential ELECTRIC VEHICLE TIME-OF-USE (Schedule EV)",
+          "verified": false
+        },
+        {
+          "id": "us-md-baltimore-gas-electric-co-residential-optional-time-of-use-schedule-rl",
+          "plan": "Residential Optional Time of use (Schedule RL)",
+          "verified": false
+        },
+        {
+          "id": "us-md-baltimore-gas-electric-co-residential-service-schedule-r",
+          "plan": "Residential Service (Schedule R)",
+          "verified": false
+        },
+        {
+          "id": "us-md-baltimore-gas-electric-co-residential-service-schedule-r-bundled-rate",
+          "plan": "Residential Service (Schedule R) Bundled Rate",
+          "verified": false
+        },
+        {
+          "id": "us-md-baltimore-gas-electric-co-rl-residential-optional-time-of-use",
+          "plan": "RL RESIDENTIAL  OPTIONAL  TIME-OF-USE",
+          "verified": false
+        },
+        {
+          "id": "us-md-baltimore-gas-electric-co-rl-residential-optional-time-of-use-unbundled",
+          "plan": "RL RESIDENTIAL  OPTIONAL  TIME-OF-USE (Unbundled)",
+          "verified": false
+        },
+        {
+          "id": "us-md-baltimore-gas-electric-co-schedule-t",
+          "plan": "Schedule T",
+          "verified": false
+        }
+      ]
+    },
+    "MI": {
+      "Consumers Energy Co": [
+        {
+          "id": "us-mi-consumers-energy-co-residential-home-and-plug-in-electric-vehicle-tod-rate-rev-1",
+          "plan": "Residential Home and Plug-in Electric Vehicle ToD Rate (REV-1)",
+          "verified": false
+        },
+        {
+          "id": "us-mi-consumers-energy-co-residential-nighttime-savers-rate-rpm",
+          "plan": "Residential Nighttime Savers Rate (RPM)",
+          "verified": false
+        },
+        {
+          "id": "us-mi-consumers-energy-co-residential-plug-in-electric-vehicle-only-tod-rate-rev-2",
+          "plan": "Residential Plug-In Electric Vehicle Only ToD Rate (REV-2)",
+          "verified": false
+        },
+        {
+          "id": "us-mi-consumers-energy-co-residential-service-secondary-non-transmitting-meter-rate-rsm",
+          "plan": "Residential Service Secondary Non-Transmitting Meter Rate (RSM)",
+          "verified": false
+        },
+        {
+          "id": "us-mi-consumers-energy-co-residential-service-secondary-rate-rs",
+          "plan": "Residential Service - Secondary (Rate RS)",
+          "verified": false
+        },
+        {
+          "id": "us-mi-consumers-energy-co-residential-service-secondary-rate-rs-low-income-rate",
+          "plan": "Residential Service - Secondary (Rate RS) Low Income Rate",
+          "verified": false
+        },
+        {
+          "id": "us-mi-consumers-energy-co-residential-smart-hours-rate-rsh",
+          "plan": "Residential Smart Hours Rate (RSH)",
+          "verified": false
+        },
+        {
+          "id": "us-mi-consumers-energy-co-residential-summer-on-peak-basic-service-rsp",
+          "plan": "Residential Summer On-Peak Basic Service (RSP)",
+          "verified": false
+        },
+        {
+          "id": "us-mi-consumers-energy-co-residential-tod-service-secondary-rate-rt",
+          "plan": "Residential ToD Service - Secondary (Rate RT)",
+          "verified": false
+        }
+      ]
+    },
+    "NC": {
+      "Duke Energy Carolinas, LLC": [
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-es-all-electric-residential-energy-star",
+          "plan": "ES-All Electric (Residential Energy Star)",
+          "verified": false
+        },
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-es-residential-service-energy-star-all-electric",
+          "plan": "ES (Residential Service Energy Star, All-Electric)",
+          "verified": false
+        },
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-es-residential-service-energy-star-standard",
+          "plan": "ES (Residential Service Energy Star, Standard)",
+          "verified": false
+        },
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-es-standard-residential-energy-star",
+          "plan": "ES-Standard (Residential Energy Star)",
+          "verified": false
+        },
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-north-carolina-residential",
+          "plan": "North Carolina Residential",
+          "verified": false
+        },
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-re-residential-electric-water-heating-and-space-conditioning",
+          "plan": "RE (Residential Electric Water Heating and Space Conditioning)",
+          "verified": false
+        },
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-ret-residential-all-electric-time-of-use-pilot",
+          "plan": "RET (Residential All-Electric Time-of-Use Pilot)",
+          "verified": false
+        },
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-rs-residential-service",
+          "plan": "RS (Residential Service)",
+          "verified": false
+        },
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-rst-residential-time-of-use-pilot",
+          "plan": "(RST)Residential Time-of-Use Pilot",
+          "verified": false
+        },
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-rt-residential-service-time-of-use",
+          "plan": "RT (Residential Service Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-rt-residential-time-of-use-nc",
+          "plan": "RT (Residential Time of Use) (NC)",
+          "verified": false
+        },
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-wc-residential-water-heating-service",
+          "plan": "WC (Residential Water Heating Service)",
+          "verified": false
+        },
+        {
+          "id": "us-nc-duke-energy-carolinas-llc-wc-residential-water-heating-service-closed",
+          "plan": "WC (Residential Water Heating Service)[CLOSED]",
+          "verified": false
+        }
+      ]
+    },
+    "NV": {
+      "Nevada Power Co": [
+        {
+          "id": "us-nv-nevada-power-co-lrs-large-residential-service",
+          "plan": "LRS-Large Residential Service",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-lrs-nem",
+          "plan": "LRS-NEM",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-olrs-tou-optional-large-residential-service-time-of-use",
+          "plan": "OLRS-TOU Optional Large Residential Service Time of Use",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-olrs-tou-optional-large-residential-service-time-of-use-option-a",
+          "plan": "OLRS-TOU Optional Large Residential Service Time of Use (Option A)",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-olrs-tou-optional-large-residential-service-time-of-use-option-b",
+          "plan": "OLRS-TOU Optional Large Residential Service Time of Use (Option B)",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-orm-tou-optional-multi-family-residential-service-time-of-use",
+          "plan": "ORM-TOU Optional Multi-Family Residential Service Time of Use",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-orm-tou-optional-multi-family-residential-service-time-of-use-option-a",
+          "plan": "ORM-TOU Optional Multi-Family Residential Service Time of Use (Option A)",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-orm-tou-optional-multi-family-residential-service-time-of-use-option-b",
+          "plan": "ORM-TOU Optional Multi-Family Residential Service Time of Use (Option B)",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-ors-tou-optional-residential-service-time-of-use",
+          "plan": "ORS-TOU Optional Residential Service Time of Use",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-ors-tou-optional-residential-service-time-of-use-option-a",
+          "plan": "ORS-TOU Optional Residential Service Time of Use (Option A)",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-ors-tou-optional-residential-service-time-of-use-option-b",
+          "plan": "ORS-TOU Optional Residential Service Time of Use (Option B)",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-residential-service-multi-family",
+          "plan": "Residential Service-Multi Family",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-rm-residential-service-multi-family",
+          "plan": "RM Residential Service-Multi Family",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-rs-nem",
+          "plan": "RS - NEM",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-rs-residential-service",
+          "plan": "RS (Residential Service)",
+          "verified": false
+        },
+        {
+          "id": "us-nv-nevada-power-co-rs-residential-service-dg-rate",
+          "plan": "RS (Residential Service) DG Rate",
+          "verified": false
+        }
+      ]
+    },
+    "NY": {
+      "Consolidated Edison Co-NY Inc": [
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-distribution-service",
+          "plan": "SC 1 - Residential & Religious Distribution Service",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-distribution-service-ny",
+          "plan": "SC 1 - Residential & Religious Distribution Service (NY)",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-service-nyc",
+          "plan": "SC-1 - Residential & Religious Service [NYC]",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-service-nyc-low-income-rate",
+          "plan": "SC-1 - Residential & Religious Service [NYC] Low Income Rate",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-service-westchester",
+          "plan": "SC-1 - Residential & Religious Service [Westchester]",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-service-westchester-low-income-rate",
+          "plan": "SC-1 - Residential & Religious Service [Westchester] Low Income Rate",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-voluntary-tod-rate-iii-nyc",
+          "plan": "SC-1 Residential & Religious Voluntary TOD (Rate III) [NYC]",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-voluntary-tod-rate-iii-westchester",
+          "plan": "SC-1 Residential & Religious Voluntary TOD (Rate III) [Westchester]",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-voluntary-tod-service-rate-iii",
+          "plan": "SC-1 Residential & Religious Voluntary TOD (Service Rate III)",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-vountary-time-of-day-rate-ii",
+          "plan": "SC-1 Residential & Religious Vountary Time-Of-Day (Rate II)",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-vountary-tod-rate-ii-nyc",
+          "plan": "SC-1 Residential & Religious Vountary TOD (Rate II) [NYC]",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-religious-vountary-tod-rate-ii-westchester",
+          "plan": "SC-1 Residential & Religious Vountary TOD (Rate II) [Westchester]",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-service-rate-i",
+          "plan": "SC-1 (Residential Service Rate I)",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-1-residential-service-time-of-use-rate-ii",
+          "plan": "SC-1 (Residential Service Time-Of-Use Rate II)",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-2-general-small-time-of-day-westchester",
+          "plan": "SC-2 - General Small Time-Of-Day [Westchester]",
+          "verified": false
+        },
+        {
+          "id": "us-ny-consolidated-edison-co-ny-inc-sc-2-general-small-westchester",
+          "plan": "SC-2 - General Small [Westchester]",
+          "verified": false
+        }
+      ]
+    },
+    "OH": {
+      "Ohio Power Co": [
+        {
+          "id": "us-oh-ohio-power-co-residential-service-bundled-ohio-power-rate-zone-rs",
+          "plan": "Residential Service Bundled Ohio Power Rate Zone (RS)",
+          "verified": false
+        },
+        {
+          "id": "us-oh-ohio-power-co-residential-service-bundled-rs",
+          "plan": "Residential Service Bundled (RS)",
+          "verified": false
+        },
+        {
+          "id": "us-oh-ohio-power-co-residential-service-delivery-only-ohio-power-zone-rs",
+          "plan": "Residential Service Delivery Only Ohio Power Zone (RS)",
+          "verified": false
+        },
+        {
+          "id": "us-oh-ohio-power-co-residential-service-demand-metered-ohio-power-rate-zone-bundled",
+          "plan": "Residential Service Demand Metered Ohio Power Rate Zone, Bundled",
+          "verified": false
+        },
+        {
+          "id": "us-oh-ohio-power-co-residential-service-demand-metered-ohio-power-rate-zone-bundled-heating",
+          "plan": "Residential Service Demand Metered Ohio Power Rate Zone, Bundled-Heating",
+          "verified": false
+        },
+        {
+          "id": "us-oh-ohio-power-co-residential-service-demand-metered-ohio-power-rate-zone-bundled-rsdm",
+          "plan": "Residential Service Demand Metered Ohio Power Rate Zone, Bundled (RSDM)",
+          "verified": false
+        },
+        {
+          "id": "us-oh-ohio-power-co-residential-service-ohio-power-rate-zone-rs",
+          "plan": "Residential Service Ohio Power Rate Zone (RS)",
+          "verified": false
+        },
+        {
+          "id": "us-oh-ohio-power-co-residential-time-of-day-bundled-ohio-power-rate-zone-rs-tod",
+          "plan": "Residential Time-of-Day Bundled Ohio Power Rate Zone (RS-TOD)",
+          "verified": false
+        },
+        {
+          "id": "us-oh-ohio-power-co-residential-time-of-day-bundled-rs-tod",
+          "plan": "Residential Time-of-Day Bundled (RS-TOD)",
+          "verified": false
+        },
+        {
+          "id": "us-oh-ohio-power-co-residential-time-of-day-bundled-rs-tod2-columbus-southern-power-zone",
+          "plan": "Residential Time-of-Day Bundled (RS-TOD2) (Columbus Southern Power Zone)",
+          "verified": false
+        },
+        {
+          "id": "us-oh-ohio-power-co-residential-time-of-day-ohio-power-rate-zone-rs-tod",
+          "plan": "Residential Time-of-Day  Ohio Power Rate Zone (RS-TOD)",
+          "verified": false
+        },
+        {
+          "id": "us-oh-ohio-power-co-residential-time-of-use-bundled-ohio-power-rate-zone-rs-tou",
+          "plan": "Residential Time-of-Use Bundled Ohio Power Rate Zone (RS-TOU)",
+          "verified": false
+        },
+        {
+          "id": "us-oh-ohio-power-co-residential-time-of-use-ohio-power-rate-zone-rs-tou",
+          "plan": "Residential Time-of-Use  Ohio Power Rate Zone (RS-TOU)",
+          "verified": false
+        }
+      ]
+    },
+    "OR": {
+      "Portland General Electric Co": [
+        {
+          "id": "us-or-portland-general-electric-co-residential-electric-vehicle-tou-option-rate-7-ev",
+          "plan": "Residential Electric Vehicle TOU Option (Rate 7-EV)",
+          "verified": false
+        },
+        {
+          "id": "us-or-portland-general-electric-co-residential-service-rate-7",
+          "plan": "Residential Service (Rate 7)",
+          "verified": false
+        },
+        {
+          "id": "us-or-portland-general-electric-co-residential-time-of-use-service-rate-7-tou",
+          "plan": "Residential Time-Of-Use Service (Rate 7-TOU)",
+          "verified": false
+        },
+        {
+          "id": "us-or-portland-general-electric-co-residential-time-of-use-service-rate-7-tou-of-ev",
+          "plan": "Residential Time-Of-Use Service (Rate 7-TOU of EV)",
+          "verified": false
+        },
+        {
+          "id": "us-or-portland-general-electric-co-residential-time-of-use-service-rate-7-tou-or-ev",
+          "plan": "Residential Time-Of-Use Service (Rate 7- TOU or EV)",
+          "verified": false
+        }
+      ]
+    },
+    "PA": {
+      "PECO Energy Co": [
+        {
+          "id": "us-pa-peco-energy-co-residential-heating-service",
+          "plan": "Residential Heating Service",
+          "verified": false
+        },
+        {
+          "id": "us-pa-peco-energy-co-residential-heating-service-rh",
+          "plan": "Residential Heating Service (RH)",
+          "verified": false
+        },
+        {
+          "id": "us-pa-peco-energy-co-residential-service",
+          "plan": "Residential Service",
+          "verified": false
+        },
+        {
+          "id": "us-pa-peco-energy-co-residential-service-r",
+          "plan": "Residential Service (R)",
+          "verified": false
+        },
+        {
+          "id": "us-pa-peco-energy-co-residential-service-r-tou",
+          "plan": "Residential Service (R) - TOU",
+          "verified": false
+        }
+      ]
+    },
+    "VA": {
+      "Virginia Electric & Power Co": [
+        {
+          "id": "us-va-virginia-electric-power-co-1-residential-service",
+          "plan": "1 Residential Service",
+          "verified": false
+        },
+        {
+          "id": "us-va-virginia-electric-power-co-1ev-residential-service-with-electric-vehicle-charging-experimental",
+          "plan": "1EV Residential Service with Electric Vehicle Charging (Experimental)",
+          "verified": false
+        },
+        {
+          "id": "us-va-virginia-electric-power-co-1s-residential-service-demand-time-of-use",
+          "plan": "1S Residential Service (Demand Time-of-Use)",
+          "verified": false
+        },
+        {
+          "id": "us-va-virginia-electric-power-co-1t-residential-service-energy-time-of-use",
+          "plan": "1T Residential Service (Energy Time-of-Use)",
+          "verified": false
+        },
+        {
+          "id": "us-va-virginia-electric-power-co-1w-residential-service-time-controlled-storage-water-heating",
+          "plan": "1W Residential Service (Time Controlled Storage Water Heating)",
+          "verified": false
+        },
+        {
+          "id": "us-va-virginia-electric-power-co-ev-residential-electric-vehicle-charging-experimental",
+          "plan": "EV Residential Electric Vehicle Charging (Experimental)",
+          "verified": false
+        },
+        {
+          "id": "us-va-virginia-electric-power-co-residential-energy-tou-schedule-1t",
+          "plan": "Residential Energy TOU Schedule 1T",
+          "verified": false
+        },
+        {
+          "id": "us-va-virginia-electric-power-co-residential-schedule-1",
+          "plan": "Residential Schedule 1",
+          "verified": false
+        }
+      ]
+    },
+    "WA": {
+      "Puget Sound Energy Inc": [
+        {
+          "id": "us-wa-puget-sound-energy-inc-10-residential-and-farm-primary-general-service",
+          "plan": "10 (Residential and Farm Primary General Service)",
+          "verified": false
+        },
+        {
+          "id": "us-wa-puget-sound-energy-inc-11-residential-farm-small-general-service",
+          "plan": "11 (Residential & Farm Small General Service)",
+          "verified": false
+        },
+        {
+          "id": "us-wa-puget-sound-energy-inc-12-residential-farm-large-demand-general-service",
+          "plan": "12 (Residential & Farm Large Demand General Service)",
+          "verified": false
+        },
+        {
+          "id": "us-wa-puget-sound-energy-inc-7-residential-service-single-phase",
+          "plan": "7 (Residential Service - Single Phase)",
+          "verified": false
+        },
+        {
+          "id": "us-wa-puget-sound-energy-inc-7-residential-service-three-phase",
+          "plan": "7 (Residential Service - Three Phase)",
+          "verified": false
+        },
+        {
+          "id": "us-wa-puget-sound-energy-inc-7a-master-metered-residential-service-single-or-three-phase",
+          "plan": "7A (Master Metered Residential Service - Single or Three Phase)",
+          "verified": false
+        },
+        {
+          "id": "us-wa-puget-sound-energy-inc-8-residential-farm-general-service-single-phase",
+          "plan": "8 (Residential & Farm General Service - Single Phase)",
+          "verified": false
+        },
+        {
+          "id": "us-wa-puget-sound-energy-inc-8-residential-farm-general-service-three-phase",
+          "plan": "8 (Residential & Farm General Service - Three Phase)",
           "verified": false
         }
       ]

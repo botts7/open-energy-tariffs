@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-fl-tampa-electric-co-rs-residential-service",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "FL",
+    "provider": "Tampa Electric Co",
+    "plan": "RS RESIDENTIAL SERVICE",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/555a01085457a31e10424478",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "18454"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.08856
+    },
+    "supply": {
+      "daily": 0.49277
+    }
+  }
+}

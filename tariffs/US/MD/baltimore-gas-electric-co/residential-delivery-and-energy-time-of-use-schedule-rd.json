@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "id": "us-md-baltimore-gas-electric-co-residential-delivery-and-energy-time-of-use-schedule-rd",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "MD",
+    "provider": "Baltimore Gas & Electric Co",
+    "plan": "Residential Delivery and Energy Time of Use (Schedule RD)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/636585f3e8a56c12cb0c9a68",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "1167"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.09348
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.31593
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.09515
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.3176
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "06:00",
+          "to": "09:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "09:00",
+          "to": "17:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "21:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.30618
+    }
+  }
+}

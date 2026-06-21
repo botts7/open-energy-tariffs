@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-oh-ohio-power-co-residential-service-demand-metered-ohio-power-rate-zone-bundled",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "OH",
+    "provider": "Ohio Power Co",
+    "plan": "Residential Service Demand Metered Ohio Power Rate Zone, Bundled",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/5ba00b625457a3065cd845ca",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "14006"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.08089
+    },
+    "supply": {
+      "daily": 0.28647
+    }
+  }
+}

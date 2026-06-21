@@ -1,0 +1,85 @@
+{
+  "meta": {
+    "id": "us-ca-san-diego-gas-electric-co-ev-tou",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "CA",
+    "provider": "San Diego Gas & Electric Co",
+    "plan": "EV-TOU",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/5489f88d5357a31f33f0c30a",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "16609"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.48608
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.21184
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.16266
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.21015
+        },
+        {
+          "id": "p4",
+          "name": "Period 5",
+          "rate": 0.19854
+        },
+        {
+          "id": "p5",
+          "name": "Period 6",
+          "rate": 0.17538
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "05:00",
+          "band": "p5"
+        },
+        {
+          "days": "all",
+          "from": "05:00",
+          "to": "12:00",
+          "band": "p4"
+        },
+        {
+          "days": "all",
+          "from": "12:00",
+          "to": "20:00",
+          "band": "p3"
+        },
+        {
+          "days": "all",
+          "from": "20:00",
+          "to": "24:00",
+          "band": "p4"
+        }
+      ]
+    }
+  }
+}

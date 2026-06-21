@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "id": "us-ga-georgia-power-co-schedule-tou-pev-9-plug-in-electric-vehicle",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "GA",
+    "provider": "Georgia Power Co",
+    "plan": "Schedule TOU-PEV-9 - Plug-in Electric Vehicle",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/62d7034296022b27a11abb76",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "7140"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.11056
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.04305
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.27574
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.11065
+        },
+        {
+          "id": "p4",
+          "name": "Period 5",
+          "rate": 0.0436
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "07:00",
+          "band": "p1"
+        },
+        {
+          "days": "all",
+          "from": "07:00",
+          "to": "23:00",
+          "band": "p0"
+        },
+        {
+          "days": "all",
+          "from": "23:00",
+          "to": "24:00",
+          "band": "p1"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.4603
+    }
+  }
+}

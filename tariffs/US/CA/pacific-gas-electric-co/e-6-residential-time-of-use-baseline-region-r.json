@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "id": "us-ca-pacific-gas-electric-co-e-6-residential-time-of-use-baseline-region-r",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "CA",
+    "provider": "Pacific Gas & Electric Co",
+    "plan": "E-6 -Residential Time of Use Baseline Region R",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/53fdefcd5257a3df6cfe9530",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "14328"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.30661
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.19134
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.11456
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.13573
+        },
+        {
+          "id": "p4",
+          "name": "Period 5",
+          "rate": 0.1189
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "17:00",
+          "band": "p4"
+        },
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "20:00",
+          "band": "p3"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "24:00",
+          "band": "p4"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p4"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.25296
+    }
+  }
+}

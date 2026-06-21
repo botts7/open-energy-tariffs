@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "id": "us-az-salt-river-project-e-29-experimental-price-plan-for-time-of-use-service-with-super-off-peak-for-electric-vehicles",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AZ",
+    "provider": "Salt River Project",
+    "plan": "E-29 EXPERIMENTAL PRICE PLAN FOR TIME-OF-USE SERVICE WITH SUPER OFF PEAK FOR ELECTRIC VEHICLES",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Phoenix",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/5a59008c5457a3ad69423a7c",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "16572"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.06
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.0757
+        },
+        {
+          "id": "p2",
+          "name": "Period 3",
+          "rate": 0.102
+        },
+        {
+          "id": "p3",
+          "name": "Period 4",
+          "rate": 0.0627
+        },
+        {
+          "id": "p4",
+          "name": "Period 5",
+          "rate": 0.0776
+        },
+        {
+          "id": "p5",
+          "name": "Period 6",
+          "rate": 0.1957
+        },
+        {
+          "id": "p6",
+          "name": "Period 7",
+          "rate": 0.063
+        },
+        {
+          "id": "p7",
+          "name": "Period 8",
+          "rate": 0.0781
+        },
+        {
+          "id": "p8",
+          "name": "Period 9",
+          "rate": 0.2226
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "05:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "05:00",
+          "to": "09:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekday",
+          "from": "09:00",
+          "to": "17:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "21:00",
+          "band": "p2"
+        },
+        {
+          "days": "weekday",
+          "from": "21:00",
+          "to": "23:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "23:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "05:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "05:00",
+          "to": "23:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekend",
+          "from": "23:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.65703
+    }
+  }
+}

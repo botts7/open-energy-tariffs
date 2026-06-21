@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-nc-duke-energy-carolinas-llc-rs-residential-service",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "NC",
+    "provider": "Duke Energy Carolinas, LLC",
+    "plan": "RS (Residential Service)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539fc25fec4f024c27d8b127",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "5416"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.2702
+    },
+    "supply": {
+      "daily": 0.40046
+    }
+  }
+}

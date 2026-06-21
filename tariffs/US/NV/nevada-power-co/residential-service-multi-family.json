@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-nv-nevada-power-co-residential-service-multi-family",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "NV",
+    "provider": "Nevada Power Co",
+    "plan": "Residential Service-Multi Family",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539f7270ec4f024411ecf1c3",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "13407"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.11601
+    },
+    "supply": {
+      "daily": 0.29566
+    }
+  }
+}

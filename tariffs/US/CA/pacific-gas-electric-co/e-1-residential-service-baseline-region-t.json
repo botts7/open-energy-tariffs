@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "id": "us-ca-pacific-gas-electric-co-e-1-residential-service-baseline-region-t",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "CA",
+    "provider": "Pacific Gas & Electric Co",
+    "plan": "E-1 -Residential Service Baseline Region T",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Los_Angeles",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/53fcf3545257a36553dbd601",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "14328"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.14707
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.14707
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p1"
+        }
+      ]
+    }
+  }
+}

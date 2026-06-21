@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-va-virginia-electric-power-co-1w-residential-service-time-controlled-storage-water-heating",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "VA",
+    "provider": "Virginia Electric & Power Co",
+    "plan": "1W Residential Service (Time Controlled Storage Water Heating)",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539f7071ec4f024411ecdaa1",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "19876"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.05655
+    },
+    "supply": {
+      "daily": 0.13633
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-co-public-service-co-of-colorado-rate-rd-residential",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "CO",
+    "provider": "Public Service Co of Colorado",
+    "plan": "Rate RD - Residential",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Denver",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539f6e8eec4f024411ecc3c7",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "15466"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.05951
+    },
+    "supply": {
+      "daily": 0.47799
+    }
+  }
+}

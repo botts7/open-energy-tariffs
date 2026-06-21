@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "id": "us-pa-peco-energy-co-residential-service",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "PA",
+    "provider": "PECO Energy Co",
+    "plan": "Residential Service",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/New_York",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/539fc46dec4f024c27d8c6cb",
+    "license": "CC0-1.0",
+    "updated": "2026-06-21",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill.",
+    "coverage": {
+      "utilityId": "14940"
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.1462
+    },
+    "supply": {
+      "daily": 0.23423
+    }
+  }
+}
