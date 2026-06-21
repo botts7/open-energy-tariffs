@@ -4,63 +4,96 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>open-energy-tariffs · coverage map</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <style>
-    :root { --ink: #1a2233; --line: #e2e8f0; }
+    :root {
+      --bg:#f1f5f9; --panel:#fff; --text:#1a2233; --muted:#64748b; --border:#e2e8f0;
+      --hover:#f8fafc; --input-bd:#cbd5e1; --input-bg:#fff; --chip:#f8fafc;
+      --header:#0f172a; --header-text:#fff; --accent:#2563eb; --ink:#1a2233; --line:#e2e8f0;
+    }
+    html[data-theme="dark"] {
+      --bg:#0b1220; --panel:#111827; --text:#e5e7eb; --muted:#94a3b8; --border:#1f2937;
+      --hover:#1e293b; --input-bd:#374151; --input-bg:#0b1220; --chip:#1e293b;
+      --header:#0b1220; --header-text:#f1f5f9; --accent:#60a5fa; --ink:#e5e7eb; --line:#1f2937;
+    }
     * { box-sizing: border-box; }
-    html, body { margin: 0; height: 100%; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color: var(--ink); }
+    html, body { margin: 0; height: 100%; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; color: var(--text); background: var(--bg); }
     #app { display: flex; flex-direction: column; height: 100%; }
-    header { padding: 9px 16px; background: #0f172a; color: #fff; }
-    header h1 { font-size: 15px; margin: 0; font-weight: 650; }
-    header p { margin: 2px 0 0; font-size: 12px; color: #94a3b8; }
-    #main { display: flex; flex: 1; min-height: 0; }
-    #sidebar { width: 320px; flex: none; display: flex; flex-direction: column; background: #fff; border-right: 1px solid var(--line); font-size: 13px; min-height: 0; }
+    header { display:flex; align-items:center; gap:10px; padding: 8px 14px; background: var(--header); color: var(--header-text); border-bottom: 3px solid; border-image: linear-gradient(90deg,#16a34a,#eab308,#f97316,#dc2626) 1; }
+    .brand { display:flex; align-items:center; gap:10px; flex:1; min-width:0; }
+    .brand-name { font-size:18px; font-weight:750; letter-spacing:.2px; line-height:1.05; }
+    .brand-name b { color:#eab308; font-weight:750; }
+    .brand-tag { font-size:11.5px; color:#94a3b8; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .hdr-btn { flex:none; background:transparent; color:var(--header-text); border:1px solid #334155; border-radius:7px; width:34px; height:34px; font-size:16px; cursor:pointer; line-height:1; }
+    .hdr-btn:hover { background:#1e293b; }
+    #navToggle { display:none; }
+    #main { display: flex; flex: 1; min-height: 0; position:relative; }
+    #sidebar { width: 320px; flex: none; display: flex; flex-direction: column; background: var(--panel); border-right: 1px solid var(--border); font-size: 13px; min-height: 0; }
     .sb-controls { flex: none; padding: 10px 12px 6px; max-height: 65%; overflow-y: auto; }
     .sb-scroll { flex: 1; overflow-y: auto; min-height: 0; }
     #map { flex: 1; }
     .sb-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
-    .sb-count { font-size: 12px; color: #64748b; }
-    .sb-input, .sb-num { padding: 6px 8px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; }
+    .sb-count { font-size: 12px; color: var(--muted); }
+    .sb-input, .sb-num { padding: 6px 8px; border: 1px solid var(--input-bd); border-radius: 6px; font-size: 13px; background: var(--input-bg); color: var(--text); }
     .sb-input { width: 100%; margin-bottom: 8px; }
-    .sb-sugg { border: 1px solid var(--line); border-radius: 6px; margin: -4px 0 8px; overflow: hidden; }
+    .sb-sugg { border: 1px solid var(--border); border-radius: 6px; margin: -4px 0 8px; overflow: hidden; background: var(--panel); }
     .sb-sugg:empty { display: none; }
-    .sb-sugg-item { padding: 6px 8px; cursor: pointer; font-size: 12px; border-bottom: 1px solid #f1f5f9; }
+    .sb-sugg-item { padding: 6px 8px; cursor: pointer; font-size: 12px; border-bottom: 1px solid var(--border); }
     .sb-sugg-item:last-child { border-bottom: none; }
-    .sb-sugg-item:hover { background: #eff6ff; }
+    .sb-sugg-item:hover { background: var(--hover); }
     .sb-num { width: 64px; }
     .sb-numw { width: 130px; }
     .sb-chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 8px; }
-    .sb-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #94a3b8; width: 100%; }
-    .sb-chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; cursor: pointer; }
-    .sb-reset { padding: 5px 12px; border: 1px solid #cbd5e1; background: #f8fafc; border-radius: 6px; cursor: pointer; font-size: 12px; margin-bottom: 10px; }
-    .sb-list { border-top: 1px solid var(--line); padding: 0 12px 12px; }
-    .sb-row { display: flex; gap: 8px; padding: 7px 4px; border-bottom: 1px solid #f1f5f9; cursor: pointer; align-items: flex-start; }
-    .sb-row:hover { background: #f8fafc; }
+    .sb-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); width: 100%; }
+    .sb-chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border: 1px solid var(--border); border-radius: 999px; cursor: pointer; }
+    .sb-reset { padding: 5px 12px; border: 1px solid var(--input-bd); background: var(--chip); color:var(--text); border-radius: 6px; cursor: pointer; font-size: 12px; margin-bottom: 10px; }
+    .sb-list { border-top: 1px solid var(--border); padding: 0 12px 12px; }
+    .sb-row { display: flex; gap: 8px; padding: 7px 4px; border-bottom: 1px solid var(--border); cursor: pointer; align-items: flex-start; }
+    .sb-row:hover { background: var(--hover); }
     .sb-nolocate { opacity: .55; }
     .sb-sw { width: 12px; height: 12px; border-radius: 3px; margin-top: 3px; flex: none; border: 1px solid rgba(0,0,0,.2); }
     .sb-title { line-height: 1.25; }
-    .sb-sub { font-size: 11px; color: #64748b; margin-top: 1px; }
-    .sb-more { padding: 8px 4px; font-size: 12px; color: #94a3b8; }
-    .sb-cmp { margin: 4px 0 10px; border: 1px solid var(--line); border-radius: 6px; padding: 6px 8px; }
-    .sb-cmp summary { cursor: pointer; font-size: 12px; font-weight: 600; color: #2563eb; }
+    .sb-sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+    .sb-more { padding: 8px 4px; font-size: 12px; color: var(--muted); }
+    .sb-cmp { margin: 4px 0 10px; border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; }
+    .sb-cmp summary { cursor: pointer; font-size: 12px; font-weight: 600; color: var(--accent); }
     .sb-cmp .sb-chips { margin-top: 8px; }
     .sb-best { background: #16a34a; color: #fff; font-size: 10px; padding: 1px 5px; border-radius: 999px; margin-left: 6px; }
     .sb-cur { background: #2563eb; color: #fff; font-size: 10px; padding: 1px 5px; border-radius: 999px; margin-left: 6px; }
-    .sb-bestrow { background: #f0fdf4; }
-    .sb-currow { background: #eff6ff; }
+    .sb-bestrow { background: rgba(22,163,74,.12); }
+    .sb-currow { background: rgba(37,99,235,.12); }
     .sb-save { color: #16a34a; font-weight: 600; }
     .sb-cost { color: #dc2626; }
-    .sb-baseline { background: #fef9c3; border: 1px solid #fde68a; border-radius: 6px; padding: 6px 8px; font-size: 12px; margin-bottom: 6px; }
-    .oet-legend { background: #fff; padding: 8px 10px; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,.3); font-size: 12px; line-height: 1.7; }
+    .sb-baseline { background: rgba(234,179,8,.15); border: 1px solid rgba(234,179,8,.4); border-radius: 6px; padding: 6px 8px; font-size: 12px; margin-bottom: 6px; }
+    .oet-legend { background: var(--panel); color:var(--text); padding: 8px 10px; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,.3); font-size: 12px; line-height: 1.7; }
     .oet-legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+    @media (max-width: 760px) {
+      #navToggle { display:block; }
+      .brand-tag { display:none; }
+      #sidebar { position:absolute; z-index:1200; top:0; left:0; bottom:0; width:86%; max-width:340px; box-shadow:2px 0 16px rgba(0,0,0,.45); transform:translateX(-100%); transition:transform .2s ease; }
+      body.nav-open #sidebar { transform:translateX(0); }
+    }
   </style>
+  <script>
+    (function(){ var s=localStorage.getItem('oet-theme');
+      if(s) document.documentElement.setAttribute('data-theme',s);
+      else if(window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme','dark'); })();
+  </script>
 </head>
 <body>
   <div id="app">
     <header>
-      <h1>open-energy-tariffs — coverage map</h1>
-      <p>Browse + filter electricity plans; areas shaded by rate. Click a plan for full details.</p>
+      <button id="navToggle" class="hdr-btn" aria-label="Show filters" title="Filters">☰</button>
+      <div class="brand">
+        <img src="favicon.svg" alt="" width="32" height="32" />
+        <div style="min-width:0">
+          <div class="brand-name">open<b>·</b>energy<b>·</b>tariffs</div>
+          <div class="brand-tag">Browse &amp; compare electricity plans by rate · 52 countries</div>
+        </div>
+      </div>
+      <button id="themeToggle" class="hdr-btn" aria-label="Toggle dark mode" title="Light / dark">◐</button>
     </header>
     <div id="main">
       <aside id="sidebar"></aside>
@@ -92,7 +125,22 @@
   <script src="modal.js"></script>
   <script src="sidebar.js"></script>
   <script>
-    window.addEventListener('DOMContentLoaded', function () { OET.main(); });
+    window.addEventListener('DOMContentLoaded', function () {
+      var root = document.documentElement;
+      Promise.resolve(OET.main()).then(function () {
+        if (OET.setMapTheme) OET.setMapTheme(root.getAttribute('data-theme') === 'dark');
+      });
+      var tt = document.getElementById('themeToggle');
+      if (tt) tt.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next); localStorage.setItem('oet-theme', next);
+        if (OET.setMapTheme) OET.setMapTheme(next === 'dark');
+      });
+      var nt = document.getElementById('navToggle');
+      if (nt) nt.addEventListener('click', function () { document.body.classList.toggle('nav-open'); });
+      var mp = document.getElementById('map');
+      if (mp) mp.addEventListener('click', function () { document.body.classList.remove('nav-open'); });
+    });
   </script>
 </body>
 </html>

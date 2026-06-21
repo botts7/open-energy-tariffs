@@ -17,25 +17,25 @@ window.OET = window.OET || {};
     s.id = 'oet-modal-css';
     s.textContent =
       '.oet-mback{position:fixed;inset:0;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;z-index:10000;padding:20px}'
-      + '.oet-modal{background:#fff;border-radius:10px;max-width:540px;width:100%;max-height:86vh;overflow:auto;box-shadow:0 12px 40px rgba(0,0,0,.35);font-size:13px;color:#1a2233}'
-      + '.oet-mhead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:14px 16px;border-bottom:1px solid #e2e8f0;position:sticky;top:0;background:#fff}'
-      + '.oet-mhead h2{margin:0;font-size:16px}.oet-mhead .sub{font-size:12px;color:#64748b;margin-top:2px}'
-      + '.oet-mx{border:none;background:#f1f5f9;border-radius:6px;width:28px;height:28px;cursor:pointer;font-size:16px;flex:none}'
+      + '.oet-modal{background:var(--panel,#fff);border-radius:10px;max-width:540px;width:100%;max-height:86vh;overflow:auto;box-shadow:0 12px 40px rgba(0,0,0,.45);font-size:13px;color:var(--text,#1a2233)}'
+      + '.oet-mhead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border,#e2e8f0);position:sticky;top:0;background:var(--panel,#fff)}'
+      + '.oet-mhead h2{margin:0;font-size:16px}.oet-mhead .sub{font-size:12px;color:var(--muted,#64748b);margin-top:2px}'
+      + '.oet-mx{border:none;background:var(--hover,#f1f5f9);color:var(--text,#1a2233);border-radius:6px;width:28px;height:28px;cursor:pointer;font-size:16px;flex:none}'
       + '.oet-mbody{padding:14px 16px}'
       + '.oet-kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0 0 12px}'
-      + '.oet-kv dt{color:#64748b}.oet-kv dd{margin:0;font-weight:600}'
-      + '.oet-sec{margin:14px 0 6px;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#94a3b8;border-top:1px solid #f1f5f9;padding-top:10px}'
-      + '.oet-tbl{width:100%;border-collapse:collapse;font-size:12.5px}.oet-tbl th,.oet-tbl td{text-align:left;padding:4px 6px;border-bottom:1px solid #f1f5f9}.oet-tbl th{color:#64748b;font-weight:600}'
+      + '.oet-kv dt{color:var(--muted,#64748b)}.oet-kv dd{margin:0;font-weight:600}'
+      + '.oet-sec{margin:14px 0 6px;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted,#94a3b8);border-top:1px solid var(--border,#f1f5f9);padding-top:10px}'
+      + '.oet-tbl{width:100%;border-collapse:collapse;font-size:12.5px}.oet-tbl th,.oet-tbl td{text-align:left;padding:4px 6px;border-bottom:1px solid var(--border,#f1f5f9)}.oet-tbl th{color:var(--muted,#64748b);font-weight:600}'
       + '.oet-sw{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px;border:1px solid rgba(0,0,0,.2)}'
-      + '.oet-note{font-size:12px;color:#475569;background:#f8fafc;border:1px solid #eef2f7;border-radius:6px;padding:8px 10px;line-height:1.4}'
-      + '.oet-mfoot{display:flex;gap:8px;justify-content:flex-end;padding:12px 16px;border-top:1px solid #e2e8f0;position:sticky;bottom:0;background:#fff}'
-      + '.oet-btn{padding:7px 14px;border-radius:6px;border:1px solid #cbd5e1;background:#f8fafc;cursor:pointer;font-size:13px}'
+      + '.oet-note{font-size:12px;color:var(--text,#475569);background:var(--hover,#f8fafc);border:1px solid var(--border,#eef2f7);border-radius:6px;padding:8px 10px;line-height:1.4}'
+      + '.oet-mfoot{display:flex;gap:8px;justify-content:flex-end;padding:12px 16px;border-top:1px solid var(--border,#e2e8f0);position:sticky;bottom:0;background:var(--panel,#fff)}'
+      + '.oet-btn{padding:7px 14px;border-radius:6px;border:1px solid var(--input-bd,#cbd5e1);background:var(--chip,#f8fafc);color:var(--text,#1a2233);cursor:pointer;font-size:13px}'
       + '.oet-btn.primary{background:#2563eb;border-color:#2563eb;color:#fff}'
       + '.oet-mfoot{flex-wrap:wrap}'
       + '.oet-cmp th{vertical-align:top;position:relative;min-width:130px}'
-      + '.oet-cmp tbody th{text-align:left;color:#64748b;font-weight:600;white-space:nowrap;min-width:auto}'
-      + '.oet-rm{position:absolute;top:0;right:0;border:none;background:#f1f5f9;border-radius:4px;width:18px;height:18px;cursor:pointer;font-size:12px;line-height:1}'
-      + '.oet-best{background:#f0fdf4}';
+      + '.oet-cmp tbody th{text-align:left;color:var(--muted,#64748b);font-weight:600;white-space:nowrap;min-width:auto}'
+      + '.oet-rm{position:absolute;top:0;right:0;border:none;background:var(--hover,#f1f5f9);color:var(--text,#1a2233);border-radius:4px;width:18px;height:18px;cursor:pointer;font-size:12px;line-height:1}'
+      + '.oet-best{background:rgba(22,163,74,.15)}';
     document.head.appendChild(s);
   }
 

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="open-energy-tariffs">
+  <defs>
+    <linearGradient id="oet-rate" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16a34a"/>
+      <stop offset="0.5" stop-color="#eab308"/>
+      <stop offset="1" stop-color="#dc2626"/>
+    </linearGradient>
+    <style>
+      .oet-pin { fill: #0f172a; stroke: #e2e8f0; }
+      @media (prefers-color-scheme: dark) { .oet-pin { fill: #1e293b; stroke: #94a3b8; } }
+    </style>
+  </defs>
+  <!-- map pin (theme-adaptive: dark fill + light outline; flips for dark browsers) -->
+  <path class="oet-pin" d="M32 3C18.7 3 8 13.7 8 27c0 16.6 24 34 24 34s24-17.4 24-34C56 13.7 45.3 3 32 3z"
+        stroke-width="2" stroke-linejoin="round"/>
+  <!-- lightning bolt in the rate-scale gradient (green->red) -->
+  <path d="M35.5 12 L23 31 L30.5 31 L28.5 45 L41 25 L33.5 25 Z" fill="url(#oet-rate)"/>
+</svg>

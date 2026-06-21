@@ -55,9 +55,17 @@ OET.renderMap = function (plans, meta) {
   const baseLayers = {
     Street: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap contributors' }),
     Light: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { maxZoom: 19, attribution: '© OpenStreetMap, © CARTO' }),
+    Dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { maxZoom: 19, attribution: '© OpenStreetMap, © CARTO' }),
     Satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'Tiles © Esri' }),
   };
   baseLayers.Street.addTo(map);
+  // Match the base map to the UI light/dark theme — but only flip Street<->Dark,
+  // so a manual Light/Satellite choice is left untouched.
+  OET.setMapTheme = function (dark) {
+    const from = dark ? baseLayers.Street : baseLayers.Dark;
+    const to = dark ? baseLayers.Dark : baseLayers.Street;
+    if (map.hasLayer(from)) { map.removeLayer(from); to.addTo(map); }
+  };
   // coverageLayer holds every provider coverage area (toggleable as one overlay,
   // and auto-hidden in postcode mode). postcodeLayer holds the searched postcode.
   const coverageLayer = L.layerGroup().addTo(map);
