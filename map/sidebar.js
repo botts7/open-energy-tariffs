@@ -253,7 +253,7 @@ OET.initSidebar = function () {
   // Outline mode: draw areas as coloured boundaries (almost no fill) so overlapping
   // coverage areas and the basemap stay visible.
   const outlineCb = h('input', { type: 'checkbox', name: 'outline', onchange: (e) => { state.outline = e.target.checked; if (OET.setOutline) OET.setOutline(state.outline); syncHash(); } });
-  const outlineRow = h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Display' }),
+  const outlineRow = h('div', { class: 'sb-chips sb-maponly' }, [h('span', { class: 'sb-lbl', text: 'Display (map)' }),
     h('label', { class: 'sb-chip' }, [outlineCb, h('span', { text: 'Outline (show overlaps)' })])]);
 
   function resetAll() {

@@ -50,7 +50,7 @@ window.OET = window.OET || {};
     const s = b.cost - c; // positive = cheaper than your baseline
     const fg = s > 1 ? '#15803d' : s < -1 ? '#dc2626' : 'var(--muted,#64748b)';
     const txt = s > 1 ? '−' + Math.round(s).toLocaleString() + ' ' + esc(r.meta.currency) : s < -1 ? '+' + Math.round(-s).toLocaleString() + ' ' + esc(r.meta.currency) : '≈';
-    return `<td data-label="Savings" style="color:${fg};font-weight:600" title="vs ${esc(b.label || 'your current')}">${txt}</td>`;
+    return `<td class="tv-save" data-label="Savings" style="color:${fg};font-weight:700" title="vs ${esc(b.label || 'your current')}">${txt}</td>`;
   }
   // "% vs reference" cell: green below (cheaper), red above; — when no reference.
   function refCell(r) {
@@ -72,6 +72,7 @@ window.OET = window.OET || {};
     if (map) map.style.display = v === 'table' ? 'none' : '';
     if (tbl) tbl.style.display = v === 'table' ? 'flex' : 'none';
     if (sbScroll) sbScroll.style.display = v === 'table' ? 'none' : ''; // hide the redundant list in table mode
+    document.querySelectorAll('.sb-maponly').forEach((e) => { e.style.display = v === 'table' ? 'none' : ''; }); // map-only controls (e.g. outline)
     document.querySelectorAll('[data-view]').forEach((b) => b.classList.toggle('on', b.dataset.view === v));
     if (v === 'table') OET.renderTable();
     else if (OET._map) OET._map.invalidateSize();
@@ -105,9 +106,10 @@ window.OET = window.OET || {};
       + `${real ? '' : ' · <span class="tv-warn">estimates use a typical profile — enter your usage for accurate costs</span>'}</div>`
       + `<div class="tv-period">Show cost: ${Object.keys(PERIODS).map((p) => `<button data-period="${p}" class="${period === p ? 'on' : ''}">${p}</button>`).join('')}</div>`
       + '</div>'
+      + (hasBaseline() ? `<div class="tv-baseline">Comparing against <b>${esc(OET._baseline.label || 'your current plan')}</b> (~${Math.round(OET._baseline.cost).toLocaleString()}/yr) — <span style="color:#16a34a">green = you save</span>, red = costs more</div>` : '')
       + '<div class="tv-scroll"><table class="tv-table"><thead><tr>'
       + th('provider', 'Provider · plan') + th('cost', 'Est. cost' + plbl)
-      + (hasBaseline() ? '<th title="vs your current plan / actual bill">Savings/yr</th>' : '')
+      + (hasBaseline() ? '<th class="tv-savehdr" title="vs your current plan / actual bill">Savings/yr</th>' : '')
       + '<th class="tv-ref" title="vs the Eurostat/EIA household reference price">vs ref</th>' + th('rate', 'Rate /kWh')
       + th('supply', 'Supply /day') + '<th>Feed-in</th><th>Type</th><th>Compare</th>'
       + '</tr></thead><tbody>';
