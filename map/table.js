@@ -19,6 +19,29 @@ window.OET = window.OET || {};
   }
   const usd = (v, cur) => (OET.toUsd ? OET.toUsd(v, cur) : v);
 
+  // Representative rate (ToU average, not peak) for the reference comparison.
+  function repRate(r) {
+    const t = r.tariff, imp = t && t.import;
+    if (t && t.kind === 'tou' && imp && imp.bands && imp.bands.length) return imp.bands.reduce((a, b) => a + (b.rate || 0), 0) / imp.bands.length;
+    return r.rate;
+  }
+  // External reference price (USD/kWh) for this plan: EIA per-state (US) or the
+  // baseline (EU/national); null where we have no reference.
+  function planRefUsd(r) {
+    const m = r.meta;
+    if (m.country === 'US' && OET.BASELINE_US) { const s = OET.BASELINE_US.states && OET.BASELINE_US.states[m.region]; return s != null ? s : (OET.BASELINE_US.national || null); }
+    return OET.baselineUsd ? OET.baselineUsd(m.country) : null;
+  }
+  // "% vs reference" cell: green below (cheaper), red above; — when no reference.
+  function refCell(r) {
+    const ref = planRefUsd(r); if (ref == null) return '<td class="tv-ref">—</td>';
+    const mine = usd(repRate(r), r.meta.currency); if (mine == null || !isFinite(mine)) return '<td class="tv-ref">—</td>';
+    const pct = Math.round((mine / ref - 1) * 100);
+    const fg = pct <= -2 ? '#15803d' : pct >= 2 ? '#dc2626' : 'var(--muted,#64748b)';
+    const txt = pct === 0 ? '≈ ref' : (pct < 0 ? pct + '%' : '+' + pct + '%');
+    return `<td class="tv-ref" title="vs the household reference price (Eurostat / EIA)" style="color:${fg}">${txt}</td>`;
+  }
+
   OET.setView = function (v) {
     view = v;
     const map = document.getElementById('map'), tbl = document.getElementById('tableview');
@@ -47,6 +70,9 @@ window.OET = window.OET || {};
     const all = OET._visible || OET.PLANS || [];
     const rows = sortRows(all).slice(0, CAP);
     const real = OET._tableUsageReal;
+    // cheapest plan (by estimated cost, USD-normalised) gets a badge
+    let cheapestId = null, minC = Infinity;
+    for (const r of rows) { const c = annualCost(r), cu = c == null ? Infinity : usd(c, r.meta.currency); if (cu < minC) { minC = cu; cheapestId = r.id; } }
     const plbl = PERIODS[period].lbl, div = PERIODS[period].div;
     const arrow = (c) => sortCol === c ? (sortDir > 0 ? ' ▲' : ' ▼') : '';
     const th = (c, label) => `<th data-col="${c}" class="${sortCol === c ? 'sorted' : ''}">${label}${arrow(c)}</th>`;
@@ -57,7 +83,7 @@ window.OET = window.OET || {};
       + `<div class="tv-period">Show cost: ${Object.keys(PERIODS).map((p) => `<button data-period="${p}" class="${period === p ? 'on' : ''}">${p}</button>`).join('')}</div>`
       + '</div>'
       + '<div class="tv-scroll"><table class="tv-table"><thead><tr>'
-      + th('provider', 'Provider · plan') + th('cost', 'Est. cost' + plbl) + th('rate', 'Rate /kWh')
+      + th('provider', 'Provider · plan') + th('cost', 'Est. cost' + plbl) + '<th class="tv-ref" title="vs the Eurostat/EIA household reference price">vs ref</th>' + th('rate', 'Rate /kWh')
       + th('supply', 'Supply /day') + '<th>Feed-in</th><th>Type</th><th>Compare</th>'
       + '</tr></thead><tbody>';
 
@@ -65,11 +91,12 @@ window.OET = window.OET || {};
       const m = r.meta, cur = m.currency, c = annualCost(r), cv = c == null ? null : c / div;
       const sup = r.tariff.supply && r.tariff.supply.daily, fin = r.tariff.export && r.tariff.export.flatRate;
       const inCmp = OET.compareSet && OET.compareSet.indexOf(r.id) !== -1;
-      html += `<tr data-id="${esc(r.id)}">`
-        + `<td class="tv-name"><b>${esc(m.provider)}</b> · ${esc(m.plan)}`
+      html += `<tr data-id="${esc(r.id)}"${r.id === cheapestId ? ' class="tv-best"' : ''}>`
+        + `<td class="tv-name">${r.id === cheapestId ? '<span class="tv-badge">Cheapest</span> ' : ''}<b>${esc(m.provider)}</b> · ${esc(m.plan)}`
         + `<div class="tv-sub">${esc(OET.countryName ? OET.countryName(m.country) : m.country)}${m.region ? '/' + esc(m.region) : ''} `
         + `${OET.maturityPill ? OET.maturityPill(OET.countryMaturity(m.country)) : ''} ${OET.freshPill ? OET.freshPill(m.updated) : ''}</div></td>`
         + `<td class="tv-cost">${cv == null ? '—' : '~' + Math.round(cv).toLocaleString() + ' ' + esc(cur)}</td>`
+        + refCell(r)
         + `<td>${r.rate == null ? '—' : r.rate.toFixed(3) + ' ' + esc(cur)}</td>`
         + `<td>${sup == null ? '—' : sup.toFixed(3) + ' ' + esc(cur)}</td>`
         + `<td>${fin == null ? '—' : fin.toFixed(3) + ' ' + esc(cur)}</td>`
