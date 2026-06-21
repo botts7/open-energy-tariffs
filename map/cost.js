@@ -58,6 +58,51 @@ OET.estimateAnnualCost = function (tariff, usage) {
   return energy + supply - credit;
 };
 
+// Band id painted onto each hour (weekday/weekend) + rate/name by band id. Used
+// for the detailed per-band cost breakdown.
+OET.bandHours = function (tariff) {
+  const imp = tariff.import || {};
+  if (tariff.kind === 'flat' || !imp.bands || !imp.schedule || !imp.schedule.length) {
+    return { weekday: Array(24).fill('flat'), weekend: Array(24).fill('flat'), rateById: { flat: imp.flatRate || 0 }, nameById: { flat: 'Flat rate' } };
+  }
+  const rateById = {}, nameById = {};
+  for (const b of imp.bands) { rateById[b.id] = b.rate; nameById[b.id] = b.name || b.id; }
+  const fallback = imp.bands[0].id;
+  const wd = Array(24).fill(fallback), we = Array(24).fill(fallback);
+  const hourOf = (t) => { const p = String(t).split(':'); return Number(p[0]) + Number(p[1] || 0) / 60; };
+  for (const s of imp.schedule) {
+    const d = s.days, isList = Array.isArray(d);
+    const applyWd = d === 'all' || d === 'weekday' || (isList && d.some((x) => ['mon', 'tue', 'wed', 'thu', 'fri'].indexOf(x) !== -1));
+    const applyWe = d === 'all' || d === 'weekend' || (isList && d.some((x) => ['sat', 'sun'].indexOf(x) !== -1));
+    let from = hourOf(s.from), to = hourOf(s.to); if (to === 0) to = 24;
+    const paint = (arr) => { for (let h = 0; h < 24; h++) { const inR = from < to ? (h >= from && h < to) : (h >= from || h < to); if (inR) arr[h] = s.band; } };
+    if (applyWd) paint(wd); if (applyWe) paint(we);
+  }
+  return { weekday: wd, weekend: we, rateById, nameById };
+};
+
+// Detailed annual breakdown for a usage profile: per-band {kWh, cost}, supply,
+// export credit, and the net total. -> { total, energy, supply, exportCredit,
+// exportKwh, annualKwh, bands:[{name,rate,kwh,cost}] }.
+OET.costBreakdown = function (tariff, usage) {
+  if (!tariff || !usage) return null;
+  const bh = OET.bandHours(tariff);
+  const WD = 261, WE = 104;
+  const acc = {};
+  let energy = 0;
+  const addb = (band, kwh) => { const rate = bh.rateById[band] != null ? bh.rateById[band] : 0; (acc[band] = acc[band] || { kwh: 0, cost: 0 }); acc[band].kwh += kwh; acc[band].cost += kwh * rate; energy += kwh * rate; };
+  for (let h = 0; h < 24; h++) {
+    addb(bh.weekday[h], (usage.weekday[h] || 0) * WD);
+    addb(bh.weekend[h], (usage.weekend[h] || 0) * WE);
+  }
+  const supply = (tariff.supply ? tariff.supply.daily || 0 : 0) * 365;
+  let exportCredit = 0;
+  if (usage.exportKwh && tariff.export && typeof tariff.export.flatRate === 'number') exportCredit = usage.exportKwh * tariff.export.flatRate;
+  const bands = Object.keys(acc).map((id) => ({ name: bh.nameById[id] || id, rate: bh.rateById[id], kwh: acc[id].kwh, cost: acc[id].cost })).sort((a, b) => b.cost - a.cost);
+  const annualKwh = bands.reduce((s, b) => s + b.kwh, 0);
+  return { total: energy + supply - exportCredit, energy, supply, exportCredit, exportKwh: usage.exportKwh || 0, annualKwh, bands };
+};
+
 // Per-day load shapes (relative weights, 24h). Scaled to the user's annual kWh.
 OET.SHAPES = {
   flat: Array(24).fill(1),

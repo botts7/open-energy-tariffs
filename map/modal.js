@@ -92,6 +92,18 @@ window.OET = window.OET || {};
     add('Coverage', where || '—');
 
     let body = `<dl class="oet-kv">${kv.join('')}</dl>`;
+    // Detailed cost for the user's loaded/entered usage — what this plan would cost.
+    const bd = (OET._usage && OET.costBreakdown) ? OET.costBreakdown(t, OET._usage) : null;
+    if (bd) {
+      body += `<div class="oet-sec">Your estimated annual cost</div>`;
+      body += '<table class="oet-tbl"><tbody>'
+        + bd.bands.map((b) => `<tr><td>${esc(b.name)} <span style="color:#94a3b8">${Math.round(b.kwh).toLocaleString()} kWh @ ${b.rate} ${esc(cur)}</span></td><td>${Math.round(b.cost).toLocaleString()} ${esc(cur)}</td></tr>`).join('')
+        + `<tr><td>Daily supply × 365</td><td>${Math.round(bd.supply).toLocaleString()} ${esc(cur)}</td></tr>`
+        + (bd.exportCredit ? `<tr><td>Solar export credit <span style="color:#94a3b8">${Math.round(bd.exportKwh).toLocaleString()} kWh</span></td><td>−${Math.round(bd.exportCredit).toLocaleString()} ${esc(cur)}</td></tr>` : '')
+        + `<tr style="font-weight:700;border-top:2px solid #e2e8f0"><td>Total / year</td><td>${Math.round(bd.total).toLocaleString()} ${esc(cur)}</td></tr>`
+        + '</tbody></table>';
+      body += `<div class="oet-note" style="margin-top:8px">Based on your usage (~${Math.round(bd.annualKwh).toLocaleString()} kWh/yr), annualised against this plan's own time-of-use bands.</div>`;
+    }
     body += `<div class="oet-sec">Import rates</div>${rateStructHtml(t.import, cur) || '—'}`;
     if (t.export) body += `<div class="oet-sec">Export (feed-in)</div>${rateStructHtml(t.export, cur)}`;
     if (Array.isArray(t.controlledLoad) && t.controlledLoad.length) {
