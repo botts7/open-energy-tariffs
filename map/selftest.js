@@ -86,6 +86,15 @@ OET.selfTest = async function (opts) {
     ok('rank: income reference covers the data countries', OET.INCOME && Object.keys(OET.INCOME).length >= nom.length - 2);
   }
 
+  // ---- MATURITY FLAGS ----------------------------------------------------
+  if (OET.countryMaturity) {
+    const tiers = (OET.PLANS || []).reduce((s, r) => s.add(OET.countryMaturity(r.meta.country)), new Set());
+    ok('maturity: every country resolves a known tier', [...tiers].every((t) => OET.TIER_META[t]));
+    ok('maturity: AU + US are beta (real-source data)', OET.countryMaturity('AU') === 'beta' && OET.countryMaturity('US') === 'beta');
+    ok('maturity: a single hand-curated country is experimental', OET.countryMaturity('DE') === 'experimental');
+    ok('maturity: pill renders for each tier', ['experimental', 'beta', 'verified'].every((t) => (OET.maturityPill(t) || '').indexOf('oet-mat') !== -1));
+  }
+
   // ---- GEOCODING (online; the class of bug that kept biting) --------------
   if (online && OET.geocodeAddress) {
     await okAsync('geo: "london" worldwide -> United Kingdom', async () => { const r = await OET.geocodeAddress('london', ''); return [r && /United Kingdom|England/.test(r.label) && r.cc === 'GB', r && r.label]; });

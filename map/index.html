@@ -95,7 +95,7 @@
       <div class="brand">
         <img src="favicon.svg" alt="" width="32" height="32" />
         <div style="min-width:0">
-          <div class="brand-name">open<b>·</b>energy<b>·</b>tariffs</div>
+          <div class="brand-name">open<b>·</b>energy<b>·</b>tariffs <span id="appMat"></span></div>
           <div class="brand-tag">Browse &amp; compare electricity plans by rate · 52 countries</div>
         </div>
       </div>
@@ -128,6 +128,7 @@
   <script src="data.js"></script>
   <script src="fx.js"></script>
   <script src="income.js"></script>
+  <script src="maturity.js"></script>
   <script src="cost.js"></script>
   <script src="bill-pdf.js"></script>
   <script src="render.js"></script>
@@ -156,6 +157,8 @@
       if (hb) hb.addEventListener('click', function () { if (OET.showGuide) OET.showGuide(); });
       var rb = document.getElementById('rankToggle');
       if (rb) rb.addEventListener('click', function () { if (OET.showRanking) OET.showRanking(); });
+      var am = document.getElementById('appMat');
+      if (am && OET.maturityPill) am.innerHTML = OET.maturityPill(OET.FEATURE_MATURITY.app);
       if (OET.maybeAutoGuide) OET.maybeAutoGuide();
     });
   </script>

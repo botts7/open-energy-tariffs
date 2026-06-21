@@ -92,7 +92,7 @@ window.OET = window.OET || {};
       const wMin = Math.max(1, (r.min / maxV) * 100), wSpan = Math.max(1.5, ((r.max - r.min) / maxV) * 100);
       return '<div class="oet-rrow">'
         + `<div class="oet-rnum">${i + 1}</div>`
-        + `<div><div class="oet-rname">${r.name}${r.thin ? `<span class="oet-rthin" title="Few plans — illustrative">~${r.n}</span>` : ''}</div>`
+        + `<div><div class="oet-rname">${r.name} ${OET.maturityPill ? OET.maturityPill(OET.countryMaturity(r.cc)) : ''}</div>`
         + `<div class="oet-rmeta">${r.n} plan${r.n > 1 ? 's' : ''} · ${r.currency}${!r.hasIncome && curMetric !== 'nominal' ? ' · no income data' : ''}</div>`
         + `<div class="oet-rbar"><i style="left:${wMin}%;width:${wSpan}%"></i></div></div>`
         + `<div><div class="oet-rval">${m.fmt(r.value)}</div><div class="oet-rband">${m.fmt(r.min)}–${m.fmt(r.max)}</div></div>`
@@ -106,12 +106,13 @@ window.OET = window.OET || {};
     back.addEventListener('click', (e) => { if (e.target === back) close(); });
     back.innerHTML =
       '<div class="oet-rank" role="dialog" aria-label="Country electricity price ranking">'
-      + '<div class="oet-rhead"><h2>🌍 Cheapest countries for electricity</h2><button class="oet-rx" aria-label="Close">×</button></div>'
+      + `<div class="oet-rhead"><h2>🌍 Cheapest countries for electricity ${OET.maturityPill ? OET.maturityPill(OET.FEATURE_MATURITY.ranking) : ''}</h2><button class="oet-rx" aria-label="Close">×</button></div>`
       + '<div class="oet-rtabs">' + METRICS.map((x) => `<button class="oet-rtab" data-m="${x.id}">${x.label}<span style="opacity:.7"> · ${x.unit}</span></button>`).join('') + '</div>'
       + '<div class="oet-rhelp"></div>'
       + '<div class="oet-rbody"></div>'
-      + '<div class="oet-rfoot">Ranked cheapest→dearest by the median of our community plans; the bar shows each country’s min–max spread. '
-      + 'Most countries have only 1–3 example plans (flagged ~n) — treat as indicative. Income/PPP: World Bank (CC BY 4.0). Prices: community-maintained, verify your bill.</div>'
+      + `<div class="oet-rfoot">Ranked cheapest→dearest by the median of our community plans; the bar shows each country’s min–max spread. `
+      + `${OET.maturityPill ? OET.maturityPill('beta') + ' = real source data (AER/URDB), unverified · ' + OET.maturityPill('experimental') + ' = illustrative example plans. ' : ''}`
+      + `Income/PPP: World Bank (CC BY 4.0). Prices: community-maintained, verify your bill.</div>`
       + '</div>';
     document.body.appendChild(back);
     const bodyEl = back.querySelector('.oet-rbody'), helpEl = back.querySelector('.oet-rhelp');

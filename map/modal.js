@@ -83,7 +83,7 @@ window.OET = window.OET || {};
     if (t.supply && num(t.supply.daily) != null) add('Daily supply', `${t.supply.daily} ${esc(cur)}/day`);
     add('Source', esc(sName));
     add('Updated', esc(m.updated));
-    add('Verified', m.verified ? 'yes' : 'no');
+    add('Verified', (m.verified ? 'yes' : 'no') + (OET.maturityPill ? ' ' + OET.maturityPill(OET.countryMaturity(m.country)) : ''));
 
     let where = cov.national ? 'National' : '';
     if (cov.postcodes) where = `${cov.postcodes.length} postcode(s)`;
