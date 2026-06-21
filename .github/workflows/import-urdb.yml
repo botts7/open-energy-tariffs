@@ -1,0 +1,88 @@
+name: import-urdb
+
+# Build-time importer for US utility rates from NREL's OpenEI URDB (CC0 -> safe to
+# bulk-store & republish, source:urdb / license:CC0-1.0). Run manually from the
+# Actions tab. The API key NEVER touches the repo: it lives only in the
+# URDB_API_KEY Actions secret (masked in logs) and is used at build time. The
+# generated tariffs/US/** are committed via a PR you review — nothing auto-merges.
+#
+# Setup once: Settings -> Secrets and variables -> Actions -> New repository
+# secret -> name URDB_API_KEY, value = your free api.data.gov key.
+
+on:
+  workflow_dispatch:
+    inputs:
+      utility:
+        description: 'Single URDB utility name (exact, e.g. "Pacific Gas & Electric Co"). Leave blank to import the whole importers/urdb/us-utilities.json list.'
+        required: false
+        default: ''
+      state:
+        description: 'US state code for the single utility (e.g. CA). Ignored for the batch list.'
+        required: false
+        default: ''
+      timezone:
+        description: 'IANA timezone for the single utility (e.g. America/Los_Angeles). Ignored for the batch list.'
+        required: false
+        default: ''
+      limit:
+        description: 'Max rates to fetch per utility.'
+        required: false
+        default: '50'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+
+      - name: Import from URDB
+        env:
+          URDB_API_KEY: ${{ secrets.URDB_API_KEY }}
+        run: |
+          if [ -z "$URDB_API_KEY" ]; then
+            echo "::error::URDB_API_KEY secret is not set. Add it under Settings -> Secrets and variables -> Actions."
+            exit 1
+          fi
+          if [ -n "${{ inputs.utility }}" ]; then
+            echo "Single-utility import: ${{ inputs.utility }}"
+            node importers/urdb/run.mjs \
+              --utility "${{ inputs.utility }}" \
+              --state "${{ inputs.state }}" \
+              --timezone "${{ inputs.timezone }}" \
+              --limit "${{ inputs.limit }}"
+          else
+            echo "Batch import from importers/urdb/us-utilities.json"
+            node importers/urdb/run-batch.mjs --limit "${{ inputs.limit }}"
+          fi
+
+      - name: Validate + rebuild index
+        run: |
+          npm run pii
+          npm run validate
+          npm run build
+
+      - name: Open a PR with the imported plans
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: import/urdb-us
+          commit-message: 'data(US): import URDB residential rates (CC0)'
+          title: 'data(US): URDB residential rates import'
+          body: |
+            Automated URDB import (CC0, source:urdb). Review the new/changed
+            `tariffs/US/**` before merging. Rates are unverified (`verified:false`)
+            until checked against an authoritative source.
+
+            - Trigger: `import-urdb` workflow_dispatch
+            - PII scan + schema validate + build all ran green in this job.
+          add-paths: |
+            tariffs/US/**
+            index.json
+          delete-branch: true

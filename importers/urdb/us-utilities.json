@@ -1,0 +1,15 @@
+{
+  "_note": "Curated list of US utilities to bulk-import residential rates from URDB (CC0). The `utility` string MUST match URDB's `ratesforutility` name EXACTLY (verify at https://apps.openei.org/USURDB/ — a wrong name simply returns 0 items, never bad data). Extend this list via PR. `timezone` is the IANA zone for the utility's territory.",
+  "utilities": [
+    { "utility": "Pacific Gas & Electric Co", "state": "CA", "timezone": "America/Los_Angeles" },
+    { "utility": "Southern California Edison Co", "state": "CA", "timezone": "America/Los_Angeles" },
+    { "utility": "San Diego Gas & Electric Co", "state": "CA", "timezone": "America/Los_Angeles" },
+    { "utility": "Commonwealth Edison Co", "state": "IL", "timezone": "America/Chicago" },
+    { "utility": "Consolidated Edison Co-NY Inc", "state": "NY", "timezone": "America/New_York" },
+    { "utility": "Georgia Power Co", "state": "GA", "timezone": "America/New_York" },
+    { "utility": "Florida Power & Light Co", "state": "FL", "timezone": "America/New_York" },
+    { "utility": "Duke Energy Carolinas, LLC", "state": "NC", "timezone": "America/New_York" },
+    { "utility": "Virginia Electric & Power Co", "state": "VA", "timezone": "America/New_York" },
+    { "utility": "DTE Electric Company", "state": "MI", "timezone": "America/Detroit" }
+  ]
+}
