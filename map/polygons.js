@@ -81,6 +81,26 @@ OET.convexHull = function (latlngs, padDeg) {
   return hull.map(([x, y]) => [y, x]); // -> [lat,lng]
 };
 
+// ONE postcode's area polygon: its Voronoi cell among nearby postcode centroids
+// (clipped to a disc so a rural postcode with distant neighbours stays bounded).
+// `center`=[lat,lng] of the searched postcode; `neighbors`=[[lat,lng],...] around
+// it. Returns a single ring [[lat,lng],...] or null.
+OET.postcodePolygon = function (center, neighbors, radiusDeg) {
+  if (!window.d3 || !d3.Delaunay || !center) return null;
+  radiusDeg = radiusDeg == null ? 0.28 : radiusDeg;
+  const pts = [[center[1], center[0]]].concat((neighbors || []).map((p) => [p[1], p[0]])); // [lng,lat], center = index 0
+  if (pts.length < 3) return null;
+  const xs = pts.map((p) => p[0]); const ys = pts.map((p) => p[1]); const m = radiusDeg + 0.05;
+  const bbox = [Math.min.apply(null, xs) - m, Math.min.apply(null, ys) - m, Math.max.apply(null, xs) + m, Math.max.apply(null, ys) + m];
+  try {
+    const cell = d3.Delaunay.from(pts).voronoi(bbox).cellPolygon(0); // the searched postcode's cell
+    if (!cell) return null;
+    const clipped = clipPolygon(cell.map((c) => [c[0], c[1]]), discPolygon(pts[0], radiusDeg, 32));
+    if (clipped.length < 3) return null;
+    return clipped.map((c) => [c[1], c[0]]); // -> [lat,lng]
+  } catch (_) { return null; }
+};
+
 // CONCAVE hull (alpha shape) — hugs the postcodes instead of the convex blob a
 // `convexHull` draws (which fills bays/ocean). Build the Delaunay triangulation,
 // drop triangles with an over-long edge (longer than `factor`× the median edge,

@@ -41,9 +41,18 @@ OET.renderMap = function (plans, meta) {
   // canvas instead of thousands of SVG DOM nodes (much faster at scale).
   const map = L.map('map', { worldCopyJump: true, preferCanvas: true }).setView([30, 0], 2);
   const renderer = L.canvas({ padding: 0.5 });
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18, attribution: '© OpenStreetMap contributors',
-  }).addTo(map);
+  // Switchable base layers + a layers control (top-right), like other web maps.
+  const baseLayers = {
+    Street: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '© OpenStreetMap contributors' }),
+    Light: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { maxZoom: 19, attribution: '© OpenStreetMap, © CARTO' }),
+    Satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'Tiles © Esri' }),
+  };
+  baseLayers.Street.addTo(map);
+  // coverageLayer holds every provider coverage area (toggleable as one overlay,
+  // and auto-hidden in postcode mode). postcodeLayer holds the searched postcode.
+  const coverageLayer = L.layerGroup().addTo(map);
+  const postcodeLayer = L.layerGroup().addTo(map);
+  L.control.layers(baseLayers, { 'Coverage areas': coverageLayer, 'Searched postcode': postcodeLayer }, { position: 'topright', collapsed: true }).addTo(map);
   // Data attribution (required: AER tariff data is CC BY 4.0). Shown wherever the
   // data is displayed, per the licence. URDB is CC0 (citation as courtesy).
   map.attributionControl.addAttribution(
@@ -78,7 +87,7 @@ OET.renderMap = function (plans, meta) {
     const recLayers = [];
 
     if (points.length || boundary || cov.national) {
-      const group = groups[src] || (groups[src] = L.layerGroup().addTo(map));
+      const group = groups[src] || (groups[src] = L.layerGroup().addTo(coverageLayer));
       const popup = (extra) => popupHtml(m, tariff, rate) + (extra ? `<br><span style="color:#777">${esc(extra)}</span>` : '');
       const add = (layer) => { layer.addTo(group); recLayers.push(layer); };
       if (boundary) {
@@ -135,7 +144,6 @@ OET.renderMap = function (plans, meta) {
   // recolour by the LOCAL rate; otherwise USD-equiv. Recolour only on mode change.
   let colorMode = 'usd';
   if (OET._outline == null) OET._outline = false;
-  if (OET._dim == null) OET._dim = false;
   function planColor(r) {
     const single = colorMode.indexOf('local:') === 0;
     const cur = single ? colorMode.slice(6) : null;
@@ -144,28 +152,36 @@ OET.renderMap = function (plans, meta) {
     return OET.rateColor(cRate);
   }
   // Filled choropleth, OR outline mode: a coloured boundary with near-zero fill so
-  // overlapping coverage areas (and the basemap) stay visible. When _dim is set
-  // (a postcode search is active) every area fades right down so the searched-
-  // postcode pin and the ranked list are what stand out, not 100+ network hulls.
+  // overlapping coverage areas (and the basemap) stay visible.
   function styleFor(r) {
     const c = planColor(r);
-    // Dim = NO fill (149 stacked 0.04 fills still read as solid) + a ghost outline,
-    // so the basemap and the searched-postcode pin lead.
-    if (OET._dim) return { color: c, weight: 0.6, opacity: 0.35, fillColor: c, fillOpacity: 0 };
     return OET._outline
       ? { color: c, weight: 2, opacity: 0.9, fillColor: c, fillOpacity: 0.05 }
       : { color: '#333', weight: 1, opacity: 1, fillColor: c, fillOpacity: 0.4 };
   }
   function restyleAll() { for (const r of planRecs) for (const l of r.layers) if (l.setStyle) l.setStyle(styleFor(r)); }
-  // Fade all areas (postcode-search mode) so the pin/list lead, not the hulls.
-  OET.setDim = function (on) { if (OET._dim === !!on) return; OET._dim = !!on; restyleAll(); };
-  // A marker on the searched postcode so you can see WHERE it is amid the coverage.
-  let searchPin = null;
-  OET.setSearchPin = function (latlng) {
-    if (!latlng) { if (searchPin) { map.removeLayer(searchPin); searchPin = null; } return; }
-    if (!searchPin) { searchPin = L.circleMarker(latlng, { radius: 8, color: '#0d47a1', weight: 3, fillColor: '#42a5f5', fillOpacity: 0.95 }).addTo(map); }
-    else searchPin.setLatLng(latlng);
-    if (searchPin.bringToFront) searchPin.bringToFront();
+
+  // --- Postcode mode: draw the SEARCHED postcode as its own polygon (its Voronoi
+  // cell among neighbours) and HIDE all provider coverage — the plans serving it
+  // are listed in the sidebar, so the network hulls are just noise here. ---
+  OET.showPostcodeArea = function (pc, center) {
+    postcodeLayer.clearLayers();
+    if (map.hasLayer(coverageLayer)) { map.removeLayer(coverageLayer); OET._coverageHiddenByPc = true; }
+    const DB = OET.AU_POSTCODES_FULL || OET.AU_POSTCODES || {};
+    const neigh = [];
+    for (const k in DB) { if (k === pc) continue; const ll = DB[k]; const d = Math.hypot(ll[0] - center[0], ll[1] - center[1]); if (d < 0.7) neigh.push([d, ll]); }
+    neigh.sort((a, b) => a[0] - b[0]);
+    const near = neigh.slice(0, 40).map((x) => x[1]);
+    const ring = OET.postcodePolygon ? OET.postcodePolygon(center, near) : null;
+    const style = { renderer, color: '#0d47a1', weight: 2, fillColor: '#42a5f5', fillOpacity: 0.35 };
+    const layer = ring ? L.polygon(ring, style) : L.circleMarker(center, Object.assign({ radius: 9 }, style));
+    layer.bindPopup('Postcode <strong>' + esc(pc) + '</strong>').addTo(postcodeLayer);
+    if (layer.getBounds) map.fitBounds(layer.getBounds(), { padding: [60, 60], maxZoom: 12 });
+    else map.setView(center, 12);
+  };
+  OET.clearPostcodeArea = function () {
+    postcodeLayer.clearLayers();
+    if (OET._coverageHiddenByPc) { map.addLayer(coverageLayer); OET._coverageHiddenByPc = false; }
   };
   function recolor(visibleRecs) {
     const curs = new Set();

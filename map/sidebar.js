@@ -200,7 +200,8 @@ OET.initSidebar = function () {
         note = `${label}: no plans in this area`; textPred = () => false;
       }
     }
-    return { pred: (r) => base(r) && textPred(r), note, focus };
+    // pc (a single 4-5 digit postcode with a known centroid) drives postcode mode.
+    return { pred: (r) => base(r) && textPred(r), note, focus, pc: (pc && pc.length >= 4 && focus) ? pc : null };
   }
 
   function renderList(visible) {
@@ -249,22 +250,17 @@ OET.initSidebar = function () {
   }
 
   function apply() {
-    const { pred, note, focus } = buildPredicate();
+    const { pred, note, focus, pc } = buildPredicate();
     const visible = plans.filter(pred);
     OET.applyPlanFilter(pred);
     renderList(visible);
     count.textContent = `${visible.length} / ${plans.length}${note ? ' · ' + note : ''}`;
-    // Postcode search: pin the location and FADE the plan areas, so the pin + the
-    // ranked list lead — not 100+ overlapping whole-network coverage hulls. (Each
-    // matching plan serves its entire distribution network, not just this postcode.)
-    if (focus && OET._map) {
-      if (OET.setSearchPin) OET.setSearchPin(focus);
-      if (OET.setDim) OET.setDim(true);
-      OET._map.setView(focus, 11);
-    } else {
-      if (OET.setSearchPin) OET.setSearchPin(null);
-      if (OET.setDim) OET.setDim(false);
-    }
+    // Postcode search: draw the postcode as a polygon and HIDE provider coverage —
+    // the plans serving it are the (ranked) list. (Each matching plan serves its
+    // whole distribution network, so its coverage hull is noise at this point.)
+    if (pc && OET.showPostcodeArea) OET.showPostcodeArea(pc, focus);
+    else if (OET.clearPostcodeArea) OET.clearPostcodeArea();
+    if (!pc && focus && OET._map) OET._map.setView(focus, 11);
     syncHash();
   }
 
