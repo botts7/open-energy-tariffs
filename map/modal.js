@@ -102,6 +102,14 @@ window.OET = window.OET || {};
         + (bd.exportCredit ? `<tr><td>Solar export credit <span style="color:#94a3b8">${Math.round(bd.exportKwh).toLocaleString()} kWh</span></td><td>−${Math.round(bd.exportCredit).toLocaleString()} ${esc(cur)}</td></tr>` : '')
         + `<tr style="font-weight:700;border-top:2px solid #e2e8f0"><td>Total / year</td><td>${Math.round(bd.total).toLocaleString()} ${esc(cur)}</td></tr>`
         + '</tbody></table>';
+      // History (your current) vs proposed (this plan) — the saving.
+      const bl = OET._baseline;
+      if (bl && typeof bl.cost === 'number') {
+        const diff = bd.total - bl.cost, save = diff < 0;
+        body += `<div class="oet-note" style="margin-top:8px;background:${save ? '#f0fdf4' : '#fef2f2'};border-color:${save ? '#bbf7d0' : '#fecaca'}">`
+          + `Your current (${esc(bl.label)}): ~${Math.round(bl.cost).toLocaleString()} ${esc(cur)}/yr · `
+          + `on this plan <b style="color:${save ? '#16a34a' : '#dc2626'}">${save ? 'save ' : '+'}${Math.round(Math.abs(diff)).toLocaleString()} ${esc(cur)}/yr</b></div>`;
+      }
       body += `<div class="oet-note" style="margin-top:8px">Based on your usage (~${Math.round(bd.annualKwh).toLocaleString()} kWh/yr), annualised against this plan's own time-of-use bands.</div>`;
     }
     body += `<div class="oet-sec">Import rates</div>${rateStructHtml(t.import, cur) || '—'}`;

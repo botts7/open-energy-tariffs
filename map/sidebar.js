@@ -458,6 +458,17 @@ OET.initSidebar = function () {
   }
   function apply(fit) {
     OET._usage = state.usage; // expose to the compare modal's annual-cost row
+    // Expose the baseline (your actual $ or current-plan cost) so the plan modal
+    // can show history-vs-proposed savings.
+    OET._baseline = null;
+    if (state.usage) {
+      const actual = parseFloat(state.currentCostActual);
+      if (actual > 0) OET._baseline = { cost: actual, label: 'your actual bill' };
+      else if (state.currentPlanId) {
+        const cur = plans.find((p) => p.id === state.currentPlanId);
+        if (cur && OET.estimateAnnualCost) OET._baseline = { cost: OET.estimateAnnualCost(cur.tariff, state.usage), label: cur.meta.provider + ' · ' + cur.meta.plan };
+      }
+    }
     const { pred, note, focus, pc } = buildPredicate();
     const visible = plans.filter(pred);
     OET.applyPlanFilter(pred);
