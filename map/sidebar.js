@@ -466,7 +466,7 @@ OET.initSidebar = function () {
       if (actual > 0) OET._baseline = { cost: actual, label: 'your actual bill' };
       else if (state.currentPlanId) {
         const cur = plans.find((p) => p.id === state.currentPlanId);
-        if (cur && OET.estimateAnnualCost) OET._baseline = { cost: OET.estimateAnnualCost(cur.tariff, state.usage), label: cur.meta.provider + ' · ' + cur.meta.plan };
+        if (cur && OET.estimateAnnualCost) OET._baseline = { cost: OET.estimateAnnualCost(cur.tariff, state.usage), label: cur.meta.provider + ' · ' + cur.meta.plan, rec: cur };
       }
     }
     const { pred, note, focus, pc } = buildPredicate();

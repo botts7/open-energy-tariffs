@@ -113,6 +113,12 @@ window.OET = window.OET || {};
       body += `<div class="oet-note" style="margin-top:8px">Based on your usage (~${Math.round(bd.annualKwh).toLocaleString()} kWh/yr), annualised against this plan's own time-of-use bands.</div>`;
     }
     body += `<div class="oet-sec">Import rates</div>${rateStructHtml(t.import, cur) || '—'}`;
+    // Side-by-side rate comparison with the user's current plan (if one is set).
+    const blRec = OET._baseline && OET._baseline.rec;
+    if (blRec && blRec.tariff && blRec.id !== rec.id) {
+      body += `<div class="oet-sec">Your current plan rates — ${esc(OET._baseline.label)}</div>${rateStructHtml(blRec.tariff.import, blRec.meta.currency) || '—'}`;
+      if (blRec.tariff.supply && num(blRec.tariff.supply.daily) != null) body += `<div style="font-size:12px;color:#475569;margin-top:4px">Current daily supply: ${blRec.tariff.supply.daily} ${esc(blRec.meta.currency)}/day</div>`;
+    }
     if (t.export) body += `<div class="oet-sec">Export (feed-in)</div>${rateStructHtml(t.export, cur)}`;
     if (Array.isArray(t.controlledLoad) && t.controlledLoad.length) {
       body += '<div class="oet-sec">Controlled load</div><table class="oet-tbl"><tbody>'
