@@ -43,8 +43,9 @@ OET.initSidebar = function () {
   const countries = uniq((p) => p.meta.country);
   const sources = uniq((p) => p.src);
   const providers = uniq((p) => p.meta.provider);
+  const distributors = uniq((p) => p.meta.distributor);
 
-  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', kind: '', sort: 'az', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', bandPeak: '', bandShoulder: '', bandOff: '', exportKwh: '', currentPlanId: '', currentCostActual: '', intervals: null, outline: false };
+  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', distributor: '', kind: '', sort: 'az', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', bandPeak: '', bandShoulder: '', bandOff: '', exportKwh: '', currentPlanId: '', currentCostActual: '', intervals: null, outline: false };
   // A typical-household profile so "cheapest for typical use" sorting works even
   // before the user enters their own usage (~4000 kWh/yr, even load).
   const typicalUsage = OET.usageFromAnnual ? OET.usageFromAnnual(4000, 'flat') : null;
@@ -123,6 +124,8 @@ OET.initSidebar = function () {
       sources.slice().sort((a, b) => sname(a).localeCompare(sname(b))).map((s) => h('option', { value: s, text: sname(s) }))));
   const providerSel = h('select', { class: 'sb-input', onchange: (e) => { state.provider = e.target.value; apply(); } },
     [h('option', { value: '', text: 'All providers' })].concat(providers.map((p) => h('option', { value: p, text: p }))));
+  const distributorSel = h('select', { class: 'sb-input', onchange: (e) => { state.distributor = e.target.value; apply(); } },
+    [h('option', { value: '', text: 'All networks (distributors)' })].concat(distributors.map((d) => h('option', { value: d, text: d }))));
   const kindSel = h('select', { class: 'sb-input', onchange: (e) => { state.kind = e.target.value; apply(); } },
     [['', 'All rate types'], ['flat', 'Flat / single rate'], ['tou', 'Time-of-use']].map(([v, t]) => h('option', { value: v, text: t })));
   const sortSel = h('select', { class: 'sb-input', onchange: (e) => { state.sort = e.target.value; apply(); } },
@@ -147,6 +150,7 @@ OET.initSidebar = function () {
     state.exportKwh = ''; exportIn.value = '';
     state.outline = false; outlineCb.checked = false; if (OET.setOutline) OET.setOutline(false);
     state.kind = ''; state.sort = 'az'; kindSel.value = ''; sortSel.value = 'az';
+    state.distributor = ''; distributorSel.value = '';
     search.value = ''; countrySel.value = ''; sourceSel.value = ''; providerSel.value = ''; minIn.value = ''; maxIn.value = '';
     kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; currentSel.value = ''; currentCostIn.value = ''; cmpNote.textContent = '';
     apply();
@@ -162,12 +166,22 @@ OET.initSidebar = function () {
     if (ex > 0) state.usage.exportKwh = ex * 365; else delete state.usage.exportKwh;
   }
   function recomputeExport() { attachExport(); apply(); }
+  // Per-band entry overrides annual kWh + load shape, so grey those out when bands
+  // are in use (they're alternative ways to describe the same usage).
+  function bandsActive() { return (parseFloat(state.bandPeak) || 0) + (parseFloat(state.bandShoulder) || 0) + (parseFloat(state.bandOff) || 0) > 0; }
+  function updateUsageUI() {
+    const ba = bandsActive();
+    shapeSel.disabled = ba; kwhIn.disabled = ba;
+    shapeSel.style.opacity = ba ? '0.45' : ''; kwhIn.style.opacity = ba ? '0.45' : '';
+    shapeSel.title = ba ? 'Not used while daily by-time kWh is entered' : '';
+  }
   function recomputeUsage() {
     const kwh = parseFloat(state.usageKwh);
     state.usage = kwh > 0 ? OET.usageFromAnnual(kwh, state.shape) : null;
     state.intervals = null; // manual kWh/shape overrides an uploaded interval history
     attachExport();
     cmpNote.textContent = state.usage ? `Ranking by estimated cost for ~${Math.round(kwh)} kWh/yr (${state.shape})` : '';
+    updateUsageUI();
     apply();
   }
   // Per-band daily kWh (peak / shoulder / off-peak) — more accurate than a generic
@@ -183,6 +197,7 @@ OET.initSidebar = function () {
       state.usageKwh = String(annual); kwhIn.value = annual;
       cmpNote.textContent = `By time-of-use: ${daily.toFixed(1)} kWh/day (peak ${p} · shoulder ${s} · off-peak ${o}) ≈ ${annual.toLocaleString()} kWh/yr`;
     } else { state.usage = null; cmpNote.textContent = ''; }
+    updateUsageUI();
     apply();
   }
   const kwhIn = h('input', { type: 'number', step: '100', placeholder: 'annual kWh', class: 'sb-num',
@@ -256,7 +271,7 @@ OET.initSidebar = function () {
   // Controls stay pinned (their own box); only the plan list scrolls.
   const controls = h('div', { class: 'sb-controls' }, [
     h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]),
-    search, suggestBox, geoBtn, countrySel, sourceSel, providerSel, kindSel, sortSel, priceRow, outlineRow, cmp, reset,
+    search, suggestBox, geoBtn, countrySel, sourceSel, providerSel, distributorSel, kindSel, sortSel, priceRow, outlineRow, cmp, reset,
   ]);
   root.appendChild(controls);
   root.appendChild(h('div', { class: 'sb-scroll' }, [list]));
@@ -276,6 +291,7 @@ OET.initSidebar = function () {
       if (state.countries.size && !state.countries.has(r.meta.country)) return false;
       if (state.sources.size && !state.sources.has(r.src)) return false;
       if (state.provider && r.meta.provider !== state.provider) return false;
+      if (state.distributor && r.meta.distributor !== state.distributor) return false;
       if (state.kind && r.tariff.kind !== state.kind) return false;
       if (priceOn) { if (typeof r.rate !== 'number') return false; if (r.rate < min || r.rate > max) return false; }
       return true;
@@ -385,6 +401,7 @@ OET.initSidebar = function () {
     if (state.countries.size) p.set('c', [...state.countries].join(','));
     if (state.sources.size) p.set('s', [...state.sources].join(','));
     if (state.provider) p.set('p', state.provider);
+    if (state.distributor) p.set('d', state.distributor);
     if (state.kind) p.set('k', state.kind);
     if (state.sort && state.sort !== 'az') p.set('sort', state.sort);
     if (state.text) p.set('q', state.text);
@@ -408,6 +425,7 @@ OET.initSidebar = function () {
     countrySel.value = state.countries.size ? [...state.countries][0] : '';
     sourceSel.value = state.sources.size ? [...state.sources][0] : '';
     state.provider = p.get('p') || ''; providerSel.value = state.provider;
+    state.distributor = p.get('d') || ''; distributorSel.value = state.distributor;
     state.kind = p.get('k') || ''; kindSel.value = state.kind;
     state.sort = p.get('sort') || 'az'; sortSel.value = state.sort;
     state.text = p.get('q') || ''; search.value = state.text;
@@ -437,5 +455,6 @@ OET.initSidebar = function () {
 
   restore();
   if (OET._onCompareChange) OET._onCompareChange();
+  updateUsageUI();
   apply();
 };
