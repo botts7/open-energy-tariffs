@@ -196,6 +196,36 @@ OET.parseWideCsv = function (text) {
   return { profile, annualKwh, exportKwh, days: conDays.size, hasExport: genDays.size > 0, duplicates };
 };
 
+// --- Pluggable usage-file parsers (community-extensible) -------------------
+// Each parser = { id, label, detect(text)->bool, parse(text)->result|null } where
+// result = { profile:{weekday:[24],weekend:[24]}, annualKwh, exportKwh?, intervals?,
+// days?, duplicates?, hasExport? }. Add a new distributor format by calling
+// OET.registerUsageParser({...}) (see docs/USAGE_CSV_PARSERS.md) — then a PR.
+OET.USAGE_PARSERS = OET.USAGE_PARSERS || [];
+OET.registerUsageParser = function (p) { if (p && p.detect && p.parse) OET.USAGE_PARSERS.push(p); };
+
+// Run registered parsers in order; the first whose detect() matches wins.
+OET.parseUsageFile = function (text) {
+  for (const p of OET.USAGE_PARSERS) {
+    try { if (p.detect(text)) { const r = p.parse(text); if (r && r.profile) { r.parser = p.label; return r; } } } catch (_) {}
+  }
+  return null;
+};
+
+// Built-in: distributor "wide" 48-column interval export (AusNet / NEM style).
+OET.registerUsageParser({
+  id: 'wide-interval', label: 'Distributor 48-column interval export',
+  detect: (text) => ((String(text).split(/\r?\n/)[0] || '').match(/\d{1,2}:\d{2}\s*-\s*\d{1,2}:\d{2}/g) || []).length >= 20,
+  parse: (text) => { const w = OET.parseWideCsv(text); return w ? { profile: w.profile, annualKwh: w.annualKwh, exportKwh: w.exportKwh, days: w.days, duplicates: w.duplicates, hasExport: w.hasExport } : null; },
+});
+
+// Built-in: long format (timestamp,kWh per row) — profile + exact-replay intervals.
+OET.registerUsageParser({
+  id: 'long-interval', label: 'Interval CSV (timestamp, kWh)',
+  detect: (text) => String(text).split(/\r?\n/).some((line) => { const c = line.split(','); return c.length >= 2 && !isNaN(new Date(c[0].trim()).getTime()) && !isNaN(parseFloat(c[1])); }),
+  parse: (text) => { const r = OET.parseUsageCsv(text); if (!r || !r.profile) return null; const iv = OET.parseIntervals ? OET.parseIntervals(text) : null; return { profile: r.profile, annualKwh: r.annualKwh, intervals: (iv && iv.intervals.length) ? iv : null, days: iv ? iv.days : undefined }; },
+});
+
 // Parse interval CSV into the raw series for an exact HISTORICAL replay.
 OET.parseIntervals = function (text) {
   const intervals = []; const days = new Set(); let total = 0;

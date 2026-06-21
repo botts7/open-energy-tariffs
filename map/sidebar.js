@@ -43,7 +43,9 @@ function makeCombo(initialOptions, placeholder, onPick) {
   const labelOf = (v) => { const o = options.find((x) => x.value === v); return o ? o.label : ''; };
   const filtered = (q) => {
     q = (q || '').trim().toLowerCase();
-    return (q ? options.filter((o) => o.label.toLowerCase().indexOf(q) !== -1) : options).slice(0, 80);
+    if (!q) return options.slice(0, 80);
+    const toks = q.split(/\s+/); // every word must appear (any order) — "agl saver" matches
+    return options.filter((o) => { const l = o.label.toLowerCase(); return toks.every((t) => l.indexOf(t) !== -1); }).slice(0, 80);
   };
   function render(q) {
     dd.textContent = '';
@@ -254,7 +256,7 @@ OET.initSidebar = function () {
     updateUsageUI();
     apply();
   }
-  const kwhIn = h('input', { type: 'number', step: '100', placeholder: 'annual kWh', class: 'sb-num',
+  const kwhIn = h('input', { type: 'number', step: '100', placeholder: 'annual kWh', class: 'sb-num sb-numw',
     oninput: (e) => { state.usageKwh = e.target.value; recomputeUsage(); } });
   const shapeSel = h('select', { class: 'sb-input', onchange: (e) => { state.shape = e.target.value; recomputeUsage(); } },
     [['flat', 'Flat (even)'], ['daytime', 'Daytime-heavy'], ['evening', 'Evening-heavy'], ['night_ev', 'Night / EV']]
@@ -264,36 +266,27 @@ OET.initSidebar = function () {
   const peakIn = bandNum('bandPeak', 'peak', 'Peak kWh per day'),
     shoulderIn = bandNum('bandShoulder', 'shldr', 'Shoulder kWh per day'),
     offIn = bandNum('bandOff', 'off', 'Off-peak kWh per day');
-  const exportIn = h('input', { type: 'number', step: '0.5', min: '0', placeholder: 'kWh/day', title: 'Average solar export to the grid per day — credits each plan’s feed-in rate', class: 'sb-num',
+  const exportIn = h('input', { type: 'number', step: '0.5', min: '0', placeholder: 'kWh/day', title: 'Average solar export to the grid per day — credits each plan’s feed-in rate', class: 'sb-num sb-numw',
     oninput: (e) => { state.exportKwh = e.target.value; recomputeExport(); } });
   const csvIn = h('input', { type: 'file', accept: '.csv', class: 'sb-input',
     onchange: (e) => {
       const f = e.target.files[0]; if (!f) return;
       const rd = new FileReader();
       rd.onload = () => {
-        // Distributor "wide" interval export (AusNet etc.) — 48 half-hourly cols/day.
-        const wide = OET.parseWideCsv ? OET.parseWideCsv(rd.result) : null;
-        if (wide) {
-          state.usage = wide.profile; state.intervals = null;
-          if (wide.exportKwh) { state.exportKwh = String(Math.round(wide.exportKwh / 365 * 10) / 10); exportIn.value = state.exportKwh; }
-          attachExport();
-          state.usageKwh = String(wide.annualKwh); kwhIn.value = wide.annualKwh;
-          cmpNote.textContent = `Detailed export: ${wide.days} days → ~${wide.annualKwh.toLocaleString()} kWh/yr`
-            + (wide.hasExport ? ` + ${wide.exportKwh.toLocaleString()} kWh/yr solar export` : '')
-            + (wide.duplicates ? ` · ${wide.duplicates.toLocaleString()} duplicate rows skipped` : '');
-          updateUsageUI(); apply();
-          return;
-        }
-        const r = OET.parseUsageCsv(rd.result);
-        const iv = OET.parseIntervals ? OET.parseIntervals(rd.result) : null;
-        state.usage = r.profile;
-        state.intervals = (iv && iv.intervals.length) ? iv : null;
+        // Pluggable parser registry (wide 48-col, long timestamp,kWh, + community).
+        const res = OET.parseUsageFile ? OET.parseUsageFile(rd.result) : null;
+        if (!res) { cmpNote.textContent = 'Could not read that CSV — see docs/USAGE_CSV_PARSERS.md to add its format'; return; }
+        state.usage = res.profile;
+        state.intervals = res.intervals || null;
+        if (res.exportKwh) { state.exportKwh = String(Math.round(res.exportKwh / 365 * 10) / 10); exportIn.value = state.exportKwh; }
         attachExport();
-        state.usageKwh = String(state.intervals ? state.intervals.totalKwh : r.annualKwh); kwhIn.value = state.usageKwh;
-        cmpNote.textContent = state.intervals
-          ? `Historical: replaying ${state.intervals.days} days of your real data against each plan`
-          : `Ranking by your CSV (~${r.annualKwh} kWh/yr)`;
-        apply();
+        state.usageKwh = String(state.intervals ? state.intervals.totalKwh : res.annualKwh); kwhIn.value = state.usageKwh;
+        cmpNote.textContent = (state.intervals
+          ? `Historical replay: ${state.intervals.days} days of your real data`
+          : `${res.parser}: ~${(res.annualKwh || 0).toLocaleString()} kWh/yr`)
+          + (res.hasExport ? ` + ${res.exportKwh.toLocaleString()} kWh/yr solar` : '')
+          + (res.duplicates ? ` · ${res.duplicates.toLocaleString()} dup rows skipped` : '');
+        updateUsageUI(); apply();
       };
       rd.readAsText(f);
     } });
@@ -323,7 +316,7 @@ OET.initSidebar = function () {
     'My current plan (search)', (v) => { state.currentPlanId = v; apply(); });
   // Or compare against what you ACTUALLY pay (annual) — the ground truth even if
   // your exact plan isn't in the DB. Auto-filled from a bill PDF's total.
-  const currentCostIn = h('input', { type: 'number', step: '10', placeholder: 'actual $/yr', class: 'sb-num',
+  const currentCostIn = h('input', { type: 'number', step: '10', placeholder: 'actual $/yr', class: 'sb-num sb-numw',
     oninput: (e) => { state.currentCostActual = e.target.value; apply(); } });
   const cmp = h('details', { class: 'sb-cmp' }, [
     h('summary', { text: 'Compare to my usage' }),
