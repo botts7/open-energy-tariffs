@@ -44,7 +44,10 @@ OET.initSidebar = function () {
   const sources = uniq((p) => p.src);
   const providers = uniq((p) => p.meta.provider);
 
-  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', currentPlanId: '', currentCostActual: '', intervals: null, outline: false };
+  const state = { text: '', countries: new Set(), sources: new Set(), provider: '', kind: '', sort: 'az', min: '', max: '', usage: null, usageKwh: '', shape: 'flat', currentPlanId: '', currentCostActual: '', intervals: null, outline: false };
+  // A typical-household profile so "cheapest for typical use" sorting works even
+  // before the user enters their own usage (~4000 kWh/yr, even load).
+  const typicalUsage = OET.usageFromAnnual ? OET.usageFromAnnual(4000, 'flat') : null;
 
   const count = h('div', { class: 'sb-count' });
   const list = h('div', { class: 'sb-list' });
@@ -120,6 +123,10 @@ OET.initSidebar = function () {
       sources.slice().sort((a, b) => sname(a).localeCompare(sname(b))).map((s) => h('option', { value: s, text: sname(s) }))));
   const providerSel = h('select', { class: 'sb-input', onchange: (e) => { state.provider = e.target.value; apply(); } },
     [h('option', { value: '', text: 'All providers' })].concat(providers.map((p) => h('option', { value: p, text: p }))));
+  const kindSel = h('select', { class: 'sb-input', onchange: (e) => { state.kind = e.target.value; apply(); } },
+    [['', 'All rate types'], ['flat', 'Flat / single rate'], ['tou', 'Time-of-use']].map(([v, t]) => h('option', { value: v, text: t })));
+  const sortSel = h('select', { class: 'sb-input', onchange: (e) => { state.sort = e.target.value; apply(); } },
+    [['az', 'Sort: Provider A–Z'], ['rate-asc', 'Sort: Rate (low→high)'], ['rate-desc', 'Sort: Rate (high→low)'], ['cost', 'Sort: Cheapest for typical use']].map(([v, t]) => h('option', { value: v, text: t })));
 
   const minIn = h('input', { type: 'number', step: '0.01', placeholder: 'min', class: 'sb-num',
     oninput: (e) => { state.min = e.target.value; apply(); } });
@@ -137,6 +144,7 @@ OET.initSidebar = function () {
     state.text = ''; state.countries.clear(); state.sources.clear(); state.provider = ''; state.min = ''; state.max = '';
     state.usage = null; state.usageKwh = ''; state.shape = 'flat'; state.currentPlanId = ''; state.currentCostActual = ''; state.intervals = null;
     state.outline = false; outlineCb.checked = false; if (OET.setOutline) OET.setOutline(false);
+    state.kind = ''; state.sort = 'az'; kindSel.value = ''; sortSel.value = 'az';
     search.value = ''; countrySel.value = ''; sourceSel.value = ''; providerSel.value = ''; minIn.value = ''; maxIn.value = '';
     kwhIn.value = ''; shapeSel.value = 'flat'; csvIn.value = ''; currentSel.value = ''; currentCostIn.value = ''; cmpNote.textContent = '';
     apply();
@@ -212,7 +220,7 @@ OET.initSidebar = function () {
   // Controls stay pinned (their own box); only the plan list scrolls.
   const controls = h('div', { class: 'sb-controls' }, [
     h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]),
-    search, suggestBox, geoBtn, countrySel, sourceSel, providerSel, priceRow, outlineRow, cmp, reset,
+    search, suggestBox, geoBtn, countrySel, sourceSel, providerSel, kindSel, sortSel, priceRow, outlineRow, cmp, reset,
   ]);
   root.appendChild(controls);
   root.appendChild(h('div', { class: 'sb-scroll' }, [list]));
@@ -232,6 +240,7 @@ OET.initSidebar = function () {
       if (state.countries.size && !state.countries.has(r.meta.country)) return false;
       if (state.sources.size && !state.sources.has(r.src)) return false;
       if (state.provider && r.meta.provider !== state.provider) return false;
+      if (state.kind && r.tariff.kind !== state.kind) return false;
       if (priceOn) { if (typeof r.rate !== 'number') return false; if (r.rate < min || r.rate > max) return false; }
       return true;
     };
@@ -265,14 +274,24 @@ OET.initSidebar = function () {
     list.textContent = '';
     const usage = state.usage;
     const arr = visible.slice();
-    if (usage) {
-      for (const r of arr) r._cost = state.intervals
+    // Cost basis: the user's usage if entered, else a typical household profile so
+    // "cheapest for typical use" works out of the box.
+    const costUsage = usage || typicalUsage;
+    if ((usage || state.sort === 'cost') && costUsage && OET.estimateAnnualCost) {
+      for (const r of arr) r._cost = (usage && state.intervals)
         ? ((OET.estimateFromIntervals(r.tariff, state.intervals) || {}).annual ?? null)  // historical replay
-        : OET.estimateAnnualCost(r.tariff, usage);
-      arr.sort((a, b) => (a._cost == null ? Infinity : a._cost) - (b._cost == null ? Infinity : b._cost));
-    } else {
-      arr.sort((a, b) => (a.meta.country + a.meta.provider + a.meta.plan).localeCompare(b.meta.country + b.meta.provider + b.meta.plan));
+        : OET.estimateAnnualCost(r.tariff, costUsage);
     }
+    // USD-normalise the sort key so cross-currency ordering is fair (display stays local).
+    const usd = (v, cur) => (OET.toUsd ? OET.toUsd(v, cur) : v);
+    const rateKey = (r) => { const v = usd(r.rate, r.meta.currency); return v == null ? Infinity : v; };
+    const costKey = (r) => { const v = r._cost == null ? null : usd(r._cost, r.meta.currency); return v == null ? Infinity : v; };
+    arr.sort((a, b) => {
+      if (state.sort === 'rate-asc') return rateKey(a) - rateKey(b);
+      if (state.sort === 'rate-desc') return (rateKey(b) === Infinity ? -Infinity : rateKey(b)) - (rateKey(a) === Infinity ? -Infinity : rateKey(a));
+      if (state.sort === 'cost') return costKey(a) - costKey(b);
+      return (a.meta.country + a.meta.provider + a.meta.plan).localeCompare(b.meta.country + b.meta.provider + b.meta.plan);
+    });
     const cheapest = usage && arr.length && arr[0]._cost != null ? arr[0]._cost : null;
     // Baseline for savings: your ACTUAL annual $ (ground truth) if entered, else
     // an estimate of your selected current plan.
@@ -330,6 +349,8 @@ OET.initSidebar = function () {
     if (state.countries.size) p.set('c', [...state.countries].join(','));
     if (state.sources.size) p.set('s', [...state.sources].join(','));
     if (state.provider) p.set('p', state.provider);
+    if (state.kind) p.set('k', state.kind);
+    if (state.sort && state.sort !== 'az') p.set('sort', state.sort);
     if (state.text) p.set('q', state.text);
     if (state.min) p.set('min', state.min);
     if (state.max) p.set('max', state.max);
@@ -351,6 +372,8 @@ OET.initSidebar = function () {
     countrySel.value = state.countries.size ? [...state.countries][0] : '';
     sourceSel.value = state.sources.size ? [...state.sources][0] : '';
     state.provider = p.get('p') || ''; providerSel.value = state.provider;
+    state.kind = p.get('k') || ''; kindSel.value = state.kind;
+    state.sort = p.get('sort') || 'az'; sortSel.value = state.sort;
     state.text = p.get('q') || ''; search.value = state.text;
     state.min = p.get('min') || ''; minIn.value = state.min;
     state.max = p.get('max') || ''; maxIn.value = state.max;
