@@ -1,19 +1,19 @@
 {
   "meta": {
-    "id": "gb-octopus-economy-7-example",
+    "id": "gb-example-economy-7",
     "schemaVersion": "1",
     "country": "GB",
-    "provider": "Octopus Energy",
-    "plan": "Economy 7 (example)",
+    "provider": "GB market (example)",
+    "plan": "Economy 7 two-rate (illustrative)",
     "currency": "GBP",
     "unit": "kWh",
     "timezone": "Europe/London",
     "source": "manual",
-    "sourceUrl": "https://developer.octopus.energy/",
+    "sourceUrl": "https://www.ofgem.gov.uk/",
     "license": "CC0-1.0",
-    "updated": "2026-06-20",
+    "updated": "2026-06-21",
     "verified": false,
-    "notes": "EXAMPLE only - hand-authored structure with INVENTED rates; NOT copied from Octopus. Economy 7 = ~7 night hours cheaper; the exact window depends on the meter/region and rates vary by region+date. Octopus's ToS forbids redistributing its content, so real Octopus rates must be imported ON-DEVICE via its public API by region code, never bulk-stored here. sourceUrl is an informational pointer only."
+    "notes": "ILLUSTRATIVE structure only — INVENTED rates, NOT any real retailer's. Economy 7 is a common GB two-rate setup (~7 night hours cheaper; exact window depends on the meter/region). Demonstrates the two-rate shape; not attributed to any provider. Real GB plans (e.g. Octopus) are restricted/ToS-bound, so they're imported ON-DEVICE per region via their public API, never bulk-stored here."
   },
   "tariff": {
     "kind": "tou",
