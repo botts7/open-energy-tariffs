@@ -636,6 +636,20 @@ OET.initSidebar = function () {
   copyBtn.after(compareBtn);
   OET._onCompareChange = () => { compareBtn.textContent = `Compare (${(OET.compareSet || []).length})`; syncHash(); };
 
+  // Quick-nav API for the top-bar universal search: each is a focused jump
+  // (resets other filters first). Plans are opened via OET.openModalById.
+  OET.quickNav = function (action) {
+    action = action || {};
+    resetAll();
+    if (action.country) { state.countries.add(action.country); countryCombo.setValue(action.country); }
+    if (action.provider) { state.provider = action.provider; providerCombo.setValue(action.provider); }
+    if (action.distributor) { state.distributor = action.distributor; distributorCombo.setValue(action.distributor); }
+    if (action.text) { state.text = action.text; search.value = action.text; }
+    refreshDependentOptions();
+    apply(true);
+    document.body.classList.remove('nav-open');
+  };
+
   restore();
   refreshDependentOptions(); // narrow provider/distributor/current-plan to the restored country
   if (activeFilterCount()) filters.open = true; // don't hide filters that are already on (e.g. from a shared link)
