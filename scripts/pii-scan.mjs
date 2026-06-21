@@ -25,8 +25,13 @@ const RULES = [
   { name: 'street address (abbrev)', re: /\b\d+\s+[A-Za-z][A-Za-z .'-]*\s+(?:St|Rd|Ave|Dr|Ln|Ct|Pl|Cl|Cres|Pde|Blvd|Hwy|Tce|st|rd|ave|dr|ln|ct|pl|cl|cres|pde|blvd|hwy|tce)\b/ },
   { name: 'identity keyword', re: /\b(nmi|mpan|meter\s*(?:no|number|serial|id)|account\s*(?:no|number)|date\s*of\s*birth|\bdob\b|driver'?s?\s*licen[cs]e|passport|medicare)\b/i },
   { name: 'secret / credential keyword', re: /\b(api[_-]?key|secret|passwd|password|bearer|authorization|client[_-]?secret|access[_-]?token)\b/i },
-  { name: 'hex secret (>=32)', re: /\b[A-Fa-f0-9]{32,}\b/ },
-  { name: 'base64 blob (>=40)', re: /\b[A-Za-z0-9+/]{40,}={0,2}\b/ },
+  // Long opaque blobs catch embedded secrets/tokens — but skip http(s) URLs:
+  // legit sourceUrls (e.g. URDB rate links .../rate/view/<base64 page-id>) are
+  // public, not secrets, and the base64 char class includes '/' so a URL path
+  // reads as one long blob. Secrets passed in a URL query are still caught by
+  // the secret-keyword rule below (api_key=/token=/secret=...).
+  { name: 'hex secret (>=32)', re: /\b[A-Fa-f0-9]{32,}\b/, notInUrl: true },
+  { name: 'base64 blob (>=40)', re: /\b[A-Za-z0-9+/]{40,}={0,2}\b/, notInUrl: true },
 ];
 
 async function walk(dir) {
@@ -52,7 +57,8 @@ for (const f of files) {
   const lines = (await readFile(f, 'utf8')).split(/\r?\n/);
   lines.forEach((line, i) => {
     for (const rule of RULES) {
-      const m = rule.re.exec(line);
+      const target = rule.notInUrl ? line.replace(/https?:\/\/[^\s"']+/g, ' ') : line;
+      const m = rule.re.exec(target);
       if (m) hits.push({ rel, line: i + 1, rule: rule.name, snippet: redact(m[0]) });
     }
   });
