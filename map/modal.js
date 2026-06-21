@@ -90,6 +90,13 @@ window.OET = window.OET || {};
     else if (cov.gsp) where = `GSP ${esc(cov.gsp)}`;
     else if (cov.utilityId) where = `utility ${esc(cov.utilityId)}`;
     add('Coverage', where || '—');
+    // External reference cross-check (US = EIA per-state; EU = Eurostat national).
+    const xc = (OET.crossCheckRegion && OET.crossCheckRegion(m.country, m.region)) || (OET.crossCheck && OET.crossCheck(m.country));
+    if (xc && xc.ref != null) {
+      const refSrc = m.country === 'US' ? 'EIA' : 'Eurostat';
+      const note = xc.ours == null ? '' : (xc.status === 'match' ? ` · ✓ within ${Math.round(xc.ratio * 100)}%` : ` · ⚠ ${Math.round(xc.ratio * 100)}% of ref`);
+      add('Reference (' + refSrc + ')', `${xc.ref.toFixed(3)} USD/kWh${note}`);
+    }
 
     let body = `<dl class="oet-kv">${kv.join('')}</dl>`;
     // Detailed cost for the user's loaded/entered usage — what this plan would cost.

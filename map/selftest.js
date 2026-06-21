@@ -106,6 +106,7 @@ OET.selfTest = async function (opts) {
     ok('baseline: crossCheck returns ref + ours + status for an EU country', x && x.ref > 0 && x.ours > 0 && /match|diverge/.test(x.status));
     ok('baseline: a corroborated country (DE) is promoted to Beta', OET.countryMaturity('DE') === 'beta');
     ok('baseline: a country with no reference returns null', OET.crossCheck('AU') === null);
+    ok('baseline: US per-state cross-check is callable + graceful', typeof OET.crossCheckRegion === 'function' && OET.crossCheckRegion('XX', 'YY') === null);
   }
 
   // ---- GEOCODING (online; the class of bug that kept biting) --------------

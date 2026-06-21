@@ -34,31 +34,11 @@ const body = `// Reference household electricity prices for cross-validating our
 // for household consumers' (nrg_pc_204), CC BY 4.0. Band DC (2 500-4 999 kWh/yr,
 // typical household), ALL taxes & levies included, EUR per kWh, period ${period}.
 // Attributed in the ranking panel + LICENSING.md. Regenerate: node scripts/refresh-baseline.mjs
+// DATA ONLY — the cross-check logic lives in baseline-logic.js.
 window.OET = window.OET || {};
 OET.BASELINE_AS_OF = '${period}';
 OET.BASELINE_SOURCE = 'Eurostat nrg_pc_204 (CC BY 4.0)';
 OET.BASELINE = ${data};
-
-// Reference price for a country as USD/kWh (nominal), via the dated FX snapshot.
-OET.baselineUsd = function (cc) {
-  const b = OET.BASELINE && OET.BASELINE[cc];
-  if (!b) return null;
-  const eurUsd = (OET.FX && OET.FX.EUR) || 1.1;
-  return b.eur * eurUsd;
-};
-
-// Cross-check our community median against the reference. ±25% = 'match' (data is
-// externally corroborated -> Beta-eligible); outside = 'diverge'; no ref = null.
-OET.crossCheck = function (cc) {
-  const ref = OET.baselineUsd(cc);
-  if (ref == null) return null;
-  const ps = (OET.PLANS || []).filter((r) => r.meta.country === cc);
-  const us = ps.map((r) => OET.toUsd(r.rate, r.meta.currency)).filter((v) => v > 0).sort((a, b) => a - b);
-  if (!us.length) return { ref, ours: null, status: 'no-data' };
-  const med = us[us.length >> 1];
-  const ratio = med / ref;
-  return { ref, ours: med, ratio, status: ratio >= 0.75 && ratio <= 1.34 ? 'match' : 'diverge' };
-};
 `;
 await writeFile(join(root, 'map', 'baseline.js'), body);
 console.log(`wrote map/baseline.js — ${Object.keys(out).length} countries, period ${period}`);
