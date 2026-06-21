@@ -13,7 +13,7 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Norway is a spot-price (Nord Pool) market \u2014 most households pay hourly spot plus a grid tariff (nettleie). This is a typical FIXED-price supplier contract for the energy component only. APPROXIMATE (~2026) NOK/kWh; excludes grid + el-avgift. National.",
+    "notes": "Rate calibrated to the Eurostat all-taxes-included household average (band DC, 2025-S2). Illustrative; verify with the retailer.",
     "coverage": {
       "national": true
     }
@@ -21,7 +21,7 @@
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.95
+      "flatRate": 2.2618
     }
   }
 }

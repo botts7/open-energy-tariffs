@@ -13,8 +13,17 @@ window.OET = window.OET || {};
     return b.eur * eurUsd;
   };
 
+  // Representative rate for comparison vs the (average) household reference: a ToU
+  // plan's AVERAGE band rate, not its peak (planRate's max would overstate it).
+  function repRate(r) {
+    const t = r.tariff, imp = t && t.import;
+    if (t && t.kind === 'tou' && imp && imp.bands && imp.bands.length) {
+      return imp.bands.reduce((a, b) => a + (b.rate || 0), 0) / imp.bands.length;
+    }
+    return r.rate;
+  }
   function medianUsd(ps) {
-    const us = ps.map((r) => OET.toUsd(r.rate, r.meta.currency)).filter((v) => v > 0).sort((a, b) => a - b);
+    const us = ps.map((r) => OET.toUsd(repRate(r), r.meta.currency)).filter((v) => v > 0).sort((a, b) => a - b);
     return us.length ? us[us.length >> 1] : null;
   }
   function verdict(ref, med) {

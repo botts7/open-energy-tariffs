@@ -13,20 +13,45 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Portugal bi-horário tariff: fora de vazio (peak) vs vazio (off-peak). Daily cycle, vazio ~22:00-08:00 (exact hours differ winter/summer and by cycle). Rates APPROXIMATE (~2026) in EUR/kWh — verify with ERSE/your supplier. Excludes the power term (€/day). National.",
-    "coverage": { "national": true }
+    "notes": "Rate calibrated to the Eurostat all-taxes-included household average (band DC, 2025-S2). Illustrative; verify with the retailer.",
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
-        { "id": "fora-vazio", "name": "Fora de vazio (peak)", "rate": 0.18 },
-        { "id": "vazio", "name": "Vazio (off-peak)", "rate": 0.10 }
+        {
+          "id": "fora-vazio",
+          "name": "Fora de vazio (peak)",
+          "rate": 0.3129
+        },
+        {
+          "id": "vazio",
+          "name": "Vazio (off-peak)",
+          "rate": 0.1739
+        }
       ],
       "schedule": [
-        { "days": "all", "from": "00:00", "to": "08:00", "band": "vazio" },
-        { "days": "all", "from": "08:00", "to": "22:00", "band": "fora-vazio" },
-        { "days": "all", "from": "22:00", "to": "24:00", "band": "vazio" }
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "08:00",
+          "band": "vazio"
+        },
+        {
+          "days": "all",
+          "from": "08:00",
+          "to": "22:00",
+          "band": "fora-vazio"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "24:00",
+          "band": "vazio"
+        }
       ]
     }
   }

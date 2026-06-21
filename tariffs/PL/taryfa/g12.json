@@ -13,22 +13,57 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Poland regulated tariff group G12: cheaper night zone, typically 22:00-06:00 plus a midday window 13:00-15:00 (exact hours set by the DSO). Rates APPROXIMATE (~2026) in PLN/kWh — verify with your DSO/supplier (URE-regulated). Excludes distribution + fixed charges. National.",
-    "coverage": { "national": true }
+    "notes": "Rate calibrated to the Eurostat all-taxes-included household average (band DC, 2025-S2). Illustrative; verify with the retailer.",
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
-        { "id": "dzien", "name": "Dzień (peak)", "rate": 1.05 },
-        { "id": "noc", "name": "Noc (off-peak)", "rate": 0.62 }
+        {
+          "id": "dzien",
+          "name": "Dzień (peak)",
+          "rate": 1.4467
+        },
+        {
+          "id": "noc",
+          "name": "Noc (off-peak)",
+          "rate": 0.8543
+        }
       ],
       "schedule": [
-        { "days": "all", "from": "00:00", "to": "06:00", "band": "noc" },
-        { "days": "all", "from": "06:00", "to": "13:00", "band": "dzien" },
-        { "days": "all", "from": "13:00", "to": "15:00", "band": "noc" },
-        { "days": "all", "from": "15:00", "to": "22:00", "band": "dzien" },
-        { "days": "all", "from": "22:00", "to": "24:00", "band": "noc" }
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "noc"
+        },
+        {
+          "days": "all",
+          "from": "06:00",
+          "to": "13:00",
+          "band": "dzien"
+        },
+        {
+          "days": "all",
+          "from": "13:00",
+          "to": "15:00",
+          "band": "noc"
+        },
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "22:00",
+          "band": "dzien"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "24:00",
+          "band": "noc"
+        }
       ]
     }
   }

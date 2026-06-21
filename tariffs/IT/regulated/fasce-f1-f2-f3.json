@@ -13,27 +13,94 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Italy's standard ARERA time bands: F1 (peak, Mon-Fri 08-19), F2 (Mon-Fri 07-08 & 19-23, Sat 07-23), F3 (off-peak: nights + all Sunday + holidays). Per-band prices are a TYPICAL market offer, APPROXIMATE (~2026) — verify; the regulated reference price varies quarterly. Excludes fixed/transport/system charges. National.",
-    "coverage": { "national": true }
+    "notes": "Rate calibrated to the Eurostat all-taxes-included household average (band DC, 2025-S2). Illustrative; verify with the retailer.",
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
-        { "id": "f1", "name": "F1 (peak)", "rate": 0.16 },
-        { "id": "f2", "name": "F2 (intermediate)", "rate": 0.15 },
-        { "id": "f3", "name": "F3 (off-peak)", "rate": 0.13 }
+        {
+          "id": "f1",
+          "name": "F1 (peak)",
+          "rate": 0.3236
+        },
+        {
+          "id": "f2",
+          "name": "F2 (intermediate)",
+          "rate": 0.3033
+        },
+        {
+          "id": "f3",
+          "name": "F3 (off-peak)",
+          "rate": 0.2629
+        }
       ],
       "schedule": [
-        { "days": "weekday", "from": "00:00", "to": "07:00", "band": "f3" },
-        { "days": "weekday", "from": "07:00", "to": "08:00", "band": "f2" },
-        { "days": "weekday", "from": "08:00", "to": "19:00", "band": "f1" },
-        { "days": "weekday", "from": "19:00", "to": "23:00", "band": "f2" },
-        { "days": "weekday", "from": "23:00", "to": "24:00", "band": "f3" },
-        { "days": ["sat"], "from": "00:00", "to": "07:00", "band": "f3" },
-        { "days": ["sat"], "from": "07:00", "to": "23:00", "band": "f2" },
-        { "days": ["sat"], "from": "23:00", "to": "24:00", "band": "f3" },
-        { "days": ["sun"], "from": "00:00", "to": "24:00", "band": "f3" }
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "07:00",
+          "band": "f3"
+        },
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "08:00",
+          "band": "f2"
+        },
+        {
+          "days": "weekday",
+          "from": "08:00",
+          "to": "19:00",
+          "band": "f1"
+        },
+        {
+          "days": "weekday",
+          "from": "19:00",
+          "to": "23:00",
+          "band": "f2"
+        },
+        {
+          "days": "weekday",
+          "from": "23:00",
+          "to": "24:00",
+          "band": "f3"
+        },
+        {
+          "days": [
+            "sat"
+          ],
+          "from": "00:00",
+          "to": "07:00",
+          "band": "f3"
+        },
+        {
+          "days": [
+            "sat"
+          ],
+          "from": "07:00",
+          "to": "23:00",
+          "band": "f2"
+        },
+        {
+          "days": [
+            "sat"
+          ],
+          "from": "23:00",
+          "to": "24:00",
+          "band": "f3"
+        },
+        {
+          "days": [
+            "sun"
+          ],
+          "from": "00:00",
+          "to": "24:00",
+          "band": "f3"
+        }
       ]
     }
   }

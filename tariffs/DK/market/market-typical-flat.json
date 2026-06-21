@@ -13,7 +13,7 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Denmark is a spot-price market (DK1/DK2) with very high taxes/levies. This is a typical FIXED-price energy contract (pre-tax energy component). APPROXIMATE (~2026) DKK/kWh; excludes grid + heavy taxes. National.",
+    "notes": "Rate calibrated to the Eurostat all-taxes-included household average (band DC, 2025-S2). Illustrative; verify with the retailer.",
     "coverage": {
       "national": true
     }
@@ -21,7 +21,7 @@
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 1.1
+      "flatRate": 2.4728
     }
   }
 }

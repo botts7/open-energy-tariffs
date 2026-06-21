@@ -13,7 +13,7 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Sweden is a spot-price (Nord Pool) market split into 4 bidding zones (SE1-SE4); most pay hourly spot + grid. This is a typical FIXED-price energy contract. APPROXIMATE (~2026) SEK/kWh; excludes grid + tax. National (zone-averaged).",
+    "notes": "Rate calibrated to the Eurostat all-taxes-included household average (band DC, 2025-S2). Illustrative; verify with the retailer.",
     "coverage": {
       "national": true
     }
@@ -21,7 +21,7 @@
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 1.3
+      "flatRate": 2.992
     }
   }
 }

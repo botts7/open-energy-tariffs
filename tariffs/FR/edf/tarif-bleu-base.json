@@ -13,7 +13,7 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "France regulated tariff (Tarif Bleu, Base option, 6 kVA). Single flat rate. Rates APPROXIMATE (~early 2026), hand-curated from public sources — verify against EDF. Abonnement (daily supply) varies by kVA. National (metropolitan France) — no postcode coverage, so not plotted on the map without a country-level coverage type.",
+    "notes": "Rate calibrated to the Eurostat all-taxes-included household average (band DC, 2025-S2). Illustrative; verify with the retailer.",
     "coverage": {
       "national": true
     }
@@ -24,7 +24,7 @@
       "daily": 0.42
     },
     "import": {
-      "flatRate": 0.194
+      "flatRate": 0.2561
     }
   }
 }

@@ -13,7 +13,7 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Czechia liberalised market; D02d single-rate household distribution class. APPROXIMATE (~2026) CZK/kWh energy+distribution est.; excludes some regulated fees. National.",
+    "notes": "Rate calibrated to the Eurostat all-taxes-included household average (band DC, 2025-S2). Illustrative; verify with the retailer.",
     "coverage": {
       "national": true
     }
@@ -21,7 +21,7 @@
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 5.5
+      "flatRate": 7.845
     }
   }
 }

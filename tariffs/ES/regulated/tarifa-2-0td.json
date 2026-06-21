@@ -13,25 +13,74 @@
     "license": "CC0-1.0",
     "updated": "2026-06-21",
     "verified": false,
-    "notes": "Spain's regulated 2.0TD access structure (≤15 kW): three periods — punta (peak), llano (standard), valle (off-peak), with fixed national hours. The regulated PVPC energy price is hourly/dynamic; the per-period prices here are a TYPICAL FIXED-rate market offer, APPROXIMATE (~2026) — verify. Excludes the power term (€/kW/day). National.",
-    "coverage": { "national": true }
+    "notes": "Rate calibrated to the Eurostat all-taxes-included household average (band DC, 2025-S2). Illustrative; verify with the retailer.",
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
-        { "id": "punta", "name": "Punta (peak)", "rate": 0.20 },
-        { "id": "llano", "name": "Llano (standard)", "rate": 0.15 },
-        { "id": "valle", "name": "Valle (off-peak)", "rate": 0.10 }
+        {
+          "id": "punta",
+          "name": "Punta (peak)",
+          "rate": 0.3559
+        },
+        {
+          "id": "llano",
+          "name": "Llano (standard)",
+          "rate": 0.2669
+        },
+        {
+          "id": "valle",
+          "name": "Valle (off-peak)",
+          "rate": 0.1779
+        }
       ],
       "schedule": [
-        { "days": "weekday", "from": "00:00", "to": "08:00", "band": "valle" },
-        { "days": "weekday", "from": "08:00", "to": "10:00", "band": "llano" },
-        { "days": "weekday", "from": "10:00", "to": "14:00", "band": "punta" },
-        { "days": "weekday", "from": "14:00", "to": "18:00", "band": "llano" },
-        { "days": "weekday", "from": "18:00", "to": "22:00", "band": "punta" },
-        { "days": "weekday", "from": "22:00", "to": "24:00", "band": "llano" },
-        { "days": "weekend", "from": "00:00", "to": "24:00", "band": "valle" }
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "08:00",
+          "band": "valle"
+        },
+        {
+          "days": "weekday",
+          "from": "08:00",
+          "to": "10:00",
+          "band": "llano"
+        },
+        {
+          "days": "weekday",
+          "from": "10:00",
+          "to": "14:00",
+          "band": "punta"
+        },
+        {
+          "days": "weekday",
+          "from": "14:00",
+          "to": "18:00",
+          "band": "llano"
+        },
+        {
+          "days": "weekday",
+          "from": "18:00",
+          "to": "22:00",
+          "band": "punta"
+        },
+        {
+          "days": "weekday",
+          "from": "22:00",
+          "to": "24:00",
+          "band": "llano"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "valle"
+        }
       ]
     }
   }
