@@ -677,6 +677,40 @@ OET.initSidebar = function () {
     state.shape = shape || 'flat'; if (shapeSel) shapeSel.value = state.shape;
     recomputeUsage();
   };
+  OET.setSolar = function (perDay) { state.exportKwh = perDay ? String(perDay) : ''; if (exportIn) exportIn.value = state.exportKwh; recomputeExport(); };
+  OET.setActualCost = function (v) { state.currentCostActual = v ? String(v) : ''; if (currentCostIn) currentCostIn.value = state.currentCostActual; apply(); };
+  // Load an interval/usage CSV (same parser registry as the sidebar). -> Promise<res|null>.
+  OET.loadUsageFile = function (file) {
+    return new Promise((resolve) => {
+      const rd = new FileReader();
+      rd.onload = () => {
+        const res = OET.parseUsageFile ? OET.parseUsageFile(rd.result) : null;
+        if (!res) { resolve(null); return; }
+        state.usage = res.profile; state.intervals = res.intervals || null;
+        if (res.exportKwh) { state.exportKwh = String(Math.round(res.exportKwh / 365 * 10) / 10); if (exportIn) exportIn.value = state.exportKwh; }
+        attachExport();
+        state.usageKwh = String(state.intervals ? state.intervals.totalKwh : res.annualKwh); if (kwhIn) kwhIn.value = state.usageKwh;
+        updateUsageUI(); apply(); resolve(res);
+      };
+      rd.readAsText(file);
+    });
+  };
+  // Load a bill PDF (best-effort). -> Promise<{totalKwh,totalCost}|null>.
+  OET.loadBillFile = function (file) {
+    return new Promise((resolve) => {
+      if (!OET.parseBillPdf) { resolve(null); return; }
+      const rd = new FileReader();
+      rd.onload = async () => {
+        try {
+          const { totalKwh, totalCost } = await OET.parseBillPdf(rd.result);
+          if (totalKwh) { state.usageKwh = String(Math.round(totalKwh)); if (kwhIn) kwhIn.value = Math.round(totalKwh); }
+          if (totalCost) { state.currentCostActual = String(Math.round(totalCost)); if (currentCostIn) currentCostIn.value = Math.round(totalCost); }
+          recomputeUsage(); resolve({ totalKwh, totalCost });
+        } catch (_) { resolve(null); }
+      };
+      rd.readAsArrayBuffer(file);
+    });
+  };
 
   restore();
   refreshDependentOptions(); // narrow provider/distributor/current-plan to the restored country
