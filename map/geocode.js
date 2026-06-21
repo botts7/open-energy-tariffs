@@ -30,7 +30,7 @@ OET.suggestAddress = function (q, near, cc) {
       const name = p.name || [p.housenumber, p.street].filter(Boolean).join(' ');
       const label = [name, p.city || p.district || p.county, p.state, p.postcode, p.country]
         .filter(Boolean).join(', ');
-      return { lat: c[1], lng: c[0], postcode: p.postcode || null, label: label || q };
+      return { lat: c[1], lng: c[0], postcode: p.postcode || null, cc: (p.countrycode || '').toUpperCase(), label: label || q };
     });
   }).catch(() => []);
 };
@@ -47,7 +47,7 @@ OET.geocodeAddress = function (q, cc) {
     .then((a) => {
       const f = a && a[0];
       if (!f) return null;
-      return { lat: +f.lat, lng: +f.lon, postcode: (f.address || {}).postcode || null, label: f.display_name || q };
+      return { lat: +f.lat, lng: +f.lon, postcode: (f.address || {}).postcode || null, cc: ((f.address || {}).country_code || '').toUpperCase(), label: f.display_name || q };
     })
     .catch(() => null);
 };

@@ -94,11 +94,20 @@ OET.initSidebar = function () {
   // Debounce the search: re-filtering 1600+ plans (add/remove that many map
   // layers) on every keystroke makes typing stutter. Wait for a ~180ms pause.
   let searchTimer = null, suggTimer = null, lastSugg = [];
-  // Drive the map from a chosen address: pin the exact spot + show its postcode.
+  // Drive the map from a chosen address: switch to that location's COUNTRY (so
+  // the list/map reflect where you are, not the default AU-heavy all-countries
+  // view), pin the exact spot, and for AU also filter to the postcode area.
   function selectAddress(s) {
     clearSugg();
-    if (s.postcode) { search.value = s.postcode; state.text = s.postcode.toLowerCase(); apply(); }
-    else { search.value = s.label; }
+    if (s.cc) {
+      state.countries.clear(); state.countries.add(s.cc);
+      if (countryCombo) countryCombo.setValue(s.cc);
+      refreshDependentOptions();
+    }
+    // Only AU has postcode-level coverage; elsewhere we only know the country.
+    if (s.cc === 'AU' && s.postcode) { search.value = s.postcode; state.text = s.postcode.toLowerCase(); }
+    else { search.value = s.label; state.text = ''; }
+    apply();
     if (OET.setAddressPin) OET.setAddressPin([s.lat, s.lng], s.label);
     if (OET._map) OET._map.setView([s.lat, s.lng], 14);
   }
@@ -109,7 +118,11 @@ OET.initSidebar = function () {
   function selectedCC() { return state.countries.size ? [...state.countries][0].toLowerCase() : ''; }
   function renderSuggestions(q) {
     if (!OET.suggestAddress) return;
-    const c = OET._map && OET._map.getCenter();
+    // Bias suggestions toward the map only when a country is selected (local
+    // refinement). With no country, the map starts over AU/the data centroid, so
+    // biasing would bury non-AU places (e.g. "sunset strip" → only AU) — search
+    // worldwide and let ranking decide.
+    const c = (state.countries.size && OET._map) ? OET._map.getCenter() : null;
     OET.suggestAddress(q, c ? [c.lat, c.lng] : null, selectedCC()).then((list) => {
       lastSugg = list || [];
       suggestBox.textContent = '';
