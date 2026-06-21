@@ -27999,11 +27999,6 @@
     "IL": {
       "Commonwealth Edison Co": [
         {
-          "id": "us-il-commonwealth-edison-co-bes-residential-multi-family-with-electric-space-heat-delivery-class",
-          "plan": "BES - Residential Multi Family With Electric Space Heat Delivery Class",
-          "verified": false
-        },
-        {
           "id": "us-il-commonwealth-edison-co-bes-residential-multi-family-with-electric-space-heating",
           "plan": "BES - Residential Multi Family With Electric Space Heating",
           "verified": false
@@ -28014,88 +28009,8 @@
           "verified": false
         },
         {
-          "id": "us-il-commonwealth-edison-co-bes-residential-multi-family-without-electric-space-heat-delivery-class",
-          "plan": "BES - Residential Multi Family Without Electric Space Heat Delivery Class",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-bes-residential-single-family-with-electric-space-heat-delivery-class",
-          "plan": "BES - Residential Single Family with Electric Space Heat Delivery Class",
-          "verified": false
-        },
-        {
           "id": "us-il-commonwealth-edison-co-bes-residential-single-family-with-electric-space-heating",
           "plan": "BES - Residential Single Family with Electric Space Heating",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-bes-residential-single-family-without-electric-space-heat-delivery",
-          "plan": "BES- Residential Single Family Without Electric Space Heat Delivery",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-bes-residential-single-family-without-electric-space-heat-delivery-class",
-          "plan": "BES - Residential Single Family Without Electric Space Heat Delivery Class",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-besh-residential-multi-family-with-electric-space-heat-delivery-class-unbundled",
-          "plan": "BESH- Residential Multi Family With Electric Space Heat Delivery Class(Unbundled)",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-besh-residential-multi-family-without-electric-space-heat-delivery-class-unbundled",
-          "plan": "BESH- Residential Multi Family Without Electric Space Heat Delivery Class(Unbundled)",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-besh-residential-single-family-with-electric-space-heat-delivery-class-unbundled",
-          "plan": "BESH- Residential Single Family With Electric Space Heat Delivery Class(Unbundled)",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-besh-residential-single-family-without-electric-space-heat-delivery-class-unbundled",
-          "plan": "BESH- Residential Single Family Without Electric Space Heat Delivery Class(Unbundled)",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-rds-residential-multi-family-with-electric-space-heat-delivery-class",
-          "plan": "RDS - Residential Multi Family With Electric Space Heat Delivery Class",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-rds-residential-multi-family-without-electric-space-heat-delivery-class",
-          "plan": "RDS - Residential Multi Family Without Electric Space Heat Delivery Class",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-rds-residential-single-family-with-electric-space-heat-delivery-class",
-          "plan": "RDS - Residential Single Family with Electric Space Heat Delivery Class",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-rds-residential-single-family-without-electric-space-heat-delivery-class",
-          "plan": "RDS - Residential Single Family Without Electric Space Heat Delivery Class",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-residential-multi-family-with-electric-space-heat-delivery-class-retail-delivery-service-unbundled",
-          "plan": "Residential Multi Family With Electric Space Heat Delivery Class(Retail Delivery Service-Unbundled)",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-residential-multi-family-without-electric-space-heat-delivery-class-retail-delivery-service-unbundled",
-          "plan": "Residential Multi Family Without Electric Space Heat Delivery Class(Retail Delivery Service-Unbundled)",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-residential-single-family-with-electric-space-heat-delivery-class-retail-delivery-service-unbundled",
-          "plan": "Residential Single Family With Electric Space Heat Delivery Class(Retail Delivery Service-Unbundled)",
-          "verified": false
-        },
-        {
-          "id": "us-il-commonwealth-edison-co-residential-single-family-without-electric-space-heat-delivery-class-retail-delivery-service",
-          "plan": "Residential Single Family Without Electric Space Heat Delivery Class(Retail Delivery Service)",
           "verified": false
         }
       ]
@@ -28105,21 +28020,6 @@
         {
           "id": "us-md-baltimore-gas-electric-co-r",
           "plan": "R",
-          "verified": false
-        },
-        {
-          "id": "us-md-baltimore-gas-electric-co-r-unbundled",
-          "plan": "R (Unbundled)",
-          "verified": false
-        },
-        {
-          "id": "us-md-baltimore-gas-electric-co-residential-delivery-and-energy-time-of-use-pilot-schedule-rd",
-          "plan": "RESIDENTIAL DELIVERY AND ENERGY TIME-OF-USE PILOT (SCHEDULE RD)",
-          "verified": false
-        },
-        {
-          "id": "us-md-baltimore-gas-electric-co-residential-delivery-and-energy-time-of-use-schedule-rd",
-          "plan": "Residential Delivery and Energy Time of Use (Schedule RD)",
           "verified": false
         },
         {
@@ -28145,11 +28045,6 @@
         {
           "id": "us-md-baltimore-gas-electric-co-rl-residential-optional-time-of-use",
           "plan": "RL RESIDENTIAL  OPTIONAL  TIME-OF-USE",
-          "verified": false
-        },
-        {
-          "id": "us-md-baltimore-gas-electric-co-rl-residential-optional-time-of-use-unbundled",
-          "plan": "RL RESIDENTIAL  OPTIONAL  TIME-OF-USE (Unbundled)",
           "verified": false
         },
         {
@@ -28455,11 +28350,6 @@
         {
           "id": "us-oh-ohio-power-co-residential-service-bundled-rs",
           "plan": "Residential Service Bundled (RS)",
-          "verified": false
-        },
-        {
-          "id": "us-oh-ohio-power-co-residential-service-delivery-only-ohio-power-zone-rs",
-          "plan": "Residential Service Delivery Only Ohio Power Zone (RS)",
           "verified": false
         },
         {

@@ -119,6 +119,13 @@ export function mapRate(item, opts = {}) {
     ...(coverage ? { coverage } : {}),
   };
 
+  // Skip unbundled delivery/distribution component tariffs. In deregulated markets
+  // (IL/OH/MD...) URDB lists ComEd-style "Delivery Class (Unbundled)" wires charges
+  // that are NOT a full retail price (supply is bought separately) and badly mislead
+  // a price comparison — e.g. IL delivery-only rates of $0.015-0.05/kWh.
+  if (/\bunbundled\b|\bdelivery\b|distribution[- ]only/i.test(planName || ''))
+    throw new Error('unbundled delivery/distribution component (not a full retail price) — skipped');
+
   // Skip plans with no usable energy rate (URDB has demand-only / rider tariffs
   // whose energy price is 0 — noise in a price-comparison DB). run.mjs catches
   // the throw and skips the item.
