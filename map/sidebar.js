@@ -427,10 +427,9 @@ OET.initSidebar = function () {
   const filters = h('details', { class: 'sb-cmp' }, [filtersSummary,
     countryCombo.el, sourceSel, providerCombo.el, distributorCombo.el, kindSel, sortSel, priceRow, outlineRow]);
   // Controls stay pinned (their own box); only the plan list scrolls.
-  const wizardBtn = h('button', { class: 'sb-wizard', text: '✨ Find my best plan', title: 'Guided: location → usage → ranked plans', onclick: () => { if (OET.showWizard) OET.showWizard(); } });
   const controls = h('div', { class: 'sb-controls' }, [
     h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]),
-    wizardBtn, search, suggestBox, h('div', { class: 'sb-chips' }, [geoBtn, locBtn]), activeBar, filters, cmp,
+    search, suggestBox, h('div', { class: 'sb-chips' }, [geoBtn, locBtn]), activeBar, filters, cmp,
   ]);
   // Scrolling body (config + list) + a pinned footer for the always-on actions.
   root.appendChild(h('div', { class: 'sb-scrollwrap' }, [controls, h('div', { class: 'sb-scroll' }, [list])]));

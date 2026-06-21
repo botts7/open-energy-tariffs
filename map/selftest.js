@@ -116,8 +116,14 @@ OET.selfTest = async function (opts) {
     OET.setView('table');
     const tvRows = document.querySelectorAll('#tableview tbody tr').length;
     ok('table: renders rows in the comparison view', tvRows > 0);
-    const costs = [...document.querySelectorAll('#tableview .tv-cost')].slice(0, 6).map((e) => parseFloat(String(e.textContent).replace(/[^\d.]/g, '')) || Infinity);
-    ok('table: default sort is cheapest-first', costs.every((c, i) => i === 0 || costs[i - 1] <= c));
+    // costs display in LOCAL currency; the sort is USD-normalised — convert before checking.
+    const usdCosts = [...document.querySelectorAll('#tableview .tv-cost')].slice(0, 10).map((e) => {
+      const m = String(e.textContent).match(/([\d,.]+)\s*([A-Z]{3})/);
+      if (!m) return null;
+      const v = parseFloat(m[1].replace(/,/g, ''));
+      return OET.toUsd ? OET.toUsd(v, m[2]) : v;
+    }).filter((v) => v != null);
+    ok('table: default sort is cheapest-first (USD-normalised)', usdCosts.every((c, i) => i === 0 || usdCosts[i - 1] <= c + 0.01));
     OET.setView('map');
   }
 
