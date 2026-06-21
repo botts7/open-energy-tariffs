@@ -94,9 +94,14 @@ window.OET = window.OET || {};
     const all = OET._visible || OET.PLANS || [];
     const rows = sortRows(all).slice(0, CAP);
     const real = OET._tableUsageReal;
-    // cheapest plan (by estimated cost, USD-normalised) gets a badge
+    // cheapest FIXED plan (by estimated cost, USD-normalised) gets a badge —
+    // wholesale/spot plans are excluded (their rate isn't fixed/comparable).
     let cheapestId = null, minC = Infinity;
-    for (const r of rows) { const c = annualCost(r), cu = c == null ? Infinity : usd(c, r.meta.currency); if (cu < minC) { minC = cu; cheapestId = r.id; } }
+    for (const r of rows) {
+      if (OET.isDynamic && OET.isDynamic(r)) continue;
+      const c = annualCost(r), cu = c == null ? Infinity : usd(c, r.meta.currency);
+      if (cu < minC) { minC = cu; cheapestId = r.id; }
+    }
     const plbl = PERIODS[period].lbl, div = PERIODS[period].div;
     const arrow = (c) => sortCol === c ? (sortDir > 0 ? ' ▲' : ' ▼') : '';
     const th = (c, label) => `<th data-col="${c}" class="${sortCol === c ? 'sorted' : ''}">${label}${arrow(c)}</th>`;
@@ -119,7 +124,7 @@ window.OET = window.OET || {};
       const sup = r.tariff.supply && r.tariff.supply.daily, fin = r.tariff.export && r.tariff.export.flatRate;
       const inCmp = OET.compareSet && OET.compareSet.indexOf(r.id) !== -1;
       html += `<tr data-id="${esc(r.id)}"${r.id === cheapestId ? ' class="tv-best"' : ''}>`
-        + `<td class="tv-name" title="${esc(m.provider + ' · ' + m.plan)}">${r.id === cheapestId ? '<span class="tv-badge">Cheapest</span> ' : ''}<b>${esc(m.provider)}</b> · ${esc(m.plan)}`
+        + `<td class="tv-name" title="${esc(m.provider + ' · ' + m.plan)}">${r.id === cheapestId ? '<span class="tv-badge">Cheapest</span> ' : ''}${OET.isDynamic && OET.isDynamic(r) ? '<span class="tv-dyn" title="Wholesale / spot pass-through — the rate tracks the live wholesale price, so this is a snapshot and the cost estimate is indicative only, not fixed.">⚡ Wholesale</span> ' : ''}<b>${esc(m.provider)}</b> · ${esc(m.plan)}`
         + `<div class="tv-sub">${esc(OET.countryName ? OET.countryName(m.country) : m.country)}${m.region ? '/' + esc(m.region) : ''} `
         + `${OET.maturityPill ? OET.maturityPill(OET.countryMaturity(m.country)) : ''} ${OET.freshPill ? OET.freshPill(m.updated) : ''}</div></td>`
         + `<td class="tv-cost" data-label="Est. cost">${cv == null ? '—' : '~' + Math.round(cv).toLocaleString() + ' ' + esc(cur)}</td>`

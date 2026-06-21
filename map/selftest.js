@@ -23,6 +23,12 @@ OET.selfTest = async function (opts) {
   ok('data: every plan has a finite rate > 0', P.every(r => typeof r.rate === 'number' && isFinite(r.rate) && r.rate > 0),
     P.filter(r => !(typeof r.rate === 'number' && isFinite(r.rate) && r.rate > 0)).slice(0, 3).map(r => r.id).join(', '));
   ok('data: every plan has currency + source + license', P.every(r => r.meta.currency && r.meta.source && r.meta.license));
+  ok('data: wholesale/spot plans flagged dynamic (Amber yes, fixed no)', (() => {
+    if (!OET.isDynamic) return false;
+    const amber = P.find(r => /amber/i.test(r.meta.provider));
+    const fixed = P.find(r => /smart saver/i.test(r.meta.plan) && !/wholesale/i.test(r.meta.plan));
+    return (!amber || OET.isDynamic(amber)) && (!fixed || !OET.isDynamic(fixed));
+  })());
   const unlocated = P.filter(r => !r.located);
   ok('data: every plan locates on the map', unlocated.length === 0, unlocated.map(r => r.id).join(', '));
   // national plans must resolve a geometry
