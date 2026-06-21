@@ -165,16 +165,13 @@ OET.initSidebar = function () {
     cmpNote,
   ]);
 
-  root.appendChild(h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]));
-  root.appendChild(search);
-  root.appendChild(countrySel);
-  root.appendChild(sourceSel);
-  root.appendChild(providerSel);
-  root.appendChild(priceRow);
-  root.appendChild(outlineRow);
-  root.appendChild(cmp);
-  root.appendChild(reset);
-  root.appendChild(list);
+  // Controls stay pinned (their own box); only the plan list scrolls.
+  const controls = h('div', { class: 'sb-controls' }, [
+    h('div', { class: 'sb-head' }, [h('strong', { text: 'Plans' }), count]),
+    search, countrySel, sourceSel, providerSel, priceRow, outlineRow, cmp, reset,
+  ]);
+  root.appendChild(controls);
+  root.appendChild(h('div', { class: 'sb-scroll' }, [list]));
 
   const postcodesOf = (r) => (r.meta.coverage && r.meta.coverage.postcodes) || [];
 
