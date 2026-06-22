@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "id": "dk-elinord-nettarif-c",
+    "schemaVersion": "1",
+    "country": "DK",
+    "distributor": "Elinord A/S",
+    "provider": "Elinord",
+    "plan": "Nettarif C",
+    "currency": "DKK",
+    "unit": "kWh",
+    "timezone": "Europe/Copenhagen",
+    "source": "provider",
+    "sourceUrl": "https://www.energidataservice.dk/tso-electricity/DatahubPricelist",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Danish DSO/TSO network tariff component — the per-kWh grid charge applied by hour — from Energinet's Energi Data Service \"DatahubPricelist\" dataset. Licensed CC BY 4.0; attribute Energinet / Energi Data Service. This is the NETWORK charge, not a full retail plan."
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.1864
+    },
+    "validFrom": "2026-02-01"
+  }
+}
