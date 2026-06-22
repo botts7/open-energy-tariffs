@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "id": "fr-enedis-edf-tarif-bleu-base-9-kva",
+    "schemaVersion": "1",
+    "country": "FR",
+    "distributor": "Enedis",
+    "provider": "EDF",
+    "plan": "Tarif Bleu Base 9 kVA",
+    "currency": "EUR",
+    "unit": "kWh",
+    "timezone": "Europe/Paris",
+    "source": "provider",
+    "sourceUrl": "https://www.data.gouv.fr/fr/datasets/historique-des-tarifs-reglementes-de-vente-delectricite/",
+    "license": "other",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Regulated French electricity tariff (Tarif réglementé de vente / EDF Tarif Bleu), published by the CRE as open data on data.gouv.fr under Licence Ouverte / Etalab 2.0 (commercial reuse + redistribution with attribution). Attribute the CRE; recorded as license:other (Etalab 2.0 ~ CC BY).",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.19266
+    },
+    "supply": {
+      "daily": 0.6463
+    },
+    "validFrom": "2026-02-01"
+  }
+}

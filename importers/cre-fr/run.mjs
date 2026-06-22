@@ -21,14 +21,13 @@ function arg(name, def) {
   return v && !v.startsWith('--') ? v : true;
 }
 
-const url = arg('base');
+const url = arg('base'); // optional override; defaults to the built-in CRE CSV for --option
 const option = String(arg('option', 'BASE')).toUpperCase();
-if (!url) { console.error('Missing --base <CSV resource URL>'); process.exit(2); }
 const updated = arg('updated');
 const limit = Number(arg('limit', '0')) || 0;
 const dry = Boolean(arg('dry', false));
 
-const records = await fetchTrvCsv(url, option);
+const records = await fetchTrvCsv(url || option, option);
 console.log(`fetched ${records.length} ${option} record(s)`);
 const work = limit ? records.slice(0, limit) : records;
 

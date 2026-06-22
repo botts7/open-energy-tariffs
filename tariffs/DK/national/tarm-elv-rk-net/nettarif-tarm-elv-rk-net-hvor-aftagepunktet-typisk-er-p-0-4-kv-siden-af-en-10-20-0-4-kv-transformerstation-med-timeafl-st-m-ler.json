@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "id": "dk-tarm-elv-rk-net-nettarif-tarm-elv-rk-net-hvor-aftagepunktet-typisk-er-p-0-4-kv-siden-af-en-10-20-0-4-kv-transformerstation-med-timeafl-st-m-ler",
+    "schemaVersion": "1",
+    "country": "DK",
+    "distributor": "Tarm Elværk Net A/S",
+    "provider": "Tarm Elværk Net",
+    "plan": "Nettarif Tarm elværk net, hvor aftagepunktet typisk er på 0,4 kV-siden af en 10-20/0,4 kV transformerstation med timeaflæst måler",
+    "currency": "DKK",
+    "unit": "kWh",
+    "timezone": "Europe/Copenhagen",
+    "source": "provider",
+    "sourceUrl": "https://www.energidataservice.dk/tso-electricity/DatahubPricelist",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Danish DSO/TSO network tariff component — the per-kWh grid charge applied by hour — from Energinet's Energi Data Service \"DatahubPricelist\" dataset. Licensed CC BY 4.0; attribute Energinet / Energi Data Service. This is the NETWORK charge, not a full retail plan."
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0
+    },
+    "validFrom": "2026-01-01"
+  }
+}

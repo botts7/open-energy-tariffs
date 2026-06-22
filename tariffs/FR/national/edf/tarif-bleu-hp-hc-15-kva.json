@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "id": "fr-enedis-edf-tarif-bleu-hp-hc-15-kva",
+    "schemaVersion": "1",
+    "country": "FR",
+    "distributor": "Enedis",
+    "provider": "EDF",
+    "plan": "Tarif Bleu HP/HC 15 kVA",
+    "currency": "EUR",
+    "unit": "kWh",
+    "timezone": "Europe/Paris",
+    "source": "provider",
+    "sourceUrl": "https://www.data.gouv.fr/fr/datasets/historique-des-tarifs-reglementes-de-vente-delectricite/",
+    "license": "other",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Regulated French electricity tariff (Tarif réglementé de vente / EDF Tarif Bleu), published by the CRE as open data on data.gouv.fr under Licence Ouverte / Etalab 2.0 (commercial reuse + redistribution with attribution). Attribute the CRE; recorded as license:other (Etalab 2.0 ~ CC BY).",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "hp",
+          "name": "Heures Pleines",
+          "rate": 0.2065
+        },
+        {
+          "id": "hc",
+          "name": "Heures Creuses",
+          "rate": 0.1578
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "06:00",
+          "band": "hc"
+        },
+        {
+          "days": "all",
+          "from": "06:00",
+          "to": "22:00",
+          "band": "hp"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.88729
+    },
+    "validFrom": "2026-02-01"
+  }
+}

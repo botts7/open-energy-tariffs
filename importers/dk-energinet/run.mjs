@@ -26,8 +26,12 @@ const updated = arg('updated');
 const limit = Number(arg('limit', '0')) || 0;
 const dry = Boolean(arg('dry', false));
 
-const records = await fetchPricelist({ chargeType, limit: limit || 500 });
-console.log(`fetched ${records.length} tariff record(s)`);
+const records = await fetchPricelist({
+  chargeType,
+  onProgress: (n, scanned) => process.stdout.write(`\r  scanning… ${n} current tariffs found (${scanned} rows)   `),
+});
+process.stdout.write('\n');
+console.log(`found ${records.length} current tariff(s)`);
 const work = limit ? records.slice(0, limit) : records;
 
 const seen = new Set();

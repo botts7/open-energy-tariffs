@@ -1,0 +1,86 @@
+name: Import tariff data
+
+# Manually-triggered importer runs on GitHub's runners (so no one has to run node
+# locally). Runs the selected importer(s), validates + rebuilds, and opens a PR
+# with the generated tariffs/ files for review. Never commits to main directly.
+
+on:
+  workflow_dispatch:
+    inputs:
+      sources:
+        description: "Which importer(s) to run"
+        type: choice
+        options: [denmark, france, taiwan, all]
+        default: denmark
+      updated:
+        description: "meta.updated stamp (YYYY-MM-DD)"
+        required: true
+        default: "2026-06-22"
+      fr_csv_url:
+        description: "France only: data.gouv.fr CSV resource URL (required for france/all)"
+        required: false
+        default: ""
+      fr_units_cents:
+        description: "France only: prices are in c€/kWh (divide by 100)?"
+        type: boolean
+        default: false
+      tw_record_path:
+        description: "Taiwan only: path to a normalised rates record JSON (committed in repo). Blank = skip Taiwan."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install deps
+        run: npm ci || npm install
+
+      - name: Denmark (DatahubPricelist — no input needed)
+        if: ${{ inputs.sources == 'denmark' || inputs.sources == 'all' }}
+        run: node importers/dk-energinet/run.mjs --updated "${{ inputs.updated }}"
+
+      - name: France (CRE TRV)
+        if: ${{ (inputs.sources == 'france' || inputs.sources == 'all') && inputs.fr_csv_url != '' }}
+        run: |
+          if [ "${{ inputs.fr_units_cents }}" = "true" ]; then
+            sed -i "s/price: 1, fixed: 1/price: 100, fixed: 1/" importers/cre-fr/fetch.mjs
+            echo "France prices treated as c€/kWh (divided by 100)."
+          fi
+          node importers/cre-fr/run.mjs --base "${{ inputs.fr_csv_url }}" --option BASE --updated "${{ inputs.updated }}"
+          node importers/cre-fr/run.mjs --base "${{ inputs.fr_csv_url }}" --option HPHC --updated "${{ inputs.updated }}"
+
+      - name: Taiwan (record-driven)
+        if: ${{ (inputs.sources == 'taiwan' || inputs.sources == 'all') && inputs.tw_record_path != '' }}
+        run: node importers/tw-taipower/run.mjs --record "${{ inputs.tw_record_path }}" --updated "${{ inputs.updated }}"
+
+      - name: Validate + PII scan + build
+        run: npm run validate && npm run pii && npm run build
+
+      - name: Open a data PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain tariffs/)" ]; then
+            echo "No tariff changes were produced — nothing to PR."; exit 0
+          fi
+          BR="data/import-${{ inputs.sources }}-${{ github.run_id }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BR"
+          git add tariffs/
+          git commit -m "data: import ${{ inputs.sources }} via CI (updated ${{ inputs.updated }})"
+          git push -u origin "$BR"
+          gh pr create --base main --head "$BR" \
+            --title "data: importer run — ${{ inputs.sources }}" \
+            --body "Automated importer run (\`${{ inputs.sources }}\`, updated ${{ inputs.updated }}). **Review the added tariffs/ files** — sanity-check rates/units before merge. Schema + PII validation already passed in this run."
