@@ -1,0 +1,7 @@
+{
+  "scheme": "two-section",
+  "summer": { "peakRate": 5.01, "offpeakRate": 1.96 },
+  "nonSummer": { "peakRate": 4.78, "offpeakRate": 1.89 },
+  "peakWindows": [{ "from": "16:00", "to": "22:00" }],
+  "basicMonthly": 75.0
+}
