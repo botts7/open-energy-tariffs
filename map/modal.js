@@ -112,7 +112,10 @@ window.OET = window.OET || {};
     const dynNote = (OET.isDynamic && OET.isDynamic(rec))
       ? `<div class="oet-note" style="margin-top:8px;border-color:rgba(249,115,22,.5);background:rgba(249,115,22,.1)">⚡ <b>Wholesale / spot plan:</b> the rate tracks the <b>live wholesale price</b> (Amber-style), so the rate shown is a <b>snapshot</b> and the annual cost is <b>indicative only</b> — your real cost swings with the market and when you use power.</div>`
       : '';
-    let body = `<dl class="oet-kv">${kv.join('')}</dl>` + dynNote + deregNote;
+    const estNote = (OET.isEstimatePlan && OET.isEstimatePlan(rec) && OET.dataWarningHtml)
+      ? OET.dataWarningHtml(m.country, OET.countryName ? OET.countryName(m.country) : m.country)
+      : '';
+    let body = `<dl class="oet-kv">${kv.join('')}</dl>` + estNote + dynNote + deregNote;
     // Detailed cost for the user's loaded/entered usage — what this plan would cost.
     const bd = (OET._usage && OET.costBreakdown) ? OET.costBreakdown(t, OET._usage) : null;
     if (bd) {

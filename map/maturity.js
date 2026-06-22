@@ -37,6 +37,40 @@ window.OET = window.OET || {};
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 
+  // A single plan is a representative ESTIMATE (not a real shoppable plan) when it
+  // is hand-curated and not verified. Some are calibrated to a national average.
+  OET.isEstimatePlan = function (rec) {
+    const m = (rec && rec.meta) || {};
+    if (m.verified || ['cdr', 'urdb', 'provider'].indexOf(m.source) >= 0) return false;
+    return m.source === 'manual' || m.source === 'other' || !m.source;
+  };
+
+  // Country data confidence: 'real' (importer/verified plans), 'estimate' (only
+  // hand-curated/unverified), or 'none'.
+  OET.countryDataLevel = function (cc) {
+    const ps = (OET.PLANS || []).filter((r) => r.meta.country === cc);
+    if (!ps.length) return 'none';
+    return ps.some((r) => !OET.isEstimatePlan(r)) ? 'real' : 'estimate';
+  };
+
+  function isCalibrated(cc) {
+    return (OET.PLANS || []).some((r) => r.meta.country === cc
+      && /calibrat|estimat|representative|proxy|typical|average|illustrative/i.test(r.meta.notes || ''));
+  }
+
+  // Prominent honesty banner for a country with no real plan data. '' when real.
+  OET.dataWarningHtml = function (cc, name) {
+    const lvl = OET.countryDataLevel(cc);
+    if (lvl === 'real') return '';
+    const nm = esc(name || cc);
+    const contribute = ' <a href="https://github.com/botts7/open-energy-tariffs#contributing" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Contribute real rates →</a>';
+    if (lvl === 'none') return `<div class="oet-datawarn">⚠️ No tariff data for <b>${nm}</b> yet.${contribute}</div>`;
+    const tail = isCalibrated(cc)
+      ? `the figure is a single <b>representative estimate</b> (calibrated to a national average), not a shoppable plan`
+      : `the data is <b>hand-entered and unverified</b> (not from a bulk source, not bill-checked)`;
+    return `<div class="oet-datawarn">⚠️ <b>${nm}</b> has no verified real-plan data yet — ${tail}. Treat the numbers as indicative only.${contribute}</div>`;
+  };
+
   // HTML-string pill (for innerHTML contexts; `tier` is from the trusted fixed set).
   OET.maturityPill = function (tier) {
     const t = OET.TIER_META[tier];

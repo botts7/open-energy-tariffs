@@ -111,6 +111,11 @@ window.OET = window.OET || {};
       + `${real ? '' : ' · <span class="tv-warn">estimates use a typical profile — enter your usage for accurate costs</span>'}</div>`
       + `<div class="tv-period">Show cost: ${Object.keys(PERIODS).map((p) => `<button data-period="${p}" class="${period === p ? 'on' : ''}">${p}</button>`).join('')}</div>`
       + '</div>'
+      + (function () {
+        const ccs = Array.from(new Set(all.map((r) => r.meta.country)));
+        return (ccs.length === 1 && OET.dataWarningHtml)
+          ? OET.dataWarningHtml(ccs[0], OET.countryName ? OET.countryName(ccs[0]) : ccs[0]) : '';
+      })()
       + (hasBaseline() ? `<div class="tv-baseline">Comparing against <b>${esc(OET._baseline.label || 'your current plan')}</b> (~${Math.round(OET._baseline.cost).toLocaleString()}/yr) — <span style="color:#16a34a">green = you save</span>, red = costs more</div>` : '')
       + '<div class="tv-scroll"><table class="tv-table"><thead><tr>'
       + th('provider', 'Provider · plan') + th('cost', 'Est. cost' + plbl)
