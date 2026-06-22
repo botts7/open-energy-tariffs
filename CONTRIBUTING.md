@@ -34,12 +34,48 @@ number, NMI/MPAN/meter id, address, name). Only the plan *structure*.
   accepted as presets — they're live-price (see `SOURCES.md`).
 - Keep rates in the plan's native currency (`meta.currency`); the display symbol
   is the consuming app's concern.
-- **Licensing:** `manual`/`urdb` entries are `CC0-1.0`; `cdr` (AER) entries must be
-  `CC-BY-4.0`. **Never** paste Octopus (or other non-redistributable) data into a
-  stored entry — `source: "octopus"` is rejected by the schema; real Octopus rates
-  are imported on-device only. See `ATTRIBUTION.md`.
+- **Licensing:** `manual`/`urdb` entries are `CC0-1.0`; `cdr` (AER) entries are
+  `other` (public CDR Product Reference Data — see `LICENSING.md`). **Never** paste
+  Octopus (or other non-redistributable) data into a stored entry — `source:
+  "octopus"` is rejected by the schema; real Octopus rates are imported on-device
+  only. **Copyleft / share-alike data (CC-BY-SA, ODbL) is rejected from core** — it
+  belongs in the [extended repo](https://github.com/botts7/open-energy-tariffs-extended).
+  See `ATTRIBUTION.md`.
 
 ## Keeping a plan private
 
 Don't want to share it? Don't PR it — your app stores your own tariff locally.
 This repo is only for plans you choose to contribute.
+
+## Add a whole data source (an endpoint to import)
+
+This is how coverage scales — point us at a regulator / open-data portal / utility
+feed and we build a reproducible importer (like the AU/CH/DK/FR/TW/CO ones).
+**You describe the source; you don't submit code our build runs.** Either:
+
+1. **Issue form** — *New issue → "Add a data source"* (easiest), or
+2. **Manifest PR** — add `sources/<country>-<name>.json` matching
+   `schema/source-manifest.schema.json` (see `sources/_example.json`). CI's
+   `submission` workflow validates it (`npm run validate:submission`).
+
+### Licence decides routing
+
+| Bucket | Licences | Goes to |
+|---|---|---|
+| **Permissive** | CC0, CC-BY, Etalab 2.0, OGL, OGDL, opendata.swiss open, public-domain | **core** |
+| **Share-alike** | CC-BY-SA, ODbL | **extended** repo (opt-in) |
+| **Rejected** | non-commercial, all-rights-reserved, unknown | not accepted |
+
+### What happens next (review pipeline)
+
+1. **Automated gate** — manifest schema + **licence allow-list** + HTTPS; then for
+   the importer: `schema/v1` + **PII scan** + **cross-check** vs the Eurostat / EIA /
+   World-Bank reference (wild divergence is flagged).
+2. **Human review** — a maintainer confirms the licence, attribution, and sanity.
+   **Nothing auto-merges.**
+3. Data enters **badged `experimental`/`beta` (unverified)** — shown with the data
+   warning until corroborated, so it's never presented as gospel.
+
+We never run submitter-authored code in the trusted build; importers are written /
+reviewed by maintainers (or a declarative `fieldMap`), fetched over HTTPS with
+size/time limits, every gate green before merge.

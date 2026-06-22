@@ -1,0 +1,17 @@
+{
+  "country": "PT",
+  "name": "ERSE (Energy Services Regulatory Authority)",
+  "sourceUrl": "https://example.erse.pt/opendata/tarifas.json",
+  "docsUrl": "https://www.erse.pt/eletricidade/tarifas/",
+  "format": "json",
+  "licence": "CC-BY-4.0",
+  "licenceUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "attribution": "ERSE — Entidade Reguladora dos Serviços Energéticos",
+  "fieldMap": {
+    "rate": "data.precoEnergia",
+    "supply": "data.termoFixoDiario"
+  },
+  "sample": { "precoEnergia": 0.1543, "termoFixoDiario": 0.42 },
+  "contact": "@your-github-handle",
+  "notes": "Regulated Tarifa Simples for BTN household; updated quarterly."
+}

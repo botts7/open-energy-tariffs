@@ -1,0 +1,43 @@
+name: Add a data source
+description: Suggest an electricity-tariff data endpoint to add (regulator, open-data portal, utility).
+title: "[data source] <country> — <source name>"
+labels: ["data-source"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks! This adds a tariff **data source** (an endpoint we can import), not a single plan.
+        We can only bulk-store **openly-licensed** data — CC0 / CC-BY / open-gov free-use, plus
+        share-alike (CC-BY-SA / ODbL) via the separate *extended* repo. Non-commercial or
+        all-rights-reserved sources can't be accepted. A maintainer reviews every submission.
+  - type: input
+    id: country
+    attributes: { label: Country (ISO-2 code), placeholder: "PT" }
+    validations: { required: true }
+  - type: input
+    id: name
+    attributes: { label: Source / publisher name, placeholder: "ERSE" }
+    validations: { required: true }
+  - type: input
+    id: url
+    attributes: { label: Data endpoint URL (must be HTTPS), placeholder: "https://..." }
+    validations: { required: true }
+  - type: dropdown
+    id: format
+    attributes:
+      label: Format
+      options: [json, csv, rest, sparql, xlsx]
+    validations: { required: true }
+  - type: input
+    id: licence
+    attributes: { label: Licence + link (proof), placeholder: "CC-BY-4.0 — https://creativecommons.org/licenses/by/4.0/" }
+    validations: { required: true }
+  - type: input
+    id: attribution
+    attributes: { label: Exact attribution string the licence requires }
+    validations: { required: true }
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Coverage, caveats, refresh cadence, and ideally a sample record from the endpoint.
