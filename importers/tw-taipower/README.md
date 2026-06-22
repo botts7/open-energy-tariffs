@@ -1,13 +1,16 @@
 # TW-Taipower importer (Taiwan — residential time-of-use)
 
-Maps Taipower's **simplified residential time-of-use** tariff (簡易型時間電價, two-
-section) into a canonical v1 entry with summer/non-summer rates (`band.seasonRates`),
+Maps Taipower's **simplified residential time-of-use** tariffs (簡易型時間電價) — both
+the **two-section** (peak/off-peak) and **three-section** (peak/half-peak/off-peak)
+options — into canonical v1 entries with summer/non-summer rates (`band.seasonRates`),
 a `summer` season (Jun–Sep), and a weekday/weekend schedule.
 
-- **Scope:** the **ToU** residential tariff only. Taipower's *standard* residential
+- **Scope:** the **ToU** residential tariffs only. Taipower's *standard* residential
   tariff is block/tiered, which v1's `flat|tou` kinds can't model yet (needs v1.1
-  `tiers`) — so it's intentionally out of scope. The three-section variant
-  (三段式) is in the same source and is a natural follow-up (needs a 3-band map).
+  `tiers`) — so it's intentionally out of scope.
+- **N-band model:** `map.mjs` is generic over bands (a band with no `windows` is the
+  off-peak fill). Three-section's peak band exists only in summer, so the summer
+  windows are canonical; see the modelling note below.
 - **Licence:** **Open Government Data License, Taiwan (OGDL)** — CC-BY-4.0-compatible.
   Recorded as `meta.license: "other"` + Taipower / data.gov.tw attribution in `notes`.
 - **Source:** data.gov.tw dataset **17060** → Taipower's machine-readable rate JSON

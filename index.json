@@ -27078,6 +27078,11 @@
     "": {
       "Taipower": [
         {
+          "id": "tw-taipower-residential-time-of-use-three-section",
+          "plan": "Residential Time-of-Use (three-section)",
+          "verified": false
+        },
+        {
           "id": "tw-taipower-residential-time-of-use-two-section",
           "plan": "Residential Time-of-Use (two-section)",
           "verified": false
