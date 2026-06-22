@@ -28,10 +28,13 @@ window.OET = window.OET || {};
     const ps = (OET.PLANS || []).filter((r) => r.meta.country === cc);
     if (!ps.length) return 'experimental';
     if (ps.some((r) => r.meta.verified)) return 'verified';
-    if (ps.some((r) => r.meta.source === 'cdr' || r.meta.source === 'urdb')) return 'beta';
+    // Real bulk-import sources: AER CDR, NREL URDB, and `provider` importers
+    // (ElCom, Energi Data Service, CRE, Taipower) — real data, unverified-vs-bill.
+    if (ps.some((r) => ['cdr', 'urdb', 'provider'].indexOf(r.meta.source) >= 0)) return 'beta';
     // Hand-curated data is promoted experimental -> beta when an external
-    // reference (Eurostat) corroborates it within tolerance (the promotion gate).
-    if (OET.crossCheck) { const x = OET.crossCheck(cc); if (x && x.status === 'match') return 'beta'; }
+    // reference (Eurostat) INDEPENDENTLY corroborates it. Skip when the value was
+    // itself calibrated to that reference — matching it would be circular.
+    if (OET.crossCheck && !isCalibrated(cc)) { const x = OET.crossCheck(cc); if (x && x.status === 'match') return 'beta'; }
     return 'experimental';
   };
 
