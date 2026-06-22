@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "ch-politische-gemeinde-m-rschwil-elektrizit-tsversorgung-standard-supply-household-h4",
+    "schemaVersion": "1",
+    "country": "CH",
+    "distributor": "Politische Gemeinde Mörschwil, Elektrizitätsversorgung",
+    "provider": "Politische Gemeinde Mörschwil, Elektrizitätsversorgung",
+    "plan": "Standard supply (household H4)",
+    "currency": "CHF",
+    "unit": "kWh",
+    "timezone": "Europe/Zurich",
+    "source": "provider",
+    "sourceUrl": "https://www.strompreis.elcom.admin.ch/",
+    "license": "other",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Swiss household electricity tariff — ElCom reference profile H4 (~4,500 kWh/yr), basic/standard supply (Grundversorgung) — from the Federal Electricity Commission (ElCom) via LINDAS (lindas.admin.ch). opendata.swiss \"Open use\" (terms_open); ElCom attributed as a courtesy. All-in 27.34 Rp/kWh = energy 15.61 + grid 7.67 + federal grid surcharge 2.30 + community/cantonal taxes; annual fixed 102 CHF. Serves 1 municipality. Period 2026."
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.27343
+    },
+    "supply": {
+      "daily": 0.27945
+    },
+    "validFrom": "2026-01-01"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "ch-vo-distribution-sa-standard-supply-household-h4",
+    "schemaVersion": "1",
+    "country": "CH",
+    "distributor": "VOé distribution SA",
+    "provider": "VOé distribution SA",
+    "plan": "Standard supply (household H4)",
+    "currency": "CHF",
+    "unit": "kWh",
+    "timezone": "Europe/Zurich",
+    "source": "provider",
+    "sourceUrl": "https://www.strompreis.elcom.admin.ch/",
+    "license": "other",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Swiss household electricity tariff — ElCom reference profile H4 (~4,500 kWh/yr), basic/standard supply (Grundversorgung) — from the Federal Electricity Commission (ElCom) via LINDAS (lindas.admin.ch). opendata.swiss \"Open use\" (terms_open); ElCom attributed as a courtesy. All-in 35.14 Rp/kWh = energy 13.84 + grid 15.79 + federal grid surcharge 2.30 + community/cantonal taxes; annual fixed 140 CHF. Serves 6 municipalities. Period 2026."
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.3514
+    },
+    "supply": {
+      "daily": 0.38356
+    },
+    "validFrom": "2026-01-01"
+  }
+}

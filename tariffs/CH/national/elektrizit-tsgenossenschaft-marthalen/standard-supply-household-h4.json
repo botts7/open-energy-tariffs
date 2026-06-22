@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "ch-elektrizit-tsgenossenschaft-marthalen-standard-supply-household-h4",
+    "schemaVersion": "1",
+    "country": "CH",
+    "distributor": "Elektrizitätsgenossenschaft Marthalen",
+    "provider": "Elektrizitätsgenossenschaft Marthalen",
+    "plan": "Standard supply (household H4)",
+    "currency": "CHF",
+    "unit": "kWh",
+    "timezone": "Europe/Zurich",
+    "source": "provider",
+    "sourceUrl": "https://www.strompreis.elcom.admin.ch/",
+    "license": "other",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Swiss household electricity tariff — ElCom reference profile H4 (~4,500 kWh/yr), basic/standard supply (Grundversorgung) — from the Federal Electricity Commission (ElCom) via LINDAS (lindas.admin.ch). opendata.swiss \"Open use\" (terms_open); ElCom attributed as a courtesy. All-in 31.80 Rp/kWh = energy 13.39 + grid 14.51 + federal grid surcharge 2.30 + community/cantonal taxes; annual fixed 42 CHF. Serves 1 municipality. Period 2026."
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.318
+    },
+    "supply": {
+      "daily": 0.11507
+    },
+    "validFrom": "2026-01-01"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "ch-alpen-energie-dorfgemeinde-meiringen-standard-supply-household-h4",
+    "schemaVersion": "1",
+    "country": "CH",
+    "distributor": "Alpen Energie Dorfgemeinde Meiringen",
+    "provider": "Alpen Energie Dorfgemeinde Meiringen",
+    "plan": "Standard supply (household H4)",
+    "currency": "CHF",
+    "unit": "kWh",
+    "timezone": "Europe/Zurich",
+    "source": "provider",
+    "sourceUrl": "https://www.strompreis.elcom.admin.ch/",
+    "license": "other",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Swiss household electricity tariff — ElCom reference profile H4 (~4,500 kWh/yr), basic/standard supply (Grundversorgung) — from the Federal Electricity Commission (ElCom) via LINDAS (lindas.admin.ch). opendata.swiss \"Open use\" (terms_open); ElCom attributed as a courtesy. All-in 30.57 Rp/kWh = energy 13.70 + grid 11.34 + federal grid surcharge 2.30 + community/cantonal taxes; annual fixed 50 CHF. Serves 2 municipalities. Period 2026."
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.30574
+    },
+    "supply": {
+      "daily": 0.13699
+    },
+    "validFrom": "2026-01-01"
+  }
+}

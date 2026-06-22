@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "ch-elektrizit-ts-genossenschaft-aettenschwil-standard-supply-household-h4",
+    "schemaVersion": "1",
+    "country": "CH",
+    "distributor": "Elektrizitäts-Genossenschaft Aettenschwil",
+    "provider": "Elektrizitäts-Genossenschaft Aettenschwil",
+    "plan": "Standard supply (household H4)",
+    "currency": "CHF",
+    "unit": "kWh",
+    "timezone": "Europe/Zurich",
+    "source": "provider",
+    "sourceUrl": "https://www.strompreis.elcom.admin.ch/",
+    "license": "other",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Swiss household electricity tariff — ElCom reference profile H4 (~4,500 kWh/yr), basic/standard supply (Grundversorgung) — from the Federal Electricity Commission (ElCom) via LINDAS (lindas.admin.ch). opendata.swiss \"Open use\" (terms_open); ElCom attributed as a courtesy. All-in 31.64 Rp/kWh = energy 9.40 + grid 17.70 + federal grid surcharge 2.30 + community/cantonal taxes; annual fixed 84 CHF. Serves 1 municipality. Period 2026."
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.31643
+    },
+    "supply": {
+      "daily": 0.23014
+    },
+    "validFrom": "2026-01-01"
+  }
+}

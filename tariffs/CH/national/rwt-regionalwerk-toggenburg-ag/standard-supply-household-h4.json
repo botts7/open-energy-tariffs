@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "ch-rwt-regionalwerk-toggenburg-ag-standard-supply-household-h4",
+    "schemaVersion": "1",
+    "country": "CH",
+    "distributor": "rwt Regionalwerk Toggenburg AG",
+    "provider": "rwt Regionalwerk Toggenburg AG",
+    "plan": "Standard supply (household H4)",
+    "currency": "CHF",
+    "unit": "kWh",
+    "timezone": "Europe/Zurich",
+    "source": "provider",
+    "sourceUrl": "https://www.strompreis.elcom.admin.ch/",
+    "license": "other",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Swiss household electricity tariff — ElCom reference profile H4 (~4,500 kWh/yr), basic/standard supply (Grundversorgung) — from the Federal Electricity Commission (ElCom) via LINDAS (lindas.admin.ch). opendata.swiss \"Open use\" (terms_open); ElCom attributed as a courtesy. All-in 24.94 Rp/kWh = energy 11.97 + grid 9.23 + federal grid surcharge 2.30 + community/cantonal taxes; annual fixed 56 CHF. Serves 3 municipalities. Period 2026."
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.24939
+    },
+    "supply": {
+      "daily": 0.15452
+    },
+    "validFrom": "2026-01-01"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "ch-technische-betriebe-glarus-s-d-standard-supply-household-h4",
+    "schemaVersion": "1",
+    "country": "CH",
+    "distributor": "Technische Betriebe Glarus Süd",
+    "provider": "Technische Betriebe Glarus Süd",
+    "plan": "Standard supply (household H4)",
+    "currency": "CHF",
+    "unit": "kWh",
+    "timezone": "Europe/Zurich",
+    "source": "provider",
+    "sourceUrl": "https://www.strompreis.elcom.admin.ch/",
+    "license": "other",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Swiss household electricity tariff — ElCom reference profile H4 (~4,500 kWh/yr), basic/standard supply (Grundversorgung) — from the Federal Electricity Commission (ElCom) via LINDAS (lindas.admin.ch). opendata.swiss \"Open use\" (terms_open); ElCom attributed as a courtesy. All-in 24.32 Rp/kWh = energy 8.10 + grid 12.46 + federal grid surcharge 2.30 + community/cantonal taxes; annual fixed 150 CHF. Serves 1 municipality. Period 2026."
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.24322
+    },
+    "supply": {
+      "daily": 0.41096
+    },
+    "validFrom": "2026-01-01"
+  }
+}
