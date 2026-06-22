@@ -26431,10 +26431,3853 @@
   },
   "CH": {
     "": {
-      "Switzerland (Doppeltarif)": [
+      "Aare Versorgungs AG (AVAG)": [
         {
-          "id": "ch-doppeltarif-hoch-nieder",
-          "plan": "Hoch-/Niedertarif (HT/NT, typical)",
+          "id": "ch-aare-versorgungs-ag-avag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "AEW Energie AG": [
+        {
+          "id": "ch-aew-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "AG Elektrizitätswerk Maienfeld": [
+        {
+          "id": "ch-ag-elektrizit-tswerk-maienfeld-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "AGE SA": [
+        {
+          "id": "ch-age-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Alpen Energie Dorfgemeinde Meiringen": [
+        {
+          "id": "ch-alpen-energie-dorfgemeinde-meiringen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Arbon Energie AG": [
+        {
+          "id": "ch-arbon-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Arni Energie AG": [
+        {
+          "id": "ch-arni-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Arosa Energie": [
+        {
+          "id": "ch-arosa-energie-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Azienda Elettrica Comunale Bedretto, Commercio Energia Elettrica": [
+        {
+          "id": "ch-azienda-elettrica-comunale-bedretto-commercio-energia-elettrica-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "AZIENDA ELETTRICA DI MASSAGNO (AEM) SA": [
+        {
+          "id": "ch-azienda-elettrica-di-massagno-aem-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Azienda Elettrica Grevasalvas": [
+        {
+          "id": "ch-azienda-elettrica-grevasalvas-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Azienda energia comunale": [
+        {
+          "id": "ch-azienda-energia-comunale-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Azienda Multiservizi Bellinzona (AMB)": [
+        {
+          "id": "ch-azienda-multiservizi-bellinzona-amb-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Aziende Industriali di Lugano (AIL) SA": [
+        {
+          "id": "ch-aziende-industriali-di-lugano-ail-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Aziende Industriali Mendrisio, Sezione Elettricità": [
+        {
+          "id": "ch-aziende-industriali-mendrisio-sezione-elettricit-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Bereich Verwaltung, SH POWER": [
+        {
+          "id": "ch-bereich-verwaltung-sh-power-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "BKW Energie AG": [
+        {
+          "id": "ch-bkw-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Burgergemeinde Eischoll, Elektrizitätswerk": [
+        {
+          "id": "ch-burgergemeinde-eischoll-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "CKW AG": [
+        {
+          "id": "ch-ckw-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Commune de Belmont, Electricité": [
+        {
+          "id": "ch-commune-de-belmont-electricit-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Commune de Courchapoix, electricite": [
+        {
+          "id": "ch-commune-de-courchapoix-electricite-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Commune de Develier, service éléctrique": [
+        {
+          "id": "ch-commune-de-develier-service-l-ctrique-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Commune de Fully, Services industriels": [
+        {
+          "id": "ch-commune-de-fully-services-industriels-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Commune de Lutry, Electricité": [
+        {
+          "id": "ch-commune-de-lutry-electricit-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Commune de Nods, Electricité": [
+        {
+          "id": "ch-commune-de-nods-electricit-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Commune de Paudex, Electricité": [
+        {
+          "id": "ch-commune-de-paudex-electricit-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Commune de Saint-Imier": [
+        {
+          "id": "ch-commune-de-saint-imier-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Commune de Tramelan, électricité": [
+        {
+          "id": "ch-commune-de-tramelan-lectricit-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Commune Mixte de Lamboing, Service Electricité": [
+        {
+          "id": "ch-commune-mixte-de-lamboing-service-electricit-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Comune di Ascona, Azienda Elettrica Comunale": [
+        {
+          "id": "ch-comune-di-ascona-azienda-elettrica-comunale-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Comune di Bregaglia, Azienda Elettrica": [
+        {
+          "id": "ch-comune-di-bregaglia-azienda-elettrica-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Comune di Brusio, Erogazione d'Energia Elettrica": [
+        {
+          "id": "ch-comune-di-brusio-erogazione-d-energia-elettrica-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Comune di Buseno, Azienda Elettrica": [
+        {
+          "id": "ch-comune-di-buseno-azienda-elettrica-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Comune di Cama, Azienda Elettrica Comunale": [
+        {
+          "id": "ch-comune-di-cama-azienda-elettrica-comunale-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Comune di Poschiavo, Azienda elettrica": [
+        {
+          "id": "ch-comune-di-poschiavo-azienda-elettrica-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Comune di Stabio, Elettrica": [
+        {
+          "id": "ch-comune-di-stabio-elettrica-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Comune Politico di Mesocco, Azienda Elettrica": [
+        {
+          "id": "ch-comune-politico-di-mesocco-azienda-elettrica-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Consorzio Energia Elettrica Calanca": [
+        {
+          "id": "ch-consorzio-energia-elettrica-calanca-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Cooperativa Elettrica di Faido (CEF)": [
+        {
+          "id": "ch-cooperativa-elettrica-di-faido-cef-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "die werke versorgung wallisellen ag": [
+        {
+          "id": "ch-die-werke-versorgung-wallisellen-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Dorfkorporation Bronschhofen Strom und Wasser": [
+        {
+          "id": "ch-dorfkorporation-bronschhofen-strom-und-wasser-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Dorfkorporation Ebnat-Kappel": [
+        {
+          "id": "ch-dorfkorporation-ebnat-kappel-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Dorfkorporation Mosnang, Elektrizitäts- und Wasserversorgung": [
+        {
+          "id": "ch-dorfkorporation-mosnang-elektrizit-ts-und-wasserversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Dorfkorporation Schwarzenbach SG, Elektrizität Wasser Gas TV": [
+        {
+          "id": "ch-dorfkorporation-schwarzenbach-sg-elektrizit-t-wasser-gas-tv-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "DransGrid SA": [
+        {
+          "id": "ch-dransgrid-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EBL (Genossenschaft Elektra Baselland)": [
+        {
+          "id": "ch-ebl-genossenschaft-elektra-baselland-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "ebs Energie AG": [
+        {
+          "id": "ch-ebs-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EDSH Energiedienst Steg-Hohtenn AG": [
+        {
+          "id": "ch-edsh-energiedienst-steg-hohtenn-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EDSR Energiedienste Staldenried AG": [
+        {
+          "id": "ch-edsr-energiedienste-staldenried-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EE Energia Engiadina": [
+        {
+          "id": "ch-ee-energia-engiadina-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EGH Elektro-Genossenschaft Hünenberg": [
+        {
+          "id": "ch-egh-elektro-genossenschaft-h-nenberg-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EGW Weiach Elektrizitätsgenossenschaft": [
+        {
+          "id": "ch-egw-weiach-elektrizit-tsgenossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einheitsgemeinde Ermatingen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einheitsgemeinde-ermatingen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einheitsgemeinde Müllheim, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einheitsgemeinde-m-llheim-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einheitsgemeinde Raperswilen, Elektrizität": [
+        {
+          "id": "ch-einheitsgemeinde-raperswilen-elektrizit-t-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohner- & Ortsbürgergemeinde Niederwil AG, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohner-ortsb-rgergemeinde-niederwil-ag-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Aarwangen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-aarwangen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Aegerten, Elektroversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-aegerten-elektroversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Büetigen, Elektroversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-b-etigen-elektroversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Bellmund, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-bellmund-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Bettwil, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-bettwil-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Biglen, Stromversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-biglen-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Birmenstorf AG, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-birmenstorf-ag-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Brügg, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-br-gg-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Brienz, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-brienz-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Diessbach bei Büren, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-diessbach-bei-b-ren-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Dintikon, Elektrizitätswerk": [
+        {
+          "id": "ch-einwohnergemeinde-dintikon-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Ins, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-ins-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Kallnach, Stromversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-kallnach-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Laufenburg, Städt. Elektrizitätsversorung": [
+        {
+          "id": "ch-einwohnergemeinde-laufenburg-st-dt-elektrizit-tsversorung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Lengnau, Finanzverwaltung, Elektrizität-, Wasser-, Abwasser-, Abfallentsorgung": [
+        {
+          "id": "ch-einwohnergemeinde-lengnau-finanzverwaltung-elektrizit-t-wasser-abwasser-abfallentsorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Madiswil, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-madiswil-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Melchnau, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-melchnau-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Muhen, Elektrizitaetsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-muhen-elektrizitaetsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Nidau, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-nidau-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Niederbipp, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-niederbipp-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Oberdiessbach, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-oberdiessbach-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Pieterlen, Stromverkauf": [
+        {
+          "id": "ch-einwohnergemeinde-pieterlen-stromverkauf-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Port, Elektrizitätversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-port-elektrizit-tversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Roggwil, Elektrizitätswerk": [
+        {
+          "id": "ch-einwohnergemeinde-roggwil-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Safnern, Elektroversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-safnern-elektroversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Schafisheim, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-schafisheim-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Siselen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-siselen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Sisseln, Strom": [
+        {
+          "id": "ch-einwohnergemeinde-sisseln-strom-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Unterlunkhofen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-unterlunkhofen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Ursenbach, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-ursenbach-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Villigen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-villigen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Würenlingen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-w-renlingen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Wilderswil, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-wilderswil-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Windisch, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-windisch-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Wohlenschwil, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-wohlenschwil-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Zeihen, Elektra, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-zeihen-elektra-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Zeiningen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-zeiningen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Einwohnergemeinde Zufikon, Elektrizitätsversorgung": [
+        {
+          "id": "ch-einwohnergemeinde-zufikon-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EKZ Einsiedeln AG, Dietikon": [
+        {
+          "id": "ch-ekz-einsiedeln-ag-dietikon-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Andwil Stromversorgung": [
+        {
+          "id": "ch-elektra-andwil-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Böttstein": [
+        {
+          "id": "ch-elektra-b-ttstein-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Berg SG, Stromversorgung": [
+        {
+          "id": "ch-elektra-berg-sg-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Berneck, Stromversorgung": [
+        {
+          "id": "ch-elektra-berneck-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "ELEKTRA ENERGIE Genossenschaft": [
+        {
+          "id": "ch-elektra-energie-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Fulenbach (EFU)": [
+        {
+          "id": "ch-elektra-fulenbach-efu-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Gams Genossenschaft": [
+        {
+          "id": "ch-elektra-gams-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "ELEKTRA Genossenschaft Abtwil": [
+        {
+          "id": "ch-elektra-genossenschaft-abtwil-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Genossenschaft Arni-Islisberg": [
+        {
+          "id": "ch-elektra-genossenschaft-arni-islisberg-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Genossenschaft Auw": [
+        {
+          "id": "ch-elektra-genossenschaft-auw-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Genossenschaft Baldingen": [
+        {
+          "id": "ch-elektra-genossenschaft-baldingen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra-Genossenschaft, Fischbach-Göslikon": [
+        {
+          "id": "ch-elektra-genossenschaft-fischbach-g-slikon-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Genossenschaft Holderbank": [
+        {
+          "id": "ch-elektra-genossenschaft-holderbank-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra-Genossenschaft Homburg": [
+        {
+          "id": "ch-elektra-genossenschaft-homburg-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra-Genossenschaft Künten": [
+        {
+          "id": "ch-elektra-genossenschaft-k-nten-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Genossenschaft Kaiserstuhl": [
+        {
+          "id": "ch-elektra-genossenschaft-kaiserstuhl-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Genossenschaft Leibstadt": [
+        {
+          "id": "ch-elektra-genossenschaft-leibstadt-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Genossenschaft Oberlunkhofen": [
+        {
+          "id": "ch-elektra-genossenschaft-oberlunkhofen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Genossenschaft Rietheim": [
+        {
+          "id": "ch-elektra-genossenschaft-rietheim-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra-Genossenschaft Rottenschwil-Werd": [
+        {
+          "id": "ch-elektra-genossenschaft-rottenschwil-werd-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra-Genossenschaft Schönholzerswilen": [
+        {
+          "id": "ch-elektra-genossenschaft-sch-nholzerswilen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra-Genossenschaft Siglistorf-Wislikofen-Mellstorf": [
+        {
+          "id": "ch-elektra-genossenschaft-siglistorf-wislikofen-mellstorf-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra-Genossenschaft Sommeri": [
+        {
+          "id": "ch-elektra-genossenschaft-sommeri-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Gretzenbach AG": [
+        {
+          "id": "ch-elektra-gretzenbach-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Häuslenen": [
+        {
+          "id": "ch-elektra-h-uslenen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Hergiswil-Dorf Genossenschaft": [
+        {
+          "id": "ch-elektra-hergiswil-dorf-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Horn AG": [
+        {
+          "id": "ch-elektra-horn-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Kesswil": [
+        {
+          "id": "ch-elektra-kesswil-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Korporation EKW": [
+        {
+          "id": "ch-elektra-korporation-ekw-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra-Korporation Reute, Elektrische Energie": [
+        {
+          "id": "ch-elektra-korporation-reute-elektrische-energie-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra-Korporation Schachen-Reute": [
+        {
+          "id": "ch-elektra-korporation-schachen-reute-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Luthern Genossenschaft": [
+        {
+          "id": "ch-elektra-luthern-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Mümliswil-Ramiswil Genossenschaft": [
+        {
+          "id": "ch-elektra-m-mliswil-ramiswil-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Maisprach, Genossenschaft": [
+        {
+          "id": "ch-elektra-maisprach-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Mettauertal und Umgebung Genossenschaft (EMU)": [
+        {
+          "id": "ch-elektra-mettauertal-und-umgebung-genossenschaft-emu-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Neuendorf": [
+        {
+          "id": "ch-elektra-neuendorf-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Niederbüren Stromversorgung": [
+        {
+          "id": "ch-elektra-niederb-ren-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Niederbuchsiten (ENI)": [
+        {
+          "id": "ch-elektra-niederbuchsiten-eni-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Oberegg": [
+        {
+          "id": "ch-elektra-oberegg-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Opfersei Genossenschaft": [
+        {
+          "id": "ch-elektra-opfersei-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Rüderswil Genossenschaft": [
+        {
+          "id": "ch-elektra-r-derswil-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Reigoldswil Genossenschaft": [
+        {
+          "id": "ch-elektra-reigoldswil-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "ELEKTRA REMETSCHWIL, Genossenschaft": [
+        {
+          "id": "ch-elektra-remetschwil-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Rudolfstetten-Friedlisberg AG": [
+        {
+          "id": "ch-elektra-rudolfstetten-friedlisberg-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Schwanden i.E. Genossenschaft": [
+        {
+          "id": "ch-elektra-schwanden-i-e-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Seeberg-Grasswil-Riedtwil Genossenschaft": [
+        {
+          "id": "ch-elektra-seeberg-grasswil-riedtwil-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Steinebrunn": [
+        {
+          "id": "ch-elektra-steinebrunn-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "ELEKTRA UFHUSEN Genossenschaft": [
+        {
+          "id": "ch-elektra-ufhusen-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra- und Wasserkorporation Grub SG": [
+        {
+          "id": "ch-elektra-und-wasserkorporation-grub-sg-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Untereggen": [
+        {
+          "id": "ch-elektra-untereggen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Walzenhausen": [
+        {
+          "id": "ch-elektra-walzenhausen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Widen Betriebs AG": [
+        {
+          "id": "ch-elektra-widen-betriebs-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Wolfwil AG": [
+        {
+          "id": "ch-elektra-wolfwil-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektra Zihlschlacht-Riet": [
+        {
+          "id": "ch-elektra-zihlschlacht-riet-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektragenossenschaft Mellikon": [
+        {
+          "id": "ch-elektragenossenschaft-mellikon-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "ELEKTRAGENOSSENSCHAFT OLSBERG": [
+        {
+          "id": "ch-elektragenossenschaft-olsberg-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrakorporation Wagerswil Wagerswil": [
+        {
+          "id": "ch-elektrakorporation-wagerswil-wagerswil-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizität Wasser Neuenhof ewn": [
+        {
+          "id": "ch-elektrizit-t-wasser-neuenhof-ewn-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitäts-Genossenschaft Aettenschwil": [
+        {
+          "id": "ch-elektrizit-ts-genossenschaft-aettenschwil-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitäts-Genossenschaft Benzenschwil": [
+        {
+          "id": "ch-elektrizit-ts-genossenschaft-benzenschwil-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitäts-Genossenschaft Boswil-Bünzen": [
+        {
+          "id": "ch-elektrizit-ts-genossenschaft-boswil-b-nzen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitäts-Genossenschaft (EGO) Oberwil i.S.": [
+        {
+          "id": "ch-elektrizit-ts-genossenschaft-ego-oberwil-i-s-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitäts - Genossenschaft Mülligen": [
+        {
+          "id": "ch-elektrizit-ts-genossenschaft-m-lligen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitäts-Genossenschaft Merenschwand": [
+        {
+          "id": "ch-elektrizit-ts-genossenschaft-merenschwand-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitäts-Genossenschaft Riniken (EGR)": [
+        {
+          "id": "ch-elektrizit-ts-genossenschaft-riniken-egr-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitäts-Genossenschaft Siggenthal": [
+        {
+          "id": "ch-elektrizit-ts-genossenschaft-siggenthal-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitäts- und Wasser- Versorgung, Politische Gemeinde Thal": [
+        {
+          "id": "ch-elektrizit-ts-und-wasser-versorgung-politische-gemeinde-thal-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitäts- und Wasserwerk der Stadt Buchs (EWB)": [
+        {
+          "id": "ch-elektrizit-ts-und-wasserwerk-der-stadt-buchs-ewb-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Aristau": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-aristau-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Beinwil/Freiamt": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-beinwil-freiamt-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Binn": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-binn-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Brüschwil-Sonnenberg": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-br-schwil-sonnenberg-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Bubikon": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-bubikon-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Gsteig": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-gsteig-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Hermetschwil-Staffeln": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-hermetschwil-staffeln-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Jonen": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-jonen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Mühlau": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-m-hlau-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Marthalen": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-marthalen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Otelfingen": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-otelfingen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Rümikon EGR": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-r-mikon-egr-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Saas-Balen (EGB)": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-saas-balen-egb-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Schüpbach": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-sch-pbach-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Schangnau": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-schangnau-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Sins": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-sins-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsgenossenschaft Zeneggen": [
+        {
+          "id": "ch-elektrizit-tsgenossenschaft-zeneggen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsversorgung Altendorf AG": [
+        {
+          "id": "ch-elektrizit-tsversorgung-altendorf-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsversorgung Egerkingen": [
+        {
+          "id": "ch-elektrizit-tsversorgung-egerkingen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsversorgung Geltwil": [
+        {
+          "id": "ch-elektrizit-tsversorgung-geltwil-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsversorgung Innerthal": [
+        {
+          "id": "ch-elektrizit-tsversorgung-innerthal-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsversorgung Kaltbrunn AG": [
+        {
+          "id": "ch-elektrizit-tsversorgung-kaltbrunn-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsversorgung Oberbuchsiten": [
+        {
+          "id": "ch-elektrizit-tsversorgung-oberbuchsiten-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätsversorgung Ried-St. Stephan AG": [
+        {
+          "id": "ch-elektrizit-tsversorgung-ried-st-stephan-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Aadorf": [
+        {
+          "id": "ch-elektrizit-tswerk-aadorf-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk der Gemeinde Bergün Filisur": [
+        {
+          "id": "ch-elektrizit-tswerk-der-gemeinde-berg-n-filisur-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk der Stadt Zürich": [
+        {
+          "id": "ch-elektrizit-tswerk-der-stadt-z-rich-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk des Kantons Schaffhausen AG": [
+        {
+          "id": "ch-elektrizit-tswerk-des-kantons-schaffhausen-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Göschenen": [
+        {
+          "id": "ch-elektrizit-tswerk-g-schenen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk-Genossenschaft Riedbach": [
+        {
+          "id": "ch-elektrizit-tswerk-genossenschaft-riedbach-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Heiden AG": [
+        {
+          "id": "ch-elektrizit-tswerk-heiden-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Jona-Rapperswil AG": [
+        {
+          "id": "ch-elektrizit-tswerk-jona-rapperswil-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Oberglatt": [
+        {
+          "id": "ch-elektrizit-tswerk-oberglatt-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Obergoms AG": [
+        {
+          "id": "ch-elektrizit-tswerk-obergoms-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Obwalden": [
+        {
+          "id": "ch-elektrizit-tswerk-obwalden-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk, Ortsgemeinde Quarten": [
+        {
+          "id": "ch-elektrizit-tswerk-ortsgemeinde-quarten-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Rümlang Genossenschaft": [
+        {
+          "id": "ch-elektrizit-tswerk-r-mlang-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Randa AG": [
+        {
+          "id": "ch-elektrizit-tswerk-randa-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Reichenburg": [
+        {
+          "id": "ch-elektrizit-tswerk-reichenburg-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Schindellegi": [
+        {
+          "id": "ch-elektrizit-tswerk-schindellegi-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Schmerikon AG": [
+        {
+          "id": "ch-elektrizit-tswerk-schmerikon-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Sennwald Genossenschaft": [
+        {
+          "id": "ch-elektrizit-tswerk-sennwald-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Urnäsch AG": [
+        {
+          "id": "ch-elektrizit-tswerk-urn-sch-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Ursern": [
+        {
+          "id": "ch-elektrizit-tswerk-ursern-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Uznach AG": [
+        {
+          "id": "ch-elektrizit-tswerk-uznach-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerk Vals (EW Vals)": [
+        {
+          "id": "ch-elektrizit-tswerk-vals-ew-vals-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitätswerke des Kantons Zürich (EKZ)": [
+        {
+          "id": "ch-elektrizit-tswerke-des-kantons-z-rich-ekz-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrizitaetswerk Langrickenbach": [
+        {
+          "id": "ch-elektrizitaetswerk-langrickenbach-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektro-Genossenschaft Oberrüti": [
+        {
+          "id": "ch-elektro-genossenschaft-oberr-ti-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektro-Genossenschaft Ulisbach": [
+        {
+          "id": "ch-elektro-genossenschaft-ulisbach-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektro- und Wasserkorporation Wartau EW Wartau": [
+        {
+          "id": "ch-elektro-und-wasserkorporation-wartau-ew-wartau-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrogenossenschaft Bisisthal": [
+        {
+          "id": "ch-elektrogenossenschaft-bisisthal-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrogenossenschaft Moos-Dieselbach": [
+        {
+          "id": "ch-elektrogenossenschaft-moos-dieselbach-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Elektrokorporation Wald - St. Peterzell": [
+        {
+          "id": "ch-elektrokorporation-wald-st-peterzell-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Eli10 SA": [
+        {
+          "id": "ch-eli10-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EnBAG Netze AG": [
+        {
+          "id": "ch-enbag-netze-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "endigo Holding AG": [
+        {
+          "id": "ch-endigo-holding-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EnerCom Kirchberg AG": [
+        {
+          "id": "ch-enercom-kirchberg-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "energia alpina": [
+        {
+          "id": "ch-energia-alpina-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energia Samedan": [
+        {
+          "id": "ch-energia-samedan-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie AG Sumiswald": [
+        {
+          "id": "ch-energie-ag-sumiswald-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Belp AG": [
+        {
+          "id": "ch-energie-belp-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Freiamt AG": [
+        {
+          "id": "ch-energie-freiamt-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Gossau AG": [
+        {
+          "id": "ch-energie-gossau-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Grüningen AG": [
+        {
+          "id": "ch-energie-gr-ningen-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Grosshöchstetten AG": [
+        {
+          "id": "ch-energie-grossh-chstetten-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Hunzenschwil AG (ENH)": [
+        {
+          "id": "ch-energie-hunzenschwil-ag-enh-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Kestenholz": [
+        {
+          "id": "ch-energie-kestenholz-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Kreuzlingen, Stadt Kreuzlingen": [
+        {
+          "id": "ch-energie-kreuzlingen-stadt-kreuzlingen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Münchenbuchsee AG": [
+        {
+          "id": "ch-energie-m-nchenbuchsee-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Oberes Fricktal AG": [
+        {
+          "id": "ch-energie-oberes-fricktal-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Oberhofen AG": [
+        {
+          "id": "ch-energie-oberhofen-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Opfikon AG": [
+        {
+          "id": "ch-energie-opfikon-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Service Biel/Bienne (ESB)": [
+        {
+          "id": "ch-energie-service-biel-bienne-esb-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Täsch AG (ETAG)": [
+        {
+          "id": "ch-energie-t-sch-ag-etag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Thun AG": [
+        {
+          "id": "ch-energie-thun-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie und Wasser, Gemeindewerke Stäfa": [
+        {
+          "id": "ch-energie-und-wasser-gemeindewerke-st-fa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie- und Wasserversorgung Oberburg": [
+        {
+          "id": "ch-energie-und-wasserversorgung-oberburg-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "ENERGIE USTER AG": [
+        {
+          "id": "ch-energie-uster-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Versorgung Riggisberg (EVR) AG": [
+        {
+          "id": "ch-energie-versorgung-riggisberg-evr-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Wasser Bern": [
+        {
+          "id": "ch-energie-wasser-bern-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energie Wettingen AG": [
+        {
+          "id": "ch-energie-wettingen-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energiegenossenschaft Diemtigtal": [
+        {
+          "id": "ch-energiegenossenschaft-diemtigtal-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "energieUri AG": [
+        {
+          "id": "ch-energieuri-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energieversorgung Büren AG": [
+        {
+          "id": "ch-energieversorgung-b-ren-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Energieversorgung Blumenstein AG (EVB)": [
+        {
+          "id": "ch-energieversorgung-blumenstein-ag-evb-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Eniwa AG": [
+        {
+          "id": "ch-eniwa-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "eug Elektra Untergäu Genossenschaft": [
+        {
+          "id": "ch-eug-elektra-unterg-u-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EV Energieversorgung Biberist": [
+        {
+          "id": "ch-ev-energieversorgung-biberist-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EV Gebenstorf AG": [
+        {
+          "id": "ch-ev-gebenstorf-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EVG Grächen AG": [
+        {
+          "id": "ch-evg-gr-chen-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EVN Energieversorgung Nikolai AG": [
+        {
+          "id": "ch-evn-energieversorgung-nikolai-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Evolon AG": [
+        {
+          "id": "ch-evolon-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EVR Energieversorgung Raron AG": [
+        {
+          "id": "ch-evr-energieversorgung-raron-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EVS Energieversorgung Schänis AG": [
+        {
+          "id": "ch-evs-energieversorgung-sch-nis-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EVTL Energieversorgung Talschaft Lötschen AG": [
+        {
+          "id": "ch-evtl-energieversorgung-talschaft-l-tschen-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EVWR Energiedienste Visp - Westlich Raron AG": [
+        {
+          "id": "ch-evwr-energiedienste-visp-westlich-raron-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EW Höfe AG": [
+        {
+          "id": "ch-ew-h-fe-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EW Lachen AG": [
+        {
+          "id": "ch-ew-lachen-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EW Lindau AG": [
+        {
+          "id": "ch-ew-lindau-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EW Oftringen AG": [
+        {
+          "id": "ch-ew-oftringen-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EW Rothrist AG": [
+        {
+          "id": "ch-ew-rothrist-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EW - Samnaun": [
+        {
+          "id": "ch-ew-samnaun-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EW Sirnach AG": [
+        {
+          "id": "ch-ew-sirnach-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EW WALD AG": [
+        {
+          "id": "ch-ew-wald-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EWD Elektrizitätswerk Davos AG": [
+        {
+          "id": "ch-ewd-elektrizit-tswerk-davos-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EWD": [
+        {
+          "id": "ch-ewd-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EWK Energie AG": [
+        {
+          "id": "ch-ewk-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EWK Herzogenbuchsee AG": [
+        {
+          "id": "ch-ewk-herzogenbuchsee-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EWL Genossenschaft": [
+        {
+          "id": "ch-ewl-genossenschaft-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "ewl Kabelnetz AG": [
+        {
+          "id": "ch-ewl-kabelnetz-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EWS AG": [
+        {
+          "id": "ch-ews-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EWS Energie AG": [
+        {
+          "id": "ch-ews-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "EWZ Elektrizitätswerk Zermatt AG": [
+        {
+          "id": "ch-ewz-elektrizit-tswerk-zermatt-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Feuerschaugemeinde Appenzell, Energie- und Wasserversorgung": [
+        {
+          "id": "ch-feuerschaugemeinde-appenzell-energie-und-wasserversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Flims Trin Energie AG": [
+        {
+          "id": "ch-flims-trin-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Forces Motrices de l'Avançon SA": [
+        {
+          "id": "ch-forces-motrices-de-l-avan-on-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "GEBNET AG": [
+        {
+          "id": "ch-gebnet-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Albula/Alvra": [
+        {
+          "id": "ch-gemeinde-albula-alvra-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Amlikon-Bissegg, Stromversorgung": [
+        {
+          "id": "ch-gemeinde-amlikon-bissegg-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Andeer, Elektrizitätswesen": [
+        {
+          "id": "ch-gemeinde-andeer-elektrizit-tswesen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Andelfingen, Stromversorgung": [
+        {
+          "id": "ch-gemeinde-andelfingen-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Büttikon, Abt. Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-b-ttikon-abt-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Balgach, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-balgach-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Bargen BE, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-bargen-be-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Bellikon": [
+        {
+          "id": "ch-gemeinde-bellikon-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Berikon, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-berikon-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Besenbüren, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-besenb-ren-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Brienzwiler, Elekrizität": [
+        {
+          "id": "ch-gemeinde-brienzwiler-elekrizit-t-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Diessenhofen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-diessenhofen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Eichberg, Elektra": [
+        {
+          "id": "ch-gemeinde-eichberg-elektra-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Eriswil, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-eriswil-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Erlen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-erlen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Eschlikon, Elektrizitätswerk": [
+        {
+          "id": "ch-gemeinde-eschlikon-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Fehraltorf, Elektrizität": [
+        {
+          "id": "ch-gemeinde-fehraltorf-elektrizit-t-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Güttingen, Elektrizitätswerk": [
+        {
+          "id": "ch-gemeinde-g-ttingen-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Galgenen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-galgenen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Gondo-Zwischenberg, Stromversorgung": [
+        {
+          "id": "ch-gemeinde-gondo-zwischenberg-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Herrliberg, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-herrliberg-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Kaisten, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-kaisten-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Killwangen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-killwangen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Lantsch/Lenz, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-lantsch-lenz-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Männedorf, Energieversorung": [
+        {
+          "id": "ch-gemeinde-m-nnedorf-energieversorung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Mellingen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-mellingen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Murgenthal, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-murgenthal-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Oberbüren, Elektra / Stromversorgung": [
+        {
+          "id": "ch-gemeinde-oberb-ren-elektra-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Oberentfelden, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-oberentfelden-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Oberwil bei Büren, Energieversorgung": [
+        {
+          "id": "ch-gemeinde-oberwil-bei-b-ren-energieversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Oberwil-Lieli, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-oberwil-lieli-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Rheinwald, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-rheinwald-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Rupperswil, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-rupperswil-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde S-chanf Energia S-chanf": [
+        {
+          "id": "ch-gemeinde-s-chanf-energia-s-chanf-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Saas Almagell, Stromversorgung": [
+        {
+          "id": "ch-gemeinde-saas-almagell-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Saas-Fee, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-saas-fee-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Safiental, Stromversorgung": [
+        {
+          "id": "ch-gemeinde-safiental-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Salenstein, Stromversorgung": [
+        {
+          "id": "ch-gemeinde-salenstein-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Schübelbach, Elektroversorgung": [
+        {
+          "id": "ch-gemeinde-sch-belbach-elektroversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Schöftland, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-sch-ftland-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Scharans, Elektrizitätswerk": [
+        {
+          "id": "ch-gemeinde-scharans-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Schmitten, Stromversorgung": [
+        {
+          "id": "ch-gemeinde-schmitten-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Sevelen": [
+        {
+          "id": "ch-gemeinde-sevelen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Sils im Domleschg, Elektrizitätswerk": [
+        {
+          "id": "ch-gemeinde-sils-im-domleschg-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Simplon Dorf, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-simplon-dorf-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Spreitenbach, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-spreitenbach-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Stalden, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-stalden-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Staufen, Elektrizitätswerk": [
+        {
+          "id": "ch-gemeinde-staufen-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Sufers, Stromverkauf": [
+        {
+          "id": "ch-gemeinde-sufers-stromverkauf-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Sulgen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-sulgen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Surses, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-surses-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Törbel, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-t-rbel-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Teufenthal, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-teufenthal-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Thalheim, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-thalheim-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Thusis, Energieversorgung": [
+        {
+          "id": "ch-gemeinde-thusis-energieversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Tuggen, Elektrizitätswerk": [
+        {
+          "id": "ch-gemeinde-tuggen-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Ueken, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-ueken-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Unterbäch VS, Elektrizitätswerk": [
+        {
+          "id": "ch-gemeinde-unterb-ch-vs-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Untervaz, Elektroversorgung": [
+        {
+          "id": "ch-gemeinde-untervaz-elektroversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Vorderthal, Elektrizitätswerkversorgung": [
+        {
+          "id": "ch-gemeinde-vorderthal-elektrizit-tswerkversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Wagenhausen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-wagenhausen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Wangen SZ, Elektrizitätswerk": [
+        {
+          "id": "ch-gemeinde-wangen-sz-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Warth-Weiningen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-warth-weiningen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Wuppenau, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeinde-wuppenau-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeinde Zernez": [
+        {
+          "id": "ch-gemeinde-zernez-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeindebetriebe Lotzwil, Elektrizitätsversorgung": [
+        {
+          "id": "ch-gemeindebetriebe-lotzwil-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeindewerk Beckenried": [
+        {
+          "id": "ch-gemeindewerk-beckenried-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeindewerke Arth Elektrizitäts- und Wasserwerk": [
+        {
+          "id": "ch-gemeindewerke-arth-elektrizit-ts-und-wasserwerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeindewerke Erstfeld": [
+        {
+          "id": "ch-gemeindewerke-erstfeld-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeindewerke Pfäffikon ZH": [
+        {
+          "id": "ch-gemeindewerke-pf-ffikon-zh-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeindewerke Rüti (ZH)": [
+        {
+          "id": "ch-gemeindewerke-r-ti-zh-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gemeindewerke Villmergen": [
+        {
+          "id": "ch-gemeindewerke-villmergen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genedis SA": [
+        {
+          "id": "ch-genedis-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft \"Elektra\" Buchen-Teuffenthal (EBT)": [
+        {
+          "id": "ch-genossenschaft-elektra-buchen-teuffenthal-ebt-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "genossenschaft elektra busslingen": [
+        {
+          "id": "ch-genossenschaft-elektra-busslingen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektra Ehrendingen": [
+        {
+          "id": "ch-genossenschaft-elektra-ehrendingen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft ELEKTRA Fislisbach": [
+        {
+          "id": "ch-genossenschaft-elektra-fislisbach-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektra Hatswil": [
+        {
+          "id": "ch-genossenschaft-elektra-hatswil-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektra Itingen": [
+        {
+          "id": "ch-genossenschaft-elektra-itingen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektra, Jegenstorf": [
+        {
+          "id": "ch-genossenschaft-elektra-jegenstorf-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektra Koppigen-Willadingen": [
+        {
+          "id": "ch-genossenschaft-elektra-koppigen-willadingen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektra Neukirch-Egnach": [
+        {
+          "id": "ch-genossenschaft-elektra-neukirch-egnach-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft ELEKTRA Oberrohrdorf": [
+        {
+          "id": "ch-genossenschaft-elektra-oberrohrdorf-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektra Rapperswil": [
+        {
+          "id": "ch-genossenschaft-elektra-rapperswil-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektra Roggwil-Freidorf": [
+        {
+          "id": "ch-genossenschaft-elektra-roggwil-freidorf-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektra Sissach": [
+        {
+          "id": "ch-genossenschaft-elektra-sissach-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektra Thal": [
+        {
+          "id": "ch-genossenschaft-elektra-thal-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektra Äusseres Wasseramt EAW": [
+        {
+          "id": "ch-genossenschaft-elektra-usseres-wasseramt-eaw-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektra Vogelsang": [
+        {
+          "id": "ch-genossenschaft-elektra-vogelsang-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektrizitäts- und Wasserwerk Dozwil": [
+        {
+          "id": "ch-genossenschaft-elektrizit-ts-und-wasserwerk-dozwil-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektrizitätsversorgung Saas-Grund": [
+        {
+          "id": "ch-genossenschaft-elektrizit-tsversorgung-saas-grund-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Elektrizitätswerk Räterschen EWR": [
+        {
+          "id": "ch-genossenschaft-elektrizit-tswerk-r-terschen-ewr-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Energie Fischingen": [
+        {
+          "id": "ch-genossenschaft-energie-fischingen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft EW Münchwilen (EWM)": [
+        {
+          "id": "ch-genossenschaft-ew-m-nchwilen-ewm-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft EW Romanshorn": [
+        {
+          "id": "ch-genossenschaft-ew-romanshorn-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft für die Stromversorgung Kalpetran GSK": [
+        {
+          "id": "ch-genossenschaft-f-r-die-stromversorgung-kalpetran-gsk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Licht- und Kraftwerke Glattfelden": [
+        {
+          "id": "ch-genossenschaft-licht-und-kraftwerke-glattfelden-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft Werk Bichelsee-Balterswil": [
+        {
+          "id": "ch-genossenschaft-werk-bichelsee-balterswil-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Glattwerk AG": [
+        {
+          "id": "ch-glattwerk-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Groupe E SA": [
+        {
+          "id": "ch-groupe-e-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Gruyère Energie S.A.": [
+        {
+          "id": "ch-gruy-re-energie-s-a-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "HEnergie Härkingen HEH": [
+        {
+          "id": "ch-henergie-h-rkingen-heh-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Hydrantenkorporation & Elektraversorgung Schönengrund": [
+        {
+          "id": "ch-hydrantenkorporation-elektraversorgung-sch-nengrund-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "IB Langenthal AG": [
+        {
+          "id": "ch-ib-langenthal-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "IB Wohlen AG": [
+        {
+          "id": "ch-ib-wohlen-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "IBB Strom AG": [
+        {
+          "id": "ch-ibb-strom-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "IBC Energie Wasser Chur (IBC)": [
+        {
+          "id": "ch-ibc-energie-wasser-chur-ibc-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Impianti elettrici Bivio società cooperativa": [
+        {
+          "id": "ch-impianti-elettrici-bivio-societ-cooperativa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Industrielle Betriebe Huttwil AG": [
+        {
+          "id": "ch-industrielle-betriebe-huttwil-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Industrielle Betriebe Interlaken (IBI) AG": [
+        {
+          "id": "ch-industrielle-betriebe-interlaken-ibi-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Industrielle Betriebe Kloten AG": [
+        {
+          "id": "ch-industrielle-betriebe-kloten-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Industrielle Betriebe Murten": [
+        {
+          "id": "ch-industrielle-betriebe-murten-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Infrastruktur Zürichsee AG": [
+        {
+          "id": "ch-infrastruktur-z-richsee-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "InfraWerkeMünsingen (IWM)": [
+        {
+          "id": "ch-infrawerkem-nsingen-iwm-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "IWB Industrielle Werke Basel": [
+        {
+          "id": "ch-iwb-industrielle-werke-basel-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Jungfraubahn AG": [
+        {
+          "id": "ch-jungfraubahn-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Kantonales Elektrizitätswerk Nidwalden (EWN)": [
+        {
+          "id": "ch-kantonales-elektrizit-tswerk-nidwalden-ewn-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Licht- und Kraftgenossenschaft Richigen": [
+        {
+          "id": "ch-licht-und-kraftgenossenschaft-richigen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Licht- und Wasserwerk Adelboden AG": [
+        {
+          "id": "ch-licht-und-wasserwerk-adelboden-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Licht- und Wasserwerk AG Kandersteg": [
+        {
+          "id": "ch-licht-und-wasserwerk-ag-kandersteg-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Localnet AG": [
+        {
+          "id": "ch-localnet-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "LST Energie AG": [
+        {
+          "id": "ch-lst-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Martin Zeller AG, Elektrizitätswerk": [
+        {
+          "id": "ch-martin-zeller-ag-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Media Mesolcina Energia": [
+        {
+          "id": "ch-media-mesolcina-energia-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Monthey Energies SA": [
+        {
+          "id": "ch-monthey-energies-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Municipalité de La Neuveville": [
+        {
+          "id": "ch-municipalit-de-la-neuveville-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Munizipalgemeinde Eisten, Stromversorgung": [
+        {
+          "id": "ch-munizipalgemeinde-eisten-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Munizipalgemeinde Wängi, Elektrititätswerk": [
+        {
+          "id": "ch-munizipalgemeinde-w-ngi-elektritit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Murg Flums Energie": [
+        {
+          "id": "ch-murg-flums-energie-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "NetZulg AG": [
+        {
+          "id": "ch-netzulg-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "OIKEN SA": [
+        {
+          "id": "ch-oiken-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Ovra Electrica Medel, Elektrizitätswerk": [
+        {
+          "id": "ch-ovra-electrica-medel-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Polit. Gemeinde Münsterlingen, Elektra": [
+        {
+          "id": "ch-polit-gemeinde-m-nsterlingen-elektra-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Altnau, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-altnau-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Au SG, Elektrizitätswerk": [
+        {
+          "id": "ch-politische-gemeinde-au-sg-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Bürglen TG, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-b-rglen-tg-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Basadingen-Schlattingen , Elektrizität": [
+        {
+          "id": "ch-politische-gemeinde-basadingen-schlattingen-elektrizit-t-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Benken SG, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-benken-sg-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Benken ZH, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-benken-zh-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Berlingen, Elektizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-berlingen-elektizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Bettwiesen, Elektra": [
+        {
+          "id": "ch-politische-gemeinde-bettwiesen-elektra-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Birwinken, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-birwinken-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Bottighofen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-bottighofen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Braunau, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-braunau-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Bussnang, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-bussnang-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Diepoldsau, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-diepoldsau-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Dietlikon, Gemeindewerke": [
+        {
+          "id": "ch-politische-gemeinde-dietlikon-gemeindewerke-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Eggersriet, Elektra": [
+        {
+          "id": "ch-politische-gemeinde-eggersriet-elektra-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Eschenz, Elektrizitätswerk": [
+        {
+          "id": "ch-politische-gemeinde-eschenz-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Fällanden, Wasser, Abwasser, Strom": [
+        {
+          "id": "ch-politische-gemeinde-f-llanden-wasser-abwasser-strom-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Felben-Wellhausen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-felben-wellhausen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Gachnang, Elektrizitätversorgung": [
+        {
+          "id": "ch-politische-gemeinde-gachnang-elektrizit-tversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Gaiserwald, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-gaiserwald-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Gottlieben, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-gottlieben-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde, Häggenschwil, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-h-ggenschwil-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Hüttlingen, Elektrizitätswerk": [
+        {
+          "id": "ch-politische-gemeinde-h-ttlingen-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Hüttwilen, Elektrizitätswerk": [
+        {
+          "id": "ch-politische-gemeinde-h-ttwilen-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Herdern Abwasser, Wasser- & Elektragen. Technische Werke": [
+        {
+          "id": "ch-politische-gemeinde-herdern-abwasser-wasser-elektragen-technische-werke-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Hohentannen, Stromversorgung": [
+        {
+          "id": "ch-politische-gemeinde-hohentannen-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Jenins, Energieversorgung": [
+        {
+          "id": "ch-politische-gemeinde-jenins-energieversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Kradolf-Schönenberg, Elektrizität": [
+        {
+          "id": "ch-politische-gemeinde-kradolf-sch-nenberg-elektrizit-t-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Lengwil, Elektrizitätswerk": [
+        {
+          "id": "ch-politische-gemeinde-lengwil-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Mörschwil, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-m-rschwil-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Märstetten, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-m-rstetten-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Mammern, Elektrizität": [
+        {
+          "id": "ch-politische-gemeinde-mammern-elektrizit-t-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Marbach SG, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-marbach-sg-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Mels, Elektrizitäts- & Wasserwerk": [
+        {
+          "id": "ch-politische-gemeinde-mels-elektrizit-ts-wasserwerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Neunforn, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-neunforn-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Niederhelfenschwil, Elektra / Stromversorgung": [
+        {
+          "id": "ch-politische-gemeinde-niederhelfenschwil-elektra-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Oberriet SG, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-oberriet-sg-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Pfyn": [
+        {
+          "id": "ch-politische-gemeinde-pfyn-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Rüthi, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-r-thi-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Rebstein, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-rebstein-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Rickenbach TG Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-rickenbach-tg-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Rorschacherberg, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-rorschacherberg-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Schlatt, Elektrizitätversorgung": [
+        {
+          "id": "ch-politische-gemeinde-schlatt-elektrizit-tversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Steckborn": [
+        {
+          "id": "ch-politische-gemeinde-steckborn-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Steinach, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-steinach-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Tübach, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-t-bach-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Tägerwilen, Elektrizitätswerk": [
+        {
+          "id": "ch-politische-gemeinde-t-gerwilen-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Tobel-Tägerschen, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-tobel-t-gerschen-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Uesslingen-Buch, Elektrizitätswerk": [
+        {
+          "id": "ch-politische-gemeinde-uesslingen-buch-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Vaz/Obervaz, Elektrizitätswerk / -Versorgung": [
+        {
+          "id": "ch-politische-gemeinde-vaz-obervaz-elektrizit-tswerk-versorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Vilters-Wangs, Elektrizitätswerk Vilters-Wangs": [
+        {
+          "id": "ch-politische-gemeinde-vilters-wangs-elektrizit-tswerk-vilters-wangs-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Wäldi, Werkbetrieb": [
+        {
+          "id": "ch-politische-gemeinde-w-ldi-werkbetrieb-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Waldkirch, Abteilung Elektra": [
+        {
+          "id": "ch-politische-gemeinde-waldkirch-abteilung-elektra-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Widnau, Elektra / Stromversorgung": [
+        {
+          "id": "ch-politische-gemeinde-widnau-elektra-stromversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Wigoltingen, Elektrizitätswerk": [
+        {
+          "id": "ch-politische-gemeinde-wigoltingen-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Wilen b. Wil, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-wilen-b-wil-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Wittenbach, Elektrizitätsversorgung": [
+        {
+          "id": "ch-politische-gemeinde-wittenbach-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Politische Gemeinde Zuzwil, Elektrizitätswerk": [
+        {
+          "id": "ch-politische-gemeinde-zuzwil-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Primeo Netz AG": [
+        {
+          "id": "ch-primeo-netz-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Provedimaint electric Val Müstair (PEM)": [
+        {
+          "id": "ch-provedimaint-electric-val-m-stair-pem-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Rabiosa Energie": [
+        {
+          "id": "ch-rabiosa-energie-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Regio Energie Amriswil (REA)": [
+        {
+          "id": "ch-regio-energie-amriswil-rea-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Regio Energie Solothurn": [
+        {
+          "id": "ch-regio-energie-solothurn-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Regionalwerke AG Baden": [
+        {
+          "id": "ch-regionalwerke-ag-baden-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "RELL AG": [
+        {
+          "id": "ch-rell-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Repower AG": [
+        {
+          "id": "ch-repower-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Rhiienergie AG (rhiienergie)": [
+        {
+          "id": "ch-rhiienergie-ag-rhiienergie-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Romande Energie SA": [
+        {
+          "id": "ch-romande-energie-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "RTB Regionale Technische Betriebe": [
+        {
+          "id": "ch-rtb-regionale-technische-betriebe-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "rwt Regionalwerk Toggenburg AG": [
+        {
+          "id": "ch-rwt-regionalwerk-toggenburg-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "SEDRE SA": [
+        {
+          "id": "ch-sedre-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Service de l'Electricité, Municipalité de Moutier": [
+        {
+          "id": "ch-service-de-l-electricit-municipalit-de-moutier-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Service des Energies, Commune d'Yverdon-les-Bains": [
+        {
+          "id": "ch-service-des-energies-commune-d-yverdon-les-bains-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Service Industriel de la Commune, Pully": [
+        {
+          "id": "ch-service-industriel-de-la-commune-pully-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Services industriels de Delémont": [
+        {
+          "id": "ch-services-industriels-de-del-mont-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Services industriels de Genève": [
+        {
+          "id": "ch-services-industriels-de-gen-ve-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Services industriels de la Ville de Nyon": [
+        {
+          "id": "ch-services-industriels-de-la-ville-de-nyon-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Services Industriels de Lausanne": [
+        {
+          "id": "ch-services-industriels-de-lausanne-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "SIE SA": [
+        {
+          "id": "ch-sie-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Sinergy Infrastructure SA": [
+        {
+          "id": "ch-sinergy-infrastructure-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Société des Forces Électriques de La Goule SA": [
+        {
+          "id": "ch-soci-t-des-forces-lectriques-de-la-goule-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Société Electrique de la Vallée de Joux S.A.": [
+        {
+          "id": "ch-soci-t-electrique-de-la-vall-e-de-joux-s-a-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Société Electrique des Forces de l'Aubonne SA (SEFA)": [
+        {
+          "id": "ch-soci-t-electrique-des-forces-de-l-aubonne-sa-sefa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Société Electrique Intercommunale de la Côte SA": [
+        {
+          "id": "ch-soci-t-electrique-intercommunale-de-la-c-te-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Società Elettrica Sopracenerina SA (Mesolcina)": [
+        {
+          "id": "ch-societ-elettrica-sopracenerina-sa-mesolcina-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Società Elettrica Sopracenerina SA (Ticino)": [
+        {
+          "id": "ch-societ-elettrica-sopracenerina-sa-ticino-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Società Semplice Tra I Comuni, Concedenti Elin, Prestazioni di Servizio": [
+        {
+          "id": "ch-societ-semplice-tra-i-comuni-concedenti-elin-prestazioni-di-servizio-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Städtische Betriebe Olten (SBO)": [
+        {
+          "id": "ch-st-dtische-betriebe-olten-sbo-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "St.Galler Stadtwerke": [
+        {
+          "id": "ch-st-galler-stadtwerke-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "St. Gallisch-Appenzellische Kraftwerke AG": [
+        {
+          "id": "ch-st-gallisch-appenzellische-kraftwerke-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "St. Moritz Energie": [
+        {
+          "id": "ch-st-moritz-energie-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Stadtwerk Winterthur": [
+        {
+          "id": "ch-stadtwerk-winterthur-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Stadtwerke Gossau": [
+        {
+          "id": "ch-stadtwerke-gossau-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Stadtwerke Wetzikon": [
+        {
+          "id": "ch-stadtwerke-wetzikon-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Steiner Energie AG": [
+        {
+          "id": "ch-steiner-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "StWZ Energie AG": [
+        {
+          "id": "ch-stwz-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "SWG": [
+        {
+          "id": "ch-swg-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "SWL Energie AG": [
+        {
+          "id": "ch-swl-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "TB Gränichen Energie AG": [
+        {
+          "id": "ch-tb-gr-nichen-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "tba energie ag": [
+        {
+          "id": "ch-tba-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "TBS Strom AG": [
+        {
+          "id": "ch-tbs-strom-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe Altstätten": [
+        {
+          "id": "ch-technische-betriebe-altst-tten-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe Flawil (TBF)": [
+        {
+          "id": "ch-technische-betriebe-flawil-tbf-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe Glarus Nord (TBGN)": [
+        {
+          "id": "ch-technische-betriebe-glarus-nord-tbgn-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe Glarus Süd": [
+        {
+          "id": "ch-technische-betriebe-glarus-s-d-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe Glarus": [
+        {
+          "id": "ch-technische-betriebe-glarus-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe Goldach": [
+        {
+          "id": "ch-technische-betriebe-goldach-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe Grabs, Energie, Strom, Wasser": [
+        {
+          "id": "ch-technische-betriebe-grabs-energie-strom-wasser-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe Kemmental, Stromverkauf": [
+        {
+          "id": "ch-technische-betriebe-kemmental-stromverkauf-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe, Politische Gemeinde St. Margrethen": [
+        {
+          "id": "ch-technische-betriebe-politische-gemeinde-st-margrethen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe Seon AG": [
+        {
+          "id": "ch-technische-betriebe-seon-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe, Stadt Rorschach": [
+        {
+          "id": "ch-technische-betriebe-stadt-rorschach-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe Würenlos": [
+        {
+          "id": "ch-technische-betriebe-w-renlos-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe Weinfelden AG": [
+        {
+          "id": "ch-technische-betriebe-weinfelden-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Betriebe Wil": [
+        {
+          "id": "ch-technische-betriebe-wil-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Gemeindebetriebe Berg, Gas-Strom-Und Wasserverteilung": [
+        {
+          "id": "ch-technische-gemeindebetriebe-berg-gas-strom-und-wasserverteilung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Gemeindebetriebe Bischofszell": [
+        {
+          "id": "ch-technische-gemeindebetriebe-bischofszell-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Gemeindebetriebe Hauptwil-Gottshaus, Elektrizitätsversorgung": [
+        {
+          "id": "ch-technische-gemeindebetriebe-hauptwil-gottshaus-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Technische Werke der Politischen Gemeinde Affeltrangen, Abwasserentsorgung": [
+        {
+          "id": "ch-technische-werke-der-politischen-gemeinde-affeltrangen-abwasserentsorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Thurplus": [
+        {
+          "id": "ch-thurplus-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Thurwerke AG": [
+        {
+          "id": "ch-thurwerke-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Trimmiser Industrielle Betriebe (TIB)": [
+        {
+          "id": "ch-trimmiser-industrielle-betriebe-tib-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "VED Visp Energie Dienste AG": [
+        {
+          "id": "ch-ved-visp-energie-dienste-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Viteos SA": [
+        {
+          "id": "ch-viteos-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "VOé distribution SA": [
+        {
+          "id": "ch-vo-distribution-sa-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Wasser- & Elektrizitätswerk Steinhausen": [
+        {
+          "id": "ch-wasser-elektrizit-tswerk-steinhausen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Wasser- und Elektrizitätswerk Walenstadt": [
+        {
+          "id": "ch-wasser-und-elektrizit-tswerk-walenstadt-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Werkbetrieb der Dorfgemeinde Matzingen": [
+        {
+          "id": "ch-werkbetrieb-der-dorfgemeinde-matzingen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Werkbetriebe Wynau (WBW)": [
+        {
+          "id": "ch-werkbetriebe-wynau-wbw-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Werke am Zürichsee AG (Erlenbach)": [
+        {
+          "id": "ch-werke-am-z-richsee-ag-erlenbach-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Werke am Zürichsee AG (Küsnacht)": [
+        {
+          "id": "ch-werke-am-z-richsee-ag-k-snacht-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Werke am Zürichsee AG (Zollikon)": [
+        {
+          "id": "ch-werke-am-z-richsee-ag-zollikon-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Werke Horgen": [
+        {
+          "id": "ch-werke-horgen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Werke Rheineck, Elektrizitätsversorgung": [
+        {
+          "id": "ch-werke-rheineck-elektrizit-tsversorgung-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Werke Wangen-Brüttisellen, Elektrizitätswerk": [
+        {
+          "id": "ch-werke-wangen-br-ttisellen-elektrizit-tswerk-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "WWZ Energie AG": [
+        {
+          "id": "ch-wwz-energie-ag-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
           "verified": false
         }
       ]

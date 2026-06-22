@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "id": "ch-azienda-elettrica-comunale-bedretto-commercio-energia-elettrica-standard-supply-household-h4",
+    "schemaVersion": "1",
+    "country": "CH",
+    "distributor": "Azienda Elettrica Comunale Bedretto, Commercio Energia Elettrica",
+    "provider": "Azienda Elettrica Comunale Bedretto, Commercio Energia Elettrica",
+    "plan": "Standard supply (household H4)",
+    "currency": "CHF",
+    "unit": "kWh",
+    "timezone": "Europe/Zurich",
+    "source": "provider",
+    "sourceUrl": "https://www.strompreis.elcom.admin.ch/",
+    "license": "other",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Swiss household electricity tariff — ElCom reference profile H4 (~4,500 kWh/yr), basic/standard supply (Grundversorgung) — from the Federal Electricity Commission (ElCom) via LINDAS (lindas.admin.ch). opendata.swiss \"Open use\" (terms_open); ElCom attributed as a courtesy. All-in 26.76 Rp/kWh = energy 8.40 + grid 13.11 + federal grid surcharge 2.30 + community/cantonal taxes; annual fixed 98 CHF. Serves 1 municipality. Period 2026."
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.26761
+    },
+    "supply": {
+      "daily": 0.26849
+    },
+    "validFrom": "2026-01-01"
+  }
+}
