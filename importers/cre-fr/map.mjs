@@ -11,7 +11,7 @@
 // attribution). Recorded as license:"other" — the schema enum has no Etalab
 // value, and Etalab 2.0 is CC-BY-compatible but not literally CC BY 4.0.
 
-import { slug, money, round, dayComplement } from '../_lib/canonical.mjs';
+import { slug, money, round, dayComplement, assignRoles } from '../_lib/canonical.mjs';
 
 export { slug, money };
 
@@ -65,10 +65,10 @@ export function mapTrvRecord(rec, opts = {}) {
   if (fixe != null) tariff.supply = { daily: round(fixe / 365) };
 
   if (isHpHc) {
-    tariff.import.bands = [
+    tariff.import.bands = assignRoles([
       { id: 'hp', name: 'Heures Pleines', rate: money(rec.partVariableHP) ?? 0 },
       { id: 'hc', name: 'Heures Creuses', rate: money(rec.partVariableHC) ?? 0 },
-    ];
+    ]);
     tariff.import.schedule = hpHcSchedule(rec.hcWindows || [{ from: '22:00', to: '06:00' }]);
   } else {
     tariff.import.flatRate = money(rec.partVariable) ?? 0;

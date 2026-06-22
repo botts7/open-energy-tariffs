@@ -361,12 +361,14 @@
         {
           "id": "off-peak",
           "name": "Off-peak",
-          "rate": 0.4
+          "rate": 0.4,
+          "role": "offpeak"
         },
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.509091
+          "rate": 0.509091,
+          "role": "peak"
         }
       ],
       "schedule": [
@@ -400,7 +402,7 @@
       "daily": 1.818182
     },
     "export": {
-      "flatRate": 0.0
+      "flatRate": 0
     },
     "controlledLoad": [
       {

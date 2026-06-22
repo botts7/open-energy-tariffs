@@ -25,12 +25,14 @@
         {
           "id": "day",
           "name": "Day",
-          "rate": 0.2705
+          "rate": 0.2705,
+          "role": "peak"
         },
         {
           "id": "night",
           "name": "Night",
-          "rate": 0.1803
+          "rate": 0.1803,
+          "role": "offpeak"
         }
       ],
       "schedule": [

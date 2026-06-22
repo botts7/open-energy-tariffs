@@ -140,17 +140,20 @@
         {
           "id": "non-summer-peak",
           "name": "Non-Summer Peak",
-          "rate": 0.3525
+          "rate": 0.3525,
+          "role": "peak"
         },
         {
           "id": "non-summer-off-peak",
           "name": "Non-Summer Off Peak",
-          "rate": 0.2349
+          "rate": 0.2349,
+          "role": "offpeak"
         },
         {
           "id": "non-summer-shoulder",
           "name": "Non-Summer Shoulder",
-          "rate": 0.2839
+          "rate": 0.2839,
+          "role": "shoulder"
         }
       ],
       "schedule": [
@@ -175,7 +178,7 @@
       ]
     },
     "supply": {
-      "daily": 5.0
+      "daily": 5
     },
     "export": {
       "flatRate": 0.0894

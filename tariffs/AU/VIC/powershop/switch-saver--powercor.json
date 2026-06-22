@@ -342,12 +342,14 @@
         {
           "id": "tariff-1",
           "name": "Tariff 1",
-          "rate": 0.347609
+          "rate": 0.347609,
+          "role": "peak"
         },
         {
           "id": "tariff-2",
           "name": "Tariff 2",
-          "rate": 0.210779
+          "rate": 0.210779,
+          "role": "offpeak"
         }
       ],
       "schedule": [

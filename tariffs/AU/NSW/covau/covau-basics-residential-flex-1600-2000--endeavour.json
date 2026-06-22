@@ -183,12 +183,14 @@
         {
           "id": "non-summer-peak",
           "name": "Non-Summer Peak",
-          "rate": 0.459
+          "rate": 0.459,
+          "role": "peak"
         },
         {
           "id": "non-summer-off-peak",
           "name": "Non-Summer Off Peak",
-          "rate": 0.318
+          "rate": 0.318,
+          "role": "offpeak"
         }
       ],
       "schedule": [

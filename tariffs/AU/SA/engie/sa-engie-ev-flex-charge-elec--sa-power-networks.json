@@ -360,17 +360,20 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.5112
+          "rate": 0.5112,
+          "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.3586
+          "rate": 0.3586,
+          "role": "offpeak"
         },
         {
           "id": "solar-sponge",
           "name": "Solar Sponge",
-          "rate": 0.1853
+          "rate": 0.1853,
+          "role": "offpeak"
         }
       ],
       "schedule": [

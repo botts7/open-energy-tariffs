@@ -14,20 +14,52 @@
     "updated": "2026-06-21",
     "verified": false,
     "notes": "Belgium two-rate (tweevoudig/bi-horaire) meter: dag (day) 07:00-22:00 weekdays; nacht (night) 22:00-07:00 + all weekend (exact windows vary by DSO). Rates APPROXIMATE (~2026) in EUR/kWh — verify. Excludes capacity tariff + standing charges. National.",
-    "coverage": { "national": true }
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
-        { "id": "dag", "name": "Dag (day)", "rate": 0.32 },
-        { "id": "nacht", "name": "Nacht (night)", "rate": 0.26 }
+        {
+          "id": "dag",
+          "name": "Dag (day)",
+          "rate": 0.32,
+          "role": "peak"
+        },
+        {
+          "id": "nacht",
+          "name": "Nacht (night)",
+          "rate": 0.26,
+          "role": "offpeak"
+        }
       ],
       "schedule": [
-        { "days": "weekday", "from": "00:00", "to": "07:00", "band": "nacht" },
-        { "days": "weekday", "from": "07:00", "to": "22:00", "band": "dag" },
-        { "days": "weekday", "from": "22:00", "to": "24:00", "band": "nacht" },
-        { "days": "weekend", "from": "00:00", "to": "24:00", "band": "nacht" }
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "07:00",
+          "band": "nacht"
+        },
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "22:00",
+          "band": "dag"
+        },
+        {
+          "days": "weekday",
+          "from": "22:00",
+          "to": "24:00",
+          "band": "nacht"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "nacht"
+        }
       ]
     }
   }

@@ -54,17 +54,20 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.4265
+          "rate": 0.4265,
+          "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.2715
+          "rate": 0.2715,
+          "role": "offpeak"
         },
         {
           "id": "smart-rate",
           "name": "Smart Rate",
-          "rate": 0.2455
+          "rate": 0.2455,
+          "role": "offpeak"
         }
       ],
       "schedule": [

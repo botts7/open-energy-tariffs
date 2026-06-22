@@ -183,17 +183,20 @@
         {
           "id": "summer-peak",
           "name": "Summer Peak",
-          "rate": 0.54483
+          "rate": 0.54483,
+          "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off-peak",
-          "rate": 0.35608
+          "rate": 0.35608,
+          "role": "offpeak"
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.17638
+          "rate": 0.17638,
+          "role": "shoulder"
         }
       ],
       "schedule": [

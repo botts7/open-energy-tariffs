@@ -14,20 +14,52 @@
     "updated": "2026-06-21",
     "verified": false,
     "notes": "Netherlands double-tariff (dubbeltarief) meter: normaal (day) 07:00-23:00 weekdays; dal (off-peak) nights + all weekend. Suppliers set prices; rates APPROXIMATE (~2026) in EUR/kWh — verify. Excludes standing charge + net-management fee. National.",
-    "coverage": { "national": true }
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
-        { "id": "normaal", "name": "Normaal (day)", "rate": 0.30 },
-        { "id": "dal", "name": "Dal (off-peak)", "rate": 0.28 }
+        {
+          "id": "normaal",
+          "name": "Normaal (day)",
+          "rate": 0.3,
+          "role": "peak"
+        },
+        {
+          "id": "dal",
+          "name": "Dal (off-peak)",
+          "rate": 0.28,
+          "role": "offpeak"
+        }
       ],
       "schedule": [
-        { "days": "weekday", "from": "00:00", "to": "07:00", "band": "dal" },
-        { "days": "weekday", "from": "07:00", "to": "23:00", "band": "normaal" },
-        { "days": "weekday", "from": "23:00", "to": "24:00", "band": "dal" },
-        { "days": "weekend", "from": "00:00", "to": "24:00", "band": "dal" }
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "07:00",
+          "band": "dal"
+        },
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "23:00",
+          "band": "normaal"
+        },
+        {
+          "days": "weekday",
+          "from": "23:00",
+          "to": "24:00",
+          "band": "dal"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "dal"
+        }
       ]
     }
   }

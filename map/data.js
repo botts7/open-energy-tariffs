@@ -49,3 +49,24 @@ OET.isDynamic = function (rec) {
   return /\bamber\b/.test(p)
     || /wholesale|wholesave|spot[- ]?price|\bspot\b|market[- ]?linked|\bagile\b|real[- ]?time price/.test(n);
 };
+
+// Semantic band role (backend-normalised). Use the stored `role` (our domain);
+// fall back to a name guess so pre-backfill / external data still colours sanely.
+OET.bandRole = function (band) {
+  if (band && band.role) return band.role;
+  const s = String((band && (band.name || band.id)) || '').toLowerCase();
+  if (/control|\bcl\d?\b/.test(s)) return 'controlled';
+  if (/off.?peak|\bnight\b|離峰|creuses|\bhc\b|solar\s*(sponge|soak)|\bfree\b/.test(s)) return 'offpeak';
+  if (/shoulder|half.?peak|半尖峰/.test(s)) return 'shoulder';
+  if (/\bpeak\b|尖峰|pleines|\bhp\b/.test(s)) return 'peak';
+  return '';
+};
+
+// Role -> UI colour (the logic layer made visible). Language/label-independent.
+OET.ROLE_COLOR = { peak: '#dc2626', shoulder: '#f59e0b', offpeak: '#16a34a', night: '#3b82f6', controlled: '#64748b' };
+OET.roleColor = function (role) { return OET.ROLE_COLOR[role] || '#94a3b8'; };
+OET.roleDot = function (band) {
+  const r = OET.bandRole(band);
+  if (!r) return '';
+  return `<span title="${r}" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${OET.roleColor(r)};margin-right:6px;vertical-align:middle"></span>`;
+};

@@ -26,17 +26,20 @@
         {
           "id": "ulo",
           "name": "Ultra-low overnight",
-          "rate": 0.028
+          "rate": 0.028,
+          "role": "offpeak"
         },
         {
           "id": "on",
           "name": "On-peak",
-          "rate": 0.391
+          "rate": 0.391,
+          "role": "peak"
         },
         {
           "id": "off",
           "name": "Off-peak / weekend",
-          "rate": 0.122
+          "rate": 0.122,
+          "role": "offpeak"
         }
       ],
       "schedule": [

@@ -342,12 +342,14 @@
         {
           "id": "time-of-use",
           "name": "Time of Use",
-          "rate": 0.249
+          "rate": 0.249,
+          "role": "offpeak"
         },
         {
           "id": "time-of-use-2",
           "name": "Time of Use",
-          "rate": 0.295
+          "rate": 0.295,
+          "role": "peak"
         }
       ],
       "schedule": [

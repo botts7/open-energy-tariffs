@@ -25,12 +25,14 @@
         {
           "id": "fora-vazio",
           "name": "Fora de vazio (peak)",
-          "rate": 0.3129
+          "rate": 0.3129,
+          "role": "peak"
         },
         {
           "id": "vazio",
           "name": "Vazio (off-peak)",
-          "rate": 0.1739
+          "rate": 0.1739,
+          "role": "offpeak"
         }
       ],
       "schedule": [

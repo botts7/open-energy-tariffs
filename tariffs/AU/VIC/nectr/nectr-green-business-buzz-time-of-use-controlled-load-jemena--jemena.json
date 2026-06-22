@@ -90,12 +90,14 @@
         {
           "id": "tariff-1",
           "name": "Tariff 1",
-          "rate": 0.323101
+          "rate": 0.323101,
+          "role": "peak"
         },
         {
           "id": "tariff-2",
           "name": "Tariff 2",
-          "rate": 0.197002
+          "rate": 0.197002,
+          "role": "offpeak"
         }
       ],
       "schedule": [
@@ -129,7 +131,7 @@
       "daily": 1.309722
     },
     "export": {
-      "flatRate": 0.0
+      "flatRate": 0
     },
     "controlledLoad": [
       {

@@ -254,12 +254,14 @@
         {
           "id": "summer-peak",
           "name": "Summer Peak",
-          "rate": 0.5721
+          "rate": 0.5721,
+          "role": "peak"
         },
         {
           "id": "summer-off-peak",
           "name": "Summer Off Peak",
-          "rate": 0.2983
+          "rate": 0.2983,
+          "role": "offpeak"
         }
       ],
       "schedule": [

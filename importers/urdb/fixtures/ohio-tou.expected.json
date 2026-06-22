@@ -15,21 +15,55 @@
     "updated": "2026-06-20",
     "verified": false,
     "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
-    "coverage": { "utilityId": "14006" }
+    "coverage": {
+      "utilityId": "14006"
+    }
   },
   "tariff": {
     "kind": "tou",
-    "supply": { "daily": 0.60381 },
+    "supply": {
+      "daily": 0.60381
+    },
     "import": {
       "bands": [
-        { "id": "p0", "name": "Period 1", "rate": 0.16776 },
-        { "id": "p1", "name": "Period 2", "rate": 0.35976 }
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.16776,
+          "role": "offpeak"
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.35976,
+          "role": "peak"
+        }
       ],
       "schedule": [
-        { "days": "weekday", "from": "00:00", "to": "06:00", "band": "p0" },
-        { "days": "weekday", "from": "06:00", "to": "09:00", "band": "p1" },
-        { "days": "weekday", "from": "09:00", "to": "24:00", "band": "p0" },
-        { "days": "weekend", "from": "00:00", "to": "24:00", "band": "p0" }
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekday",
+          "from": "06:00",
+          "to": "09:00",
+          "band": "p1"
+        },
+        {
+          "days": "weekday",
+          "from": "09:00",
+          "to": "24:00",
+          "band": "p0"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
       ]
     }
   }

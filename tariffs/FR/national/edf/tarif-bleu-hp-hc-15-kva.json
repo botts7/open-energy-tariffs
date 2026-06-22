@@ -26,12 +26,14 @@
         {
           "id": "hp",
           "name": "Heures Pleines",
-          "rate": 0.2065
+          "rate": 0.2065,
+          "role": "peak"
         },
         {
           "id": "hc",
           "name": "Heures Creuses",
-          "rate": 0.1578
+          "rate": 0.1578,
+          "role": "offpeak"
         }
       ],
       "schedule": [

@@ -90,12 +90,14 @@
         {
           "id": "time-of-use",
           "name": "Time of Use",
-          "rate": 0.247
+          "rate": 0.247,
+          "role": "offpeak"
         },
         {
           "id": "time-of-use-2",
           "name": "Time of Use",
-          "rate": 0.294
+          "rate": 0.294,
+          "role": "peak"
         }
       ],
       "schedule": [

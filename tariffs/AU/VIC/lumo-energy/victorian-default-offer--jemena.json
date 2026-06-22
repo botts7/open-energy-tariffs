@@ -90,12 +90,14 @@
         {
           "id": "tariff-1",
           "name": "Tariff 1",
-          "rate": 0.3419
+          "rate": 0.3419,
+          "role": "peak"
         },
         {
           "id": "tariff-2",
           "name": "Tariff 2",
-          "rate": 0.21527
+          "rate": 0.21527,
+          "role": "offpeak"
         }
       ],
       "schedule": [

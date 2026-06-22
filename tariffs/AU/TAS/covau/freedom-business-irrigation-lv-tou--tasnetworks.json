@@ -140,17 +140,20 @@
         {
           "id": "non-summer-peak",
           "name": "Non-Summer Peak",
-          "rate": 0.3862
+          "rate": 0.3862,
+          "role": "peak"
         },
         {
           "id": "non-summer-off-peak",
           "name": "Non-Summer Off Peak",
-          "rate": 0.1694
+          "rate": 0.1694,
+          "role": "offpeak"
         },
         {
           "id": "non-summer-shoulder",
           "name": "Non-Summer Shoulder",
-          "rate": 0.303
+          "rate": 0.303,
+          "role": "shoulder"
         }
       ],
       "schedule": [

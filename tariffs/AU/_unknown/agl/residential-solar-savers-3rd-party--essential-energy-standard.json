@@ -275,17 +275,20 @@
         {
           "id": "domestic-time-of-use-peak",
           "name": "Domestic Time of Use Peak",
-          "rate": 0.4863
+          "rate": 0.4863,
+          "role": "peak"
         },
         {
           "id": "domestic-time-of-use-off-peak",
           "name": "Domestic Time of Use Off Peak",
-          "rate": 0.3157
+          "rate": 0.3157,
+          "role": "offpeak"
         },
         {
           "id": "domestic-time-of-use-shoulder",
           "name": "Domestic Time of Use Shoulder",
-          "rate": 0.4002
+          "rate": 0.4002,
+          "role": "shoulder"
         }
       ],
       "schedule": [

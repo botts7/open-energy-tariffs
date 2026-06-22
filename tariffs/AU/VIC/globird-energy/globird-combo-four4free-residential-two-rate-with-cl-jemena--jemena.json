@@ -90,12 +90,14 @@
         {
           "id": "time-of-use",
           "name": "Time of Use",
-          "rate": 0.347
+          "rate": 0.347,
+          "role": "peak"
         },
         {
           "id": "time-of-use-2",
           "name": "Time of Use",
-          "rate": 1e-06
+          "rate": 0.000001,
+          "role": "offpeak"
         }
       ],
       "schedule": [
@@ -123,7 +125,7 @@
       "daily": 1.08
     },
     "export": {
-      "flatRate": 1e-07
+      "flatRate": 1e-7
     },
     "controlledLoad": [
       {
