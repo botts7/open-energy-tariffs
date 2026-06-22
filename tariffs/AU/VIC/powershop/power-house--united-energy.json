@@ -127,12 +127,14 @@
         {
           "id": "tariff-1",
           "name": "Tariff 1",
-          "rate": 0.283727
+          "rate": 0.283727,
+          "role": "peak"
         },
         {
           "id": "tariff-2",
           "name": "Tariff 2",
-          "rate": 0.159091
+          "rate": 0.159091,
+          "role": "offpeak"
         }
       ],
       "schedule": [

@@ -10,7 +10,7 @@
 //
 // Licence: CC-BY 4.0 (Energinet / Energi Data Service) -> license:"CC-BY-4.0".
 
-import { slug, money, round, hoursToIntervals } from '../_lib/canonical.mjs';
+import { slug, money, round, hoursToIntervals, assignRoles } from '../_lib/canonical.mjs';
 
 export { slug, money };
 
@@ -54,7 +54,7 @@ export function mapPricelistRecord(rec, opts = {}) {
     tariff.import.flatRate = built.flat;
   } else {
     tariff.kind = 'tou';
-    tariff.import.bands = built.bands;
+    tariff.import.bands = assignRoles(built.bands);
     tariff.import.schedule = built.schedule;
   }
   if (rec.validFrom) tariff.validFrom = String(rec.validFrom).slice(0, 10);

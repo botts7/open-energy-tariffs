@@ -327,12 +327,14 @@
         {
           "id": "peak-charge",
           "name": "Peak Charge",
-          "rate": 0.578
+          "rate": 0.578,
+          "role": "peak"
         },
         {
           "id": "off-peak-charge",
           "name": "Off-Peak Charge",
-          "rate": 0.318
+          "rate": 0.318,
+          "role": "offpeak"
         }
       ],
       "schedule": [

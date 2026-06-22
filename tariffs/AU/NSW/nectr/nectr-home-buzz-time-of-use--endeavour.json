@@ -183,17 +183,20 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.5038028
+          "rate": 0.5038028,
+          "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off-peak",
-          "rate": 0.2121275
+          "rate": 0.2121275,
+          "role": "offpeak"
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.2737129
+          "rate": 0.2737129,
+          "role": "shoulder"
         }
       ],
       "schedule": [
@@ -233,7 +236,7 @@
       "daily": 1.1461728
     },
     "export": {
-      "flatRate": 0.0
+      "flatRate": 0
     }
   }
 }

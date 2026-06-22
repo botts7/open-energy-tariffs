@@ -26,22 +26,26 @@
         {
           "id": "p0",
           "name": "Period 1",
-          "rate": 0.16756
+          "rate": 0.16756,
+          "role": "peak"
         },
         {
           "id": "p1",
           "name": "Period 2",
-          "rate": 0.14747
+          "rate": 0.14747,
+          "role": "offpeak"
         },
         {
           "id": "p2",
           "name": "Period 3",
-          "rate": 0.14982
+          "rate": 0.14982,
+          "role": "shoulder"
         },
         {
           "id": "p3",
           "name": "Period 4",
-          "rate": 0.14747
+          "rate": 0.14747,
+          "role": "offpeak"
         }
       ],
       "schedule": [

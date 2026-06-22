@@ -26,17 +26,20 @@
         {
           "id": "on",
           "name": "On-peak",
-          "rate": 0.203
+          "rate": 0.203,
+          "role": "peak"
         },
         {
           "id": "mid",
           "name": "Mid-peak",
-          "rate": 0.122
+          "rate": 0.122,
+          "role": "peak"
         },
         {
           "id": "off",
           "name": "Off-peak",
-          "rate": 0.087
+          "rate": 0.087,
+          "role": "offpeak"
         }
       ],
       "schedule": [

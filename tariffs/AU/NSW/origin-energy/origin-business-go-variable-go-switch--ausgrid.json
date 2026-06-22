@@ -254,17 +254,20 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.3575
+          "rate": 0.3575,
+          "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off peak",
-          "rate": 0.2061
+          "rate": 0.2061,
+          "role": "offpeak"
         },
         {
           "id": "shoulder-usage",
           "name": "Shoulder Usage",
-          "rate": 0.3245
+          "rate": 0.3245,
+          "role": "shoulder"
         }
       ],
       "schedule": [

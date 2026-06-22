@@ -254,12 +254,14 @@
         {
           "id": "peak-usage",
           "name": "Peak Usage",
-          "rate": 0.53
+          "rate": 0.53,
+          "role": "peak"
         },
         {
           "id": "off-peak-usage",
           "name": "Off Peak Usage",
-          "rate": 0.278
+          "rate": 0.278,
+          "role": "offpeak"
         }
       ],
       "schedule": [

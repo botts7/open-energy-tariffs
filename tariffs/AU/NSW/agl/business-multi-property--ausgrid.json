@@ -254,17 +254,20 @@
         {
           "id": "loadsmart-business-peak",
           "name": "LoadSmart Business Peak",
-          "rate": 0.3736
+          "rate": 0.3736,
+          "role": "peak"
         },
         {
           "id": "loadsmart-business-off-peak",
           "name": "LoadSmart Business Off-Peak",
-          "rate": 0.1986
+          "rate": 0.1986,
+          "role": "offpeak"
         },
         {
           "id": "loadsmart-business-shoulder",
           "name": "LoadSmart Business Shoulder",
-          "rate": 0.322
+          "rate": 0.322,
+          "role": "shoulder"
         }
       ],
       "schedule": [

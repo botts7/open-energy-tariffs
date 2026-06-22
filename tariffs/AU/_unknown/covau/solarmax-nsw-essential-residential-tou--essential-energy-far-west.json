@@ -327,22 +327,26 @@
         {
           "id": "peak-charge",
           "name": "Peak Charge",
-          "rate": 0.4121
+          "rate": 0.4121,
+          "role": "peak"
         },
         {
           "id": "off-peak-charge",
           "name": "Off-Peak Charge",
-          "rate": 0.2498
+          "rate": 0.2498,
+          "role": "offpeak"
         },
         {
           "id": "ev-off-peak-charge",
           "name": "EV Off-Peak Charge",
-          "rate": 0.15
+          "rate": 0.15,
+          "role": "offpeak"
         },
         {
           "id": "free-usage-charge",
           "name": "Free Usage Charge",
-          "rate": 0
+          "rate": 0,
+          "role": "offpeak"
         }
       ],
       "schedule": [

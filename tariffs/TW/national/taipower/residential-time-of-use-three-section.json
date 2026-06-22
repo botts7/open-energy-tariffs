@@ -28,7 +28,8 @@
           "rate": 4.48,
           "seasonRates": {
             "summer": 7.13
-          }
+          },
+          "role": "peak"
         },
         {
           "id": "shoulder",
@@ -36,7 +37,8 @@
           "rate": 4.48,
           "seasonRates": {
             "summer": 4.69
-          }
+          },
+          "role": "shoulder"
         },
         {
           "id": "offpeak",
@@ -44,7 +46,8 @@
           "rate": 1.99,
           "seasonRates": {
             "summer": 2.06
-          }
+          },
+          "role": "offpeak"
         }
       ],
       "schedule": [

@@ -25,17 +25,20 @@
         {
           "id": "punta",
           "name": "Punta (peak)",
-          "rate": 0.3559
+          "rate": 0.3559,
+          "role": "peak"
         },
         {
           "id": "llano",
           "name": "Llano (standard)",
-          "rate": 0.2669
+          "rate": 0.2669,
+          "role": "shoulder"
         },
         {
           "id": "valle",
           "name": "Valle (off-peak)",
-          "rate": 0.1779
+          "rate": 0.1779,
+          "role": "offpeak"
         }
       ],
       "schedule": [

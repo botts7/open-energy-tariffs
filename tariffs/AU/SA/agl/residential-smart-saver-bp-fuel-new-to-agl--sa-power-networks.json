@@ -361,17 +361,20 @@
         {
           "id": "residential-time-of-use-peak",
           "name": "Residential Time of Use peak",
-          "rate": 0.4631
+          "rate": 0.4631,
+          "role": "peak"
         },
         {
           "id": "residential-time-of-use-off-peak",
           "name": "Residential Time of Use Off peak",
-          "rate": 0.301
+          "rate": 0.301,
+          "role": "offpeak"
         },
         {
           "id": "residential-time-of-use-shoulder",
           "name": "Residential Time of Use Shoulder",
-          "rate": 0.2128
+          "rate": 0.2128,
+          "role": "shoulder"
         }
       ],
       "schedule": [

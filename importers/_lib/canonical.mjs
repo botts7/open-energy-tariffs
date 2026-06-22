@@ -2,6 +2,43 @@
 // Keep importer-specific mapping in each importer's map.mjs; put anything reused
 // across importers here. No I/O, no source-specific shapes.
 
+/**
+ * Map a band's source label to the audience-neutral SEMANTIC role used by app
+ * logic (colouring, sorting, cost comparison). Matches only unambiguous semantic
+ * words across languages; rank words like "High"/"Low"/"Mid" are left undefined
+ * for the rate-rank fallback in assignRoles(). Returns undefined if unknown.
+ */
+export function bandRole(name, id = '') {
+  const s = `${name} ${id}`.toLowerCase();
+  if (/control|controlled\s*load|\bcl\d?\b/.test(s)) return 'controlled';
+  if (/off.?peak|super.?off|\bnight\b|離峰|creuses|\bhc\b|solar\s*(sponge|soak)|\bfree\b/.test(s)) return 'offpeak';
+  if (/shoulder|half.?peak|半尖峰|partial.?peak/.test(s)) return 'shoulder';
+  if (/\bpeak\b|尖峰|pleines|\bhp\b|on.?peak/.test(s)) return 'peak';
+  return undefined;
+}
+
+/**
+ * Assign `role` to each band (mutates + returns). Prefers the source semantic word
+ * (bandRole); otherwise falls back to RATE RANK — cheapest=offpeak, dearest=peak,
+ * any middle=shoulder — which is the economic meaning of the tiers and handles
+ * rank-named bands (e.g. DK Low/High/Peak). Single-band sets are left untouched.
+ */
+export function assignRoles(bands) {
+  if (!Array.isArray(bands) || bands.length === 0) return bands;
+  const rates = [...new Set(bands.map((b) => Number(b.rate) || 0))].sort((a, b) => a - b);
+  const n = rates.length;
+  const rankRole = (rate) => {
+    if (n <= 1) return undefined;
+    const i = rates.indexOf(Number(rate) || 0);
+    return i === 0 ? 'offpeak' : i === n - 1 ? 'peak' : 'shoulder';
+  };
+  for (const b of bands) {
+    const role = bandRole(b.name, b.id) || rankRole(b.rate);
+    if (role) b.role = role;
+  }
+  return bands;
+}
+
 /** kebab-case slug for ids/paths. */
 export function slug(s) {
   return String(s ?? '')

@@ -75,17 +75,20 @@
         {
           "id": "flexible",
           "name": "Flexible",
-          "rate": 0.37
+          "rate": 0.37,
+          "role": "peak"
         },
         {
           "id": "flexible-2",
           "name": "Flexible",
-          "rate": 1e-06
+          "rate": 0.000001,
+          "role": "offpeak"
         },
         {
           "id": "flexible-3",
           "name": "Flexible",
-          "rate": 0.28
+          "rate": 0.28,
+          "role": "shoulder"
         }
       ],
       "schedule": [
@@ -125,7 +128,7 @@
       "daily": 1.28
     },
     "export": {
-      "flatRate": 1e-07
+      "flatRate": 1e-7
     }
   }
 }

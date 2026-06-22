@@ -229,17 +229,20 @@
         {
           "id": "volume-peak-charge",
           "name": "Volume Peak Charge",
-          "rate": 0.455
+          "rate": 0.455,
+          "role": "peak"
         },
         {
           "id": "volume-off-peak-charge",
           "name": "Volume Off-Peak Charge",
-          "rate": 0.209
+          "rate": 0.209,
+          "role": "offpeak"
         },
         {
           "id": "volume-shoulder-charge",
           "name": "Volume Shoulder Charge",
-          "rate": 0.283
+          "rate": 0.283,
+          "role": "shoulder"
         }
       ],
       "schedule": [

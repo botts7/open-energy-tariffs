@@ -11,7 +11,7 @@
 // to the first tier (reserved band.tiers[] is the v1.1 home). Demand charges and
 // per-month seasonal variation are not modelled yet (a note is added when month
 // rows differ).
-import { slug, money, round, hoursToIntervals } from '../_lib/canonical.mjs';
+import { slug, money, round, hoursToIntervals, assignRoles } from '../_lib/canonical.mjs';
 
 const rowsEqual = (rows) => rows.every((r) => JSON.stringify(r) === JSON.stringify(rows[0]));
 
@@ -66,11 +66,11 @@ export function mapRate(item, opts = {}) {
   if (!isTou) {
     tariff.import.flatRate = tierRate(periods[0]?.[0]);
   } else {
-    tariff.import.bands = periods.map((tiers, i) => ({
+    tariff.import.bands = assignRoles(periods.map((tiers, i) => ({
       id: `p${i}`,
       name: `Period ${i + 1}`,
       rate: tierRate(tiers?.[0]),
-    }));
+    })));
 
     const wd = item.energyweekdayschedule || [];
     const we = item.energyweekendschedule || [];

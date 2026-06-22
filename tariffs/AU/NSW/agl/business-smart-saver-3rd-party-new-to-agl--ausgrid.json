@@ -254,17 +254,20 @@
         {
           "id": "transitional-business-peak",
           "name": "Transitional Business Peak",
-          "rate": 0.5158
+          "rate": 0.5158,
+          "role": "peak"
         },
         {
           "id": "transitional-business-off-peak",
           "name": "Transitional Business Off-Peak",
-          "rate": 0.1791
+          "rate": 0.1791,
+          "role": "offpeak"
         },
         {
           "id": "transitional-business-shoulder",
           "name": "Transitional Business Shoulder",
-          "rate": 0.257
+          "rate": 0.257,
+          "role": "shoulder"
         }
       ],
       "schedule": [

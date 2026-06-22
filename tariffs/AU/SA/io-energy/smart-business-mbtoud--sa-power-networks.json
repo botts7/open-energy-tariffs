@@ -361,12 +361,14 @@
         {
           "id": "off-peak",
           "name": "Off-peak",
-          "rate": 0.3
+          "rate": 0.3,
+          "role": "offpeak"
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.3
+          "rate": 0.3,
+          "role": "shoulder"
         }
       ],
       "schedule": [

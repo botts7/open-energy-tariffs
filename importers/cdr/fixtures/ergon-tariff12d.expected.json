@@ -16,23 +16,65 @@
     "updated": "2026-06-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
-    "coverage": { "postcodes": ["4306", "4310", "4312", "4313", "4314"] }
+    "coverage": {
+      "postcodes": [
+        "4306",
+        "4310",
+        "4312",
+        "4313",
+        "4314"
+      ]
+    }
   },
   "tariff": {
     "kind": "tou",
-    "supply": { "daily": 1.35304 },
+    "supply": {
+      "daily": 1.35304
+    },
     "import": {
       "bands": [
-        { "id": "peak", "name": "Peak", "rate": 0.41556 },
-        { "id": "shoulder", "name": "Shoulder", "rate": 0.25486 },
-        { "id": "off-peak", "name": "Off peak", "rate": 0.20618 }
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.41556,
+          "role": "peak"
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.25486,
+          "role": "shoulder"
+        },
+        {
+          "id": "off-peak",
+          "name": "Off peak",
+          "rate": 0.20618,
+          "role": "offpeak"
+        }
       ],
       "schedule": [
-        { "days": "all", "from": "16:00", "to": "21:00", "band": "peak" },
-        { "days": "all", "from": "21:00", "to": "11:00", "band": "shoulder" },
-        { "days": "all", "from": "11:00", "to": "16:00", "band": "off-peak" }
+        {
+          "days": "all",
+          "from": "16:00",
+          "to": "21:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "11:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "16:00",
+          "band": "off-peak"
+        }
       ]
     },
-    "export": { "flatRate": 0.0866 }
+    "export": {
+      "flatRate": 0.0866
+    }
   }
 }

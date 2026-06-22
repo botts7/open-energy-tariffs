@@ -47,7 +47,7 @@ window.OET = window.OET || {};
     let html = '';
     if (Array.isArray(rs.bands) && rs.bands.length) {
       html += '<table class="oet-tbl"><thead><tr><th>Band</th><th>Rate</th></tr></thead><tbody>'
-        + rs.bands.map((b) => `<tr><td>${esc(b.name || b.id)}</td><td>${num(b.rate) != null ? b.rate + ' ' + esc(currency) : '—'}</td></tr>`).join('')
+        + rs.bands.map((b) => `<tr><td>${OET.roleDot(b)}${esc(b.name || b.id)}</td><td>${num(b.rate) != null ? b.rate + ' ' + esc(currency) : '—'}</td></tr>`).join('')
         + '</tbody></table>';
     }
     if (Array.isArray(rs.schedule) && rs.schedule.length) {
@@ -118,7 +118,7 @@ window.OET = window.OET || {};
     if (bd) {
       body += `<div class="oet-sec">Your estimated annual cost</div>`;
       body += '<table class="oet-tbl"><tbody>'
-        + bd.bands.map((b) => `<tr><td>${esc(b.name)} <span style="color:#94a3b8">${Math.round(b.kwh).toLocaleString()} kWh @ ${b.rate} ${esc(cur)}</span></td><td>${Math.round(b.cost).toLocaleString()} ${esc(cur)}</td></tr>`).join('')
+        + bd.bands.map((b) => `<tr><td>${OET.roleDot(b)}${esc(b.name)} <span style="color:#94a3b8">${Math.round(b.kwh).toLocaleString()} kWh @ ${b.rate} ${esc(cur)}</span></td><td>${Math.round(b.cost).toLocaleString()} ${esc(cur)}</td></tr>`).join('')
         + `<tr><td>Daily supply × 365</td><td>${Math.round(bd.supply).toLocaleString()} ${esc(cur)}</td></tr>`
         + (bd.exportCredit ? `<tr><td>Solar export credit <span style="color:#94a3b8">${Math.round(bd.exportKwh).toLocaleString()} kWh</span></td><td>−${Math.round(bd.exportCredit).toLocaleString()} ${esc(cur)}</td></tr>` : '')
         + `<tr style="font-weight:700;border-top:2px solid #e2e8f0"><td>Total / year</td><td>${Math.round(bd.total).toLocaleString()} ${esc(cur)}</td></tr>`

@@ -167,7 +167,12 @@
             "additionalProperties": false,
             "properties": {
               "id": { "type": "string", "description": "Stable key referenced by schedule[].band." },
-              "name": { "type": "string" },
+              "name": { "type": "string", "description": "Source-native DISPLAY label (e.g. 'Shoulder', 'Heures Pleines', '半尖峰'). Kept verbatim; localisation is a frontend concern." },
+              "role": {
+                "type": "string",
+                "enum": ["peak", "shoulder", "offpeak", "night", "controlled"],
+                "description": "Audience-neutral SEMANTIC tier for app LOGIC (colouring, sorting, cost comparison) — independent of the display name/language. Importers must map each band into this controlled vocabulary."
+              },
               "rate": { "type": "number", "minimum": 0, "description": "Default per-unit rate." },
               "color": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$", "description": "Hex colour for the UI." },
               "seasonRates": {

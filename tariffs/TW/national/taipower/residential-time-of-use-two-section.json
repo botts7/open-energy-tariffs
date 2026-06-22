@@ -28,7 +28,8 @@
           "rate": 4.93,
           "seasonRates": {
             "summer": 5.16
-          }
+          },
+          "role": "peak"
         },
         {
           "id": "offpeak",
@@ -36,7 +37,8 @@
           "rate": 1.99,
           "seasonRates": {
             "summer": 2.06
-          }
+          },
+          "role": "offpeak"
         }
       ],
       "schedule": [

@@ -289,12 +289,14 @@
         {
           "id": "tariff-1",
           "name": "Tariff 1",
-          "rate": 0.5367
+          "rate": 0.5367,
+          "role": "peak"
         },
         {
           "id": "tariff-2",
           "name": "Tariff 2",
-          "rate": 0.2956
+          "rate": 0.2956,
+          "role": "offpeak"
         }
       ],
       "schedule": [

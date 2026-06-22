@@ -14,18 +14,42 @@
     "updated": "2026-06-21",
     "verified": false,
     "notes": "ILLUSTRATIVE structure only — INVENTED rates, NOT any real retailer's. Economy 7 is a common GB two-rate setup (~7 night hours cheaper; exact window depends on the meter/region). Demonstrates the two-rate shape; not attributed to any provider. Real GB plans (e.g. Octopus) are restricted/ToS-bound, so they're imported ON-DEVICE per region via their public API, never bulk-stored here.",
-    "coverage": { "national": true }
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
-        { "id": "night", "name": "Night", "rate": 0.12, "color": "#22c55e" },
-        { "id": "day",   "name": "Day",   "rate": 0.28, "color": "#ef4444" }
+        {
+          "id": "night",
+          "name": "Night",
+          "rate": 0.12,
+          "color": "#22c55e",
+          "role": "offpeak"
+        },
+        {
+          "id": "day",
+          "name": "Day",
+          "rate": 0.28,
+          "color": "#ef4444",
+          "role": "peak"
+        }
       ],
       "schedule": [
-        { "days": "all", "from": "00:00", "to": "07:00", "band": "night" },
-        { "days": "all", "from": "07:00", "to": "24:00", "band": "day"   }
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "07:00",
+          "band": "night"
+        },
+        {
+          "days": "all",
+          "from": "07:00",
+          "to": "24:00",
+          "band": "day"
+        }
       ]
     }
   }

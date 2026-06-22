@@ -10,7 +10,7 @@
 // Licence: Open Government Data License, Taiwan (OGDL, CC-BY-4.0-compatible) ->
 // license:"other" + attribution to Taipower / data.gov.tw.
 
-import { slug, money, round, hoursToIntervals } from '../_lib/canonical.mjs';
+import { slug, money, round, hoursToIntervals, assignRoles } from '../_lib/canonical.mjs';
 
 export { slug, money };
 
@@ -80,7 +80,7 @@ export function mapTaipowerTou(rec, opts = {}) {
 
   const tariff = {
     kind: 'tou',
-    import: { bands: importBands, schedule: scheduleFromBands(bands) },
+    import: { bands: assignRoles(importBands), schedule: scheduleFromBands(bands) },
     seasons: [SUMMER],
   };
 

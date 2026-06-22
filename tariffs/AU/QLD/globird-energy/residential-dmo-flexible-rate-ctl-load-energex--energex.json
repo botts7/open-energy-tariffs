@@ -229,17 +229,20 @@
         {
           "id": "peak-usage",
           "name": "Peak Usage",
-          "rate": 0.48
+          "rate": 0.48,
+          "role": "peak"
         },
         {
           "id": "off-peak-usage",
           "name": "Off Peak Usage",
-          "rate": 0.274
+          "rate": 0.274,
+          "role": "offpeak"
         },
         {
           "id": "shoulder-usage",
           "name": "Shoulder Usage",
-          "rate": 0.274
+          "rate": 0.274,
+          "role": "shoulder"
         }
       ],
       "schedule": [
@@ -297,7 +300,7 @@
       "daily": 1.43
     },
     "export": {
-      "flatRate": 0.0
+      "flatRate": 0
     },
     "controlledLoad": [
       {

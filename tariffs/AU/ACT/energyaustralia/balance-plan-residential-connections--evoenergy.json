@@ -54,17 +54,20 @@
         {
           "id": "max",
           "name": "Max",
-          "rate": 0.40075
+          "rate": 0.40075,
+          "role": "peak"
         },
         {
           "id": "economy",
           "name": "Economy",
-          "rate": 0.22093
+          "rate": 0.22093,
+          "role": "offpeak"
         },
         {
           "id": "mid",
           "name": "Mid",
-          "rate": 0.29757
+          "rate": 0.29757,
+          "role": "shoulder"
         }
       ],
       "schedule": [

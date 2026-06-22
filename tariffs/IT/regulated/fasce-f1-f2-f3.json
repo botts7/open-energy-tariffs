@@ -25,17 +25,20 @@
         {
           "id": "f1",
           "name": "F1 (peak)",
-          "rate": 0.3236
+          "rate": 0.3236,
+          "role": "peak"
         },
         {
           "id": "f2",
           "name": "F2 (intermediate)",
-          "rate": 0.3033
+          "rate": 0.3033,
+          "role": "shoulder"
         },
         {
           "id": "f3",
           "name": "F3 (off-peak)",
-          "rate": 0.2629
+          "rate": 0.2629,
+          "role": "offpeak"
         }
       ],
       "schedule": [

@@ -15,21 +15,45 @@
     "updated": "2026-06-20",
     "verified": false,
     "notes": "Regulated French electricity tariff (Tarif réglementé de vente / EDF Tarif Bleu), published by the CRE as open data on data.gouv.fr under Licence Ouverte / Etalab 2.0 (commercial reuse + redistribution with attribution). Attribute the CRE; recorded as license:other (Etalab 2.0 ~ CC BY).",
-    "coverage": { "national": true }
+    "coverage": {
+      "national": true
+    }
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
-        { "id": "hp", "name": "Heures Pleines", "rate": 0.27 },
-        { "id": "hc", "name": "Heures Creuses", "rate": 0.2068 }
+        {
+          "id": "hp",
+          "name": "Heures Pleines",
+          "rate": 0.27,
+          "role": "peak"
+        },
+        {
+          "id": "hc",
+          "name": "Heures Creuses",
+          "rate": 0.2068,
+          "role": "offpeak"
+        }
       ],
       "schedule": [
-        { "days": "all", "from": "22:00", "to": "06:00", "band": "hc" },
-        { "days": "all", "from": "06:00", "to": "22:00", "band": "hp" }
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "06:00",
+          "band": "hc"
+        },
+        {
+          "days": "all",
+          "from": "06:00",
+          "to": "22:00",
+          "band": "hp"
+        }
       ]
     },
-    "supply": { "daily": 0.41425 },
+    "supply": {
+      "daily": 0.41425
+    },
     "validFrom": "2025-02-01"
   }
 }

@@ -9,7 +9,7 @@
 // (see fixtures/ + README) before trusting committed output — the assistant
 // could not exercise the live API (the x-v header isn't settable from its fetch).
 
-import { slug, money, toHHMM } from '../_lib/canonical.mjs';
+import { slug, money, toHHMM, assignRoles } from '../_lib/canonical.mjs';
 
 // Re-export the shared helpers so existing importers/tests can keep importing
 // them from this module.
@@ -156,7 +156,7 @@ export function mapPlanDetail(detail, opts = {}) {
 
   if (isTou) {
     const { bands, schedule } = mapTimeOfUse(tp.timeOfUseRates);
-    tariff.import.bands = bands;
+    tariff.import.bands = assignRoles(bands);
     tariff.import.schedule = schedule;
   } else {
     const rate = money(tp.singleRate?.rates?.[0]?.unitPrice);

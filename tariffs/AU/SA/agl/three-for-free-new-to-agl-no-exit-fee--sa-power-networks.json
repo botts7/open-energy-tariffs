@@ -361,22 +361,26 @@
         {
           "id": "residential-time-of-use-peak",
           "name": "Residential Time of Use peak",
-          "rate": 0.4767
+          "rate": 0.4767,
+          "role": "peak"
         },
         {
           "id": "residential-time-of-use-off-peak",
           "name": "Residential Time of Use Off peak",
-          "rate": 0.3098
+          "rate": 0.3098,
+          "role": "offpeak"
         },
         {
           "id": "three-for-free-usage",
           "name": "Three for Free usage",
-          "rate": 0
+          "rate": 0,
+          "role": "offpeak"
         },
         {
           "id": "residential-time-of-use-shoulder",
           "name": "Residential Time of Use Shoulder",
-          "rate": 0.2191
+          "rate": 0.2191,
+          "role": "shoulder"
         }
       ],
       "schedule": [
