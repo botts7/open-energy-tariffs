@@ -26497,10 +26497,155 @@
   },
   "DK": {
     "": {
-      "Denmark (market)": [
+      "Aal El-Net": [
         {
-          "id": "dk-market-typical-flat",
-          "plan": "Typical fixed-price",
+          "id": "dk-aal-el-net-nettarif-c-skabelon-annual-meter",
+          "plan": "Nettarif C skabelon (annual meter)",
+          "verified": false
+        }
+      ],
+      "Cerius": [
+        {
+          "id": "dk-cerius-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "El-net Kongerslev": [
+        {
+          "id": "dk-el-net-kongerslev-c-kunder-nettarif",
+          "plan": "C-Kunder Nettarif",
+          "verified": false
+        },
+        {
+          "id": "dk-el-net-kongerslev-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        },
+        {
+          "id": "dk-el-net-kongerslev-nettarif-c-time-hourly-meter",
+          "plan": "Nettarif C time (hourly meter)",
+          "verified": false
+        }
+      ],
+      "Elinord": [
+        {
+          "id": "dk-elinord-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "Elnet Midt": [
+        {
+          "id": "dk-elnet-midt-nettarif-c-flexafregning",
+          "plan": "Nettarif C flexafregning",
+          "verified": false
+        },
+        {
+          "id": "dk-elnet-midt-nettarif-c-hourly-meter",
+          "plan": "Nettarif C (hourly meter)",
+          "verified": false
+        },
+        {
+          "id": "dk-elnet-midt-nettarif-c-time-hourly-meter",
+          "plan": "Nettarif C time (hourly meter)",
+          "verified": false
+        }
+      ],
+      "Forsyning Elnet": [
+        {
+          "id": "dk-forsyning-elnet-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        },
+        {
+          "id": "dk-forsyning-elnet-regional-nettarif-c",
+          "plan": "Regional nettarif C",
+          "verified": false
+        }
+      ],
+      "Grindsted Elnet": [
+        {
+          "id": "dk-grindsted-elnet-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "Hammel Elforsyning Net": [
+        {
+          "id": "dk-hammel-elforsyning-net-nettarif-c-skabelon",
+          "plan": "Nettarif C skabelon",
+          "verified": false
+        }
+      ],
+      "Hjerting Transformatorforening": [
+        {
+          "id": "dk-hjerting-transformatorforening-c-kunde-nettarif",
+          "plan": "C-Kunde Nettarif",
+          "verified": false
+        },
+        {
+          "id": "dk-hjerting-transformatorforening-nettarif-c-skabelon-annual-meter",
+          "plan": "Nettarif C skabelon (annual meter)",
+          "verified": false
+        }
+      ],
+      "Ikast El Net": [
+        {
+          "id": "dk-ikast-el-net-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "Kimbrer Elnet": [
+        {
+          "id": "dk-kimbrer-elnet-c-kunde-nettarif",
+          "plan": "C-Kunde Nettarif",
+          "verified": false
+        },
+        {
+          "id": "dk-kimbrer-elnet-nettarif-0-4-kv-aars-hornum-net-a-s",
+          "plan": "Nettarif 0,4 kV Aars-Hornum Net A/S",
+          "verified": false
+        }
+      ],
+      "Læsø Elnet": [
+        {
+          "id": "dk-l-s-elnet-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "N1 A/S - 131": [
+        {
+          "id": "dk-n1-a-s-131-nettarif-c-hourly-meter",
+          "plan": "Nettarif C (hourly meter)",
+          "verified": false
+        }
+      ],
+      "NOE Net": [
+        {
+          "id": "dk-noe-net-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "Radius Elnet": [
+        {
+          "id": "dk-radius-elnet-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "Tarm Elværk Net": [
+        {
+          "id": "dk-tarm-elv-rk-net-nettarif-c-annual-meter",
+          "plan": "Nettarif C (annual meter)",
+          "verified": false
+        },
+        {
+          "id": "dk-tarm-elv-rk-net-nettarif-tarm-elv-rk-net-hvor-aftagepunktet-typisk-er-p-0-4-kv-siden-af-en-10-20-0-4-kv-transformerstation-med-timeafl-st-m-ler",
+          "plan": "Nettarif Tarm elværk net, hvor aftagepunktet typisk er på 0,4 kV-siden af en 10-20/0,4 kV transformerstation med timeaflæst måler",
           "verified": false
         }
       ]
@@ -26543,18 +26688,68 @@
     "": {
       "EDF": [
         {
-          "id": "fr-edf-tarif-bleu-base",
-          "plan": "Tarif Bleu — Base",
+          "id": "fr-enedis-edf-tarif-bleu-base-12-kva",
+          "plan": "Tarif Bleu Base 12 kVA",
           "verified": false
         },
         {
-          "id": "fr-edf-tarif-bleu-heures-creuses",
-          "plan": "Tarif Bleu — Heures Creuses (HC/HP)",
+          "id": "fr-enedis-edf-tarif-bleu-base-15-kva",
+          "plan": "Tarif Bleu Base 15 kVA",
           "verified": false
         },
         {
-          "id": "fr-edf-tempo",
-          "plan": "Tempo",
+          "id": "fr-enedis-edf-tarif-bleu-base-3-kva",
+          "plan": "Tarif Bleu Base 3 kVA",
+          "verified": false
+        },
+        {
+          "id": "fr-enedis-edf-tarif-bleu-base-6-kva",
+          "plan": "Tarif Bleu Base 6 kVA",
+          "verified": false
+        },
+        {
+          "id": "fr-enedis-edf-tarif-bleu-base-9-kva",
+          "plan": "Tarif Bleu Base 9 kVA",
+          "verified": false
+        },
+        {
+          "id": "fr-enedis-edf-tarif-bleu-hp-hc-12-kva",
+          "plan": "Tarif Bleu HP/HC 12 kVA",
+          "verified": false
+        },
+        {
+          "id": "fr-enedis-edf-tarif-bleu-hp-hc-15-kva",
+          "plan": "Tarif Bleu HP/HC 15 kVA",
+          "verified": false
+        },
+        {
+          "id": "fr-enedis-edf-tarif-bleu-hp-hc-18-kva",
+          "plan": "Tarif Bleu HP/HC 18 kVA",
+          "verified": false
+        },
+        {
+          "id": "fr-enedis-edf-tarif-bleu-hp-hc-24-kva",
+          "plan": "Tarif Bleu HP/HC 24 kVA",
+          "verified": false
+        },
+        {
+          "id": "fr-enedis-edf-tarif-bleu-hp-hc-30-kva",
+          "plan": "Tarif Bleu HP/HC 30 kVA",
+          "verified": false
+        },
+        {
+          "id": "fr-enedis-edf-tarif-bleu-hp-hc-36-kva",
+          "plan": "Tarif Bleu HP/HC 36 kVA",
+          "verified": false
+        },
+        {
+          "id": "fr-enedis-edf-tarif-bleu-hp-hc-6-kva",
+          "plan": "Tarif Bleu HP/HC 6 kVA",
+          "verified": false
+        },
+        {
+          "id": "fr-enedis-edf-tarif-bleu-hp-hc-9-kva",
+          "plan": "Tarif Bleu HP/HC 9 kVA",
           "verified": false
         }
       ]
@@ -26883,8 +27078,8 @@
     "": {
       "Taipower": [
         {
-          "id": "tw-taipower-residential-tier1",
-          "plan": "Residential (tier, base step)",
+          "id": "tw-taipower-residential-time-of-use-two-section",
+          "plan": "Residential Time-of-Use (two-section)",
           "verified": false
         }
       ]

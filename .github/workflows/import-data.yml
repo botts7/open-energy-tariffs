@@ -71,14 +71,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if [ -z "$(git status --porcelain tariffs/)" ]; then
+          if [ -z "$(git status --porcelain tariffs/ index.json)" ]; then
             echo "No tariff changes were produced — nothing to PR."; exit 0
           fi
           BR="data/import-${{ inputs.sources }}-${{ github.run_id }}"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BR"
-          git add tariffs/
+          git add tariffs/ index.json
           git commit -m "data: import ${{ inputs.sources }} via CI (updated ${{ inputs.updated }})"
           git push -u origin "$BR"
           gh pr create --base main --head "$BR" \
