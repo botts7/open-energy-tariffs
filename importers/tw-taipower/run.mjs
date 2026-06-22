@@ -1,6 +1,7 @@
 // Build-time TW-Taipower importer CLI: fetch the live Taipower rate JSON, extract
-// the residential simplified two-section time-of-use tariff, map it to a canonical
-// entry, and write it under tariffs/TW/. Reproducible — re-running refreshes rates.
+// the residential simplified time-of-use tariffs (two- and three-section), map
+// each to a canonical entry, and write under tariffs/TW/. Reproducible — re-running
+// refreshes rates.
 //
 //   node importers/tw-taipower/run.mjs [--updated 2026-06-22] [--dry]
 //   node importers/tw-taipower/run.mjs --record path/to/record.json   # offline override
@@ -26,17 +27,20 @@ const recordPath = arg('record');
 const updated = arg('updated');
 const dry = Boolean(arg('dry', false));
 
-const rec = recordPath
-  ? JSON.parse(await readFile(recordPath, 'utf8'))
+const records = recordPath
+  ? [JSON.parse(await readFile(recordPath, 'utf8'))]
   : await fetchTaipowerTou();
-const entry = mapTaipowerTou(rec, updated ? { updated } : {});
 
-const file = join(root, 'tariffs', 'TW', 'national', slug(entry.meta.provider), `${slug(entry.meta.plan)}.json`);
-if (dry) {
-  console.log(`[dry] ${entry.meta.id} -> ${file}`);
-  console.log(JSON.stringify(entry, null, 2));
-} else {
-  await mkdir(dirname(file), { recursive: true });
-  await writeFile(file, JSON.stringify(entry, null, 2) + '\n');
-  console.log(`wrote ${entry.meta.id}. Run 'npm run validate' next.`);
+let written = 0;
+for (const rec of records) {
+  const entry = mapTaipowerTou(rec, updated ? { updated } : {});
+  const file = join(root, 'tariffs', 'TW', 'national', slug(entry.meta.provider), `${slug(entry.meta.plan)}.json`);
+  if (dry) {
+    console.log(`[dry] ${entry.meta.id} -> ${file}`);
+  } else {
+    await mkdir(dirname(file), { recursive: true });
+    await writeFile(file, JSON.stringify(entry, null, 2) + '\n');
+  }
+  written++;
 }
+console.log(`${dry ? '[dry] ' : ''}wrote ${written} TW tariff(s). Run 'npm run validate' next.`);

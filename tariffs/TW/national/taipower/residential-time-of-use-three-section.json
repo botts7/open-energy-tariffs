@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "id": "tw-taipower-residential-time-of-use-three-section",
+    "schemaVersion": "1",
+    "country": "TW",
+    "provider": "Taipower",
+    "plan": "Residential Time-of-Use (three-section)",
+    "currency": "TWD",
+    "unit": "kWh",
+    "timezone": "Asia/Taipei",
+    "source": "provider",
+    "sourceUrl": "https://data.gov.tw/dataset/17060",
+    "license": "other",
+    "updated": "2026-06-22",
+    "verified": false,
+    "notes": "Taiwan residential time-of-use tariff (Taipower), from the open rate tables on data.gov.tw (datasets 17052/17060). Published under the Open Government Data License, Taiwan (OGDL) — CC-BY-4.0-compatible; recorded as license:other, attributing Taipower / data.gov.tw. Summer = Jun–Sep carries higher rates via band.seasonRates. The block/tiered (non-ToU) residential tariff is not mapped (needs v1.1 tiers). Non-summer (Oct–May) has no peak band and uses different windows; v1 has one schedule, so the summer windows are canonical (peak 16:00–22:00, half-peak 09:00–16:00/22:00–24:00). Each band carries its summer/non-summer RATE via band.seasonRates — in winter the peak/half-peak windows are charged the non-summer half-peak rate, so window boundaries are approximate while the rates are the published values.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 4.48,
+          "seasonRates": {
+            "summer": 7.13
+          }
+        },
+        {
+          "id": "shoulder",
+          "name": "Half-peak",
+          "rate": 4.48,
+          "seasonRates": {
+            "summer": 4.69
+          }
+        },
+        {
+          "id": "offpeak",
+          "name": "Off-peak",
+          "rate": 1.99,
+          "seasonRates": {
+            "summer": 2.06
+          }
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "09:00",
+          "band": "offpeak"
+        },
+        {
+          "days": "weekday",
+          "from": "09:00",
+          "to": "16:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekday",
+          "from": "16:00",
+          "to": "22:00",
+          "band": "peak"
+        },
+        {
+          "days": "weekday",
+          "from": "22:00",
+          "to": "24:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "offpeak"
+        }
+      ]
+    },
+    "seasons": [
+      {
+        "id": "summer",
+        "name": "Summer",
+        "from": 5,
+        "to": 8
+      }
+    ],
+    "supply": {
+      "daily": 2.46575
+    },
+    "validFrom": "2025-10-01"
+  }
+}

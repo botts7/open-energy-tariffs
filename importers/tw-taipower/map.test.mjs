@@ -24,6 +24,31 @@ test('summer rates ride on band.seasonRates; non-summer is the default rate', ()
   assert.deepEqual(got.tariff.seasons, [{ id: 'summer', name: 'Summer', from: 5, to: 8 }]);
 });
 
+test('three-section: 3 bands (peak/shoulder/offpeak), peak rate rises in summer', () => {
+  const rec = {
+    scheme: 'three-section',
+    bands: [
+      { id: 'peak', name: 'Peak', rate: 4.48, summerRate: 7.13, windows: [{ from: '16:00', to: '22:00' }] },
+      { id: 'shoulder', name: 'Half-peak', rate: 4.48, summerRate: 4.69, windows: [{ from: '09:00', to: '16:00' }, { from: '22:00', to: '24:00' }] },
+      { id: 'offpeak', name: 'Off-peak', rate: 1.99, summerRate: 2.06 },
+    ],
+    basicMonthly: 75,
+    effectiveFrom: '2025-10-01',
+  };
+  const got = mapTaipowerTou(rec, { updated: '2026-06-22' });
+  assert.equal(got.meta.id, 'tw-taipower-residential-time-of-use-three-section');
+  assert.deepEqual(got.tariff.import.bands.map((b) => b.id), ['peak', 'shoulder', 'offpeak']);
+  const peak = got.tariff.import.bands.find((b) => b.id === 'peak');
+  assert.equal(peak.rate, 4.48);            // winter (half-peak) default
+  assert.equal(peak.seasonRates.summer, 7.13);
+  // weekday cover is contiguous and ends at 24:00; weekend all off-peak
+  const wd = got.tariff.import.schedule.filter((x) => x.days === 'weekday');
+  assert.equal(wd[0].from, '00:00');
+  assert.equal(wd.at(-1).to, '24:00');
+  for (let i = 1; i < wd.length; i++) assert.equal(wd[i].from, wd[i - 1].to);
+  assert.equal(got.tariff.validFrom, '2025-10-01');
+});
+
 test('touSchedule: weekdays peak in-window, off-peak otherwise; weekends all off-peak', () => {
   const s = touSchedule([{ from: '16:00', to: '22:00' }]);
   const wd = s.filter((x) => x.days === 'weekday');
