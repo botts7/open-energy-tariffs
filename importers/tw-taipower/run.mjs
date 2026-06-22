@@ -1,17 +1,16 @@
-// Build-time TW-Taipower importer CLI: map a normalised residential time-of-use
-// record (assembled from the Taipower rate sheet — see README) to a canonical
-// entry and write it under tariffs/TW/.
+// Build-time TW-Taipower importer CLI: fetch the live Taipower rate JSON, extract
+// the residential simplified two-section time-of-use tariff, map it to a canonical
+// entry, and write it under tariffs/TW/. Reproducible — re-running refreshes rates.
 //
-//   node importers/tw-taipower/run.mjs --record path/to/record.json \
-//        [--updated 2026-06-20] [--dry]
+//   node importers/tw-taipower/run.mjs [--updated 2026-06-22] [--dry]
+//   node importers/tw-taipower/run.mjs --record path/to/record.json   # offline override
 //
-// (Defaults to the bundled two-section sample if --record is omitted, so a dry
-// run shows the shape.) NOTE: the assistant cannot run this (no-node constraint);
-// run it yourself / in CI, then `npm run validate`.
+// Then `npm run validate`.
 import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mapTaipowerTou, slug } from './map.mjs';
+import { fetchTaipowerTou } from './fetch.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, '..', '..');
@@ -23,11 +22,13 @@ function arg(name, def) {
   return v && !v.startsWith('--') ? v : true;
 }
 
-const recordPath = arg('record', join(here, 'fixtures', 'residential-tou-two-section.sample.json'));
+const recordPath = arg('record');
 const updated = arg('updated');
 const dry = Boolean(arg('dry', false));
 
-const rec = JSON.parse(await readFile(recordPath, 'utf8'));
+const rec = recordPath
+  ? JSON.parse(await readFile(recordPath, 'utf8'))
+  : await fetchTaipowerTou();
 const entry = mapTaipowerTou(rec, updated ? { updated } : {});
 
 const file = join(root, 'tariffs', 'TW', 'national', slug(entry.meta.provider), `${slug(entry.meta.plan)}.json`);
