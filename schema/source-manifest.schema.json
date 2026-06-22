@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/botts7/open-energy-tariffs/schema/source-manifest.schema.json",
+  "title": "Data-source submission manifest",
+  "description": "A DECLARATIVE description of an electricity-tariff data source someone wants added. Submitters describe the endpoint + licence; they do NOT submit code that the trusted build runs. CI validates this, then a maintainer reviews. The licence decides routing: permissive -> core repo; share-alike -> open-energy-tariffs-extended.",
+  "type": "object",
+  "required": ["country", "name", "sourceUrl", "format", "licence", "attribution"],
+  "additionalProperties": false,
+  "properties": {
+    "country": { "type": "string", "pattern": "^[A-Z]{2}$", "description": "ISO 3166-1 alpha-2, e.g. PT, SG." },
+    "name": { "type": "string", "minLength": 2, "description": "Source / publisher name, e.g. 'ERSE', 'data.gov.sg'." },
+    "sourceUrl": { "type": "string", "pattern": "^https://", "description": "The data endpoint (API/CSV/JSON/SPARQL). Must be HTTPS." },
+    "docsUrl": { "type": "string", "pattern": "^https://", "description": "Optional: page describing the dataset / its terms." },
+    "format": { "type": "string", "enum": ["json", "csv", "rest", "sparql", "xlsx"], "description": "How the endpoint serves data." },
+    "licence": {
+      "type": "string",
+      "description": "Declared licence. Must be on the allow-list (see scripts/validate-submission.mjs). Permissive -> core; share-alike (CC-BY-SA / ODbL) -> extended repo; anything non-commercial / all-rights-reserved / unknown is rejected.",
+      "enum": [
+        "CC0-1.0", "CC-BY-4.0", "CC-BY-3.0",
+        "Etalab-2.0", "OGL-3.0", "OGDL-TW", "opendata.swiss-open", "open-gov",
+        "public-domain", "US-public-domain",
+        "CC-BY-SA-4.0", "ODbL-1.0"
+      ]
+    },
+    "licenceUrl": { "type": "string", "pattern": "^https://", "description": "Link proving the licence (terms page)." },
+    "attribution": { "type": "string", "minLength": 2, "description": "Exact attribution string the licence requires, e.g. 'Superintendencia de Servicios Públicos Domiciliarios'." },
+    "fieldMap": {
+      "type": "object",
+      "description": "Optional declarative mapping of source fields to canonical (rate, supply, etc.). Sources that need real transformation get a code-reviewed importer PR instead.",
+      "additionalProperties": { "type": "string" }
+    },
+    "sample": { "description": "Optional: a sample record from the endpoint, to help review." },
+    "contact": { "type": "string", "description": "Optional submitter contact / GitHub handle." },
+    "notes": { "type": "string", "description": "Anything a reviewer should know (coverage, caveats, refresh cadence)." }
+  }
+}
