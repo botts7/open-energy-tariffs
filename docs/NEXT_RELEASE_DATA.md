@@ -8,11 +8,14 @@ domain / open-gov; hand-curate regulator rates as facts (+ attribution).**
 
 ## ⚠️ Compliance items to resolve FIRST
 
-1. **AER (our AU source) redistribution** — the AER states it is *barred from
-   broadly sharing/redistributing* the Energy Made Easy plan data; consuming it
-   via the CDR APIs is fine, but **bulk-republishing our 5,226 AU plans may be a
-   grey zone**. This is our single largest dataset — re-read the CDR/AER terms and
-   decide (republish vs. on-device-only) before the next release.
+1. ~~**AER (our AU source) redistribution**~~ — **RESOLVED (2026-06).** The AER's
+   "barred from broadly sharing / no file-based delivery" statement is about its
+   *access method* (it won't publish bulk file dumps), **not** a ban on use. AU
+   plan data is obtained via the AER's **public, sanctioned Consumer Data Right
+   (CDR) Product Reference Data API** — public, non-personal product data we may
+   store + display. The only correction needed (done): it is **not CC BY 4.0** (that
+   covers the AER website, not the plan data) → recorded as `license: "other"` with
+   AER/CDR attribution. See `LICENSING.md` §7 + commit on `fix/aer-licensing`.
 2. **Stale data to correct now:**
    - **Argentina** — the N1/N2/N3 subsidy tiers were **abolished** → binary "SEF"
      scheme (Decreto 943/2025, eff. Jan 2026). Our AR plan is outdated.
@@ -92,4 +95,54 @@ OPSD (wholesale only).
   Croatia, Lithuania, Gulf states, Mongolia, Uruguay, Costa Rica, Honduras, Brunei,
   Fiji, Bhutan, Ghana) → ~67 countries, several with real ToU.
 - **Later:** the second-tier curations + the not-reached regulators (EC/BO/PY/CO/PE).
+
+## G. Second sweep (NEW license-audited sources, 2026-06)
+
+A second research pass (EU/EFTA · Americas · APAC/Africa/ME · CDR-style landscape).
+**Headline:** AU's free no-auth *plan-level* CDR feed is still nearly unique; the only
+true open equivalent found is 🇮🇹 **ARERA "Portale Offerte"** (daily full-market
+per-plan F1/F2/F3 ToU + standing charges — needs one browser step to capture the
+exact licence wording; WAF blocks automation). Track 🇳🇿 **"Open Electricity" CDR**
+(plan API planned ~2027) as the next AER-equivalent.
+
+### ✅ Bulk-store OK (open licence verified) — importer-ready
+
+| Source | Region | Licence | Gives | Effort |
+|--------|--------|---------|-------|--------|
+| **CRE Regulated Tariffs (TRV)** data.gouv.fr CSV | 🇫🇷 FR | Etalab 2.0 (→`other`) | Base / **HP-HC** / Tempo per-kWh + fixed supply | Low — **building now** |
+| **Energi Data Service `DatahubPricelist`** REST | 🇩🇰 DK | CC-BY 4.0 (Energinet) | DSO/TSO network charges, **full hourly ToU** (Price1–24) | Low — **building now** |
+| **Taipower rate tables** data.gov.tw 17060/17052 CSV | 🇹🇼 TW | OGDL TW (→`other`) | residential tiers + **summer/ToU** bands | Low-Med — **building now** (ToU variant) |
+| **VREG V-test** XLSX | 🇧🇪 BE-VL | Modellicentie Gratis Hergebruik (CC-BY-compat) | per-supplier/product per-kWh, fixed vs dynamic | Low |
+| **ElCom Strompreis** CSV/SPARQL | 🇨🇭 CH | opendata.swiss OPEN | ~600 operators, energy+grid+tax per-kWh | Med |
+| **OEDI ZIP-rate look-up 2024** CSV | 🇺🇸 US | CC-BY 4.0 | per-utility avg ¢/kWh by ZIP (URDB does ToU) | Low |
+| **ANEEL Componentes + Bandeiras** CKAN | 🇧🇷 BR | **ODbL (share-alike ⚠)** | TE/TUSD components + flag adders | Low |
+| **datos.gov.co Socrata** SODA | 🇨🇴 CO | Ley 1712 (**CC BY-SA ⚠**) | per-distributor COP/kWh by category | Low |
+| **CRE Tarifas Suministro Básico** CSV | 🇲🇽 MX | Libre Uso MX | real retail ¢/kWh (domestic 1–1F/DAC + GDMTH) | Med (browser session) |
+| **Alberta UCA / Ontario data.ontario.ca** | 🇨🇦 CA | OGL-prov | regulated/default + micro-gen export | Med |
+
+⚠️ **Two copyleft flags:** Brazil ANEEL (ODbL) + Colombia (CC BY-SA) are share-alike —
+confirm outbound compatibility with our CC0/CC-BY model before merging.
+
+### Aggregate baselines (open — anchor the "vs ref" layer, not plan-level)
+CBS-NL (incl. dynamic split, CC-BY) · SCB-SE (CC0) · Tilastokeskus-FI (CC-BY) ·
+ČSÚ-CZ (CC-BY) · SMARD-DE (CC-BY) · Ofgem price-cap + DESNZ (OGL) · EMI-NZ/QSDEP
+(CC-BY) · GODL-IN · KOGL-KR (parse-required) · EIA v2 (US public domain).
+
+### 🟡 Display-only / live-fetch (no redistribution grant — on-device only)
+Chile CNE energiaabierta.cl (real Junar API, non-commercial) · DK Strømligning ·
+NL enever.nl / ACM · BE CREG/BRUGEL/CWaPE comparison tools · NZ ahiko.nz · NZ
+Powerswitch · UK EDF/electricitycosts · TX Power-to-Choose (export exists, no
+explicit grant — see below) · ES ESIOS PVPC · QC Hydro-Québec.
+
+### ❓ Needs one first-hand/browser licence check, then likely bulk-store
+🇵🇪 Peru OSINERGMIN pliegos · 🇺🇸 TX Power-to-Choose · 🇺🇸 CT PURA Rate Board ·
+🇺🇸 OH "Apples to Apples" · 🇵🇹 Portugal ERSE XLSX (no licence stated → hand-curate
+meanwhile) · 🇳🇴 Norway Forbrukerrådet (richest in Europe, no documented open API).
+
+### ❌ Confirmed dead-ends (don't invest)
+Germany retail per-kWh plans (none open) · CDR/Open-Energy *frameworks* (UK Open
+Energy, Midata, EU Energy Data Space — metadata/blueprints, no live tariff API) ·
+geoimpact GitHub (no LICENSE → use ElCom directly) · Sweden Elpriskollen / FI
+sahkonhinta / DK elpris.dk (canonical but no open export) · HEPI/VaasaETT
+(proprietary) · TH/ID/MY portals (consumption stats only, no rate tables).
 </content>

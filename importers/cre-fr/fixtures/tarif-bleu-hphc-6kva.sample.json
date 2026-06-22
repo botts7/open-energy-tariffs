@@ -1,0 +1,9 @@
+{
+  "option": "HPHC",
+  "puissance": 6,
+  "partFixeAnnuelle": 151.2,
+  "partVariableHP": 0.27,
+  "partVariableHC": 0.2068,
+  "hcWindows": [{ "from": "22:00", "to": "06:00" }],
+  "dateDebut": "2025-02-01"
+}
