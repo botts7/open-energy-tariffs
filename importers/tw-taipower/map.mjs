@@ -14,7 +14,7 @@ import { slug, money, round, hoursToIntervals } from '../_lib/canonical.mjs';
 
 export { slug, money };
 
-const SOURCE_URL = 'https://data.gov.tw/dataset/17052';
+const SOURCE_URL = 'https://data.gov.tw/dataset/17060';
 const NOTES =
   'Taiwan residential time-of-use tariff (Taipower), from the open rate tables on data.gov.tw (datasets 17052/17060). Published under the Open Government Data License, Taiwan (OGDL) — CC-BY-4.0-compatible; recorded as license:other, attributing Taipower / data.gov.tw. Summer = Jun–Sep carries higher rates via band.seasonRates. The block/tiered (non-ToU) residential tariff is not mapped (needs v1.1 tiers).';
 
@@ -71,6 +71,12 @@ export function mapTaipowerTou(rec, opts = {}) {
   const basic = money(rec.basicMonthly);
   if (basic != null) tariff.supply = { daily: round((basic * 12) / 365) };
 
+  if (rec.effectiveFrom) tariff.validFrom = rec.effectiveFrom;
+
+  const notes = NOTES + (rec.summerPeakWindow
+    ? ` Summer (Jun–Sep) weekday peak window differs (${rec.summerPeakWindow}); v1 uses one schedule, so the non-summer windows are applied year-round while summer/non-summer RATES are correct via band.seasonRates.`
+    : '');
+
   const id = ['tw', provider, planName].map(slug).filter(Boolean).join('-');
 
   const meta = {
@@ -87,7 +93,7 @@ export function mapTaipowerTou(rec, opts = {}) {
     license: 'other',
     updated: opts.updated || rec.effectiveFrom || '1970-01-01',
     verified: false,
-    notes: NOTES,
+    notes,
     coverage: { national: true },
   };
 
