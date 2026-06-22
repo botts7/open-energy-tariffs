@@ -42,7 +42,7 @@
           "type": "string",
           "enum": ["CC0-1.0", "CC-BY-4.0", "other"],
           "default": "CC0-1.0",
-          "description": "Licence of THIS entry's data. 'manual'/'urdb' => CC0-1.0; 'cdr' => CC-BY-4.0 (enforced below)."
+          "description": "Licence of THIS entry's data. 'manual'/'urdb' => CC0-1.0; 'cdr' => 'other' (AER CDR Product Reference Data is public data via a sanctioned API, not a formal open licence — attribute the AER; enforced below)."
         },
         "contributor": { "type": "string", "description": "Optional handle of the submitter (no personal data)." },
         "updated": { "type": "string", "format": "date", "description": "YYYY-MM-DD the rates were last verified." },
@@ -64,9 +64,9 @@
       },
       "allOf": [
         {
-          "description": "AER CDR data is CC BY 4.0 — attribution required.",
+          "description": "AER CDR Product Reference Data: public data via a sanctioned API, not formally open-licensed — record as 'other' and attribute the AER.",
           "if": { "properties": { "source": { "const": "cdr" } }, "required": ["source"] },
-          "then": { "properties": { "license": { "const": "CC-BY-4.0" } } }
+          "then": { "properties": { "license": { "const": "other" } } }
         }
       ]
     },

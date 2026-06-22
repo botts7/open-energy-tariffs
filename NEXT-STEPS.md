@@ -85,7 +85,7 @@ Confirmed against primary sources (see `SOURCES.md` "Resolved" + `ARCHITECTURE.m
 - **URDB = CC0** → bulk-store OK (no attribution; keep `verified:false` until checked).
 - **Octopus = no open licence** (ToS forbids distributing content) → **on-device
   import only** + CC0 community examples; never bulk-republish.
-- **AU-CDR = CC BY 4.0** (AER) → **bulk-store OK with attribution**. Endpoints pinned:
+- **AU-CDR = public CDR Product Reference Data** (AER, recorded `other`) → **bulk-store OK with attribution**. Endpoints pinned:
   host `https://cdr.energymadeeasy.gov.au/`, `GET /cds-au/v1/energy/plans` +
   `/{planId}`, header `x-v: 1`, **no auth**. AER central feed covers AGL + all NECF
   retailers + VIC. Per-retailer base-URI list published by AER; community list at
@@ -99,13 +99,13 @@ DONE (2026-06-20, commit f0fb90d):
 - ✅ CI: `scripts/validate.mjs` (ajv + unique-id + compliance), `package.json`
   (ajv/ajv-formats), `build.mjs` → `dist/canonical/` + per-country chunks + richer
   `index.json`, `.github/workflows/validate.yml`. Compliance baked in: `source`
-  enum excludes `octopus`; `source=cdr ⇒ CC-BY-4.0`.
+  enum excludes `octopus`; `source=cdr ⇒ license:other`.
 - ✅ Licence compliance pass (commit 9c8ca09) + `ATTRIBUTION.md`.
 
 TODO **in THIS repo / session** (app-agnostic core, roughly in order):
 - ✅ **AU-CDR importer** (`importers/cdr/`, commit 2b19265) — `map.mjs` (pure),
   `fetch.mjs` (`x-v:1`), `run.mjs` CLI, synthetic fixture + `map.test.mjs`
-  (deep-equal + schema conformance), README. Emits `source:cdr, license:CC-BY-4.0`
+  (deep-equal + schema conformance), README. Emits `source:cdr, license:other`
   + AER attribution. **⚠️ mapping authored from the CDR OpenAPI, NOT run against
   the live API** — capture a real `…/plans/{planId}` response (with `x-v:1`),
   re-run `npm test`, and confirm time-format / supply-charge shapes before
@@ -155,7 +155,7 @@ TODO **in THIS repo / session** (app-agnostic core, roughly in order):
 
 - ✅ **Licence register** `LICENSING.md` (every source + lib + tile + boundary set,
   obligations + status); compliance audit fixed real-Octopus-rates-committed +
-  added AER CC-BY attribution to the map (commit 7c30346).
+  added AER (CDR) attribution to the map (commit 7c30346).
 - ✅ **Boundary-build mechanism** `scripts/build-boundaries.mjs` (+ optional CI
   step): fetch official GeoJSON → reproject (proj4) → simplify → `map/boundaries/`
   so UK/US show REAL regions vs circles. **Not yet run** (NESO URL unreachable +

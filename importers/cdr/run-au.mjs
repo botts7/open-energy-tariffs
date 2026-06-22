@@ -1,5 +1,5 @@
 // Bulk-import AU electricity plans across ALL AER retailer base URIs into
-// tariffs/. Reuses the CDR importer (fetch + map). Writes CC-BY-4.0 entries with
+// tariffs/. Reuses the CDR importer (fetch + map). Writes license:other (public CDR Product Reference Data) entries with
 // AER attribution + meta.coverage (postcodes) so the map fills out nationally.
 //
 //   node importers/cdr/run-au.mjs [--updated 2026-06-20] [--limit 100] [--dry]

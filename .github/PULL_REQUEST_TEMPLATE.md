@@ -9,7 +9,7 @@
 - [ ] Entry validates against `schema/v1/tariff.schema.json` (`npm run validate`).
 - [ ] `meta.id` is unique; file path mirrors country/region/provider/plan.
 - [ ] `meta.source` + `meta.license` are correct:
-  - `manual`/`urdb` → `CC0-1.0`; `cdr` (AER) → `CC-BY-4.0` (attribution in `notes`).
+  - `manual`/`urdb` → `CC0-1.0`; `cdr` (AER) → `other` (public CDR Product Reference Data; attribution in `notes`).
   - I did **not** paste Octopus (or other non-redistributable) data — `source: octopus`
     is rejected; real Octopus rates are imported on-device only.
 - [ ] Times in `import.schedule[]` are local to `meta.timezone`; I used real

@@ -54,8 +54,8 @@ for (const f of files) {
   // source: octopus, but assert the sourceUrl/provider didn't sneak real data in
   // under a wrong source — a human-review hint, not a hard fail).
   const m = entry.meta;
-  if (m.source === 'cdr' && m.license !== 'CC-BY-4.0')
-    errors.push(`${rel}: source=cdr requires license=CC-BY-4.0 (AER attribution)`);
+  if (m.source === 'cdr' && m.license !== 'other')
+    errors.push(`${rel}: source=cdr requires license=other (AER CDR PRD is public data via a sanctioned API, not a formal open licence; attribute the AER in meta.notes)`);
 
   // Path should mirror country (lightweight sanity check).
   const wantSeg = `tariffs/${m.country}/`;

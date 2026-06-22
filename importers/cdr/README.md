@@ -13,8 +13,8 @@ data source for AU (no auth, covers AGL + every NECF retailer + VIC).
   `GET /cds-au/v1/energy/plans/{planId}` (**`x-v: 3`** — a lower version 406s).
   **No auth.** The base URI includes the retailer code, e.g.
   `https://cdr.energymadeeasy.gov.au/ergon`.
-- **Licence:** AER data is **CC BY 4.0**. Imported entries are written with
-  `meta.source: "cdr"`, `meta.license: "CC-BY-4.0"`, and the AER attribution
+- **Licence:** AER plan data comes via the public CDR Product Reference Data API; public data, not a formal open licence (recorded as `other`, *not* CC BY 4.0). Imported entries are written with
+  `meta.source: "cdr"`, `meta.license: "other"`, and the AER attribution
   notice in `meta.notes`. See `../../ATTRIBUTION.md`.
 
 ## Files

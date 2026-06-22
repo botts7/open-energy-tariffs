@@ -57,7 +57,7 @@ index.json                        # country -> region -> provider -> [{id,plan,v
 scripts/validate.mjs              # ajv-validate tariffs/** + unique id + compliance
 scripts/build.mjs                 # compiles tariffs/** -> dist/ + index.json
 importers/_lib/                   # shared pure helpers (slug, money, intervals)
-importers/cdr/                    # AU-CDR (AER) -> canonical (CC-BY-4.0, bulk-store)
+importers/cdr/                    # AU-CDR (AER) -> canonical (CDR Product Reference Data, bulk-store)
 importers/urdb/                   # US OpenEI URDB -> canonical (CC0, bulk-store)
 importers/octopus/                # UK Octopus -> canonical (ON-DEVICE only, never stored)
 packages/sdk-js/                  # thin JS client (fetch+cache, getPlan, apply adapter)
@@ -86,7 +86,7 @@ by **build-time adapters** into `dist/<app>/`, never authored by hand.
 - **Community-submitted data:** CC0 (public-domain dedication) — tariff structures
   are facts.
 - **Imported data:** retains its source's licence, tracked per entry in
-  `meta.license` / `meta.sourceUrl`. AER data is **CC BY 4.0** (attribution
+  `meta.license` / `meta.sourceUrl`. AER plan data is public **CDR Product Reference Data** (attribution
   required); URDB is **CC0**; **Octopus is on-device-import only — never
   bulk-stored**.
 - **Full licence register** (every data source + library + map tile + boundary

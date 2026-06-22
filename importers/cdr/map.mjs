@@ -189,10 +189,10 @@ export function mapPlanDetail(detail, opts = {}) {
     timezone: stateTz(region),
     source: 'cdr',
     sourceUrl: 'https://www.aer.gov.au/energy-product-reference-data',
-    license: 'CC-BY-4.0',
+    license: 'other',
     updated: opts.updated || plan.effectiveFrom?.slice(0, 10) || '1970-01-01',
     verified: false,
-    notes: 'Imported from AER CDR generic plans. Contains data © Australian Energy Regulator, used under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Not endorsed by the AER.',
+    notes: 'Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.',
     ...(Object.keys(coverage).length ? { coverage } : {}),
   };
 
