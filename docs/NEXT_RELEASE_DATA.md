@@ -145,4 +145,30 @@ Energy, Midata, EU Energy Data Space — metadata/blueprints, no live tariff API
 geoimpact GitHub (no LICENSE → use ElCom directly) · Sweden Elpriskollen / FI
 sahkonhinta / DK elpris.dk (canonical but no open export) · HEPI/VaasaETT
 (proprietary) · TH/ID/MY portals (consumption stats only, no rate tables).
-</content>
+
+## H. Done so far (live on main)
+
+Real, reproducible importers shipped (re-run to refresh; all `npm run build`-clean):
+
+- 🇦🇺 **AU** — AER CDR (5,226) · 🇺🇸 **US** — URDB (314)
+- 🇨🇭 **CH** — ElCom via LINDAS SPARQL (**550** operators, household H4, deterministic AVG)
+- 🇩🇰 **DK** — Energi Data Service (**24** DSO Nettarif C, current+consumer-filtered)
+- 🇫🇷 **FR** — CRE Tarif Bleu CSV (**13**: Base + HP/HC by power level)
+- 🇹🇼 **TW** — Taipower rate JSON (**2**: two- + three-section residential ToU)
+
+## I. Internationalisation (i18n) — future
+
+Plan/operator names are stored + shown in their **source language** (Danish
+"Nettarif C", French "Tarif Bleu", Chinese rate labels, German Swiss operators).
+For a multilingual UI:
+
+- **Don't translate the canonical data** — names are identifiers/facts; keep them
+  verbatim (and `meta.notes` source-accurate). Add an *optional* `meta.nameEn` /
+  display-label layer rather than mutating `meta.plan`.
+- **UI strings** (column headers, nav, wizard, tooltips) → extract to a string
+  table keyed by locale; the map is plain-JS so a tiny `OET.t(key)` lookup + a
+  `?lang=` / browser-locale switch is enough (no framework needed).
+- **Number/currency/date formatting** → use `Intl.NumberFormat` / `Intl.DateTimeFormat`
+  with the chosen locale (already have per-entry `currency` + `timezone`).
+- Priority order suggestion: EN (done, implicit) → DE/FR/IT (covers CH + much of EU)
+  → ES → ZH. Translate UI chrome first; leave tariff names source-native.
