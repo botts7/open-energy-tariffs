@@ -391,8 +391,13 @@ OET.renderMap = function (plans, meta) {
 
 OET.main = async function () {
   const { entries, source } = await OET.loadPlans();
+  let all = entries;
+  if (OET.extendedEnabled && OET.extendedEnabled() && OET.loadExtended) {
+    const ext = await OET.loadExtended();
+    if (ext.length) { all = entries.concat(ext); OET._extendedCount = ext.length; }
+  }
   if (OET.loadBoundaries) await OET.loadBoundaries(); // exact polygons if bundled
-  OET.renderMap(entries, { source });
+  OET.renderMap(all, { source });
   if (OET.initSidebar) OET.initSidebar();
   // Defer the big suburb-search bundle off the critical path (idle after paint).
   if (OET.loadScript) setTimeout(() => OET.loadScript('au-suburbs.js'), 250);
