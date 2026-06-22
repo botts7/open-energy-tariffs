@@ -195,6 +195,7 @@
       </div>
       <div class="utilcluster">
         <button id="wizardTop" class="cta" title="Guided: location → usage → ranked plans"><span class="ni-i">✨</span><span class="ni-t">Find my best plan</span></button>
+        <button id="extToggle" class="hdr-btn" aria-label="Community / share-alike data" title="Include the separate community / share-alike dataset (copyleft — e.g. Colombia)">🌐</button>
         <button id="helpToggle" class="hdr-btn" aria-label="How to use this site" title="How to use this site">?</button>
         <button id="themeToggle" class="hdr-btn" aria-label="Toggle dark mode" title="Light / dark mode">◐</button>
       </div>
@@ -263,6 +264,16 @@
       if (rb) rb.addEventListener('click', function () { if (OET.showRanking) OET.showRanking(); });
       var wt = document.getElementById('wizardTop');
       if (wt) wt.addEventListener('click', function () { if (OET.showWizard) OET.showWizard(); });
+      var et = document.getElementById('extToggle');
+      if (et) {
+        var extOn = OET.extendedEnabled && OET.extendedEnabled();
+        if (extOn) { et.style.background = 'rgba(234,179,8,.25)'; et.style.borderColor = '#eab308'; et.title = 'Community / share-alike data: ON — click to turn off'; }
+        et.addEventListener('click', function () {
+          var turnOn = !(OET.extendedEnabled && OET.extendedEnabled());
+          if (turnOn && !window.confirm('Include the separate COMMUNITY / SHARE-ALIKE dataset (e.g. Colombia)?\n\nThat data is copyleft (CC-BY-SA): if you republish the combined view you must attribute the source and license your result the same way. The core dataset stays permissive. The page will reload.\n\nContinue?')) return;
+          if (OET.setExtendedEnabled) OET.setExtendedEnabled(turnOn);
+        });
+      }
       var am = document.getElementById('appMat');
       if (am && OET.maturityPill) am.innerHTML = OET.maturityPill(OET.FEATURE_MATURITY.app);
       if (OET.initUniversalSearch) OET.initUniversalSearch();

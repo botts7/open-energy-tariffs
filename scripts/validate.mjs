@@ -57,6 +57,12 @@ for (const f of files) {
   if (m.source === 'cdr' && m.license !== 'other')
     errors.push(`${rel}: source=cdr requires license=other (AER CDR PRD is public data via a sanctioned API, not a formal open licence; attribute the AER in meta.notes)`);
 
+  // SHIELD: the core repo stays uniformly PERMISSIVE. Copyleft / share-alike data
+  // (CC-BY-SA, ODbL) must live in the separate open-energy-tariffs-extended repo,
+  // never here — so anything cloned from core carries no share-alike obligation.
+  if (/cc.?by.?sa|share.?[- ]?alike|\bodbl\b|open\s+database\s+licen/i.test(`${m.license} ${m.notes || ''}`))
+    errors.push(`${rel}: copyleft/share-alike data is not allowed in the core repo — it belongs in open-energy-tariffs-extended (kept separate so core stays permissive).`);
+
   // Path should mirror country (lightweight sanity check).
   const wantSeg = `tariffs/${m.country}/`;
   if (!rel.split('\\').join('/').startsWith(wantSeg))
