@@ -411,6 +411,13 @@ OET.initSidebar = function () {
   // your exact plan isn't in the DB. Auto-filled from a bill PDF's total.
   const currentCostIn = h('input', { type: 'number', step: '10', placeholder: 'actual $/yr', class: 'sb-num sb-numw', name: 'actual-cost',
     oninput: (e) => { state.currentCostActual = e.target.value; apply(); } });
+  // Enter your CURRENT plan's own rates — for when it's been withdrawn from sale and
+  // isn't in the list. Builds a synthetic baseline so every plan (and each plan's
+  // modal) shows the saving vs what you pay now.
+  const mySupplyIn = h('input', { type: 'number', step: '0.01', placeholder: 'supply/day', class: 'sb-num sb-numw', name: 'my-supply',
+    oninput: (e) => { state.mySupply = e.target.value; apply(); } });
+  const myRateIn = h('input', { type: 'number', step: '0.01', placeholder: 'per-kWh', class: 'sb-num sb-numw', name: 'my-rate',
+    oninput: (e) => { state.myRate = e.target.value; apply(); } });
   const cmp = h('details', { class: 'sb-cmp' }, [
     h('summary', { text: 'Compare to my usage' }),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Annual kWh + load shape' }), kwhIn, shapeSel]),
@@ -419,6 +426,7 @@ OET.initSidebar = function () {
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload usage CSV (distributor 48-col export, or time,kWh)' }), csvIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or upload a bill PDF (best-effort)' }), pdfIn]),
     h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'Baseline: my current plan, or my actual annual $' }), currentCombo.el, currentCostIn]),
+    h('div', { class: 'sb-chips' }, [h('span', { class: 'sb-lbl', text: 'or my current plan’s own rates (if it’s not listed — e.g. withdrawn)' }), mySupplyIn, myRateIn]),
     cmpNote,
   ]);
 
@@ -557,17 +565,30 @@ OET.initSidebar = function () {
     OET._usage = state.usage; // expose to the compare modal's annual-cost row
     // Expose the baseline (your actual $ or current-plan cost) so the plan modal
     // can show history-vs-proposed savings.
+    const { pred, note, focus, pc } = buildPredicate();
+    const visible = plans.filter(pred);
+    // Baseline (what you pay now) for the savings column + the plan modal's
+    // side-by-side. Priority: your own plan's RATES > your actual annual $ > a
+    // listed plan you picked. Custom rates build a synthetic tariff, so it works
+    // even when your current plan has been withdrawn and isn't in the list.
     OET._baseline = null;
     if (state.usage) {
+      const myRate = parseFloat(state.myRate), mySupply = parseFloat(state.mySupply);
       const actual = parseFloat(state.currentCostActual);
-      if (actual > 0) OET._baseline = { cost: actual, label: 'your actual bill' };
+      if (myRate > 0 && OET.estimateAnnualCost) {
+        const synth = { kind: 'flat', import: { flatRate: myRate } };
+        if (mySupply > 0) synth.supply = { daily: mySupply };
+        const ccount = {};
+        for (const r of visible) { const c = r.meta.currency; if (c) ccount[c] = (ccount[c] || 0) + 1; }
+        const synthCur = Object.keys(ccount).sort((a, b) => ccount[b] - ccount[a])[0] || '';
+        OET._baseline = { cost: OET.estimateAnnualCost(synth, state.usage), label: 'my plan (your rates)',
+          rec: { id: '__myplan__', meta: { provider: 'My plan', plan: 'your rates', currency: synthCur, country: '' }, tariff: synth } };
+      } else if (actual > 0) OET._baseline = { cost: actual, label: 'your actual bill' };
       else if (state.currentPlanId) {
         const cur = plans.find((p) => p.id === state.currentPlanId);
         if (cur && OET.estimateAnnualCost) OET._baseline = { cost: OET.estimateAnnualCost(cur.tariff, state.usage), label: cur.meta.provider + ' · ' + cur.meta.plan, rec: cur };
       }
     }
-    const { pred, note, focus, pc } = buildPredicate();
-    const visible = plans.filter(pred);
     OET.applyPlanFilter(pred);
     renderList(visible);
     // Feed the same filtered set + usage to the Table view (comparison layer).
@@ -680,6 +701,14 @@ OET.initSidebar = function () {
   };
   OET.setSolar = function (perDay) { state.exportKwh = perDay ? String(perDay) : ''; if (exportIn) exportIn.value = state.exportKwh; recomputeExport(); };
   OET.setActualCost = function (v) { state.currentCostActual = v ? String(v) : ''; if (currentCostIn) currentCostIn.value = state.currentCostActual; apply(); };
+  // Set your CURRENT plan's own rates as the baseline (for a withdrawn/unlisted plan).
+  OET.setMyPlan = function (perKwh, supplyDaily) {
+    state.myRate = perKwh ? String(perKwh) : '';
+    state.mySupply = supplyDaily ? String(supplyDaily) : '';
+    if (myRateIn) myRateIn.value = state.myRate;
+    if (mySupplyIn) mySupplyIn.value = state.mySupply;
+    apply();
+  };
   // Load an interval/usage CSV (same parser registry as the sidebar). -> Promise<res|null>.
   OET.loadUsageFile = function (file) {
     return new Promise((resolve) => {
