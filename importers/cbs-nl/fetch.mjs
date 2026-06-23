@@ -27,10 +27,13 @@ export async function fetchCbsNl() {
   const incl = (btw.find((b) => /inclusief|incl/i.test(b.Title || '')) || btw[btw.length - 1] || {}).Key;
   if (!incl) throw new Error('CBS: could not resolve incl-VAT Btw code');
 
-  // Latest periods for that VAT code, newest first; pick the latest MONTHLY one.
-  const rows = await odata(`/TypedDataSet?$format=json&$filter=${encodeURIComponent(`Btw eq '${incl}'`)}&$orderby=${encodeURIComponent('Perioden desc')}&$top=48`);
-  const r = rows.find((x) => /\dMM\d/.test(x.Perioden)) || rows[0];
+  // CBS OData v3 ignores $orderby, so fetch all rows for that VAT code and pick the
+  // latest MONTHLY period in JS (string compare on "YYYYMMnn" works).
+  const rows = await odata(`/TypedDataSet?$format=json&$filter=${encodeURIComponent(`Btw eq '${incl}'`)}&$top=100000`);
+  const monthly = rows.filter((x) => /\dMM\d/.test(x.Perioden)).sort((a, b) => String(b.Perioden).localeCompare(String(a.Perioden)));
+  const r = monthly[0] || rows[rows.length - 1];
   if (!r) throw new Error('CBS: no rows returned');
+  console.log(`CBS-NL: latest monthly period = ${r.Perioden} (of ${rows.length} rows)`);
 
   return {
     period: r.Perioden,
