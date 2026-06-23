@@ -4,7 +4,7 @@
 //
 // Licence: CC-BY 4.0 (Statistics Iceland).
 
-import { slug, money, round } from '../_lib/canonical.mjs';
+import { slug, money, round, requireRate } from '../_lib/canonical.mjs';
 
 export { slug, money };
 
@@ -31,7 +31,7 @@ export function mapIceland(rec, opts = {}) {
   const provider = 'Household average';
   const plan = `Household — ${range}`;
 
-  const tariff = { kind: 'flat', import: { flatRate: round(money(rec.priceIsk) ?? 0) } };
+  const tariff = { kind: 'flat', import: { flatRate: round(requireRate(money(rec.priceIsk) ?? 0, `IS ${range} ISK/kWh`)) } };
   const vf = periodToDate(rec.period);
   if (vf) tariff.validFrom = vf;
 

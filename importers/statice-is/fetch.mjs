@@ -30,7 +30,8 @@ export async function fetchIceland() {
   const find = (re) => meta.variables.find((v) => re.test(v.text) || re.test(v.code));
   const land = find(/country/i), band = find(/range/i), tid = find(/year/i), tax = find(/tax/i), cur = find(/currency/i);
 
-  const latest = tid.values[tid.values.length - 1];
+  // Sort the year codes and take the max — don't rely on PxWeb ordering.
+  const latest = [...tid.values].sort().at(-1);
   const isCode = land.values[land.valueTexts.findIndex((t) => /iceland/i.test(t))];
   const inclTax = tax.values[tax.valueTexts.findIndex((t) => /all taxes and fees included/i.test(t))];
   const nac = cur.values[cur.valueTexts.findIndex((t) => /^NAC$/i.test(t))] || 'NAC';

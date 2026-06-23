@@ -31,7 +31,9 @@ export async function fetchFinland() {
   const time = meta.variables.find((v) => /month/i.test(v.text));
   const comp = meta.variables.find((v) => /component/i.test(v.text));
   const cons = meta.variables.find((v) => /consumer/i.test(v.text));
-  const latest = time.values[time.values.length - 1];
+  // Sort the fixed-width month codes ("2026M03") and take the max — don't rely on
+  // PxWeb returning them in chronological order.
+  const latest = [...time.values].sort().at(-1);
   const hhCodes = cons.values.filter((_, i) => /^Household/i.test(cons.valueTexts[i]));
   const labelOf = {};
   cons.values.forEach((v, i) => { labelOf[v] = cons.valueTexts[i]; });

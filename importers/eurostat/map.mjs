@@ -3,7 +3,7 @@
 //
 // Licence: CC-BY 4.0 (Eurostat / European Union).
 
-import { slug, money, round } from '../_lib/canonical.mjs';
+import { slug, money, round, requireRate } from '../_lib/canonical.mjs';
 
 export { slug, money };
 
@@ -24,7 +24,7 @@ export function mapEurostat(rec, opts = {}) {
   const provider = 'National average';
   const plan = 'Household average (Eurostat)';
 
-  const tariff = { kind: 'flat', import: { flatRate: round(money(rec.price) ?? 0) } };
+  const tariff = { kind: 'flat', import: { flatRate: round(requireRate(rec.price, `Eurostat ${cc} EUR/kWh`)) } };
   const vf = periodToDate(rec.period);
   if (vf) tariff.validFrom = vf;
 

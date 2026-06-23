@@ -85,7 +85,7 @@ export function normaliseRows(rows, option, hcWindowsByPower = {}) {
 export async function fetchTrvCsv(optionOrUrl, option, hcWindowsByPower) {
   const url = CSV[optionOrUrl] || optionOrUrl;
   const opt = CSV[optionOrUrl] ? optionOrUrl : option;
-  const res = await fetch(url, { headers: { accept: 'text/csv' } });
+  const res = await fetch(url, { headers: { accept: 'text/csv' }, signal: AbortSignal.timeout(30000) });
   if (!res.ok) throw new Error(`CRE ${res.status} ${res.statusText} for ${url}`);
   return normaliseRows(parseCsv(await res.text()), opt, hcWindowsByPower);
 }

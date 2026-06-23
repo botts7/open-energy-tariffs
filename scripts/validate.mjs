@@ -60,8 +60,31 @@ for (const f of files) {
   // SHIELD: the core repo stays uniformly PERMISSIVE. Copyleft / share-alike data
   // (CC-BY-SA, ODbL) must live in the separate open-energy-tariffs-extended repo,
   // never here — so anything cloned from core carries no share-alike obligation.
-  if (/cc.?by.?sa|share.?[- ]?alike|\bodbl\b|open\s+database\s+licen/i.test(`${m.license} ${m.notes || ''}`))
-    errors.push(`${rel}: copyleft/share-alike data is not allowed in the core repo — it belongs in open-energy-tariffs-extended (kept separate so core stays permissive).`);
+  // HARD-fail on the licence FIELD only (the schema enum can't even express CC-BY-SA,
+  // so this future-proofs the gate). Matching free-text notes caused false-positives
+  // (a permissive entry whose notes merely MENTION share-alike, e.g. "not CC-BY-SA").
+  const COPYLEFT = /cc.?by.?sa|share.?[- ]?alike|\bodbl\b|open\s+database\s+licen/i;
+  if (COPYLEFT.test(String(m.license || '')))
+    errors.push(`${rel}: copyleft/share-alike licence "${m.license}" is not allowed in the core repo — it belongs in open-energy-tariffs-extended (kept separate so core stays permissive).`);
+  else if (COPYLEFT.test(m.notes || ''))
+    console.warn(`  ! ${rel}: notes mention share-alike terms but license="${m.license}" is permissive — double-check the licence is correct.`);
+
+  // Referential integrity: every schedule / controlled-load band reference must
+  // resolve to a defined band id (a dangling ref ships a structurally-broken plan).
+  for (const struct of [entry.tariff.import, entry.tariff.export]) {
+    if (struct && Array.isArray(struct.schedule) && Array.isArray(struct.bands)) {
+      const bandIds = new Set(struct.bands.map((b) => b.id));
+      for (const iv of struct.schedule)
+        if (iv.band && !bandIds.has(iv.band))
+          errors.push(`${rel}: schedule references band "${iv.band}" not in bands [${[...bandIds].join(', ')}]`);
+    }
+  }
+  for (const cl of entry.tariff.controlledLoad || []) {
+    if (Array.isArray(cl.schedule))
+      for (const iv of cl.schedule)
+        if (iv.band && iv.band !== cl.id)
+          errors.push(`${rel}: controlledLoad "${cl.id}" schedule references band "${iv.band}" (expected "${cl.id}")`);
+  }
 
   // Path should mirror country (lightweight sanity check).
   const wantSeg = `tariffs/${m.country}/`;

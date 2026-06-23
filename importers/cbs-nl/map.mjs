@@ -8,7 +8,7 @@
 //
 // Licence: CC-BY 4.0 (CBS / Statistics Netherlands).
 
-import { slug, money, round } from '../_lib/canonical.mjs';
+import { slug, money, round, requireRate } from '../_lib/canonical.mjs';
 
 export { slug, money };
 
@@ -32,7 +32,7 @@ export function mapCbsNl(rec, opts = {}) {
   const plan = 'Household standard contract (CBS)';
 
   const allIn = round((money(rec.energy) ?? 0) + (money(rec.ode) ?? 0) + (money(rec.energyTax) ?? 0));
-  const tariff = { kind: 'flat', import: { flatRate: allIn } };
+  const tariff = { kind: 'flat', import: { flatRate: requireRate(allIn, 'NL EUR/kWh') } };
 
   // Net annual fixed = transport + fixed supply + energy-tax rebate (rebate is
   // negative). Only emit supply if it's net-positive (the rebate often exceeds it).

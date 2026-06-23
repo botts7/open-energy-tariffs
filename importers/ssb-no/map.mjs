@@ -4,7 +4,7 @@
 //
 // Licence: NLOD (Norwegian Licence for Open Government Data) -> license:"other".
 
-import { slug, money, round } from '../_lib/canonical.mjs';
+import { slug, money, round, requireRate } from '../_lib/canonical.mjs';
 
 export { slug, money };
 
@@ -25,9 +25,11 @@ export function mapNorway(rec, opts = {}) {
   const provider = 'National average';
   const plan = 'Household average (SSB)';
 
-  // Net = what's paid (gov support deducted); fall back to gross if support absent.
-  const netOre = money(rec.net) ?? money(rec.gross) ?? 0;
-  const tariff = { kind: 'flat', import: { flatRate: round(netOre / 100) } };
+  // Net = what's paid (gov support deducted); fall back to gross if net is absent
+  // OR negative (a quarter where support exceeds cost — keep a positive shelf price).
+  let netOre = money(rec.net);
+  if (netOre == null || netOre < 0) netOre = money(rec.gross);
+  const tariff = { kind: 'flat', import: { flatRate: round(requireRate((netOre ?? 0) / 100, 'NO NOK/kWh')) } };
 
   const vf = periodToDate(rec.period);
   if (vf) tariff.validFrom = vf;

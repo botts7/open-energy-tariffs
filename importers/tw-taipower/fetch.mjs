@@ -78,7 +78,7 @@ export function extractThreeSection(json, effectiveFrom) {
 
 /** Fetch the live Taipower rate JSON and return both ToU records. */
 export async function fetchTaipowerTou(url = TW_RATE_JSON) {
-  const r = await fetch(url, { headers: { accept: 'application/json' } });
+  const r = await fetch(url, { headers: { accept: 'application/json' }, signal: AbortSignal.timeout(30000) });
   if (!r.ok) throw new Error(`Taipower ${r.status} ${r.statusText} for ${url}`);
   const json = await r.json();
   const eff = (json.metadata || {})['實施日期'];
