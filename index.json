@@ -30706,6 +30706,37 @@
       ]
     }
   },
+  "IS": {
+    "": {
+      "Household average": [
+        {
+          "id": "is-household-average-1000-2500-kwh",
+          "plan": "Household — 1000–2500 kWh",
+          "verified": false
+        },
+        {
+          "id": "is-household-average-1000-kwh",
+          "plan": "Household — < 1000 kWh",
+          "verified": false
+        },
+        {
+          "id": "is-household-average-15000-kwh",
+          "plan": "Household — >15000 kWh",
+          "verified": false
+        },
+        {
+          "id": "is-household-average-2500-5000-kwh",
+          "plan": "Household — 2500–5000 kWh",
+          "verified": false
+        },
+        {
+          "id": "is-household-average-5000-15000-kwh",
+          "plan": "Household — 5000–15000 kWh",
+          "verified": false
+        }
+      ]
+    }
+  },
   "IT": {
     "": {
       "Italy (ARERA fasce)": [
