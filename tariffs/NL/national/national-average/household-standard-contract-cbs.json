@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "id": "nl-national-average-household-standard-contract-cbs",
+    "schemaVersion": "1",
+    "country": "NL",
+    "provider": "National average",
+    "plan": "Household standard contract (CBS)",
+    "currency": "EUR",
+    "unit": "kWh",
+    "timezone": "Europe/Amsterdam",
+    "source": "provider",
+    "sourceUrl": "https://opendata.cbs.nl/statline/#/CBS/nl/dataset/85592NED",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-23",
+    "verified": false,
+    "notes": "Dutch household electricity — NATIONAL AVERAGE from CBS (Statistics Netherlands), StatLine 85592NED, incl. VAT. All-in variable 0.2495 €/kWh = energy contract 0.1387 + renewable surcharge (ODE) 0.0000 + energy tax 0.1109. Annual fixed: transport €477 + supply €113, offset by the energy-tax rebate €-629/yr (heffingskorting). Standard (non-dynamic) contract. Licensed CC BY 4.0 — attribute CBS. A national average, not a shoppable plan. Period 2026MM05.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.24955
+    },
+    "validFrom": "2026-05-01"
+  }
+}
