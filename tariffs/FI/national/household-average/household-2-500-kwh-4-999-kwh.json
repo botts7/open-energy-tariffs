@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "id": "fi-household-average-2-500-kwh-4-999-kwh",
+    "schemaVersion": "1",
+    "country": "FI",
+    "provider": "Household average",
+    "plan": "Household — 2,500 kWh–4,999 kWh",
+    "currency": "EUR",
+    "unit": "kWh",
+    "timezone": "Europe/Helsinki",
+    "source": "provider",
+    "sourceUrl": "https://stat.fi/en/statistics/ehi",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-23",
+    "verified": false,
+    "notes": "Finnish household electricity — average for \"2,500 kWh–4,999 kWh\" annual consumption, from Statistics Finland (Tilastokeskus), StatFin table 13rb. All-in 22.93 c/kWh = electric energy 6.83 + distribution 9.19 + taxes (electricity tax + VAT) 6.91. Licensed CC BY 4.0 — attribute Statistics Finland. A statistical average, not a shoppable plan. Period 2026M03.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.22935
+    },
+    "validFrom": "2026-03-01"
+  }
+}

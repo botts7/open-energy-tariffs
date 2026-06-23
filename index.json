@@ -30518,10 +30518,30 @@
   },
   "FI": {
     "": {
-      "Finland (market)": [
+      "Household average": [
         {
-          "id": "fi-market-day-night",
-          "plan": "Day/Night (yösähkö)",
+          "id": "fi-household-average-1-000-kwh",
+          "plan": "Household — < 1,000 kWh",
+          "verified": false
+        },
+        {
+          "id": "fi-household-average-1-000-kwh-2-499-kwh",
+          "plan": "Household — 1,000 kWh–2,499 kWh",
+          "verified": false
+        },
+        {
+          "id": "fi-household-average-15-000-kwh",
+          "plan": "Household — > 15,000 kWh",
+          "verified": false
+        },
+        {
+          "id": "fi-household-average-2-500-kwh-4-999-kwh",
+          "plan": "Household — 2,500 kWh–4,999 kWh",
+          "verified": false
+        },
+        {
+          "id": "fi-household-average-5-000-kwh-15-000-kwh",
+          "plan": "Household — 5,000 kWh–15,000 kWh",
           "verified": false
         }
       ]
