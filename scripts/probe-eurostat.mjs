@@ -5,8 +5,8 @@ console.log("status", r.status);
 if (r.ok) {
   const j = await r.json();
   console.log("dims:", (j.id||[]).join(","));
-  for (const d of ['consom','tax','unit','currency','nrg_prc','product','freq']) {
-    if (j.dimension?.[d]) console.log(`${d}:`, Object.keys(j.dimension[d].category.index).slice(0,20).join(","));
+  for (const d of ['nrg_cons','siec','freq']) {
+    if (j.dimension?.[d]) console.log(`${d}:`, Object.keys(j.dimension[d].category.index).join(","));
   }
   console.log("times:", Object.keys(j.dimension.time.category.index).slice(-3).join(","));
 } else { console.log("body:", (await r.text()).slice(0,400)); }
