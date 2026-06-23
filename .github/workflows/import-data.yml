@@ -10,7 +10,7 @@ on:
       sources:
         description: "Which importer(s) to run"
         type: choice
-        options: [denmark, france, taiwan, netherlands, all]
+        options: [denmark, france, taiwan, netherlands, eurostat, all]
         default: denmark
       updated:
         description: "meta.updated stamp (YYYY-MM-DD)"
@@ -68,6 +68,10 @@ jobs:
         if: ${{ inputs.sources == 'netherlands' || inputs.sources == 'all' }}
         run: node importers/cbs-nl/run.mjs --updated "${{ inputs.updated }}"
 
+      - name: Eurostat (all EU/EFTA household averages — replaces estimates; CI-reachable)
+        if: ${{ inputs.sources == 'eurostat' || inputs.sources == 'all' }}
+        run: node importers/eurostat/run.mjs --updated "${{ inputs.updated }}"
+
       - name: Validate + PII scan + build
         run: npm run validate && npm run pii && npm run build
 
@@ -82,7 +86,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BR"
-          git add tariffs/ index.json
+          git add -A tariffs/ index.json
           git commit -m "data: import ${{ inputs.sources }} via CI (updated ${{ inputs.updated }})"
           git push -u origin "$BR"
           gh pr create --base main --head "$BR" \
