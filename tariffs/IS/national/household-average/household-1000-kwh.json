@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "id": "is-household-average-1000-kwh",
+    "schemaVersion": "1",
+    "country": "IS",
+    "provider": "Household average",
+    "plan": "Household — < 1000 kWh",
+    "currency": "ISK",
+    "unit": "kWh",
+    "timezone": "Atlantic/Reykjavik",
+    "source": "provider",
+    "sourceUrl": "https://px.hagstofa.is/pxen/pxen/Umhverfi/4_orkumal/1_orkuverdogkostnadur/IDN02303.px",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-23",
+    "verified": false,
+    "notes": "Icelandic household electricity — average for \"< 1000 kWh\" annual consumption, all taxes and fees included, from Statistics Iceland (Hagstofa), table IDN02303. 50.35 ISK/kWh. Licensed CC BY 4.0 — attribute Statistics Iceland. A statistical average, not a shoppable plan. Iceland's hydro/geothermal market is stable; this is the latest published period (2022H1).",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 50.35
+    },
+    "validFrom": "2022-01-01"
+  }
+}
