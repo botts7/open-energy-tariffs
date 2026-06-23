@@ -14,13 +14,13 @@ const read = (p) => JSON.parse(readFileSync(join(here, p), 'utf8'));
 // Synthetic json-stat: dims [unit, geo, time]; sizes [1,3,2]. strides time=1, geo=2.
 const FIX = {
   id: ['unit', 'geo', 'time'],
-  size: [1, 3, 2],
+  size: [1, 4, 2],
   dimension: {
     unit: { category: { index: { KWH: 0 } } },
-    geo: { category: { index: { ES: 0, EL: 1, EU27_2020: 2 } } },
+    geo: { category: { index: { ES: 0, EL: 1, EU27_2020: 2, EA: 3 } } },
     time: { category: { index: { '2025-S1': 0, '2025-S2': 1 } } },
   },
-  value: { 0: 0.20, 1: 0.25, 2: 0.28, 3: 0.29 }, // ES S1/S2, EL S1/S2
+  value: { 0: 0.20, 1: 0.25, 2: 0.28, 3: 0.29, 7: 0.99 }, // ES S1/S2, EL S1/S2
 };
 
 test('parseEurostat: latest period per country, EL->GR, aggregates skipped', () => {

@@ -28,9 +28,10 @@ export function parseEurostat(json) {
   const timeIdx = dim.time.category.index;
   const times = Object.keys(timeIdx).sort(); // ascending; latest last
 
+  const AGGREGATES = new Set(['EA', 'EU']); // Euro Area / EU aggregates (2-letter)
   const out = [];
   for (const [geo, gpos] of Object.entries(geoIdx)) {
-    if (!/^[A-Z]{2}$/.test(geo)) continue;       // skip EU27_2020, EA, etc.
+    if (!/^[A-Z]{2}$/.test(geo) || AGGREGATES.has(geo)) continue; // skip EU27_2020, EA, EU…
     for (let t = times.length - 1; t >= 0; t--) {
       const idx = gpos * stride.geo + timeIdx[times[t]] * stride.time;
       const v = value[String(idx)];
