@@ -128,7 +128,10 @@ window.OET = window.OET || {};
         + '</tbody></table>';
       // History (your current) vs proposed (this plan) — the saving.
       const bl = OET._baseline;
-      if (bl && typeof bl.cost === 'number' && (!bl.rec || !bl.rec.meta.currency || bl.rec.meta.currency === cur)) {
+      // Only compare when the baseline shares this plan's currency. A baseline rec
+      // with a missing/blank currency (e.g. own-rates entered while the visible set
+      // spans currencies) is NOT comparable — don't show a cross-currency saving.
+      if (bl && typeof bl.cost === 'number' && (!bl.rec || bl.rec.meta.currency === cur)) {
         const diff = bd.total - bl.cost, save = diff < 0;
         body += `<div class="oet-note" style="margin-top:8px;background:${save ? 'rgba(22,163,74,.12)' : 'rgba(220,38,38,.1)'};border-color:${save ? 'rgba(22,163,74,.45)' : 'rgba(220,38,38,.45)'}">`
           + `Your current (${esc(bl.label)}): ~${Math.round(bl.cost).toLocaleString()} ${esc(cur)}/yr · `
@@ -139,7 +142,7 @@ window.OET = window.OET || {};
     body += `<div class="oet-sec">Import rates</div>${rateStructHtml(t.import, cur) || '—'}`;
     // Side-by-side comparison vs the user's current plan, with coloured diffs.
     const blRec = OET._baseline && OET._baseline.rec;
-    if (blRec && blRec.tariff && blRec.id !== rec.id && (!blRec.meta.currency || blRec.meta.currency === cur)) {
+    if (blRec && blRec.tariff && blRec.id !== rec.id && blRec.meta.currency === cur) {
       const bdCur = (bd && OET.costBreakdown && OET._usage) ? OET.costBreakdown(blRec.tariff, OET._usage) : null;
       const feed = (tar) => (tar.export && typeof tar.export.flatRate === 'number') ? tar.export.flatRate : null;
       const supplyOf = (tar) => tar.supply && num(tar.supply.daily) != null ? tar.supply.daily : 0;
@@ -150,8 +153,11 @@ window.OET = window.OET || {};
       const fT = feed(t), fC = feed(blRec.tariff);
       if (fT != null || fC != null) rows.push(['Solar feed-in /kWh', fT || 0, fC || 0, false, 3]);
       if (bd && bdCur) rows.push(['Total / year', bd.total, bdCur.total, true, 0]);
-      const fnum = (v, dp) => dp === 0 ? Math.round(v).toLocaleString() : v.toFixed(dp);
+      const fnum = (v, dp) => !isFinite(v) ? '—' : (dp === 0 ? Math.round(v).toLocaleString() : v.toFixed(dp));
       const cellRow = (label, a, b, lowerBetter, dp) => {
+        // A non-finite value (e.g. a bad rate in untrusted data) must not poison the
+        // diff — show the cells and a neutral diff rather than "NaN".
+        if (!isFinite(a) || !isFinite(b)) return `<tr><th>${label}</th><td>${fnum(a, dp)}</td><td>${fnum(b, dp)}</td><td style="color:#64748b">—</td></tr>`;
         const diff = a - b, eps = dp === 0 ? 0.5 : Math.pow(10, -dp) / 2;
         const same = Math.abs(diff) < eps, better = lowerBetter ? diff < 0 : diff > 0;
         const color = same ? '#64748b' : (better ? '#16a34a' : '#dc2626');
