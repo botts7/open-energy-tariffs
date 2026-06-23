@@ -30763,6 +30763,17 @@
       ]
     }
   },
+  "NL": {
+    "": {
+      "National average": [
+        {
+          "id": "nl-national-average-household-standard-contract-cbs",
+          "plan": "Household standard contract (CBS)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "NO": {
     "": {
       "Norway (market)": [
