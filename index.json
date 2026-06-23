@@ -30796,10 +30796,10 @@
   },
   "NO": {
     "": {
-      "Norway (market)": [
+      "National average": [
         {
-          "id": "no-market-typical-flat",
-          "plan": "Typical fixed-price",
+          "id": "no-national-average-household-average-ssb",
+          "plan": "Household average (SSB)",
           "verified": false
         }
       ]
