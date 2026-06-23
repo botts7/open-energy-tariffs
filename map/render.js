@@ -36,8 +36,10 @@ function popupHtml(meta, tariff, rate) {
     + `<span style="color:#555">${esc(cName)}${meta.region ? ' / ' + esc(meta.region) : ''} · ${esc(sName)}</span><br>`
     + `Rate: <strong>${rate == null ? '—' : rate.toFixed(3)} ${esc(meta.currency)}/kWh</strong> (${esc(tariff.kind)}${supply})<br>`
     + `Coverage: ${where}`
-    + `<br><button type="button" onclick="OET.openModalById('${esc(meta.id)}')" style="margin-top:7px;padding:4px 10px;border:1px solid #2563eb;background:#2563eb;color:#fff;border-radius:5px;cursor:pointer;font-size:11px">Full details ›</button>`
-    + `<button type="button" onclick="OET.addToCompare&&OET.addToCompare('${esc(meta.id)}')" style="margin:7px 0 0 6px;padding:4px 10px;border:1px solid #cbd5e1;background:#f8fafc;color:#1a2233;border-radius:5px;cursor:pointer;font-size:11px">＋ Compare</button>`;
+    // data-id (HTML-attribute, esc'd) + delegated handler — NOT an inline onclick
+    // built from data (esc() can't safely place data inside a JS-string-in-attribute).
+    + `<br><button type="button" class="oet-pop-btn" data-act="modal" data-id="${esc(meta.id)}" style="margin-top:7px;padding:4px 10px;border:1px solid #2563eb;background:#2563eb;color:#fff;border-radius:5px;cursor:pointer;font-size:11px">Full details ›</button>`
+    + `<button type="button" class="oet-pop-btn" data-act="compare" data-id="${esc(meta.id)}" style="margin:7px 0 0 6px;padding:4px 10px;border:1px solid #cbd5e1;background:#f8fafc;color:#1a2233;border-radius:5px;cursor:pointer;font-size:11px">＋ Compare</button>`;
 }
 
 // Open the plan-details modal from a map popup button (looks the plan up by id).
@@ -45,6 +47,18 @@ OET.openModalById = function (id) {
   const r = (OET.PLANS || []).find((p) => p.id === id);
   if (r && OET.showPlanModal) OET.showPlanModal(r);
 };
+
+// One delegated listener for the popup buttons (popups come and go in the DOM).
+if (!OET._popDelegated) {
+  OET._popDelegated = true;
+  document.addEventListener('click', function (e) {
+    const btn = e.target && e.target.closest && e.target.closest('.oet-pop-btn');
+    if (!btn) return;
+    const id = btn.getAttribute('data-id');
+    if (btn.getAttribute('data-act') === 'compare') { if (OET.addToCompare) OET.addToCompare(id); }
+    else OET.openModalById(id);
+  });
+}
 
 OET.renderMap = function (plans, meta) {
   // preferCanvas + a shared canvas renderer: thousands of polygons draw to ONE
@@ -394,7 +408,13 @@ OET.main = async function () {
   let all = entries;
   if (OET.extendedEnabled && OET.extendedEnabled() && OET.loadExtended) {
     const ext = await OET.loadExtended();
-    if (ext.length) { all = entries.concat(ext); OET._extendedCount = ext.length; }
+    // Drop any extended entry whose id collides with a core entry (a colliding id
+    // would make PLANS.find() return the wrong record in modal/compare/focus).
+    const haveIds = new Set(entries.map((e) => e && e.meta && e.meta.id));
+    const fresh = ext.filter((e) => !haveIds.has(e.meta.id));
+    OET._extendedRequested = true;
+    OET._extendedCount = fresh.length; // 0 = feed empty/unreachable (see _extendedError)
+    if (fresh.length) all = entries.concat(fresh);
   }
   if (OET.loadBoundaries) await OET.loadBoundaries(); // exact polygons if bundled
   OET.renderMap(all, { source });

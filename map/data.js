@@ -26,11 +26,39 @@ OET.setExtendedEnabled = function (on) {
   try { localStorage.setItem('oet-extended', on ? '1' : '0'); } catch (_) {}
   location.reload(); // re-bootstrap with/without the overlay (clean, no live re-render)
 };
+// Structural guard for entries coming from the REMOTE, third-party extended feed
+// before they're merged into the live set. Without this, one malformed entry throws
+// in renderMap and blanks the whole map. Also rejects angle-bracketed string fields
+// as defense beyond esc() (so a missed escape can't become stored XSS).
+OET.isValidEntry = function (e) {
+  if (!e || typeof e !== 'object') return false;
+  const m = e.meta, t = e.tariff;
+  if (!m || typeof m !== 'object' || !t || typeof t !== 'object') return false;
+  if (typeof m.id !== 'string' || !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(m.id)) return false;
+  if (typeof m.country !== 'string' || !/^[A-Z]{2}$/.test(m.country)) return false;
+  if (t.kind !== 'flat' && t.kind !== 'tou') return false;
+  if (!t.import || typeof t.import !== 'object') return false;
+  for (const v of [m.provider, m.plan, m.region, m.notes, m.currency]) {
+    if (v != null && /[<>]/.test(String(v))) return false;
+  }
+  return true;
+};
 OET.loadExtended = async function () {
+  OET._extendedError = null;
   try {
     const res = await fetch(OET.EXTENDED_FEED, { cache: 'no-store' });
-    if (res.ok) { const b = await res.json(); if (b && Array.isArray(b.entries)) return b.entries; }
-  } catch (_) { /* feed offline — core still works */ }
+    if (!res.ok) { OET._extendedError = `feed returned HTTP ${res.status}`; }
+    else {
+      const b = await res.json();
+      if (b && Array.isArray(b.entries)) return b.entries.filter(OET.isValidEntry);
+      OET._extendedError = 'feed JSON missing entries[]';
+    }
+  } catch (_) {
+    OET._extendedError = 'feed unreachable (offline or CORS)';
+  }
+  // Opt-in was ON but nothing loaded — surface it (the toggle would otherwise look
+  // active while no copyleft data is present).
+  console.warn('[OET] extended overlay enabled but not loaded:', OET._extendedError);
   return [];
 };
 
@@ -86,5 +114,8 @@ OET.roleColor = function (role) { return OET.ROLE_COLOR[role] || '#94a3b8'; };
 OET.roleDot = function (band) {
   const r = OET.bandRole(band);
   if (!r) return '';
-  return `<span title="${r}" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${OET.roleColor(r)};margin-right:6px;vertical-align:middle"></span>`;
+  // r may originate from stored band.role (incl. third-party feed) — escape it for
+  // the title attribute. roleColor() maps any unknown role to a fixed safe colour.
+  const safe = String(r).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  return `<span title="${safe}" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${OET.roleColor(r)};margin-right:6px;vertical-align:middle"></span>`;
 };

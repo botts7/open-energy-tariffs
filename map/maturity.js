@@ -44,8 +44,10 @@ window.OET = window.OET || {};
   // is hand-curated and not verified. Some are calibrated to a national average.
   OET.isEstimatePlan = function (rec) {
     const m = (rec && rec.meta) || {};
-    if (m.verified || ['cdr', 'urdb', 'provider'].indexOf(m.source) >= 0) return false;
-    return m.source === 'manual' || m.source === 'other' || !m.source;
+    // Allow-list: only verified, or a trusted bulk source, counts as real/shoppable.
+    // Anything else (manual, other, blank, OR an unknown third-party feed source like
+    // 'community') is an ESTIMATE — fail safe toward the honest warning.
+    return !(m.verified || ['cdr', 'urdb', 'provider'].indexOf(m.source) >= 0);
   };
 
   // Country data confidence: 'real' (importer/verified plans), 'estimate' (only
@@ -57,8 +59,10 @@ window.OET = window.OET || {};
   };
 
   function isCalibrated(cc) {
+    // Tightened: drop the generic "typical"/"average" (which match real national-
+    // average provider notes and wrongly blocked the experimental→beta cross-check).
     return (OET.PLANS || []).some((r) => r.meta.country === cc
-      && /calibrat|estimat|representative|proxy|typical|average|illustrative/i.test(r.meta.notes || ''));
+      && /calibrat|estimat|representative|proxy|illustrative/i.test(r.meta.notes || ''));
   }
 
   // Prominent honesty banner for a country with no real plan data. '' when real.

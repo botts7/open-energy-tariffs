@@ -578,6 +578,9 @@ OET.initSidebar = function () {
       if (myRate > 0 && OET.estimateAnnualCost) {
         const synth = { kind: 'flat', import: { flatRate: myRate } };
         if (mySupply > 0) synth.supply = { daily: mySupply };
+        // Your own rate has no explicit currency — infer it from the visible set
+        // (dominant currency). The modal/table only compare when currencies MATCH,
+        // so a mixed/empty set can't produce a cross-currency saving (it's hidden).
         const ccount = {};
         for (const r of visible) { const c = r.meta.currency; if (c) ccount[c] = (ccount[c] || 0) + 1; }
         const synthCur = Object.keys(ccount).sort((a, b) => ccount[b] - ccount[a])[0] || '';
