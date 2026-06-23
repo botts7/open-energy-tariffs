@@ -38,7 +38,9 @@ function jsonStatLookup(js) {
 export async function fetchNorway() {
   const meta = await (await fetch(TABLE, { signal: AbortSignal.timeout(30000) })).json();
   const tid = meta.variables.find((v) => v.code === 'Tid');
-  const latest = tid.values[tid.values.length - 1];
+  // Don't assume PxWeb returns time codes in order — sort the fixed-width period
+  // codes ("2026K1") and take the max, so "latest" is deterministic regardless.
+  const latest = [...tid.values].sort().at(-1);
 
   const query = {
     query: [

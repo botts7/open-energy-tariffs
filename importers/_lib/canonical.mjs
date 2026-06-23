@@ -22,6 +22,10 @@ export function bandRole(name, id = '') {
  * (bandRole); otherwise falls back to RATE RANK — cheapest=offpeak, dearest=peak,
  * any middle=shoulder — which is the economic meaning of the tiers and handles
  * rank-named bands (e.g. DK Low/High/Peak). Single-band sets are left untouched.
+ * Notes: the source semantic word ALWAYS wins, even if it contradicts price (a band
+ * literally named "Peak" stays peak); and bands sharing one rate share one rank slot
+ * (ties intentionally get the same role), so a 3-band plan with a tie may lack a
+ * shoulder. Both are deliberate.
  */
 export function assignRoles(bands) {
   if (!Array.isArray(bands) || bands.length === 0) return bands;
@@ -52,6 +56,18 @@ export function money(v) {
   if (v == null) return undefined;
   const n = Number(String(v).trim());
   return Number.isFinite(n) ? n : undefined;
+}
+
+/**
+ * Coerce to a finite, strictly-positive per-unit rate or THROW. Use for any value
+ * headed into import.flatRate / band.rate so importers fail LOUDLY on a missing/
+ * garbage/zero cell instead of silently writing a wrong entry that only `validate`
+ * rejects later (a real retail per-kWh rate is always > 0). Not for supply.daily.
+ */
+export function requireRate(v, ctx = 'rate') {
+  const n = money(v);
+  if (n == null || n <= 0) throw new Error(`${ctx}: expected a finite positive number, got ${JSON.stringify(v)}`);
+  return n;
 }
 
 /** Round to `dp` decimal places (kills float noise from unit conversions). */

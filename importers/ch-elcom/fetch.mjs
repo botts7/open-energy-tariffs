@@ -19,6 +19,7 @@ async function sparql(query) {
     method: 'POST',
     headers: { 'content-type': 'application/sparql-query', accept: 'application/sparql-results+json' },
     body: query,
+    signal: AbortSignal.timeout(60000),
   });
   if (!r.ok) throw new Error(`LINDAS ${r.status} ${r.statusText}`);
   return (await r.json()).results?.bindings || [];
