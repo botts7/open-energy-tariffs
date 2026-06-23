@@ -8,7 +8,7 @@
 // Licence: CC-BY 4.0 (Eurostat / European Union). Uses global fetch (Node >= 18).
 
 const API = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_204';
-const PARAMS = '?format=JSON&consom=4161901&unit=KWH&currency=EUR&tax=I_TAX';
+const PARAMS = '?format=JSON&nrg_cons=KWH2500-4999&siec=E7000&unit=KWH&tax=I_TAX&currency=EUR';
 
 // Eurostat geo -> ISO 3166-1 alpha-2 (most already match).
 const GEO_FIX = { EL: 'GR', UK: 'GB' };

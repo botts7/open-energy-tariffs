@@ -9,9 +9,9 @@ export { slug, money };
 
 const SOURCE_URL = 'https://ec.europa.eu/eurostat/databrowser/view/nrg_pc_204';
 
-/** "2025S2" -> "2025-07-01" (S1 Jan / S2 Jul). */
+/** "2025-S2" (or "2025S2") -> "2025-07-01" (S1 Jan / S2 Jul). */
 export function periodToDate(p) {
-  const m = /^(\d{4})S(\d)/.exec(String(p || ''));
+  const m = /^(\d{4})-?S(\d)/.exec(String(p || ''));
   return m ? `${m[1]}-${m[2] === '2' ? '07' : '01'}-01` : undefined;
 }
 
