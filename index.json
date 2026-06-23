@@ -10,6 +10,17 @@
       ]
     }
   },
+  "AL": {
+    "": {
+      "National average": [
+        {
+          "id": "al-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "AR": {
     "": {
       "EDENOR/EDESUR": [
@@ -23,10 +34,10 @@
   },
   "AT": {
     "": {
-      "Austria (market)": [
+      "National average": [
         {
-          "id": "at-markt-typical-flat",
-          "plan": "Typical single-rate",
+          "id": "at-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -26386,12 +26397,34 @@
       ]
     }
   },
+  "BA": {
+    "": {
+      "National average": [
+        {
+          "id": "ba-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "BE": {
     "": {
-      "Belgium (tweevoudig)": [
+      "National average": [
         {
-          "id": "be-tweevoudig-dag-nacht",
-          "plan": "Dag/Nacht (two-rate, typical)",
+          "id": "be-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "BG": {
+    "": {
+      "National average": [
+        {
+          "id": "bg-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30316,12 +30349,23 @@
       ]
     }
   },
+  "CY": {
+    "": {
+      "National average": [
+        {
+          "id": "cy-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "CZ": {
     "": {
-      "Czechia (market)": [
+      "National average": [
         {
-          "id": "cz-d02d-typical-flat",
-          "plan": "Typical single-rate (D02d)",
+          "id": "cz-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30329,10 +30373,10 @@
   },
   "DE": {
     "": {
-      "Germany (Grundversorgung)": [
+      "National average": [
         {
-          "id": "de-grundversorgung-typical-flat",
-          "plan": "Typical single-rate (Eintarif)",
+          "id": "de-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30494,6 +30538,17 @@
       ]
     }
   },
+  "EE": {
+    "": {
+      "National average": [
+        {
+          "id": "ee-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "EG": {
     "": {
       "Egypt (EgyptERA)": [
@@ -30507,10 +30562,10 @@
   },
   "ES": {
     "": {
-      "Spain 2.0TD (regulated structure)": [
+      "National average": [
         {
-          "id": "es-regulated-tarifa-2-0td",
-          "plan": "Tarifa 2.0TD (typical fixed offer)",
+          "id": "es-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30620,10 +30675,21 @@
   },
   "GB": {
     "": {
-      "GB market (example)": [
+      "National average": [
         {
-          "id": "gb-example-economy-7",
-          "plan": "Economy 7 two-rate (illustrative)",
+          "id": "gb-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "GE": {
+    "": {
+      "National average": [
+        {
+          "id": "ge-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30631,10 +30697,10 @@
   },
   "GR": {
     "": {
-      "Greece (market)": [
+      "National average": [
         {
-          "id": "gr-market-typical-flat",
-          "plan": "Typical single-rate (blue)",
+          "id": "gr-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30651,12 +30717,23 @@
       ]
     }
   },
+  "HR": {
+    "": {
+      "National average": [
+        {
+          "id": "hr-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
   "HU": {
     "": {
-      "MVM Next": [
+      "National average": [
         {
-          "id": "hu-mvm-lakossagi-flat",
-          "plan": "Lakossági (regulated)",
+          "id": "hu-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30675,10 +30752,10 @@
   },
   "IE": {
     "": {
-      "Ireland (smart tariff)": [
+      "National average": [
         {
-          "id": "ie-esb-smart-day-night-peak",
-          "plan": "Day / Night / Peak (typical smart)",
+          "id": "ie-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30739,10 +30816,10 @@
   },
   "IT": {
     "": {
-      "Italy (ARERA fasce)": [
+      "National average": [
         {
-          "id": "it-regulated-fasce-f1-f2-f3",
-          "plan": "Bioraria/Multioraria F1·F2·F3 (typical)",
+          "id": "it-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30776,6 +30853,94 @@
         {
           "id": "kr-kepco-residential-tier1",
           "plan": "Residential progressive (tier 1)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "LI": {
+    "": {
+      "National average": [
+        {
+          "id": "li-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "LT": {
+    "": {
+      "National average": [
+        {
+          "id": "lt-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "LU": {
+    "": {
+      "National average": [
+        {
+          "id": "lu-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "LV": {
+    "": {
+      "National average": [
+        {
+          "id": "lv-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "MD": {
+    "": {
+      "National average": [
+        {
+          "id": "md-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "ME": {
+    "": {
+      "National average": [
+        {
+          "id": "me-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "MK": {
+    "": {
+      "National average": [
+        {
+          "id": "mk-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "MT": {
+    "": {
+      "National average": [
+        {
+          "id": "mt-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30882,10 +31047,10 @@
   },
   "PL": {
     "": {
-      "Poland (taryfa G12)": [
+      "National average": [
         {
-          "id": "pl-taryfa-g12",
-          "plan": "G12 (two-zone day/night)",
+          "id": "pl-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30893,10 +31058,10 @@
   },
   "PT": {
     "": {
-      "Portugal (bi-horário)": [
+      "National average": [
         {
-          "id": "pt-regulado-bi-horario",
-          "plan": "Bi-horário (two-rate, typical)",
+          "id": "pt-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30904,10 +31069,21 @@
   },
   "RO": {
     "": {
-      "Romania (regulated)": [
+      "National average": [
         {
-          "id": "ro-casnic-residential-flat",
-          "plan": "Casnic (residential)",
+          "id": "ro-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "RS": {
+    "": {
+      "National average": [
+        {
+          "id": "rs-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30926,10 +31102,10 @@
   },
   "SE": {
     "": {
-      "Sweden (market)": [
+      "National average": [
         {
-          "id": "se-market-typical-flat",
-          "plan": "Typical fixed-price",
+          "id": "se-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30941,6 +31117,28 @@
         {
           "id": "sg-sp-group-regulated-tariff",
           "plan": "Regulated electricity tariff",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "SI": {
+    "": {
+      "National average": [
+        {
+          "id": "si-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "SK": {
+    "": {
+      "National average": [
+        {
+          "id": "sk-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30959,10 +31157,10 @@
   },
   "TR": {
     "": {
-      "Turkey (regulated)": [
+      "National average": [
         {
-          "id": "tr-mesken-residential-flat",
-          "plan": "Mesken (residential, low band)",
+          "id": "tr-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -30986,10 +31184,10 @@
   },
   "UA": {
     "": {
-      "Ukraine (regulated)": [
+      "National average": [
         {
-          "id": "ua-residential-flat",
-          "plan": "Residential (single-rate)",
+          "id": "ua-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
@@ -32651,6 +32849,17 @@
         {
           "id": "vn-evn-sinhhoat-tier1",
           "plan": "Sinh hoạt (tier, base step)",
+          "verified": false
+        }
+      ]
+    }
+  },
+  "XK": {
+    "": {
+      "National average": [
+        {
+          "id": "xk-national-average-household-average-eurostat",
+          "plan": "Household average (Eurostat)",
           "verified": false
         }
       ]
