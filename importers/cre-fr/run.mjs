@@ -22,6 +22,17 @@ function arg(name, def) {
 }
 
 const url = arg('base'); // optional override; defaults to the built-in CRE CSV for --option
+// Guard the override: only an https:// URL on the official CRE / data.gouv.fr hosts
+// (prevents a bad/hostile --base from turning this into an arbitrary fetch).
+if (typeof url === 'string') {
+  let u;
+  try { u = new URL(url); } catch { console.error(`--base must be a valid URL: ${url}`); process.exit(1); }
+  const okHost = /(^|\.)(cre\.fr|data\.gouv\.fr)$/i.test(u.hostname);
+  if (u.protocol !== 'https:' || !okHost) {
+    console.error(`--base must be an https:// URL on cre.fr or data.gouv.fr (got ${url})`);
+    process.exit(1);
+  }
+}
 const option = String(arg('option', 'BASE')).toUpperCase();
 const updated = arg('updated');
 const limit = Number(arg('limit', '0')) || 0;
