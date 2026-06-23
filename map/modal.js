@@ -128,7 +128,7 @@ window.OET = window.OET || {};
         + '</tbody></table>';
       // History (your current) vs proposed (this plan) — the saving.
       const bl = OET._baseline;
-      if (bl && typeof bl.cost === 'number') {
+      if (bl && typeof bl.cost === 'number' && (!bl.rec || !bl.rec.meta.currency || bl.rec.meta.currency === cur)) {
         const diff = bd.total - bl.cost, save = diff < 0;
         body += `<div class="oet-note" style="margin-top:8px;background:${save ? '#f0fdf4' : '#fef2f2'};border-color:${save ? '#bbf7d0' : '#fecaca'}">`
           + `Your current (${esc(bl.label)}): ~${Math.round(bl.cost).toLocaleString()} ${esc(cur)}/yr · `
@@ -139,7 +139,7 @@ window.OET = window.OET || {};
     body += `<div class="oet-sec">Import rates</div>${rateStructHtml(t.import, cur) || '—'}`;
     // Side-by-side comparison vs the user's current plan, with coloured diffs.
     const blRec = OET._baseline && OET._baseline.rec;
-    if (blRec && blRec.tariff && blRec.id !== rec.id) {
+    if (blRec && blRec.tariff && blRec.id !== rec.id && (!blRec.meta.currency || blRec.meta.currency === cur)) {
       const bdCur = (bd && OET.costBreakdown && OET._usage) ? OET.costBreakdown(blRec.tariff, OET._usage) : null;
       const feed = (tar) => (tar.export && typeof tar.export.flatRate === 'number') ? tar.export.flatRate : null;
       const supplyOf = (tar) => tar.supply && num(tar.supply.daily) != null ? tar.supply.daily : 0;
