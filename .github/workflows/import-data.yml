@@ -46,31 +46,66 @@ jobs:
       - name: Install deps
         run: npm ci || npm install
 
+      # SECURITY: never interpolate ${{ inputs.* }} directly into a run: shell line
+      # (GitHub expands it before the shell, so a crafted value = command injection).
+      # Validate inputs here, then pass them to every step via env: vars referenced as
+      # "$VAR" — the shell treats those as data, not code.
+      - name: Validate inputs
+        env:
+          UPDATED: ${{ inputs.updated }}
+          FR_CSV_URL: ${{ inputs.fr_csv_url }}
+          TW_RECORD_PATH: ${{ inputs.tw_record_path }}
+        run: |
+          echo "$UPDATED" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}$' \
+            || { echo "::error::updated must be YYYY-MM-DD"; exit 1; }
+          if [ -n "$FR_CSV_URL" ]; then
+            echo "$FR_CSV_URL" | grep -qiE '^https://([a-z0-9-]+\.)*(cre\.fr|data\.gouv\.fr)/' \
+              || { echo "::error::fr_csv_url must be an https:// URL on cre.fr or data.gouv.fr"; exit 1; }
+          fi
+          if [ -n "$TW_RECORD_PATH" ]; then
+            case "$TW_RECORD_PATH" in
+              /*|*..*) echo "::error::tw_record_path must be a relative in-repo path (no '..' or leading '/')"; exit 1;;
+            esac
+          fi
+
       - name: Denmark (DatahubPricelist — no input needed)
         if: ${{ inputs.sources == 'denmark' || inputs.sources == 'all' }}
-        run: node importers/dk-energinet/run.mjs --updated "${{ inputs.updated }}"
+        env:
+          UPDATED: ${{ inputs.updated }}
+        run: node importers/dk-energinet/run.mjs --updated "$UPDATED"
 
       - name: France (CRE TRV)
         if: ${{ (inputs.sources == 'france' || inputs.sources == 'all') && inputs.fr_csv_url != '' }}
+        env:
+          UPDATED: ${{ inputs.updated }}
+          FR_CSV_URL: ${{ inputs.fr_csv_url }}
+          FR_UNITS_CENTS: ${{ inputs.fr_units_cents }}
         run: |
-          if [ "${{ inputs.fr_units_cents }}" = "true" ]; then
+          if [ "$FR_UNITS_CENTS" = "true" ]; then
             sed -i "s/price: 1, fixed: 1/price: 100, fixed: 1/" importers/cre-fr/fetch.mjs
             echo "France prices treated as c€/kWh (divided by 100)."
           fi
-          node importers/cre-fr/run.mjs --base "${{ inputs.fr_csv_url }}" --option BASE --updated "${{ inputs.updated }}"
-          node importers/cre-fr/run.mjs --base "${{ inputs.fr_csv_url }}" --option HPHC --updated "${{ inputs.updated }}"
+          node importers/cre-fr/run.mjs --base "$FR_CSV_URL" --option BASE --updated "$UPDATED"
+          node importers/cre-fr/run.mjs --base "$FR_CSV_URL" --option HPHC --updated "$UPDATED"
 
       - name: Taiwan (record-driven)
         if: ${{ (inputs.sources == 'taiwan' || inputs.sources == 'all') && inputs.tw_record_path != '' }}
-        run: node importers/tw-taipower/run.mjs --record "${{ inputs.tw_record_path }}" --updated "${{ inputs.updated }}"
+        env:
+          UPDATED: ${{ inputs.updated }}
+          TW_RECORD_PATH: ${{ inputs.tw_record_path }}
+        run: node importers/tw-taipower/run.mjs --record "$TW_RECORD_PATH" --updated "$UPDATED"
 
       - name: Netherlands (CBS — no input needed; CBS is sandbox-blocked, reachable from CI)
         if: ${{ inputs.sources == 'netherlands' || inputs.sources == 'all' }}
-        run: node importers/cbs-nl/run.mjs --updated "${{ inputs.updated }}"
+        env:
+          UPDATED: ${{ inputs.updated }}
+        run: node importers/cbs-nl/run.mjs --updated "$UPDATED"
 
       - name: Eurostat (all EU/EFTA household averages — replaces estimates; CI-reachable)
         if: ${{ inputs.sources == 'eurostat' || inputs.sources == 'all' }}
-        run: node importers/eurostat/run.mjs --updated "${{ inputs.updated }}"
+        env:
+          UPDATED: ${{ inputs.updated }}
+        run: node importers/eurostat/run.mjs --updated "$UPDATED"
 
       - name: Validate + PII scan + build
         run: npm run validate && npm run pii && npm run build
@@ -78,17 +113,20 @@ jobs:
       - name: Open a data PR
         env:
           GH_TOKEN: ${{ github.token }}
+          SOURCES: ${{ inputs.sources }}
+          UPDATED: ${{ inputs.updated }}
+          RUN_ID: ${{ github.run_id }}
         run: |
           if [ -z "$(git status --porcelain tariffs/ index.json)" ]; then
             echo "No tariff changes were produced — nothing to PR."; exit 0
           fi
-          BR="data/import-${{ inputs.sources }}-${{ github.run_id }}"
+          BR="data/import-${SOURCES}-${RUN_ID}"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BR"
           git add -A tariffs/ index.json
-          git commit -m "data: import ${{ inputs.sources }} via CI (updated ${{ inputs.updated }})"
+          git commit -m "data: import ${SOURCES} via CI (updated ${UPDATED})"
           git push -u origin "$BR"
           gh pr create --base main --head "$BR" \
-            --title "data: importer run — ${{ inputs.sources }}" \
-            --body "Automated importer run (\`${{ inputs.sources }}\`, updated ${{ inputs.updated }}). **Review the added tariffs/ files** — sanity-check rates/units before merge. Schema + PII validation already passed in this run."
+            --title "data: importer run — ${SOURCES}" \
+            --body "Automated importer run (\`${SOURCES}\`, updated ${UPDATED}). **Review the added tariffs/ files** — sanity-check rates/units before merge. Schema + PII validation already passed in this run."

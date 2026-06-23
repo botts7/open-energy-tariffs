@@ -44,23 +44,31 @@ jobs:
       - run: npm install --no-audit --no-fund
 
       - name: Import from URDB
+        # SECURITY: inputs go through env: vars (referenced as "$VAR"), never
+        # interpolated directly into the shell — ${{ inputs.* }} inline would let a
+        # crafted utility/state value run arbitrary commands on the runner.
         env:
           URDB_API_KEY: ${{ secrets.URDB_API_KEY }}
+          UTILITY: ${{ inputs.utility }}
+          STATE: ${{ inputs.state }}
+          TIMEZONE: ${{ inputs.timezone }}
+          LIMIT: ${{ inputs.limit }}
         run: |
           if [ -z "$URDB_API_KEY" ]; then
             echo "::error::URDB_API_KEY secret is not set. Add it under Settings -> Secrets and variables -> Actions."
             exit 1
           fi
-          if [ -n "${{ inputs.utility }}" ]; then
-            echo "Single-utility import: ${{ inputs.utility }}"
+          echo "$LIMIT" | grep -qE '^[0-9]+$' || { echo "::error::limit must be a positive integer"; exit 1; }
+          if [ -n "$UTILITY" ]; then
+            echo "Single-utility import: $UTILITY"
             node importers/urdb/run.mjs \
-              --utility "${{ inputs.utility }}" \
-              --state "${{ inputs.state }}" \
-              --timezone "${{ inputs.timezone }}" \
-              --limit "${{ inputs.limit }}"
+              --utility "$UTILITY" \
+              --state "$STATE" \
+              --timezone "$TIMEZONE" \
+              --limit "$LIMIT"
           else
             echo "Batch import from importers/urdb/us-utilities.json"
-            node importers/urdb/run-batch.mjs --limit "${{ inputs.limit }}"
+            node importers/urdb/run-batch.mjs --limit "$LIMIT"
           fi
 
       - name: Validate + rebuild index
