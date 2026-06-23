@@ -130,7 +130,7 @@ window.OET = window.OET || {};
       const bl = OET._baseline;
       if (bl && typeof bl.cost === 'number' && (!bl.rec || !bl.rec.meta.currency || bl.rec.meta.currency === cur)) {
         const diff = bd.total - bl.cost, save = diff < 0;
-        body += `<div class="oet-note" style="margin-top:8px;background:${save ? '#f0fdf4' : '#fef2f2'};border-color:${save ? '#bbf7d0' : '#fecaca'}">`
+        body += `<div class="oet-note" style="margin-top:8px;background:${save ? 'rgba(22,163,74,.12)' : 'rgba(220,38,38,.1)'};border-color:${save ? 'rgba(22,163,74,.45)' : 'rgba(220,38,38,.45)'}">`
           + `Your current (${esc(bl.label)}): ~${Math.round(bl.cost).toLocaleString()} ${esc(cur)}/yr · `
           + `on this plan <b style="color:${save ? '#16a34a' : '#dc2626'}">${save ? 'save ' : '+'}${Math.round(Math.abs(diff)).toLocaleString()} ${esc(cur)}/yr</b></div>`;
       }
