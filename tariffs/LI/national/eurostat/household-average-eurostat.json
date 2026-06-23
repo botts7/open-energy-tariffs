@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "id": "li-national-average-household-average-eurostat",
+    "schemaVersion": "1",
+    "country": "LI",
+    "provider": "National average",
+    "plan": "Household average (Eurostat)",
+    "currency": "EUR",
+    "unit": "kWh",
+    "source": "provider",
+    "sourceUrl": "https://ec.europa.eu/eurostat/databrowser/view/nrg_pc_204",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-23",
+    "verified": false,
+    "notes": "Household electricity national average from Eurostat (nrg_pc_204), consumption band DC (2,500–5,000 kWh/yr), all taxes included: 0.3062 €/kWh. Licensed CC BY 4.0 — © European Union / Eurostat. A national average, not a shoppable plan. Period 2025-S2.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.3062
+    },
+    "validFrom": "2025-07-01"
+  }
+}
