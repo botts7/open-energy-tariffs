@@ -10,7 +10,7 @@ on:
       sources:
         description: "Which importer(s) to run"
         type: choice
-        options: [denmark, france, taiwan, all]
+        options: [denmark, france, taiwan, netherlands, all]
         default: denmark
       updated:
         description: "meta.updated stamp (YYYY-MM-DD)"
@@ -63,6 +63,10 @@ jobs:
       - name: Taiwan (record-driven)
         if: ${{ (inputs.sources == 'taiwan' || inputs.sources == 'all') && inputs.tw_record_path != '' }}
         run: node importers/tw-taipower/run.mjs --record "${{ inputs.tw_record_path }}" --updated "${{ inputs.updated }}"
+
+      - name: Netherlands (CBS — no input needed; CBS is sandbox-blocked, reachable from CI)
+        if: ${{ inputs.sources == 'netherlands' || inputs.sources == 'all' }}
+        run: node importers/cbs-nl/run.mjs --updated "${{ inputs.updated }}"
 
       - name: Validate + PII scan + build
         run: npm run validate && npm run pii && npm run build
