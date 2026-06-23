@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "id": "no-national-average-household-average-ssb",
+    "schemaVersion": "1",
+    "country": "NO",
+    "provider": "National average",
+    "plan": "Household average (SSB)",
+    "currency": "NOK",
+    "unit": "kWh",
+    "timezone": "Europe/Oslo",
+    "source": "provider",
+    "sourceUrl": "https://www.ssb.no/en/statbank/table/09387",
+    "license": "other",
+    "updated": "2026-06-23",
+    "verified": false,
+    "notes": "Norwegian household electricity — NATIONAL AVERAGE from Statistics Norway (SSB), StatBank table 09387. All-in 122.0 øre/kWh PAID (= gross 195.1 øre/kWh, less 73.1 øre/kWh government electricity support): electricity incl. tax 145.8 + grid rent incl. tax 49.3. Licensed NLOD (Norwegian Licence for Open Government Data) — attribute Statistics Norway. A national average, not a shoppable plan. Period 2026K1.",
+    "coverage": {
+      "national": true
+    }
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 1.22
+    },
+    "validFrom": "2026-01-01"
+  }
+}

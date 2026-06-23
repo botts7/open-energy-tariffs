@@ -1,0 +1,20 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import Ajv from 'ajv';
+import addFormats from 'ajv-formats';
+import { mapNorway, periodToDate } from './map.mjs';
+const here = dirname(fileURLToPath(import.meta.url));
+const read = (p) => JSON.parse(readFileSync(join(here, p), 'utf8'));
+const REC = { period: '2026K1', net: 122, gross: 195.1, elec: 145.8, grid: 49.3, support: 73.1, tax: 7.1 };
+test('maps SSB record to flat NOK entry (net paid price)', () => {
+  const got = mapNorway(REC, { updated: '2026-06-23' });
+  assert.equal(got.meta.country, 'NO'); assert.equal(got.meta.currency, 'NOK'); assert.equal(got.meta.license, 'other');
+  assert.equal(got.tariff.import.flatRate, 1.22); assert.equal(got.tariff.validFrom, '2026-01-01');
+  assert.match(got.meta.notes, /government electricity support/); assert.match(got.meta.notes, /Statistics Norway/);
+});
+test('falls back to gross when no support', () => { assert.equal(mapNorway({ ...REC, net: null, support: null }, {}).tariff.import.flatRate, 1.951); });
+test('periodToDate', () => { assert.equal(periodToDate('2026K1'), '2026-01-01'); assert.equal(periodToDate('2025K4'), '2025-10-01'); });
+test('validates against schema/v1', () => { const s = read('../../schema/v1/tariff.schema.json'); const a = new Ajv({ allErrors: true, strict: false }); addFormats(a); assert.ok(a.compile(s)(mapNorway(REC, { updated: '2026-06-23' }))); });
