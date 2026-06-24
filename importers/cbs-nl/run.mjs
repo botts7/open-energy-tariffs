@@ -2,7 +2,7 @@
 // CBS, map to canonical, write under tariffs/NL/. CI-only (CBS is sandbox-blocked).
 //
 //   node importers/cbs-nl/run.mjs [--updated 2026-06-23] [--dry]
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeEntryIfChanged, stampRefresh } from '../_lib/write.mjs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchCbsNl } from './fetch.mjs';
@@ -27,7 +27,7 @@ if (dry) {
   console.log(`[dry] ${entry.meta.id}`);
   console.log(JSON.stringify(entry, null, 2));
 } else {
-  await mkdir(dirname(file), { recursive: true });
-  await writeFile(file, JSON.stringify(entry, null, 2) + '\n');
-  console.log(`wrote ${entry.meta.id}. Run 'npm run validate && npm run build' next.`);
+  const st = await writeEntryIfChanged(file, entry);
+  await stampRefresh(root, 'provider', updated);
+  console.log(`${st} ${entry.meta.id}. Run 'npm run validate && npm run build' next.`);
 }

@@ -1,6 +1,6 @@
 // Build-time StatFin-FI importer CLI: fetch Finnish household prices, map, write.
 //   node importers/statfi-fi/run.mjs [--updated 2026-06-23] [--dry]
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeEntryIfChanged, stampRefresh } from '../_lib/write.mjs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchFinland } from './fetch.mjs';
@@ -12,14 +12,15 @@ const updated = arg('updated'); const dry = Boolean(arg('dry', false));
 
 const records = await fetchFinland();
 console.log(`fetched ${records.length} household band(s)`);
-const seen = new Set(); let written = 0, skipped = 0;
+const seen = new Set(); let written = 0, skipped = 0, unchanged = 0;
 for (const rec of records) {
   const entry = mapFinland(rec, updated ? { updated } : {});
   if (seen.has(entry.meta.id)) { skipped++; continue; }
   seen.add(entry.meta.id);
   const file = join(root, 'tariffs', 'FI', 'national', 'household-average', `${slug(entry.meta.plan)}.json`);
-  if (dry) console.log(`[dry] ${entry.meta.id} | ${entry.tariff.import.flatRate} EUR/kWh`);
-  else { await mkdir(dirname(file), { recursive: true }); await writeFile(file, JSON.stringify(entry, null, 2) + '\n'); }
-  written++;
+  if (dry) { console.log(`[dry] ${entry.meta.id} | ${entry.tariff.import.flatRate} EUR/kWh`); written++; }
+  else if ((await writeEntryIfChanged(file, entry)) === 'unchanged') unchanged++;
+  else written++;
 }
-console.log(`${dry ? '[dry] ' : ''}wrote ${written}, skipped ${skipped}.`);
+if (!dry) await stampRefresh(root, 'provider', updated);
+console.log(`${dry ? '[dry] ' : ''}wrote/changed ${written}, unchanged ${unchanged}, skipped ${skipped}.`);

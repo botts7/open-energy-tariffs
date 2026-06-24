@@ -3,7 +3,8 @@
 // (Eurostat is sandbox-blocked, reachable from runners).
 //
 //   node importers/eurostat/run.mjs [--updated 2026-06-23] [--dry]
-import { readdir, readFile, writeFile, mkdir, rm } from 'node:fs/promises';
+import { readdir, readFile, rm } from 'node:fs/promises';
+import { writeEntryIfChanged, stampRefresh } from '../_lib/write.mjs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchEurostat } from './fetch.mjs';
@@ -51,14 +52,15 @@ async function removeEstimates(cc) {
 const records = await fetchEurostat();
 console.log(`fetched ${records.length} country average(s)`);
 
-let written = 0, skipped = 0, replaced = 0;
+let written = 0, skipped = 0, replaced = 0, unchanged = 0;
 for (const rec of records) {
   if (SKIP.has(rec.country)) { skipped++; continue; }
   replaced += await removeEstimates(rec.country);
   const entry = mapEurostat(rec, updated ? { updated } : {});
   const file = join(root, 'tariffs', rec.country, 'national', 'eurostat', `${slug(entry.meta.plan)}.json`);
-  if (dry) console.log(`[dry] ${entry.meta.id} | ${entry.tariff.import.flatRate} EUR/kWh | ${entry.tariff.validFrom}`);
-  else { await mkdir(dirname(file), { recursive: true }); await writeFile(file, JSON.stringify(entry, null, 2) + '\n'); }
-  written++;
+  if (dry) { console.log(`[dry] ${entry.meta.id} | ${entry.tariff.import.flatRate} EUR/kWh | ${entry.tariff.validFrom}`); written++; }
+  else if ((await writeEntryIfChanged(file, entry)) === 'unchanged') unchanged++;
+  else written++;
 }
-console.log(`${dry ? '[dry] ' : ''}wrote ${written}, skipped ${skipped} (real-data countries), replaced ${replaced} estimate(s).`);
+if (!dry) await stampRefresh(root, 'provider', updated);
+console.log(`${dry ? '[dry] ' : ''}wrote/changed ${written}, unchanged ${unchanged}, skipped ${skipped} (real-data countries), replaced ${replaced} estimate(s).`);
