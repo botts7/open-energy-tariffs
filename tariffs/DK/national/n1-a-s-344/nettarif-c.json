@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "id": "dk-n1-a-s-344-nettarif-c",
+    "schemaVersion": "1",
+    "country": "DK",
+    "distributor": "N1 A/S - 344",
+    "provider": "N1 A/S - 344",
+    "plan": "Nettarif C",
+    "currency": "DKK",
+    "unit": "kWh",
+    "timezone": "Europe/Copenhagen",
+    "source": "provider",
+    "sourceUrl": "https://www.energidataservice.dk/tso-electricity/DatahubPricelist",
+    "license": "CC-BY-4.0",
+    "updated": "2026-06-24",
+    "verified": false,
+    "notes": "Danish DSO/TSO network tariff component — the per-kWh grid charge applied by hour — from Energinet's Energi Data Service \"DatahubPricelist\" dataset. Licensed CC BY 4.0; attribute Energinet / Energi Data Service. This is the NETWORK charge, not a full retail plan."
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "b1",
+          "name": "Low",
+          "rate": 0.0879,
+          "role": "offpeak"
+        },
+        {
+          "id": "b2",
+          "name": "High",
+          "rate": 0.1318,
+          "role": "shoulder"
+        },
+        {
+          "id": "b3",
+          "name": "Peak",
+          "rate": 0.3426,
+          "role": "peak"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "b1"
+        },
+        {
+          "days": "all",
+          "from": "06:00",
+          "to": "17:00",
+          "band": "b2"
+        },
+        {
+          "days": "all",
+          "from": "17:00",
+          "to": "21:00",
+          "band": "b3"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "b2"
+        }
+      ]
+    },
+    "validFrom": "2026-06-22"
+  }
+}
