@@ -1,0 +1,80 @@
+name: scheduled-tariffs
+
+# MONTHLY refresh of the key-less national tariff importers, opening (or updating)
+# ONE data PR. Every importer is deterministic + defaults to the latest published
+# period, so a run with no upstream change produces no diff. DK/NL/Eurostat/FR are
+# proven CI-reachable; the dev-lane stats offices (CH/FI/NO/IS) are public APIs that
+# are *likely* reachable from a runner but unproven — they run with continue-on-error
+# so one unreachable source can't block the rest (the run log shows what produced
+# data). PR is REVIEWED, not auto-merged.
+on:
+  schedule:
+    - cron: '23 6 1 * *'   # 1st of the month, 06:23 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: scheduled-tariffs
+  cancel-in-progress: true
+
+jobs:
+  tariffs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+
+      - name: Stamp date
+        run: echo "UPDATED=$(date -u +%F)" >> "$GITHUB_ENV"
+
+      # --- Proven CI-reachable (already run via import-data) ---
+      - name: Denmark (Energi Data Service)
+        run: node importers/dk-energinet/run.mjs --updated "$UPDATED"
+      - name: Netherlands (CBS)
+        run: node importers/cbs-nl/run.mjs --updated "$UPDATED"
+      - name: Eurostat (EU/EFTA household averages)
+        run: node importers/eurostat/run.mjs --updated "$UPDATED"
+      - name: France (CRE Tarif Bleu — built-in CSV URLs)
+        run: |
+          node importers/cre-fr/run.mjs --option BASE --updated "$UPDATED"
+          node importers/cre-fr/run.mjs --option HPHC --updated "$UPDATED"
+
+      # --- Dev-lane stats offices: public APIs, CI-reachability unproven. Don't let
+      #     one unreachable source fail the whole monthly refresh. ---
+      - name: Switzerland (ElCom / LINDAS)
+        continue-on-error: true
+        run: node importers/ch-elcom/run.mjs --updated "$UPDATED"
+      - name: Finland (Statistics Finland)
+        continue-on-error: true
+        run: node importers/statfi-fi/run.mjs --updated "$UPDATED"
+      - name: Norway (Statistics Norway)
+        continue-on-error: true
+        run: node importers/ssb-no/run.mjs --updated "$UPDATED"
+      - name: Iceland (Hagstofa)
+        continue-on-error: true
+        run: node importers/statice-is/run.mjs --updated "$UPDATED"
+
+      - name: Validate + PII + build
+        run: npm run validate && npm run pii && npm run build
+
+      - name: Open / update the data PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: data/scheduled-tariffs
+          commit-message: 'data: monthly tariff importer refresh'
+          title: 'data: monthly tariff refresh (national stats offices)'
+          body: |
+            Automated **monthly** refresh of the key-less national tariff importers
+            (DK, NL, Eurostat, FR — plus CH/FI/NO/IS where the runner can reach them).
+            Review the `tariffs/**` diff before merging. Any source unreachable from
+            the runner is skipped (see the run log). Re-runs update THIS same PR.
+          add-paths: |
+            tariffs/**
+            index.json
+          delete-branch: true
