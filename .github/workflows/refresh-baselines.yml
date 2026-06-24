@@ -57,6 +57,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           branch: refresh/baselines
+          reviewers: botts7
           commit-message: 'data: refresh FX + Eurostat + EIA baselines'
           title: 'data: refresh reference baselines (FX / Eurostat / EIA)'
           body: |

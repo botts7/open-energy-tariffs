@@ -88,6 +88,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           branch: import/urdb-us
+          reviewers: botts7
           commit-message: 'data(US): import URDB residential rates (CC0)'
           title: 'data(US): URDB residential rates import'
           body: |

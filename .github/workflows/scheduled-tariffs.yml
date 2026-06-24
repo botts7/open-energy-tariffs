@@ -67,6 +67,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           branch: data/scheduled-tariffs
+          reviewers: botts7
           commit-message: 'data: monthly tariff importer refresh'
           title: 'data: monthly tariff refresh (national stats offices)'
           body: |
