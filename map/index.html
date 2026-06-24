@@ -247,6 +247,7 @@
       var root = document.documentElement;
       Promise.resolve(OET.main()).then(function () {
         if (OET.setMapTheme) OET.setMapTheme(root.getAttribute('data-theme') === 'dark');
+        if (OET._updateExtToggle) OET._updateExtToggle(); // reflect feed-load result
       });
       var tt = document.getElementById('themeToggle');
       if (tt) tt.addEventListener('click', function () {
@@ -266,8 +267,22 @@
       if (wt) wt.addEventListener('click', function () { if (OET.showWizard) OET.showWizard(); });
       var et = document.getElementById('extToggle');
       if (et) {
-        var extOn = OET.extendedEnabled && OET.extendedEnabled();
-        if (extOn) { et.style.background = 'rgba(234,179,8,.25)'; et.style.borderColor = '#eab308'; et.title = 'Community / share-alike data: ON — click to turn off'; }
+        // Reflect both the on/off state AND whether the (remote) feed actually
+        // loaded — an enabled-but-unreachable feed shows a warning, not a silent ON.
+        OET._updateExtToggle = function () {
+          var on = OET.extendedEnabled && OET.extendedEnabled();
+          if (!on) {
+            et.style.background = ''; et.style.borderColor = ''; et.textContent = '🌐';
+            et.title = 'Include the separate community / share-alike dataset (copyleft — e.g. Colombia)';
+          } else if (OET._extendedRequested && OET._extendedCount === 0) {
+            et.style.background = 'rgba(220,38,38,.18)'; et.style.borderColor = '#dc2626'; et.textContent = '🌐⚠';
+            et.title = 'Community data: ON but feed unreachable (' + (OET._extendedError || 'no entries') + ') — click to turn off';
+          } else {
+            et.style.background = 'rgba(234,179,8,.25)'; et.style.borderColor = '#eab308'; et.textContent = '🌐';
+            et.title = 'Community / share-alike data: ON' + (OET._extendedCount ? ' (' + OET._extendedCount + ' plans)' : '') + ' — click to turn off';
+          }
+        };
+        OET._updateExtToggle();
         et.addEventListener('click', function () {
           var turnOn = !(OET.extendedEnabled && OET.extendedEnabled());
           if (turnOn && !window.confirm('Include the separate COMMUNITY / SHARE-ALIKE dataset (e.g. Colombia)?\n\nThat data is copyleft (CC-BY-SA): if you republish the combined view you must attribute the source and license your result the same way. The core dataset stays permissive. The page will reload.\n\nContinue?')) return;
