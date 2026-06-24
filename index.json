@@ -30496,6 +30496,30 @@
           "verified": false
         }
       ],
+      "Konstant Net A/S - 151": [
+        {
+          "id": "dk-konstant-net-a-s-151-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        },
+        {
+          "id": "dk-konstant-net-a-s-151-nettarif-c-lokal-kollektiv",
+          "plan": "Nettarif C lokal kollektiv",
+          "verified": false
+        }
+      ],
+      "Konstant Net A/S - 245": [
+        {
+          "id": "dk-konstant-net-a-s-245-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        },
+        {
+          "id": "dk-konstant-net-a-s-245-nettarif-c-lokal-kollektiv",
+          "plan": "Nettarif C lokal kollektiv",
+          "verified": false
+        }
+      ],
       "Læsø Elnet": [
         {
           "id": "dk-l-s-elnet-nettarif-c",
@@ -30507,6 +30531,13 @@
         {
           "id": "dk-n1-a-s-131-nettarif-c-hourly-meter",
           "plan": "Nettarif C (hourly meter)",
+          "verified": false
+        }
+      ],
+      "N1 A/S - 344": [
+        {
+          "id": "dk-n1-a-s-344-nettarif-c",
+          "plan": "Nettarif C",
           "verified": false
         }
       ],
