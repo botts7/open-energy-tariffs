@@ -67,12 +67,18 @@ window.OET = window.OET || {};
     for (const src of Object.keys(fr.bySource || {})) {
       const info = fr.bySource[src];
       const meta = SOURCE_META[src] || { label: src, cadence: 'none' };
-      const age = ageDays(info.latest), auto = meta.cadence !== 'none';
+      // Judge staleness by last-CHECK (when the importer last refreshed) if we have
+      // it, else fall back to last-CHANGE (newest data) — so an incrementally
+      // refreshed source with no changes isn't wrongly flagged stale.
+      const checked = (fr.checked || {})[src] || '';
+      const basis = checked || info.latest;
+      const age = ageDays(basis), auto = meta.cadence !== 'none';
       const stale = auto && meta.staleDays != null && age != null && age > meta.staleDays;
       if (stale) anyStale = true;
       rows.push({
         src, label: meta.label, count: info.count || 0, latest: info.latest || '',
-        rel: OET.relAge(info.latest), cadence: meta.cadence, auto, stale,
+        rel: OET.relAge(info.latest), checked, checkedRel: checked ? OET.relAge(checked) : '',
+        cadence: meta.cadence, auto, stale,
         next: auto && meta.next ? ymd(meta.next()) : null,
         nextRel: auto && meta.next ? inDays(meta.next()) : null,
       });
@@ -108,7 +114,7 @@ window.OET = window.OET || {};
     const sum = OET.freshnessSummary();
     const row = (r) => '<tr>'
       + '<td><b>' + esc(r.label) + '</b><br><span class="oet-fr-na">' + r.count.toLocaleString() + ' plan(s)</span></td>'
-      + '<td>' + esc(r.latest || '—') + '<br><span class="oet-fr-na">' + esc(r.rel) + '</span></td>'
+      + '<td>' + esc(r.latest || '—') + '<br><span class="oet-fr-na">' + esc(r.rel) + (r.checked ? ' · checked ' + esc(r.checkedRel) : '') + '</span></td>'
       + '<td>' + (r.auto ? esc(r.cadence) + '<br><span class="oet-fr-na">next ' + esc(r.nextRel || '') + '</span>' : '<span class="oet-fr-na">curated · manual</span>') + '</td>'
       + '<td>' + (!r.auto ? '<span class="oet-fr-na">—</span>' : r.stale ? '<span class="oet-fr-stale">⚠ stale</span>' : '<span class="oet-fr-ok">✓ fresh</span>') + '</td>'
       + '</tr>';
