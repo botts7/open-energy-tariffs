@@ -20,6 +20,7 @@ import { fileURLToPath } from 'node:url';
 import { fetchPlans, fetchPlanDetail } from './fetch.mjs';
 import { mapPlanDetail, slug } from './map.mjs';
 import { pool } from '../_lib/pool.mjs';
+import { stampRefresh } from '../_lib/write.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const HOST = 'https://cdr.energymadeeasy.gov.au';
@@ -139,13 +140,7 @@ if (prune && !dry && failed === 0) {
 
 // Stamp "last refreshed" for the freshness panel, so an unchanged-but-checked run
 // isn't mistaken for stale (incremental keeps old per-plan dates by design).
-if (!dry) {
-  const statusFile = join(root, 'data-status.json');
-  let status = {};
-  try { status = JSON.parse(await readFile(statusFile, 'utf8')); } catch { /* first time */ }
-  status.cdr = { lastRefresh: updated || new Date().toISOString().slice(0, 10) };
-  await writeFile(statusFile, JSON.stringify(status, null, 2) + '\n');
-}
+if (!dry) await stampRefresh(root, 'cdr', updated);
 
 console.log(`\n${dry ? '[dry] ' : ''}wrote ${written}, reused ${reused} unchanged, skipped ${skipped}, pruned ${pruned}, ${failed} retailer(s) failed.`);
 console.log("Next: npm run validate && npm run build  (then review the diff before committing).");
