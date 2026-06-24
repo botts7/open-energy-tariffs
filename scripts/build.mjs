@@ -60,10 +60,18 @@ for (const e of entries) {
   S.count++; if (u > S.latest) S.latest = u;
   if (u > latestAll) latestAll = u;
 }
+// "checked" = when each source was last refreshed (importers stamp data-status.json).
+// Lets the GUI judge staleness by last-CHECK, not last-CHANGE — so an incrementally
+// refreshed source (CDR) that simply had no changes doesn't read as stale.
+let checked = {};
+try {
+  const status = JSON.parse(await readFile(join(root, 'data-status.json'), 'utf8'));
+  for (const [k, v] of Object.entries(status)) if (v && v.lastRefresh) checked[k] = v.lastRefresh;
+} catch { /* no status file yet */ }
 const mainBundle = {
   ...bundle(entries),
   builtAt: new Date().toISOString().slice(0, 10),
-  freshness: { latest: latestAll, bySource },
+  freshness: { latest: latestAll, bySource, checked },
 };
 await writeFile(join(distCanon, 'tariffs.json'), JSON.stringify(mainBundle, null, 0));
 

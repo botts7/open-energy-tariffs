@@ -45,6 +45,8 @@
           "description": "Licence of THIS entry's data. 'manual'/'urdb' => CC0-1.0; 'cdr' => 'other' (AER CDR Product Reference Data is public data via a sanctioned API, not a formal open licence — attribute the AER; enforced below)."
         },
         "contributor": { "type": "string", "description": "Optional handle of the submitter (no personal data)." },
+        "sourceId": { "type": "string", "description": "The source system's stable plan id (e.g. CDR planId), used to match entries across incremental refreshes." },
+        "sourceUpdated": { "type": "string", "description": "The source's own last-modified marker (e.g. CDR plan lastUpdated). Lets an importer skip re-fetching unchanged plans." },
         "updated": { "type": "string", "format": "date", "description": "YYYY-MM-DD the rates were last verified." },
         "verified": { "type": "boolean", "default": false, "description": "Confirmed against an authoritative source/bill." },
         "verifiedAgainst": { "type": "string", "description": "Evidence for verified=true: source URL or 'own bill'." },
