@@ -12,11 +12,18 @@ name: refresh-baselines
 # name EIA_API_KEY. (FX + Eurostat refresh even without it.)
 
 on:
+  schedule:
+    - cron: '41 5 * * 1'   # WEEKLY, Mondays 05:41 UTC (FX is the only fast-mover;
+                           # Eurostat/EIA no-op until a new release lands)
   workflow_dispatch:
 
 permissions:
   contents: write
   pull-requests: write
+
+concurrency:
+  group: refresh-baselines
+  cancel-in-progress: true
 
 jobs:
   refresh:

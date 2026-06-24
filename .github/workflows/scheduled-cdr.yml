@@ -1,0 +1,63 @@
+name: scheduled-cdr
+
+# WEEKLY AU CDR refresh: re-pull every AER retailer's electricity plans and open (or
+# update) ONE data PR. AER CDR Product Reference Data is a public API — no key. The
+# importer is deterministic + handles per-retailer failures itself, so a run with no
+# upstream change yields no diff and the PR action no-ops. PR is REVIEWED, not
+# auto-merged. GitHub disables cron after 60 days of repo inactivity — merging these
+# PRs counts as activity, so an active repo stays scheduled.
+on:
+  schedule:
+    - cron: '17 14 * * 1'   # Mondays 14:17 UTC (off the hour to avoid Actions congestion)
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max plans per retailer (0 = all)'
+        required: false
+        default: '0'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+# Don't pile up overlapping weekly runs.
+concurrency:
+  group: scheduled-cdr
+  cancel-in-progress: true
+
+jobs:
+  cdr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-audit --no-fund
+
+      - name: Import AU CDR (all retailers)
+        env:
+          LIMIT: ${{ inputs.limit || '0' }}
+        run: |
+          echo "$LIMIT" | grep -qE '^[0-9]+$' || { echo "::error::limit must be an integer"; exit 1; }
+          UPDATED="$(date -u +%F)"
+          node importers/cdr/run-au.mjs --updated "$UPDATED" --limit "$LIMIT"
+
+      - name: Validate + PII + build
+        run: npm run validate && npm run pii && npm run build
+
+      - name: Open / update the data PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: data/scheduled-cdr
+          commit-message: 'data(AU): weekly CDR refresh'
+          title: 'data(AU): weekly CDR refresh'
+          body: |
+            Automated **weekly** AU CDR (AER Product Reference Data) refresh.
+            Review the `tariffs/AU/**` diff (plans added / removed / repriced) before
+            merging. Schema + PII validation passed in this run. Re-runs update THIS
+            same PR (no spam).
+          add-paths: |
+            tariffs/AU/**
+            index.json
+          delete-branch: true

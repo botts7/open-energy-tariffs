@@ -10,6 +10,8 @@ name: import-urdb
 # secret -> name URDB_API_KEY, value = your free api.data.gov key.
 
 on:
+  schedule:
+    - cron: '37 7 5 * *'   # MONTHLY, 5th 07:37 UTC (URDB updates infrequently)
   workflow_dispatch:
     inputs:
       utility:
@@ -49,12 +51,17 @@ jobs:
         # crafted utility/state value run arbitrary commands on the runner.
         env:
           URDB_API_KEY: ${{ secrets.URDB_API_KEY }}
+          EVENT: ${{ github.event_name }}
           UTILITY: ${{ inputs.utility }}
           STATE: ${{ inputs.state }}
           TIMEZONE: ${{ inputs.timezone }}
-          LIMIT: ${{ inputs.limit }}
+          LIMIT: ${{ inputs.limit || '50' }}
         run: |
           if [ -z "$URDB_API_KEY" ]; then
+            if [ "$EVENT" = "schedule" ]; then
+              echo "::notice::URDB_API_KEY not set — skipping scheduled URDB import."
+              exit 0
+            fi
             echo "::error::URDB_API_KEY secret is not set. Add it under Settings -> Secrets and variables -> Actions."
             exit 1
           fi
