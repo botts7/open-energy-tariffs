@@ -69,7 +69,11 @@ OET.loadPlans = async function () {
       const res = await fetch(url, { cache: 'no-store' });
       if (res.ok) {
         const bundle = await res.json();
-        if (bundle && Array.isArray(bundle.entries)) return { entries: bundle.entries, source: url };
+        if (bundle && Array.isArray(bundle.entries)) {
+          if (bundle.freshness) OET._freshness = bundle.freshness;
+          if (bundle.builtAt) OET._builtAt = bundle.builtAt;
+          return { entries: bundle.entries, source: url };
+        }
       }
     } catch (_) { /* file:// or missing build — fall through to sample */ }
   }

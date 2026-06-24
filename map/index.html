@@ -196,6 +196,7 @@
       <div class="utilcluster">
         <button id="wizardTop" class="cta" title="Guided: location → usage → ranked plans"><span class="ni-i">✨</span><span class="ni-t">Find my best plan</span></button>
         <button id="extToggle" class="hdr-btn" aria-label="Community / share-alike data" title="Include the separate community / share-alike dataset (copyleft — e.g. Colombia)">🌐</button>
+        <button id="freshToggle" class="hdr-btn" aria-label="Data freshness" title="How current is the data?">🕔</button>
         <button id="helpToggle" class="hdr-btn" aria-label="How to use this site" title="How to use this site">?</button>
         <button id="themeToggle" class="hdr-btn" aria-label="Toggle dark mode" title="Light / dark mode">◐</button>
       </div>
@@ -248,6 +249,7 @@
       Promise.resolve(OET.main()).then(function () {
         if (OET.setMapTheme) OET.setMapTheme(root.getAttribute('data-theme') === 'dark');
         if (OET._updateExtToggle) OET._updateExtToggle(); // reflect feed-load result
+        if (OET.updateFreshButton) OET.updateFreshButton(); // reflect data freshness/staleness
       });
       var tt = document.getElementById('themeToggle');
       if (tt) tt.addEventListener('click', function () {
@@ -261,6 +263,8 @@
       if (mp) mp.addEventListener('click', function () { document.body.classList.remove('nav-open'); });
       var hb = document.getElementById('helpToggle');
       if (hb) hb.addEventListener('click', function () { if (OET.showGuide) OET.showGuide(); });
+      var ft = document.getElementById('freshToggle');
+      if (ft) ft.addEventListener('click', function () { if (OET.showFreshness) OET.showFreshness(); });
       var rb = document.getElementById('rankToggle');
       if (rb) rb.addEventListener('click', function () { if (OET.showRanking) OET.showRanking(); });
       var wt = document.getElementById('wizardTop');
