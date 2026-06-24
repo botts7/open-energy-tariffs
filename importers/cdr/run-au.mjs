@@ -12,6 +12,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchPlans, fetchPlanDetail } from './fetch.mjs';
 import { mapPlanDetail, slug } from './map.mjs';
+import { pool } from '../_lib/pool.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const HOST = 'https://cdr.energymadeeasy.gov.au';
@@ -33,6 +34,7 @@ function arg(name, def) {
 }
 const updated = arg('updated');
 const limit = Number(arg('limit', '0')) || 0; // 0 = all plans per retailer
+const concurrency = Number(arg('concurrency', '8')) || 8; // parallel detail fetches
 const dry = Boolean(arg('dry', false));
 
 const seen = new Set();
@@ -47,10 +49,18 @@ for (const code of RETAILERS) {
   const work = limit ? plans.slice(0, limit) : plans;
   console.log(`${code}: ${plans.length} plan(s)${limit ? ` (importing ${work.length})` : ''}`);
 
-  for (const p of work) {
+  // Fetch plan DETAILS concurrently (the slow I/O), bounded so we stay polite to the
+  // AER server. The map + dedup + write stays SEQUENTIAL below so the `seen` set and
+  // file writes can't race.
+  const details = await pool(work, concurrency, async (p) => {
+    try { return { detail: await fetchPlanDetail(base, p.planId) }; }
+    catch (e) { return { error: e }; }
+  });
+
+  for (const d of details) {
+    if (!d || d.error || !d.detail) { skipped++; continue; }
     try {
-      const detail = await fetchPlanDetail(base, p.planId);
-      const entry = mapPlanDetail(detail, updated ? { updated } : {});
+      const entry = mapPlanDetail(d.detail, updated ? { updated } : {});
       if (seen.has(entry.meta.id)) { skipped++; continue; }
       seen.add(entry.meta.id);
       const region = entry.meta.region || '_unknown';
