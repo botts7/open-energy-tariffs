@@ -128,5 +128,6 @@ jobs:
           git commit -m "data: import ${SOURCES} via CI (updated ${UPDATED})"
           git push -u origin "$BR"
           gh pr create --base main --head "$BR" \
+            --reviewer botts7 \
             --title "data: importer run — ${SOURCES}" \
             --body "Automated importer run (\`${SOURCES}\`, updated ${UPDATED}). **Review the added tariffs/ files** — sanity-check rates/units before merge. Schema + PII validation already passed in this run."

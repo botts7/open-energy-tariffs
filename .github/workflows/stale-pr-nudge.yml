@@ -1,0 +1,35 @@
+name: stale-pr-nudge
+
+# Daily check: any automated DATA pull request (data/ refresh/ import/ branches) that
+# has sat open for a while gets an @mention comment so it doesn't go stale. Fires on
+# day 3, 6, 9, … of a PR's life (not every day) to nudge without spamming. The initial
+# "review requested" notification covers day 0; this covers "you missed it".
+on:
+  schedule:
+    - cron: '0 8 * * *'   # daily 08:00 UTC
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+
+jobs:
+  nudge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Nudge stale data PRs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh pr list --repo "$REPO" --state open --json number,headRefName,createdAt,title \
+            --jq '.[] | select(.headRefName|test("^(data|refresh|import)/")) | "\(.number)\t\(.createdAt)\t\(.title)"' \
+          | while IFS=$'\t' read -r num created title; do
+              [ -z "$num" ] && continue
+              age=$(( ( $(date -u +%s) - $(date -u -d "$created" +%s) ) / 86400 ))
+              # nudge on day 3, 6, 9, … only
+              if [ "$age" -ge 3 ] && [ $(( (age - 3) % 3 )) -eq 0 ]; then
+                gh pr comment "$num" --repo "$REPO" \
+                  --body "⏰ @botts7 this automated data PR (\`$title\`) has been open **$age days**. Review the diff and merge, or close it. (Auto-reminder; fires every 3 days.)"
+                echo "nudged #$num (age $age)"
+              fi
+            done

@@ -50,6 +50,7 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           branch: data/scheduled-cdr
+          reviewers: botts7
           commit-message: 'data(AU): weekly CDR refresh'
           title: 'data(AU): weekly CDR refresh'
           body: |
