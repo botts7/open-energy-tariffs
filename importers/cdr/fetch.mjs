@@ -8,10 +8,25 @@
 //
 // Uses global fetch (Node >= 18). Pure-ish: only does network I/O.
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
 // CDR API versioning differs per endpoint: Get Generic Plans = x-v:1,
 // Get Generic Plan Detail = x-v:3 (a lower version returns 406).
-async function getJson(url, xv) {
-  const res = await fetch(url, { headers: { 'x-v': String(xv), accept: 'application/json' } });
+// Retries on 429/5xx + network errors with backoff (honouring Retry-After) so the
+// concurrent fan-out in run-au can run fast without falling over on a throttle.
+async function getJson(url, xv, attempt = 0) {
+  let res;
+  try {
+    res = await fetch(url, { headers: { 'x-v': String(xv), accept: 'application/json' }, signal: AbortSignal.timeout(30000) });
+  } catch (e) {
+    if (attempt < 4) { await sleep(500 * 2 ** attempt); return getJson(url, xv, attempt + 1); }
+    throw e;
+  }
+  if ((res.status === 429 || res.status >= 500) && attempt < 4) {
+    const ra = Number(res.headers.get('retry-after'));
+    await sleep(Number.isFinite(ra) && ra > 0 ? ra * 1000 : 500 * 2 ** attempt);
+    return getJson(url, xv, attempt + 1);
+  }
   if (!res.ok) throw new Error(`CDR ${res.status} ${res.statusText} for ${url}`);
   return res.json();
 }

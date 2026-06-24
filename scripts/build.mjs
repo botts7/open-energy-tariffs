@@ -47,7 +47,25 @@ const distCanon = join(root, 'dist', 'canonical');
 await mkdir(distCanon, { recursive: true });
 
 const bundle = (list) => ({ schemaMajor: SCHEMA_MAJOR, count: list.length, entries: list });
-await writeFile(join(distCanon, 'tariffs.json'), JSON.stringify(bundle(entries), null, 0));
+
+// Freshness manifest: newest meta.updated per source (+ overall) and a build stamp,
+// so the GUI can show how current each source is, the next auto-refresh, and flag
+// stale sources. Deterministic except builtAt (dist/ isn't committed, so that's OK).
+const bySource = {};
+let latestAll = '';
+for (const e of entries) {
+  const s = e.meta.source || 'other';
+  const u = e.meta.updated || '';
+  const S = (bySource[s] ??= { count: 0, latest: '' });
+  S.count++; if (u > S.latest) S.latest = u;
+  if (u > latestAll) latestAll = u;
+}
+const mainBundle = {
+  ...bundle(entries),
+  builtAt: new Date().toISOString().slice(0, 10),
+  freshness: { latest: latestAll, bySource },
+};
+await writeFile(join(distCanon, 'tariffs.json'), JSON.stringify(mainBundle, null, 0));
 
 // Per-country chunks.
 const byCountry = {};
