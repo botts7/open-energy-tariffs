@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-21",
+    "updated": "2026-06-29",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -245,28 +245,30 @@
         "2337",
         "2775"
       ]
-    }
+    },
+    "sourceId": "AGL1040943MBE1@EME",
+    "sourceUpdated": "2026-03-25T14:05:49.082Z"
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
         {
-          "id": "transitional-business-peak",
-          "name": "Transitional Business Peak",
-          "rate": 0.5158,
+          "id": "domestic-time-of-use-peak",
+          "name": "Domestic Time of Use Peak",
+          "rate": 0.5794,
           "role": "peak"
         },
         {
-          "id": "transitional-business-off-peak",
-          "name": "Transitional Business Off-Peak",
-          "rate": 0.1791,
+          "id": "domestic-time-of-use-off-peak",
+          "name": "Domestic Time of Use Off Peak",
+          "rate": 0.2013,
           "role": "offpeak"
         },
         {
-          "id": "transitional-business-shoulder",
-          "name": "Transitional Business Shoulder",
-          "rate": 0.257,
+          "id": "domestic-time-of-use-shoulder",
+          "name": "Domestic Time of Use Shoulder",
+          "rate": 0.2988,
           "role": "shoulder"
         }
       ],
@@ -275,39 +277,51 @@
           "days": "weekday",
           "from": "14:00",
           "to": "20:00",
-          "band": "transitional-business-peak"
+          "band": "domestic-time-of-use-peak"
         },
         {
           "days": "all",
           "from": "22:00",
           "to": "07:00",
-          "band": "transitional-business-off-peak"
+          "band": "domestic-time-of-use-off-peak"
         },
         {
           "days": "weekday",
           "from": "07:00",
           "to": "14:00",
-          "band": "transitional-business-shoulder"
+          "band": "domestic-time-of-use-shoulder"
         },
         {
           "days": "weekday",
           "from": "20:00",
           "to": "22:00",
-          "band": "transitional-business-shoulder"
+          "band": "domestic-time-of-use-shoulder"
         },
         {
           "days": "weekend",
           "from": "07:00",
           "to": "22:00",
-          "band": "transitional-business-shoulder"
+          "band": "domestic-time-of-use-shoulder"
         }
       ]
     },
     "supply": {
-      "daily": 3.5098
+      "daily": 1.8419
     },
     "export": {
       "flatRate": 0.04
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.1472
+      },
+      {
+        "id": "controlled-load-2",
+        "name": "Controlled Load 2",
+        "rate": 0.1472
+      }
+    ]
   }
 }

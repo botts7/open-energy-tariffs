@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-21",
+    "updated": "2026-06-29",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -352,25 +352,59 @@
         "5950",
         "5960"
       ]
-    }
+    },
+    "sourceId": "OVO723748MRE18@EME",
+    "sourceUpdated": "2026-06-24T03:02:00.048Z"
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.5613
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.5974,
+          "role": "peak"
+        },
+        {
+          "id": "solar-sponge",
+          "name": "Solar Sponge",
+          "rate": 0.3995,
+          "role": "offpeak"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "06:00",
+          "to": "10:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "24:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "10:00",
+          "to": "15:00",
+          "band": "solar-sponge"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "solar-sponge"
+        }
+      ]
     },
     "supply": {
-      "daily": 1.08
+      "daily": 1.34
     },
     "export": {
       "flatRate": 0.015
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load-1",
-        "name": "Controlled Load 1",
-        "rate": 0.22
-      }
-    ]
+    }
   }
 }

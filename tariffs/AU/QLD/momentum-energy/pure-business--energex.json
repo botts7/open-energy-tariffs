@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-21",
+    "updated": "2026-06-29",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -220,25 +220,71 @@
         "4580",
         "4581"
       ]
-    }
+    },
+    "sourceId": "MOM919640MBE6@EME",
+    "sourceUpdated": "2026-05-19T14:05:42.152Z"
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.249
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.387,
+          "role": "peak"
+        },
+        {
+          "id": "off-peak",
+          "name": "Off-Peak",
+          "rate": 0.224,
+          "role": "offpeak"
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.164,
+          "role": "shoulder"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "20:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "13:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "13:00",
+          "to": "17:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "11:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekend",
+          "from": "13:00",
+          "to": "11:00",
+          "band": "shoulder"
+        }
+      ]
     },
     "supply": {
-      "daily": 2.788
+      "daily": 2.853
     },
     "export": {
       "flatRate": 0.029
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load-1",
-        "name": "Controlled Load 1",
-        "rate": 0.137
-      }
-    ]
+    }
   }
 }
