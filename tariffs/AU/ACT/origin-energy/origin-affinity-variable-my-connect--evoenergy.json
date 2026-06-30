@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-21",
+    "updated": "2026-06-29",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -45,23 +45,81 @@
         "2913",
         "2914"
       ]
-    }
+    },
+    "sourceId": "ORI724736MRE9@EME",
+    "sourceUpdated": "2025-06-30T14:06:51.477Z"
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.2257
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.3259,
+          "role": "peak"
+        },
+        {
+          "id": "off-peak",
+          "name": "Off peak",
+          "rate": 0.181,
+          "role": "offpeak"
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.2299,
+          "role": "shoulder"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "07:00",
+          "to": "09:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "17:00",
+          "to": "20:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "07:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "09:00",
+          "to": "17:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "all",
+          "from": "20:00",
+          "to": "22:00",
+          "band": "shoulder"
+        }
+      ]
     },
     "supply": {
-      "daily": 1.29
+      "daily": 1.0312
     },
     "export": {
       "flatRate": 0.05
     },
     "controlledLoad": [
       {
+        "id": "controlled-load-1",
+        "name": "Controlled load 1",
+        "rate": 0.1678
+      },
+      {
         "id": "controlled-load-2",
-        "name": "Controlled Load 2",
+        "name": "Controlled load 2",
         "rate": 0.1678
       }
     ]

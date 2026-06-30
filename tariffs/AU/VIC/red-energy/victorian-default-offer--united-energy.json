@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-21",
+    "updated": "2026-06-29",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -118,7 +118,9 @@
         "3976",
         "3977"
       ]
-    }
+    },
+    "sourceId": "RED653683SS@VEC",
+    "sourceUpdated": "2025-06-09T22:16:54Z"
   },
   "tariff": {
     "kind": "tou",
@@ -127,49 +129,48 @@
         {
           "id": "tariff-1",
           "name": "Tariff 1",
-          "rate": 0.34881,
+          "rate": 0.31827,
           "role": "peak"
         },
         {
           "id": "tariff-2",
           "name": "Tariff 2",
-          "rate": 0.209,
+          "rate": 0.18427,
           "role": "offpeak"
         }
       ],
       "schedule": [
         {
-          "days": "all",
-          "from": "15:00",
+          "days": "weekday",
+          "from": "09:00",
           "to": "21:00",
           "band": "tariff-1"
         },
         {
-          "days": "all",
+          "days": "weekday",
           "from": "21:00",
           "to": "24:00",
           "band": "tariff-2"
         },
         {
-          "days": "all",
+          "days": "weekday",
           "from": "00:00",
-          "to": "15:00",
+          "to": "09:00",
+          "band": "tariff-2"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
           "band": "tariff-2"
         }
       ]
     },
     "supply": {
-      "daily": 1.0589
+      "daily": 1.2464
     },
     "export": {
       "flatRate": 0.01
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load",
-        "name": "Controlled Load",
-        "rate": 0.19154
-      }
-    ]
+    }
   }
 }

@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-21",
+    "updated": "2026-06-29",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -174,53 +174,22 @@
         "2849",
         "2850"
       ]
-    }
+    },
+    "sourceId": "OVO934306SRE1@EME",
+    "sourceUpdated": "2026-06-24T03:01:45.335Z"
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.334,
-          "role": "peak"
-        },
-        {
-          "id": "off-peak",
-          "name": "Off Peak",
-          "rate": 0.292,
-          "role": "offpeak"
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "00:00",
-          "to": "10:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "14:00",
-          "to": "24:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "10:00",
-          "to": "14:00",
-          "band": "off-peak"
-        }
-      ]
+      "flatRate": 0.363
     },
     "supply": {
-      "daily": 2.1
+      "daily": 1.045
     },
     "controlledLoad": [
       {
         "id": "controlled-load-2",
-        "name": "Controlled load 2",
+        "name": "Controlled Load 2",
         "rate": 0.238
       }
     ]

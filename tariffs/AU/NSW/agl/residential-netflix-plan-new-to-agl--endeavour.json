@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-21",
+    "updated": "2026-06-29",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -169,12 +169,59 @@
         "2849",
         "2850"
       ]
-    }
+    },
+    "sourceId": "AGL1055828MRE2@EME",
+    "sourceUpdated": "2026-06-10T14:07:38.616Z"
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.3107
+      "bands": [
+        {
+          "id": "domestic-time-of-use-peak",
+          "name": "Domestic Time of Use Peak",
+          "rate": 0.3677,
+          "role": "peak"
+        },
+        {
+          "id": "domestic-time-of-use-off-peak",
+          "name": "Domestic Time of Use Off Peak",
+          "rate": 0.3065,
+          "role": "offpeak"
+        },
+        {
+          "id": "domestic-time-of-use-shoulder",
+          "name": "Domestic Time of Use Shoulder",
+          "rate": 0.243,
+          "role": "shoulder"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "16:00",
+          "to": "20:00",
+          "band": "domestic-time-of-use-peak"
+        },
+        {
+          "days": "all",
+          "from": "14:00",
+          "to": "16:00",
+          "band": "domestic-time-of-use-off-peak"
+        },
+        {
+          "days": "all",
+          "from": "20:00",
+          "to": "10:00",
+          "band": "domestic-time-of-use-off-peak"
+        },
+        {
+          "days": "all",
+          "from": "10:00",
+          "to": "14:00",
+          "band": "domestic-time-of-use-shoulder"
+        }
+      ]
     },
     "supply": {
       "daily": 0.9273

@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-21",
+    "updated": "2026-06-29",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -333,7 +333,9 @@
         "3762",
         "3764"
       ]
-    }
+    },
+    "sourceId": "POD726255MR@VEC",
+    "sourceUpdated": "2026-02-23T22:07:48Z"
   },
   "tariff": {
     "kind": "tou",
@@ -342,39 +344,57 @@
         {
           "id": "tariff-1",
           "name": "Tariff 1",
-          "rate": 0.347609,
+          "rate": 0.378085,
           "role": "peak"
         },
         {
           "id": "tariff-2",
           "name": "Tariff 2",
-          "rate": 0.210779,
+          "rate": 0.214634,
+          "role": "offpeak"
+        },
+        {
+          "id": "tariff-3",
+          "name": "Tariff 3",
+          "rate": 0.214634,
           "role": "offpeak"
         }
       ],
       "schedule": [
         {
           "days": "all",
-          "from": "15:00",
+          "from": "16:00",
           "to": "21:00",
           "band": "tariff-1"
         },
         {
           "days": "all",
-          "from": "21:00",
-          "to": "24:00",
+          "from": "10:00",
+          "to": "15:00",
           "band": "tariff-2"
         },
         {
           "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "tariff-3"
+        },
+        {
+          "days": "all",
           "from": "00:00",
-          "to": "15:00",
-          "band": "tariff-2"
+          "to": "10:00",
+          "band": "tariff-3"
+        },
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "16:00",
+          "band": "tariff-3"
         }
       ]
     },
     "supply": {
-      "daily": 1.129218
+      "daily": 1.162529
     },
     "export": {
       "flatRate": 0.005
