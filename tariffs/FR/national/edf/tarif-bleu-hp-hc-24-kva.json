@@ -12,7 +12,7 @@
     "source": "provider",
     "sourceUrl": "https://www.data.gouv.fr/fr/datasets/historique-des-tarifs-reglementes-de-vente-delectricite/",
     "license": "other",
-    "updated": "2026-06-24",
+    "updated": "2026-07-01",
     "verified": false,
     "notes": "Regulated French electricity tariff (Tarif réglementé de vente / EDF Tarif Bleu), published by the CRE as open data on data.gouv.fr under Licence Ouverte / Etalab 2.0 (commercial reuse + redistribution with attribution). Attribute the CRE; recorded as license:other (Etalab 2.0 ~ CC BY).",
     "coverage": {
