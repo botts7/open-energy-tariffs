@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "id": "us-al-alabama-power-co-rate-pae-option-a-single-phase",
+    "schemaVersion": "1",
+    "country": "US",
+    "region": "AL",
+    "provider": "Alabama Power Co",
+    "plan": "Rate PAE - Option A - Single Phase",
+    "currency": "USD",
+    "unit": "kWh",
+    "timezone": "America/Chicago",
+    "source": "urdb",
+    "sourceUrl": "https://apps.openei.org/USURDB/rate/view/56a94b015457a3f52b074328",
+    "license": "CC0-1.0",
+    "updated": "2026-07-05",
+    "verified": false,
+    "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
+    "coverage": {
+      "utilityId": "195"
+    }
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "p0",
+          "name": "Period 1",
+          "rate": 0.0491,
+          "role": "offpeak"
+        },
+        {
+          "id": "p1",
+          "name": "Period 2",
+          "rate": 0.0519,
+          "role": "peak"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "p0"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 0.03187
+    }
+  }
+}

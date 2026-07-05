@@ -12,7 +12,7 @@
     "source": "urdb",
     "sourceUrl": "https://apps.openei.org/USURDB/rate/view/55563df55457a35e758b4568",
     "license": "CC0-1.0",
-    "updated": "2026-06-21",
+    "updated": "2026-07-05",
     "verified": false,
     "notes": "Imported from OpenEI URDB (CC0). User-submitted data — verify against an authoritative source/bill. Seasonal variation across months was not modelled (v1); used January.",
     "coverage": {
