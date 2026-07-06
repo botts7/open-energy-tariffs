@@ -6,14 +6,14 @@
     "region": "NSW",
     "distributor": "Endeavour",
     "provider": "ENGIE",
-    "plan": "NSW ENGIE - GreenPower Elec",
+    "plan": "NSW_ ENGIE - GreenPower Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -151,8 +151,8 @@
         "2850"
       ]
     },
-    "sourceId": "ENG1048928MRE1@EME",
-    "sourceUpdated": "2026-04-23T14:09:20.875Z"
+    "sourceId": "ENG1114563MRE1@EME",
+    "sourceUpdated": "2026-06-30T14:07:53.200Z"
   },
   "tariff": {
     "kind": "tou",
@@ -161,19 +161,19 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.5145,
+          "rate": 0.3862,
           "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.2717,
+          "rate": 0.2534,
           "role": "offpeak"
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.4325,
+          "rate": 0.3134,
           "role": "shoulder"
         }
       ],
@@ -211,10 +211,17 @@
       ]
     },
     "supply": {
-      "daily": 1.0624
+      "daily": 1.8092
     },
     "export": {
       "flatRate": 0.03
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "single-rate-controlled-load",
+        "name": "Single Rate Controlled Load",
+        "rate": 0.1876
+      }
+    ]
   }
 }

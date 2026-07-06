@@ -6,14 +6,14 @@
     "region": "NSW",
     "distributor": "Endeavour",
     "provider": "Diamond Energy",
-    "plan": "Diamond Standing Single Rate",
+    "plan": "Diamond Standing - Single Rate",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-21",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -174,15 +174,29 @@
         "2849",
         "2850"
       ]
-    }
+    },
+    "sourceId": "DIA1123096SRE1@EME",
+    "sourceUpdated": "2026-07-01T07:20:09.437Z"
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.3903
+      "flatRate": 0.30661182
     },
     "supply": {
-      "daily": 1.199
-    }
+      "daily": 1.68304545
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.18767091
+      },
+      {
+        "id": "controlled-load-2",
+        "name": "Controlled Load 2",
+        "rate": 0.20078273
+      }
+    ]
   }
 }

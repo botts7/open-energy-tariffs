@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "id": "au-essential-energy-standard-actewagl-home-tou-daytime-economy-with-controlled-load-2",
+    "schemaVersion": "1",
+    "country": "AU",
+    "distributor": "Essential Energy Standard",
+    "provider": "ActewAGL",
+    "plan": "Home TOU daytime economy with controlled load 2",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "other",
+    "updated": "2026-07-06",
+    "verified": false,
+    "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2321",
+        "2337",
+        "2536",
+        "2537",
+        "2539",
+        "2545",
+        "2546",
+        "2548",
+        "2549",
+        "2550",
+        "2551",
+        "2580",
+        "2581",
+        "2582",
+        "2583",
+        "2584",
+        "2585",
+        "2586",
+        "2587",
+        "2594",
+        "2611",
+        "2618",
+        "2619",
+        "2620",
+        "2621",
+        "2622",
+        "2623",
+        "2624",
+        "2625",
+        "2626",
+        "2627",
+        "2628",
+        "2629",
+        "2630",
+        "2631",
+        "2632",
+        "2633",
+        "2720",
+        "2876",
+        "2877"
+      ]
+    },
+    "sourceId": "ACT1057560SRE1@EME",
+    "sourceUpdated": "2026-07-01T23:48:49.061Z"
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.382898,
+          "role": "peak"
+        },
+        {
+          "id": "off-peak",
+          "name": "Off-peak",
+          "rate": 0.219498,
+          "role": "offpeak"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "07:00",
+          "to": "10:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "22:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "10:00",
+          "to": "15:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "07:00",
+          "band": "off-peak"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 2.474698
+    },
+    "export": {
+      "flatRate": 0.025
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-2",
+        "name": "Controlled Load 2",
+        "rate": 0.217999
+      }
+    ]
+  }
+}

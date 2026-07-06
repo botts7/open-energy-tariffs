@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -67,8 +67,8 @@
         "3207"
       ]
     },
-    "sourceId": "TRU702590MR@VEC",
-    "sourceUpdated": "2025-08-21T04:05:00Z"
+    "sourceId": "TRU751421MR@VEC",
+    "sourceUpdated": "2026-06-16T22:27:59Z"
   },
   "tariff": {
     "kind": "tou",
@@ -77,27 +77,33 @@
         {
           "id": "tariff-1",
           "name": "Tariff 1",
-          "rate": 0.330272,
+          "rate": 0.348272,
           "role": "peak"
         },
         {
           "id": "tariff-2",
           "name": "Tariff 2",
-          "rate": 0.200545,
+          "rate": 0.192454,
+          "role": "shoulder"
+        },
+        {
+          "id": "tariff-3",
+          "name": "Tariff 3",
+          "rate": 0.150818,
           "role": "offpeak"
         }
       ],
       "schedule": [
         {
           "days": "all",
-          "from": "15:00",
+          "from": "16:00",
           "to": "21:00",
           "band": "tariff-1"
         },
         {
           "days": "all",
           "from": "00:00",
-          "to": "15:00",
+          "to": "11:00",
           "band": "tariff-2"
         },
         {
@@ -105,11 +111,17 @@
           "from": "21:00",
           "to": "24:00",
           "band": "tariff-2"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "16:00",
+          "band": "tariff-3"
         }
       ]
     },
     "supply": {
-      "daily": 1.1279
+      "daily": 1.10127
     },
     "export": {
       "flatRate": 0.08
@@ -118,7 +130,7 @@
       {
         "id": "cl-1",
         "name": "Controlled load",
-        "rate": 0.182909
+        "rate": 0.150818
       }
     ]
   }

@@ -6,14 +6,14 @@
     "region": "QLD",
     "distributor": "Energex",
     "provider": "CovaU",
-    "plan": "CovaU Basics Residential Single Demand + CL1",
+    "plan": "CovaU Basics Residential Single + Demand + CL1",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Brisbane",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -221,16 +221,16 @@
         "4581"
       ]
     },
-    "sourceId": "COV757760SRE4@EME",
-    "sourceUpdated": "2026-06-29T05:31:13.910Z"
+    "sourceId": "COV757760SRE5@EME",
+    "sourceUpdated": "2026-06-30T14:07:32.702Z"
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.3605
+      "flatRate": 0.2505
     },
     "supply": {
-      "daily": 1.288
+      "daily": 1.26
     },
     "export": {
       "flatRate": 0.055
@@ -239,7 +239,7 @@
       {
         "id": "controlled-load-1",
         "name": "Controlled Load 1",
-        "rate": 0.1975
+        "rate": 0.1493
       }
     ]
   }

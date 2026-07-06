@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -353,79 +353,16 @@
         "5960"
       ]
     },
-    "sourceId": "AGL1061057MRE2@EME",
-    "sourceUpdated": "2026-06-10T14:07:45.688Z"
+    "sourceId": "AGL1061060MRE3@EME",
+    "sourceUpdated": "2026-06-30T23:51:10.311Z"
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "residential-time-of-use-peak",
-          "name": "Residential Time of Use peak",
-          "rate": 0.4767,
-          "role": "peak"
-        },
-        {
-          "id": "residential-time-of-use-off-peak",
-          "name": "Residential Time of Use Off peak",
-          "rate": 0.3098,
-          "role": "offpeak"
-        },
-        {
-          "id": "three-for-free-usage",
-          "name": "Three for Free usage",
-          "rate": 0,
-          "role": "offpeak"
-        },
-        {
-          "id": "residential-time-of-use-shoulder",
-          "name": "Residential Time of Use Shoulder",
-          "rate": 0.2191,
-          "role": "shoulder"
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "06:00",
-          "to": "10:00",
-          "band": "residential-time-of-use-peak"
-        },
-        {
-          "days": "all",
-          "from": "15:00",
-          "to": "24:00",
-          "band": "residential-time-of-use-peak"
-        },
-        {
-          "days": "all",
-          "from": "00:00",
-          "to": "01:00",
-          "band": "residential-time-of-use-peak"
-        },
-        {
-          "days": "all",
-          "from": "01:00",
-          "to": "06:00",
-          "band": "residential-time-of-use-off-peak"
-        },
-        {
-          "days": "all",
-          "from": "10:00",
-          "to": "13:00",
-          "band": "three-for-free-usage"
-        },
-        {
-          "days": "all",
-          "from": "13:00",
-          "to": "15:00",
-          "band": "residential-time-of-use-shoulder"
-        }
-      ]
+      "flatRate": 0.4288
     },
     "supply": {
-      "daily": 1.1233
+      "daily": 1.6366
     },
     "export": {
       "flatRate": 0.16
@@ -434,7 +371,7 @@
       {
         "id": "controlled-load-1",
         "name": "Controlled Load 1",
-        "rate": 0.195
+        "rate": 0.2019
       }
     ]
   }

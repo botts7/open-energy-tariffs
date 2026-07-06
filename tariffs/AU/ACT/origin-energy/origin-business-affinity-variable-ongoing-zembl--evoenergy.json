@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "id": "au-act-evoenergy-origin-energy-origin-business-affinity-variable-ongoing-zembl",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "ACT",
+    "distributor": "Evoenergy",
+    "provider": "Origin Energy",
+    "plan": "Origin Business Affinity Variable Ongoing - Zembl",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "other",
+    "updated": "2026-07-06",
+    "verified": false,
+    "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2600",
+        "2601",
+        "2602",
+        "2603",
+        "2604",
+        "2605",
+        "2606",
+        "2607",
+        "2609",
+        "2611",
+        "2612",
+        "2614",
+        "2615",
+        "2617",
+        "2618",
+        "2620",
+        "2900",
+        "2902",
+        "2903",
+        "2904",
+        "2905",
+        "2906",
+        "2911",
+        "2912",
+        "2913",
+        "2914"
+      ]
+    },
+    "sourceId": "ORI953084MBE3@EME",
+    "sourceUpdated": "2026-07-02T11:17:55.616Z"
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.4542,
+          "role": "peak"
+        },
+        {
+          "id": "off-peak",
+          "name": "Off peak",
+          "rate": 0.297,
+          "role": "offpeak"
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.3529,
+          "role": "shoulder"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "17:00",
+          "band": "peak"
+        },
+        {
+          "days": "weekday",
+          "from": "22:00",
+          "to": "07:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekend",
+          "from": "00:00",
+          "to": "24:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "17:00",
+          "to": "22:00",
+          "band": "shoulder"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 1.5279
+    },
+    "export": {
+      "flatRate": 0.05
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.2253
+      },
+      {
+        "id": "controlled-load-2",
+        "name": "Controlled Load 2",
+        "rate": 0.2253
+      }
+    ]
+  }
+}

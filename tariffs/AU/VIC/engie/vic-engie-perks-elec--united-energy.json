@@ -6,14 +6,14 @@
     "region": "VIC",
     "distributor": "United Energy",
     "provider": "ENGIE",
-    "plan": "VIC_ENGIE Perks Elec",
+    "plan": "VIC_ ENGIE Perks Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Melbourne",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -119,16 +119,16 @@
         "3977"
       ]
     },
-    "sourceId": "ENG736290MR@VEC",
-    "sourceUpdated": "2026-04-20T22:26:52Z"
+    "sourceId": "ENG761701MR@VEC",
+    "sourceUpdated": "2026-06-24T04:30:13Z"
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.2621
+      "flatRate": 0.2486
     },
     "supply": {
-      "daily": 1.0589
+      "daily": 1.0829
     },
     "export": {
       "flatRate": 0.01
@@ -137,7 +137,7 @@
       {
         "id": "controlled-load",
         "name": "Controlled Load",
-        "rate": 0.1915
+        "rate": 0.1569
       }
     ]
   }

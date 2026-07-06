@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -246,8 +246,8 @@
         "2775"
       ]
     },
-    "sourceId": "OVO723786MRE18@EME",
-    "sourceUpdated": "2026-06-24T03:01:47.630Z"
+    "sourceId": "OVO723790MRE21@EME",
+    "sourceUpdated": "2026-06-30T23:12:46.858Z"
   },
   "tariff": {
     "kind": "tou",
@@ -256,14 +256,20 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.5029,
+          "rate": 0.5472,
           "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off Peak",
-          "rate": 0.3409,
+          "rate": 0.2185,
           "role": "offpeak"
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.040909,
+          "role": "shoulder"
         }
       ],
       "schedule": [
@@ -275,7 +281,7 @@
         },
         {
           "days": "all",
-          "from": "00:00",
+          "from": "06:00",
           "to": "15:00",
           "band": "off-peak"
         },
@@ -284,14 +290,27 @@
           "from": "21:00",
           "to": "24:00",
           "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "shoulder"
         }
       ]
     },
     "supply": {
-      "daily": 0.99
+      "daily": 1.6844
     },
     "export": {
-      "flatRate": 0.028
-    }
+      "flatRate": 0.01
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-2",
+        "name": "Controlled Load 2",
+        "rate": 0.2091
+      }
+    ]
   }
 }

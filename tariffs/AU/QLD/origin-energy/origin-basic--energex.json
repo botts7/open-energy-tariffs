@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -221,64 +221,25 @@
         "4581"
       ]
     },
-    "sourceId": "ORI931934MRE2@EME",
-    "sourceUpdated": "2025-08-12T14:11:09.771Z"
+    "sourceId": "ORI1133834MRE2@EME",
+    "sourceUpdated": "2026-07-03T02:31:27.216Z"
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.4544,
-          "role": "peak"
-        },
-        {
-          "id": "off-peak",
-          "name": "Off peak",
-          "rate": 0.2569,
-          "role": "offpeak"
-        },
-        {
-          "id": "shoulder",
-          "name": "Shoulder",
-          "rate": 0.2945,
-          "role": "shoulder"
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "16:00",
-          "to": "21:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "11:00",
-          "to": "16:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "all",
-          "from": "21:00",
-          "to": "11:00",
-          "band": "shoulder"
-        }
-      ]
+      "flatRate": 0.25431
     },
     "supply": {
-      "daily": 1.1206
+      "daily": 1.74559
     },
     "export": {
       "flatRate": 0.03
     },
     "controlledLoad": [
       {
-        "id": "controlled-load-2",
-        "name": "Controlled Load 2",
-        "rate": 0.1615
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.14911
       }
     ]
   }

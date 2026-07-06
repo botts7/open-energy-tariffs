@@ -6,14 +6,14 @@
     "region": "QLD",
     "distributor": "Energex",
     "provider": "ENGIE",
-    "plan": "QLD ENGIE Business Movers Elec",
+    "plan": "QLD _ ENGIE Business Movers Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Brisbane",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -221,8 +221,8 @@
         "4581"
       ]
     },
-    "sourceId": "ENG1049359MBE1@EME",
-    "sourceUpdated": "2026-04-23T14:07:30.861Z"
+    "sourceId": "ENG1111685MBE1@EME",
+    "sourceUpdated": "2026-06-30T14:08:15.867Z"
   },
   "tariff": {
     "kind": "tou",
@@ -231,19 +231,19 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.348,
+          "rate": 0.5212,
           "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.2803,
+          "rate": 0.0794,
           "role": "offpeak"
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.3317,
+          "rate": 0.2459,
           "role": "shoulder"
         }
       ],
@@ -281,7 +281,7 @@
       ]
     },
     "supply": {
-      "daily": 1.1289
+      "daily": 2.3765
     },
     "export": {
       "flatRate": 0.01
@@ -290,7 +290,7 @@
       {
         "id": "single-rate-controlled-load",
         "name": "Single Rate Controlled Load",
-        "rate": 0.1704
+        "rate": 0.1493
       }
     ]
   }

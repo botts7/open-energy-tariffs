@@ -5,14 +5,14 @@
     "country": "AU",
     "distributor": "Essential Energy Far West",
     "provider": "ENGIE",
-    "plan": "NSW ENGIE Everyday Elec",
+    "plan": "NSW_ ENGIE Everyday Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -289,64 +289,31 @@
         "2877",
         "2878",
         "2879",
-        "2880",
         "3644",
         "3691",
         "3707"
       ]
     },
-    "sourceId": "ENG1048053MRE1@EME",
-    "sourceUpdated": "2026-04-23T14:07:57.694Z"
+    "sourceId": "ENG1112197MRE1@EME",
+    "sourceUpdated": "2026-06-30T14:08:15.604Z"
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.56,
-          "role": "peak"
-        },
-        {
-          "id": "off-peak",
-          "name": "Off-Peak",
-          "rate": 0.2619,
-          "role": "offpeak"
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "07:00",
-          "to": "10:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "15:00",
-          "to": "22:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "10:00",
-          "to": "15:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "all",
-          "from": "22:00",
-          "to": "07:00",
-          "band": "off-peak"
-        }
-      ]
+      "flatRate": 0.3182
     },
     "supply": {
-      "daily": 1.7645
+      "daily": 2.6169
     },
     "export": {
       "flatRate": 0.03
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "single-rate-controlled-load",
+        "name": "Single Rate Controlled Load",
+        "rate": 0.1808
+      }
+    ]
   }
 }

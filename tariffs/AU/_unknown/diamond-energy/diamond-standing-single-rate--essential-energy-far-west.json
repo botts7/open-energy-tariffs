@@ -5,14 +5,14 @@
     "country": "AU",
     "distributor": "Essential Energy Far West",
     "provider": "Diamond Energy",
-    "plan": "Diamond Standing Single Rate",
+    "plan": "Diamond Standing - Single Rate",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-21",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -318,15 +318,17 @@
         "4497",
         "4498"
       ]
-    }
+    },
+    "sourceId": "DIA1123125SRE1@EME",
+    "sourceUpdated": "2026-07-01T07:19:30.581Z"
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.5
+      "flatRate": 0.31823091
     },
     "supply": {
-      "daily": 1.796
+      "daily": 2.4746982
     }
   }
 }

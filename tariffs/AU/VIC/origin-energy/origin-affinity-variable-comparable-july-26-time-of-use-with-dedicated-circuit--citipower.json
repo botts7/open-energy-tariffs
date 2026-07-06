@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "id": "au-vic-citipower-origin-energy-origin-affinity-variable-comparable-july-26-time-of-use-with-dedicated-circuit",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "VIC",
+    "distributor": "Citipower",
+    "provider": "Origin Energy",
+    "plan": "Origin Affinity Variable - Comparable - July'26 (Time of Use with Dedicated Circuit)",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Melbourne",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "other",
+    "updated": "2026-07-06",
+    "verified": false,
+    "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "3000",
+        "3002",
+        "3003",
+        "3004",
+        "3005",
+        "3006",
+        "3008",
+        "3010",
+        "3011",
+        "3031",
+        "3051",
+        "3052",
+        "3053",
+        "3054",
+        "3055",
+        "3056",
+        "3057",
+        "3065",
+        "3066",
+        "3067",
+        "3068",
+        "3070",
+        "3071",
+        "3078",
+        "3101",
+        "3102",
+        "3103",
+        "3104",
+        "3121",
+        "3122",
+        "3123",
+        "3124",
+        "3125",
+        "3126",
+        "3127",
+        "3129",
+        "3141",
+        "3142",
+        "3143",
+        "3144",
+        "3161",
+        "3181",
+        "3182",
+        "3183",
+        "3205",
+        "3206",
+        "3207"
+      ]
+    },
+    "sourceId": "OR2756100MR@VEC",
+    "sourceUpdated": "2026-07-03T04:57:28Z"
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "tariff-1",
+          "name": "Tariff 1",
+          "rate": 0.3239,
+          "role": "peak"
+        },
+        {
+          "id": "tariff-2",
+          "name": "Tariff 2",
+          "rate": 0.1403,
+          "role": "offpeak"
+        },
+        {
+          "id": "tariff-3",
+          "name": "Tariff 3",
+          "rate": 0.179,
+          "role": "shoulder"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "16:00",
+          "to": "21:00",
+          "band": "tariff-1"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "16:00",
+          "band": "tariff-2"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "11:00",
+          "band": "tariff-3"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "tariff-3"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 1.0242
+    },
+    "export": {
+      "flatRate": 0.01
+    },
+    "controlledLoad": [
+      {
+        "id": "dedicated-circuit",
+        "name": "Dedicated Circuit",
+        "rate": 0.1403
+      }
+    ]
+  }
+}

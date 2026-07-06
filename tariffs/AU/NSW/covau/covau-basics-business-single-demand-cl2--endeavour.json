@@ -6,14 +6,14 @@
     "region": "NSW",
     "distributor": "Endeavour",
     "provider": "CovaU",
-    "plan": "CovaU Basics Business Single + Demand + CL2",
+    "plan": "CovaU Basics Business Single +Demand + CL2",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -175,16 +175,16 @@
         "2850"
       ]
     },
-    "sourceId": "COV757713SBE4@EME",
-    "sourceUpdated": "2026-06-29T05:31:18.789Z"
+    "sourceId": "COV757713SBE5@EME",
+    "sourceUpdated": "2026-06-30T14:07:29.344Z"
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.4359
+      "flatRate": 0.316
     },
     "supply": {
-      "daily": 1.78
+      "daily": 1.65
     },
     "export": {
       "flatRate": 0.055
@@ -193,7 +193,7 @@
       {
         "id": "controlled-load",
         "name": "Controlled Load",
-        "rate": 0.2981
+        "rate": 0.206
       }
     ]
   }

@@ -6,14 +6,14 @@
     "region": "VIC",
     "distributor": "Powercor",
     "provider": "ENGIE",
-    "plan": "VIC- ENGIE Business Flyer Elec",
+    "plan": "VIC _ ENGIE Business Flyer Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Melbourne",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -334,16 +334,16 @@
         "3764"
       ]
     },
-    "sourceId": "ENG736496MS@VEC",
-    "sourceUpdated": "2026-04-20T22:27:07Z"
+    "sourceId": "ENG761814MS@VEC",
+    "sourceUpdated": "2026-06-24T04:30:36Z"
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.2178
+      "flatRate": 0.2335
     },
     "supply": {
-      "daily": 1.4459
+      "daily": 1.5434
     },
     "export": {
       "flatRate": 0.01
@@ -352,7 +352,7 @@
       {
         "id": "controlled-load",
         "name": "Controlled Load",
-        "rate": 0.1929
+        "rate": 0.1569
       }
     ]
   }

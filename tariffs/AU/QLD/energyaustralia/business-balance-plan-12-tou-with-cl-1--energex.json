@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -221,8 +221,8 @@
         "4581"
       ]
     },
-    "sourceId": "ENE977080MBE4@EME",
-    "sourceUpdated": "2026-06-15T07:17:53.242Z"
+    "sourceId": "ENE977080MBE5@EME",
+    "sourceUpdated": "2026-06-30T14:09:23.103Z"
   },
   "tariff": {
     "kind": "tou",
@@ -231,19 +231,19 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.48674,
+          "rate": 0.521216,
           "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off-peak",
-          "rate": 0.19,
+          "rate": 0.079411,
           "role": "offpeak"
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.31,
+          "rate": 0.245935,
           "role": "shoulder"
         }
       ],
@@ -281,7 +281,7 @@
       ]
     },
     "supply": {
-      "daily": 1.526
+      "daily": 2.3765
     },
     "export": {
       "flatRate": 0.044
@@ -290,7 +290,7 @@
       {
         "id": "super-economy-tariff-31",
         "name": "Super Economy Tariff 31",
-        "rate": 0.16878
+        "rate": 0.149384
       }
     ]
   }

@@ -5,14 +5,14 @@
     "country": "AU",
     "distributor": "Essential Energy Far West",
     "provider": "ENGIE",
-    "plan": "NSW ENGIE - Home Business GreenPower Elec",
+    "plan": "NSW_ ENGIE Home Business GreenPower Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -289,14 +289,13 @@
         "2877",
         "2878",
         "2879",
-        "2880",
         "3644",
         "3691",
         "3707"
       ]
     },
-    "sourceId": "ENG1048746MRE1@EME",
-    "sourceUpdated": "2026-04-23T14:07:57.307Z"
+    "sourceId": "ENG1112497MRE1@EME",
+    "sourceUpdated": "2026-06-30T14:11:24.498Z"
   },
   "tariff": {
     "kind": "tou",
@@ -305,23 +304,29 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.6505,
+          "rate": 0.475,
           "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.3455,
+          "rate": 0.2205,
           "role": "offpeak"
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.4014,
+          "rate": 0.323,
           "role": "shoulder"
         }
       ],
       "schedule": [
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "09:00",
+          "band": "peak"
+        },
         {
           "days": "weekday",
           "from": "17:00",
@@ -342,7 +347,7 @@
         },
         {
           "days": "weekday",
-          "from": "07:00",
+          "from": "09:00",
           "to": "17:00",
           "band": "shoulder"
         },
@@ -355,7 +360,7 @@
       ]
     },
     "supply": {
-      "daily": 1.9101
+      "daily": 2.6169
     },
     "export": {
       "flatRate": 0.03
@@ -364,7 +369,7 @@
       {
         "id": "single-rate-controlled-load",
         "name": "Single Rate Controlled Load",
-        "rate": 0.187
+        "rate": 0.1808
       }
     ]
   }
