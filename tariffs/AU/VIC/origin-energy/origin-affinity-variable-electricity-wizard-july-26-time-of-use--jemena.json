@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "id": "au-vic-jemena-origin-energy-origin-affinity-variable-electricity-wizard-july-26-time-of-use",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "VIC",
+    "distributor": "Jemena",
+    "provider": "Origin Energy",
+    "plan": "Origin Affinity Variable - Electricity Wizard - July'26 (Time of Use)",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Melbourne",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "other",
+    "updated": "2026-07-06",
+    "verified": false,
+    "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "3011",
+        "3012",
+        "3013",
+        "3015",
+        "3016",
+        "3019",
+        "3020",
+        "3023",
+        "3025",
+        "3031",
+        "3032",
+        "3033",
+        "3034",
+        "3036",
+        "3037",
+        "3038",
+        "3039",
+        "3040",
+        "3041",
+        "3042",
+        "3043",
+        "3044",
+        "3045",
+        "3046",
+        "3047",
+        "3048",
+        "3049",
+        "3051",
+        "3052",
+        "3058",
+        "3059",
+        "3060",
+        "3061",
+        "3062",
+        "3063",
+        "3064",
+        "3068",
+        "3070",
+        "3072",
+        "3073",
+        "3074",
+        "3076",
+        "3078",
+        "3079",
+        "3081",
+        "3083",
+        "3084",
+        "3085",
+        "3086",
+        "3087",
+        "3335",
+        "3336",
+        "3337",
+        "3340",
+        "3427",
+        "3428",
+        "3429",
+        "3430",
+        "3431",
+        "3437",
+        "3750",
+        "3753"
+      ]
+    },
+    "sourceId": "OR2756064MR@VEC",
+    "sourceUpdated": "2026-07-03T04:57:25Z"
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "tariff-1",
+          "name": "Tariff 1",
+          "rate": 0.3176,
+          "role": "peak"
+        },
+        {
+          "id": "tariff-2",
+          "name": "Tariff 2",
+          "rate": 0.1492,
+          "role": "offpeak"
+        },
+        {
+          "id": "tariff-3",
+          "name": "Tariff 3",
+          "rate": 0.184,
+          "role": "shoulder"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "16:00",
+          "to": "21:00",
+          "band": "tariff-1"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "16:00",
+          "band": "tariff-2"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "11:00",
+          "band": "tariff-3"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "tariff-3"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 1.0747
+    },
+    "export": {
+      "flatRate": 0.01
+    }
+  }
+}

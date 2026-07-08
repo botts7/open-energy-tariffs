@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -320,25 +320,75 @@
         "4498"
       ]
     },
-    "sourceId": "PSH997532MBE1@EME",
-    "sourceUpdated": "2025-09-08T14:14:02.441Z"
+    "sourceId": "PSH1060285MBE2@EME",
+    "sourceUpdated": "2026-06-30T14:09:09.345Z"
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.401915
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.391036,
+          "role": "peak"
+        },
+        {
+          "id": "off-peak",
+          "name": "Off Peak",
+          "rate": 0.243121,
+          "role": "offpeak"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "07:00",
+          "to": "10:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "22:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "07:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "10:00",
+          "to": "15:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "24:00",
+          "band": "off-peak"
+        }
+      ]
     },
     "supply": {
-      "daily": 2.48
+      "daily": 3.197759
     },
     "export": {
-      "flatRate": 0.005
+      "flatRate": 0.01
     },
     "controlledLoad": [
       {
         "id": "single-rate-controlled-load",
         "name": "Single Rate Controlled Load",
-        "rate": 0.100006
+        "rate": 0.157482
+      },
+      {
+        "id": "single-rate-controlled-load",
+        "name": "Single Rate Controlled Load",
+        "rate": 0.189877
       }
     ]
   }

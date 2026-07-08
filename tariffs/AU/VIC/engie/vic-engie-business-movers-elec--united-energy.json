@@ -6,14 +6,14 @@
     "region": "VIC",
     "distributor": "United Energy",
     "provider": "ENGIE",
-    "plan": "VIC- ENGIE Business Movers Elec",
+    "plan": "VIC _ ENGIE Business Movers Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Melbourne",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -119,19 +119,26 @@
         "3977"
       ]
     },
-    "sourceId": "ENG736373MS@VEC",
-    "sourceUpdated": "2026-04-20T22:26:58Z"
+    "sourceId": "ENG761848MS@VEC",
+    "sourceUpdated": "2026-06-24T04:30:39Z"
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.211
+      "flatRate": 0.2191
     },
     "supply": {
-      "daily": 1.2464
+      "daily": 1.4
     },
     "export": {
       "flatRate": 0.01
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load",
+        "name": "Controlled Load",
+        "rate": 0.1569
+      }
+    ]
   }
 }

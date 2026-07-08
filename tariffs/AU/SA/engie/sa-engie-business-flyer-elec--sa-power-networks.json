@@ -6,14 +6,14 @@
     "region": "SA",
     "distributor": "SA Power Networks",
     "provider": "ENGIE",
-    "plan": "SA_ENGIE Business Flyer Elec",
+    "plan": "SA _ ENGIE Business Flyer Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Adelaide",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -352,16 +352,16 @@
         "5950"
       ]
     },
-    "sourceId": "ENG1048977MBE1@EME",
-    "sourceUpdated": "2026-04-23T14:09:35.421Z"
+    "sourceId": "ENG1111754MBE1@EME",
+    "sourceUpdated": "2026-06-30T14:08:44.493Z"
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.4617
+      "flatRate": 0.4076
     },
     "supply": {
-      "daily": 1.1484
+      "daily": 1.6871
     },
     "export": {
       "flatRate": 0.01

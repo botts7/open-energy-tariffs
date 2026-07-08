@@ -12,7 +12,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -281,64 +281,25 @@
         "3996"
       ]
     },
-    "sourceId": "PO2652327MR@VEC",
-    "sourceUpdated": "2025-06-03T23:40:56Z"
+    "sourceId": "PO2742676MR@VEC",
+    "sourceUpdated": "2026-06-01T02:07:59Z"
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "tariff-1",
-          "name": "Tariff 1",
-          "rate": 0.42563,
-          "role": "peak"
-        },
-        {
-          "id": "tariff-2",
-          "name": "Tariff 2",
-          "rate": 0.21809,
-          "role": "offpeak"
-        }
-      ],
-      "schedule": [
-        {
-          "days": "weekday",
-          "from": "08:00",
-          "to": "20:00",
-          "band": "tariff-1"
-        },
-        {
-          "days": "all",
-          "from": "20:00",
-          "to": "24:00",
-          "band": "tariff-2"
-        },
-        {
-          "days": "all",
-          "from": "00:00",
-          "to": "08:00",
-          "band": "tariff-2"
-        },
-        {
-          "days": "weekend",
-          "from": "08:00",
-          "to": "20:00",
-          "band": "tariff-2"
-        }
-      ]
+      "flatRate": 0.290727
     },
     "supply": {
-      "daily": 1.286
+      "daily": 1.165818
     },
     "export": {
-      "flatRate": 0.005
+      "flatRate": 0.01
     },
     "controlledLoad": [
       {
-        "id": "controlled-load-usage",
-        "name": "Controlled Load Usage",
-        "rate": 0.21809
+        "id": "controlled-load",
+        "name": "Controlled Load",
+        "rate": 0.201
       }
     ]
   }

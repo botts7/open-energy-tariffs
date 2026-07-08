@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -353,8 +353,8 @@
         "5960"
       ]
     },
-    "sourceId": "OVO704519MRE20@EME",
-    "sourceUpdated": "2026-06-24T03:02:00.051Z"
+    "sourceId": "OVO704519MRE23@EME",
+    "sourceUpdated": "2026-06-30T23:13:18.195Z"
   },
   "tariff": {
     "kind": "tou",
@@ -363,19 +363,19 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.426,
+          "rate": 0.5111,
           "role": "peak"
         },
         {
           "id": "solar-sponge",
           "name": "Solar Sponge",
-          "rate": 0.292,
+          "rate": 0.1549,
           "role": "offpeak"
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.337,
+          "rate": 0.2959,
           "role": "offpeak"
         }
       ],
@@ -388,35 +388,35 @@
         },
         {
           "days": "all",
-          "from": "15:00",
-          "to": "01:00",
+          "from": "16:00",
+          "to": "24:00",
           "band": "peak"
         },
         {
           "days": "all",
           "from": "10:00",
-          "to": "15:00",
+          "to": "16:00",
           "band": "solar-sponge"
         },
         {
           "days": "all",
-          "from": "01:00",
+          "from": "00:00",
           "to": "06:00",
           "band": "off-peak"
         }
       ]
     },
     "supply": {
-      "daily": 1.34
+      "daily": 1.5381
     },
     "export": {
-      "flatRate": 0.015
+      "flatRate": 0.01
     },
     "controlledLoad": [
       {
         "id": "controlled-load-1",
         "name": "Controlled Load 1",
-        "rate": 0.22
+        "rate": 0.2022
       }
     ]
   }

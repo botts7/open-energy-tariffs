@@ -6,14 +6,14 @@
     "region": "SA",
     "distributor": "SA Power Networks",
     "provider": "ENGIE",
-    "plan": "SA_ENGIE Home Business GreenPower Elec",
+    "plan": "SA _ ENGIE Home Business- GreenPower Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Adelaide",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -352,61 +352,16 @@
         "5950"
       ]
     },
-    "sourceId": "ENG1049594MRE1@EME",
-    "sourceUpdated": "2026-04-23T14:08:26.816Z"
+    "sourceId": "ENG1111695MRE1@EME",
+    "sourceUpdated": "2026-06-30T14:08:44.421Z"
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.5112,
-          "role": "peak"
-        },
-        {
-          "id": "off-peak",
-          "name": "Off-Peak",
-          "rate": 0.3586,
-          "role": "offpeak"
-        },
-        {
-          "id": "solar-sponge",
-          "name": "Solar Sponge",
-          "rate": 0.1853,
-          "role": "offpeak"
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "06:00",
-          "to": "10:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "15:00",
-          "to": "01:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "01:00",
-          "to": "06:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "all",
-          "from": "10:00",
-          "to": "15:00",
-          "band": "solar-sponge"
-        }
-      ]
+      "flatRate": 0.381
     },
     "supply": {
-      "daily": 1.1395
+      "daily": 1.6368
     },
     "export": {
       "flatRate": 0.01

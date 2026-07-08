@@ -6,14 +6,14 @@
     "region": "QLD",
     "distributor": "Energex",
     "provider": "ENGIE",
-    "plan": "QLD ENGIE - Seniors Elec",
+    "plan": "QLD _ ENGIE Seniors Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Brisbane",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -221,70 +221,19 @@
         "4581"
       ]
     },
-    "sourceId": "ENG1049646MRE1@EME",
-    "sourceUpdated": "2026-04-23T14:08:52.139Z"
+    "sourceId": "ENG1111456MRE1@EME",
+    "sourceUpdated": "2026-06-30T14:07:32.444Z"
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.5103,
-          "role": "peak"
-        },
-        {
-          "id": "off-peak",
-          "name": "Off-Peak",
-          "rate": 0.2383,
-          "role": "offpeak"
-        },
-        {
-          "id": "shoulder",
-          "name": "Shoulder",
-          "rate": 0.2781,
-          "role": "shoulder"
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "16:00",
-          "to": "21:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "11:00",
-          "to": "16:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "all",
-          "from": "21:00",
-          "to": "11:00",
-          "band": "shoulder"
-        }
-      ]
+      "flatRate": 0.2543
     },
     "supply": {
-      "daily": 1.0606
+      "daily": 1.7455
     },
     "export": {
       "flatRate": 0.01
-    },
-    "controlledLoad": [
-      {
-        "id": "single-rate-controlled-load",
-        "name": "Single Rate Controlled Load",
-        "rate": 0.1704
-      },
-      {
-        "id": "single-rate-controlled-load",
-        "name": "Single Rate Controlled Load",
-        "rate": 0.1704
-      }
-    ]
+    }
   }
 }

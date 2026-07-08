@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -82,28 +82,28 @@
         "3753"
       ]
     },
-    "sourceId": "GLO742440MR@VEC",
-    "sourceUpdated": "2026-05-31T21:39:24Z"
+    "sourceId": "GLO764977MR@VEC",
+    "sourceUpdated": "2026-07-01T02:34:54Z"
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
         {
-          "id": "flexible",
-          "name": "Flexible",
+          "id": "tariff-1",
+          "name": "Tariff 1",
           "rate": 0.41,
           "role": "peak"
         },
         {
-          "id": "flexible-2",
-          "name": "Flexible",
+          "id": "tariff-2",
+          "name": "Tariff 2",
           "rate": 0.000001,
           "role": "offpeak"
         },
         {
-          "id": "flexible-3",
-          "name": "Flexible",
+          "id": "tariff-3",
+          "name": "Tariff 3",
           "rate": 0.26,
           "role": "shoulder"
         }
@@ -113,31 +113,31 @@
           "days": "all",
           "from": "16:00",
           "to": "23:00",
-          "band": "flexible"
+          "band": "tariff-1"
         },
         {
           "days": "all",
-          "from": "10:00",
-          "to": "14:00",
-          "band": "flexible-2"
+          "from": "11:00",
+          "to": "15:00",
+          "band": "tariff-2"
         },
         {
           "days": "all",
-          "from": "14:00",
+          "from": "15:00",
           "to": "16:00",
-          "band": "flexible-3"
+          "band": "tariff-3"
         },
         {
           "days": "all",
           "from": "23:00",
           "to": "24:00",
-          "band": "flexible-3"
+          "band": "tariff-3"
         },
         {
           "days": "all",
           "from": "00:00",
-          "to": "10:00",
-          "band": "flexible-3"
+          "to": "11:00",
+          "band": "tariff-3"
         }
       ]
     },

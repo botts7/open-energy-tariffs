@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "id": "au-vic-citipower-origin-energy-origin-solar-boost-july-26-single-rate-with-dedicated-circuit",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "VIC",
+    "distributor": "Citipower",
+    "provider": "Origin Energy",
+    "plan": "Origin Solar Boost - July'26 (Single Rate with Dedicated Circuit)",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Melbourne",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "other",
+    "updated": "2026-07-06",
+    "verified": false,
+    "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "3000",
+        "3002",
+        "3003",
+        "3004",
+        "3005",
+        "3006",
+        "3008",
+        "3010",
+        "3011",
+        "3031",
+        "3051",
+        "3052",
+        "3053",
+        "3054",
+        "3055",
+        "3056",
+        "3057",
+        "3065",
+        "3066",
+        "3067",
+        "3068",
+        "3070",
+        "3071",
+        "3078",
+        "3101",
+        "3102",
+        "3103",
+        "3104",
+        "3121",
+        "3122",
+        "3123",
+        "3124",
+        "3125",
+        "3126",
+        "3127",
+        "3129",
+        "3141",
+        "3142",
+        "3143",
+        "3144",
+        "3161",
+        "3181",
+        "3182",
+        "3183",
+        "3205",
+        "3206",
+        "3207"
+      ]
+    },
+    "sourceId": "OR2756301MR@VEC",
+    "sourceUpdated": "2026-07-02T21:26:26Z"
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.236
+    },
+    "supply": {
+      "daily": 1.10127
+    },
+    "export": {
+      "flatRate": 0.05
+    },
+    "controlledLoad": [
+      {
+        "id": "dedicated-circuit",
+        "name": "Dedicated Circuit",
+        "rate": 0.15081
+      }
+    ]
+  }
+}

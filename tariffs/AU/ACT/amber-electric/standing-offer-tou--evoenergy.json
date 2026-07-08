@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "id": "au-act-evoenergy-amber-electric-standing-offer-tou",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "ACT",
+    "distributor": "Evoenergy",
+    "provider": "Amber Electric",
+    "plan": "Standing Offer: TOU",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "other",
+    "updated": "2026-07-06",
+    "verified": false,
+    "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2600",
+        "2601",
+        "2602",
+        "2603",
+        "2604",
+        "2605",
+        "2606",
+        "2607",
+        "2609",
+        "2611",
+        "2612",
+        "2614",
+        "2615",
+        "2617",
+        "2618",
+        "2620",
+        "2900",
+        "2902",
+        "2903",
+        "2904",
+        "2905",
+        "2906",
+        "2911",
+        "2912",
+        "2913",
+        "2914"
+      ]
+    },
+    "sourceId": "AMB1126215SRE1@EME",
+    "sourceUpdated": "2026-07-01T05:12:04.804Z"
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "evoenergy-time-of-use-peak",
+          "name": "Evoenergy Time of Use Peak",
+          "rate": 0.438176,
+          "role": "peak"
+        },
+        {
+          "id": "evoenergy-time-of-use-off-peak",
+          "name": "Evoenergy Time of Use Off Peak",
+          "rate": 0.258603,
+          "role": "offpeak"
+        },
+        {
+          "id": "evoenergy-solar-sponge",
+          "name": "Evoenergy Solar Sponge",
+          "rate": 0.232883,
+          "role": "offpeak"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "07:00",
+          "to": "09:00",
+          "band": "evoenergy-time-of-use-peak"
+        },
+        {
+          "days": "all",
+          "from": "17:00",
+          "to": "21:00",
+          "band": "evoenergy-time-of-use-peak"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "07:00",
+          "band": "evoenergy-time-of-use-off-peak"
+        },
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "17:00",
+          "band": "evoenergy-time-of-use-off-peak"
+        },
+        {
+          "days": "all",
+          "from": "09:00",
+          "to": "11:00",
+          "band": "evoenergy-time-of-use-off-peak"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "15:00",
+          "band": "evoenergy-solar-sponge"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 1.719566
+    },
+    "export": {
+      "flatRate": 0
+    }
+  }
+}

@@ -6,14 +6,14 @@
     "region": "VIC",
     "distributor": "Jemena",
     "provider": "ENGIE",
-    "plan": "VIC_ENGIE Solar Elec",
+    "plan": "VIC ENGIE - Solar Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Melbourne",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -82,16 +82,61 @@
         "3753"
       ]
     },
-    "sourceId": "ENG736564MR@VEC",
-    "sourceUpdated": "2026-04-20T22:27:12Z"
+    "sourceId": "ENG764498MR@VEC",
+    "sourceUpdated": "2026-06-30T22:55:34Z"
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.2701
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.3415,
+          "role": "peak"
+        },
+        {
+          "id": "off-peak",
+          "name": "Off-Peak",
+          "rate": 0.1978,
+          "role": "offpeak"
+        },
+        {
+          "id": "saver",
+          "name": "Saver",
+          "rate": 0.1604,
+          "role": "offpeak"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "16:00",
+          "to": "21:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "11:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "16:00",
+          "band": "saver"
+        }
+      ]
     },
     "supply": {
-      "daily": 1.1182
+      "daily": 1.1556
     },
     "export": {
       "flatRate": 0.08
@@ -100,7 +145,7 @@
       {
         "id": "controlled-load",
         "name": "Controlled Load",
-        "rate": 0.2103
+        "rate": 0.1946
       }
     ]
   }

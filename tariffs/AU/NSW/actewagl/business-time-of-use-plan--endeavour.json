@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -29,8 +29,8 @@
         "2541"
       ]
     },
-    "sourceId": "ACT64414SBE9@EME",
-    "sourceUpdated": "2025-09-17T03:57:51.603Z"
+    "sourceId": "ACT64414SBE10@EME",
+    "sourceUpdated": "2026-07-02T01:52:01.842Z"
   },
   "tariff": {
     "kind": "tou",
@@ -39,19 +39,19 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.558,
+          "rate": 0.313816,
           "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off-peak",
-          "rate": 0.2615,
+          "rate": 0.313816,
           "role": "offpeak"
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.473,
+          "rate": 0.313816,
           "role": "shoulder"
         }
       ],
@@ -89,10 +89,10 @@
       ]
     },
     "supply": {
-      "daily": 1.29
+      "daily": 2.219432
     },
     "export": {
-      "flatRate": 0.044
+      "flatRate": 0.025
     }
   }
 }

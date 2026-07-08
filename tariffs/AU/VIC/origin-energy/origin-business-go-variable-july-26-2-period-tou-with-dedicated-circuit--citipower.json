@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "id": "au-vic-citipower-origin-energy-origin-business-go-variable-july-26-2-period-tou-with-dedicated-circuit",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "VIC",
+    "distributor": "Citipower",
+    "provider": "Origin Energy",
+    "plan": "Origin Business Go Variable - July'26 (2 Period TOU with Dedicated Circuit)",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Melbourne",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "other",
+    "updated": "2026-07-06",
+    "verified": false,
+    "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "3000",
+        "3002",
+        "3003",
+        "3004",
+        "3005",
+        "3006",
+        "3008",
+        "3010",
+        "3011",
+        "3031",
+        "3051",
+        "3052",
+        "3053",
+        "3054",
+        "3055",
+        "3056",
+        "3057",
+        "3065",
+        "3066",
+        "3067",
+        "3068",
+        "3070",
+        "3071",
+        "3078",
+        "3101",
+        "3102",
+        "3103",
+        "3104",
+        "3121",
+        "3122",
+        "3123",
+        "3124",
+        "3125",
+        "3126",
+        "3127",
+        "3129",
+        "3141",
+        "3142",
+        "3143",
+        "3144",
+        "3161",
+        "3181",
+        "3182",
+        "3183",
+        "3205",
+        "3206",
+        "3207"
+      ]
+    },
+    "sourceId": "OR2757242MS@VEC",
+    "sourceUpdated": "2026-07-02T21:27:09Z"
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "tariff-1",
+          "name": "Tariff 1",
+          "rate": 0.2555,
+          "role": "peak"
+        },
+        {
+          "id": "tariff-2",
+          "name": "Tariff 2",
+          "rate": 0.1449,
+          "role": "offpeak"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "09:00",
+          "to": "21:00",
+          "band": "tariff-1"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "09:00",
+          "band": "tariff-2"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "tariff-2"
+        },
+        {
+          "days": "weekend",
+          "from": "09:00",
+          "to": "21:00",
+          "band": "tariff-2"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 1.259
+    },
+    "export": {
+      "flatRate": 0.01
+    },
+    "controlledLoad": [
+      {
+        "id": "dedicated-circuit",
+        "name": "Dedicated Circuit",
+        "rate": 0.1372
+      }
+    ]
+  }
+}

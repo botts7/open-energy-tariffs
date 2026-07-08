@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -151,49 +151,43 @@
         "2850"
       ]
     },
-    "sourceId": "ENG938045SRE3@EME",
-    "sourceUpdated": "2026-04-23T14:06:40.939Z"
+    "sourceId": "ENG1114757SRE1@EME",
+    "sourceUpdated": "2026-06-30T14:08:42.291Z"
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
         {
-          "id": "summer-peak",
-          "name": "Summer Peak",
-          "rate": 0.5967,
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.3152,
           "role": "peak"
         },
         {
-          "id": "summer-off-peak",
-          "name": "Summer Off Peak",
-          "rate": 0.3489,
+          "id": "solar-sponge",
+          "name": "Solar Sponge",
+          "rate": 0.1639,
           "role": "offpeak"
         }
       ],
       "schedule": [
         {
-          "days": "weekday",
-          "from": "16:00",
-          "to": "20:00",
-          "band": "summer-peak"
+          "days": "all",
+          "from": "14:00",
+          "to": "10:00",
+          "band": "peak"
         },
         {
-          "days": "weekday",
-          "from": "20:00",
-          "to": "16:00",
-          "band": "summer-off-peak"
-        },
-        {
-          "days": "weekend",
-          "from": "00:00",
-          "to": "24:00",
-          "band": "summer-off-peak"
+          "days": "all",
+          "from": "10:00",
+          "to": "14:00",
+          "band": "solar-sponge"
         }
       ]
     },
     "supply": {
-      "daily": 1.0624
+      "daily": 1.683
     },
     "export": {
       "flatRate": 0.03

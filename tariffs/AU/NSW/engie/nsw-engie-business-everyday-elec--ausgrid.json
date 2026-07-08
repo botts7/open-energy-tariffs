@@ -6,14 +6,14 @@
     "region": "NSW",
     "distributor": "Ausgrid",
     "provider": "ENGIE",
-    "plan": "NSW ENGIE Business Everyday Elec",
+    "plan": "NSW _ ENGIE Business Everyday Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -246,8 +246,8 @@
         "2775"
       ]
     },
-    "sourceId": "ENG1049580MBE1@EME",
-    "sourceUpdated": "2026-04-23T14:08:25.959Z"
+    "sourceId": "ENG1112383MBE1@EME",
+    "sourceUpdated": "2026-06-30T14:10:08.407Z"
   },
   "tariff": {
     "kind": "tou",
@@ -256,13 +256,13 @@
         {
           "id": "summer-peak",
           "name": "Summer Peak",
-          "rate": 0.6796,
+          "rate": 0.6497,
           "role": "peak"
         },
         {
           "id": "summer-off-peak",
           "name": "Summer Off Peak",
-          "rate": 0.3204,
+          "rate": 0.2254,
           "role": "offpeak"
         }
       ],
@@ -288,17 +288,10 @@
       ]
     },
     "supply": {
-      "daily": 2.2874
+      "daily": 3.5234
     },
     "export": {
       "flatRate": 0.03
-    },
-    "controlledLoad": [
-      {
-        "id": "single-rate-controlled-load",
-        "name": "Single Rate Controlled Load",
-        "rate": 0.161
-      }
-    ]
+    }
   }
 }

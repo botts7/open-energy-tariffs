@@ -6,14 +6,14 @@
     "region": "NSW",
     "distributor": "Endeavour",
     "provider": "ENGIE",
-    "plan": "NSW ENGIE Business Everyday Elec",
+    "plan": "NSW _ ENGIE Business Everyday Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -151,8 +151,8 @@
         "2850"
       ]
     },
-    "sourceId": "ENG1049568MBE1@EME",
-    "sourceUpdated": "2026-04-23T14:08:26.383Z"
+    "sourceId": "ENG1115010MBE1@EME",
+    "sourceUpdated": "2026-06-30T14:09:00.317Z"
   },
   "tariff": {
     "kind": "tou",
@@ -161,13 +161,19 @@
         {
           "id": "summer-peak",
           "name": "Summer Peak",
-          "rate": 0.6326,
+          "rate": 0.4567,
           "role": "peak"
         },
         {
           "id": "summer-off-peak",
           "name": "Summer Off Peak",
-          "rate": 0.3365,
+          "rate": 0.3526,
+          "role": "offpeak"
+        },
+        {
+          "id": "summer-solar-sponge",
+          "name": "Summer Solar Sponge",
+          "rate": 0.129,
           "role": "offpeak"
         }
       ],
@@ -180,20 +186,32 @@
         },
         {
           "days": "weekday",
-          "from": "20:00",
+          "from": "14:00",
           "to": "16:00",
           "band": "summer-off-peak"
         },
         {
-          "days": "weekend",
-          "from": "00:00",
-          "to": "24:00",
+          "days": "weekday",
+          "from": "20:00",
+          "to": "10:00",
           "band": "summer-off-peak"
+        },
+        {
+          "days": "weekend",
+          "from": "14:00",
+          "to": "10:00",
+          "band": "summer-off-peak"
+        },
+        {
+          "days": "all",
+          "from": "10:00",
+          "to": "14:00",
+          "band": "summer-solar-sponge"
         }
       ]
     },
     "supply": {
-      "daily": 1.4406
+      "daily": 2.3456
     },
     "export": {
       "flatRate": 0.03
@@ -202,7 +220,7 @@
       {
         "id": "single-rate-controlled-load",
         "name": "Single Rate Controlled Load",
-        "rate": 0.208
+        "rate": 0.1876
       }
     ]
   }

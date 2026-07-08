@@ -5,14 +5,14 @@
     "country": "AU",
     "distributor": "AusNet Services (electricity)",
     "provider": "ENGIE",
-    "plan": "VIC- ENGIE Business Essentials Elec",
+    "plan": "VIC _ ENGIE Business Essentials Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -281,19 +281,26 @@
         "3996"
       ]
     },
-    "sourceId": "ENG736133MS@VEC",
-    "sourceUpdated": "2026-04-20T22:26:41Z"
+    "sourceId": "ENG761966MS@VEC",
+    "sourceUpdated": "2026-06-24T04:30:48Z"
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.3528
+      "flatRate": 0.3111
     },
     "supply": {
-      "daily": 1.286
+      "daily": 1.1762
     },
     "export": {
       "flatRate": 0.01
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load",
+        "name": "Controlled Load",
+        "rate": 0.201
+      }
+    ]
   }
 }

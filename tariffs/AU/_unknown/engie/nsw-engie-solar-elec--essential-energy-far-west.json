@@ -5,14 +5,14 @@
     "country": "AU",
     "distributor": "Essential Energy Far West",
     "provider": "ENGIE",
-    "plan": "NSW ENGIE - Solar Elec",
+    "plan": "NSW _ ENGIE Solar Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -289,14 +289,13 @@
         "2877",
         "2878",
         "2879",
-        "2880",
         "3644",
         "3691",
         "3707"
       ]
     },
-    "sourceId": "ENG1047966MRE1@EME",
-    "sourceUpdated": "2026-04-23T14:07:56.861Z"
+    "sourceId": "ENG1112054MRE1@EME",
+    "sourceUpdated": "2026-06-30T14:07:37.963Z"
   },
   "tariff": {
     "kind": "tou",
@@ -305,19 +304,19 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.6293,
+          "rate": 0.475,
           "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.3315,
+          "rate": 0.2205,
           "role": "offpeak"
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.3923,
+          "rate": 0.323,
           "role": "shoulder"
         }
       ],
@@ -361,7 +360,7 @@
       ]
     },
     "supply": {
-      "daily": 1.7645
+      "daily": 2.4746
     },
     "export": {
       "flatRate": 0.08

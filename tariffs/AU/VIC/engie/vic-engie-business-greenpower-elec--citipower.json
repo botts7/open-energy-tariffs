@@ -6,14 +6,14 @@
     "region": "VIC",
     "distributor": "Citipower",
     "provider": "ENGIE",
-    "plan": "VIC- ENGIE Business GreenPower Elec",
+    "plan": "VIC _ ENGIE Business -GreenPower Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Melbourne",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-06",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -67,16 +67,16 @@
         "3207"
       ]
     },
-    "sourceId": "ENG736202MS@VEC",
-    "sourceUpdated": "2026-04-20T22:26:46Z"
+    "sourceId": "ENG761928MS@VEC",
+    "sourceUpdated": "2026-06-24T04:30:45Z"
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.2415
+      "flatRate": 0.2251
     },
     "supply": {
-      "daily": 1.3153
+      "daily": 1.3835
     },
     "export": {
       "flatRate": 0.01
@@ -85,7 +85,7 @@
       {
         "id": "controlled-load",
         "name": "Controlled Load",
-        "rate": 0.1829
+        "rate": 0.1508
       }
     ]
   }
