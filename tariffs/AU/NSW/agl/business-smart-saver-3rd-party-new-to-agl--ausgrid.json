@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-07-13",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -246,70 +246,64 @@
         "2775"
       ]
     },
-    "sourceId": "AGL1040937MBE2@EME",
-    "sourceUpdated": "2026-06-30T23:52:52.771Z"
+    "sourceId": "AGL1067243MBE2@EME",
+    "sourceUpdated": "2026-07-09T14:06:30.806Z"
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
         {
-          "id": "loadsmart-business-peak",
-          "name": "LoadSmart Business Peak",
-          "rate": 0.4388,
+          "id": "time-of-use-peak",
+          "name": "Time of Use Peak",
+          "rate": 0.58479,
           "role": "peak"
         },
         {
-          "id": "loadsmart-business-off-peak",
-          "name": "LoadSmart Business Off-Peak",
-          "rate": 0.2263,
+          "id": "time-of-use-off-peak",
+          "name": "Time of Use Off Peak",
+          "rate": 0.20293,
           "role": "offpeak"
-        },
-        {
-          "id": "loadsmart-business-shoulder",
-          "name": "LoadSmart Business Shoulder",
-          "rate": 0.3723,
-          "role": "shoulder"
         }
       ],
       "schedule": [
         {
           "days": "weekday",
-          "from": "14:00",
-          "to": "20:00",
-          "band": "loadsmart-business-peak"
+          "from": "15:00",
+          "to": "21:00",
+          "band": "time-of-use-peak"
         },
         {
           "days": "weekday",
-          "from": "22:00",
-          "to": "07:00",
-          "band": "loadsmart-business-off-peak"
+          "from": "21:00",
+          "to": "15:00",
+          "band": "time-of-use-off-peak"
         },
         {
           "days": "weekend",
           "from": "00:00",
           "to": "24:00",
-          "band": "loadsmart-business-off-peak"
-        },
-        {
-          "days": "weekday",
-          "from": "07:00",
-          "to": "14:00",
-          "band": "loadsmart-business-shoulder"
-        },
-        {
-          "days": "weekday",
-          "from": "20:00",
-          "to": "22:00",
-          "band": "loadsmart-business-shoulder"
+          "band": "time-of-use-off-peak"
         }
       ]
     },
     "supply": {
-      "daily": 6.6053
+      "daily": 3.16994
     },
     "export": {
       "flatRate": 0.03
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.1579
+      },
+      {
+        "id": "controlled-load-2",
+        "name": "Controlled Load 2",
+        "rate": 0.1882
+      }
+    ]
   }
 }

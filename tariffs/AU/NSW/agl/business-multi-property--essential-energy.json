@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-07-13",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -138,6 +138,7 @@
         "2585",
         "2588",
         "2590",
+        "2629",
         "2633",
         "2640",
         "2641",
@@ -287,16 +288,55 @@
         "4498"
       ]
     },
-    "sourceId": "AGL1059368MBE2@EME",
-    "sourceUpdated": "2026-06-30T23:50:36.015Z"
+    "sourceId": "AGL1067338MBE2@EME",
+    "sourceUpdated": "2026-07-09T14:06:30.276Z"
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.3339
+      "bands": [
+        {
+          "id": "time-of-use-peak",
+          "name": "Time of Use Peak",
+          "rate": 0.3491,
+          "role": "peak"
+        },
+        {
+          "id": "time-of-use-off-peak",
+          "name": "Time of Use Off Peak",
+          "rate": 0.217,
+          "role": "offpeak"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "07:00",
+          "to": "10:00",
+          "band": "time-of-use-peak"
+        },
+        {
+          "days": "all",
+          "from": "15:00",
+          "to": "22:00",
+          "band": "time-of-use-peak"
+        },
+        {
+          "days": "all",
+          "from": "10:00",
+          "to": "15:00",
+          "band": "time-of-use-off-peak"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "07:00",
+          "band": "time-of-use-off-peak"
+        }
+      ]
     },
     "supply": {
-      "daily": 3.3549
+      "daily": 3.2452
     },
     "export": {
       "flatRate": 0.03
@@ -305,12 +345,12 @@
       {
         "id": "controlled-load-1",
         "name": "Controlled Load 1",
-        "rate": 0.1645
+        "rate": 0.1591
       },
       {
         "id": "controlled-load-2",
         "name": "Controlled Load 2",
-        "rate": 0.1983
+        "rate": 0.1918
       }
     ]
   }
