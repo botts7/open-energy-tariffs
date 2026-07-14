@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-07-13",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -246,8 +246,8 @@
         "2775"
       ]
     },
-    "sourceId": "ORI729944MBE9@EME",
-    "sourceUpdated": "2025-08-29T01:40:23.220Z"
+    "sourceId": "ORI729823MBE13@EME",
+    "sourceUpdated": "2026-07-08T04:41:12.737Z"
   },
   "tariff": {
     "kind": "tou",
@@ -256,33 +256,33 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.3731,
+          "rate": 0.6238,
           "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off peak",
-          "rate": 0.215,
+          "rate": 0.2165,
           "role": "offpeak"
-        },
-        {
-          "id": "shoulder",
-          "name": "Shoulder",
-          "rate": 0.3386,
-          "role": "shoulder"
         }
       ],
       "schedule": [
         {
           "days": "weekday",
-          "from": "14:00",
-          "to": "20:00",
+          "from": "15:00",
+          "to": "21:00",
           "band": "peak"
         },
         {
           "days": "weekday",
-          "from": "22:00",
-          "to": "07:00",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "00:00",
+          "to": "15:00",
           "band": "off-peak"
         },
         {
@@ -290,38 +290,14 @@
           "from": "00:00",
           "to": "24:00",
           "band": "off-peak"
-        },
-        {
-          "days": "weekday",
-          "from": "07:00",
-          "to": "14:00",
-          "band": "shoulder"
-        },
-        {
-          "days": "weekday",
-          "from": "20:00",
-          "to": "22:00",
-          "band": "shoulder"
         }
       ]
     },
     "supply": {
-      "daily": 6.8752
+      "daily": 3.3815
     },
     "export": {
       "flatRate": 0.05
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load-1",
-        "name": "Controlled load 1",
-        "rate": 0.1692
-      },
-      {
-        "id": "controlled-load-2",
-        "name": "Controlled load 2",
-        "rate": 0.1692
-      }
-    ]
+    }
   }
 }

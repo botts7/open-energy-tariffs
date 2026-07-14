@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-07-13",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -246,67 +246,16 @@
         "2775"
       ]
     },
-    "sourceId": "AGL907715MBE4@EME",
-    "sourceUpdated": "2026-06-30T23:51:06.708Z"
+    "sourceId": "AGL907700MBE5@EME",
+    "sourceUpdated": "2026-07-09T14:06:56.930Z"
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "loadsmart-business-peak",
-          "name": "LoadSmart Business Peak",
-          "rate": 0.4388,
-          "role": "peak"
-        },
-        {
-          "id": "loadsmart-business-off-peak",
-          "name": "LoadSmart Business Off-Peak",
-          "rate": 0.2263,
-          "role": "offpeak"
-        },
-        {
-          "id": "loadsmart-business-shoulder",
-          "name": "LoadSmart Business Shoulder",
-          "rate": 0.3723,
-          "role": "shoulder"
-        }
-      ],
-      "schedule": [
-        {
-          "days": "weekday",
-          "from": "14:00",
-          "to": "20:00",
-          "band": "loadsmart-business-peak"
-        },
-        {
-          "days": "weekday",
-          "from": "22:00",
-          "to": "07:00",
-          "band": "loadsmart-business-off-peak"
-        },
-        {
-          "days": "weekend",
-          "from": "00:00",
-          "to": "24:00",
-          "band": "loadsmart-business-off-peak"
-        },
-        {
-          "days": "weekday",
-          "from": "07:00",
-          "to": "14:00",
-          "band": "loadsmart-business-shoulder"
-        },
-        {
-          "days": "weekday",
-          "from": "20:00",
-          "to": "22:00",
-          "band": "loadsmart-business-shoulder"
-        }
-      ]
+      "flatRate": 0.2587
     },
     "supply": {
-      "daily": 6.6053
+      "daily": 3.0485
     },
     "export": {
       "flatRate": 0.03
