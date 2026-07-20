@@ -4392,6 +4392,11 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-momentum-energy-nab-business",
+          "plan": "NAB Business",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-momentum-energy-pure-business",
           "plan": "Pure Business",
           "verified": false
@@ -4422,8 +4427,23 @@
           "verified": false
         },
         {
+          "id": "au-essential-energy-far-west-momentum-energy-busy-business",
+          "plan": "Busy Business",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-far-west-momentum-energy-home-comfort-electricity",
+          "plan": "Home Comfort Electricity",
+          "verified": false
+        },
+        {
           "id": "au-essential-energy-far-west-momentum-energy-home-run-electricity",
           "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-far-west-momentum-energy-nab-business",
+          "plan": "NAB Business",
           "verified": false
         },
         {
@@ -6998,6 +7018,11 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-ovo-energy-the-basic-ev-plan-jul2026v2",
+          "plan": "The Basic EV Plan - JUL2026v2",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-ovo-energy-the-basic-free-3-plan",
           "plan": "The Basic Free 3 Plan",
           "verified": false
@@ -7005,6 +7030,11 @@
         {
           "id": "au-ausnet-services-electricity-ovo-energy-the-basic-free-3-plan-jul2026",
           "plan": "The Basic Free 3 Plan - JUL2026",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-ovo-energy-the-basic-free-4-plan-jul2026v2",
+          "plan": "The Basic Free 4 Plan - JUL2026v2",
           "verified": false
         },
         {
@@ -7033,6 +7063,11 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-ovo-energy-the-ev-plan-jul2026v2",
+          "plan": "The EV Plan - JUL2026v2",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-ovo-energy-the-free-3-plan",
           "plan": "The Free 3 Plan",
           "verified": false
@@ -7040,6 +7075,11 @@
         {
           "id": "au-ausnet-services-electricity-ovo-energy-the-free-3-plan-jul2026",
           "plan": "The Free 3 Plan - JUL2026",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-ovo-energy-the-free-4-plan-jul2026v2",
+          "plan": "The Free 4 Plan - JUL2026v2",
           "verified": false
         },
         {
@@ -7678,6 +7718,11 @@
           "verified": false
         },
         {
+          "id": "au-essential-energy-standard-actewagl-energy-rewards-home-6-off-supply-usage",
+          "plan": "Energy Rewards - home 6% off supply & usage",
+          "verified": false
+        },
+        {
           "id": "au-essential-energy-standard-actewagl-energy-rewards-home-with-cl-1-12-off-supply-usage",
           "plan": "Energy Rewards - home with CL 1 12% off supply & usage",
           "verified": false
@@ -7688,8 +7733,23 @@
           "verified": false
         },
         {
+          "id": "au-essential-energy-standard-actewagl-energy-rewards-home-with-cl-1-2-6-off-supply-usage",
+          "plan": "Energy Rewards -home with CL 1&2 6% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-actewagl-energy-rewards-home-with-cl-1-6-off-supply-usage",
+          "plan": "Energy Rewards - home with CL 1 6% off supply & usage",
+          "verified": false
+        },
+        {
           "id": "au-essential-energy-standard-actewagl-energy-rewards-home-with-cl-2-12-off-supply-usage",
           "plan": "Energy Rewards - home with CL 2 12% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-actewagl-energy-rewards-home-with-cl-2-6-off-supply-usage",
+          "plan": "Energy Rewards - home with CL 2 6% off supply & usage",
           "verified": false
         },
         {
@@ -11539,8 +11599,23 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-momentum-energy-busy-business",
+          "plan": "Busy Business",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-momentum-energy-home-comfort-electricity",
+          "plan": "Home Comfort Electricity",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-momentum-energy-home-run-electricity",
           "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-momentum-energy-nab-business",
+          "plan": "NAB Business",
           "verified": false
         },
         {
@@ -11579,8 +11654,23 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-momentum-energy-busy-business",
+          "plan": "Busy Business",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-momentum-energy-home-comfort-electricity",
+          "plan": "Home Comfort Electricity",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-momentum-energy-home-run-electricity",
           "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-momentum-energy-nab-business",
+          "plan": "NAB Business",
           "verified": false
         },
         {
@@ -11619,8 +11709,23 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-momentum-energy-busy-business",
+          "plan": "Busy Business",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-momentum-energy-home-comfort-electricity",
+          "plan": "Home Comfort Electricity",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-momentum-energy-home-run-electricity",
           "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-momentum-energy-nab-business",
+          "plan": "NAB Business",
           "verified": false
         },
         {
@@ -12860,6 +12965,11 @@
         {
           "id": "au-nsw-ausgrid-origin-energy-origin-business-basic",
           "plan": "Origin Business Basic",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-origin-energy-origin-business-easy",
+          "plan": "Origin Business Easy",
           "verified": false
         },
         {
@@ -14413,6 +14523,11 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-actewagl-energy-rewards-home-6-off-supply-usage",
+          "plan": "Energy Rewards - home 6% off supply & usage",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-actewagl-energy-rewards-home-with-cl-1-12-off-supply-usage",
           "plan": "Energy Rewards - home with CL 1 12% off supply & usage",
           "verified": false
@@ -14428,8 +14543,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-actewagl-energy-rewards-home-with-cl-1-6-off-supply-usage",
+          "plan": "Energy Rewards - home with CL 1 6% off supply & usage",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-actewagl-energy-rewards-home-with-cl-2-12-off-supply-usage",
           "plan": "Energy Rewards - home with CL 2 12% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-actewagl-energy-rewards-home-with-cl-2-6-off-supply-usage",
+          "plan": "Energy Rewards - home with CL 2 6% off supply & usage",
           "verified": false
         },
         {
@@ -16247,8 +16372,23 @@
           "verified": false
         },
         {
+          "id": "au-qld-energex-momentum-energy-busy-business",
+          "plan": "Busy Business",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-momentum-energy-home-comfort-electricity",
+          "plan": "Home Comfort Electricity",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-momentum-energy-home-run-electricity",
           "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-momentum-energy-nab-business",
+          "plan": "NAB Business",
           "verified": false
         },
         {
@@ -19144,8 +19284,23 @@
           "verified": false
         },
         {
+          "id": "au-sa-sa-power-networks-momentum-energy-busy-business",
+          "plan": "Busy Business",
+          "verified": false
+        },
+        {
+          "id": "au-sa-sa-power-networks-momentum-energy-home-comfort-electricity",
+          "plan": "Home Comfort Electricity",
+          "verified": false
+        },
+        {
           "id": "au-sa-sa-power-networks-momentum-energy-home-run-electricity",
           "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-sa-sa-power-networks-momentum-energy-nab-business",
+          "plan": "NAB Business",
           "verified": false
         },
         {
@@ -25808,6 +25963,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-momentum-energy-nab-business",
+          "plan": "NAB Business",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-momentum-energy-pure-business",
           "plan": "Pure Business",
           "verified": false
@@ -25850,6 +26010,11 @@
         {
           "id": "au-vic-jemena-momentum-energy-home-run-electricity",
           "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-momentum-energy-nab-business",
+          "plan": "NAB Business",
           "verified": false
         },
         {
@@ -25898,6 +26063,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-momentum-energy-nab-business",
+          "plan": "NAB Business",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-momentum-energy-pure-business",
           "plan": "Pure Business",
           "verified": false
@@ -25940,6 +26110,11 @@
         {
           "id": "au-vic-united-energy-momentum-energy-home-run-electricity",
           "plan": "Home Run Electricity",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-momentum-energy-nab-business",
+          "plan": "NAB Business",
           "verified": false
         },
         {
@@ -35824,6 +35999,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-ovo-energy-the-basic-ev-plan-jul2026v2",
+          "plan": "The Basic EV Plan - JUL2026v2",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-ovo-energy-the-basic-free-3-plan",
           "plan": "The Basic Free 3 Plan",
           "verified": false
@@ -35831,6 +36011,11 @@
         {
           "id": "au-vic-citipower-ovo-energy-the-basic-free-3-plan-jul2026",
           "plan": "The Basic Free 3 Plan - JUL2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-ovo-energy-the-basic-free-4-plan-jul2026v2",
+          "plan": "The Basic Free 4 Plan - JUL2026v2",
           "verified": false
         },
         {
@@ -35859,6 +36044,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-ovo-energy-the-ev-plan-jul2026v2",
+          "plan": "The EV Plan - JUL2026v2",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-ovo-energy-the-free-3-plan",
           "plan": "The Free 3 Plan",
           "verified": false
@@ -35866,6 +36056,11 @@
         {
           "id": "au-vic-citipower-ovo-energy-the-free-3-plan-jul2026",
           "plan": "The Free 3 Plan - JUL2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-ovo-energy-the-free-4-plan-jul2026v2",
+          "plan": "The Free 4 Plan - JUL2026v2",
           "verified": false
         },
         {
@@ -35899,6 +36094,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-ovo-energy-the-basic-ev-plan-jul2026v2",
+          "plan": "The Basic EV Plan - JUL2026v2",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-ovo-energy-the-basic-free-3-plan",
           "plan": "The Basic Free 3 Plan",
           "verified": false
@@ -35906,6 +36106,11 @@
         {
           "id": "au-vic-jemena-ovo-energy-the-basic-free-3-plan-jul2026",
           "plan": "The Basic Free 3 Plan - JUL2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-ovo-energy-the-basic-free-4-plan-jul2026v2",
+          "plan": "The Basic Free 4 Plan - JUL2026v2",
           "verified": false
         },
         {
@@ -35934,6 +36139,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-ovo-energy-the-ev-plan-jul2026v2",
+          "plan": "The EV Plan - JUL2026v2",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-ovo-energy-the-free-3-plan",
           "plan": "The Free 3 Plan",
           "verified": false
@@ -35941,6 +36151,11 @@
         {
           "id": "au-vic-jemena-ovo-energy-the-free-3-plan-jul2026",
           "plan": "The Free 3 Plan - JUL2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-ovo-energy-the-free-4-plan-jul2026v2",
+          "plan": "The Free 4 Plan - JUL2026v2",
           "verified": false
         },
         {
@@ -35974,6 +36189,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-ovo-energy-the-basic-ev-plan-jul2026v2",
+          "plan": "The Basic EV Plan - JUL2026v2",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-ovo-energy-the-basic-free-3-plan",
           "plan": "The Basic Free 3 Plan",
           "verified": false
@@ -35981,6 +36201,11 @@
         {
           "id": "au-vic-powercor-ovo-energy-the-basic-free-3-plan-jul2026",
           "plan": "The Basic Free 3 Plan - JUL2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-ovo-energy-the-basic-free-4-plan-jul2026v2",
+          "plan": "The Basic Free 4 Plan - JUL2026v2",
           "verified": false
         },
         {
@@ -36009,6 +36234,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-ovo-energy-the-ev-plan-jul2026v2",
+          "plan": "The EV Plan - JUL2026v2",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-ovo-energy-the-free-3-plan",
           "plan": "The Free 3 Plan",
           "verified": false
@@ -36016,6 +36246,11 @@
         {
           "id": "au-vic-powercor-ovo-energy-the-free-3-plan-jul2026",
           "plan": "The Free 3 Plan - JUL2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-ovo-energy-the-free-4-plan-jul2026v2",
+          "plan": "The Free 4 Plan - JUL2026v2",
           "verified": false
         },
         {
@@ -36049,6 +36284,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-ovo-energy-the-basic-ev-plan-jul2026v2",
+          "plan": "The Basic EV Plan - JUL2026v2",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-ovo-energy-the-basic-free-3-plan",
           "plan": "The Basic Free 3 Plan",
           "verified": false
@@ -36056,6 +36296,11 @@
         {
           "id": "au-vic-united-energy-ovo-energy-the-basic-free-3-plan-jul2026",
           "plan": "The Basic Free 3 Plan - JUL2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-ovo-energy-the-basic-free-4-plan-jul2026v2",
+          "plan": "The Basic Free 4 Plan - JUL2026v2",
           "verified": false
         },
         {
@@ -36084,6 +36329,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-ovo-energy-the-ev-plan-jul2026v2",
+          "plan": "The EV Plan - JUL2026v2",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-ovo-energy-the-free-3-plan",
           "plan": "The Free 3 Plan",
           "verified": false
@@ -36091,6 +36341,11 @@
         {
           "id": "au-vic-united-energy-ovo-energy-the-free-3-plan-jul2026",
           "plan": "The Free 3 Plan - JUL2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-ovo-energy-the-free-4-plan-jul2026v2",
+          "plan": "The Free 4 Plan - JUL2026v2",
           "verified": false
         },
         {

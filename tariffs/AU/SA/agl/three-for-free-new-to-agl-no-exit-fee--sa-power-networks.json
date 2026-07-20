@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-07-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -353,19 +353,73 @@
         "5960"
       ]
     },
-    "sourceId": "AGL1061060MRE3@EME",
-    "sourceUpdated": "2026-06-30T23:51:10.311Z"
+    "sourceId": "AGL1067321MRE2@EME",
+    "sourceUpdated": "2026-07-13T22:47:43.191Z"
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.4288
+      "bands": [
+        {
+          "id": "time-of-use-peak",
+          "name": "Time of Use peak",
+          "rate": 0.5127,
+          "role": "peak"
+        },
+        {
+          "id": "time-of-use-off-peak",
+          "name": "Time of Use Off Peak",
+          "rate": 0.3396,
+          "role": "offpeak"
+        },
+        {
+          "id": "three-for-free-usage",
+          "name": "Three for Free usage",
+          "rate": 0,
+          "role": "offpeak"
+        },
+        {
+          "id": "time-of-use-shoulder",
+          "name": "Time of Use Shoulder",
+          "rate": 0.2454,
+          "role": "shoulder"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "06:00",
+          "to": "10:00",
+          "band": "time-of-use-peak"
+        },
+        {
+          "days": "all",
+          "from": "16:00",
+          "to": "24:00",
+          "band": "time-of-use-peak"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "06:00",
+          "band": "time-of-use-off-peak"
+        },
+        {
+          "days": "all",
+          "from": "10:00",
+          "to": "13:00",
+          "band": "three-for-free-usage"
+        },
+        {
+          "days": "all",
+          "from": "13:00",
+          "to": "16:00",
+          "band": "time-of-use-shoulder"
+        }
+      ]
     },
     "supply": {
       "daily": 1.6366
-    },
-    "export": {
-      "flatRate": 0.16
     },
     "controlledLoad": [
       {
