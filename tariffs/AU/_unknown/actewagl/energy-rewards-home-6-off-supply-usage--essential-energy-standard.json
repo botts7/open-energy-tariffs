@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "id": "au-essential-energy-standard-actewagl-energy-rewards-home-6-off-supply-usage",
+    "schemaVersion": "1",
+    "country": "AU",
+    "distributor": "Essential Energy Standard",
+    "provider": "ActewAGL",
+    "plan": "Energy Rewards - home 6% off supply & usage",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "other",
+    "updated": "2026-07-20",
+    "verified": false,
+    "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2321",
+        "2337",
+        "2536",
+        "2537",
+        "2539",
+        "2545",
+        "2546",
+        "2548",
+        "2549",
+        "2550",
+        "2551",
+        "2580",
+        "2581",
+        "2582",
+        "2583",
+        "2584",
+        "2585",
+        "2586",
+        "2587",
+        "2594",
+        "2611",
+        "2618",
+        "2619",
+        "2620",
+        "2621",
+        "2622",
+        "2623",
+        "2624",
+        "2625",
+        "2626",
+        "2627",
+        "2628",
+        "2629",
+        "2630",
+        "2631",
+        "2632",
+        "2633",
+        "2720",
+        "2876",
+        "2877"
+      ]
+    },
+    "sourceId": "ACT1059389MRE2@EME",
+    "sourceUpdated": "2026-07-14T00:59:01.687Z"
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.31823
+    },
+    "supply": {
+      "daily": 2.474698
+    },
+    "export": {
+      "flatRate": 0.025
+    }
+  }
+}

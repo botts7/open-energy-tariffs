@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "id": "au-nsw-endeavour-actewagl-energy-rewards-home-6-off-supply-usage",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "NSW",
+    "distributor": "Endeavour",
+    "provider": "ActewAGL",
+    "plan": "Energy Rewards - home 6% off supply & usage",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "other",
+    "updated": "2026-07-20",
+    "verified": false,
+    "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2113",
+        "2120",
+        "2214",
+        "2323",
+        "2535",
+        "2538",
+        "2539",
+        "2540",
+        "2541"
+      ]
+    },
+    "sourceId": "ACT1059405MRE2@EME",
+    "sourceUpdated": "2026-07-14T00:59:01.349Z"
+  },
+  "tariff": {
+    "kind": "flat",
+    "import": {
+      "flatRate": 0.306611
+    },
+    "supply": {
+      "daily": 1.683045
+    },
+    "export": {
+      "flatRate": 0.025
+    }
+  }
+}
