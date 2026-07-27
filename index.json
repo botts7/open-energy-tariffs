@@ -7593,6 +7593,26 @@
           "verified": false
         },
         {
+          "id": "au-essential-energy-standard-actewagl-business-daytime-economy-8-off-supply-usage",
+          "plan": "Business daytime economy - 8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-actewagl-business-daytime-economy-cl1-2-8-off-supply-usage",
+          "plan": "Business daytime economy + CL1&2 -8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-actewagl-business-daytime-economy-cl1-8-off-supply-usage",
+          "plan": "Business daytime economy + CL1 - 8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-actewagl-business-daytime-economy-cl2-8-off-supply-usage",
+          "plan": "Business daytime economy + CL2 - 8% off supply & usage",
+          "verified": false
+        },
+        {
           "id": "au-essential-energy-standard-actewagl-business-lv-tou-kva-demand",
           "plan": "Business LV TOU kVA demand",
           "verified": false
@@ -7620,6 +7640,26 @@
         {
           "id": "au-essential-energy-standard-actewagl-business-plan-with-controlled-load-2",
           "plan": "Business plan with controlled load 2",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-actewagl-business-rewards-8-off-supply-usage",
+          "plan": "Business Rewards - 8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-actewagl-business-rewards-with-cl1-2-8-off-supply-usage",
+          "plan": "Business Rewards with CL1&2 - 8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-actewagl-business-rewards-with-cl1-8-off-supply-usage",
+          "plan": "Business Rewards with CL1 - 8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-actewagl-business-rewards-with-cl2-8-off-supply-usage",
+          "plan": "Business Rewards with CL2 - 8% off supply & usage",
           "verified": false
         },
         {
@@ -10057,6 +10097,16 @@
         {
           "id": "au-nsw-endeavour-covau-freedom-business-single-demand",
           "plan": "Freedom Business Single + Demand",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-covau-freedom-business-single-demand-cl1",
+          "plan": "Freedom Business Single Demand + CL1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-covau-freedom-business-single-demand-cl2",
+          "plan": "Freedom Business Single Demand + CL2",
           "verified": false
         },
         {
@@ -14448,6 +14498,36 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-actewagl-business-rewards-8-off-suppy-usage",
+          "plan": "Business Rewards - 8% off suppy & usage",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-actewagl-business-rewards-time-of-use-8-off-supply-usage",
+          "plan": "Business Rewards time-of-use - 8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-actewagl-business-rewards-tou-with-cl-8-off-supply-usage",
+          "plan": "Business Rewards TOU with CL - 8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-actewagl-business-rewards-with-cl-1-2-8-off-supply-usage",
+          "plan": "Business Rewards with CL 1&2 - 8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-actewagl-business-rewards-with-cl-1-8-off-supply-usage",
+          "plan": "Business Rewards with CL 1 - 8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-actewagl-business-rewards-with-cl-2-8-off-supply-usage",
+          "plan": "Business Rewards with CL 2 - 8% off supply & usage",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-actewagl-business-saver",
           "plan": "Business Saver",
           "verified": false
@@ -14505,6 +14585,26 @@
         {
           "id": "au-nsw-endeavour-actewagl-business-seasonal-time-of-use-plan-controlled-load-2",
           "plan": "Business seasonal time-of-use plan + controlled load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-actewagl-business-seasonal-tou-8-off-supply-usage",
+          "plan": "Business seasonal TOU - 8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-actewagl-business-seasonal-tou-cl-1-2-8-off-supply-usage",
+          "plan": "Business seasonal TOU + CL 1&2 - 8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-actewagl-business-seasonal-tou-cl-1-8-off-supply-usage",
+          "plan": "Business seasonal TOU + CL 1 - 8% off supply & usage",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-actewagl-business-seasonal-tou-cl-2-8-off-supply-usage",
+          "plan": "Business seasonal TOU + CL 2 - 8% off supply & usage",
           "verified": false
         },
         {
@@ -15580,6 +15680,11 @@
         {
           "id": "au-qld-energex-covau-freedom-residential-single-demand-cl1",
           "plan": "Freedom Residential Single + Demand & CL1",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-covau-freedom-residential-single-demand-cl1-cl2",
+          "plan": "Freedom Residential Single Demand + CL1 CL2",
           "verified": false
         },
         {
@@ -18521,13 +18626,18 @@
           "verified": false
         },
         {
+          "id": "au-sa-sa-power-networks-covau-freedom-business-sbtou",
+          "plan": "Freedom Business SBTOU",
+          "verified": false
+        },
+        {
           "id": "au-sa-sa-power-networks-covau-freedom-business-single",
           "plan": "Freedom Business Single",
           "verified": false
         },
         {
           "id": "au-sa-sa-power-networks-covau-freedom-business-single-cl",
-          "plan": "Freedom Business Single  + CL",
+          "plan": "Freedom Business Single + CL",
           "verified": false
         },
         {
@@ -30029,6 +30139,16 @@
         {
           "id": "au-vic-jemena-origin-energy-origin-business-basic-july-26-2-period-tou-with-dedicated-circuit",
           "plan": "Origin Business Basic - July'26 (2 Period TOU with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-basic-july-26-business-transitional-demand",
+          "plan": "Origin Business Basic - July'26 (Business Transitional Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-basic-july-26-business-transitional-demand-with-controlled-load",
+          "plan": "Origin Business Basic - July'26 (Business Transitional Demand with Controlled Load)",
           "verified": false
         },
         {

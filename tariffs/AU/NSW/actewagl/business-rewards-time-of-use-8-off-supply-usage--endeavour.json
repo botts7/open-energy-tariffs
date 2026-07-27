@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "id": "au-nsw-endeavour-actewagl-business-rewards-time-of-use-8-off-supply-usage",
+    "schemaVersion": "1",
+    "country": "AU",
+    "region": "NSW",
+    "distributor": "Endeavour",
+    "provider": "ActewAGL",
+    "plan": "Business Rewards time-of-use - 8% off supply & usage",
+    "currency": "AUD",
+    "unit": "kWh",
+    "timezone": "Australia/Sydney",
+    "source": "cdr",
+    "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
+    "license": "other",
+    "updated": "2026-07-27",
+    "verified": false,
+    "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
+    "coverage": {
+      "postcodes": [
+        "2113",
+        "2120",
+        "2214",
+        "2323",
+        "2535",
+        "2538",
+        "2539",
+        "2540",
+        "2541"
+      ]
+    },
+    "sourceId": "ACT846413MBE4@EME",
+    "sourceUpdated": "2026-07-22T00:42:28.235Z"
+  },
+  "tariff": {
+    "kind": "tou",
+    "import": {
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.313816,
+          "role": "peak"
+        },
+        {
+          "id": "off-peak",
+          "name": "Off-peak",
+          "rate": 0.313816,
+          "role": "offpeak"
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.313816,
+          "role": "shoulder"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "weekday",
+          "from": "13:00",
+          "to": "20:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "22:00",
+          "to": "07:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekend",
+          "from": "07:00",
+          "to": "22:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "07:00",
+          "to": "13:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "22:00",
+          "band": "shoulder"
+        }
+      ]
+    },
+    "supply": {
+      "daily": 2.219432
+    },
+    "export": {
+      "flatRate": 0.025
+    }
+  }
+}
