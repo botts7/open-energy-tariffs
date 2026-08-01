@@ -41007,6 +41007,18 @@
           "verified": false
         }
       ],
+      "N1 A/S - 016": [
+        {
+          "id": "dk-n1-a-s-016-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        },
+        {
+          "id": "dk-n1-a-s-016-nettarif-c-time-hourly-meter",
+          "plan": "Nettarif C time (hourly meter)",
+          "verified": false
+        }
+      ],
       "N1 A/S - 131": [
         {
           "id": "dk-n1-a-s-131-nettarif-c-hourly-meter",
