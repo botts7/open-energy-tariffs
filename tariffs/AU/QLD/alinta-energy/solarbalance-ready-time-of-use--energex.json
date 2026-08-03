@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-08-03",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -221,38 +221,44 @@
         "4581"
       ]
     },
-    "sourceId": "ALI1114246MRE1@EME",
-    "sourceUpdated": "2026-07-01T14:05:34.020Z"
+    "sourceId": "ALI1151050MRE1@EME",
+    "sourceUpdated": "2026-08-03T14:05:24.101Z"
   },
   "tariff": {
     "kind": "tou",
     "import": {
       "bands": [
         {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.4214,
-          "role": "peak"
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.2231,
+          "role": "shoulder"
         },
         {
           "id": "off-peak",
-          "name": "Off-peak",
+          "name": "Off-Peak",
           "rate": 0.0616,
           "role": "offpeak"
         },
         {
-          "id": "shoulder-consumption",
-          "name": "Shoulder consumption",
-          "rate": 0.2231,
-          "role": "shoulder"
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.4214,
+          "role": "peak"
         }
       ],
       "schedule": [
         {
           "days": "all",
-          "from": "16:00",
-          "to": "21:00",
-          "band": "peak"
+          "from": "00:00",
+          "to": "11:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "shoulder"
         },
         {
           "days": "all",
@@ -262,15 +268,9 @@
         },
         {
           "days": "all",
-          "from": "00:00",
-          "to": "11:00",
-          "band": "shoulder-consumption"
-        },
-        {
-          "days": "all",
-          "from": "21:00",
-          "to": "24:00",
-          "band": "shoulder-consumption"
+          "from": "16:00",
+          "to": "21:00",
+          "band": "peak"
         }
       ]
     },

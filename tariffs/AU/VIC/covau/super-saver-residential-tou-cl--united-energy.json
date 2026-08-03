@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-08-03",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -119,8 +119,8 @@
         "3977"
       ]
     },
-    "sourceId": "COV728945MR@VEC",
-    "sourceUpdated": "2026-03-18T01:23:44Z"
+    "sourceId": "COV774852MR@VEC",
+    "sourceUpdated": "2026-07-29T04:38:06Z"
   },
   "tariff": {
     "kind": "tou",
@@ -129,27 +129,33 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.4814,
+          "rate": 0.3256,
           "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off Peak",
-          "rate": 0.3613,
+          "rate": 0.1909,
+          "role": "offpeak"
+        },
+        {
+          "id": "solar-soak",
+          "name": "Solar Soak",
+          "rate": 0.1909,
           "role": "offpeak"
         }
       ],
       "schedule": [
         {
           "days": "all",
-          "from": "15:00",
+          "from": "16:00",
           "to": "21:00",
           "band": "peak"
         },
         {
           "days": "all",
           "from": "00:00",
-          "to": "15:00",
+          "to": "11:00",
           "band": "off-peak"
         },
         {
@@ -157,20 +163,26 @@
           "from": "21:00",
           "to": "24:00",
           "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "16:00",
+          "band": "solar-soak"
         }
       ]
     },
     "supply": {
-      "daily": 0.7966
+      "daily": 0.9746
     },
     "export": {
-      "flatRate": 0.049
+      "flatRate": 0.01
     },
     "controlledLoad": [
       {
         "id": "controlled-load",
         "name": "Controlled Load",
-        "rate": 0.3062
+        "rate": 0.18
       }
     ]
   }

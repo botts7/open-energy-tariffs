@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-08-03",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -175,8 +175,8 @@
         "2850"
       ]
     },
-    "sourceId": "MOM1123760SRE1@EME",
-    "sourceUpdated": "2026-06-30T14:07:45.196Z"
+    "sourceId": "MOM1123760SRE2@EME",
+    "sourceUpdated": "2026-07-31T14:05:24.124Z"
   },
   "tariff": {
     "kind": "tou",
@@ -189,10 +189,10 @@
           "role": "peak"
         },
         {
-          "id": "off-peak",
-          "name": "Off-Peak",
+          "id": "shoulder-2",
+          "name": "Shoulder 2",
           "rate": 0.12897,
-          "role": "offpeak"
+          "role": "shoulder"
         },
         {
           "id": "shoulder",
@@ -201,8 +201,8 @@
           "role": "shoulder"
         },
         {
-          "id": "free-usage",
-          "name": "Free Usage",
+          "id": "off-peak",
+          "name": "Off Peak",
           "rate": 1e-8,
           "role": "offpeak"
         }
@@ -218,7 +218,7 @@
           "days": "all",
           "from": "10:00",
           "to": "11:00",
-          "band": "off-peak"
+          "band": "shoulder-2"
         },
         {
           "days": "weekday",
@@ -254,7 +254,7 @@
           "days": "all",
           "from": "11:00",
           "to": "14:00",
-          "band": "free-usage"
+          "band": "off-peak"
         }
       ]
     },

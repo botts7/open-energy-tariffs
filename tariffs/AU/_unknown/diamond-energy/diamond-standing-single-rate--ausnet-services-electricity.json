@@ -12,7 +12,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-08-03",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -281,16 +281,16 @@
         "3996"
       ]
     },
-    "sourceId": "DIA676641SR@VEC",
-    "sourceUpdated": "2025-07-01T01:18:08Z"
+    "sourceId": "DIA780091SS@VEC",
+    "sourceUpdated": "2026-08-03T00:16:03Z"
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.31609091
+      "flatRate": 0.31118182
     },
     "supply": {
-      "daily": 1.286
+      "daily": 1.17627273
     }
   }
 }
