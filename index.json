@@ -723,6 +723,11 @@
           "verified": false
         },
         {
+          "id": "au-act-evoenergy-energyaustralia-business-balance-plan-12-peak-with-cl-1-2",
+          "plan": "Business Balance Plan 12 - Peak with CL 1 & 2",
+          "verified": false
+        },
+        {
           "id": "au-act-evoenergy-energyaustralia-business-balance-plan-12-peak-with-controlled-load-1",
           "plan": "Business Balance Plan 12 - Peak with Controlled Load 1",
           "verified": false
@@ -760,6 +765,11 @@
         {
           "id": "au-act-evoenergy-energyaustralia-business-rate-fix-peak-only",
           "plan": "Business Rate Fix - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-energyaustralia-business-rate-fix-peak-with-cl-1-2",
+          "plan": "Business Rate Fix  - Peak with CL 1 & 2",
           "verified": false
         },
         {
@@ -830,6 +840,11 @@
         {
           "id": "au-act-evoenergy-energyaustralia-standing-offer-business-peak-only",
           "plan": "Standing Offer Business - Peak Only",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-energyaustralia-standing-offer-business-peak-with-cl-1-2",
+          "plan": "Standing Offer Business - Peak with CL 1 & 2",
           "verified": false
         },
         {
@@ -2812,7 +2827,7 @@
         },
         {
           "id": "au-ausnet-services-electricity-covau-super-saver-residential-tou",
-          "plan": "Super Saver Residential ToU",
+          "plan": "Super Saver Residential TOU",
           "verified": false
         },
         {
@@ -3023,6 +3038,11 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-diamond-energy-diamond-everyday-single-rate",
+          "plan": "Diamond Everyday - Single Rate",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-diamond-energy-diamond-everyday-t52",
           "plan": "Diamond Everyday - T52",
           "verified": false
@@ -3035,6 +3055,11 @@
         {
           "id": "au-ausnet-services-electricity-diamond-energy-diamond-everyday-t72-cl",
           "plan": "Diamond Everyday - T72 CL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-diamond-energy-diamond-everyday-time-of-use",
+          "plan": "Diamond Everyday - Time of Use",
           "verified": false
         },
         {
@@ -3060,6 +3085,11 @@
         {
           "id": "au-ausnet-services-electricity-diamond-energy-diamond-standing-t72-cl",
           "plan": "Diamond Standing - T72 CL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-diamond-energy-diamond-standing-time-of-use",
+          "plan": "Diamond Standing - Time of Use",
           "verified": false
         },
         {
@@ -3770,6 +3800,11 @@
           "id": "au-essential-energy-standard-energyaustralia-standing-offer-home-7-day-tou-interval",
           "plan": "Standing Offer (Home) (7 day TOU Interval)",
           "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-energyaustralia-standing-offer-solar-sharer",
+          "plan": "Standing Offer Solar Sharer",
+          "verified": false
         }
       ],
       "ENGIE": [
@@ -3885,7 +3920,7 @@
         },
         {
           "id": "au-ausnet-services-electricity-engie-vic-engie-perks-elec",
-          "plan": "VIC_ ENGIE Perks Elec",
+          "plan": "VIC ENGIE _Perks Elec",
           "verified": false
         },
         {
@@ -4788,6 +4823,26 @@
         {
           "id": "au-ausnet-services-electricity-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-2-period-tou-with-dedicated-circuit",
           "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only (2 Period TOU with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-single-rate",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Single Rate)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-single-rate-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Single Rate with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-time-of-use",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Time of Use with Dedicated Circuit)",
           "verified": false
         },
         {
@@ -6446,6 +6501,36 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-single-rate",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Single Rate)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-single-rate-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Single Rate with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-time-of-use",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Time of Use with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-tou-5-day",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (TOU 5 Day)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-tou-5-day-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (TOU 5 Day with Dedicated Circuit)",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-origin-energy-origin-go-variable-new-and-moving-customers-only-single-rate",
           "plan": "Origin Go Variable - New and Moving Customers Only (Single Rate)",
           "verified": false
@@ -6796,6 +6881,11 @@
           "verified": false
         },
         {
+          "id": "au-essential-energy-far-west-origin-energy-origin-go-variable-ongoing-new-move-customers-only",
+          "plan": "Origin Go Variable Ongoing  - New & Move Customers only",
+          "verified": false
+        },
+        {
           "id": "au-essential-energy-far-west-origin-energy-origin-home-support",
           "plan": "Origin Home Support",
           "verified": false
@@ -6978,6 +7068,11 @@
         {
           "id": "au-essential-energy-standard-origin-energy-origin-go-variable-ongoing",
           "plan": "Origin Go Variable Ongoing",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-origin-energy-origin-go-variable-ongoing-new-move-customers-only",
+          "plan": "Origin Go Variable Ongoing  - New & Move Customers only",
           "verified": false
         },
         {
@@ -10646,6 +10741,11 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-energyaustralia-standing-offer-solar-sharer",
+          "plan": "Standing Offer Solar Sharer",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-energyaustralia-balance-plan-connect-now",
           "plan": "Balance Plan - Connect Now",
           "verified": false
@@ -10853,6 +10953,11 @@
         {
           "id": "au-nsw-endeavour-energyaustralia-standing-offer-home",
           "plan": "Standing Offer (Home)",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-energyaustralia-standing-offer-solar-sharer",
+          "plan": "Standing Offer Solar Sharer",
           "verified": false
         }
       ],
@@ -12848,6 +12953,11 @@
       ],
       "Origin Energy": [
         {
+          "id": "au-nsw-ausgrid-origin-energy-origin-aff-var-eplus-ongoing-obs-new-move-cust-only",
+          "plan": "Origin Aff Var ePlus Ongoing -OBS- New & Move Cust Only",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-origin-energy-origin-affinity-variable-comparable",
           "plan": "Origin Affinity Variable - Comparable",
           "verified": false
@@ -13143,6 +13253,11 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-origin-energy-origin-go-variable-ongoing-new-move-customers-only",
+          "plan": "Origin Go Variable Ongoing  - New & Move Customers only",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-origin-energy-origin-home-support",
           "plan": "Origin Home Support",
           "verified": false
@@ -13170,6 +13285,11 @@
         {
           "id": "au-nsw-ausgrid-origin-energy-origin-standing",
           "plan": "Origin Standing",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-origin-energy-origin-aff-var-eplus-ongoing-obs-new-move-cust-only",
+          "plan": "Origin Aff Var ePlus Ongoing -OBS- New & Move Cust Only",
           "verified": false
         },
         {
@@ -13463,6 +13583,11 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-origin-energy-origin-go-variable-ongoing-new-move-customers-only",
+          "plan": "Origin Go Variable Ongoing  - New & Move Customers only",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-origin-energy-origin-home-support",
           "plan": "Origin Home Support",
           "verified": false
@@ -13490,6 +13615,11 @@
         {
           "id": "au-nsw-endeavour-origin-energy-origin-standing",
           "plan": "Origin Standing",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-origin-energy-origin-aff-var-eplus-ongoing-obs-new-move-cust-only",
+          "plan": "Origin Aff Var ePlus Ongoing -OBS- New & Move Cust Only",
           "verified": false
         },
         {
@@ -13770,6 +13900,11 @@
         {
           "id": "au-nsw-essential-energy-origin-energy-origin-go-variable-ongoing",
           "plan": "Origin Go Variable Ongoing",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-origin-energy-origin-go-variable-ongoing-new-move-customers-only",
+          "plan": "Origin Go Variable Ongoing  - New & Move Customers only",
           "verified": false
         },
         {
@@ -16112,6 +16247,11 @@
           "id": "au-qld-energex-energyaustralia-standing-offer-home-7-day-tou-cl-2",
           "plan": "Standing Offer (Home) - 7 Day TOU + CL 2",
           "verified": false
+        },
+        {
+          "id": "au-qld-energex-energyaustralia-standing-offer-solar-sharer",
+          "plan": "Standing Offer Solar Sharer",
+          "verified": false
         }
       ],
       "ENGIE": [
@@ -16891,6 +17031,11 @@
       ],
       "Origin Energy": [
         {
+          "id": "au-qld-energex-origin-energy-origin-aff-var-eplus-ongoing-obs-new-move-cust-only",
+          "plan": "Origin Aff Var ePlus Ongoing -OBS- New & Move Cust Only",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-origin-energy-origin-affinity-variable-comparable",
           "plan": "Origin Affinity Variable - Comparable",
           "verified": false
@@ -17171,6 +17316,11 @@
           "verified": false
         },
         {
+          "id": "au-qld-energex-origin-energy-origin-go-variable-ongoing-new-move-customers-only",
+          "plan": "Origin Go Variable Ongoing  - New & Move Customers only",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-origin-energy-origin-home-support",
           "plan": "Origin Home Support",
           "verified": false
@@ -17248,6 +17398,11 @@
         {
           "id": "au-qld-ergon-origin-energy-origin-go-variable-ongoing",
           "plan": "Origin Go Variable Ongoing",
+          "verified": false
+        },
+        {
+          "id": "au-qld-ergon-origin-energy-origin-go-variable-ongoing-new-move-customers-only",
+          "plan": "Origin Go Variable Ongoing  - New & Move Customers only",
           "verified": false
         },
         {
@@ -18880,6 +19035,11 @@
           "id": "au-sa-sa-power-networks-energyaustralia-standing-offer-home",
           "plan": "Standing Offer (Home)",
           "verified": false
+        },
+        {
+          "id": "au-sa-sa-power-networks-energyaustralia-standing-offer-solar-sharer",
+          "plan": "Standing Offer Solar Sharer",
+          "verified": false
         }
       ],
       "ENGIE": [
@@ -18975,7 +19135,7 @@
         },
         {
           "id": "au-sa-sa-power-networks-engie-sa-engie-perks-elec",
-          "plan": "SA_ ENGIE Perks Elec",
+          "plan": "SA ENGIE _Perks Elec",
           "verified": false
         },
         {
@@ -19508,6 +19668,11 @@
       ],
       "Origin Energy": [
         {
+          "id": "au-sa-sa-power-networks-origin-energy-origin-aff-var-eplus-ongoing-obs-new-move-cust-only",
+          "plan": "Origin Aff Var ePlus Ongoing -OBS- New & Move Cust Only",
+          "verified": false
+        },
+        {
           "id": "au-sa-sa-power-networks-origin-energy-origin-affinity-variable-comparable",
           "plan": "Origin Affinity Variable - Comparable",
           "verified": false
@@ -19810,6 +19975,11 @@
         {
           "id": "au-sa-sa-power-networks-origin-energy-origin-go-variable-ongoing",
           "plan": "Origin Go Variable Ongoing",
+          "verified": false
+        },
+        {
+          "id": "au-sa-sa-power-networks-origin-energy-origin-go-variable-ongoing-new-move-customers-only",
+          "plan": "Origin Go Variable Ongoing  - New & Move Customers only",
           "verified": false
         },
         {
@@ -22843,7 +23013,7 @@
         },
         {
           "id": "au-vic-jemena-covau-super-saver-residential-tou",
-          "plan": "Super Saver Residential ToU",
+          "plan": "Super Saver Residential TOU",
           "verified": false
         },
         {
@@ -22913,7 +23083,7 @@
         },
         {
           "id": "au-vic-powercor-covau-super-saver-residential-tou",
-          "plan": "Super Saver Residential ToU",
+          "plan": "Super Saver Residential TOU",
           "verified": false
         },
         {
@@ -22972,6 +23142,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-covau-super-saver-business-single-demand",
+          "plan": "Super Saver Business Single Demand",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-covau-super-saver-business-tou",
           "plan": "Super Saver Business TOU",
           "verified": false
@@ -22993,7 +23168,7 @@
         },
         {
           "id": "au-vic-united-energy-covau-super-saver-residential-tou",
-          "plan": "Super Saver Residential ToU",
+          "plan": "Super Saver Residential TOU",
           "verified": false
         },
         {
@@ -23009,6 +23184,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-diamond-energy-diamond-everyday-single-rate",
+          "plan": "Diamond Everyday - Single Rate",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-diamond-energy-diamond-everyday-t52",
           "plan": "Diamond Everyday - T52",
           "verified": false
@@ -23021,6 +23201,11 @@
         {
           "id": "au-vic-citipower-diamond-energy-diamond-everyday-t72-cl",
           "plan": "Diamond Everyday - T72 CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-diamond-energy-diamond-everyday-time-of-use",
+          "plan": "Diamond Everyday - Time of Use",
           "verified": false
         },
         {
@@ -23049,6 +23234,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-diamond-energy-diamond-standing-time-of-use",
+          "plan": "Diamond Standing - Time of Use",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-diamond-energy-diamond-standing-two-rate",
           "plan": "Diamond Standing - Two Rate",
           "verified": false
@@ -23056,6 +23246,11 @@
         {
           "id": "au-vic-jemena-diamond-energy-diamond-everyday",
           "plan": "Diamond Everyday",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-diamond-energy-diamond-everyday-single-rate",
+          "plan": "Diamond Everyday - Single Rate",
           "verified": false
         },
         {
@@ -23071,6 +23266,11 @@
         {
           "id": "au-vic-jemena-diamond-energy-diamond-everyday-t72-cl",
           "plan": "Diamond Everyday - T72 CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-diamond-energy-diamond-everyday-time-of-use",
+          "plan": "Diamond Everyday - Time of Use",
           "verified": false
         },
         {
@@ -23099,6 +23299,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-diamond-energy-diamond-standing-time-of-use",
+          "plan": "Diamond Standing - Time of Use",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-diamond-energy-diamond-standing-two-rate",
           "plan": "Diamond Standing - Two Rate",
           "verified": false
@@ -23106,6 +23311,11 @@
         {
           "id": "au-vic-powercor-diamond-energy-diamond-everyday",
           "plan": "Diamond Everyday",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-diamond-energy-diamond-everyday-single-rate",
+          "plan": "Diamond Everyday - Single Rate",
           "verified": false
         },
         {
@@ -23121,6 +23331,11 @@
         {
           "id": "au-vic-powercor-diamond-energy-diamond-everyday-t72-cl",
           "plan": "Diamond Everyday - T72 CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-diamond-energy-diamond-everyday-time-of-use",
+          "plan": "Diamond Everyday - Time of Use",
           "verified": false
         },
         {
@@ -23149,6 +23364,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-diamond-energy-diamond-standing-time-of-use",
+          "plan": "Diamond Standing - Time of Use",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-diamond-energy-diamond-standing-two-rate",
           "plan": "Diamond Standing - Two Rate",
           "verified": false
@@ -23156,6 +23376,11 @@
         {
           "id": "au-vic-united-energy-diamond-energy-diamond-everyday",
           "plan": "Diamond Everyday",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-diamond-energy-diamond-everyday-single-rate",
+          "plan": "Diamond Everyday - Single Rate",
           "verified": false
         },
         {
@@ -23171,6 +23396,11 @@
         {
           "id": "au-vic-united-energy-diamond-energy-diamond-everyday-t72-cl",
           "plan": "Diamond Everyday - T72 CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-diamond-energy-diamond-everyday-time-of-use",
+          "plan": "Diamond Everyday - Time of Use",
           "verified": false
         },
         {
@@ -23196,6 +23426,11 @@
         {
           "id": "au-vic-united-energy-diamond-energy-diamond-standing-t72-cl",
           "plan": "Diamond Standing - T72 CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-diamond-energy-diamond-standing-time-of-use",
+          "plan": "Diamond Standing - Time of Use",
           "verified": false
         },
         {
@@ -24516,7 +24751,7 @@
         },
         {
           "id": "au-vic-citipower-engie-vic-engie-perks-elec",
-          "plan": "VIC_ ENGIE Perks Elec",
+          "plan": "VIC ENGIE _Perks Elec",
           "verified": false
         },
         {
@@ -24666,7 +24901,7 @@
         },
         {
           "id": "au-vic-jemena-engie-vic-engie-perks-elec",
-          "plan": "VIC_ ENGIE Perks Elec",
+          "plan": "VIC ENGIE _Perks Elec",
           "verified": false
         },
         {
@@ -24816,7 +25051,7 @@
         },
         {
           "id": "au-vic-powercor-engie-vic-engie-perks-elec",
-          "plan": "VIC_ ENGIE Perks Elec",
+          "plan": "VIC ENGIE _Perks Elec",
           "verified": false
         },
         {
@@ -24966,7 +25201,7 @@
         },
         {
           "id": "au-vic-united-energy-engie-vic-engie-perks-elec",
-          "plan": "VIC_ ENGIE Perks Elec",
+          "plan": "VIC ENGIE _Perks Elec",
           "verified": false
         },
         {
@@ -26947,6 +27182,26 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-single-rate",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Single Rate)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-single-rate-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Single Rate with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-time-of-use",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Time of Use with Dedicated Circuit)",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-single-rate",
           "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only  (Single Rate)",
           "verified": false
@@ -28922,6 +29177,41 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-residential-demand",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Residential Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-single-rate",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Single Rate)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-single-rate-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Single Rate with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-time-of-use",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Time of Use with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-tou-5-day",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (TOU 5 Day)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-tou-5-day-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (TOU 5 Day with Dedicated Circuit)",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-origin-energy-origin-go-variable-new-and-moving-customers-only-residential-demand",
           "plan": "Origin Go Variable - New and Moving Customers Only (Residential Demand)",
           "verified": false
@@ -29514,6 +29804,26 @@
         {
           "id": "au-vic-jemena-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-2-period-tou-with-dedicated-circuit",
           "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only (2 Period TOU with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-single-rate",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Single Rate)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-single-rate-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Single Rate with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-time-of-use",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Time of Use with Dedicated Circuit)",
           "verified": false
         },
         {
@@ -30962,6 +31272,41 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-residential-demand",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Residential Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-single-rate",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Single Rate)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-single-rate-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Single Rate with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-time-of-use",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Time of Use with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-tou-5-day",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (TOU 5 Day)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-tou-5-day-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (TOU 5 Day with Dedicated Circuit)",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-origin-energy-origin-go-variable-new-and-moving-customers-only-residential-demand",
           "plan": "Origin Go Variable - New and Moving Customers Only (Residential Demand)",
           "verified": false
@@ -31534,6 +31879,26 @@
         {
           "id": "au-vic-powercor-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-2-period-tou-with-dedicated-circuit",
           "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only (2 Period TOU with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-single-rate",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Single Rate)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-single-rate-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Single Rate with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-time-of-use",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Time of Use with Dedicated Circuit)",
           "verified": false
         },
         {
@@ -33532,6 +33897,41 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-residential-demand",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Residential Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-single-rate",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Single Rate)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-single-rate-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Single Rate with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-time-of-use",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Time of Use with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-tou-5-day",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (TOU 5 Day)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-tou-5-day-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (TOU 5 Day with Dedicated Circuit)",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-origin-energy-origin-go-variable-new-and-moving-customers-only-residential-demand",
           "plan": "Origin Go Variable - New and Moving Customers Only (Residential Demand)",
           "verified": false
@@ -34134,6 +34534,26 @@
         {
           "id": "au-vic-united-energy-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-2-period-tou-with-dedicated-circuit",
           "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only (2 Period TOU with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-single-rate",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Single Rate)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-single-rate-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Single Rate with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-time-of-use",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-origin-energy-origin-affinity-variable-eplus-one-big-switch-new-and-moving-customers-only-july-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable ePlus - One Big Switch - New and Moving Customers Only - July'26 (Time of Use with Dedicated Circuit)",
           "verified": false
         },
         {
@@ -35759,6 +36179,41 @@
         {
           "id": "au-vic-united-energy-origin-energy-origin-go-variable-new-and-moving-customers-only-2-period-tou-with-dedicated-circuit",
           "plan": "Origin Go Variable - New and Moving Customers Only (2 Period TOU with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-residential-demand",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Residential Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-single-rate",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Single Rate)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-single-rate-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Single Rate with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-time-of-use",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (Time of Use with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-tou-5-day",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (TOU 5 Day)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-origin-energy-origin-go-variable-new-and-moving-customers-only-july-26-tou-5-day-with-dedicated-circuit",
+          "plan": "Origin Go Variable - New and Moving Customers Only July'26 (TOU 5 Day with Dedicated Circuit)",
           "verified": false
         },
         {

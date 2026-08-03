@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-08-03",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -320,8 +320,8 @@
         "4498"
       ]
     },
-    "sourceId": "MOM919745MRE3@EME",
-    "sourceUpdated": "2025-10-28T14:07:51.744Z"
+    "sourceId": "MOM1151292MRE1@EME",
+    "sourceUpdated": "2026-07-31T14:06:05.408Z"
   },
   "tariff": {
     "kind": "tou",
@@ -330,29 +330,23 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.306,
+          "rate": 0.377,
           "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.244,
+          "rate": 0.242,
           "role": "offpeak"
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.273,
+          "rate": 0.324,
           "role": "shoulder"
         }
       ],
       "schedule": [
-        {
-          "days": "weekday",
-          "from": "07:00",
-          "to": "09:00",
-          "band": "peak"
-        },
         {
           "days": "weekday",
           "from": "17:00",
@@ -373,7 +367,7 @@
         },
         {
           "days": "weekday",
-          "from": "09:00",
+          "from": "07:00",
           "to": "17:00",
           "band": "shoulder"
         },
@@ -386,16 +380,16 @@
       ]
     },
     "supply": {
-      "daily": 2.681
+      "daily": 2.564
     },
     "export": {
-      "flatRate": 0.05
+      "flatRate": 0.03
     },
     "controlledLoad": [
       {
-        "id": "controlled-load-1",
-        "name": "Controlled Load 1",
-        "rate": 0.181
+        "id": "controlled-load-2",
+        "name": "Controlled Load 2",
+        "rate": 0.209
       }
     ]
   }

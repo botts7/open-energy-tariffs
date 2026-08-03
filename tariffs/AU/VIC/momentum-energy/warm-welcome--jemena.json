@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-08-03",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -82,25 +82,70 @@
         "3753"
       ]
     },
-    "sourceId": "MOM713881MR@VEC",
-    "sourceUpdated": "2025-10-23T21:27:47Z"
+    "sourceId": "MOM775836MR@VEC",
+    "sourceUpdated": "2026-07-29T21:36:20Z"
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.229
+      "bands": [
+        {
+          "id": "tariff-1",
+          "name": "Tariff 1",
+          "rate": 0.32,
+          "role": "peak"
+        },
+        {
+          "id": "tariff-2",
+          "name": "Tariff 2",
+          "rate": 0.15,
+          "role": "offpeak"
+        },
+        {
+          "id": "tariff-3",
+          "name": "Tariff 3",
+          "rate": 0.185,
+          "role": "shoulder"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "16:00",
+          "to": "21:00",
+          "band": "tariff-1"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "16:00",
+          "band": "tariff-2"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "tariff-3"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "11:00",
+          "band": "tariff-3"
+        }
+      ]
     },
     "supply": {
-      "daily": 1.051
+      "daily": 1.132
     },
     "export": {
-      "flatRate": 0.011
+      "flatRate": 0.009
     },
     "controlledLoad": [
       {
         "id": "controlled-load",
         "name": "Controlled Load",
-        "rate": 0.178
+        "rate": 0.182
       }
     ]
   }
