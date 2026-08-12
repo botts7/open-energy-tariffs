@@ -469,6 +469,11 @@
           "verified": false
         },
         {
+          "id": "au-act-evoenergy-amber-electric-amber-plan-demand",
+          "plan": "Amber Plan: Demand",
+          "verified": false
+        },
+        {
           "id": "au-act-evoenergy-amber-electric-amber-small-business-plan-extra-large-usage",
           "plan": "Amber Small Business Plan (Extra Large Usage)",
           "verified": false
@@ -890,8 +895,68 @@
           "verified": false
         },
         {
+          "id": "au-act-evoenergy-nectr-nectr-business-spark-august-2026",
+          "plan": "Nectr Business Spark - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-business-spark-cl-1-august-2026",
+          "plan": "Nectr Business Spark + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-business-spark-cl-2-august-2026",
+          "plan": "Nectr Business Spark + CL 2 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-business-spark-demand-august-2026",
+          "plan": "Nectr Business Spark Demand - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-business-spark-demand-cl-1-august-2026",
+          "plan": "Nectr Business Spark Demand + CL 1- August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-business-spark-demand-cl-2-august-2026",
+          "plan": "Nectr Business Spark Demand + CL 2- August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-business-spark-tou-august-2026",
+          "plan": "Nectr Business Spark TOU - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-business-spark-tou-cl-1-august-2026",
+          "plan": "Nectr Business Spark TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-business-spark-tou-cl-2-august-2026",
+          "plan": "Nectr Business Spark TOU + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-act-evoenergy-nectr-nectr-greenpower",
           "plan": "Nectr GreenPower",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-greenpower-august-2026",
+          "plan": "Nectr GreenPower - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-greenpower-cl-1-august-2026",
+          "plan": "Nectr GreenPower + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-greenpower-cl-2-august-2026",
+          "plan": "Nectr GreenPower + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -917,6 +982,21 @@
         {
           "id": "au-act-evoenergy-nectr-nectr-greenpower-time-of-use-controlled-load-2",
           "plan": "Nectr GreenPower Time of Use + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-greenpower-tou-august-2026",
+          "plan": "Nectr GreenPower TOU - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-greenpower-tou-cl-1-august-2026",
+          "plan": "Nectr GreenPower TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-act-evoenergy-nectr-nectr-greenpower-tou-cl-2-august-2026",
+          "plan": "Nectr GreenPower TOU + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -1910,6 +1990,36 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-alinta-energy-homedeal-flex-single-rate",
+          "plan": "HomeDeal Flex - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-homedeal-flex-single-rate-cl",
+          "plan": "HomeDeal Flex - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-homedeal-flex-time-of-use",
+          "plan": "HomeDeal Flex - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-homedeal-flex-time-of-use-cl",
+          "plan": "HomeDeal Flex - Time of Use + CL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-homedeal-flex-time-of-use-interval",
+          "plan": "HomeDeal Flex - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-homedeal-flex-time-of-use-interval-cl",
+          "plan": "HomeDeal Flex - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-alinta-energy-homedeal-now-demand-single-rate",
           "plan": "HomeDeal Now - Demand Single Rate",
           "verified": false
@@ -2127,6 +2237,36 @@
         {
           "id": "au-essential-energy-standard-alinta-energy-businessdeal-choice-time-of-use-interval-cl",
           "plan": "BusinessDeal Choice - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-alinta-energy-businessdeal-core-single-rate",
+          "plan": "BusinessDeal Core - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-alinta-energy-businessdeal-core-single-rate-cl",
+          "plan": "BusinessDeal Core - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-alinta-energy-businessdeal-core-time-of-use",
+          "plan": "BusinessDeal Core - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-alinta-energy-businessdeal-core-time-of-use-cl",
+          "plan": "BusinessDeal Core - Time of Use + CL",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-alinta-energy-businessdeal-core-time-of-use-interval",
+          "plan": "BusinessDeal Core - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-alinta-energy-businessdeal-core-time-of-use-interval-cl",
+          "plan": "BusinessDeal Core - Time of Use (Interval) + CL",
           "verified": false
         },
         {
@@ -4539,6 +4679,16 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-nectr-nectr-business-greenpower-ausnet-august-2026",
+          "plan": "Nectr Business GreenPower - AusNet - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-nectr-nectr-business-greenpower-cl-ausnet-august-2026",
+          "plan": "Nectr Business GreenPower + CL - AusNet - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-nectr-nectr-business-greenpower-controlled-load-ausnet",
           "plan": "Nectr Business GreenPower  + Controlled Load - AusNet",
           "verified": false
@@ -4554,8 +4704,28 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-nectr-nectr-business-greenpower-tou-ausnet-august-2026",
+          "plan": "Nectr Business GreenPower TOU - AusNet - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-nectr-nectr-business-greenpower-tou-cl-ausnet-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL - AusNet - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-nectr-nectr-business-spark-ausnet",
           "plan": "Nectr Business Spark  - AusNet",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-nectr-nectr-business-spark-ausnet-august-2026",
+          "plan": "Nectr Business Spark - AusNet - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-nectr-nectr-business-spark-cl-ausnet-august-2026",
+          "plan": "Nectr Business Spark + CL - AusNet - August 2026",
           "verified": false
         },
         {
@@ -4574,6 +4744,16 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-nectr-nectr-business-spark-tou-ausnet-august-2026",
+          "plan": "Nectr Business Spark TOU - AusNet - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-nectr-nectr-business-spark-tou-cl-ausnet-august-2026",
+          "plan": "Nectr Business Spark TOU + CL - AusNet - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-nectr-nectr-green-business-buzz-ausnet",
           "plan": "Nectr Green Business Buzz - AusNet",
           "verified": false
@@ -4589,6 +4769,16 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-nectr-nectr-greenpower-ausnet-august-2026",
+          "plan": "Nectr GreenPower - AusNet - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-nectr-nectr-greenpower-cl-ausnet-august-2026",
+          "plan": "Nectr GreenPower + CL - AusNet - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-nectr-nectr-greenpower-controlled-load-ausnet",
           "plan": "Nectr GreenPower + Controlled Load - AusNet",
           "verified": false
@@ -4601,6 +4791,16 @@
         {
           "id": "au-ausnet-services-electricity-nectr-nectr-greenpower-time-of-use-controlled-load-ausnet",
           "plan": "Nectr GreenPower Time of Use + Controlled Load - AusNet",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-nectr-nectr-greenpower-tou-ausnet-august-2026",
+          "plan": "Nectr GreenPower TOU - AusNet - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-nectr-nectr-greenpower-tou-cl-ausnet-august-2026",
+          "plan": "Nectr GreenPower TOU + CL - AusNet - August 2026",
           "verified": false
         },
         {
@@ -7629,6 +7829,11 @@
           "verified": false
         },
         {
+          "id": "au-essential-energy-far-west-tango-energy-everyday-easy",
+          "plan": "Everyday Easy",
+          "verified": false
+        },
+        {
           "id": "au-essential-energy-far-west-tango-energy-home-select",
           "plan": "Home Select",
           "verified": false
@@ -8806,6 +9011,66 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-alinta-energy-businessdeal-core-demand-single-rate",
+          "plan": "BusinessDeal Core - Demand Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-businessdeal-core-demand-single-rate-cl",
+          "plan": "BusinessDeal Core - Demand Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-businessdeal-core-demand-single-rate-intro",
+          "plan": "BusinessDeal Core - Demand Single Rate Intro",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-businessdeal-core-demand-single-rate-intro-cl",
+          "plan": "BusinessDeal Core - Demand Single Rate Intro + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-businessdeal-core-demand-time-of-use-5-day",
+          "plan": "BusinessDeal Core - Demand Time of Use 5 Day",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-businessdeal-core-demand-time-of-use-5-day-cl",
+          "plan": "BusinessDeal Core - Demand Time of Use 5 Day + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-businessdeal-core-demand-time-of-use-5-day-medium",
+          "plan": "BusinessDeal Core - Demand Time of Use 5 Day Medium",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-businessdeal-core-demand-tou-5-day-medium-cl",
+          "plan": "BusinessDeal Core - Demand TOU 5 Day Medium + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-businessdeal-core-single-rate",
+          "plan": "BusinessDeal Core - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-businessdeal-core-single-rate-cl",
+          "plan": "BusinessDeal Core - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-businessdeal-core-time-of-use",
+          "plan": "BusinessDeal Core - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-businessdeal-core-time-of-use-cl",
+          "plan": "BusinessDeal Core - Time of Use + CL",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-alinta-energy-businessdeal-flex-demand-single-rate",
           "plan": "BusinessDeal Flex - Demand Single Rate",
           "verified": false
@@ -9256,6 +9521,36 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-alinta-energy-businessdeal-core-demand-single-rate",
+          "plan": "BusinessDeal Core - Demand Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-alinta-energy-businessdeal-core-demand-single-rate-cl",
+          "plan": "BusinessDeal Core - Demand Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-alinta-energy-businessdeal-core-single-rate",
+          "plan": "BusinessDeal Core - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-alinta-energy-businessdeal-core-single-rate-cl",
+          "plan": "BusinessDeal Core - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-alinta-energy-businessdeal-core-time-of-use",
+          "plan": "BusinessDeal Core - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-alinta-energy-businessdeal-core-time-of-use-cl",
+          "plan": "BusinessDeal Core - Time of Use + CL",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-alinta-energy-businessdeal-flex-demand-single-rate",
           "plan": "BusinessDeal Flex - Demand Single Rate",
           "verified": false
@@ -9505,6 +9800,11 @@
         {
           "id": "au-nsw-ausgrid-amber-electric-amber-plan-controlled-load",
           "plan": "Amber Plan + Controlled Load",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-amber-electric-amber-plan-demand",
+          "plan": "Amber Plan: Demand",
           "verified": false
         },
         {
@@ -11981,8 +12281,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-august-2026",
+          "plan": "Nectr Business GreenPower - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-cl-1",
           "plan": "Nectr Business GreenPower + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-cl-1-august-2026",
+          "plan": "Nectr Business GreenPower + CL 1 - August 2026",
           "verified": false
         },
         {
@@ -11991,8 +12301,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-cl-2-august-2026",
+          "plan": "Nectr Business GreenPower + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-demand",
           "plan": "Nectr Business GreenPower Demand",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-demand-august-2026",
+          "plan": "Nectr Business GreenPower Demand - August 2026",
           "verified": false
         },
         {
@@ -12001,8 +12321,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-demand-cl-1-august-2026",
+          "plan": "Nectr Business GreenPower Demand + CL 1- August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-demand-cl-2",
           "plan": "Nectr Business GreenPower Demand + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-demand-cl-2-august-2026",
+          "plan": "Nectr Business GreenPower Demand + CL 2- August 2026",
           "verified": false
         },
         {
@@ -12011,8 +12341,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-tou-august-2026",
+          "plan": "Nectr Business GreenPower TOU - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-tou-cl-1",
           "plan": "Nectr Business GreenPower TOU + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-tou-cl-1-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL 1 - August 2026",
           "verified": false
         },
         {
@@ -12021,8 +12361,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-tou-cl-2-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-tou-demand",
           "plan": "Nectr Business GreenPower TOU Demand",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-tou-demand-august-2026",
+          "plan": "Nectr Business GreenPower TOU Demand - August 2026",
           "verified": false
         },
         {
@@ -12036,8 +12386,23 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-tou-demand-cl-2-august-2026",
+          "plan": "Nectr Business GreenPower TOU Demand+CL 2-August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-greenpower-tou-demand-cl1-august-2026",
+          "plan": "Nectr Business GreenPower TOU Demand+CL1-August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-spark",
           "plan": "Nectr Business Spark",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-spark-august-2026",
+          "plan": "Nectr Business Spark - August 2026",
           "verified": false
         },
         {
@@ -12046,8 +12411,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-spark-cl-1-august-2026",
+          "plan": "Nectr Business Spark + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-spark-cl-2",
           "plan": "Nectr Business Spark + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-spark-cl-2-august-2026",
+          "plan": "Nectr Business Spark + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -12056,8 +12431,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-spark-demand-august-2026",
+          "plan": "Nectr Business Spark Demand - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-spark-demand-cl-1",
           "plan": "Nectr Business Spark Demand + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-spark-demand-cl-1-august-2026",
+          "plan": "Nectr Business Spark Demand + CL 1- August 2026",
           "verified": false
         },
         {
@@ -12066,8 +12451,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-spark-demand-cl-2-august-2026",
+          "plan": "Nectr Business Spark Demand + CL 2- August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-spark-tou",
           "plan": "Nectr Business Spark TOU",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-spark-tou-august-2026",
+          "plan": "Nectr Business Spark TOU - August 2026",
           "verified": false
         },
         {
@@ -12076,8 +12471,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-spark-tou-cl-1-august-2026",
+          "plan": "Nectr Business Spark TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-spark-tou-cl-2",
           "plan": "Nectr Business Spark TOU + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-spark-tou-cl-2-august-2026",
+          "plan": "Nectr Business Spark TOU + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -12086,13 +12491,28 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-spark-tou-demand-august-2026",
+          "plan": "Nectr Business Spark TOU Demand - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-spark-tou-demand-cl-1",
           "plan": "Nectr Business Spark TOU Demand + CL 1",
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-spark-tou-demand-cl-1-august-2026",
+          "plan": "Nectr Business Spark TOU Demand + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-business-spark-tou-demand-cl-2",
           "plan": "Nectr Business Spark TOU Demand + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-business-spark-tou-demand-cl-2-august-2026",
+          "plan": "Nectr Business Spark TOU Demand + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -12191,6 +12611,21 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-greenpower-august-2026",
+          "plan": "Nectr GreenPower - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-greenpower-cl-1-august-2026",
+          "plan": "Nectr GreenPower + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-greenpower-cl-2-august-2026",
+          "plan": "Nectr GreenPower + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-greenpower-controlled-load-1",
           "plan": "Nectr GreenPower + Controlled Load 1",
           "verified": false
@@ -12213,6 +12648,21 @@
         {
           "id": "au-nsw-ausgrid-nectr-nectr-greenpower-time-of-use-controlled-load-2",
           "plan": "Nectr GreenPower Time of Use + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-greenpower-tou-august-2026",
+          "plan": "Nectr GreenPower TOU - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-greenpower-tou-cl-1-august-2026",
+          "plan": "Nectr GreenPower TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-greenpower-tou-cl-2-august-2026",
+          "plan": "Nectr GreenPower TOU + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -12251,6 +12701,21 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-nectr-nectr-power-perks-august-2026",
+          "plan": "Nectr Power Perks - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-power-perks-cl-1-august-2026",
+          "plan": "Nectr Power Perks + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-power-perks-cl-2-august-2026",
+          "plan": "Nectr Power Perks + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-nectr-nectr-power-perks-controlled-load-1",
           "plan": "Nectr Power Perks + Controlled Load 1",
           "verified": false
@@ -12273,6 +12738,21 @@
         {
           "id": "au-nsw-ausgrid-nectr-nectr-power-perks-time-of-use-controlled-load-2",
           "plan": "Nectr Power Perks Time of Use + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-power-perks-tou-august-2026",
+          "plan": "Nectr Power Perks TOU - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-power-perks-tou-cl-1-august-2026",
+          "plan": "Nectr Power Perks TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-nectr-nectr-power-perks-tou-cl-2-august-2026",
+          "plan": "Nectr Power Perks TOU + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -12341,8 +12821,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-august-2026",
+          "plan": "Nectr Business GreenPower - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-cl-1",
           "plan": "Nectr Business GreenPower + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-cl-1-august-2026",
+          "plan": "Nectr Business GreenPower + CL 1 - August 2026",
           "verified": false
         },
         {
@@ -12351,8 +12841,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-cl-2-august-2026",
+          "plan": "Nectr Business GreenPower + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-demand",
           "plan": "Nectr Business GreenPower Demand",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-demand-august-2026",
+          "plan": "Nectr Business GreenPower Demand - August 2026",
           "verified": false
         },
         {
@@ -12361,8 +12861,33 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-demand-cl-1-august-2026",
+          "plan": "Nectr Business GreenPower Demand + CL 1- August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-demand-cl-2",
           "plan": "Nectr Business GreenPower Demand + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-demand-cl-2-august-2026",
+          "plan": "Nectr Business GreenPower Demand + CL 2- August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-t-demand-august-2026",
+          "plan": "Nectr Business GreenPower T Demand - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-t-demand-cl-1-august-2026",
+          "plan": "Nectr Business GreenPower T Demand + CL 1- August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-t-demand-cl-2-august-2026",
+          "plan": "Nectr Business GreenPower T Demand + CL 2- August 2026",
           "verified": false
         },
         {
@@ -12371,13 +12896,28 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-tou-august-2026",
+          "plan": "Nectr Business GreenPower TOU - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-tou-cl-1",
           "plan": "Nectr Business GreenPower TOU + CL 1",
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-tou-cl-1-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-tou-cl-2",
           "plan": "Nectr Business GreenPower TOU + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-greenpower-tou-cl-2-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -12401,8 +12941,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-business-spark-august-2026",
+          "plan": "Nectr Business Spark - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-business-spark-cl-1",
           "plan": "Nectr Business Spark + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-spark-cl-1-august-2026",
+          "plan": "Nectr Business Spark + CL 1 - August 2026",
           "verified": false
         },
         {
@@ -12411,8 +12961,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-business-spark-cl-2-august-2026",
+          "plan": "Nectr Business Spark + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-business-spark-demand",
           "plan": "Nectr Business Spark Demand",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-spark-demand-august-2026",
+          "plan": "Nectr Business Spark Demand - August 2026",
           "verified": false
         },
         {
@@ -12421,8 +12981,33 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-business-spark-demand-cl-1-august-2026",
+          "plan": "Nectr Business Spark Demand + CL 1- August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-business-spark-demand-cl-2",
           "plan": "Nectr Business Spark Demand + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-spark-demand-cl-2-august-2026",
+          "plan": "Nectr Business Spark Demand + CL 2- August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-spark-t-demand-august-2026",
+          "plan": "Nectr Business Spark T Demand - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-spark-t-demand-cl-1-august-2026",
+          "plan": "Nectr Business Spark T Demand + CL 1- August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-spark-t-demand-cl-2-august-2026",
+          "plan": "Nectr Business Spark T Demand + CL 2- August 2026",
           "verified": false
         },
         {
@@ -12431,13 +13016,28 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-business-spark-tou-august-2026",
+          "plan": "Nectr Business Spark TOU - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-business-spark-tou-cl-1",
           "plan": "Nectr Business Spark TOU + CL 1",
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-business-spark-tou-cl-1-august-2026",
+          "plan": "Nectr Business Spark TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-business-spark-tou-cl-2",
           "plan": "Nectr Business Spark TOU + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-business-spark-tou-cl-2-august-2026",
+          "plan": "Nectr Business Spark TOU + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -12551,6 +13151,21 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-greenpower-august-2026",
+          "plan": "Nectr GreenPower - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-greenpower-cl-1-august-2026",
+          "plan": "Nectr GreenPower + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-greenpower-cl-2-august-2026",
+          "plan": "Nectr GreenPower + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-greenpower-controlled-load-1",
           "plan": "Nectr GreenPower + Controlled Load 1",
           "verified": false
@@ -12573,6 +13188,21 @@
         {
           "id": "au-nsw-endeavour-nectr-nectr-greenpower-time-of-use-controlled-load-2",
           "plan": "Nectr GreenPower Time of Use + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-greenpower-tou-august-2026",
+          "plan": "Nectr GreenPower TOU - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-greenpower-tou-cl-1-august-2026",
+          "plan": "Nectr GreenPower TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-greenpower-tou-cl-2-august-2026",
+          "plan": "Nectr GreenPower TOU + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -12611,6 +13241,21 @@
           "verified": false
         },
         {
+          "id": "au-nsw-endeavour-nectr-nectr-power-perks-august-2026",
+          "plan": "Nectr Power Perks - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-power-perks-cl-1-august-2026",
+          "plan": "Nectr Power Perks + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-power-perks-cl-2-august-2026",
+          "plan": "Nectr Power Perks + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-endeavour-nectr-nectr-power-perks-controlled-load-1",
           "plan": "Nectr Power Perks + Controlled Load 1",
           "verified": false
@@ -12633,6 +13278,21 @@
         {
           "id": "au-nsw-endeavour-nectr-nectr-power-perks-time-of-use-controlled-load-2",
           "plan": "Nectr Power Perks Time of Use + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-power-perks-tou-august-2026",
+          "plan": "Nectr Power Perks TOU - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-power-perks-tou-cl-1-august-2026",
+          "plan": "Nectr Power Perks TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-nectr-nectr-power-perks-tou-cl-2-august-2026",
+          "plan": "Nectr Power Perks TOU + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -12686,8 +13346,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-august-2026",
+          "plan": "Nectr Business GreenPower - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-cl-1",
           "plan": "Nectr Business GreenPower + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-cl-1-august-2026",
+          "plan": "Nectr Business GreenPower + CL 1 - August 2026",
           "verified": false
         },
         {
@@ -12696,8 +13366,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-cl-2-august-2026",
+          "plan": "Nectr Business GreenPower + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-tou",
           "plan": "Nectr Business GreenPower TOU",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-tou-august-2026",
+          "plan": "Nectr Business GreenPower TOU - August 2026",
           "verified": false
         },
         {
@@ -12706,13 +13386,28 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-tou-cl-1-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-tou-cl-2",
           "plan": "Nectr Business GreenPower TOU + CL 2",
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-tou-cl-2-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-tou-demand",
           "plan": "Nectr Business GreenPower TOU Demand",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-tou-demand-august-2026",
+          "plan": "Nectr Business GreenPower TOU Demand - August 2026",
           "verified": false
         },
         {
@@ -12726,8 +13421,23 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-tou-demand-cl1-august-2026",
+          "plan": "Nectr Business GreenPower TOU Demand+CL1-August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-greenpower-tou-demand-cl2-august-2026",
+          "plan": "Nectr Business GreenPower TOU Demand+CL2-August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-business-spark",
           "plan": "Nectr Business Spark",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-spark-august-2026",
+          "plan": "Nectr Business Spark - August 2026",
           "verified": false
         },
         {
@@ -12736,8 +13446,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-spark-cl-1-august-2026",
+          "plan": "Nectr Business Spark + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-business-spark-cl-2",
           "plan": "Nectr Business Spark + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-spark-cl-2-august-2026",
+          "plan": "Nectr Business Spark + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -12746,8 +13466,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-spark-tou-august-2026",
+          "plan": "Nectr Business Spark TOU - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-business-spark-tou-cl-1",
           "plan": "Nectr Business Spark TOU + CL 1",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-spark-tou-cl-1-august-2026",
+          "plan": "Nectr Business Spark TOU + CL 1 - August 2026",
           "verified": false
         },
         {
@@ -12756,8 +13486,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-spark-tou-cl-2-august-2026",
+          "plan": "Nectr Business Spark TOU + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-business-spark-tou-demand",
           "plan": "Nectr Business Spark TOU Demand",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-spark-tou-demand-august-2026",
+          "plan": "Nectr Business Spark TOU Demand - August 2026",
           "verified": false
         },
         {
@@ -12766,8 +13506,18 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-spark-tou-demand-cl-1-august-2026",
+          "plan": "Nectr Business Spark TOU Demand + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-business-spark-tou-demand-cl-2",
           "plan": "Nectr Business Spark TOU Demand + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-business-spark-tou-demand-cl-2-august-2026",
+          "plan": "Nectr Business Spark TOU Demand + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -12851,6 +13601,21 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-greenpower-august-2026",
+          "plan": "Nectr GreenPower - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-greenpower-cl-1-august-2026",
+          "plan": "Nectr GreenPower + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-greenpower-cl-2-august-2026",
+          "plan": "Nectr GreenPower + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-greenpower-controlled-load-1",
           "plan": "Nectr GreenPower + Controlled Load 1",
           "verified": false
@@ -12891,6 +13656,36 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-greenpower-tou-blnrss2-august-2026",
+          "plan": "Nectr GreenPower TOU (BLNRSS2) - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-greenpower-tou-blnrss2-cl1-august-2026",
+          "plan": "Nectr GreenPower TOU (BLNRSS2) + CL1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-greenpower-tou-blnrss2-cl2-august-2026",
+          "plan": "Nectr GreenPower TOU (BLNRSS2) + CL2 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-greenpower-tou-blnt3al-august-2026",
+          "plan": "Nectr GreenPower TOU (BLNT3AL) - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-greenpower-tou-blnt3al-cl1-august-2026",
+          "plan": "Nectr GreenPower TOU (BLNT3AL) + CL1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-greenpower-tou-blnt3al-cl2-august-2026",
+          "plan": "Nectr GreenPower TOU (BLNT3AL) + CL2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-home-buzz",
           "plan": "Nectr Home Buzz",
           "verified": false
@@ -12926,6 +13721,21 @@
           "verified": false
         },
         {
+          "id": "au-nsw-essential-energy-nectr-nectr-power-perks-august-2026",
+          "plan": "Nectr Power Perks - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-power-perks-cl-1-august-2026",
+          "plan": "Nectr Power Perks + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-power-perks-cl-2-august-2026",
+          "plan": "Nectr Power Perks + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-nsw-essential-energy-nectr-nectr-power-perks-controlled-load-1",
           "plan": "Nectr Power Perks + Controlled Load 1",
           "verified": false
@@ -12948,6 +13758,36 @@
         {
           "id": "au-nsw-essential-energy-nectr-nectr-power-perks-time-of-use-controlled-load-2",
           "plan": "Nectr Power Perks Time of Use + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-power-perks-tou-blnrss2-august-2026",
+          "plan": "Nectr Power Perks TOU (BLNRSS2) - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-power-perks-tou-blnrss2-cl1-august-2026",
+          "plan": "Nectr Power Perks TOU (BLNRSS2) + CL1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-power-perks-tou-blnrss2-cl2-august-2026",
+          "plan": "Nectr Power Perks TOU (BLNRSS2) + CL2 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-power-perks-tou-blnt3al-august-2026",
+          "plan": "Nectr Power Perks TOU (BLNT3AL) - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-power-perks-tou-blnt3al-cl1-august-2026",
+          "plan": "Nectr Power Perks TOU (BLNT3AL) + CL1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-essential-energy-nectr-nectr-power-perks-tou-blnt3al-cl2-august-2026",
+          "plan": "Nectr Power Perks TOU (BLNT3AL) + CL2 - August 2026",
           "verified": false
         }
       ],
@@ -14566,6 +15406,11 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-tango-energy-everyday-easy",
+          "plan": "Everyday Easy",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-tango-energy-home-select",
           "plan": "Home Select",
           "verified": false
@@ -14578,6 +15423,11 @@
         {
           "id": "au-nsw-endeavour-tango-energy-business-select",
           "plan": "Business Select",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-tango-energy-everyday-easy",
+          "plan": "Everyday Easy",
           "verified": false
         },
         {
@@ -16734,6 +17584,11 @@
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-business-greenpower-august-2026",
+          "plan": "Nectr Business GreenPower - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-business-greenpower-cl-1",
           "plan": "Nectr Business GreenPower + CL 1",
           "verified": false
@@ -16744,13 +17599,33 @@
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-business-greenpower-cl-1-2-august-2026",
+          "plan": "Nectr Business GreenPower + CL 1&2 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-greenpower-cl-1-august-2026",
+          "plan": "Nectr Business GreenPower + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-business-greenpower-cl-2",
           "plan": "Nectr Business GreenPower + CL 2",
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-business-greenpower-cl-2-august-2026",
+          "plan": "Nectr Business GreenPower + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-business-greenpower-tou",
           "plan": "Nectr Business GreenPower TOU",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-greenpower-tou-august-2026",
+          "plan": "Nectr Business GreenPower TOU - August 2026",
           "verified": false
         },
         {
@@ -16764,13 +17639,33 @@
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-business-greenpower-tou-cl-1-2-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL 1&2 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-greenpower-tou-cl-1-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-business-greenpower-tou-cl-2",
           "plan": "Nectr Business GreenPower TOU + CL 2",
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-business-greenpower-tou-cl-2-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-business-greenpower-tou-demand",
           "plan": "Nectr Business GreenPower TOU Demand",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-greenpower-tou-demand-august-2026",
+          "plan": "Nectr Business GreenPower TOU Demand - August 2026",
           "verified": false
         },
         {
@@ -16789,8 +17684,28 @@
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-business-greenpower-tou-demand-cl1-2-august-2026",
+          "plan": "Nectr Business GreenPower TOU Demand+CL1&2-August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-greenpower-tou-demand-cl1-august-2026",
+          "plan": "Nectr Business GreenPower TOU Demand+CL1-August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-greenpower-tou-demand-cl2-august-2026",
+          "plan": "Nectr Business GreenPower TOU Demand+CL2-August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-business-spark",
           "plan": "Nectr Business Spark",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-spark-august-2026",
+          "plan": "Nectr Business Spark - August 2026",
           "verified": false
         },
         {
@@ -16804,13 +17719,33 @@
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-business-spark-cl-1-2-august-2026",
+          "plan": "Nectr Business Spark + CL 1&2 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-spark-cl-1-august-2026",
+          "plan": "Nectr Business Spark + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-business-spark-cl-2",
           "plan": "Nectr Business Spark + CL 2",
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-business-spark-cl-2-august-2026",
+          "plan": "Nectr Business Spark + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-business-spark-tou",
           "plan": "Nectr Business Spark TOU",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-spark-tou-august-2026",
+          "plan": "Nectr Business Spark TOU - August 2026",
           "verified": false
         },
         {
@@ -16824,13 +17759,33 @@
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-business-spark-tou-cl-1-2-august-2026",
+          "plan": "Nectr Business Spark TOU + CL 1&2 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-spark-tou-cl-1-august-2026",
+          "plan": "Nectr Business Spark TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-business-spark-tou-cl-2",
           "plan": "Nectr Business Spark TOU + CL 2",
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-business-spark-tou-cl-2-august-2026",
+          "plan": "Nectr Business Spark TOU + CL 2 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-business-spark-tou-demand",
           "plan": "Nectr Business Spark TOU Demand",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-spark-tou-demand-august-2026",
+          "plan": "Nectr Business Spark TOU Demand - August 2026",
           "verified": false
         },
         {
@@ -16844,8 +17799,23 @@
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-business-spark-tou-demand-cl-1-2-august-2026",
+          "plan": "Nectr Business Spark TOU Demand + CL 1&2 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-spark-tou-demand-cl-1-august-2026",
+          "plan": "Nectr Business Spark TOU Demand + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-business-spark-tou-demand-cl-2",
           "plan": "Nectr Business Spark TOU Demand + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-business-spark-tou-demand-cl-2-august-2026",
+          "plan": "Nectr Business Spark TOU Demand + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -16914,8 +17884,28 @@
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-greenpower-august-2026",
+          "plan": "Nectr GreenPower - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-greenpower-cl-1-august-2026",
+          "plan": "Nectr GreenPower + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-greenpower-cl-1-cl-2",
           "plan": "Nectr GreenPower + CL 1 & CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-greenpower-cl-1-cl-2-august-2026",
+          "plan": "Nectr GreenPower + CL 1 & CL 2 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-greenpower-cl-2-august-2026",
+          "plan": "Nectr GreenPower + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -16946,6 +17936,26 @@
         {
           "id": "au-qld-energex-nectr-nectr-greenpower-time-of-use-controlled-load-2",
           "plan": "Nectr GreenPower Time of Use + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-greenpower-tou-august-2026",
+          "plan": "Nectr GreenPower TOU - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-greenpower-tou-cl-1-august-2026",
+          "plan": "Nectr GreenPower TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-greenpower-tou-cl-1-cl-2-august-2026",
+          "plan": "Nectr GreenPower TOU + CL 1 & CL 2 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-greenpower-tou-cl-2-august-2026",
+          "plan": "Nectr GreenPower TOU + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -16994,8 +18004,28 @@
           "verified": false
         },
         {
+          "id": "au-qld-energex-nectr-nectr-power-perks-august-2026",
+          "plan": "Nectr Power Perks - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-power-perks-cl-1-august-2026",
+          "plan": "Nectr Power Perks + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-qld-energex-nectr-nectr-power-perks-cl-1-cl-2",
           "plan": "Nectr Power Perks + CL 1 & CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-power-perks-cl-1-cl-2-august-2026",
+          "plan": "Nectr Power Perks + CL 1 & CL 2 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-power-perks-cl-2-august-2026",
+          "plan": "Nectr Power Perks + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -17026,6 +18056,26 @@
         {
           "id": "au-qld-energex-nectr-nectr-power-perks-time-of-use-controlled-load-2",
           "plan": "Nectr Power Perks Time of Use + Controlled Load 2",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-power-perks-tou-august-2026",
+          "plan": "Nectr Power Perks TOU - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-power-perks-tou-cl-1-august-2026",
+          "plan": "Nectr Power Perks TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-power-perks-tou-cl-1-cl-2-august-2026",
+          "plan": "Nectr Power Perks TOU + CL 1 & CL 2 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-qld-energex-nectr-nectr-power-perks-tou-cl-2-august-2026",
+          "plan": "Nectr Power Perks TOU + CL 2 - August 2026",
           "verified": false
         }
       ],
@@ -19418,6 +20468,11 @@
           "verified": false
         },
         {
+          "id": "au-sa-sa-power-networks-io-energy-sustainable-home-electrify",
+          "plan": "Sustainable Home (Electrify)",
+          "verified": false
+        },
+        {
           "id": "au-sa-sa-power-networks-io-energy-sustainable-home-resele",
           "plan": "Sustainable Home: RESELE",
           "verified": false
@@ -19611,13 +20666,28 @@
           "verified": false
         },
         {
+          "id": "au-sa-sa-power-networks-nectr-nectr-greenpower-august-2026",
+          "plan": "Nectr GreenPower - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-sa-sa-power-networks-nectr-nectr-greenpower-cl-1",
           "plan": "Nectr GreenPower + CL 1",
           "verified": false
         },
         {
+          "id": "au-sa-sa-power-networks-nectr-nectr-greenpower-cl-1-august-2026",
+          "plan": "Nectr GreenPower + CL 1 - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-sa-sa-power-networks-nectr-nectr-greenpower-cl-2",
           "plan": "Nectr GreenPower + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-sa-sa-power-networks-nectr-nectr-greenpower-cl-2-august-2026",
+          "plan": "Nectr GreenPower + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -19633,6 +20703,21 @@
         {
           "id": "au-sa-sa-power-networks-nectr-nectr-greenpower-time-of-use-cl-2",
           "plan": "Nectr GreenPower Time of Use + CL 2",
+          "verified": false
+        },
+        {
+          "id": "au-sa-sa-power-networks-nectr-nectr-greenpower-tou-august-2026",
+          "plan": "Nectr GreenPower TOU - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-sa-sa-power-networks-nectr-nectr-greenpower-tou-cl-1-august-2026",
+          "plan": "Nectr GreenPower TOU + CL 1 - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-sa-sa-power-networks-nectr-nectr-greenpower-tou-cl-2-august-2026",
+          "plan": "Nectr GreenPower TOU + CL 2 - August 2026",
           "verified": false
         },
         {
@@ -21011,6 +22096,26 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-alinta-energy-homedeal-flex-single-rate",
+          "plan": "HomeDeal Flex - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-alinta-energy-homedeal-flex-single-rate-cl",
+          "plan": "HomeDeal Flex - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-alinta-energy-homedeal-flex-time-of-use-interval",
+          "plan": "HomeDeal Flex - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-alinta-energy-homedeal-flex-time-of-use-interval-cl",
+          "plan": "HomeDeal Flex - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-alinta-energy-homedeal-now-demand-single-rate",
           "plan": "HomeDeal Now - Demand Single Rate",
           "verified": false
@@ -21331,6 +22436,26 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-alinta-energy-homedeal-flex-single-rate",
+          "plan": "HomeDeal Flex - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-alinta-energy-homedeal-flex-single-rate-cl",
+          "plan": "HomeDeal Flex - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-alinta-energy-homedeal-flex-time-of-use-interval",
+          "plan": "HomeDeal Flex - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-alinta-energy-homedeal-flex-time-of-use-interval-cl",
+          "plan": "HomeDeal Flex - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-alinta-energy-homedeal-now-demand-single-rate",
           "plan": "HomeDeal Now - Demand Single Rate",
           "verified": false
@@ -21621,6 +22746,26 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-alinta-energy-homedeal-flex-single-rate",
+          "plan": "HomeDeal Flex - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-alinta-energy-homedeal-flex-single-rate-cl",
+          "plan": "HomeDeal Flex - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-alinta-energy-homedeal-flex-time-of-use-interval",
+          "plan": "HomeDeal Flex - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-alinta-energy-homedeal-flex-time-of-use-interval-cl",
+          "plan": "HomeDeal Flex - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-alinta-energy-homedeal-now-demand-single-rate",
           "plan": "HomeDeal Now - Demand Single Rate",
           "verified": false
@@ -21878,6 +23023,26 @@
         {
           "id": "au-vic-united-energy-alinta-energy-businessdeal-flex-two-period-time-of-use-cl",
           "plan": "BusinessDeal Flex - Two Period Time of Use + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-alinta-energy-homedeal-flex-single-rate",
+          "plan": "HomeDeal Flex - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-alinta-energy-homedeal-flex-single-rate-cl",
+          "plan": "HomeDeal Flex - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-alinta-energy-homedeal-flex-time-of-use-interval",
+          "plan": "HomeDeal Flex - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-alinta-energy-homedeal-flex-time-of-use-interval-cl",
+          "plan": "HomeDeal Flex - Time of Use (Interval) + CL",
           "verified": false
         },
         {
@@ -25752,6 +26917,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-globird-energy-globird-boost-residential-flexible-ratewith-cl-powercor",
+          "plan": "GloBird  BOOST Residential (Flexible RateWith CL) Powercor",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-globird-energy-globird-boost-residential-two-rate-powercor",
           "plan": "GloBird  BOOST Residential (Two Rate) Powercor",
           "verified": false
@@ -26515,6 +27685,16 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-nectr-nectr-business-greenpower-citipower-august-2026",
+          "plan": "Nectr Business GreenPower - Citipower - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-nectr-nectr-business-greenpower-cl-citipower-august-2026",
+          "plan": "Nectr Business GreenPower + CL - Citipower - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-nectr-nectr-business-greenpower-controlled-load-citipower",
           "plan": "Nectr Business GreenPower  + Controlled Load - Citipower",
           "verified": false
@@ -26530,8 +27710,28 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-nectr-nectr-business-greenpower-tou-citipower-august-2026",
+          "plan": "Nectr Business GreenPower TOU - Citipower - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-nectr-nectr-business-greenpower-tou-cl-citipower-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL - Citipower - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-nectr-nectr-business-spark-citipower",
           "plan": "Nectr Business Spark  - Citipower",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-nectr-nectr-business-spark-citipower-august-2026",
+          "plan": "Nectr Business Spark - Citipower - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-nectr-nectr-business-spark-cl-citipower-august-2026",
+          "plan": "Nectr Business Spark + CL - Citipower - August 2026",
           "verified": false
         },
         {
@@ -26547,6 +27747,16 @@
         {
           "id": "au-vic-citipower-nectr-nectr-business-spark-time-of-use-controlled-load-citipower",
           "plan": "Nectr Business Spark Time of Use + Controlled Load- Citipower",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-nectr-nectr-business-spark-tou-citipower-august-2026",
+          "plan": "Nectr Business Spark TOU - Citipower - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-nectr-nectr-business-spark-tou-cl-citipower-august-2026",
+          "plan": "Nectr Business Spark TOU + CL - Citipower - August 2026",
           "verified": false
         },
         {
@@ -26575,6 +27785,16 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-nectr-nectr-greenpower-citipower-august-2026",
+          "plan": "Nectr GreenPower - Citipower - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-nectr-nectr-greenpower-cl-citipower-august-2026",
+          "plan": "Nectr GreenPower + CL - Citipower - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-nectr-nectr-greenpower-controlled-load-citipower",
           "plan": "Nectr GreenPower + Controlled Load - Citipower",
           "verified": false
@@ -26587,6 +27807,16 @@
         {
           "id": "au-vic-citipower-nectr-nectr-greenpower-time-of-use-controlled-load-citipower",
           "plan": "Nectr GreenPower Time of Use + Controlled Load- CitiPower",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-nectr-nectr-greenpower-tou-citipower-august-2026",
+          "plan": "Nectr GreenPower TOU - Citipower - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-nectr-nectr-greenpower-tou-cl-citipower-august-2026",
+          "plan": "Nectr GreenPower TOU + CL - Citipower - August 2026",
           "verified": false
         },
         {
@@ -26630,6 +27860,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-nectr-nectr-business-greenpower-cl-jemena-august-2026",
+          "plan": "Nectr Business GreenPower + CL - Jemena - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-nectr-nectr-business-greenpower-controlled-load-jemena",
           "plan": "Nectr Business GreenPower  + Controlled Load - Jemena",
           "verified": false
@@ -26637,6 +27872,11 @@
         {
           "id": "au-vic-jemena-nectr-nectr-business-greenpower-jemena",
           "plan": "Nectr Business GreenPower  - Jemena",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-nectr-nectr-business-greenpower-jemena-august-2026",
+          "plan": "Nectr Business GreenPower - Jemena - August 2026",
           "verified": false
         },
         {
@@ -26650,6 +27890,21 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-nectr-nectr-business-greenpower-tou-cl-jemena-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL - Jemena - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-nectr-nectr-business-greenpower-tou-jemena-august-2026",
+          "plan": "Nectr Business GreenPower TOU - Jemena - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-nectr-nectr-business-spark-cl-jemena-august-2026",
+          "plan": "Nectr Business Spark + CL - Jemena - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-nectr-nectr-business-spark-controlled-load-jemena",
           "plan": "Nectr Business Spark  + Controlled Load - Jemena",
           "verified": false
@@ -26660,6 +27915,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-nectr-nectr-business-spark-jemena-august-2026",
+          "plan": "Nectr Business Spark - Jemena - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-nectr-nectr-business-spark-time-of-use-controlled-load-jemena",
           "plan": "Nectr Business Spark Time of Use + Controlled Load - Jemena",
           "verified": false
@@ -26667,6 +27927,16 @@
         {
           "id": "au-vic-jemena-nectr-nectr-business-spark-time-of-use-jemena",
           "plan": "Nectr Business Spark Time of Use - Jemena",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-nectr-nectr-business-spark-tou-cl-jemena-august-2026",
+          "plan": "Nectr Business Spark TOU + CL - Jemena - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-nectr-nectr-business-spark-tou-jemena-august-2026",
+          "plan": "Nectr Business Spark TOU - Jemena - August 2026",
           "verified": false
         },
         {
@@ -26690,6 +27960,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-nectr-nectr-greenpower-cl-jemena-august-2026",
+          "plan": "Nectr GreenPower + CL - Jemena - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-nectr-nectr-greenpower-controlled-load-jemena",
           "plan": "Nectr GreenPower + Controlled Load - Jemena",
           "verified": false
@@ -26700,6 +27975,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-nectr-nectr-greenpower-jemena-august-2026",
+          "plan": "Nectr GreenPower - Jemena - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-nectr-nectr-greenpower-time-of-use-controlled-load-jemena",
           "plan": "Nectr GreenPower Time of Use + Controlled Load - Jemena",
           "verified": false
@@ -26707,6 +27987,16 @@
         {
           "id": "au-vic-jemena-nectr-nectr-greenpower-time-of-use-jemena",
           "plan": "Nectr GreenPower Time of Use - Jemena",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-nectr-nectr-greenpower-tou-cl-jemena-august-2026",
+          "plan": "Nectr GreenPower TOU + CL - Jemena - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-nectr-nectr-greenpower-tou-jemena-august-2026",
+          "plan": "Nectr GreenPower TOU - Jemena - August 2026",
           "verified": false
         },
         {
@@ -26750,6 +28040,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-nectr-nectr-business-greenpower-cl-powercor-august-2026",
+          "plan": "Nectr Business GreenPower + CL - Powercor - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-nectr-nectr-business-greenpower-controlled-load-powercor",
           "plan": "Nectr Business GreenPower  + Controlled Load - Powercor",
           "verified": false
@@ -26757,6 +28052,11 @@
         {
           "id": "au-vic-powercor-nectr-nectr-business-greenpower-powercor",
           "plan": "Nectr Business GreenPower  - Powercor",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-nectr-nectr-business-greenpower-powercor-august-2026",
+          "plan": "Nectr Business GreenPower - Powercor - August 2026",
           "verified": false
         },
         {
@@ -26770,6 +28070,21 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-nectr-nectr-business-greenpower-tou-cl-powercor-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL - Powercor - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-nectr-nectr-business-greenpower-tou-powercor-august-2026",
+          "plan": "Nectr Business GreenPower TOU - Powercor - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-nectr-nectr-business-spark-cl-powercor-august-2026",
+          "plan": "Nectr Business Spark + CL - Powercor - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-nectr-nectr-business-spark-controlled-load-powercor",
           "plan": "Nectr Business Spark  + Controlled Load - Powercor",
           "verified": false
@@ -26777,6 +28092,11 @@
         {
           "id": "au-vic-powercor-nectr-nectr-business-spark-powercor",
           "plan": "Nectr Business Spark  - Powercor",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-nectr-nectr-business-spark-powercor-august-2026",
+          "plan": "Nectr Business Spark - Powercor - August 2026",
           "verified": false
         },
         {
@@ -26790,6 +28110,16 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-nectr-nectr-business-spark-tou-cl-powercor-august-2026",
+          "plan": "Nectr Business Spark TOU + CL - Powercor - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-nectr-nectr-business-spark-tou-powercor-august-2026",
+          "plan": "Nectr Business Spark TOU - Powercor - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-nectr-nectr-green-business-buzz-powercor",
           "plan": "Nectr Green Business Buzz - Powercor",
           "verified": false
@@ -26797,6 +28127,11 @@
         {
           "id": "au-vic-powercor-nectr-nectr-green-business-buzz-time-of-use-powercor",
           "plan": "Nectr Green Business Buzz Time of Use - Powercor",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-nectr-nectr-greenpower-cl-powercor-august-2026",
+          "plan": "Nectr GreenPower + CL - Powercor - August 2026",
           "verified": false
         },
         {
@@ -26810,6 +28145,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-nectr-nectr-greenpower-powercor-august-2026",
+          "plan": "Nectr GreenPower - Powercor - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-nectr-nectr-greenpower-time-of-use-controlled-load-powercor",
           "plan": "Nectr GreenPower Time of Use + Controlled Load - Powercor",
           "verified": false
@@ -26817,6 +28157,16 @@
         {
           "id": "au-vic-powercor-nectr-nectr-greenpower-time-of-use-powercor",
           "plan": "Nectr GreenPower Time of Use - Powercor",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-nectr-nectr-greenpower-tou-cl-powercor-august-2026",
+          "plan": "Nectr GreenPower TOU + CL - Powercor - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-nectr-nectr-greenpower-tou-powercor-august-2026",
+          "plan": "Nectr GreenPower TOU - Powercor - August 2026",
           "verified": false
         },
         {
@@ -26860,6 +28210,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-nectr-nectr-business-greenpower-cl-united-energy-august-2026",
+          "plan": "Nectr Business GreenPower + CL - United Energy - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-nectr-nectr-business-greenpower-controlled-load-united-energy",
           "plan": "Nectr Business GreenPower  + Controlled Load - United Energy",
           "verified": false
@@ -26875,8 +28230,28 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-nectr-nectr-business-greenpower-tou-cl-united-energy-august-2026",
+          "plan": "Nectr Business GreenPower TOU + CL - United Energy - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-nectr-nectr-business-greenpower-tou-united-energy-august-2026",
+          "plan": "Nectr Business GreenPower TOU - United Energy - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-nectr-nectr-business-greenpower-united-energy",
           "plan": "Nectr Business GreenPower  - United Energy",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-nectr-nectr-business-greenpower-united-energy-august-2026",
+          "plan": "Nectr Business GreenPower - United Energy - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-nectr-nectr-business-spark-cl-united-energy-august-2026",
+          "plan": "Nectr Business Spark + CL - United Energy - August 2026",
           "verified": false
         },
         {
@@ -26895,8 +28270,23 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-nectr-nectr-business-spark-tou-cl-united-energy-august-2026",
+          "plan": "Nectr Business Spark TOU + CL - United Energy - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-nectr-nectr-business-spark-tou-united-energy-august-2026",
+          "plan": "Nectr Business Spark TOU - United Energy - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-nectr-nectr-business-spark-united-energy",
           "plan": "Nectr Business Spark  - United Energy",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-nectr-nectr-business-spark-united-energy-august-2026",
+          "plan": "Nectr Business Spark - United Energy - August 2026",
           "verified": false
         },
         {
@@ -26907,6 +28297,11 @@
         {
           "id": "au-vic-united-energy-nectr-nectr-green-business-buzz-united-energy",
           "plan": "Nectr Green Business Buzz - United Energy",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-nectr-nectr-greenpower-cl-united-energy-august-2026",
+          "plan": "Nectr GreenPower + CL - United Energy - August 2026",
           "verified": false
         },
         {
@@ -26925,8 +28320,23 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-nectr-nectr-greenpower-tou-cl-united-energy-august-2026",
+          "plan": "Nectr GreenPower TOU + CL - United Energy - August 2026",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-nectr-nectr-greenpower-tou-united-energy-august-2026",
+          "plan": "Nectr GreenPower TOU - United Energy - August 2026",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-nectr-nectr-greenpower-united-energy",
           "plan": "Nectr GreenPower - United Energy",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-nectr-nectr-greenpower-united-energy-august-2026",
+          "plan": "Nectr GreenPower - United Energy - August 2026",
           "verified": false
         },
         {

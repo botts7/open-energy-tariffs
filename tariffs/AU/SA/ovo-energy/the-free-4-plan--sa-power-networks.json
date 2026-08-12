@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-13",
+    "updated": "2026-08-10",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -353,8 +353,8 @@
         "5960"
       ]
     },
-    "sourceId": "OVO704476MRE23@EME",
-    "sourceUpdated": "2026-07-13T14:06:05.472Z"
+    "sourceId": "OVO704474MRE23@EME",
+    "sourceUpdated": "2026-08-06T23:51:19.006Z"
   },
   "tariff": {
     "kind": "tou",
@@ -363,69 +363,39 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.5111,
+          "rate": 0.381,
           "role": "peak"
         },
         {
-          "id": "solar-sponge",
-          "name": "Solar Sponge",
-          "rate": 0.1549,
-          "role": "offpeak"
-        },
-        {
           "id": "off-peak",
-          "name": "Off-Peak",
-          "rate": 0.2959,
-          "role": "offpeak"
-        },
-        {
-          "id": "shoulder-1",
-          "name": "Shoulder 1",
+          "name": "Off Peak",
           "rate": 0,
-          "role": "shoulder"
+          "role": "offpeak"
         }
       ],
       "schedule": [
         {
           "days": "all",
-          "from": "06:00",
-          "to": "10:00",
+          "from": "00:00",
+          "to": "11:00",
           "band": "peak"
         },
         {
           "days": "all",
-          "from": "16:00",
+          "from": "15:00",
           "to": "24:00",
           "band": "peak"
         },
         {
           "days": "all",
-          "from": "10:00",
-          "to": "11:00",
-          "band": "solar-sponge"
-        },
-        {
-          "days": "all",
-          "from": "15:00",
-          "to": "16:00",
-          "band": "solar-sponge"
-        },
-        {
-          "days": "all",
-          "from": "00:00",
-          "to": "06:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "all",
           "from": "11:00",
           "to": "15:00",
-          "band": "shoulder-1"
+          "band": "off-peak"
         }
       ]
     },
     "supply": {
-      "daily": 1.7999
+      "daily": 1.8002
     },
     "export": {
       "flatRate": 0.01
