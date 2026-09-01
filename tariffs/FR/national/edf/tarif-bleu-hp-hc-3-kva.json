@@ -1,11 +1,11 @@
 {
   "meta": {
-    "id": "fr-enedis-edf-tarif-bleu-hp-hc-24-kva",
+    "id": "fr-enedis-edf-tarif-bleu-hp-hc-3-kva",
     "schemaVersion": "1",
     "country": "FR",
     "distributor": "Enedis",
     "provider": "EDF",
-    "plan": "Tarif Bleu HP/HC 24 kVA",
+    "plan": "Tarif Bleu HP/HC 3 kVA",
     "currency": "EUR",
     "unit": "kWh",
     "timezone": "Europe/Paris",
@@ -52,7 +52,7 @@
       ]
     },
     "supply": {
-      "daily": 1.29634
+      "daily": 0.39935
     },
     "validFrom": "2026-08-01"
   }
