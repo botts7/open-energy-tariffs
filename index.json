@@ -43039,6 +43039,11 @@
           "verified": false
         },
         {
+          "id": "fr-enedis-edf-tarif-bleu-hp-hc-3-kva",
+          "plan": "Tarif Bleu HP/HC 3 kVA",
+          "verified": false
+        },
+        {
           "id": "fr-enedis-edf-tarif-bleu-hp-hc-30-kva",
           "plan": "Tarif Bleu HP/HC 30 kVA",
           "verified": false
