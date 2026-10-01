@@ -12,18 +12,18 @@
     "source": "provider",
     "sourceUrl": "https://www.strompreis.elcom.admin.ch/",
     "license": "other",
-    "updated": "2026-06-24",
+    "updated": "2026-10-01",
     "verified": false,
-    "notes": "Swiss household electricity tariff — ElCom reference profile H4 (~4,500 kWh/yr), basic/standard supply (Grundversorgung) — from the Federal Electricity Commission (ElCom) via LINDAS (lindas.admin.ch). opendata.swiss \"Open use\" (terms_open); ElCom attributed as a courtesy. All-in 32.84 Rp/kWh = energy 10.70 + grid 18.50 + federal grid surcharge 2.30 + community/cantonal taxes; annual fixed 132 CHF. Serves 1 municipality. Period 2026."
+    "notes": "Swiss household electricity tariff — ElCom reference profile H4 (~4,500 kWh/yr), basic/standard supply (Grundversorgung) — from the Federal Electricity Commission (ElCom) via LINDAS (lindas.admin.ch). opendata.swiss \"Open use\" (terms_open); ElCom attributed as a courtesy. All-in 32.08 Rp/kWh = energy 10.60 + grid 17.45 + federal grid surcharge 2.30 + community/cantonal taxes; annual fixed 72 CHF. Serves 1 municipality. Period 2027."
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.32837
+      "flatRate": 0.32082
     },
     "supply": {
-      "daily": 0.36164
+      "daily": 0.19726
     },
-    "validFrom": "2026-01-01"
+    "validFrom": "2027-01-01"
   }
 }
