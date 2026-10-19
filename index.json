@@ -39950,6 +39950,13 @@
           "verified": false
         }
       ],
+      "Elektrizitäts- und Wasserwerk (EW Sevelen)": [
+        {
+          "id": "ch-elektrizit-ts-und-wasserwerk-ew-sevelen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
       "Elektrizitätsgenossenschaft Aristau": [
         {
           "id": "ch-elektrizit-tsgenossenschaft-aristau-standard-supply-household-h4",
@@ -41287,6 +41294,13 @@
           "verified": false
         }
       ],
+      "Genossenschaft Elektra Augst": [
+        {
+          "id": "ch-genossenschaft-elektra-augst-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
       "Genossenschaft \"Elektra\" Buchen-Teuffenthal (EBT)": [
         {
           "id": "ch-genossenschaft-elektra-buchen-teuffenthal-ebt-standard-supply-household-h4",
@@ -41353,6 +41367,13 @@
       "Genossenschaft ELEKTRA Oberrohrdorf": [
         {
           "id": "ch-genossenschaft-elektra-oberrohrdorf-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Genossenschaft ELEKTRA OEKINGEN HALTEN": [
+        {
+          "id": "ch-genossenschaft-elektra-oekingen-halten-standard-supply-household-h4",
           "plan": "Standard supply (household H4)",
           "verified": false
         }
@@ -42585,6 +42606,13 @@
       "Wasser- & Elektrizitätswerk Steinhausen": [
         {
           "id": "ch-wasser-elektrizit-tswerk-steinhausen-standard-supply-household-h4",
+          "plan": "Standard supply (household H4)",
+          "verified": false
+        }
+      ],
+      "Wasser- und Elektrizitätswerk Steinhausen AG": [
+        {
+          "id": "ch-wasser-und-elektrizit-tswerk-steinhausen-ag-standard-supply-household-h4",
           "plan": "Standard supply (household H4)",
           "verified": false
         }
