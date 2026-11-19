@@ -62,17 +62,31 @@ export function planName(x) {
   return x.Description || note || 'Network tariff';
 }
 
+// EDS throttles bursts with 429; a short linear retry (~7s total) wasn't enough and
+// sank the monthly run. Honour Retry-After, else back off exponentially (2s..60s).
+const MAX_ATTEMPTS = 7;
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+function backoffMs(attempt, retryAfter) {
+  const ra = Number(retryAfter);
+  if (Number.isFinite(ra) && ra > 0) return Math.min(ra * 1000, 120000);
+  return Math.min(2000 * 2 ** attempt, 60000);
+}
+
 async function getPage(off, pageSize, filter, today, attempt = 0) {
   const f = encodeURIComponent(JSON.stringify(filter));
   const url = `${BASE}?limit=${pageSize}&offset=${off}&end=${today}T00:00&sort=${encodeURIComponent('ValidFrom desc')}&filter=${f}`;
+  let retryAfter;
   try {
-    const res = await fetch(url, { headers: { accept: 'application/json' } });
-    if (!res.ok) throw new Error(`EDS ${res.status} ${res.statusText}`);
+    const res = await fetch(url, { headers: { accept: 'application/json' }, signal: AbortSignal.timeout(60000) });
+    if (!res.ok) {
+      retryAfter = res.headers.get('retry-after');
+      throw new Error(`EDS ${res.status} ${res.statusText}`);
+    }
     const body = await res.json();
     return body?.records ?? [];
   } catch (e) {
-    if (attempt < 4) {
-      await new Promise((r) => setTimeout(r, 700 * (attempt + 1)));
+    if (attempt < MAX_ATTEMPTS - 1) {
+      await sleep(backoffMs(attempt, retryAfter));
       return getPage(off, pageSize, filter, today, attempt + 1);
     }
     throw e;
