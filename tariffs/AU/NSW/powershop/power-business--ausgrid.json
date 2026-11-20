@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -246,55 +246,16 @@
         "2775"
       ]
     },
-    "sourceId": "PSH1060459MBE2@EME",
-    "sourceUpdated": "2026-06-30T14:09:40.713Z"
+    "sourceId": "PSH1060472MBE3@EME",
+    "sourceUpdated": "2026-09-30T14:06:25.356Z"
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.64024,
-          "role": "peak"
-        },
-        {
-          "id": "off-peak",
-          "name": "Off Peak",
-          "rate": 0.222167,
-          "role": "offpeak"
-        }
-      ],
-      "schedule": [
-        {
-          "days": "weekday",
-          "from": "15:00",
-          "to": "21:00",
-          "band": "peak"
-        },
-        {
-          "days": "weekday",
-          "from": "21:00",
-          "to": "24:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "weekday",
-          "from": "00:00",
-          "to": "15:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "weekend",
-          "from": "00:00",
-          "to": "24:00",
-          "band": "off-peak"
-        }
-      ]
+      "flatRate": 0.283426
     },
     "supply": {
-      "daily": 3.080118
+      "daily": 2.937959
     },
     "export": {
       "flatRate": 0.01
@@ -304,6 +265,11 @@
         "id": "single-rate-controlled-load",
         "name": "Single Rate Controlled Load",
         "rate": 0.147102
+      },
+      {
+        "id": "single-rate-controlled-load",
+        "name": "Single Rate Controlled Load",
+        "rate": 0.175256
       }
     ]
   }

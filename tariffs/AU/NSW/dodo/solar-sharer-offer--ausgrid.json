@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -246,8 +246,8 @@
         "2775"
       ]
     },
-    "sourceId": "DOD1109070SRE1@EME",
-    "sourceUpdated": "2026-06-30T14:07:34.668Z"
+    "sourceId": "DOD1212805SRE1@EME",
+    "sourceUpdated": "2026-10-20T02:35:48.968Z"
   },
   "tariff": {
     "kind": "tou",
@@ -262,13 +262,13 @@
         {
           "id": "off-peak",
           "name": "Off Peak",
-          "rate": 0,
+          "rate": 0.250543,
           "role": "offpeak"
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.250543,
+          "rate": 0,
           "role": "shoulder"
         }
       ],
@@ -281,20 +281,26 @@
         },
         {
           "days": "all",
-          "from": "11:00",
-          "to": "14:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "all",
-          "from": "21:00",
+          "from": "00:00",
           "to": "11:00",
-          "band": "shoulder"
+          "band": "off-peak"
         },
         {
           "days": "all",
           "from": "14:00",
           "to": "15:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "14:00",
           "band": "shoulder"
         }
       ]
@@ -304,6 +310,18 @@
     },
     "export": {
       "flatRate": 0.01
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "tou-rate-controlled-load-1",
+        "name": "TOU Rate Controlled Load 1",
+        "rate": 0.17554
+      },
+      {
+        "id": "tou-rate-controlled-load-2",
+        "name": "TOU Rate Controlled Load 2",
+        "rate": 0.209136
+      }
+    ]
   }
 }

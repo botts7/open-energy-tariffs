@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -119,8 +119,8 @@
         "3977"
       ]
     },
-    "sourceId": "GLO741896MR@VEC",
-    "sourceUpdated": "2026-05-26T23:57:37Z"
+    "sourceId": "GLO814600MR@VEC",
+    "sourceUpdated": "2026-11-10T00:23:53Z"
   },
   "tariff": {
     "kind": "tou",
@@ -129,19 +129,19 @@
         {
           "id": "flexible",
           "name": "Flexible",
-          "rate": 0.51,
+          "rate": 0.36,
           "role": "peak"
         },
         {
           "id": "flexible-2",
           "name": "Flexible",
-          "rate": 0.27,
+          "rate": 0.185,
           "role": "shoulder"
         },
         {
           "id": "flexible-3",
           "name": "Flexible",
-          "rate": 0.054545,
+          "rate": 0.072727,
           "role": "offpeak"
         }
       ],
@@ -154,13 +154,13 @@
         },
         {
           "days": "all",
-          "from": "06:00",
+          "from": "05:00",
           "to": "11:00",
           "band": "flexible-2"
         },
         {
           "days": "all",
-          "from": "14:00",
+          "from": "15:00",
           "to": "16:00",
           "band": "flexible-2"
         },
@@ -172,23 +172,26 @@
         },
         {
           "days": "all",
+          "from": "00:00",
+          "to": "01:00",
+          "band": "flexible-2"
+        },
+        {
+          "days": "all",
           "from": "11:00",
-          "to": "14:00",
+          "to": "15:00",
           "band": "flexible-3"
         },
         {
           "days": "all",
-          "from": "00:00",
-          "to": "06:00",
+          "from": "01:00",
+          "to": "05:00",
           "band": "flexible-3"
         }
       ]
     },
     "supply": {
-      "daily": 1.12
-    },
-    "export": {
-      "flatRate": 1e-7
+      "daily": 1.13
     },
     "controlledLoad": [
       {

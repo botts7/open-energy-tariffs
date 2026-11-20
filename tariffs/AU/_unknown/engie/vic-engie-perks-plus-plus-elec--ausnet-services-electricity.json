@@ -5,14 +5,14 @@
     "country": "AU",
     "distributor": "AusNet Services (electricity)",
     "provider": "ENGIE",
-    "plan": "VIC -ENGIE Perks Plus Plus Elec",
+    "plan": "VIC-ENGIE Perks Plus Plus Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -281,52 +281,26 @@
         "3996"
       ]
     },
-    "sourceId": "ENG741742MR@VEC",
-    "sourceUpdated": "2026-05-21T03:14:44Z"
+    "sourceId": "ENG814236MR@VEC",
+    "sourceUpdated": "2026-11-05T04:46:15Z"
   },
   "tariff": {
-    "kind": "tou",
+    "kind": "flat",
     "import": {
-      "bands": [
-        {
-          "id": "peak",
-          "name": "Peak",
-          "rate": 0.4256,
-          "role": "peak"
-        },
-        {
-          "id": "tariff-2",
-          "name": "Tariff 2",
-          "rate": 0.218,
-          "role": "offpeak"
-        }
-      ],
-      "schedule": [
-        {
-          "days": "all",
-          "from": "15:00",
-          "to": "21:00",
-          "band": "peak"
-        },
-        {
-          "days": "all",
-          "from": "00:00",
-          "to": "15:00",
-          "band": "tariff-2"
-        },
-        {
-          "days": "all",
-          "from": "21:00",
-          "to": "24:00",
-          "band": "tariff-2"
-        }
-      ]
+      "flatRate": 0.2907
     },
     "supply": {
-      "daily": 1.286
+      "daily": 1.1658
     },
     "export": {
       "flatRate": 0.01
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load",
+        "name": "Controlled Load",
+        "rate": 0.201
+      }
+    ]
   }
 }
