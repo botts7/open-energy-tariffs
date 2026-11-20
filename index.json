@@ -53077,12 +53077,29 @@
           "id": "dk-aal-el-net-nettarif-c-skabelon-annual-meter",
           "plan": "Nettarif C skabelon (annual meter)",
           "verified": false
+        },
+        {
+          "id": "dk-aal-el-net-nettarif-c-time-annual-meter",
+          "plan": "Nettarif C time (annual meter)",
+          "verified": false
         }
       ],
       "Cerius": [
         {
           "id": "dk-cerius-nettarif-c",
           "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "Dinel": [
+        {
+          "id": "dk-dinel-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        },
+        {
+          "id": "dk-dinel-nettarif-c-time-hourly-meter",
+          "plan": "Nettarif C time (hourly meter)",
           "verified": false
         }
       ],
@@ -53100,6 +53117,13 @@
         {
           "id": "dk-el-net-kongerslev-nettarif-c-time-hourly-meter",
           "plan": "Nettarif C time (hourly meter)",
+          "verified": false
+        }
+      ],
+      "Elektrus": [
+        {
+          "id": "dk-elektrus-nettarif-c",
+          "plan": "Nettarif C",
           "verified": false
         }
       ],
@@ -53127,6 +53151,13 @@
           "verified": false
         }
       ],
+      "FLOW Elnet": [
+        {
+          "id": "dk-flow-elnet-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
       "Forsyning Elnet": [
         {
           "id": "dk-forsyning-elnet-nettarif-c",
@@ -53147,6 +53178,11 @@
         }
       ],
       "Hammel Elforsyning Net": [
+        {
+          "id": "dk-hammel-elforsyning-net-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        },
         {
           "id": "dk-hammel-elforsyning-net-nettarif-c-skabelon",
           "plan": "Nettarif C skabelon",
@@ -53208,6 +53244,13 @@
           "verified": false
         }
       ],
+      "L-Net": [
+        {
+          "id": "dk-l-net-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
       "Læsø Elnet": [
         {
           "id": "dk-l-s-elnet-nettarif-c",
@@ -53241,9 +53284,23 @@
           "verified": false
         }
       ],
+      "Netselskabet Elværk": [
+        {
+          "id": "dk-netselskabet-elv-rk-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
       "NOE Net": [
         {
           "id": "dk-noe-net-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "Nord Energi Net": [
+        {
+          "id": "dk-nord-energi-net-nettarif-c",
           "plan": "Nettarif C",
           "verified": false
         }
@@ -53255,7 +53312,33 @@
           "verified": false
         }
       ],
+      "RAH Net": [
+        {
+          "id": "dk-rah-net-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "Ravdex": [
+        {
+          "id": "dk-ravdex-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "Sunds Net": [
+        {
+          "id": "dk-sunds-net-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
       "Tarm Elværk Net": [
+        {
+          "id": "dk-tarm-elv-rk-net-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        },
         {
           "id": "dk-tarm-elv-rk-net-nettarif-c-annual-meter",
           "plan": "Nettarif C (annual meter)",
@@ -53264,6 +53347,46 @@
         {
           "id": "dk-tarm-elv-rk-net-nettarif-tarm-elv-rk-net-hvor-aftagepunktet-typisk-er-p-0-4-kv-siden-af-en-10-20-0-4-kv-transformerstation-med-timeafl-st-m-ler",
           "plan": "Nettarif Tarm elværk net, hvor aftagepunktet typisk er på 0,4 kV-siden af en 10-20/0,4 kV transformerstation med timeaflæst måler",
+          "verified": false
+        }
+      ],
+      "TREFOR El-net": [
+        {
+          "id": "dk-trefor-el-net-nettarif-c-hourly-meter",
+          "plan": "Nettarif C (hourly meter)",
+          "verified": false
+        }
+      ],
+      "TREFOR El-net Øst": [
+        {
+          "id": "dk-trefor-el-net-st-nettarif-bh04-transformer-side",
+          "plan": "Nettarif BH04 — transformer side",
+          "verified": false
+        },
+        {
+          "id": "dk-trefor-el-net-st-nettarif-c-hourly-meter",
+          "plan": "Nettarif C (hourly meter)",
+          "verified": false
+        }
+      ],
+      "Veksel": [
+        {
+          "id": "dk-veksel-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "Vores Elnet": [
+        {
+          "id": "dk-vores-elnet-nettarif-c",
+          "plan": "Nettarif C",
+          "verified": false
+        }
+      ],
+      "Zeanet": [
+        {
+          "id": "dk-zeanet-nettarif-c-time",
+          "plan": "Nettarif C time",
           "verified": false
         }
       ]

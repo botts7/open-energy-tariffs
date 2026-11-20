@@ -12,7 +12,7 @@
     "source": "provider",
     "sourceUrl": "https://www.energidataservice.dk/tso-electricity/DatahubPricelist",
     "license": "CC-BY-4.0",
-    "updated": "2026-10-01",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Danish DSO/TSO network tariff component — the per-kWh grid charge applied by hour — from Energinet's Energi Data Service \"DatahubPricelist\" dataset. Licensed CC BY 4.0; attribute Energinet / Energi Data Service. This is the NETWORK charge, not a full retail plan."
   },
@@ -23,19 +23,19 @@
         {
           "id": "b1",
           "name": "Low",
-          "rate": 0.095,
+          "rate": 0.0845,
           "role": "offpeak"
         },
         {
           "id": "b2",
           "name": "High",
-          "rate": 0.1425,
+          "rate": 0.2535,
           "role": "shoulder"
         },
         {
           "id": "b3",
           "name": "Peak",
-          "rate": 0.3705,
+          "rate": 0.7604,
           "role": "peak"
         }
       ],
@@ -66,6 +66,6 @@
         }
       ]
     },
-    "validFrom": "2023-07-01"
+    "validFrom": "2026-10-01"
   }
 }
