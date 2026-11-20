@@ -6,14 +6,14 @@
     "region": "NSW",
     "distributor": "Ausgrid",
     "provider": "ENGIE",
-    "plan": "NSW_ ENGIE Business NRMA Elec",
+    "plan": "NSW_ ENGIE - Business NRMA Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -246,8 +246,8 @@
         "2775"
       ]
     },
-    "sourceId": "ENG1112579MBE1@EME",
-    "sourceUpdated": "2026-06-30T14:12:01.607Z"
+    "sourceId": "ENG1207164MBE2@EME",
+    "sourceUpdated": "2026-10-26T14:05:28.394Z"
   },
   "tariff": {
     "kind": "tou",
@@ -288,7 +288,7 @@
       ]
     },
     "supply": {
-      "daily": 3.5664
+      "daily": 3.6041
     },
     "export": {
       "flatRate": 0.03
@@ -297,7 +297,7 @@
       {
         "id": "single-rate-controlled-load",
         "name": "Single Rate Controlled Load",
-        "rate": 0.1754
+        "rate": 0.2091
       }
     ]
   }

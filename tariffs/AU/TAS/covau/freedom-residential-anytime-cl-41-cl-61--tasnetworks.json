@@ -6,14 +6,14 @@
     "region": "TAS",
     "distributor": "TasNetworks",
     "provider": "CovaU",
-    "plan": "Freedom Residential Anytime + CL(41) + CL(61)",
+    "plan": "Freedom Residential Anytime + CL(41) & CL(61)",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Hobart",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -132,8 +132,8 @@
         "7470"
       ]
     },
-    "sourceId": "COV791727MRE3@EME",
-    "sourceUpdated": "2025-06-30T14:06:08.958Z"
+    "sourceId": "COV1122672MRE2@EME",
+    "sourceUpdated": "2026-09-30T14:07:59.460Z"
   },
   "tariff": {
     "kind": "flat",
@@ -144,7 +144,7 @@
       "daily": 1.1046
     },
     "export": {
-      "flatRate": 0.0894
+      "flatRate": 0.10869
     },
     "controlledLoad": [
       {

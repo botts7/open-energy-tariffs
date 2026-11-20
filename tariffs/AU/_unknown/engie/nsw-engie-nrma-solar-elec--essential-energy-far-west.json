@@ -5,14 +5,14 @@
     "country": "AU",
     "distributor": "Essential Energy Far West",
     "provider": "ENGIE",
-    "plan": "NSW _ ENGIE NRMA Solar Elec",
+    "plan": "NSW ENGIE - NRMA Solar Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -289,13 +289,14 @@
         "2877",
         "2878",
         "2879",
+        "2880",
         "3644",
         "3691",
         "3707"
       ]
     },
-    "sourceId": "ENG1111969MRE1@EME",
-    "sourceUpdated": "2026-06-30T14:06:59.999Z"
+    "sourceId": "ENG1207508MRE2@EME",
+    "sourceUpdated": "2026-10-26T14:05:43.844Z"
   },
   "tariff": {
     "kind": "tou",
@@ -304,29 +305,23 @@
         {
           "id": "peak",
           "name": "Peak",
-          "rate": 0.475,
+          "rate": 0.4996,
           "role": "peak"
         },
         {
           "id": "off-peak",
           "name": "Off-Peak",
-          "rate": 0.2205,
+          "rate": 0.2293,
           "role": "offpeak"
         },
         {
           "id": "shoulder",
           "name": "Shoulder",
-          "rate": 0.323,
+          "rate": 0.3288,
           "role": "shoulder"
         }
       ],
       "schedule": [
-        {
-          "days": "weekday",
-          "from": "07:00",
-          "to": "09:00",
-          "band": "peak"
-        },
         {
           "days": "weekday",
           "from": "17:00",
@@ -347,7 +342,7 @@
         },
         {
           "days": "weekday",
-          "from": "09:00",
+          "from": "07:00",
           "to": "17:00",
           "band": "shoulder"
         },
@@ -360,17 +355,10 @@
       ]
     },
     "supply": {
-      "daily": 2.6169
+      "daily": 2.4746
     },
     "export": {
-      "flatRate": 0.08
-    },
-    "controlledLoad": [
-      {
-        "id": "single-rate-controlled-load",
-        "name": "Single Rate Controlled Load",
-        "rate": 0.2179
-      }
-    ]
+      "flatRate": 0.1
+    }
   }
 }

@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -67,8 +67,8 @@
         "3207"
       ]
     },
-    "sourceId": "POD743125SS@VEC",
-    "sourceUpdated": "2026-06-01T03:45:57Z"
+    "sourceId": "POD797585SR@VEC",
+    "sourceUpdated": "2026-09-14T04:14:55Z"
   },
   "tariff": {
     "kind": "tou",
@@ -77,55 +77,54 @@
         {
           "id": "tariff-1",
           "name": "Tariff 1",
-          "rate": 0.280818,
+          "rate": 0.348272,
           "role": "peak"
         },
         {
           "id": "tariff-2",
           "name": "Tariff 2",
-          "rate": 0.159272,
+          "rate": 0.192454,
+          "role": "shoulder"
+        },
+        {
+          "id": "tariff-3",
+          "name": "Tariff 3",
+          "rate": 0.150818,
           "role": "offpeak"
         }
       ],
       "schedule": [
         {
-          "days": "weekday",
-          "from": "09:00",
+          "days": "all",
+          "from": "16:00",
           "to": "21:00",
           "band": "tariff-1"
         },
         {
-          "days": "weekday",
+          "days": "all",
           "from": "21:00",
           "to": "24:00",
           "band": "tariff-2"
         },
         {
-          "days": "weekday",
+          "days": "all",
           "from": "00:00",
-          "to": "09:00",
+          "to": "11:00",
           "band": "tariff-2"
         },
         {
-          "days": "weekend",
-          "from": "00:00",
-          "to": "24:00",
-          "band": "tariff-2"
+          "days": "all",
+          "from": "11:00",
+          "to": "16:00",
+          "band": "tariff-3"
         }
       ]
     },
     "supply": {
-      "daily": 1.383545
+      "daily": 1.101272
     },
     "export": {
       "flatRate": 0.01
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load-usage",
-        "name": "Controlled Load Usage",
-        "rate": 0.150818
-      }
-    ]
+    }
   }
 }

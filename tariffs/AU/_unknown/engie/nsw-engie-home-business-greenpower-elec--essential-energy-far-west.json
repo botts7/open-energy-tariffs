@@ -5,14 +5,14 @@
     "country": "AU",
     "distributor": "Essential Energy Far West",
     "provider": "ENGIE",
-    "plan": "NSW_ ENGIE Home Business GreenPower Elec",
+    "plan": "NSW ENGIE -Home Business GreenPower Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -289,13 +289,14 @@
         "2877",
         "2878",
         "2879",
+        "2880",
         "3644",
         "3691",
         "3707"
       ]
     },
-    "sourceId": "ENG1112497MRE1@EME",
-    "sourceUpdated": "2026-06-30T14:11:24.498Z"
+    "sourceId": "ENG1208842MRE3@EME",
+    "sourceUpdated": "2026-10-26T14:06:02.357Z"
   },
   "tariff": {
     "kind": "tou",
@@ -360,17 +361,10 @@
       ]
     },
     "supply": {
-      "daily": 2.6169
+      "daily": 2.4746
     },
     "export": {
       "flatRate": 0.03
-    },
-    "controlledLoad": [
-      {
-        "id": "single-rate-controlled-load",
-        "name": "Single Rate Controlled Load",
-        "rate": 0.1808
-      }
-    ]
+    }
   }
 }

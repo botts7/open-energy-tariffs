@@ -5,14 +5,14 @@
     "country": "AU",
     "distributor": "Essential Energy Far West",
     "provider": "ENGIE",
-    "plan": "NSW _ ENGIE Movers Elec",
+    "plan": "NSW - ENGIE - Movers Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -289,13 +289,14 @@
         "2877",
         "2878",
         "2879",
+        "2880",
         "3644",
         "3691",
         "3707"
       ]
     },
-    "sourceId": "ENG1111941MRE1@EME",
-    "sourceUpdated": "2026-06-30T14:06:24.017Z"
+    "sourceId": "ENG1207568MRE2@EME",
+    "sourceUpdated": "2026-10-26T14:05:48.445Z"
   },
   "tariff": {
     "kind": "tou",
@@ -369,7 +370,7 @@
       {
         "id": "single-rate-controlled-load",
         "name": "Single Rate Controlled Load",
-        "rate": 0.2179
+        "rate": 0.1808
       }
     ]
   }

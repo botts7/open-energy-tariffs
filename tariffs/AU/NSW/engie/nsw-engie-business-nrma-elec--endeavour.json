@@ -6,14 +6,14 @@
     "region": "NSW",
     "distributor": "Endeavour",
     "provider": "ENGIE",
-    "plan": "NSW_ ENGIE Business NRMA Elec",
+    "plan": "NSW_ ENGIE - Business NRMA Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -151,13 +151,40 @@
         "2850"
       ]
     },
-    "sourceId": "ENG1114968MBE1@EME",
-    "sourceUpdated": "2026-06-30T14:09:00.246Z"
+    "sourceId": "ENG1208320MBE2@EME",
+    "sourceUpdated": "2026-10-26T14:05:35.313Z"
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.3138
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.3123,
+          "role": "peak"
+        },
+        {
+          "id": "solar-sponge",
+          "name": "Solar Sponge",
+          "rate": 0.2372,
+          "role": "offpeak"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "14:00",
+          "to": "10:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "10:00",
+          "to": "14:00",
+          "band": "solar-sponge"
+        }
+      ]
     },
     "supply": {
       "daily": 2.3456

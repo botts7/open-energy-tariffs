@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -175,8 +175,8 @@
         "2850"
       ]
     },
-    "sourceId": "DOD1110276SRE1@EME",
-    "sourceUpdated": "2026-06-30T14:07:32.107Z"
+    "sourceId": "DOD1212806SRE1@EME",
+    "sourceUpdated": "2026-10-20T02:38:09.810Z"
   },
   "tariff": {
     "kind": "tou",
@@ -189,27 +189,27 @@
           "role": "peak"
         },
         {
-          "id": "off-peak",
-          "name": "Off Peak",
+          "id": "solar-sharer",
+          "name": "Solar Sharer",
           "rate": 0,
           "role": "offpeak"
         },
         {
-          "id": "shoulder",
-          "name": "Shoulder",
-          "rate": 0.341182,
-          "role": "shoulder"
+          "id": "solar-soak",
+          "name": "Solar Soak",
+          "rate": 0.128971,
+          "role": "offpeak"
         },
         {
-          "id": "shoulder-1",
-          "name": "Shoulder 1",
-          "rate": 0.128972,
-          "role": "shoulder"
+          "id": "off-peak",
+          "name": "Off Peak",
+          "rate": 0.341181,
+          "role": "offpeak"
         }
       ],
       "schedule": [
         {
-          "days": "all",
+          "days": "weekday",
           "from": "16:00",
           "to": "20:00",
           "band": "peak"
@@ -218,25 +218,31 @@
           "days": "all",
           "from": "11:00",
           "to": "14:00",
-          "band": "off-peak"
-        },
-        {
-          "days": "all",
-          "from": "20:00",
-          "to": "10:00",
-          "band": "shoulder"
-        },
-        {
-          "days": "all",
-          "from": "14:00",
-          "to": "16:00",
-          "band": "shoulder"
+          "band": "solar-sharer"
         },
         {
           "days": "all",
           "from": "10:00",
           "to": "11:00",
-          "band": "shoulder-1"
+          "band": "solar-soak"
+        },
+        {
+          "days": "weekend",
+          "from": "14:00",
+          "to": "10:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "14:00",
+          "to": "16:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "weekday",
+          "from": "20:00",
+          "to": "10:00",
+          "band": "off-peak"
         }
       ]
     },
@@ -245,6 +251,18 @@
     },
     "export": {
       "flatRate": 0.01
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "tou-rate-controlled-load-1",
+        "name": "TOU Rate Controlled Load 1",
+        "rate": 0.187671
+      },
+      {
+        "id": "tou-rate-controlled-load-2",
+        "name": "TOU Rate Controlled Load 2",
+        "rate": 0.200783
+      }
+    ]
   }
 }

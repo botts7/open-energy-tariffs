@@ -6,14 +6,14 @@
     "region": "QLD",
     "distributor": "Energex",
     "provider": "ENGIE",
-    "plan": "QLD _ ENGIE EV Flex Charge Elec",
+    "plan": "QLD ENGIE - EV Flex Charge Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Brisbane",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -221,8 +221,8 @@
         "4581"
       ]
     },
-    "sourceId": "ENG1111497MRE1@EME",
-    "sourceUpdated": "2026-06-30T14:07:30.795Z"
+    "sourceId": "ENG1214679MRE1@EME",
+    "sourceUpdated": "2026-10-26T22:39:12.191Z"
   },
   "tariff": {
     "kind": "tou",
@@ -279,11 +279,6 @@
         "id": "single-rate-controlled-load",
         "name": "Single Rate Controlled Load",
         "rate": 0.1493
-      },
-      {
-        "id": "single-rate-controlled-load",
-        "name": "Single Rate Controlled Load",
-        "rate": 0.1522
       }
     ]
   }

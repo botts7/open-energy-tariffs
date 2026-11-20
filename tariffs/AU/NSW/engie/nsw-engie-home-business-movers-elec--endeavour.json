@@ -6,14 +6,14 @@
     "region": "NSW",
     "distributor": "Endeavour",
     "provider": "ENGIE",
-    "plan": "NSW _ ENGIE Home Business Movers Elec",
+    "plan": "NSW ENGIE - Home Business Movers Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Sydney",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-07-06",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -151,8 +151,8 @@
         "2850"
       ]
     },
-    "sourceId": "ENG1114613MRE1@EME",
-    "sourceUpdated": "2026-06-30T14:08:11.082Z"
+    "sourceId": "ENG1208550MRE2@EME",
+    "sourceUpdated": "2026-10-26T14:05:45.120Z"
   },
   "tariff": {
     "kind": "tou",

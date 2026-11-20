@@ -6,14 +6,14 @@
     "region": "VIC",
     "distributor": "Citipower",
     "provider": "ENGIE",
-    "plan": "VIC ENGIE Everyday Elec",
+    "plan": "VIC ENGIE _ Everyday Elec",
     "currency": "AUD",
     "unit": "kWh",
     "timezone": "Australia/Melbourne",
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-06-29",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -67,26 +67,19 @@
         "3207"
       ]
     },
-    "sourceId": "ENG736344MR@VEC",
-    "sourceUpdated": "2026-04-20T22:26:56Z"
+    "sourceId": "ENG792403MR@VEC",
+    "sourceUpdated": "2026-09-06T23:46:06Z"
   },
   "tariff": {
     "kind": "flat",
     "import": {
-      "flatRate": 0.2484
+      "flatRate": 0.236
     },
     "supply": {
-      "daily": 1.1279
+      "daily": 1.1012
     },
     "export": {
       "flatRate": 0.01
-    },
-    "controlledLoad": [
-      {
-        "id": "controlled-load",
-        "name": "Controlled Load",
-        "rate": 0.1829
-      }
-    ]
+    }
   }
 }

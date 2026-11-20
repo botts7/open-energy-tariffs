@@ -13,7 +13,7 @@
     "source": "cdr",
     "sourceUrl": "https://www.aer.gov.au/energy-product-reference-data",
     "license": "other",
-    "updated": "2026-08-03",
+    "updated": "2026-11-20",
     "verified": false,
     "notes": "Imported via the AER public Consumer Data Right (CDR) Product Reference Data API (cdr.energymadeeasy.gov.au). Public energy plan data from the Australian Energy Regulator and retailers; no formal open licence; used per the CDR public-data framework. Not endorsed by the AER.",
     "coverage": {
@@ -221,19 +221,71 @@
         "4581"
       ]
     },
-    "sourceId": "MOM1151286MRE1@EME",
-    "sourceUpdated": "2026-07-31T14:06:04.772Z"
+    "sourceId": "MOM1151228MRE2@EME",
+    "sourceUpdated": "2026-09-30T14:07:22.865Z"
   },
   "tariff": {
-    "kind": "flat",
+    "kind": "tou",
     "import": {
-      "flatRate": 0.254
+      "bands": [
+        {
+          "id": "peak",
+          "name": "Peak",
+          "rate": 0.204,
+          "role": "peak"
+        },
+        {
+          "id": "off-peak",
+          "name": "Off-Peak",
+          "rate": 0.181,
+          "role": "offpeak"
+        },
+        {
+          "id": "shoulder",
+          "name": "Shoulder",
+          "rate": 0.242,
+          "role": "shoulder"
+        }
+      ],
+      "schedule": [
+        {
+          "days": "all",
+          "from": "16:00",
+          "to": "21:00",
+          "band": "peak"
+        },
+        {
+          "days": "all",
+          "from": "11:00",
+          "to": "16:00",
+          "band": "off-peak"
+        },
+        {
+          "days": "all",
+          "from": "21:00",
+          "to": "24:00",
+          "band": "shoulder"
+        },
+        {
+          "days": "all",
+          "from": "00:00",
+          "to": "11:00",
+          "band": "shoulder"
+        }
+      ]
     },
     "supply": {
-      "daily": 1.745
+      "daily": 1.325
     },
     "export": {
       "flatRate": 0.02
-    }
+    },
+    "controlledLoad": [
+      {
+        "id": "controlled-load-1",
+        "name": "Controlled Load 1",
+        "rate": 0.149
+      }
+    ]
   }
 }
