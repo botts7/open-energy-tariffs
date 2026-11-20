@@ -35,6 +35,18 @@ test('mapped output validates against schema/v1', () => {
   assert.ok(validate(got), JSON.stringify(validate.errors, null, 2));
 });
 
+test('feed-in: zero/positive kept, negative (export charge) omitted', () => {
+  const withFit = (unitPrice) => {
+    const d = read('fixtures/ergon-tariff12d.detail.json');
+    const c = (d.data || d).electricityContract;
+    c.solarFeedInTariff = [{ tariffUType: 'singleTariff', singleTariff: { rates: [{ unitPrice, measureUnit: 'KWH' }] } }];
+    return mapPlanDetail(d, { updated: '2026-06-20' }).tariff.export;
+  };
+  assert.deepEqual(withFit('0.05'), { flatRate: 0.05 });
+  assert.deepEqual(withFit('0.00'), { flatRate: 0 });
+  assert.equal(withFit('-0.02'), undefined);
+});
+
 test('helpers', () => {
   assert.equal(toHHMM('1500'), '15:00');
   assert.equal(toHHMM('07:00:00'), '07:00');

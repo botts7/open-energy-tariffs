@@ -112,7 +112,10 @@ function mapExport(solarFeedInTariff = []) {
   if (!sfit) return undefined;
   if (sfit.tariffUType === 'singleTariff' || sfit.singleTariff) {
     const amount = money(sfit.singleTariff?.amount ?? sfit.singleTariff?.rates?.[0]?.unitPrice);
-    if (amount != null) return { flatRate: amount };
+    // A negative feed-in (an export CHARGE, e.g. SA two-way tariffs) can't be
+    // expressed in v1 (flatRate >= 0); omit export rather than emit an invalid entry
+    // that fails validation and blocks the whole weekly refresh.
+    if (amount != null && amount >= 0) return { flatRate: amount };
   }
   // time-varying export not modelled in v1 — caller should log this skip.
   return undefined;
