@@ -2210,6 +2210,36 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-alinta-energy-homedeal-smart-myaccount-offer-single-rate",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-homedeal-smart-myaccount-offer-single-rate-cl",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-homedeal-smart-myaccount-offer-time-of-use",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-homedeal-smart-myaccount-offer-time-of-use-cl",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Time of Use + CL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-homedeal-smart-myaccount-offer-time-of-use-interval",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-homedeal-smart-myaccount-offer-time-of-use-interval-cl",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-alinta-energy-homedeal-smart-single-rate",
           "plan": "HomeDeal Smart - Single Rate",
           "verified": false
@@ -2317,6 +2347,36 @@
         {
           "id": "au-ausnet-services-electricity-alinta-energy-solarbalance-now-time-of-use-interval-cl",
           "plan": "SolarBalance Now - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-solarbalance-ready-single-rate",
+          "plan": "SolarBalance Ready - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-solarbalance-ready-single-rate-cl",
+          "plan": "SolarBalance Ready - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-solarbalance-ready-time-of-use",
+          "plan": "SolarBalance Ready - Time of Use",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-solarbalance-ready-time-of-use-cl",
+          "plan": "SolarBalance Ready - Time of Use + CL",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-solarbalance-ready-time-of-use-interval",
+          "plan": "SolarBalance Ready - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-alinta-energy-solarbalance-ready-time-of-use-interval-cl",
+          "plan": "SolarBalance Ready - Time of Use (Interval) + CL",
           "verified": false
         },
         {
@@ -2462,6 +2522,36 @@
         {
           "id": "au-essential-energy-standard-alinta-energy-businessdeal-flex-time-of-use-interval-cl",
           "plan": "BusinessDeal Flex - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-alinta-energy-homedeal-connect-myaccount-offer-single-rate",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-alinta-energy-homedeal-connect-myaccount-offer-single-rate-cl",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-alinta-energy-homedeal-connect-myaccount-offer-tou",
+          "plan": "HomeDeal Connect (MyAccount Offer) - TOU",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-alinta-energy-homedeal-connect-myaccount-offer-tou-cl",
+          "plan": "HomeDeal Connect (MyAccount Offer) - TOU + CL",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-alinta-energy-homedeal-connect-myaccount-offer-tou-interval",
+          "plan": "HomeDeal Connect (MyAccount Offer) - TOU Interval",
+          "verified": false
+        },
+        {
+          "id": "au-essential-energy-standard-alinta-energy-homedeal-connect-myaccount-offer-tou-interval-cl",
+          "plan": "HomeDeal Connect (MyAccount Offer) - TOU Interval + CL",
           "verified": false
         },
         {
@@ -4966,6 +5056,26 @@
           "verified": false
         },
         {
+          "id": "au-ausnet-services-electricity-globird-energy-globird-wholesave-residential-flat-rate-ausnet-services-electricity",
+          "plan": "GloBird WHOLESAVE Residential (Flat Rate) - AusNet Services (electricity)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-globird-energy-globird-wholesave-residential-flat-rate-with-controlled-load-ausnet-services-electricity",
+          "plan": "GloBird WHOLESAVE Residential (Flat Rate With Controlled Load) - AusNet Services (electricity)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-globird-energy-globird-wholesave-residential-flexible-rate-ausnet-services-electricity",
+          "plan": "GloBird WHOLESAVE Residential (Flexible Rate) - AusNet Services (electricity)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-globird-energy-globird-wholesave-residential-flexible-rate-with-controlled-load-ausnet-services-electricity",
+          "plan": "GloBird WHOLESAVE Residential (Flexible Rate With Controlled Load) - AusNet Services (electricity)",
+          "verified": false
+        },
+        {
           "id": "au-ausnet-services-electricity-globird-energy-globird-zerohero-residential-flexible-rate-ausnet-services-electricity",
           "plan": "GloBird  ZEROHERO Residential (Flexible Rate) AusNet Services (electricity)",
           "verified": false
@@ -5513,6 +5623,11 @@
         {
           "id": "au-ausnet-services-electricity-origin-energy-origin-affinity-variable-compare-club-oct-26-single-rate-with-dedicated-circuit",
           "plan": "Origin Affinity Variable - Compare Club - Oct'26 (Single Rate with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-ausnet-services-electricity-origin-energy-origin-affinity-variable-compare-club-oct-26-time-of-use",
+          "plan": "Origin Affinity Variable - Compare Club - Oct'26 (Time of Use)",
           "verified": false
         },
         {
@@ -11186,6 +11301,56 @@
           "verified": false
         },
         {
+          "id": "au-nsw-ausgrid-alinta-energy-homedeal-connect-myaccount-offer-demand-sr",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Demand SR",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-homedeal-connect-myaccount-offer-demand-sr-cl",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Demand SR + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-homedeal-connect-myaccount-offer-demand-sr-intro",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Demand SR Intro",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-homedeal-connect-myaccount-offer-demand-sr-intro-cl",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Demand SR Intro CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-homedeal-connect-myaccount-offer-demand-tou",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Demand TOU",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-homedeal-connect-myaccount-offer-demand-tou-cl",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Demand TOU + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-homedeal-connect-myaccount-offer-single-rate",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-homedeal-connect-myaccount-offer-single-rate-cl",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-homedeal-connect-myaccount-offer-tou",
+          "plan": "HomeDeal Connect (MyAccount Offer) - TOU",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-ausgrid-alinta-energy-homedeal-connect-myaccount-offer-tou-cl",
+          "plan": "HomeDeal Connect (MyAccount Offer) - TOU + CL",
+          "verified": false
+        },
+        {
           "id": "au-nsw-ausgrid-alinta-energy-homedeal-connect-single-rate",
           "plan": "HomeDeal Connect - Single Rate",
           "verified": false
@@ -11723,6 +11888,36 @@
         {
           "id": "au-nsw-endeavour-alinta-energy-homedeal-connect-demand-single-rate-cl",
           "plan": "HomeDeal Connect - Demand Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-alinta-energy-homedeal-connect-myaccount-offer-demand-sr",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Demand SR",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-alinta-energy-homedeal-connect-myaccount-offer-demand-sr-cl",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Demand SR + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-alinta-energy-homedeal-connect-myaccount-offer-single-rate",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-alinta-energy-homedeal-connect-myaccount-offer-single-rate-cl",
+          "plan": "HomeDeal Connect (MyAccount Offer) - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-alinta-energy-homedeal-connect-myaccount-offer-tou",
+          "plan": "HomeDeal Connect (MyAccount Offer) - TOU",
+          "verified": false
+        },
+        {
+          "id": "au-nsw-endeavour-alinta-energy-homedeal-connect-myaccount-offer-tou-cl",
+          "plan": "HomeDeal Connect (MyAccount Offer) - TOU + CL",
           "verified": false
         },
         {
@@ -26126,6 +26321,26 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-alinta-energy-homedeal-smart-myaccount-offer-single-rate",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-alinta-energy-homedeal-smart-myaccount-offer-single-rate-cl",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-alinta-energy-homedeal-smart-myaccount-offer-time-of-use-interval",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-alinta-energy-homedeal-smart-myaccount-offer-time-of-use-interval-cl",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-alinta-energy-homedeal-smart-single-rate",
           "plan": "HomeDeal Smart - Single Rate",
           "verified": false
@@ -26208,6 +26423,26 @@
         {
           "id": "au-vic-citipower-alinta-energy-solarbalance-now-time-of-use-interval-cl",
           "plan": "SolarBalance Now - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-alinta-energy-solarbalance-ready-single-rate",
+          "plan": "SolarBalance Ready - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-alinta-energy-solarbalance-ready-single-rate-cl",
+          "plan": "SolarBalance Ready - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-alinta-energy-solarbalance-ready-time-of-use-interval",
+          "plan": "SolarBalance Ready - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-alinta-energy-solarbalance-ready-time-of-use-interval-cl",
+          "plan": "SolarBalance Ready - Time of Use (Interval) + CL",
           "verified": false
         },
         {
@@ -26501,6 +26736,26 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-alinta-energy-homedeal-smart-myaccount-offer-single-rate",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-alinta-energy-homedeal-smart-myaccount-offer-single-rate-cl",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-alinta-energy-homedeal-smart-myaccount-offer-time-of-use-interval",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-alinta-energy-homedeal-smart-myaccount-offer-time-of-use-interval-cl",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-alinta-energy-homedeal-smart-single-rate",
           "plan": "HomeDeal Smart - Single Rate",
           "verified": false
@@ -26578,6 +26833,26 @@
         {
           "id": "au-vic-jemena-alinta-energy-solarbalance-now-time-of-use-interval-cl",
           "plan": "SolarBalance Now - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-alinta-energy-solarbalance-ready-single-rate",
+          "plan": "SolarBalance Ready - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-alinta-energy-solarbalance-ready-single-rate-cl",
+          "plan": "SolarBalance Ready - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-alinta-energy-solarbalance-ready-time-of-use-interval",
+          "plan": "SolarBalance Ready - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-alinta-energy-solarbalance-ready-time-of-use-interval-cl",
+          "plan": "SolarBalance Ready - Time of Use (Interval) + CL",
           "verified": false
         },
         {
@@ -26841,6 +27116,26 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-alinta-energy-homedeal-smart-myaccount-offer-single-rate",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-alinta-energy-homedeal-smart-myaccount-offer-single-rate-cl",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-alinta-energy-homedeal-smart-myaccount-offer-time-of-use-interval",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-alinta-energy-homedeal-smart-myaccount-offer-time-of-use-interval-cl",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-alinta-energy-homedeal-smart-single-rate",
           "plan": "HomeDeal Smart - Single Rate",
           "verified": false
@@ -26918,6 +27213,26 @@
         {
           "id": "au-vic-powercor-alinta-energy-solarbalance-now-time-of-use-interval-cl",
           "plan": "SolarBalance Now - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-alinta-energy-solarbalance-ready-single-rate",
+          "plan": "SolarBalance Ready - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-alinta-energy-solarbalance-ready-single-rate-cl",
+          "plan": "SolarBalance Ready - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-alinta-energy-solarbalance-ready-time-of-use-interval",
+          "plan": "SolarBalance Ready - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-alinta-energy-solarbalance-ready-time-of-use-interval-cl",
+          "plan": "SolarBalance Ready - Time of Use (Interval) + CL",
           "verified": false
         },
         {
@@ -27151,6 +27466,26 @@
           "verified": false
         },
         {
+          "id": "au-vic-united-energy-alinta-energy-homedeal-smart-myaccount-offer-single-rate",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-alinta-energy-homedeal-smart-myaccount-offer-single-rate-cl",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-alinta-energy-homedeal-smart-myaccount-offer-time-of-use-interval",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-alinta-energy-homedeal-smart-myaccount-offer-time-of-use-interval-cl",
+          "plan": "HomeDeal Smart (MyAccount Offer) - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
           "id": "au-vic-united-energy-alinta-energy-homedeal-smart-single-rate",
           "plan": "HomeDeal Smart - Single Rate",
           "verified": false
@@ -27228,6 +27563,26 @@
         {
           "id": "au-vic-united-energy-alinta-energy-solarbalance-now-time-of-use-interval-cl",
           "plan": "SolarBalance Now - Time of Use (Interval) + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-alinta-energy-solarbalance-ready-single-rate",
+          "plan": "SolarBalance Ready - Single Rate",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-alinta-energy-solarbalance-ready-single-rate-cl",
+          "plan": "SolarBalance Ready - Single Rate + CL",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-alinta-energy-solarbalance-ready-time-of-use-interval",
+          "plan": "SolarBalance Ready - Time of Use (Interval)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-alinta-energy-solarbalance-ready-time-of-use-interval-cl",
+          "plan": "SolarBalance Ready - Time of Use (Interval) + CL",
           "verified": false
         },
         {
@@ -31297,6 +31652,26 @@
           "verified": false
         },
         {
+          "id": "au-vic-citipower-globird-energy-globird-wholesave-residential-flat-rate-citipower",
+          "plan": "GloBird WHOLESAVE Residential (Flat Rate) - Citipower",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-globird-energy-globird-wholesave-residential-flat-rate-with-controlled-load-citipower",
+          "plan": "GloBird WHOLESAVE Residential (Flat Rate With Controlled Load) - Citipower",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-globird-energy-globird-wholesave-residential-flexible-rate-citipower",
+          "plan": "GloBird WHOLESAVE Residential (Flexible Rate) - Citipower",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-globird-energy-globird-wholesave-residential-flexible-rate-with-controlled-load-citipower",
+          "plan": "GloBird WHOLESAVE Residential (Flexible Rate With Controlled Load) - Citipower",
+          "verified": false
+        },
+        {
           "id": "au-vic-citipower-globird-energy-globird-zerohero-residential-flexible-rate-citipower",
           "plan": "GloBird  ZEROHERO Residential (Flexible Rate ) Citipower",
           "verified": false
@@ -31629,6 +32004,26 @@
         {
           "id": "au-vic-jemena-globird-energy-globird-standing-offer-small-business-two-rate-with-cl-5-days-jemena",
           "plan": "GloBird STANDING OFFER Small Business (Two Rate With CL 5 days) Jemena",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-globird-energy-globird-wholesave-residential-flat-rate-jemena",
+          "plan": "GloBird WHOLESAVE Residential (Flat Rate) - Jemena",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-globird-energy-globird-wholesave-residential-flat-rate-with-controlled-load-jemena",
+          "plan": "GloBird WHOLESAVE Residential (Flat Rate With Controlled Load) - Jemena",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-globird-energy-globird-wholesave-residential-flexible-rate-jemena",
+          "plan": "GloBird WHOLESAVE Residential (Flexible Rate) - Jemena",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-globird-energy-globird-wholesave-residential-flexible-rate-with-controlled-load-jemena",
+          "plan": "GloBird WHOLESAVE Residential (Flexible Rate With Controlled Load) - Jemena",
           "verified": false
         },
         {
@@ -31972,6 +32367,26 @@
           "verified": false
         },
         {
+          "id": "au-vic-powercor-globird-energy-globird-wholesave-residential-flat-rate-powercor",
+          "plan": "GloBird WHOLESAVE Residential (Flat Rate) - Powercor",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-globird-energy-globird-wholesave-residential-flat-rate-with-controlled-load-powercor",
+          "plan": "GloBird WHOLESAVE Residential (Flat Rate With Controlled Load) - Powercor",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-globird-energy-globird-wholesave-residential-flexible-rate-powercor",
+          "plan": "GloBird WHOLESAVE Residential (Flexible Rate) - Powercor",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-globird-energy-globird-wholesave-residential-flexible-rate-with-controlled-load-powercor",
+          "plan": "GloBird WHOLESAVE Residential (Flexible Rate With Controlled Load) - Powercor",
+          "verified": false
+        },
+        {
           "id": "au-vic-powercor-globird-energy-globird-zerohero-residential-flexible-rate-powercor",
           "plan": "GloBird  ZEROHERO Residential (Flexible Rate) Powercor",
           "verified": false
@@ -32304,6 +32719,26 @@
         {
           "id": "au-vic-united-energy-globird-energy-globird-standing-offer-small-business-two-rate-with-cl-5-days-united-energy",
           "plan": "GloBird STANDING OFFER Small Business (Two Rate With CL 5 days) United Energy",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-globird-energy-globird-wholesave-residential-flat-rate-united-energy",
+          "plan": "GloBird WHOLESAVE Residential (Flat Rate) - United Energy",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-globird-energy-globird-wholesave-residential-flat-rate-with-controlled-load-united-energy",
+          "plan": "GloBird WHOLESAVE Residential (Flat Rate With Controlled Load) - United Energy",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-globird-energy-globird-wholesave-residential-flexible-rate-united-energy",
+          "plan": "GloBird WHOLESAVE Residential (Flexible Rate) - United Energy",
+          "verified": false
+        },
+        {
+          "id": "au-vic-united-energy-globird-energy-globird-wholesave-residential-flexible-rate-with-controlled-load-united-energy",
+          "plan": "GloBird WHOLESAVE Residential (Flexible Rate With Controlled Load) - United Energy",
           "verified": false
         },
         {
@@ -33924,6 +34359,11 @@
         {
           "id": "au-vic-citipower-origin-energy-origin-affinity-variable-compare-club-oct-26-time-of-use",
           "plan": "Origin Affinity Variable - Compare Club - Oct'26 (Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-citipower-origin-energy-origin-affinity-variable-compare-club-oct-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable - Compare Club - Oct'26 (Time of Use with Dedicated Circuit)",
           "verified": false
         },
         {
@@ -37822,6 +38262,11 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-origin-energy-origin-affinity-variable-compare-club-oct-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable - Compare Club - Oct'26 (Time of Use with Dedicated Circuit)",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-origin-energy-origin-affinity-variable-compare-club-single-rate",
           "plan": "Origin Affinity Variable - Compare Club (Single Rate)",
           "verified": false
@@ -38587,6 +39032,16 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-chameleon-nov-26-business-transitional-demand",
+          "plan": "Origin Business Affinity Variable - Chameleon - Nov'26 (Business Transitional Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-chameleon-nov-26-business-transitional-demand-with-dedicated-circuit",
+          "plan": "Origin Business Affinity Variable - Chameleon - Nov'26 (Business Transitional Demand with Dedicated Circuit)",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-chameleon-oct-26-2-period-tou",
           "plan": "Origin Business Affinity Variable - Chameleon - Oct'26 (2 Period TOU)",
           "verified": false
@@ -38614,6 +39069,16 @@
         {
           "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-chameleon-oct-26-tou-5-day-with-dedicated-circuit",
           "plan": "Origin Business Affinity Variable - Chameleon - Oct'26 (TOU 5 Day with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-cheap-bills-nov-26-business-transitional-demand",
+          "plan": "Origin Business Affinity Variable - Cheap-Bills - Nov'26 (Business Transitional Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-cheap-bills-nov-26-business-transitional-demand-with-dedicated-circuit",
+          "plan": "Origin Business Affinity Variable - Cheap-Bills - Nov'26 (Business Transitional Demand with Dedicated Circuit)",
           "verified": false
         },
         {
@@ -38677,6 +39142,16 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-cimet-nov-26-business-transitional-demand",
+          "plan": "Origin Business Affinity Variable - CIMET - Nov'26 (Business Transitional Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-cimet-nov-26-business-transitional-demand-with-dedicated-circuit",
+          "plan": "Origin Business Affinity Variable - CIMET - Nov'26 (Business Transitional Demand with Dedicated Circuit)",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-cimet-oct-26-2-period-tou",
           "plan": "Origin Business Affinity Variable - CIMET - Oct'26 (2 Period TOU)",
           "verified": false
@@ -38734,6 +39209,16 @@
         {
           "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-comparable-july-26-tou-5-day-with-dedicated-circuit",
           "plan": "Origin Business Affinity Variable - Comparable - July'26 (TOU 5 Day with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-comparable-nov-26-business-transitional-demand",
+          "plan": "Origin Business Affinity Variable - Comparable - Nov'26 (Business Transitional Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-comparable-nov-26-business-transitional-demand-with-dedicated-circuit",
+          "plan": "Origin Business Affinity Variable - Comparable - Nov'26 (Business Transitional Demand with Dedicated Circuit)",
           "verified": false
         },
         {
@@ -38797,6 +39282,16 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-compare-connect-nov-26-business-transitional-demand",
+          "plan": "Origin Business Affinity Variable - Compare & Connect - Nov'26 (Business Transitional Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-compare-connect-nov-26-business-transitional-demand-with-dedicated-circuit",
+          "plan": "Origin Business Affinity Variable - Compare & Connect - Nov'26 (Business Transitional Demand with Dedicated Circuit)",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-compare-connect-oct-26-2-period-tou",
           "plan": "Origin Business Affinity Variable - Compare & Connect - Oct'26 (2 Period TOU)",
           "verified": false
@@ -38854,6 +39349,16 @@
         {
           "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-electricity-wizard-july-26-tou-5-day-with-dedicated-circuit",
           "plan": "Origin Business Affinity Variable - Electricity Wizard - July'26 (TOU 5 Day with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-electricity-wizard-nov-26-business-transitional-demand",
+          "plan": "Origin Business Affinity Variable - Electricity Wizard - Nov'26 (Business Transitional Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-electricity-wizard-nov-26-business-transitional-demand-with-dedicated-circuit",
+          "plan": "Origin Business Affinity Variable - Electricity Wizard - Nov'26 (Business Transitional Demand with Dedicated Circuit)",
           "verified": false
         },
         {
@@ -38927,6 +39432,16 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-go-switch-nov-26-business-transitional-demand",
+          "plan": "Origin Business Affinity Variable - Go Switch - Nov'26 (Business Transitional Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-go-switch-nov-26-business-transitional-demand-with-dedicated-circuit",
+          "plan": "Origin Business Affinity Variable - Go Switch - Nov'26 (Business Transitional Demand with Dedicated Circuit)",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-go-switch-oct-26-2-period-tou",
           "plan": "Origin Business Affinity Variable - Go Switch - Oct'26 (2 Period TOU)",
           "verified": false
@@ -38984,6 +39499,16 @@
         {
           "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-mindlabz-july-26-tou-5-day-with-dedicated-circuit",
           "plan": "Origin Business Affinity Variable - Mindlabz - July'26 (TOU 5 Day with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-mindlabz-nov-26-business-transitional-demand",
+          "plan": "Origin Business Affinity Variable - Mindlabz - Nov'26 (Business Transitional Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-mindlabz-nov-26-business-transitional-demand-with-dedicated-circuit",
+          "plan": "Origin Business Affinity Variable - Mindlabz - Nov'26 (Business Transitional Demand with Dedicated Circuit)",
           "verified": false
         },
         {
@@ -39047,6 +39572,16 @@
           "verified": false
         },
         {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-one-click-switch-nov-26-business-transitional-demand",
+          "plan": "Origin Business Affinity Variable - One Click Switch - Nov'26 (Business Transitional Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-one-click-switch-nov-26-business-transitional-demand-with-dedicated-circuit",
+          "plan": "Origin Business Affinity Variable - One Click Switch - Nov'26 (Business Transitional Demand with Dedicated Circuit)",
+          "verified": false
+        },
+        {
           "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-one-click-switch-oct-26-2-period-tou",
           "plan": "Origin Business Affinity Variable - One Click Switch - Oct'26 (2 Period TOU)",
           "verified": false
@@ -39104,6 +39639,16 @@
         {
           "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-zembl-july-26-tou-5-day-with-dedicated-circuit",
           "plan": "Origin Business Affinity Variable - Zembl - July'26 (TOU 5 Day with Dedicated Circuit)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-zembl-nov-26-business-transitional-demand",
+          "plan": "Origin Business Affinity Variable - Zembl - Nov'26 (Business Transitional Demand)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-jemena-origin-energy-origin-business-affinity-variable-zembl-nov-26-business-transitional-demand-with-dedicated-circuit",
+          "plan": "Origin Business Affinity Variable - Zembl - Nov'26 (Business Transitional Demand with Dedicated Circuit)",
           "verified": false
         },
         {
@@ -40914,6 +41459,11 @@
         {
           "id": "au-vic-powercor-origin-energy-origin-affinity-variable-compare-club-oct-26-time-of-use",
           "plan": "Origin Affinity Variable - Compare Club - Oct'26 (Time of Use)",
+          "verified": false
+        },
+        {
+          "id": "au-vic-powercor-origin-energy-origin-affinity-variable-compare-club-oct-26-time-of-use-with-dedicated-circuit",
+          "plan": "Origin Affinity Variable - Compare Club - Oct'26 (Time of Use with Dedicated Circuit)",
           "verified": false
         },
         {
